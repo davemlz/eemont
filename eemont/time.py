@@ -1,19 +1,33 @@
 import ee
+import numpy as np
 
-def closest(imageCollection,date):
+def closest(collection,date):
+    '''Gets the closest image (or set of images) closest to the specified date.
+    
+    Parameters
+    ----------
+    collection : ee.ImageCollection
+        Image Collection from which to get the closest image to the specified date.
+    date : ee.Date | string
+        Date of interest. The method will look to images closest to this date.
+        
+    Returns
+    -------
+    ee.ImageCollection
+        Closest images to the specified date.
+    ''' 
+    if not isinstance(date, ee.ee_date.Date):
+        date = ee.Date(date)
+    
+    def setProperties(img):        
+        img = img.set('dateDist',ee.Number(img.get('system:time_start')).subtract(date.millis()).abs())        
+        img = img.set('day',ee.Date(img.get('system:time_start')).get('day')) 
+        return img
+    
+    collection = collection.map(setProperties).sort('dateDist')    
+    dayToFilter = ee.Date(collection.limit(1).first().get('system:time_start')).get('day')    
+    collection = collection.filter(ee.Filter.eq('day',dayToFilter))
+       
+    print("Date of the closest image:", np.datetime_as_string(np.datetime64(collection.first().get('system:time_start').getInfo(),'ms')))
 
-    def setProperties(img):
-    # FIRST COMPUTE DATE DIFFERENCE AND DELETE SIGN
-    img = img.set('dateDist',ee.Number(img.get('system:time_start')).subtract(date.millis()).abs())
-    # SAVE THE DAY TO GET ALL IMAGES IN THE REGION FROM THE SAME DAY
-    img = img.set('day',ee.Date(img.get('system:time_start')).get('day')) 
-    return img
-
-    # MAP THE PREVIOUS FUNCTION
-    imageCollection = imageCollection.map(setProperties).sort('dateDist')
-    # GET THE DAY OF THE CLOSEST IMAGE TO THE FLOOD EVENT
-    dayToFilter = ee.Date(imageCollection.limit(1).first().get('system:time_start')).get('day')
-    # FILTER COLLECTION BY THAT DAY
-    imageCollection = imageCollection.filter(ee.Filter.eq('day',dayToFilter))
-
-    return imageCollection
+    return collection

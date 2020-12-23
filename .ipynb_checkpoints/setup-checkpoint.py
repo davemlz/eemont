@@ -23,7 +23,7 @@ setup(
     author_email="dml.mont@gmail.com",
 
     description="A Python package for Google Earth Engine utiities",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),
 

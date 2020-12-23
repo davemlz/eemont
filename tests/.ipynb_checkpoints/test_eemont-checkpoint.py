@@ -1,6 +1,6 @@
 import ee
 import unittest
-from eemont import Sentinel2, visualization
+from eemont import sentinel2, visualization
 
 ee.Initialize()
 
@@ -11,27 +11,27 @@ class Test(unittest.TestCase):
     
     def test_Sentinel2_cloudMask_01(self):
         """Test the cloud mask function returns an Image Collection"""        
-        self.assertIsInstance(Sentinel2.cloudMask(S2), ee.imagecollection.ImageCollection)
+        self.assertIsInstance(sentinel2.cloudMask(S2), ee.imagecollection.ImageCollection)
         
     def test_Sentinel2_cloudMask_02(self):
         """Test the cloud mask function returns an Image"""        
-        self.assertIsInstance(Sentinel2.cloudMask(S2.first()), ee.image.Image)
+        self.assertIsInstance(sentinel2.cloudMask(S2.first()), ee.image.Image)
         
     def test_Sentinel2_reflectance_01(self):
         """Test the cloud mask function returns an Image Collection"""        
-        self.assertIsInstance(Sentinel2.reflectance(S2), ee.imagecollection.ImageCollection)
+        self.assertIsInstance(sentinel2.reflectance(S2), ee.imagecollection.ImageCollection)
         
     def test_Sentinel2_reflectance_02(self):
         """Test the cloud mask function returns an Image"""        
-        self.assertIsInstance(Sentinel2.reflectance(S2.first()), ee.image.Image)
+        self.assertIsInstance(sentinel2.reflectance(S2.first()), ee.image.Image)
         
     def test_Sentinel2_spectralIndex_01(self):
         """Test the cloud mask function returns an Image Collection"""        
-        self.assertIsInstance(Sentinel2.spectralIndex(S2), ee.imagecollection.ImageCollection)
+        self.assertIsInstance(sentinel2.spectralIndex(S2), ee.imagecollection.ImageCollection)
         
     def test_Sentinel2_spectralIndex_02(self):
         """Test the cloud mask function returns an Image"""        
-        self.assertIsInstance(Sentinel2.spectralIndex(S2.first()), ee.image.Image)
+        self.assertIsInstance(sentinel2.spectralIndex(S2.first()), ee.image.Image)
         
     def test_visualization_rgb(self):
         """Test the visualization function returns a dictionary"""        

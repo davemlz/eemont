@@ -114,7 +114,7 @@ def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows
         
     return S2Masked
 
-def reflectance(args,surfaceReflectance = True):    
+def scale(args,surfaceReflectance = True):    
     '''Scale reflectance on a Sentinel-2 image (This also scales the AOT and WVP products in a Surface Reflectance product).
     
     Parameters
@@ -147,7 +147,7 @@ def reflectance(args,surfaceReflectance = True):
     
     return scaledArgs
 
-def spectralIndex(args,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
+def index(args,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     '''Compute one or more spectral indices (indices are added as bands) for a Sentinel 2 Image (or Image Collection).
     
     Parameters

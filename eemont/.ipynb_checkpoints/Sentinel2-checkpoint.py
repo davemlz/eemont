@@ -1,7 +1,7 @@
 import ee
 
 def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows = True,scaledImage = False,dark = 0.15,cloudDist = 1000,buffer = 250,cdi = None):    
-    '''Mask clouds and shadows in a Sentinel-2 SR image collection (or image).
+    '''Mask clouds and shadows in a Sentinel-2 Surface Reflectance image collection (or image).
     
     Parameters
     ----------

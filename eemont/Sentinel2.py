@@ -1,7 +1,6 @@
 import ee
 
-def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows = True,scaledImage = False,dark = 0.15,
-              cloudDist = 1000,buffer = 250,cdi = None):    
+def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows = True,scaledImage = False,dark = 0.15,cloudDist = 1000,buffer = 250,cdi = None):    
     '''Mask clouds and shadows in a Sentinel-2 SR image collection (or image).
     
     Parameters
@@ -37,13 +36,8 @@ def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows
     ee.ImageCollection | ee.Image
         Cloud-shadow masked Sentinel-2 collection (or image).
     '''
-    def cloud_prob_collection(img):
+    def cloud_prob(img):
         clouds = ee.Image(img.get('cloud_mask')).select('probability')
-        isCloud = clouds.gte(prob).rename('CLOUD_MASK')
-        return img.addBands(isCloud)
-
-    def cloud_prob_image(img):
-        clouds = img.select('probability')
         isCloud = clouds.gte(prob).rename('CLOUD_MASK')
         return img.addBands(isCloud)
     
@@ -88,41 +82,33 @@ def cloudMask(args,method = 'cloud_prob',prob = 60,maskCirrus = True,maskShadows
     def apply_mask(img):
         return img.updateMask(img.select('CLOUD_SHADOW_MASK').Not())
     
-    if isinstance(args,ee.imagecollection.ImageCollection):
-    
+    if isinstance(args,ee.imagecollection.ImageCollection):    
         if method == 'cloud_prob':
             S2Clouds = ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')                  
             fil = ee.Filter.equals(leftField = 'system:index',rightField = 'system:index')
             S2WithCloudMask = ee.Join.saveFirst('cloud_mask').apply(args,S2Clouds,fil)
-            S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob_collection)
+            S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob)
         elif method == 'qa':        
             S2Masked = args.map(QA)
-
         if cdi != None: 
             S2Masked = S2Masked.map(CDI)
-
         if maskShadows:
             S2Masked = S2Masked.map(get_shadows)
-
         S2Masked = S2Masked.map(clean_dilate)
         S2Masked = S2Masked.map(apply_mask)
             
-    elif isinstance(args,ee.image.Image):
-    
+    elif isinstance(args,ee.image.Image):    
         if method == 'cloud_prob':
-            idx = args.get('system:index')
-            S2Clouds = ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY').filter(ee.Filter.eq('system:index',idx)).first()
-            S2WithCloudMask = args.addBands(S2Clouds)                   
-            S2Masked = cloud_prob_image(S2WithCloudMask)
+            S2Clouds = ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
+            fil = ee.Filter.equals(leftField = 'system:index',rightField = 'system:index')
+            S2WithCloudMask = ee.Join.saveFirst('cloud_mask').apply(ee.ImageCollection(args),S2Clouds,fil)
+            S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob).first()            
         elif method == 'qa':        
             S2Masked = QA(args)
-
         if cdi != None:
             S2Masked = CDI(S2Masked)
-
         if maskShadows:
             S2Masked = get_shadows(S2Masked)
-
         S2Masked = clean_dilate(S2Masked)
         S2Masked = apply_mask(S2Masked)
         

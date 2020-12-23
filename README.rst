@@ -9,24 +9,20 @@ eemont
    :target: https://travis-ci.org/kragniz/cookiecutter-pypackage-minimal
    :alt: Latest Travis CI build status
 
-"A Python package for Google Earth Engine utiities"
-
-Usage
------
+## A Python package for Google Earth Engine utilities
 
 Installation
 ------------
+While eemont gets to its first release, you can install the development version by runnig the following command:
 
-Requirements
-^^^^^^^^^^^^
+```python
+pip install git+https://github.com/davemlz/eemont
+```
 
-Compatibility
--------------
+Usage
+-----
+To use eemont, you must have a Google Earth Engine account.
 
-Licence
--------
 
-Authors
--------
 
 `eemont` was written by `David Montero Loaiza <dml.mont@gmail.com>`_.

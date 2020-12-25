@@ -11,7 +11,7 @@ eemont
 While eemont gets to its first release, you can install the development version by runnig the following command:
 
 ```python
-pip install git+https://github.com/davemlz/eemont
+!pip install git+https://github.com/davemlz/eemont
 ```
 
 ## Usage
@@ -23,122 +23,44 @@ ee.Authenticate()
 ee.Initialize()
 ```
 
-### Sentinel-2 module
+Let's take a look on how easy is to use this package!
 
-Let's take the Sentinel-2 Surface Reflectance product and select the first 10 images:
-
-```python
-S2 = ee.ImageCollection('COPERNICUS/S2_SR').limit(10)
-```
-
-Now, let's import the Sentinel-2 module:
+Now, let's take a Sentinel-2 collection: we will mask clouds and shadows, scale the image, select the closest image to a specified date, compute some spectral indices and visualize the image (We are goin to use the awesome geemap package for this!).
 
 ```python
-from eemont import Sentinel2
+# Import the modules from eemont
+from eemont import sentinel2, time, visualization
+
+# Import geemap for visualization
+import geemap
+
+# Point of interest
+point = ee.Geometry.Point([-76.21, 4.32])
+
+# Take the Sentinel-2 SR product
+S2 = ee.ImageCollection('COPERNICUS/S2_SR').filterBounds(point)
+
+# Mask clouds and shadows using the cloud probability and the Cloud Displacement index (CDI)
+S2 = sentinel2.maskCLouds(S2, prob = 70, cdi = -0.5)
+
+# Scale the image to [0,1]
+S2 = sentinel2.scale(S2)
+
+# Select the closest image to a specified date
+S2closest = time.closest(S2, date = '2020-03-23')
+
+# Compute some vegetation, water and burn indices
+# (Indices are added as new bands)
+S2closest = sentinel2.index(S2closest, index = ['GNDVI','NDWI','BAIS2'])
+
+# Visualize the image
+Map = geemap.Map()
+Map.addLayer(S2closest, visualization.rgb(), 'RGB') # RGB visualization
+Map.addLayer(S2closest, visualization.infrared(), 'Infrared') # Infrared visualization
+Map.addLayer(S2closest.select('GNDVI'), visualization.index(palette = 'vegetation'), 'GNDVI') # Vegetation index visualization
+Map.addLayer(S2closest.select('NDWI'), visualization.index(palette = 'water'), 'NDWI') # Water index visualization
+Map.addLayer(S2closest.select('BAIS2'), visualization.index(palette = 'burn'), 'BAIS2') # Burn index visualization
+Map
 ```
 
-#### Masking clouds and shadows
-
-To mask clouds and shadows (automatically using cloud probability):
-
-```python
-S2masked = Sentinel2.maskClouds(S2)
-```
-
-To mask clouds and shadows using the QA band:
-
-```python
-S2masked = Sentinel2.maskClouds(S2, method = 'qa')
-```
-
-To mask just clouds:
-
-```python
-S2masked = Sentinel2.maskClouds(S2, maskShadows = False)
-```
-
-To mask clouds and shadows (automatically using cloud probability):
-
-```python
-S2masked = Sentinel2.maskClouds(S2)
-```
-
-To mask clouds and shadows with a 80% cloud probability:
-
-```python
-S2masked = Sentinel2.maskClouds(S2, prob = 80)
-```
-
-To mask clouds and shadows with a 60% cloud probability and using a Cloud Displacement Index (CDI) threshold of -0.5:
-
-```python
-S2masked = Sentinel2.maskClouds(S2, prob = 60, cdi = -0.5)
-```
-
-You can also mask clouds and shadows from a single image:
-
-```python
-S2singleImageMasked = Sentinel2.maskClouds(S2.first())
-```
-
-#### Scaling pixel values
-
-To scale the pixel values to [0,1]:
-
-```python
-S2scaled = Sentinel2.reflectance(S2masked)
-```
-
-You can also scale values of a single image:
-
-```python
-S2singleImageScaled = Sentinel2.reflectance(S2masked.first())
-```
-
-#### Spectral Indices
-
-Spectral indices ar added as new bands.
-
-To compute a spectral index:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = 'GNDVI')
-```
-
-To compute more than one spectral index:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = ['GNDVI','NDWI','NBR'])
-```
-
-To compute all available Vegetation Indices:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = 'vegetation')
-```
-
-To compute all available Burn Indices:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = 'burn')
-```
-
-To compute all available Water Indices:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = 'water')
-```
-
-To compute all available indices:
-
-```python
-S2index = Sentinel2.spectralIndex(S2scaled, index = 'all')
-```
-
-You can also compute indices for a single image:
-
-To compute all available Vegetation Indices:
-
-```python
-S2singleImageIndex = Sentinel2.spectralIndex(S2singleImageScaled, index = 'vegetation')
-```
+And as simple like, the job is done!

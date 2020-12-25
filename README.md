@@ -1,9 +1,4 @@
-eemont
-======
-
-.. image:: https://img.shields.io/pypi/v/eemont.svg
-    :target: https://pypi.python.org/pypi/eemont
-    :alt: Latest PyPI version
+# eemont
 
 #### A Python package for Google Earth Engine utilities
 
@@ -40,8 +35,8 @@ point = ee.Geometry.Point([-76.21, 4.32])
 # Take the Sentinel-2 SR product
 S2 = ee.ImageCollection('COPERNICUS/S2_SR').filterBounds(point)
 
-# Mask clouds and shadows using the cloud probability and the Cloud Displacement index (CDI)
-S2 = sentinel2.maskCLouds(S2, prob = 70, cdi = -0.5)
+# Mask clouds and shadows using cloud probability and the Cloud Displacement index (CDI)
+S2 = sentinel2.maskClouds(S2, prob = 70, cdi = -0.5)
 
 # Scale the image to [0,1]
 S2 = sentinel2.scale(S2)
@@ -63,4 +58,4 @@ Map.addLayer(S2closest.select('BAIS2'), visualization.index(palette = 'burn'), '
 Map
 ```
 
-And as simple like, the job is done!
+And as simple as that, the job is done!

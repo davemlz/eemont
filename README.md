@@ -20,7 +20,7 @@ ee.Initialize()
 
 Let's take a look on how easy is to use this package!
 
-Now, let's take a Sentinel-2 collection: we will mask clouds and shadows, scale the image, select the closest image to a specified date, compute some spectral indices and visualize the image (We are goin to use the awesome geemap package for this!).
+Now, let's take a Sentinel-2 collection: we will mask clouds and shadows, scale the image, select the closest image to a specified date, compute some spectral indices and visualize the image (We are going to use the awesome geemap package for this!).
 
 ```python
 # Import the modules from eemont

@@ -137,7 +137,7 @@ def scale(args,surfaceReflectance = True):
             scaled = scaled.addBands(img.select(['T.*']))
             scaled = scaled.addBands(img.select(['M.*']))
             scaled = scaled.addBands(img.select('SCL'))
-        return scaled
+        return scaled.copyProperties(img,['system:time_start'])
     
     if isinstance(args, ee.imagecollection.ImageCollection):
         scaledArgs = args.map(scaleImage)

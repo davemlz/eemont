@@ -22,7 +22,7 @@ setup(
     author="David Montero Loaiza",
     author_email="dml.mont@gmail.com",
 
-    description="A Python package for Google Earth Engine utiities",
+    description="A Python package that extends Google Earth Engine",
     long_description=read("README.md"),
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),

@@ -34,6 +34,213 @@ def _get_platform(img):
             
     return platformDict
 
+def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
+    '''Computes one or more spectral indices (indices are added as bands) for an image.
+    
+    Parameters
+    ----------
+    self : ee.Image
+        Image to compute indices on. Must be scaled to [0,1].
+    index : string | list[string], default = 'NDVI'
+        Index or list of indices to compute. Available options:
+        - 'vegetation' : Compute all vegetation indices.
+        - 'burn' : Compute all burn indices.
+        - 'water' : Compute all water indices.
+        - 'all' : Compute all indices listed below.
+        Vegetation indices:        
+        - 'BNDVI' : Blue Normalized Difference Vegetation Index.
+        - 'CIG' : Chlorophyll Index - Green.
+        - 'CVI' : Chlorophyll Vegetation Index.
+        - 'EVI' : Enhanced Vegetation Index.
+        - 'GNDVI' : Green Normalized Difference Vegetation Index.
+        - 'NDVI' : Normalized Difference Vegetation Index.
+        - 'NGRDI' : Normalized Green Red Difference Index.
+        - 'RVI' : Ratio Vegetation Index.
+        - 'SAVI' : Soil-Adjusted Vegetation Index.
+        Burn and fire indices:        
+        - 'BAI' : Burned Area Index.
+        - 'BAIS2' : Burned Area Index for Sentinel 2.
+        - 'NBR' : Normalized Burn Ratio.
+        Water indices:                
+        - 'MNDWI' : Modified Normalized Difference Water Index.
+        - 'NDWI' : Normalized Difference Water Index.        
+    G : float, default = 2.5
+        Gain factor. Used just for index = 'EVI'.
+    C1 : float, default = 6.0
+        Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
+    C2 : float, default = 7.5
+        Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
+    L : float, default = 1.0
+        Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+        
+    Returns
+    -------
+    ee.Image
+        Image with the computed spectral index, or indices, as new bands.
+    '''  
+    platformDict = _get_platform(self)
+    
+    def lookupDic(img):
+        
+        def lookupS2(img):
+            return {
+                'G': float(G),
+                'C1': float(C1),
+                'C2': float(C2),
+                'L': float(L),
+                'A': img.select('B1'),
+                'B': img.select('B2'),
+                'G': img.select('B3'),
+                'R': img.select('B4'),
+                'RE1': img.select('B5'),
+                'RE2': img.select('B6'),
+                'RE3': img.select('B7'),
+                'N' : img.select('B8'),
+                'RE4': img.select('B8A'),
+                'WV' : img.select('B9'),            
+                'S1': img.select('B11'),
+                'S2': img.select('B12')
+            }
+        
+        def lookupL8(img):
+            return {
+                'G': float(G),
+                'C1': float(C1),
+                'C2': float(C2),
+                'L': float(L),
+                'A': img.select('B1'),
+                'B': img.select('B2'),
+                'G': img.select('B3'),
+                'R': img.select('B4'),
+                'N': img.select('B5'),
+                'S1': img.select('B6'),
+                'S2': img.select('B7'),                
+                'T1' : img.select('B10'),
+                'T2': img.select('B11')
+            }
+        
+        def lookupL457(img):
+            return {
+                'G': float(G),
+                'C1': float(C1),
+                'C2': float(C2),
+                'L': float(L),
+                'B': img.select('B1'),
+                'G': img.select('B2'),
+                'R': img.select('B3'),
+                'N': img.select('B4'),
+                'S1': img.select('B5'),
+                'T1': img.select('B6'),
+                'S2': img.select('B7')                
+            }
+        
+        lookupPlatform = {
+            'COPERNICUS/S2': lookupS2,
+            'LANDSAT/LC08': lookupL8,
+            'LANDSAT/LE07': lookupL457,
+            'LANDSAT/LT05': lookupL457,
+            'LANDSAT/LT04': lookupL457
+        }
+        
+        return lookupPlatform[platformDict['platform']](img)
+    
+    # VEGETATION INDICES
+    
+    def BNDVI(img):
+        return img.addBands(img.expression('(N - B) / (N + B)',lookupDic(img)).rename('BNDVI'))
+    
+    def CIG(img):
+        return img.addBands(img.expression('(N / G) - 1',lookupDic(img)).rename('CIG'))
+    
+    def CVI(img):
+        return img.addBands(img.expression('(N * R) / (G ** 2)',lookupDic(img)).rename('CVI'))
+    
+    def EVI(img):
+        return img.addBands(img.expression('G * (N - R) / (N + C1 * R - C2 * B + L)',lookupDic(img)).rename('EVI'))
+       
+    def GNDVI(img):
+        return img.addBands(img.expression('(N - G) / (N + G)',lookupDic(img)).rename('GNDVI'))
+    
+    def NDVI(img):
+        return img.addBands(img.expression('(N - R) / (N + R)',lookupDic(img)).rename('NDVI'))
+    
+    def NGRDI(img):
+        return img.addBands(img.expression('(G - R) / (G + R)',lookupDic(img)).rename('NGRDI'))
+    
+    def RVI(img):
+        return img.addBands(img.expression('N / R',lookupDic(img)).rename('RVI'))
+    
+    def SAVI(img):
+        return img.addBands(img.expression('(1 + L) * (N - R) / (N + R + L)',lookupDic(img)).rename('SAVI'))
+    
+    lookupVegetation = {
+        'BNDVI': BNDVI,
+        'CIG': CIG,
+        'CVI': CVI,
+        'EVI': EVI,
+        'GNDVI': GNDVI,
+        'NDVI': NDVI,
+        'NGRDI': NGRDI,
+        'RVI': RVI,
+        'SAVI': SAVI
+    }
+    
+    # BURN INDICES
+    
+    def BAI(img):
+        return img.addBands(img.expression('1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)',lookupDic(img)).rename('BAI'))
+    
+    def BAIS2(img):
+        first = img.expression('(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5)',lookupDic(img))
+        second = img.expression('(((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)',lookupDic(img))
+        return img.addBands(first.multiply(second).rename('BAIS2'))
+    
+    def NBR(img):
+        return img.addBands(img.expression('(N - S2) / (N + S2)',lookupDic(img)).rename('NBR'))
+    
+    lookupBurn = {
+        'BAI': BAI,
+        'BAIS2': BAIS2,
+        'NBR': NBR
+    }
+    
+    # WATER INDICES
+        
+    def MNDWI(img):
+        return img.addBands(img.expression('(G - S1) / (G + S1)',lookupDic(img)).rename('MNDWI'))
+    
+    def NDWI(img):
+        return img.addBands(img.expression('(G - N) / (G + N)',lookupDic(img)).rename('NDWI'))
+    
+    lookupWater = {
+        'MNDWI': MNDWI,
+        'NDWI': NDWI,
+    }
+    
+    # ALL INDICES
+    
+    lookup = {**lookupVegetation, **lookupBurn, **lookupWater}
+    
+    if not isinstance(index, list):
+        if index == 'all':
+            index = list(lookup.keys())
+        elif index == 'vegetation':
+            index = list(lookupVegetation.keys())
+        elif index == 'burn':
+            index = list(lookupBurn.keys())
+        elif index == 'water':
+            index = list(lookupWater.keys())
+        else:
+            index = [index]        
+    
+    if platformDict['platform'] != 'COPERNICUS/S2':
+        index.remove('BAIS2')
+        
+    for idx in index:
+        self = lookup[idx](self)
+        
+    return self
+
 def _maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
     '''Masks clouds and shadows in an image (valid just for Surface Reflectance products).
     

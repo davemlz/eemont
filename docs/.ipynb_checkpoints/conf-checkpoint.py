@@ -22,7 +22,7 @@ copyright = '2021, David Montero Loaiza'
 author = 'David Montero Loaiza'
 
 # The full version, including alpha/beta/rc tags
-release = 'v0.1.2-beta'
+release = 'v0.1.3-beta'
 
 
 # -- General configuration ---------------------------------------------------
@@ -35,6 +35,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
+    'sphinx.ext.napoleon',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

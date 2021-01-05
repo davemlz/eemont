@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="eemont",
-    version="0.1.2",
+    version="0.1.3",
     url="https://github.com/davemlz/eemont",
     license='MIT',
 
@@ -27,7 +27,7 @@ setup(
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),
 
-    install_requires=[],
+    install_requires=['earthengine-api'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

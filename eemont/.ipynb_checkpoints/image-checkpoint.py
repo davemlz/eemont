@@ -233,7 +233,7 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         else:
             index = [index]        
     
-    if platformDict['platform'] != 'COPERNICUS/S2':
+    if platformDict['platform'] != 'COPERNICUS/S2' and 'BAIS2' in index:
         index.remove('BAIS2')
         
     for idx in index:
@@ -437,5 +437,6 @@ def _scale(self):
     
     return scaledImage
 
+setattr(ee.image.Image,'index',_index)
 setattr(ee.image.Image,'maskClouds',_maskClouds)
 setattr(ee.image.Image,'scale',_scale)

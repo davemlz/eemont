@@ -269,7 +269,7 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         else:
             index = [index]        
     
-    if platformDict['platform'] != 'COPERNICUS/S2':
+    if platformDict['platform'] != 'COPERNICUS/S2' and 'BAIS2' in index:
         index.remove('BAIS2')
     
     for idx in index:
@@ -479,5 +479,6 @@ def _scale(self):
 
 # Extend the ee.ImageCollection class with the new functions
 setattr(ee.imagecollection.ImageCollection,'closest',_closest)
+setattr(ee.imagecollection.ImageCollection,'index',_index)
 setattr(ee.imagecollection.ImageCollection,'maskClouds',_maskClouds)
 setattr(ee.imagecollection.ImageCollection,'scale',_scale)

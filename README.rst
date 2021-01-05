@@ -21,7 +21,7 @@ Look at this simple example where a Sentinel2 collection is pre-processed and pr
        .scale() # Extended (pre-processing)
        .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
 
-And just like that, the collection was pre-processed and processed!
+And just like that, the collection was pre-processed and processed! 
 
 Features
 --------

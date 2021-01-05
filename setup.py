@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="eemont",
-    version="0.1.1",
+    version="0.1.2",
     url="https://github.com/davemlz/eemont",
     license='MIT',
 
@@ -23,7 +23,7 @@ setup(
     author_email="dml.mont@gmail.com",
 
     description="A Python package that extends Google Earth Engine",
-    long_description=read("README.md"),
+    long_description=read("README.rst"),
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),
 

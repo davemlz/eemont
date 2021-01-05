@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to eemont’s documentation! &#8212; eemont 0.1.0 documentation</title>
+    <title>eemont Package &#8212; eemont v0.1.0-beta documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -31,18 +31,59 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-eemont-s-documentation">
-<h1>Welcome to eemont’s documentation!<a class="headerlink" href="#welcome-to-eemont-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="eemont-package">
+<h1>eemont Package<a class="headerlink" href="#eemont-package" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="guide">
+<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</div>
+<div class="section" id="eemont">
+<h1>eemont<a class="headerlink" href="#eemont" title="Permalink to this headline">¶</a></h1>
+<p>The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.</p>
+<p>Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+
+<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="o">-</span><span class="mf">76.21</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">])</span>
+
+<span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">)</span> <span class="c1"># Extended (pre-processing)</span>
+    <span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">prob</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span> <span class="c1"># Extended (pre-processing)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">()</span> <span class="c1"># Extended (pre-processing)</span>
+    <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">]))</span> <span class="c1"># Extended (processing)</span>
+</pre></div>
+</div>
+<p>And just like that, the collection was pre-processed and processed!</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Clouds and shadows masking</p></li>
+<li><p>Image scaling</p></li>
+<li><p>Spectral indices calculation (vegetation, burn and water indices)</p></li>
+<li><p>Closest images to a specific date</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install the eemont development version by running:</p>
+<blockquote>
+<div><p>pip install git+https://github.com/davemlz/eemont</p>
+</div></blockquote>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The project is licensed under the MIT license.</p>
+</div>
 </div>
 
 
@@ -62,6 +103,10 @@
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">eemont</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>

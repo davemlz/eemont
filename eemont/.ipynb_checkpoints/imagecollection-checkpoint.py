@@ -1,18 +1,20 @@
 import ee
 import numpy as np
 
+def _extend_eeImageCollection():
+    """Decorator. Extends the ee.ImageCollection class."""
+    return lambda f: (setattr(ee.imagecollection.ImageCollection,f.__name__,f) or f)
+
 def _get_platform(collection):
     '''Gets the platform (satellite) of an image collection and wheter if it is a Surface Reflectance product.
     
-    Parameters
-    ----------
-    collection : ee.Image.Collection
-        Image to get platform.
+    Args:    
+        collection : ee.Image.Collection
+            Image to get platform.
         
-    Returns
-    -------
-    dict
-        Platform and product of the image.
+    Returns:
+        dict :
+            Platform and product of the image.
     '''
     platforms = [
         'COPERNICUS/S2',
@@ -35,21 +37,19 @@ def _get_platform(collection):
             
     return platformDict
 
-# Functions to extend the ee.ImageCollection class
-def _closest(self, date):
+@_extend_eeImageCollection()
+def closest(self, date):
     '''Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.
     
-    Parameters
-    ----------
-    self : ee.ImageCollection
-        Image Collection from which to get the closest image to the specified date.
-    date : ee.Date | string
-        Date of interest. The method will look for images closest to this date.
+    Args:    
+        self : ee.ImageCollection (this)
+            Image Collection from which to get the closest image to the specified date.
+        date : ee.Date | string
+            Date of interest. The method will look for images closest to this date.
         
-    Returns
-    -------
-    ee.ImageCollection
-        Closest images to the specified date.
+    Returns:    
+        ee.ImageCollection
+            Closest images to the specified date.
     ''' 
     if not isinstance(date, ee.ee_date.Date):
         date = ee.Date(date)
@@ -70,49 +70,48 @@ def _closest(self, date):
     
     return self
 
-def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
+@_extend_eeImageCollection()
+def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     '''Computes one or more spectral indices (indices are added as bands) for an image collection.
     
-    Parameters
-    ----------
-    self : ee.ImageCollection
-        Image collection to compute indices on. Must be scaled to [0,1].
-    index : string | list[string], default = 'NDVI'
-        Index or list of indices to compute. Available options:
-        - 'vegetation' : Compute all vegetation indices.
-        - 'burn' : Compute all burn indices.
-        - 'water' : Compute all water indices.
-        - 'all' : Compute all indices listed below.
-        Vegetation indices:        
-        - 'BNDVI' : Blue Normalized Difference Vegetation Index.
-        - 'CIG' : Chlorophyll Index - Green.
-        - 'CVI' : Chlorophyll Vegetation Index.
-        - 'EVI' : Enhanced Vegetation Index.
-        - 'GNDVI' : Green Normalized Difference Vegetation Index.
-        - 'NDVI' : Normalized Difference Vegetation Index.
-        - 'NGRDI' : Normalized Green Red Difference Index.
-        - 'SR' : Simple Ratio.
-        - 'SAVI' : Soil-Adjusted Vegetation Index.
-        Burn and fire indices:        
-        - 'BAI' : Burned Area Index.
-        - 'BAIS2' : Burned Area Index for Sentinel 2.
-        - 'NBR' : Normalized Burn Ratio.
-        Water indices:                
-        - 'MNDWI' : Modified Normalized Difference Water Index.
-        - 'NDWI' : Normalized Difference Water Index.        
-    G : float, default = 2.5
-        Gain factor. Used just for index = 'EVI'.
-    C1 : float, default = 6.0
-        Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
-    C2 : float, default = 7.5
-        Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
-    L : float, default = 1.0
-        Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    Args:    
+        self : ee.ImageCollection
+            Image collection to compute indices on. Must be scaled to [0,1].
+        index : string | list[string], default = 'NDVI'
+            Index or list of indices to compute. Available options:\n
+            - 'vegetation' : Compute all vegetation indices.
+            - 'burn' : Compute all burn indices.
+            - 'water' : Compute all water indices.
+            - 'all' : Compute all indices listed below.\n
+            Vegetation indices:\n     
+            - 'BNDVI' : Blue Normalized Difference Vegetation Index.
+            - 'CIG' : Chlorophyll Index - Green.
+            - 'CVI' : Chlorophyll Vegetation Index.
+            - 'EVI' : Enhanced Vegetation Index.
+            - 'GNDVI' : Green Normalized Difference Vegetation Index.
+            - 'NDVI' : Normalized Difference Vegetation Index.
+            - 'NGRDI' : Normalized Green Red Difference Index.
+            - 'SR' : Simple Ratio.
+            - 'SAVI' : Soil-Adjusted Vegetation Index.\n
+            Burn and fire indices:\n       
+            - 'BAI' : Burned Area Index.
+            - 'BAIS2' : Burned Area Index for Sentinel 2.
+            - 'NBR' : Normalized Burn Ratio.\n
+            Water indices:\n     
+            - 'MNDWI' : Modified Normalized Difference Water Index.
+            - 'NDWI' : Normalized Difference Water Index.        
+        G : float, default = 2.5
+            Gain factor. Used just for index = 'EVI'.
+        C1 : float, default = 6.0
+            Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
+        C2 : float, default = 7.5
+            Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
+        L : float, default = 1.0
+            Canopy background adjustment. Used just for index = ['EVI','SAVI'].
         
-    Returns
-    -------
-    ee.ImageCollection
-        Image collection with the computed spectral index, or indices, as new bands.
+    Returns:    
+        ee.ImageCollection
+            Image collection with the computed spectral index, or indices, as new bands.
     '''  
     platformDict = _get_platform(self)
     
@@ -277,48 +276,47 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     
     return self
 
-def _maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
+@_extend_eeImageCollection()
+def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
     '''Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).
     
-    Parameters
-    ----------
-    self : ee.ImageCollection (this)
-        Image collection to mask. Accepted platforms:
-        - Sentinel-2
-        - Landsat 8
-        - Landsat 7
-        - Landsat 5
-        - Landsat 4
-    method : string, default = 'cloud_prob'
-        - 'cloud_prob' : Use cloud probability. Valid just for Sentinel-2.
-        - 'qa' : Use Quality Assessment band. Valid just for Sentinel-2.
-        This parameter is ignored for Landsat products.
-    prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'prob'. This parameter is ignored for Landsat products.
-    maskCirrus : boolean, default = True
-        Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
-    maskShadows : boolean, default = True
-        Whether to mask cloud shadows. \n
-        For more info see 'Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
-    scaledImage : boolean, default = False
-        Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.
-    dark : float [0,1], default = 0.15
-        NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.
-    cloudDist : int, default = 1000
-        Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.
-    buffer : int, default = 250
-        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.
-    cdi : float [-1,1], default = None
-        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.\n
-        A cdi = None means that the index is not used. For more info see \n        
-        'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:\n
-        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'. \n
-        This parameter is ignored for Landsat products.
+    Args:    
+        self : ee.ImageCollection (this)
+            Image collection to mask. Accepted platforms:\n
+            - Sentinel-2
+            - Landsat 8
+            - Landsat 7
+            - Landsat 5
+            - Landsat 4
+        method : string, default = 'cloud_prob'
+            - 'cloud_prob' : Use cloud probability. Valid just for Sentinel-2.
+            - 'qa' : Use Quality Assessment band. Valid just for Sentinel-2.
+            This parameter is ignored for Landsat products.
+        prob : numeric [0, 100], default = 60
+            Cloud probability threshold. Valid just for method = 'prob'. This parameter is ignored for Landsat products.
+        maskCirrus : boolean, default = True
+            Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
+        maskShadows : boolean, default = True
+            Whether to mask cloud shadows. \n
+            For more info see 'Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
+        scaledImage : boolean, default = False
+            Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.
+        dark : float [0,1], default = 0.15
+            NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.
+        cloudDist : int, default = 1000
+            Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.
+        buffer : int, default = 250
+            Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.
+        cdi : float [-1,1], default = None
+            Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
+            A cdi = None means that the index is not used. For more info see
+            'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
+            Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
+            This parameter is ignored for Landsat products.
         
-    Returns
-    -------
-    ee.ImageCollection
-        Cloud-shadow masked image collection.
+    Returns:    
+        ee.ImageCollection
+            Cloud-shadow masked image collection.
     '''
     def S2(args):    
 
@@ -416,25 +414,24 @@ def _maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskS
         maskedImageCollection = self.map(lookup[platformDict['platform']])
     
     return maskedImageCollection
-    
-def _scale(self):    
-    '''Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images\n
+
+@_extend_eeImageCollection()
+def scale(self):    
+    '''Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images
     (except for MSK_CLDPRB and MSK_SNWPRB bands that are excluded from the image collection).
     
-    Parameters
-    ----------
-    self : ee.ImageCollection (this)
-        Image collection to scale. Accepted platforms:
-        - Sentinel-2
-        - Landsat 8
-        - Landsat 7
-        - Landsat 5
-        - Landsat 4
+    Args:
+        self : ee.ImageCollection (this)
+            Image collection to scale. Accepted platforms:\n
+            - Sentinel-2
+            - Landsat 8
+            - Landsat 7
+            - Landsat 5
+            - Landsat 4
         
-    Returns
-    -------
-    ee.ImageCollection
-        Scaled image collection.
+    Returns:
+        ee.ImageCollection
+            Scaled image collection.
     '''    
     def S2(img):
         scaled = img.select(['B.*']).divide(1e4)      
@@ -476,9 +473,3 @@ def _scale(self):
     scaledImageCollection = self.map(lookup[platformDict['platform']])
     
     return scaledImageCollection
-
-# Extend the ee.ImageCollection class with the new functions
-setattr(ee.imagecollection.ImageCollection,'closest',_closest)
-setattr(ee.imagecollection.ImageCollection,'index',_index)
-setattr(ee.imagecollection.ImageCollection,'maskClouds',_maskClouds)
-setattr(ee.imagecollection.ImageCollection,'scale',_scale)

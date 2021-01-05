@@ -1,62 +1,63 @@
-.. eemont documentation master file, created by
-   sphinx-quickstart on Tue Jan  5 15:40:58 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to eemont's documentation!
+eemont Package
 ==================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   modules
 
 
 
-Indices and tables
+Guide
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
-$project
+
+eemont
 ========
 
-$project will solve your problem of where to start with documentation,
-by providing a basic explanation of how to do it easily.
+The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
-Look how easy it is to use:
+Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:
 
-    import project
-    # Get your stuff done
-    project.do_stuff()
+.. code-block:: python
+
+   import ee, eemont
+   
+   ee.Authenticate()
+   ee.Initialize()
+   
+   point = ee.Geometry.Point([-76.21, 3.45])
+   
+   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+       .filterBounds(point)
+       .closest('2020-10-15') # Extended (pre-processing)
+       .maskClouds(prob = 70) # Extended (pre-processing)
+       .scale() # Extended (pre-processing)
+       .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
+
+And just like that, the collection was pre-processed and processed!
 
 Features
 --------
 
-- Be awesome
-- Make things faster
+- Clouds and shadows masking
+- Image scaling
+- Spectral indices calculation (vegetation, burn and water indices)
+- Closest images to a specific date
 
 Installation
 ------------
 
-Install $project by running:
+Install the eemont development version by running:
 
-    install project
-
-Contribute
-----------
-
-- Issue Tracker: github.com/$project/$project/issues
-- Source Code: github.com/$project/$project
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@google-groups.com
+    pip install git+https://github.com/davemlz/eemont
 
 License
 -------
 
-The project is licensed under the BSD license.
+The project is licensed under the MIT license.

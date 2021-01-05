@@ -54,9 +54,9 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         - 'EVI' : Enhanced Vegetation Index.
         - 'GNDVI' : Green Normalized Difference Vegetation Index.
         - 'NDVI' : Normalized Difference Vegetation Index.
-        - 'NGRDI' : Normalized Green Red Difference Index.
-        - 'RVI' : Ratio Vegetation Index.
+        - 'NGRDI' : Normalized Green Red Difference Index.        
         - 'SAVI' : Soil-Adjusted Vegetation Index.
+        - 'SR' : Simple Ratio.
         Burn and fire indices:        
         - 'BAI' : Burned Area Index.
         - 'BAIS2' : Burned Area Index for Sentinel 2.
@@ -167,11 +167,11 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     def NGRDI(img):
         return img.addBands(img.expression('(G - R) / (G + R)',lookupDic(img)).rename('NGRDI'))
     
-    def RVI(img):
-        return img.addBands(img.expression('N / R',lookupDic(img)).rename('RVI'))
-    
     def SAVI(img):
         return img.addBands(img.expression('(1 + L) * (N - R) / (N + R + L)',lookupDic(img)).rename('SAVI'))
+    
+    def SR(img):
+        return img.addBands(img.expression('N / R',lookupDic(img)).rename('SR'))
     
     lookupVegetation = {
         'BNDVI': BNDVI,
@@ -180,9 +180,9 @@ def _index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         'EVI': EVI,
         'GNDVI': GNDVI,
         'NDVI': NDVI,
-        'NGRDI': NGRDI,
-        'RVI': RVI,
-        'SAVI': SAVI
+        'NGRDI': NGRDI,        
+        'SAVI': SAVI,
+        'SR': SR
     }
     
     # BURN INDICES

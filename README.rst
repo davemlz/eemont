@@ -1,6 +1,15 @@
 eemont
 ========
 
+.. image:: https://img.shields.io/pypi/v/eemont.svg
+        :target: https://pypi.python.org/pypi/eemont
+        
+.. image:: https://img.shields.io/badge/License-MIT-blue.svg
+        :target: https://opensource.org/licenses/MIT
+        
+.. image:: https://img.shields.io/badge/Documentation-0.1.6-green.svg
+        :target: https://eemont.readthedocs.io/en/0.1.6/index.html
+
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:

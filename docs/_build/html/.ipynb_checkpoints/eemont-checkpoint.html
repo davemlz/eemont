@@ -1,96 +1,215 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>eemont &mdash; eemont v0.1.4-beta documentation</title>
+  
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eemont package &#8212; eemont v0.1.0-beta documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
             
-  <div class="section" id="eemont-package">
-<h1>eemont package<a class="headerlink" href="#eemont-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">eemont</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>eemont</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/.ipynb_checkpoints/eemont-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="eemont">
+<h1>eemont<a class="headerlink" href="#eemont" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-eemont.image">
 <span id="image-module"></span><h2>Image Module<a class="headerlink" href="#module-eemont.image" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="eemont.image.index">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/image.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes one or more spectral indices (indices are added as bands) for an image.</p>
-<dl>
-<dt>Args:    </dt><dd><dl>
-<dt>self<span class="classifier">ee.Image</span></dt><dd><p>Image to compute indices on. Must be scaled to [0,1].</p>
-</dd>
-<dt>index<span class="classifier">string | list[string], default = ‘NDVI’</span></dt><dd><p>Index or list of indices to compute. Available options:</p>
-<ul class="simple">
-<li><p>‘vegetation’ : Compute all vegetation indices.</p></li>
-<li><p>‘burn’ : Compute all burn indices.</p></li>
-<li><p>‘water’ : Compute all water indices.</p></li>
-<li><p>‘all’ : Compute all indices listed below.</p></li>
-</ul>
-<p>Vegetation indices:</p>
-<ul class="simple">
-<li><p>‘BNDVI’ : Blue Normalized Difference Vegetation Index.</p></li>
-<li><p>‘CIG’ : Chlorophyll Index - Green.</p></li>
-<li><p>‘CVI’ : Chlorophyll Vegetation Index.</p></li>
-<li><p>‘EVI’ : Enhanced Vegetation Index.</p></li>
-<li><p>‘GNDVI’ : Green Normalized Difference Vegetation Index.</p></li>
-<li><p>‘NDVI’ : Normalized Difference Vegetation Index.</p></li>
-<li><p>‘NGRDI’ : Normalized Green Red Difference Index.</p></li>
-<li><p>‘SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
-<li><p>‘SR’ : Simple Ratio.</p></li>
-</ul>
-<p>Burn and fire indices:</p>
-<ul class="simple">
-<li><p>‘BAI’ : Burned Area Index.</p></li>
-<li><p>‘BAIS2’ : Burned Area Index for Sentinel 2.</p></li>
-<li><p>‘NBR’ : Normalized Burn Ratio.</p></li>
-</ul>
-<p>Water indices:</p>
-<ul class="simple">
-<li><p>‘MNDWI’ : Modified Normalized Difference Water Index.</p></li>
-<li><p>‘NDWI’ : Normalized Difference Water Index.</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to compute indices on. Must be scaled to [0,1].</p></li>
+<li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’vegetation’ : Compute all vegetation indices.</p></li>
+<li><p>’burn’ : Compute all burn indices.</p></li>
+<li><p>’water’ : Compute all water indices.</p></li>
+<li><p>’all’ : Compute all indices listed below.</p></li>
 </ul>
 </dd>
-<dt>G<span class="classifier">float, default = 2.5</span></dt><dd><p>Gain factor. Used just for index = ‘EVI’.</p>
+<dt>Vegetation indices:</dt><dd><ul>
+<li><p>’BNDVI’ : Blue Normalized Difference Vegetation Index.</p></li>
+<li><p>’CIG’ : Chlorophyll Index - Green.</p></li>
+<li><p>’CVI’ : Chlorophyll Vegetation Index.</p></li>
+<li><p>’EVI’ : Enhanced Vegetation Index.</p></li>
+<li><p>’GNDVI’ : Green Normalized Difference Vegetation Index.</p></li>
+<li><p>’NDVI’ : Normalized Difference Vegetation Index.</p></li>
+<li><p>’NGRDI’ : Normalized Green Red Difference Index.</p></li>
+<li><p>’SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
+<li><p>’SR’ : Simple Ratio.</p></li>
+</ul>
 </dd>
-<dt>C1<span class="classifier">float, default = 6.0</span></dt><dd><p>Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p>
+<dt>Burn and fire indices:</dt><dd><ul>
+<li><p>’BAI’ : Burned Area Index.</p></li>
+<li><p>’BAIS2’ : Burned Area Index for Sentinel 2.</p></li>
+<li><p>’NBR’ : Normalized Burn Ratio.</p></li>
+</ul>
 </dd>
-<dt>C2<span class="classifier">float, default = 7.5</span></dt><dd><p>Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p>
-</dd>
-<dt>L<span class="classifier">float, default = 1.0</span></dt><dd><p>Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p>
+<dt>Water indices:</dt><dd><ul>
+<li><p>’MNDWI’ : Modified Normalized Difference Water Index.</p></li>
+<li><p>’NDWI’ : Normalized Difference Water Index.</p></li>
+</ul>
 </dd>
 </dl>
+</p></li>
+<li><p><strong>G</strong> (<em>float</em><em>, </em><em>default = 2.5</em>) – Gain factor. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C1</strong> (<em>float</em><em>, </em><em>default = 6.0</em>) – Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C2</strong> (<em>float</em><em>, </em><em>default = 7.5</em>) – Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em>, </em><em>default = 1.0</em>) – Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p></li>
+</ul>
 </dd>
-<dt>Returns:    </dt><dd><dl class="simple">
-<dt>ee.Image</dt><dd><p>Image with the computed spectral index, or indices, as new bands.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Image with the computed spectral index, or indices, as new bands.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.Image</p>
 </dd>
 </dl>
 </dd></dl>
@@ -99,10 +218,12 @@
 <dt id="eemont.image.maskClouds">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">maskClouds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'cloud_prob'</span></em>, <em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">60</span></em>, <em class="sig-param"><span class="n">maskCirrus</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">maskShadows</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scaledImage</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">dark</span><span class="o">=</span><span class="default_value">0.15</span></em>, <em class="sig-param"><span class="n">cloudDist</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">buffer</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cdi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/image.html#maskClouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.maskClouds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p>
-<dl>
-<dt>Args:    </dt><dd><dl>
-<dt>self<span class="classifier">ee.Image (this)</span></dt><dd><p>Image to mask. Accepted platforms:</p>
-<ul class="simple">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to mask.</p>
+<dl class="simple">
+<dt>Accepted platforms:</dt><dd><ul>
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -110,38 +231,36 @@
 <li><p>Landsat 4</p></li>
 </ul>
 </dd>
-<dt>method<span class="classifier">string, default = ‘cloud_prob’</span></dt><dd><ul class="simple">
-<li><p>‘cloud_prob’ : Use cloud probability. Valid just for Sentinel-2.</p></li>
-<li><p>‘qa’ : Use Quality Assessment band. Valid just for Sentinel-2.</p></li>
+</dl>
+</p></li>
+<li><p><strong>method</strong> (<em>string</em><em>, </em><em>default = 'cloud_prob'</em>) – <p>Method used to mask clouds.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’cloud_prob’ : Use cloud probability.</p></li>
+<li><p>’qa’ : Use Quality Assessment band.</p></li>
 </ul>
+</dd>
+</dl>
 <p>This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>prob<span class="classifier">numeric [0, 100], default = 60</span></dt><dd><p>Cloud probability threshold. Valid just for method = ‘prob’. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>maskCirrus<span class="classifier">boolean, default = True</span></dt><dd><p>Whether to mask cirrus clouds. Valid just for method = ‘qa’. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>maskShadows<span class="classifier">boolean, default = True</span></dt><dd><p>Whether to mask cloud shadows.</p>
-<p>For more info see ‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’.</p>
-</dd>
-<dt>scaledImage<span class="classifier">boolean, default = False</span></dt><dd><p>Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>dark<span class="classifier">float [0,1], default = 0.15</span></dt><dd><p>NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>cloudDist<span class="classifier">int, default = 1000</span></dt><dd><p>Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>buffer<span class="classifier">int, default = 250</span></dt><dd><p>Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>cdi<span class="classifier">float [-1,1], default = None</span></dt><dd><p>Cloud Displacement Index threshold. Values below this threshold are considered potential clouds. 
+</p></li>
+<li><p><strong>prob</strong> (<em>numeric</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>default = 60</em>) – Cloud probability threshold. Valid just for method = ‘prob’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskCirrus</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cirrus clouds. Valid just for method = ‘qa’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskShadows</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cloud shadows. For more info see ‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’.</p></li>
+<li><p><strong>scaledImage</strong> (<em>boolean</em><em>, </em><em>default = False</em>) – Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>dark</strong> (<em>float</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = 0.15</em>) – NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cloudDist</strong> (<em>int</em><em>, </em><em>default = 1000</em>) – Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>buffer</strong> (<em>int</em><em>, </em><em>default = 250</em>) – Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cdi</strong> (<em>float</em><em> [</em><em>-1</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = None</em>) – Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
 A cdi = None means that the index is not used. For more info see ‘Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
 Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481’.
-This parameter is ignored for Landsat products.</p>
+This parameter is ignored for Landsat products.</p></li>
+</ul>
 </dd>
-</dl>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cloud-shadow masked image.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>ee.Image</dt><dd><p>Cloud-shadow masked image.</p>
-</dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.Image</p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,12 +268,13 @@ This parameter is ignored for Landsat products.</p>
 <dl class="py function">
 <dt id="eemont.image.scale">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/image.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands</p>
-<p>that are excluded from the image).</p>
+<dd><p>Scales reflectance bands on an image. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands
+that are excluded from the image).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to scale.</p>
 <dl class="simple">
-<dt>Args:    </dt><dd><dl class="simple">
-<dt>self<span class="classifier">ee.Image (this)</span></dt><dd><p>Image to scale. Accepted platforms:</p>
-<ul class="simple">
+<dt>Accepted platforms:</dt><dd><ul class="simple">
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -163,11 +283,13 @@ This parameter is ignored for Landsat products.</p>
 </ul>
 </dd>
 </dl>
+</p>
 </dd>
-<dt>Returns:    </dt><dd><dl class="simple">
-<dt>ee.Image</dt><dd><p>Scaled image.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Scaled image.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.Image</p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,18 +301,18 @@ This parameter is ignored for Landsat products.</p>
 <dt id="eemont.imagecollection.closest">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">closest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/imagecollection.html#closest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.closest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.</p>
-<dl class="simple">
-<dt>Args:    </dt><dd><dl class="simple">
-<dt>self<span class="classifier">ee.ImageCollection (this)</span></dt><dd><p>Image Collection from which to get the closest image to the specified date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – Image Collection from which to get the closest image to the specified date.</p></li>
+<li><p><strong>date</strong> (<em>ee.Date | string</em>) – Date of interest. The method will look for images closest to this date.</p></li>
+</ul>
 </dd>
-<dt>date<span class="classifier">ee.Date | string</span></dt><dd><p>Date of interest. The method will look for images closest to this date.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Closest images to the specified date.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:    </dt><dd><dl class="simple">
-<dt>ee.ImageCollection</dt><dd><p>Closest images to the specified date.</p>
-</dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,55 +321,55 @@ This parameter is ignored for Landsat products.</p>
 <dt id="eemont.imagecollection.index">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/imagecollection.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p>
-<dl>
-<dt>Args:    </dt><dd><dl>
-<dt>self<span class="classifier">ee.ImageCollection</span></dt><dd><p>Image collection to compute indices on. Must be scaled to [0,1].</p>
-</dd>
-<dt>index<span class="classifier">string | list[string], default = ‘NDVI’</span></dt><dd><p>Index or list of indices to compute. Available options:</p>
-<ul class="simple">
-<li><p>‘vegetation’ : Compute all vegetation indices.</p></li>
-<li><p>‘burn’ : Compute all burn indices.</p></li>
-<li><p>‘water’ : Compute all water indices.</p></li>
-<li><p>‘all’ : Compute all indices listed below.</p></li>
-</ul>
-<p>Vegetation indices:</p>
-<ul class="simple">
-<li><p>‘BNDVI’ : Blue Normalized Difference Vegetation Index.</p></li>
-<li><p>‘CIG’ : Chlorophyll Index - Green.</p></li>
-<li><p>‘CVI’ : Chlorophyll Vegetation Index.</p></li>
-<li><p>‘EVI’ : Enhanced Vegetation Index.</p></li>
-<li><p>‘GNDVI’ : Green Normalized Difference Vegetation Index.</p></li>
-<li><p>‘NDVI’ : Normalized Difference Vegetation Index.</p></li>
-<li><p>‘NGRDI’ : Normalized Green Red Difference Index.</p></li>
-<li><p>‘SR’ : Simple Ratio.</p></li>
-<li><p>‘SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
-</ul>
-<p>Burn and fire indices:</p>
-<ul class="simple">
-<li><p>‘BAI’ : Burned Area Index.</p></li>
-<li><p>‘BAIS2’ : Burned Area Index for Sentinel 2.</p></li>
-<li><p>‘NBR’ : Normalized Burn Ratio.</p></li>
-</ul>
-<p>Water indices:</p>
-<ul class="simple">
-<li><p>‘MNDWI’ : Modified Normalized Difference Water Index.</p></li>
-<li><p>‘NDWI’ : Normalized Difference Water Index.</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em>) – Image collection to compute indices on. Must be scaled to [0,1].</p></li>
+<li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’vegetation’ : Compute all vegetation indices.</p></li>
+<li><p>’burn’ : Compute all burn indices.</p></li>
+<li><p>’water’ : Compute all water indices.</p></li>
+<li><p>’all’ : Compute all indices listed below.</p></li>
 </ul>
 </dd>
-<dt>G<span class="classifier">float, default = 2.5</span></dt><dd><p>Gain factor. Used just for index = ‘EVI’.</p>
+<dt>Vegetation indices:</dt><dd><ul>
+<li><p>’BNDVI’ : Blue Normalized Difference Vegetation Index.</p></li>
+<li><p>’CIG’ : Chlorophyll Index - Green.</p></li>
+<li><p>’CVI’ : Chlorophyll Vegetation Index.</p></li>
+<li><p>’EVI’ : Enhanced Vegetation Index.</p></li>
+<li><p>’GNDVI’ : Green Normalized Difference Vegetation Index.</p></li>
+<li><p>’NDVI’ : Normalized Difference Vegetation Index.</p></li>
+<li><p>’NGRDI’ : Normalized Green Red Difference Index.</p></li>
+<li><p>’SR’ : Simple Ratio.</p></li>
+<li><p>’SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
+</ul>
 </dd>
-<dt>C1<span class="classifier">float, default = 6.0</span></dt><dd><p>Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p>
+<dt>Burn and fire indices:</dt><dd><ul>
+<li><p>’BAI’ : Burned Area Index.</p></li>
+<li><p>’BAIS2’ : Burned Area Index for Sentinel 2.</p></li>
+<li><p>’NBR’ : Normalized Burn Ratio.</p></li>
+</ul>
 </dd>
-<dt>C2<span class="classifier">float, default = 7.5</span></dt><dd><p>Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p>
-</dd>
-<dt>L<span class="classifier">float, default = 1.0</span></dt><dd><p>Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p>
+<dt>Water indices:</dt><dd><ul>
+<li><p>’MNDWI’ : Modified Normalized Difference Water Index.</p></li>
+<li><p>’NDWI’ : Normalized Difference Water Index.</p></li>
+</ul>
 </dd>
 </dl>
+</p></li>
+<li><p><strong>G</strong> (<em>float</em><em>, </em><em>default = 2.5</em>) – Gain factor. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C1</strong> (<em>float</em><em>, </em><em>default = 6.0</em>) – Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C2</strong> (<em>float</em><em>, </em><em>default = 7.5</em>) – Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em>, </em><em>default = 1.0</em>) – Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p></li>
+</ul>
 </dd>
-<dt>Returns:    </dt><dd><dl class="simple">
-<dt>ee.ImageCollection</dt><dd><p>Image collection with the computed spectral index, or indices, as new bands.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Image collection with the computed spectral index, or indices, as new bands.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
 </dd>
 </dl>
 </dd></dl>
@@ -256,10 +378,12 @@ This parameter is ignored for Landsat products.</p>
 <dt id="eemont.imagecollection.maskClouds">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">maskClouds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'cloud_prob'</span></em>, <em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">60</span></em>, <em class="sig-param"><span class="n">maskCirrus</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">maskShadows</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scaledImage</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">dark</span><span class="o">=</span><span class="default_value">0.15</span></em>, <em class="sig-param"><span class="n">cloudDist</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">buffer</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cdi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/imagecollection.html#maskClouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.maskClouds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p>
-<dl>
-<dt>Args:    </dt><dd><dl>
-<dt>self<span class="classifier">ee.ImageCollection (this)</span></dt><dd><p>Image collection to mask. Accepted platforms:</p>
-<ul class="simple">
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – <p>Image collection to mask.</p>
+<dl class="simple">
+<dt>Accepted platforms:</dt><dd><ul>
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -267,39 +391,37 @@ This parameter is ignored for Landsat products.</p>
 <li><p>Landsat 4</p></li>
 </ul>
 </dd>
-<dt>method<span class="classifier">string, default = ‘cloud_prob’</span></dt><dd><ul class="simple">
-<li><p>‘cloud_prob’ : Use cloud probability. Valid just for Sentinel-2.</p></li>
-<li><p>‘qa’ : Use Quality Assessment band. Valid just for Sentinel-2.</p></li>
+</dl>
+</p></li>
+<li><p><strong>method</strong> (<em>string</em><em>, </em><em>default = 'cloud_prob'</em>) – <p>Method used to mask clouds.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’cloud_prob’ : Use cloud probability.</p></li>
+<li><p>’qa’ : Use Quality Assessment band.</p></li>
 </ul>
+</dd>
+</dl>
 <p>This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>prob<span class="classifier">numeric [0, 100], default = 60</span></dt><dd><p>Cloud probability threshold. Valid just for method = ‘prob’. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>maskCirrus<span class="classifier">boolean, default = True</span></dt><dd><p>Whether to mask cirrus clouds. Valid just for method = ‘qa’. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>maskShadows<span class="classifier">boolean, default = True</span></dt><dd><p>Whether to mask cloud shadows.</p>
-<p>For more info see ‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’.</p>
-</dd>
-<dt>scaledImage<span class="classifier">boolean, default = False</span></dt><dd><p>Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>dark<span class="classifier">float [0,1], default = 0.15</span></dt><dd><p>NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>cloudDist<span class="classifier">int, default = 1000</span></dt><dd><p>Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>buffer<span class="classifier">int, default = 250</span></dt><dd><p>Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</p>
-</dd>
-<dt>cdi<span class="classifier">float [-1,1], default = None</span></dt><dd><p>Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
+</p></li>
+<li><p><strong>prob</strong> (<em>numeric</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>default = 60</em>) – Cloud probability threshold. Valid just for method = ‘prob’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskCirrus</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cirrus clouds. Valid just for method = ‘qa’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskShadows</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cloud shadows. For more info see ‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’.</p></li>
+<li><p><strong>scaledImage</strong> (<em>boolean</em><em>, </em><em>default = False</em>) – Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>dark</strong> (<em>float</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = 0.15</em>) – NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cloudDist</strong> (<em>int</em><em>, </em><em>default = 1000</em>) – Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>buffer</strong> (<em>int</em><em>, </em><em>default = 250</em>) – Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cdi</strong> (<em>float</em><em> [</em><em>-1</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = None</em>) – Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
 A cdi = None means that the index is not used. For more info see
 ‘Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
 Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481’.
-This parameter is ignored for Landsat products.</p>
+This parameter is ignored for Landsat products.</p></li>
+</ul>
 </dd>
-</dl>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cloud-shadow masked image collection.</p>
 </dd>
-<dt>Returns:    </dt><dd><dl class="simple">
-<dt>ee.ImageCollection</dt><dd><p>Cloud-shadow masked image collection.</p>
-</dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
 </dd>
 </dl>
 </dd></dl>
@@ -309,10 +431,11 @@ This parameter is ignored for Landsat products.</p>
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/imagecollection.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images
 (except for MSK_CLDPRB and MSK_SNWPRB bands that are excluded from the image collection).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – <p>Image collection to scale.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>self<span class="classifier">ee.ImageCollection (this)</span></dt><dd><p>Image collection to scale. Accepted platforms:</p>
-<ul class="simple">
+<dt>Accepted platforms:</dt><dd><ul class="simple">
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -321,83 +444,66 @@ This parameter is ignored for Landsat products.</p>
 </ul>
 </dd>
 </dl>
+</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>ee.ImageCollection</dt><dd><p>Scaled image collection.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Scaled image collection.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
+<div class="section" id="module-eemont">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eemont" title="Permalink to this headline">¶</a></h2>
+<p>The eemont python package.</p>
+</div>
 </div>
 
 
+           </div>
+           
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">eemont</a></h1>
 
+    </section>
 
+  </div>
+  
 
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">eemont</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, David Montero Loaiza.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/.ipynb_checkpoints/eemont-checkpoint.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
+  
+  
     
+   
 
-    
-  </body>
+</body>
 </html>

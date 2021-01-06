@@ -1,24 +1,18 @@
-eemont Package
-==================================
+eemont
+======
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :hidden:
    
    modules
-
-
 
 Guide
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
-
-
-eemont
-========
 
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
@@ -45,10 +39,49 @@ And just like that, the collection was pre-processed and processed!
 Features
 --------
 
+The following features are extended to Google Earth Engine thorugh eemont:
+
 - Clouds and shadows masking
 - Image scaling
 - Spectral indices calculation (vegetation, burn and water indices)
 - Closest images to a specific date
+
+These features extends both ee.Image and ee.ImageCollection classes:
+
+ee.Image
+~~~~~~~~
+
+.. currentmodule:: eemont.image
+
+.. autosummary::
+
+   index
+   maskClouds
+   scale
+   
+ee.ImageCollection
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.imagecollection
+.. autosummary::
+
+   closest 
+   index
+   maskClouds
+   scale
+
+Satellite Platforms
+------------------------
+
+Some methods, like :code:`.maskClouds()` or :code:`.index()`, only accept specific platforms. The accepted platforms for all methods are:
+
+- Sentinel 2
+- Landsat 8
+- Landsat 7
+- Landsat 5
+- Landsat 4
+
+The method :code:`.closest()` accepts any image collection.
 
 Installation
 ------------

@@ -1,35 +1,155 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>eemont.image &mdash; eemont v0.1.4-beta documentation</title>
+  
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eemont.image &#8212; eemont v0.1.2-beta documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="../../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">eemont</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>eemont.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <h1>Source code for eemont.image</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
@@ -41,13 +161,15 @@
 <span class="k">def</span> <span class="nf">_get_platform</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Gets the platform (satellite) of an image and wheter if it is a Surface Reflectance product.</span>
 <span class="sd">    </span>
-<span class="sd">    Args:    </span>
-<span class="sd">        img : ee.Image</span>
-<span class="sd">            Image to get platform.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : ee.Image [this]</span>
+<span class="sd">        Image to get platform.</span>
 <span class="sd">        </span>
-<span class="sd">    Returns:    </span>
-<span class="sd">        dict</span>
-<span class="sd">            Platform and product of the image.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Platform and product of the image.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">platforms</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">,</span>
@@ -74,16 +196,18 @@
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image.</span>
 <span class="sd">    </span>
-<span class="sd">    Args:    </span>
-<span class="sd">        self : ee.Image</span>
-<span class="sd">            Image to compute indices on. Must be scaled to [0,1].</span>
-<span class="sd">        index : string | list[string], default = &#39;NDVI&#39;</span>
-<span class="sd">            Index or list of indices to compute. Available options:\n</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    self : ee.Image [this]</span>
+<span class="sd">        Image to compute indices on. Must be scaled to [0,1].</span>
+<span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
+<span class="sd">        Index or list of indices to compute.\n</span>
+<span class="sd">        Available options:</span>
 <span class="sd">            - &#39;vegetation&#39; : Compute all vegetation indices.</span>
 <span class="sd">            - &#39;burn&#39; : Compute all burn indices.</span>
 <span class="sd">            - &#39;water&#39; : Compute all water indices.</span>
-<span class="sd">            - &#39;all&#39; : Compute all indices listed below.\n</span>
-<span class="sd">            Vegetation indices:\n </span>
+<span class="sd">            - &#39;all&#39; : Compute all indices listed below.</span>
+<span class="sd">        Vegetation indices:</span>
 <span class="sd">            - &#39;BNDVI&#39; : Blue Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;CIG&#39; : Chlorophyll Index - Green.</span>
 <span class="sd">            - &#39;CVI&#39; : Chlorophyll Vegetation Index.</span>
@@ -92,26 +216,27 @@
 <span class="sd">            - &#39;NDVI&#39; : Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.        </span>
 <span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
-<span class="sd">            - &#39;SR&#39; : Simple Ratio.\n</span>
-<span class="sd">            Burn and fire indices:\n      </span>
+<span class="sd">            - &#39;SR&#39; : Simple Ratio.</span>
+<span class="sd">        Burn and fire indices:     </span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
-<span class="sd">            - &#39;NBR&#39; : Normalized Burn Ratio.\n</span>
-<span class="sd">            Water indices:\n             </span>
+<span class="sd">            - &#39;NBR&#39; : Normalized Burn Ratio.</span>
+<span class="sd">        Water indices:            </span>
 <span class="sd">            - &#39;MNDWI&#39; : Modified Normalized Difference Water Index.</span>
 <span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index.        </span>
-<span class="sd">        G : float, default = 2.5</span>
-<span class="sd">            Gain factor. Used just for index = &#39;EVI&#39;.</span>
-<span class="sd">        C1 : float, default = 6.0</span>
-<span class="sd">            Coefficient 1 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
-<span class="sd">        C2 : float, default = 7.5</span>
-<span class="sd">            Coefficient 2 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
-<span class="sd">        L : float, default = 1.0</span>
-<span class="sd">            Canopy background adjustment. Used just for index = [&#39;EVI&#39;,&#39;SAVI&#39;].</span>
+<span class="sd">    G : float, default = 2.5</span>
+<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;.</span>
+<span class="sd">    C1 : float, default = 6.0</span>
+<span class="sd">        Coefficient 1 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
+<span class="sd">    C2 : float, default = 7.5</span>
+<span class="sd">        Coefficient 2 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
+<span class="sd">    L : float, default = 1.0</span>
+<span class="sd">        Canopy background adjustment. Used just for index = [&#39;EVI&#39;,&#39;SAVI&#39;].</span>
 <span class="sd">        </span>
-<span class="sd">    Returns:    </span>
-<span class="sd">        ee.Image</span>
-<span class="sd">            Image with the computed spectral index, or indices, as new bands.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image</span>
+<span class="sd">        Image with the computed spectral index, or indices, as new bands.</span>
 <span class="sd">    &#39;&#39;&#39;</span>  
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
@@ -280,42 +405,46 @@
 <span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image (valid just for Surface Reflectance products).</span>
 <span class="sd">    </span>
-<span class="sd">    Args:    </span>
-<span class="sd">        self : ee.Image (this)</span>
-<span class="sd">            Image to mask. Accepted platforms:\n</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    self : ee.Image [this]</span>
+<span class="sd">        Image to mask.\n</span>
+<span class="sd">        Accepted platforms:</span>
 <span class="sd">            - Sentinel-2</span>
 <span class="sd">            - Landsat 8</span>
 <span class="sd">            - Landsat 7</span>
 <span class="sd">            - Landsat 5</span>
 <span class="sd">            - Landsat 4</span>
-<span class="sd">        method : string, default = &#39;cloud_prob&#39;</span>
-<span class="sd">            - &#39;cloud_prob&#39; : Use cloud probability. Valid just for Sentinel-2.</span>
-<span class="sd">            - &#39;qa&#39; : Use Quality Assessment band. Valid just for Sentinel-2.\n</span>
-<span class="sd">            This parameter is ignored for Landsat products.</span>
-<span class="sd">        prob : numeric [0, 100], default = 60</span>
-<span class="sd">            Cloud probability threshold. Valid just for method = &#39;prob&#39;. This parameter is ignored for Landsat products.</span>
-<span class="sd">        maskCirrus : boolean, default = True</span>
-<span class="sd">            Whether to mask cirrus clouds. Valid just for method = &#39;qa&#39;. This parameter is ignored for Landsat products.</span>
-<span class="sd">        maskShadows : boolean, default = True</span>
-<span class="sd">            Whether to mask cloud shadows. \n</span>
-<span class="sd">            For more info see &#39;Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials&#39;.</span>
-<span class="sd">        scaledImage : boolean, default = False</span>
-<span class="sd">            Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</span>
-<span class="sd">        dark : float [0,1], default = 0.15</span>
-<span class="sd">            NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</span>
-<span class="sd">        cloudDist : int, default = 1000</span>
-<span class="sd">            Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</span>
-<span class="sd">        buffer : int, default = 250</span>
-<span class="sd">            Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</span>
-<span class="sd">        cdi : float [-1,1], default = None</span>
-<span class="sd">            Cloud Displacement Index threshold. Values below this threshold are considered potential clouds. </span>
-<span class="sd">            A cdi = None means that the index is not used. For more info see &#39;Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:</span>
-<span class="sd">            Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481&#39;.</span>
-<span class="sd">            This parameter is ignored for Landsat products.</span>
+<span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
+<span class="sd">        Method used to mask clouds.\n</span>
+<span class="sd">        Available options:</span>
+<span class="sd">            - &#39;cloud_prob&#39; : Use cloud probability.</span>
+<span class="sd">            - &#39;qa&#39; : Use Quality Assessment band.</span>
+<span class="sd">        This parameter is ignored for Landsat products.</span>
+<span class="sd">    prob : numeric [0, 100], default = 60</span>
+<span class="sd">        Cloud probability threshold. Valid just for method = &#39;prob&#39;. This parameter is ignored for Landsat products.</span>
+<span class="sd">    maskCirrus : boolean, default = True</span>
+<span class="sd">        Whether to mask cirrus clouds. Valid just for method = &#39;qa&#39;. This parameter is ignored for Landsat products.</span>
+<span class="sd">    maskShadows : boolean, default = True</span>
+<span class="sd">        Whether to mask cloud shadows. For more info see &#39;Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials&#39;.</span>
+<span class="sd">    scaledImage : boolean, default = False</span>
+<span class="sd">        Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</span>
+<span class="sd">    dark : float [0,1], default = 0.15</span>
+<span class="sd">        NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</span>
+<span class="sd">    cloudDist : int, default = 1000</span>
+<span class="sd">        Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</span>
+<span class="sd">    buffer : int, default = 250</span>
+<span class="sd">        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</span>
+<span class="sd">    cdi : float [-1,1], default = None</span>
+<span class="sd">        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds. </span>
+<span class="sd">        A cdi = None means that the index is not used. For more info see &#39;Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:</span>
+<span class="sd">        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481&#39;.</span>
+<span class="sd">        This parameter is ignored for Landsat products.</span>
 <span class="sd">        </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        ee.Image</span>
-<span class="sd">            Cloud-shadow masked image.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image</span>
+<span class="sd">        Cloud-shadow masked image.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">S2</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>    
 
@@ -412,21 +541,24 @@
 
 <div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../eemont.html#eemont.image.scale">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands\n</span>
+    <span class="sd">&#39;&#39;&#39;Scales reflectance bands on an image. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands </span>
 <span class="sd">    that are excluded from the image).</span>
 <span class="sd">    </span>
-<span class="sd">    Args:    </span>
-<span class="sd">        self : ee.Image (this)</span>
-<span class="sd">            Image to scale. Accepted platforms:\n</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    self : ee.Image [this]</span>
+<span class="sd">        Image to scale. \n</span>
+<span class="sd">        Accepted platforms:</span>
 <span class="sd">            - Sentinel-2</span>
 <span class="sd">            - Landsat 8</span>
 <span class="sd">            - Landsat 7</span>
 <span class="sd">            - Landsat 5</span>
 <span class="sd">            - Landsat 4</span>
 <span class="sd">        </span>
-<span class="sd">    Returns:    </span>
-<span class="sd">        ee.Image</span>
-<span class="sd">            Scaled image.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image</span>
+<span class="sd">        Scaled image.</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">def</span> <span class="nf">S2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
         <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>      
@@ -470,69 +602,47 @@
     <span class="k">return</span> <span class="n">scaledImage</span></div>
 </pre></div>
 
+           </div>
+           
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">eemont</a></h1>
 
+    </section>
 
+  </div>
+  
 
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules.html">eemont</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../index.html">Module code</a><ul>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, David Montero Loaiza.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-    </div>
-
+  
+  
     
+   
 
-    
-  </body>
+</body>
 </html>

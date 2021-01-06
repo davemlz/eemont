@@ -1,10 +1,7 @@
-eemont package
-==============
+eemont
+======
 
-Submodules
-----------
-
-eemont.image module
+Image Module
 -------------------
 
 .. automodule:: eemont.image
@@ -12,7 +9,7 @@ eemont.image module
    :undoc-members:
    :show-inheritance:
 
-eemont.imagecollection module
+Image Collection Module
 -----------------------------
 
 .. automodule:: eemont.imagecollection

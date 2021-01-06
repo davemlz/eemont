@@ -34,7 +34,11 @@ Features
 Installation
 ------------
 
-Install the eemont development version by running:
+Install the latest eemont version from PyPI:
+
+    pip install eemont
+
+Or install the eemont development version by running:
 
     pip install git+https://github.com/davemlz/eemont
 

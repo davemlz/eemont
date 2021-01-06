@@ -86,6 +86,10 @@ The method :code:`.closest()` accepts any image collection.
 Installation
 ------------
 
+Install the latest eemont version from PyPI by running:
+
+    pip install eemont
+
 Install the eemont development version by running:
 
     pip install git+https://github.com/davemlz/eemont

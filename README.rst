@@ -10,6 +10,9 @@ eemont
 .. image:: https://img.shields.io/badge/Documentation-0.1.6-green.svg
         :target: https://eemont.readthedocs.io/en/0.1.6/index.html
 
+.. image:: https://img.shields.io/badge/Donate-buymeacoffee-yellow.svg
+        :target: https://www.buymeacoffee.com/davemlz
+
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:

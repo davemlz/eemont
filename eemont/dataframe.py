@@ -15,9 +15,9 @@ def toFeatureCollection(self,latitude = None,longitude = None):
     self : pd.DataFrame [this]
         Data Frame to convert into a Feature Collection.
     latitude : string
-        Name of a latitude column, if available. Coupled with a longitude column, an ee.Geometry.Point is created and associated to the each Feature.
+        Name of a latitude column, if available. Coupled with a longitude column, an ee.Geometry.Point is created and associated to each Feature.
     longitude : string
-        Name of a longitude column, if available. Coupled with a latitude column, an ee.Geometry.Point is created and associated to the each Feature.
+        Name of a longitude column, if available. Coupled with a latitude column, an ee.Geometry.Point is created and associated to each Feature.
         
     Returns
     -------    

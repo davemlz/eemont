@@ -45,38 +45,6 @@ The following features are extended to Google Earth Engine thorugh eemont:
 - Spectral indices calculation (vegetation, burn and water indices)
 - Closest images to a specific date
 
-These features extends both ee.Image and ee.ImageCollection classes:
-
-ee.Image
-~~~~~~~~
-
-.. currentmodule:: eemont.image
-
-.. autosummary::
-
-   index
-   maskClouds
-   scale
-   
-ee.ImageCollection
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. currentmodule:: eemont.imagecollection
-.. autosummary::
-
-   closest 
-   index
-   maskClouds
-   scale
-   
-pd.DataFrame
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. currentmodule:: eemont.dataframe
-.. autosummary::
-
-   toFeatureCollection
-
 Satellite Platforms
 ------------------------
 

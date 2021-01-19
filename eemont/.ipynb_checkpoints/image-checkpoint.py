@@ -1,4 +1,5 @@
 import ee
+import warnings
 
 def _extend_eeImage():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -18,6 +19,7 @@ def _get_platform(img):
         Platform and product of the image.
     '''
     platforms = [
+        'COPERNICUS/S3',
         'COPERNICUS/S2',
         'LANDSAT/LC08',
         'LANDSAT/LE07',
@@ -36,6 +38,9 @@ def _get_platform(img):
         else:
             platformDict = {'platform': plt, 'sr': False}
             
+    if platformDict['platform'] is None:
+        raise Exception("Sorry, satellital platform not supported!")
+            
     return platformDict
 
 @_extend_eeImage()
@@ -45,7 +50,13 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to compute indices on. Must be scaled to [0,1].
+        Image to compute indices on. Must be scaled to [0,1].\n
+        Supported platforms:
+            - Sentinel-2
+            - Landsat 8
+            - Landsat 7
+            - Landsat 5
+            - Landsat 4
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:
@@ -147,6 +158,9 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             'LANDSAT/LT05': lookupL457,
             'LANDSAT/LT04': lookupL457
         }
+        
+        if platformDict['platform'] not in list(lookupPlatform.keys()):
+            raise Exception("Sorry, satellital platform not supported for index computation!")
         
         return lookupPlatform[platformDict['platform']](img)
     
@@ -255,7 +269,7 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     ----------    
     self : ee.Image [this]
         Image to mask.\n
-        Accepted platforms:
+        Supported platforms:
             - Sentinel-2
             - Landsat 8
             - Landsat 7
@@ -380,6 +394,12 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         'LANDSAT/LT04': L457
     }
     
+    if platformDict['platform'] not in list(lookup.keys()):
+        raise Exception("Sorry, satellital platform not supported for cloud masking!")
+        
+    if not platformDict['sr']:
+        raise Exception("Sorry, cloud masking is only available for Surface Reflectance products!")
+    
     platformDict = _get_platform(self)    
     maskedImage = lookup[platformDict['platform']](self)    
     
@@ -394,7 +414,7 @@ def scale(self):
     ----------    
     self : ee.Image [this]
         Image to scale. \n
-        Accepted platforms:
+        Supported platforms:
             - Sentinel-2
             - Landsat 8
             - Landsat 7
@@ -405,7 +425,34 @@ def scale(self):
     -------
     ee.Image
         Scaled image.
-    '''    
+    '''
+    def S3(img):
+        scalars = [
+            0.0139465,
+            0.0133873,
+            0.0121481,
+            0.0115198,
+            0.0100953,
+            0.0123538,
+            0.00879161,
+            0.00876539,
+            0.0095103,
+            0.00773378,
+            0.00675523,
+            0.0071996,
+            0.00749684,
+            0.0086512,
+            0.00526779,
+            0.00530267,
+            0.00493004,
+            0.00549962,
+            0.00502847,
+            0.00326378,
+            0.00324118
+        ]
+        scaled = img.select(['Oa.*']).multiply(scalars).addBands(img.select('quality_flags'))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
     def S2(img):
         scaled = img.select(['B.*']).divide(1e4)      
         scaled = scaled.addBands(img.select(['Q.*']))
@@ -422,6 +469,7 @@ def scale(self):
             scaled = scaled.addBands(img.select(['sr_aerosol','pixel_qa','radsat_qa']))
             return ee.Image(scaled.copyProperties(img,img.propertyNames()))
         else:
+            warnings.warn("TOA reflectance for Landsat 8 is already scaled!",Warning)
             pass
         
     def L457(img):               
@@ -432,9 +480,11 @@ def scale(self):
             scaled = scaled.addBands(img.select(['sr_cloud_qa','pixel_qa','radsat_qa']))
             return ee.Image(scaled.copyProperties(img,img.propertyNames()))
         else:
+            warnings.warn("TOA reflectance for Landsat 4, 5 and 7 is already scaled!",Warning)
             pass
     
     lookup = {
+        'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
         'LANDSAT/LC08': L8,
         'LANDSAT/LE07': L457,
@@ -443,6 +493,10 @@ def scale(self):
     }
     
     platformDict = _get_platform(self)    
+    
+    if platformDict['platform'] not in list(lookup.keys()):
+        raise Exception("Sorry, satellital platform not supported for scaling!")
+    
     scaledImage = lookup[platformDict['platform']](self)
     
     return scaledImage

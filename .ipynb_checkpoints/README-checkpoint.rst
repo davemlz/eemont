@@ -10,6 +10,9 @@ eemont
 .. image:: https://img.shields.io/badge/Documentation-0.1.6-green.svg
         :target: https://eemont.readthedocs.io/en/0.1.6/index.html
 
+.. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
+        :target: https://www.buymeacoffee.com/davemlz
+
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:
@@ -30,24 +33,71 @@ Look at this simple example where a Sentinel2 collection is pre-processed and pr
        .scale() # Extended (pre-processing)
        .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
 
-And just like that, the collection was pre-processed and processed! 
+And just like that, the collection was pre-processed and processed!
 
 Features
 --------
+
+The following features are extended to Google Earth Engine thorugh eemont:
 
 - Clouds and shadows masking
 - Image scaling
 - Spectral indices calculation (vegetation, burn and water indices)
 - Closest images to a specific date
 
+These features extends both ee.Image and ee.ImageCollection classes:
+
+ee.Image
+~~~~~~~~
+
+.. currentmodule:: eemont.image
+
+.. autosummary::
+
+   index
+   maskClouds
+   scale
+   
+ee.ImageCollection
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.imagecollection
+.. autosummary::
+
+   closest 
+   index
+   maskClouds
+   scale
+   
+pd.DataFrame
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.dataframe
+.. autosummary::
+
+   toFeatureCollection
+
+Satellite Platforms
+------------------------
+
+Some methods, like :code:`.maskClouds()` or :code:`.index()`, only support specific platforms. The supported platforms for all methods are:
+
+- Sentinel 2
+- Landsat 8
+- Landsat 7
+- Landsat 5
+- Landsat 4
+
+The method :code:`.closest()` supports any image collection.
+
 Installation
 ------------
 
-Install the latest eemont version from PyPI:
+Install the latest eemont version from PyPI by running:
 
     pip install eemont
 
-Or install the eemont development version by running:
+Install the eemont development version by running:
 
     pip install git+https://github.com/davemlz/eemont
 

@@ -102,7 +102,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'MNDWI' : Modified Normalized Difference Water Index.
             - 'NDWI' : Normalized Difference Water Index.        
     G : float, default = 2.5
-        Gain factor. Used just for index = 'EVI'.
+        Gain factor. Used just for index = 'EVI'. 
     C1 : float, default = 6.0
         Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
     C2 : float, default = 7.5

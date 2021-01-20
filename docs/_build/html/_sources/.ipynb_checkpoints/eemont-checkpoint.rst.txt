@@ -1,7 +1,7 @@
 eemont
 ======
 
-Image Module
+ee.Image
 -------------------
 
 .. automodule:: eemont.image
@@ -9,10 +9,18 @@ Image Module
    :undoc-members:
    :show-inheritance:
 
-Image Collection Module
+ee.ImageCollection
 -----------------------------
 
 .. automodule:: eemont.imagecollection
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   
+pd.DataFrame
+-----------------------------
+
+.. automodule:: eemont.dataframe
    :members:
    :undoc-members:
    :show-inheritance:

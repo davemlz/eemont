@@ -70,6 +70,16 @@ ee.ImageCollection
    maskClouds
    scale
 
+Non-Earth Engine classes such as pd.DataFrame are also extended:
+
+pd.DataFrame
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.dataframe
+.. autosummary::
+
+   toFeatureCollection   
+
 Satellite Platforms
 ------------------------
 

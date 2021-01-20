@@ -87,8 +87,9 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">eemont</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont.image">Image Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont.imagecollection">Image Collection Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-eemont.image">ee.Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-eemont.imagecollection">ee.ImageCollection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-eemont.dataframe">pd.DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-eemont">Module contents</a></li>
 </ul>
 </li>
@@ -162,7 +163,7 @@
   <div class="section" id="eemont">
 <h1>eemont<a class="headerlink" href="#eemont" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-eemont.image">
-<span id="image-module"></span><h2>Image Module<a class="headerlink" href="#module-eemont.image" title="Permalink to this headline">¶</a></h2>
+<span id="ee-image"></span><h2>ee.Image<a class="headerlink" href="#module-eemont.image" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="eemont.image.index">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/image.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.index" title="Permalink to this definition">¶</a></dt>
@@ -170,7 +171,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to compute indices on. Must be scaled to [0,1].</p></li>
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to compute indices on. Must be scaled to [0,1].</p>
+<dl class="simple">
+<dt>Supported platforms:</dt><dd><ul>
+<li><p>Sentinel-2</p></li>
+<li><p>Landsat 8</p></li>
+<li><p>Landsat 7</p></li>
+<li><p>Landsat 5</p></li>
+<li><p>Landsat 4</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
 <li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -229,7 +241,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to mask.</p>
 <dl class="simple">
-<dt>Accepted platforms:</dt><dd><ul>
+<dt>Supported platforms:</dt><dd><ul>
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -280,7 +292,7 @@ that are excluded from the image).</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to scale.</p>
 <dl class="simple">
-<dt>Accepted platforms:</dt><dd><ul class="simple">
+<dt>Supported platforms:</dt><dd><ul class="simple">
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -302,7 +314,7 @@ that are excluded from the image).</p>
 
 </div>
 <div class="section" id="module-eemont.imagecollection">
-<span id="image-collection-module"></span><h2>Image Collection Module<a class="headerlink" href="#module-eemont.imagecollection" title="Permalink to this headline">¶</a></h2>
+<span id="ee-imagecollection"></span><h2>ee.ImageCollection<a class="headerlink" href="#module-eemont.imagecollection" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="eemont.imagecollection.closest">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">closest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#closest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.closest" title="Permalink to this definition">¶</a></dt>
@@ -330,7 +342,18 @@ that are excluded from the image).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.ImageCollection</em>) – Image collection to compute indices on. Must be scaled to [0,1].</p></li>
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em>) – <p>Image collection to compute indices on. Must be scaled to [0,1].</p>
+<dl class="simple">
+<dt>Supported platforms:</dt><dd><ul>
+<li><p>Sentinel-2</p></li>
+<li><p>Landsat 8</p></li>
+<li><p>Landsat 7</p></li>
+<li><p>Landsat 5</p></li>
+<li><p>Landsat 4</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
 <li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -441,7 +464,8 @@ This parameter is ignored for Landsat products.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – <p>Image collection to scale.</p>
 <dl class="simple">
-<dt>Accepted platforms:</dt><dd><ul class="simple">
+<dt>Supported platforms:</dt><dd><ul class="simple">
+<li><p>Sentinel-3</p></li>
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -457,6 +481,31 @@ This parameter is ignored for Landsat products.</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ee.ImageCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-eemont.dataframe">
+<span id="pd-dataframe"></span><h2>pd.DataFrame<a class="headerlink" href="#module-eemont.dataframe" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="eemont.dataframe.toFeatureCollection">
+<code class="sig-prename descclassname">eemont.dataframe.</code><code class="sig-name descname">toFeatureCollection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">latitude</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">longitude</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/dataframe.html#toFeatureCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.dataframe.toFeatureCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection
+with an associated geometry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>pd.DataFrame</em><em> [</em><em>this</em><em>]</em>) – Data Frame to convert into a Feature Collection.</p></li>
+<li><p><strong>latitude</strong> (<em>string</em>) – Name of a latitude column, if available. Coupled with a longitude column, an ee.Geometry.Point is created and associated to each Feature.</p></li>
+<li><p><strong>longitude</strong> (<em>string</em>) – Name of a longitude column, if available. Coupled with a latitude column, an ee.Geometry.Point is created and associated to each Feature.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Data Frame converted into a Feature Collection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.FeatureCollection</p>
 </dd>
 </dl>
 </dd></dl>

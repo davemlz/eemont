@@ -31,7 +31,10 @@ def _get_platform(collection):
         'MODIS/006/MOD09GQ',
         'MODIS/006/MOD10A1',
         'MODIS/006/MOD11A1',
-        'MODIS/006/MOD09GA'
+        'MODIS/006/MOD09GA',
+        'MODIS/006/MODOCGA',
+        'MODIS/006/MOD14A1',
+        'MODIS/006/MCD43A1'
     ]
     
     imgID = collection.first().get('system:id').getInfo()
@@ -311,7 +314,7 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     ----------    
     self : ee.ImageCollection [this]
         Image collection to mask.\n
-        Accepted platforms:
+        Supported platforms:
             - Sentinel-2
             - Landsat 8
             - Landsat 7
@@ -570,6 +573,22 @@ def scale(self):
         scaled = scaled.addBands(img.select(['num_observations_1km','state_1km','gflags','orbit_pnt','granule_pnt','num_observations_500m','QC_500m','obscov_500m','iobs_res','q_scan']))
         return ee.Image(scaled.copyProperties(img,img.propertyNames()))
     
+    def MODOCGA(img):
+        scaled = img.select(['sur.*']).multiply(0.0001)  
+        scaled = scaled.addBands(img.select(['num_observations','orbit_pnt','granule_pnt']))
+        scaled = scaled.addBands(img.select(['QC.*']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD14A1(img):
+        scaled = img.select(['MaxFRP']).multiply(0.1)  
+        scaled = scaled.addBands(img.select(['FireMask','sample','QA']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MCD43A1(img):
+        scaled = img.select(['BRDF_Albedo_Parameters.*']).multiply(0.001)  
+        scaled = scaled.addBands(img.select(['BRDF_Albedo_Band.*']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
     lookup = {
         'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
@@ -582,13 +601,16 @@ def scale(self):
         'MODIS/006/MOD09GQ': MOD09GQ,
         'MODIS/006/MOD10A1': MOD10A1,
         'MODIS/006/MOD11A1': MOD11A1,
-        'MODIS/006/MOD09GA': MOD09GA
+        'MODIS/006/MOD09GA': MOD09GA,
+        'MODIS/006/MODOCGA': MODOCGA,
+        'MODIS/006/MOD14A1': MOD14A1,
+        'MODIS/006/MCD43A1': MCD43A1
     }
     
     platformDict = _get_platform(self)    
     
     if platformDict['platform'] not in list(lookup.keys()):
-        raise Exception("Sorry, satellital platform not supported for scaling!")
+        raise Exception("Sorry, satellite platform not supported for scaling!")
     
     scaledImageCollection = self.map(lookup[platformDict['platform']])
     

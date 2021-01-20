@@ -427,19 +427,16 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
 
 @_extend_eeImage()
 def scale(self):    
-    '''Scales reflectance bands on an image. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands 
-    that are excluded from the image).
+    '''Scales bands on an image.
     
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to scale. \n
-        Supported platforms:
-            - Sentinel-2
-            - Landsat 8
-            - Landsat 7
-            - Landsat 5
-            - Landsat 4
+        Image to scale. Supported platforms: 'COPERNICUS/S3', 'COPERNICUS/S2', 'COPERNICUS/S2_SR', 'LANDSAT/LC08', 'LANDSAT/LC08_SR',
+        'LANDSAT/LE07', 'LANDSAT/LE07_SR', 'LANDSAT/LT05', 'LANDSAT/LT05_SR', 'LANDSAT/LT04', 'LANDSAT/LT04_SR', 'MODIS/006/MCD43A4',
+        'MODIS/006/MCD43A3', 'MODIS/006/MOD09GQ', 'MODIS/006/MOD10A1', 'MODIS/006/MOD11A1', 'MODIS/006/MOD09GA', 'MODIS/006/MODOCGA',
+        'MODIS/006/MOD14A1', 'MODIS/006/MCD43A1', 'MODIS/006/MCD15A3H', 'MODIS/006/MOD09Q1', 'MODIS/006/MOD09A1', 'MODIS/006/MOD11A2', 'MODIS/006/MOD17A2H',
+        'MODIS/006/MOD16A2', 'MODIS/006/MOD13Q1', 'MODIS/006/MOD13A1', 'MODIS/006/MOD13A2', 'MODIS/061/MOD08_M3', 'MODIS/006/MOD17A3HGF'.
         
     Returns
     -------

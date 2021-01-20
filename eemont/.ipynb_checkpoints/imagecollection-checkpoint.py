@@ -34,7 +34,18 @@ def _get_platform(collection):
         'MODIS/006/MOD09GA',
         'MODIS/006/MODOCGA',
         'MODIS/006/MOD14A1',
-        'MODIS/006/MCD43A1'
+        'MODIS/006/MCD43A1',
+        'MODIS/006/MCD15A3H',
+        'MODIS/006/MOD09Q1',
+        'MODIS/006/MOD09A1',
+        'MODIS/006/MOD11A2',
+        'MODIS/006/MOD17A2H',
+        'MODIS/006/MOD16A2',
+        'MODIS/006/MOD13Q1',
+        'MODIS/006/MOD13A1',
+        'MODIS/006/MOD13A2',
+        'MODIS/061/MOD08_M3',
+        'MODIS/006/MOD17A3HGF'
     ]
     
     imgID = collection.first().get('system:id').getInfo()
@@ -589,6 +600,75 @@ def scale(self):
         scaled = scaled.addBands(img.select(['BRDF_Albedo_Band.*']))
         return ee.Image(scaled.copyProperties(img,img.propertyNames()))
     
+    def MCD15A3H(img):
+        scaled = img.select(['Fpar','FparStdDev']).multiply(0.01)  
+        scaled = scaled.addBands(img.select(['Lai','LaiStdDev']).multiply(0.1)) 
+        scaled = scaled.addBands(img.select(['FparLai_QC','FparExtra_QC']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD09Q1(img):
+        scaled = img.select(['sur.*']).divide(1e4)        
+        scaled = scaled.addBands(img.select(['State','QA']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD09A1(img):
+        scaled = img.select(['sur.*']).divide(1e4)
+        scaled = scaled.addBands(img.select(['SolarZenith','ViewZenith','RelativeAzimuth']).multiply(0.01)) 
+        scaled = scaled.addBands(img.select(['QA','StateQA','DayOfYear']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD11A2(img):
+        scaled = img.select(['LST.*']).multiply(0.02)
+        scaled = scaled.addBands(img.select(['Day_view_time','Night_view_time']).multiply(0.1)) 
+        scaled = scaled.addBands(img.select(['Emis.*']).multiply(0.002).add(0.49)) 
+        scaled = scaled.addBands(img.select(['Day_view_angl','Night_view_angl']).subtract(65))
+        scaled = scaled.addBands(img.select(['QC_Day','QC_Night','Clear_sky_days','Clear_sky_nights']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD17A2H(img):
+        scaled = img.select(['Gpp','PsnNet']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['Psn_QC']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD16A2(img):
+        scaled = img.select(['ET','PET']).multiply(0.1)
+        scaled = scaled.addBands(img.select(['LE','PLE']).multiply(0.0001))
+        scaled = scaled.addBands(img.select(['ET_QC']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD13Q1(img):
+        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
+        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
+        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD13A1(img):
+        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
+        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
+        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD13A2(img):
+        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
+        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
+        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD08_M3(img):
+        scaled = img.select(['Aerosol.*']).multiply(0.001)
+        scaled = scaled.addBands(img.select(['Cirrus.*']).multiply(0.0001))
+        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Log.*']).multiply(0.001))
+        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Mean_Uncertainty']).multiply(0.01))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def MOD17A3HGF(img):
+        scaled = img.select(['Npp']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['Npp_QC']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
     lookup = {
         'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
@@ -604,7 +684,18 @@ def scale(self):
         'MODIS/006/MOD09GA': MOD09GA,
         'MODIS/006/MODOCGA': MODOCGA,
         'MODIS/006/MOD14A1': MOD14A1,
-        'MODIS/006/MCD43A1': MCD43A1
+        'MODIS/006/MCD43A1': MCD43A1,
+        'MODIS/006/MCD15A3H': MCD15A3H,
+        'MODIS/006/MOD09Q1': MOD09Q1,
+        'MODIS/006/MOD09A1': MOD09A1,
+        'MODIS/006/MOD11A2': MOD11A2,
+        'MODIS/006/MOD17A2H': MOD17A2H,
+        'MODIS/006/MOD16A2': MOD16A2,
+        'MODIS/006/MOD13Q1': MOD13Q1,
+        'MODIS/006/MOD13A1': MOD13A1,
+        'MODIS/006/MOD13A2': MOD13A2,
+        'MODIS/061/MOD08_M3': MOD08_M3,
+        'MODIS/006/MOD17A3HGF': MOD17A3HGF
     }
     
     platformDict = _get_platform(self)    

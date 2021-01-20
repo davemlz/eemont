@@ -13,7 +13,7 @@ eemont
 .. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
         :target: https://www.buymeacoffee.com/davemlz
         
-.. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=black&right_color=lightgrey&left_text=Downloads
+.. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=lightgrey&left_text=Downloads
         :target: https://pepy.tech/project/eemont
 
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.

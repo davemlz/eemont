@@ -90,7 +90,7 @@ WVP bands must be multiplied by 0.001. This scaling is automatically done by the
 
    S2.scale()
 
-The *Scale* and *Offset* parameters vary according to the satellite platform and the :code:`scale()` method detect the platform and do the scaling according to its parameters.
+The *Scale* and *Offset* parameters vary according to the satellite platform and the :code:`scale()` method detects the platform and do the scaling according to its parameters.
 
 Let's take now the MOD11A2 product from MODIS. The LST_Day_1km and LST_Night_1km bands must be multiplied by 0.02, the Day_view_time and Night_view_time bands must be multiplied by 0.1,
 the Emis_31 and Emis_32 bands must be multiplied by 0.002 and added by 0.49, while the Day_view_angl and Night_view_angl bands must be added by -65. All of this scaling

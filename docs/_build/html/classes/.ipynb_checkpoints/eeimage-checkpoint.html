@@ -175,18 +175,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to compute indices on. Must be scaled to [0,1].</p>
-<dl class="simple">
-<dt>Supported platforms:</dt><dd><ul>
-<li><p>Sentinel-2</p></li>
-<li><p>Landsat 8</p></li>
-<li><p>Landsat 7</p></li>
-<li><p>Landsat 5</p></li>
-<li><p>Landsat 4</p></li>
-</ul>
-</dd>
-</dl>
-</p></li>
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices Computation.</p></li>
 <li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -243,18 +232,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to mask.</p>
-<dl class="simple">
-<dt>Supported platforms:</dt><dd><ul>
-<li><p>Sentinel-2</p></li>
-<li><p>Landsat 8</p></li>
-<li><p>Landsat 7</p></li>
-<li><p>Landsat 5</p></li>
-<li><p>Landsat 4</p></li>
-</ul>
-</dd>
-</dl>
-</p></li>
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows.</p></li>
 <li><p><strong>method</strong> (<em>string</em><em>, </em><em>default = 'cloud_prob'</em>) – <p>Method used to mask clouds.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -293,11 +271,7 @@ This parameter is ignored for Landsat products.</p></li>
 <dd><p>Scales bands on an image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to scale. Supported platforms: ‘COPERNICUS/S3’, ‘COPERNICUS/S2’, ‘COPERNICUS/S2_SR’, ‘LANDSAT/LC08’, ‘LANDSAT/LC08_SR’,
-‘LANDSAT/LE07’, ‘LANDSAT/LE07_SR’, ‘LANDSAT/LT05’, ‘LANDSAT/LT05_SR’, ‘LANDSAT/LT04’, ‘LANDSAT/LT04_SR’, ‘MODIS/006/MCD43A4’,
-‘MODIS/006/MCD43A3’, ‘MODIS/006/MOD09GQ’, ‘MODIS/006/MOD10A1’, ‘MODIS/006/MOD11A1’, ‘MODIS/006/MOD09GA’, ‘MODIS/006/MODOCGA’,
-‘MODIS/006/MOD14A1’, ‘MODIS/006/MCD43A1’, ‘MODIS/006/MCD15A3H’, ‘MODIS/006/MOD09Q1’, ‘MODIS/006/MOD09A1’, ‘MODIS/006/MOD11A2’, ‘MODIS/006/MOD17A2H’,
-‘MODIS/006/MOD16A2’, ‘MODIS/006/MOD13Q1’, ‘MODIS/006/MOD13A1’, ‘MODIS/006/MOD13A2’, ‘MODIS/061/MOD08_M3’, ‘MODIS/006/MOD17A3HGF’.</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to scale. Check the supported platforms in User Guide &gt; Image Scaling.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Scaled image.</p>

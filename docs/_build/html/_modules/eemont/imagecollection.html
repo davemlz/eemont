@@ -272,13 +272,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------     </span>
 <span class="sd">    self : ee.ImageCollection</span>
-<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1].\n</span>
-<span class="sd">        Supported platforms:</span>
-<span class="sd">            - Sentinel-2</span>
-<span class="sd">            - Landsat 8</span>
-<span class="sd">            - Landsat 7</span>
-<span class="sd">            - Landsat 5</span>
-<span class="sd">            - Landsat 4</span>
+<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices Computation.</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
 <span class="sd">        Index or list of indices to compute.\n</span>
 <span class="sd">        Available options:</span>
@@ -490,13 +484,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    self : ee.ImageCollection [this]</span>
-<span class="sd">        Image collection to mask.\n</span>
-<span class="sd">        Supported platforms:</span>
-<span class="sd">            - Sentinel-2</span>
-<span class="sd">            - Landsat 8</span>
-<span class="sd">            - Landsat 7</span>
-<span class="sd">            - Landsat 5</span>
-<span class="sd">            - Landsat 4</span>
+<span class="sd">        Image collection to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows.</span>
 <span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
 <span class="sd">        Method used to mask clouds.\n</span>
 <span class="sd">        Available options:</span>
@@ -529,6 +517,11 @@
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Cloud-shadow masked image collection.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">S3</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;quality_flags&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
     <span class="k">def</span> <span class="nf">S2</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>    
 
         <span class="k">def</span> <span class="nf">cloud_prob</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
@@ -609,21 +602,84 @@
         <span class="n">mask2</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">mask</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">min</span><span class="p">());</span>
         <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">Not</span><span class="p">())</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">mask2</span><span class="p">);</span>
     
+    <span class="k">def</span> <span class="nf">MOD09GA</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;state_1km&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">maskCirrus</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MCD15A3H</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;FparExtra_QC&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">maskCirrus</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD09Q1</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">maskCirrus</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD09A1</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;StateQA&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">maskCirrus</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD17A2H</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Psn_QC&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD16A2</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;ET_QC&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD13Q1A1</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SummaryQA&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">MOD13A2</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SummaryQA&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
     <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;COPERNICUS/S3&#39;</span><span class="p">:</span> <span class="n">S3</span><span class="p">,</span>
         <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">S2</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">L8</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">L457</span>
+        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">:</span> <span class="n">MOD09GA</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MCD15A3H&#39;</span><span class="p">:</span> <span class="n">MCD15A3H</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09Q1&#39;</span><span class="p">:</span> <span class="n">MOD09Q1</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09A1&#39;</span><span class="p">:</span> <span class="n">MOD09A1</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD17A2H&#39;</span><span class="p">:</span> <span class="n">MOD17A2H</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD16A2&#39;</span><span class="p">:</span> <span class="n">MOD16A2</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD13Q1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1A1</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD13A1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1A1</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span>
     <span class="p">}</span>
     
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for cloud masking!&quot;</span><span class="p">)</span>
-        
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;sr&#39;</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, cloud masking is only available for Surface Reflectance products!&quot;</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span>
         <span class="n">maskedImageCollection</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
@@ -639,11 +695,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
-<span class="sd">        Image collection to scale. Supported platforms: &#39;COPERNICUS/S3&#39;, &#39;COPERNICUS/S2&#39;, &#39;COPERNICUS/S2_SR&#39;, &#39;LANDSAT/LC08&#39;, &#39;LANDSAT/LC08_SR&#39;,</span>
-<span class="sd">        &#39;LANDSAT/LE07&#39;, &#39;LANDSAT/LE07_SR&#39;, &#39;LANDSAT/LT05&#39;, &#39;LANDSAT/LT05_SR&#39;, &#39;LANDSAT/LT04&#39;, &#39;LANDSAT/LT04_SR&#39;, &#39;MODIS/006/MCD43A4&#39;,</span>
-<span class="sd">        &#39;MODIS/006/MCD43A3&#39;, &#39;MODIS/006/MOD09GQ&#39;, &#39;MODIS/006/MOD10A1&#39;, &#39;MODIS/006/MOD11A1&#39;, &#39;MODIS/006/MOD09GA&#39;, &#39;MODIS/006/MODOCGA&#39;,</span>
-<span class="sd">        &#39;MODIS/006/MOD14A1&#39;, &#39;MODIS/006/MCD43A1&#39;, &#39;MODIS/006/MCD15A3H&#39;, &#39;MODIS/006/MOD09Q1&#39;, &#39;MODIS/006/MOD09A1&#39;, &#39;MODIS/006/MOD11A2&#39;, &#39;MODIS/006/MOD17A2H&#39;,</span>
-<span class="sd">        &#39;MODIS/006/MOD16A2&#39;, &#39;MODIS/006/MOD13Q1&#39;, &#39;MODIS/006/MOD13A1&#39;, &#39;MODIS/006/MOD13A2&#39;, &#39;MODIS/061/MOD08_M3&#39;, &#39;MODIS/006/MOD17A3HGF&#39;. </span>
+<span class="sd">        Image collection to scale. Check the supported platforms in User Guide &gt; Image Scaling.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>

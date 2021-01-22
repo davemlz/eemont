@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ee.ImageCollection &mdash; eemont 0.1.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pd.DataFrame" href="pddataframe.html" />
+    <link rel="prev" title="ee.Image" href="eeimage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eeimage.html">ee.Image</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ee.ImageCollection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/eeimagecollection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ee-imagecollection">
+<h1>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h1>
+<p>Extended methods for the ee.ImageCollection class:</p>
+<span class="target" id="module-eemont.imagecollection"></span><dl class="py function">
+<dt id="eemont.imagecollection.closest">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">closest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#closest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.closest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – Image Collection from which to get the closest image to the specified date.</p></li>
+<li><p><strong>date</strong> (<em>ee.Date | string</em>) – Date of interest. The method will look for images closest to this date.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Closest images to the specified date.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="eemont.imagecollection.index">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em>) – <p>Image collection to compute indices on. Must be scaled to [0,1].</p>
+<dl class="simple">
+<dt>Supported platforms:</dt><dd><ul>
+<li><p>Sentinel-2</p></li>
+<li><p>Landsat 8</p></li>
+<li><p>Landsat 7</p></li>
+<li><p>Landsat 5</p></li>
+<li><p>Landsat 4</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’vegetation’ : Compute all vegetation indices.</p></li>
+<li><p>’burn’ : Compute all burn indices.</p></li>
+<li><p>’water’ : Compute all water indices.</p></li>
+<li><p>’all’ : Compute all indices listed below.</p></li>
+</ul>
+</dd>
+<dt>Vegetation indices:</dt><dd><ul>
+<li><p>’BNDVI’ : Blue Normalized Difference Vegetation Index.</p></li>
+<li><p>’CIG’ : Chlorophyll Index - Green.</p></li>
+<li><p>’CVI’ : Chlorophyll Vegetation Index.</p></li>
+<li><p>’EVI’ : Enhanced Vegetation Index.</p></li>
+<li><p>’GNDVI’ : Green Normalized Difference Vegetation Index.</p></li>
+<li><p>’NDVI’ : Normalized Difference Vegetation Index.</p></li>
+<li><p>’NGRDI’ : Normalized Green Red Difference Index.</p></li>
+<li><p>’SR’ : Simple Ratio.</p></li>
+<li><p>’SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
+</ul>
+</dd>
+<dt>Burn and fire indices:</dt><dd><ul>
+<li><p>’BAI’ : Burned Area Index.</p></li>
+<li><p>’BAIS2’ : Burned Area Index for Sentinel 2.</p></li>
+<li><p>’NBR’ : Normalized Burn Ratio.</p></li>
+</ul>
+</dd>
+<dt>Water indices:</dt><dd><ul>
+<li><p>’MNDWI’ : Modified Normalized Difference Water Index.</p></li>
+<li><p>’NDWI’ : Normalized Difference Water Index.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>G</strong> (<em>float</em><em>, </em><em>default = 2.5</em>) – Gain factor. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C1</strong> (<em>float</em><em>, </em><em>default = 6.0</em>) – Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>C2</strong> (<em>float</em><em>, </em><em>default = 7.5</em>) – Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em>, </em><em>default = 1.0</em>) – Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Image collection with the computed spectral index, or indices, as new bands.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="eemont.imagecollection.maskClouds">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">maskClouds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'cloud_prob'</span></em>, <em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">60</span></em>, <em class="sig-param"><span class="n">maskCirrus</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">maskShadows</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scaledImage</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">dark</span><span class="o">=</span><span class="default_value">0.15</span></em>, <em class="sig-param"><span class="n">cloudDist</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">buffer</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cdi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#maskClouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.maskClouds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – <p>Image collection to mask.</p>
+<dl class="simple">
+<dt>Supported platforms:</dt><dd><ul>
+<li><p>Sentinel-2</p></li>
+<li><p>Landsat 8</p></li>
+<li><p>Landsat 7</p></li>
+<li><p>Landsat 5</p></li>
+<li><p>Landsat 4</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>method</strong> (<em>string</em><em>, </em><em>default = 'cloud_prob'</em>) – <p>Method used to mask clouds.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’cloud_prob’ : Use cloud probability.</p></li>
+<li><p>’qa’ : Use Quality Assessment band.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This parameter is ignored for Landsat products.</p>
+</p></li>
+<li><p><strong>prob</strong> (<em>numeric</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>default = 60</em>) – Cloud probability threshold. Valid just for method = ‘prob’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskCirrus</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cirrus clouds. Valid just for method = ‘qa’. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>maskShadows</strong> (<em>boolean</em><em>, </em><em>default = True</em>) – Whether to mask cloud shadows. For more info see ‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’.</p></li>
+<li><p><strong>scaledImage</strong> (<em>boolean</em><em>, </em><em>default = False</em>) – Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>dark</strong> (<em>float</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = 0.15</em>) – NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cloudDist</strong> (<em>int</em><em>, </em><em>default = 1000</em>) – Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>buffer</strong> (<em>int</em><em>, </em><em>default = 250</em>) – Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</p></li>
+<li><p><strong>cdi</strong> (<em>float</em><em> [</em><em>-1</em><em>,</em><em>1</em><em>]</em><em>, </em><em>default = None</em>) – Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
+A cdi = None means that the index is not used. For more info see
+‘Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
+Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481’.
+This parameter is ignored for Landsat products.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cloud-shadow masked image collection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="eemont.imagecollection.scale">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scales bands on an image collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to scale. Supported platforms: ‘COPERNICUS/S3’, ‘COPERNICUS/S2’, ‘COPERNICUS/S2_SR’, ‘LANDSAT/LC08’, ‘LANDSAT/LC08_SR’,
+‘LANDSAT/LE07’, ‘LANDSAT/LE07_SR’, ‘LANDSAT/LT05’, ‘LANDSAT/LT05_SR’, ‘LANDSAT/LT04’, ‘LANDSAT/LT04_SR’, ‘MODIS/006/MCD43A4’,
+‘MODIS/006/MCD43A3’, ‘MODIS/006/MOD09GQ’, ‘MODIS/006/MOD10A1’, ‘MODIS/006/MOD11A1’, ‘MODIS/006/MOD09GA’, ‘MODIS/006/MODOCGA’,
+‘MODIS/006/MOD14A1’, ‘MODIS/006/MCD43A1’, ‘MODIS/006/MCD15A3H’, ‘MODIS/006/MOD09Q1’, ‘MODIS/006/MOD09A1’, ‘MODIS/006/MOD11A2’, ‘MODIS/006/MOD17A2H’,
+‘MODIS/006/MOD16A2’, ‘MODIS/006/MOD13Q1’, ‘MODIS/006/MOD13A1’, ‘MODIS/006/MOD13A2’, ‘MODIS/061/MOD08_M3’, ‘MODIS/006/MOD17A3HGF’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Scaled image collection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.ImageCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pddataframe.html" class="btn btn-neutral float-right" title="pd.DataFrame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="eeimage.html" class="btn btn-neutral float-left" title="ee.Image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

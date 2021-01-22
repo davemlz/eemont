@@ -1,22 +1,34 @@
-eemont
-======
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-   :hidden:
-   
-   eemont
-
-Guide
+Welcome to eemont!
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
+.. toctree::   
+   :maxdepth: 2
+   :caption: Documentation 
+   :hidden:
+      
+   classes/eeimage
+   classes/eeimagecollection
+   classes/pddataframe
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: User Guide      
+   :hidden:
+   
+   guide/closestImage      
+   guide/maskingClouds
+   guide/imageScaling
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: What's new? 
+   :hidden:
+      
+   changelog
 
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
-Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:
+Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:
 
 .. code-block:: python
 

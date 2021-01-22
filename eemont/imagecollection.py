@@ -106,13 +106,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     Parameters
     ----------     
     self : ee.ImageCollection
-        Image collection to compute indices on. Must be scaled to [0,1].\n
-        Supported platforms:
-            - Sentinel-2
-            - Landsat 8
-            - Landsat 7
-            - Landsat 5
-            - Landsat 4
+        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices Computation.
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:
@@ -324,13 +318,7 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     Parameters
     ----------    
     self : ee.ImageCollection [this]
-        Image collection to mask.\n
-        Supported platforms:
-            - Sentinel-2
-            - Landsat 8
-            - Landsat 7
-            - Landsat 5
-            - Landsat 4
+        Image collection to mask. Check the supported platforms in User Guide > Masking Clouds and Shadows.
     method : string, default = 'cloud_prob'
         Method used to mask clouds.\n
         Available options:
@@ -363,6 +351,11 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     ee.ImageCollection
         Cloud-shadow masked image collection.
     '''
+    def S3(args):
+        qa = args.select('quality_flags')
+        notCloud = qa.bitwiseAnd(1 << 27).eq(0);
+        return args.updateMask(notCloud)
+    
     def S2(args):    
 
         def cloud_prob(img):
@@ -443,21 +436,84 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         mask2 = args.mask().reduce(ee.Reducer.min());
         return args.updateMask(cloud.Not()).updateMask(mask2);
     
+    def MOD09GA(args):
+        qa = args.select('state_1km')
+        notCloud = qa.bitwiseAnd(1 << 0).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 2).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 8).eq(0))        
+        return args.updateMask(notCloud)
+    
+    def MCD15A3H(args):
+        qa = args.select('FparExtra_QC')
+        notCloud = qa.bitwiseAnd(1 << 5).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 6).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 4).eq(0))        
+        return args.updateMask(notCloud)
+    
+    def MOD09Q1(args):
+        qa = args.select('State')
+        notCloud = qa.bitwiseAnd(1 << 0).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 2).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 8).eq(0))        
+        return args.updateMask(notCloud)
+    
+    def MOD09A1(args):
+        qa = args.select('StateQA')
+        notCloud = qa.bitwiseAnd(1 << 0).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 2).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 8).eq(0))        
+        return args.updateMask(notCloud)
+    
+    def MOD17A2H(args):
+        qa = args.select('Psn_QC')
+        notCloud = qa.bitwiseAnd(1 << 3).eq(0)
+        return args.updateMask(notCloud)
+    
+    def MOD16A2(args):
+        qa = args.select('ET_QC')
+        notCloud = qa.bitwiseAnd(1 << 3).eq(0)
+        return args.updateMask(notCloud)
+    
+    def MOD13Q1A1(args):
+        qa = args.select('SummaryQA')
+        notCloud = qa.bitwiseAnd(1 << 0).eq(0)
+        return args.updateMask(notCloud)
+    
+    def MOD13A2(args):
+        qa = args.select('SummaryQA')
+        notCloud = qa.eq(0)
+        return args.updateMask(notCloud)
+    
     lookup = {
+        'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
         'LANDSAT/LC08': L8,
         'LANDSAT/LE07': L457,
         'LANDSAT/LT05': L457,
-        'LANDSAT/LT04': L457
+        'LANDSAT/LT04': L457,
+        'MODIS/006/MOD09GA': MOD09GA,
+        'MODIS/006/MCD15A3H': MCD15A3H,
+        'MODIS/006/MOD09Q1': MOD09Q1,
+        'MODIS/006/MOD09A1': MOD09A1,
+        'MODIS/006/MOD17A2H': MOD17A2H,
+        'MODIS/006/MOD16A2': MOD16A2,
+        'MODIS/006/MOD13Q1': MOD13Q1A1,
+        'MODIS/006/MOD13A1': MOD13Q1A1,
+        'MODIS/006/MOD13A2': MOD13A2
     }
     
     platformDict = _get_platform(self)
     
     if platformDict['platform'] not in list(lookup.keys()):
         raise Exception("Sorry, satellite platform not supported for cloud masking!")
-        
-    if not platformDict['sr']:
-        raise Exception("Sorry, cloud masking is only available for Surface Reflectance products!")
     
     if platformDict['platform'] == 'COPERNICUS/S2':
         maskedImageCollection = lookup[platformDict['platform']](self)
@@ -473,11 +529,7 @@ def scale(self):
     Parameters
     ----------
     self : ee.ImageCollection (this)
-        Image collection to scale. Supported platforms: 'COPERNICUS/S3', 'COPERNICUS/S2', 'COPERNICUS/S2_SR', 'LANDSAT/LC08', 'LANDSAT/LC08_SR',
-        'LANDSAT/LE07', 'LANDSAT/LE07_SR', 'LANDSAT/LT05', 'LANDSAT/LT05_SR', 'LANDSAT/LT04', 'LANDSAT/LT04_SR', 'MODIS/006/MCD43A4',
-        'MODIS/006/MCD43A3', 'MODIS/006/MOD09GQ', 'MODIS/006/MOD10A1', 'MODIS/006/MOD11A1', 'MODIS/006/MOD09GA', 'MODIS/006/MODOCGA',
-        'MODIS/006/MOD14A1', 'MODIS/006/MCD43A1', 'MODIS/006/MCD15A3H', 'MODIS/006/MOD09Q1', 'MODIS/006/MOD09A1', 'MODIS/006/MOD11A2', 'MODIS/006/MOD17A2H',
-        'MODIS/006/MOD16A2', 'MODIS/006/MOD13Q1', 'MODIS/006/MOD13A1', 'MODIS/006/MOD13A2', 'MODIS/061/MOD08_M3', 'MODIS/006/MOD17A3HGF'. 
+        Image collection to scale. Check the supported platforms in User Guide > Image Scaling.
         
     Returns
     -------

@@ -38,8 +38,7 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="eemont" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,15 +83,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">eemont</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont.image">ee.Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont.imagecollection">ee.ImageCollection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont.dataframe">pd.DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-eemont">Module contents</a></li>
+              <p class="caption"><span class="caption-text">Package</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pddataframe.html">pd.DataFrame</a></li>
 </ul>
-</li>
+<p class="caption"><span class="caption-text">Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -286,22 +285,14 @@ This parameter is ignored for Landsat products.</p></li>
 <dl class="py function">
 <dt id="eemont.image.scale">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/image.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scales reflectance bands on an image. This also scales temperature in Landsat images and derived bands in Sentinel-2 images (except for MSK_CLDPRB and MSK_SNWPRB bands
-that are excluded from the image).</p>
+<dd><p>Scales bands on an image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – <p>Image to scale.</p>
-<dl class="simple">
-<dt>Supported platforms:</dt><dd><ul class="simple">
-<li><p>Sentinel-2</p></li>
-<li><p>Landsat 8</p></li>
-<li><p>Landsat 7</p></li>
-<li><p>Landsat 5</p></li>
-<li><p>Landsat 4</p></li>
-</ul>
-</dd>
-</dl>
-</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to scale. Supported platforms: ‘COPERNICUS/S3’, ‘COPERNICUS/S2’, ‘COPERNICUS/S2_SR’, ‘LANDSAT/LC08’, ‘LANDSAT/LC08_SR’,
+‘LANDSAT/LE07’, ‘LANDSAT/LE07_SR’, ‘LANDSAT/LT05’, ‘LANDSAT/LT05_SR’, ‘LANDSAT/LT04’, ‘LANDSAT/LT04_SR’, ‘MODIS/006/MCD43A4’,
+‘MODIS/006/MCD43A3’, ‘MODIS/006/MOD09GQ’, ‘MODIS/006/MOD10A1’, ‘MODIS/006/MOD11A1’, ‘MODIS/006/MOD09GA’, ‘MODIS/006/MODOCGA’,
+‘MODIS/006/MOD14A1’, ‘MODIS/006/MCD43A1’, ‘MODIS/006/MCD15A3H’, ‘MODIS/006/MOD09Q1’, ‘MODIS/006/MOD09A1’, ‘MODIS/006/MOD11A2’, ‘MODIS/006/MOD17A2H’,
+‘MODIS/006/MOD16A2’, ‘MODIS/006/MOD13Q1’, ‘MODIS/006/MOD13A1’, ‘MODIS/006/MOD13A2’, ‘MODIS/061/MOD08_M3’, ‘MODIS/006/MOD17A3HGF’.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Scaled image.</p>
@@ -412,7 +403,7 @@ that are excluded from the image).</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – <p>Image collection to mask.</p>
 <dl class="simple">
-<dt>Accepted platforms:</dt><dd><ul>
+<dt>Supported platforms:</dt><dd><ul>
 <li><p>Sentinel-2</p></li>
 <li><p>Landsat 8</p></li>
 <li><p>Landsat 7</p></li>
@@ -458,23 +449,14 @@ This parameter is ignored for Landsat products.</p></li>
 <dl class="py function">
 <dt id="eemont.imagecollection.scale">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eemont/imagecollection.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scales reflectance bands on an image collection. This also scales temperature in Landsat images and derived bands in Sentinel-2 images
-(except for MSK_CLDPRB and MSK_SNWPRB bands that are excluded from the image collection).</p>
+<dd><p>Scales bands on an image collection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – <p>Image collection to scale.</p>
-<dl class="simple">
-<dt>Supported platforms:</dt><dd><ul class="simple">
-<li><p>Sentinel-3</p></li>
-<li><p>Sentinel-2</p></li>
-<li><p>Landsat 8</p></li>
-<li><p>Landsat 7</p></li>
-<li><p>Landsat 5</p></li>
-<li><p>Landsat 4</p></li>
-</ul>
-</dd>
-</dl>
-</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to scale. Supported platforms: ‘COPERNICUS/S3’, ‘COPERNICUS/S2’, ‘COPERNICUS/S2_SR’, ‘LANDSAT/LC08’, ‘LANDSAT/LC08_SR’,
+‘LANDSAT/LE07’, ‘LANDSAT/LE07_SR’, ‘LANDSAT/LT05’, ‘LANDSAT/LT05_SR’, ‘LANDSAT/LT04’, ‘LANDSAT/LT04_SR’, ‘MODIS/006/MCD43A4’,
+‘MODIS/006/MCD43A3’, ‘MODIS/006/MOD09GQ’, ‘MODIS/006/MOD10A1’, ‘MODIS/006/MOD11A1’, ‘MODIS/006/MOD09GA’, ‘MODIS/006/MODOCGA’,
+‘MODIS/006/MOD14A1’, ‘MODIS/006/MCD43A1’, ‘MODIS/006/MCD15A3H’, ‘MODIS/006/MOD09Q1’, ‘MODIS/006/MOD09A1’, ‘MODIS/006/MOD11A2’, ‘MODIS/006/MOD17A2H’,
+‘MODIS/006/MOD16A2’, ‘MODIS/006/MOD13Q1’, ‘MODIS/006/MOD13A1’, ‘MODIS/006/MOD13A2’, ‘MODIS/061/MOD08_M3’, ‘MODIS/006/MOD17A3HGF’.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Scaled image collection.</p>
@@ -511,10 +493,6 @@ with an associated geometry.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-eemont">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eemont" title="Permalink to this headline">¶</a></h2>
-<p>The eemont python package.</p>
-</div>
 </div>
 
 
@@ -522,9 +500,6 @@ with an associated geometry.</p>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="index.html" class="btn btn-neutral float-left" title="eemont" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

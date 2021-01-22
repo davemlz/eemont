@@ -1,0 +1,107 @@
+Image Scaling
+====================================
+
+Image scaling now is A LOT EASIER with eemont! Let's see how!
+
+Before anything, let's import our modules and authenticate in Google Earth Engine:
+
+.. code-block:: python
+
+   import ee, eemont
+   
+   ee.Authenticate()
+   ee.Initialize()
+
+Now, we are ready to go!
+
+Overview
+-----------
+
+The eemont package extends the ee.Image and ee.ImageCollection classes with the method :code:`scale()`:
+
+ee.Image
+~~~~~~~~
+
+.. currentmodule:: eemont.image
+
+.. autosummary::
+
+   scale
+      
+ee.ImageCollection
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.imagecollection
+
+.. autosummary::
+
+   scale
+
+This method automatically scales images from the following supported satellite platforms:
+
+- `Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI>`_
+- `Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en>`_
+- `Sentinel-2 MSI: MultiSpectral Instrument, Level-1C <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands>`_
+- `USGS Landsat 8 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR>`_
+- `USGS Landsat 7 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR>`_
+- `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
+- `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
+- `MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4>`_
+- `MCD43A3.006 MODIS Albedo Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A3>`_
+- `MOD09GQ.006 Terra Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ>`_
+- `MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA>`_
+- `MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1>`_
+- `MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1>`_
+- `MOD10A1.006 Terra Snow Cover Daily Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD10A1>`_
+- `MOD11A1.006 Terra Land Surface Temperature and Emissivity Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A1>`_
+- `MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A2>`_
+- `MODOCGA.006 Terra Ocean Reflectance Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MODOCGA>`_
+- `MOD14A1.006: Terra Thermal Anomalies & Fire Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD14A1>`_
+- `MCD43A1.006 MODIS BRDF-Albedo Model Parameters Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A1>`_
+- `MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD15A3H>`_
+- `MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A2H>`_
+- `MOD17A3HGF.006: Terra Net Primary Production Gap-Filled Yearly Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A3HGF>`_
+- `MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD16A2>`_
+- `MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13Q1>`_
+- `MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A1>`_
+- `MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A2>`_
+- `MOD08_M3.061 Terra Atmosphere Monthly Global Product <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD08_M3>`_
+
+.. warning::
+   Not supported satellite platforms will raise an *Exception*.   
+
+Let's check how the :code:`scale()` method works:
+
+Usage
+------------------
+
+The :code:`scale()` method scales each image according to the *Scale* and *Offset* parameters. 
+
+Let's take the Sentinel-2 SR image collection as example:
+
+.. code-block:: python
+
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR')
+   
+The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they're unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and
+WVP bands must be multiplied by 0.001. This scaling is automatically done by the :code:`scale()` method, without any additional parameters:
+
+.. code-block:: python
+
+   S2.scale()
+
+The *Scale* and *Offset* parameters vary according to the satellite platform and the :code:`scale()` method detects the platform and do the scaling according to its parameters.
+
+Let's take now the MOD11A2 product from MODIS. The LST_Day_1km and LST_Night_1km bands must be multiplied by 0.02, the Day_view_time and Night_view_time bands must be multiplied by 0.1,
+the Emis_31 and Emis_32 bands must be multiplied by 0.002 and added by 0.49, while the Day_view_angl and Night_view_angl bands must be added by -65. All of this scaling
+is simply done by the :code:`scale()` method:
+
+.. code-block:: python
+
+   MOD11A2scaled = ee.ImageCollection('MODIS/006/MOD11A2').scale()
+   
+The :code:`scale()` method can be applied to single images as well:
+
+.. code-block:: python
+
+   MOD11A2scaled = ee.ImageCollection('MODIS/006/MOD11A2').first().scale()

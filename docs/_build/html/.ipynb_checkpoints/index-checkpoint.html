@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>eemont &mdash; eemont 0.1.6 documentation</title>
+  <title>Welcome to eemont! &mdash; eemont 0.1.6 documentation</title>
   
 
   
@@ -83,9 +83,21 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../eemont.html">eemont</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide/closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">What's new?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -134,7 +146,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>eemont</li>
+      <li>Welcome to eemont!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,19 +165,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="eemont">
-<h1>eemont<a class="headerlink" href="#eemont" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-eemont">
+<h1>Welcome to eemont!<a class="headerlink" href="#welcome-to-eemont" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
 </div>
-<div class="section" id="guide">
-<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-</ul>
+<div class="toctree-wrapper compound">
+</div>
 <p>The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.</p>
-<p>Look at this simple example where a Sentinel2 collection is pre-processed and processed in just one step:</p>
+<p>Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
 
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
@@ -200,14 +209,14 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../eemont.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
 <td><p>Computes one or more spectral indices (indices are added as bands) for an image.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../eemont.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
 <td><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../eemont.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales reflectance bands on an image.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image.</p></td>
 </tr>
 </tbody>
 </table>
@@ -220,17 +229,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../eemont.html#eemont.imagecollection.closest" title="eemont.imagecollection.closest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest</span></code></a>(self, date)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.closest" title="eemont.imagecollection.closest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest</span></code></a>(self, date)</p></td>
 <td><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../eemont.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
 <td><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../eemont.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
 <td><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../eemont.html#eemont.imagecollection.scale" title="eemont.imagecollection.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales reflectance bands on an image collection.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.scale" title="eemont.imagecollection.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image collection.</p></td>
 </tr>
 </tbody>
 </table>
@@ -244,7 +253,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../eemont.html#eemont.dataframe.toFeatureCollection" title="eemont.dataframe.toFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toFeatureCollection</span></code></a>(self[, latitude, longitude])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/pddataframe.html#eemont.dataframe.toFeatureCollection" title="eemont.dataframe.toFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toFeatureCollection</span></code></a>(self[, latitude, longitude])</p></td>
 <td><p>Converts a pd.DataFrame object into an ee.FeatureCollection object.</p></td>
 </tr>
 </tbody>

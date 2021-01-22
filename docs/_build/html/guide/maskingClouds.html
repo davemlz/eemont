@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Masking Clouds and Shadows &mdash; eemont 0.1.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Image Scaling" href="imageScaling.html" />
+    <link rel="prev" title="Closest Image to a Specific Date" href="closestImage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Masking Clouds and Shadows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ee-image">ee.Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ee-imagecollection">ee.ImageCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sentinel-2">Sentinel-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#landsat-series">Landsat Series</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imageScaling.html">Image Scaling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">What's new?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Masking Clouds and Shadows</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/guide/maskingClouds.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="masking-clouds-and-shadows">
+<h1>Masking Clouds and Shadows<a class="headerlink" href="#masking-clouds-and-shadows" title="Permalink to this headline">¶</a></h1>
+<p>Masking clouds and shadows may seem hard, but it isn’t! Let’s take a look on it!</p>
+<p>Before anything, let’s import our modules and authenticate in Google Earth Engine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we are ready to go!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the method <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code>:</p>
+<div class="section" id="ee-image">
+<h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<td><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-imagecollection">
+<h3>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<td><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p></td>
+</tr>
+</tbody>
+</table>
+<p>This method automatically masks clouds and shadows on specific supported satellite platforms:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en">Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR">USGS Landsat 8 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR">USGS Landsat 7 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR">USGS Landsat 5 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR">USGS Landsat 4 Surface Reflectance Tier 1 and 2</a></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not supported satellite platforms or not Surface Reflectance Products of the supported platforms will raise an <em>Exception</em>.</p>
+</div>
+<p>Let’s check how to use the <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> method for:</p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">S2</span>.</p></li>
+<li><p><span class="xref std std-ref">LS</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sentinel-2">
+<span id="s2"></span><h2>Sentinel-2<a class="headerlink" href="#sentinel-2" title="Permalink to this headline">¶</a></h2>
+<p>On Sentinel 2, clouds can be masked using two methods: <em>QA</em> and <em>Cloud Probability</em>. The <em>QA</em> method uses the QA60 band in the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en">Surface Reflectance Product</a> to mask clouds, while the <em>Cloud Probability</em> method uses the
+<a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_CLOUD_PROBABILITY?hl=en">COPERNICUS/S2_CLOUD_PROBABILITY</a> collection to do it.</p>
+<p>Shadows are masked based on the clouds mask, where shadows are searched within a range from clouds edges in the shadows direction.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more info on masking shadows, please visit
+<a class="reference external" href="https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless">‘Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials’</a>.</p>
+</div>
+<p>First, let’s take the Sentinel-2 image collection:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to use the <em>QA</em> method, it must be specified using the <code class="code docutils literal notranslate"><span class="pre">method</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;qa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This line maps the <em>QA</em> masking method over the whole collection, but the method can also be applied to a single image:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;qa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <em>QA</em> method gives us the option to avoid masking cirrus clouds, but it must be specified using the <code class="code docutils literal notranslate"><span class="pre">maskCirrus</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;qa&#39;</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And we can also avoid masking shadows by specifying the <code class="code docutils literal notranslate"><span class="pre">maskShadows</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;qa&#39;</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, in order to use the <em>Cloud Probability</em> method, we can specify it in the <code class="code docutils literal notranslate"><span class="pre">method</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But, it is the default method, so you can just let the extended method with no additional parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The <em>Cloud Probability</em> method uses a probability threshold to mask clouds, by default, the threshold is set to 60, but it can be modified using the <code class="code docutils literal notranslate"><span class="pre">prob</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">prob</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If your image or collection is scaled, the <code class="code docutils literal notranslate"><span class="pre">scaledImage</span></code> parameter must be set to <code class="code docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to search for shadows, portental shadow pixels must be specified. Pixels with a NIR reflectance below 0.15 are considered potential shadow pixels, but this can be modified using the
+<code class="code docutils literal notranslate"><span class="pre">dark</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">dark</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Shadows are searched whitin a maximum range of 1000 m in the shadow direction from cloud edges, but this range can be modified using the <code class="code docutils literal notranslate"><span class="pre">cloudDist</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After finding all clouds and shadows, the mask can be dilated to avoid border effects. By default, clouds and shadows are dilated by 250 m, but this can be modified using the <code class="code docutils literal notranslate"><span class="pre">buffer</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">buffer</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, in order to avoid confusion between clouds and bright surface objects, the Cloud Displacement Index (CDI) can be used. By default, the CDI is not used, but it can be modified
+using the <code class="code docutils literal notranslate"><span class="pre">cdi</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">cdi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more info on CDI, please visit
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0034425718302037#:~:text=In%20this%20paper%2C%20we%20present,separated%20from%20bright%20ground%20objects.">‘Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
+Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481’</a>.</p>
+</div>
+</div>
+<div class="section" id="landsat-series">
+<span id="ls"></span><h2>Landsat Series<a class="headerlink" href="#landsat-series" title="Permalink to this headline">¶</a></h2>
+<p>On Landsat Series, both clouds and shadows are masked based on the pixel_qa band in the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/landsat">Surface Reflectance Products</a>.</p>
+<p>Let’s take the Landsat 8 image collection as example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is no need to specify most of the methods showed for Sentinel-2, since they’re ignored.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Shadows are masked by default, but if required, the <code class="code docutils literal notranslate"><span class="pre">maskShadows</span></code> parameter can be modified.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This method can also be applied to a single image:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And can be used for scaled images without specifying it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="imageScaling.html" class="btn btn-neutral float-right" title="Image Scaling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="closestImage.html" class="btn btn-neutral float-left" title="Closest Image to a Specific Date" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

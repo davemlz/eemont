@@ -24,12 +24,3 @@ pd.DataFrame
    :members:
    :undoc-members:
    :show-inheritance:
-
-
-Module contents
----------------
-
-.. automodule:: eemont
-   :members:
-   :undoc-members:
-   :show-inheritance:

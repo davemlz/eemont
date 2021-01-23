@@ -267,11 +267,25 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         else:
             index = [index]        
     
-    if platformDict['platform'] != 'COPERNICUS/S2' and 'BAIS2' in index:
-        index.remove('BAIS2')
-        
+    listOfIndices = list(lookup.keys())
+    listOfIndicesLandsat = listOfIndices
+    listOfIndicesLandsat.remove('BAIS2')
+    
+    lookupIndicesPlatform = {
+        'COPERNICUS/S2': listOfIndices,
+        'LANDSAT/LC08': listOfIndicesLandsat,
+        'LANDSAT/LE07': listOfIndicesLandsat,
+        'LANDSAT/LT05': listOfIndicesLandsat,
+        'LANDSAT/LT04': listOfIndicesLandsat
+    }
+    
     for idx in index:
-        self = lookup[idx](self)
+        if idx not in list(lookup.keys()):
+            warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!",Warning)
+        elif idx not in lookupIndicesPlatform[platformDict['platform']]:
+            warnings.warn("Index " + idx + " can't be computed for this platform!",Warning)
+        else:
+            self = lookup[idx](self)
         
     return self
 

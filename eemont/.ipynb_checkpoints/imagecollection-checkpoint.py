@@ -59,14 +59,14 @@ def _get_platform(collection):
         else:
             platformDict = {'platform': plt, 'sr': False}
     
-    if platformDict['platform'] is None:
+    if plt is None:
         raise Exception("Sorry, satellite platform not supported!")
             
     return platformDict
 
 @_extend_eeImageCollection()
-def closest(self, date):
-    '''Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.
+def closest(self, date, tolerance = 1, unit = 'month'):
+    '''Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
     
     Parameters
     ----------    
@@ -74,6 +74,11 @@ def closest(self, date):
         Image Collection from which to get the closest image to the specified date.
     date : ee.Date | string
         Date of interest. The method will look for images closest to this date.
+    tolerance : float, default = 1
+        Filter the collection to [date - tolerance, date + tolerance) before searching the closest image. This speeds up the searching process for collections
+        with a high temporal resolution.
+    unit : string, default = 'month'
+        Units for tolerance. Available units: 'year', 'month', 'week', 'day', 'hour', 'minute' or 'second'
         
     Returns
     -------    
@@ -82,6 +87,10 @@ def closest(self, date):
     ''' 
     if not isinstance(date, ee.ee_date.Date):
         date = ee.Date(date)
+    
+    startDate = date.advance(-tolerance, unit)
+    endDate = date.advance(tolerance, unit)
+    self = self.filterDate(startDate, endDate)
     
     def setProperties(img):        
         img = img.set('dateDist',ee.Number(img.get('system:time_start')).subtract(date.millis()).abs())        

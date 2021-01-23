@@ -58,7 +58,7 @@ def _get_platform(img):
         else:
             platformDict = {'platform': plt, 'sr': False}
             
-    if platformDict['platform'] is None:
+    if plt is None:
         raise Exception("Sorry, satellite platform not supported!")
             
     return platformDict
@@ -473,10 +473,11 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         'MODIS/006/MOD13A2': MOD13A2
     }
     
+    platformDict = _get_platform(self)
+    
     if platformDict['platform'] not in list(lookup.keys()):
         raise Exception("Sorry, satellite platform not supported for cloud masking!")
     
-    platformDict = _get_platform(self)    
     maskedImage = lookup[platformDict['platform']](self)    
     
     return maskedImage

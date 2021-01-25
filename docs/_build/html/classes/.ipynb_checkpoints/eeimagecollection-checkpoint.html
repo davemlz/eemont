@@ -170,13 +170,16 @@
 <p>Extended methods for the ee.ImageCollection class:</p>
 <span class="target" id="module-eemont.imagecollection"></span><dl class="py function">
 <dt id="eemont.imagecollection.closest">
-<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">closest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#closest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.closest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.</p>
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">closest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">'month'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#closest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.closest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> [</em><em>this</em><em>]</em>) – Image Collection from which to get the closest image to the specified date.</p></li>
 <li><p><strong>date</strong> (<em>ee.Date | string</em>) – Date of interest. The method will look for images closest to this date.</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em><em>, </em><em>default = 1</em>) – Filter the collection to [date - tolerance, date + tolerance) before searching the closest image. This speeds up the searching process for collections
+with a high temporal resolution.</p></li>
+<li><p><strong>unit</strong> (<em>string</em><em>, </em><em>default = 'month'</em>) – Units for tolerance. Available units: ‘year’, ‘month’, ‘week’, ‘day’, ‘hour’, ‘minute’ or ‘second’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

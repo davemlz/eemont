@@ -224,7 +224,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
             
-    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported!&quot;</span><span class="p">)</span>
             
     <span class="k">return</span> <span class="n">platformDict</span>
@@ -433,11 +433,25 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>        
     
-    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;COPERNICUS/S2&#39;</span> <span class="ow">and</span> <span class="s1">&#39;BAIS2&#39;</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="n">index</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
-        
+    <span class="n">listOfIndices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">listOfIndicesLandsat</span> <span class="o">=</span> <span class="n">listOfIndices</span>
+    <span class="n">listOfIndicesLandsat</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
+    
+    <span class="n">lookupIndicesPlatform</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">listOfIndices</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span>
+    <span class="p">}</span>
+    
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="bp">self</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">idx</span><span class="p">](</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookupIndicesPlatform</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]]:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; can&#39;t be computed for this platform!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">idx</span><span class="p">](</span><span class="bp">self</span><span class="p">)</span>
         
     <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -639,10 +653,11 @@
         <span class="s1">&#39;MODIS/006/MOD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span>
     <span class="p">}</span>
     
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for cloud masking!&quot;</span><span class="p">)</span>
     
-    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>    
     <span class="n">maskedImage</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>    
     
     <span class="k">return</span> <span class="n">maskedImage</span></div>

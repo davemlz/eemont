@@ -1,3 +1,4 @@
+import ee
 import pandas as pd
 import warnings
 

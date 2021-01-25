@@ -225,14 +225,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
     
-    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported!&quot;</span><span class="p">)</span>
             
     <span class="k">return</span> <span class="n">platformDict</span>
 
 <div class="viewcode-block" id="closest"><a class="viewcode-back" href="../../classes/eeimagecollection.html#eemont.imagecollection.closest">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) closest to the specified date.</span>
+<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;month&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
@@ -240,6 +240,11 @@
 <span class="sd">        Image Collection from which to get the closest image to the specified date.</span>
 <span class="sd">    date : ee.Date | string</span>
 <span class="sd">        Date of interest. The method will look for images closest to this date.</span>
+<span class="sd">    tolerance : float, default = 1</span>
+<span class="sd">        Filter the collection to [date - tolerance, date + tolerance) before searching the closest image. This speeds up the searching process for collections</span>
+<span class="sd">        with a high temporal resolution.</span>
+<span class="sd">    unit : string, default = &#39;month&#39;</span>
+<span class="sd">        Units for tolerance. Available units: &#39;year&#39;, &#39;month&#39;, &#39;week&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39; or &#39;second&#39;.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------    </span>
@@ -248,6 +253,10 @@
 <span class="sd">    &#39;&#39;&#39;</span> 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">ee_date</span><span class="o">.</span><span class="n">Date</span><span class="p">):</span>
         <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    
+    <span class="n">startDate</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="o">-</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="n">endDate</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">setProperties</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>        
         <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;dateDist&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">millis</span><span class="p">())</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>        
@@ -469,12 +478,26 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>        
     
-    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;COPERNICUS/S2&#39;</span> <span class="ow">and</span> <span class="s1">&#39;BAIS2&#39;</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="n">index</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
+    <span class="n">listOfIndices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">listOfIndicesLandsat</span> <span class="o">=</span> <span class="n">listOfIndices</span>
+    <span class="n">listOfIndicesLandsat</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
+    
+    <span class="n">lookupIndicesPlatform</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">listOfIndices</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">listOfIndicesLandsat</span>
+    <span class="p">}</span>
     
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-    
+        <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookupIndicesPlatform</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]]:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; can&#39;t be computed for this platform!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+            
     <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/eeimagecollection.html#eemont.imagecollection.maskClouds">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>

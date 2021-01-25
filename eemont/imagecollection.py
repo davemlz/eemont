@@ -313,7 +313,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             index = [index]        
     
     listOfIndices = list(lookup.keys())
-    listOfIndicesLandsat = listOfIndices
+    listOfIndicesLandsat = list(listOfIndices)
     listOfIndicesLandsat.remove('BAIS2')
     
     lookupIndicesPlatform = {

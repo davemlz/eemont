@@ -100,6 +100,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="maskingClouds.html">Masking Clouds and Shadows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spectralIndices.html">Spectral Indices</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -201,11 +202,10 @@
 <p class="admonition-title">Warning</p>
 <p>This method uses the <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property, therefore, make sure your image collection has it!</p>
 </div>
-<p>Let’s check how the <code class="code docutils literal notranslate"><span class="pre">closest()</span></code> method works:</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code docutils literal notranslate"><span class="pre">closest()</span></code> method can work on any image colection that has a <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">closest()</span></code> method works on any image colection that has a <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property.</p>
 <p>First, let’s take the Sentinel-2 image collection as example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
 </pre></div>
@@ -230,8 +230,13 @@ To get that image as a single image, we can use the <code class="code docutils l
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>By default, the image collection is filtered according to +/- 1 month from the <code class="code docutils literal notranslate"><span class="pre">date</span></code> parameter (<code class="code docutils literal notranslate"><span class="pre">tolerance</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="code docutils literal notranslate"><span class="pre">unit</span> <span class="pre">=</span> <span class="pre">'month'</span></code>). This is done to speed up the searching process, but if required (if there are not images in that range), the <code class="code docutils literal notranslate"><span class="pre">tolerance</span></code> and <code class="code docutils literal notranslate"><span class="pre">unit</span></code> parameters can be modified:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Now, let’s assume that our ROI is larger, in this case, a whole department (state) of Colombia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ROI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">&#39;FAO/GAUL_SIMPLIFIED_500m/2015/level1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;ADM1_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;Valle Del Cauca&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ROI</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">&#39;FAO/GAUL_SIMPLIFIED_500m/2015/level1&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;ADM1_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;Valle Del Cauca&#39;</span><span class="p">)))</span>
 <span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">ROI</span><span class="p">)</span><span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

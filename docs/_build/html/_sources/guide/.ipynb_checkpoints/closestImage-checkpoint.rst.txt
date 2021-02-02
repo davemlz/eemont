@@ -30,12 +30,10 @@ This method automatically filters any image collection to get the closest image 
 .. warning::
    This method uses the :code:`system:time_start` property, therefore, make sure your image collection has it!   
 
-Let's check how the :code:`closest()` method works:
-
 Usage
 ------------------
 
-The :code:`closest()` method can work on any image colection that has a :code:`system:time_start` property.
+The :code:`closest()` method works on any image colection that has a :code:`system:time_start` property.
 
 First, let's take the Sentinel-2 image collection as example:
 
@@ -70,12 +68,19 @@ To get that image as a single image, we can use the :code:`first()` method.
 .. code-block:: python
 
    S2.closest('2020-10-15').first()
-   
+
+By default, the image collection is filtered according to +/- 1 month from the :code:`date` parameter (:code:`tolerance = 1` and :code:`unit = 'month'`). This is done to speed up the searching process, but if required (if there are not images in that range), the :code:`tolerance` and :code:`unit` parameters can be modified:
+
+.. code-block:: python
+
+   S2.closest('2020-10-15', tolerance = 2, unit = 'year')
+
 Now, let's assume that our ROI is larger, in this case, a whole department (state) of Colombia:
 
 .. code-block:: python
 
-   ROI = ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level1').filter(ee.Filter.eq('ADM1_NAME','Valle Del Cauca'))
+   ROI = (ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level1')
+       .filter(ee.Filter.eq('ADM1_NAME','Valle Del Cauca')))
    S2 = ee.ImageCollection('COPERNICUS/S2_SR').filterBounds(ROI).closest('2020-10-15')
 
 You'll note that the size of the resulting ee.ImageCollection here is greater than 1. This result has more than one image since our ROI now intersects more than one scene.

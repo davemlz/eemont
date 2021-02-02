@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Spectral Indices &mdash; eemont 0.1.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
+    <link rel="prev" title="Image Scaling" href="imageScaling.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spectral Indices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ee-image">ee.Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ee-imagecollection">ee.ImageCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-platforms">Supported Platforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sentinel-missions">Sentinel Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#landsat-missions">Landsat Missions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-indices">List of Indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vegetation-indices">Vegetation Indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#burn-indices">Burn Indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#water-indices">Water Indices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">What's new?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Spectral Indices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/guide/spectralIndices.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spectral-indices">
+<h1>Spectral Indices<a class="headerlink" href="#spectral-indices" title="Permalink to this headline">¶</a></h1>
+<p>Let’s see how to compute built-in spectral indices with eemont!</p>
+<p>Before anything, let’s import our modules and authenticate in Google Earth Engine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we are ready to go!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the method <code class="code docutils literal notranslate"><span class="pre">index()</span></code>:</p>
+<div class="section" id="ee-image">
+<h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<td><p>Computes one or more spectral indices (indices are added as bands) for an image.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-imagecollection">
+<h3>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<td><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="supported-platforms">
+<h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
+<p>This method automatically computes spectral indices for the following supported satellite platforms:</p>
+<div class="section" id="sentinel-missions">
+<h3>Sentinel Missions<a class="headerlink" href="#sentinel-missions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en">Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands">Sentinel-2 MSI: MultiSpectral Instrument, Level-1C</a></p></li>
+</ul>
+</div>
+<div class="section" id="landsat-missions">
+<h3>Landsat Missions<a class="headerlink" href="#landsat-missions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR">USGS Landsat 8 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR">USGS Landsat 7 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR">USGS Landsat 5 Surface Reflectance Tier 1 and 2</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR">USGS Landsat 4 Surface Reflectance Tier 1 and 2</a></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is highly recommended to scale the image (or image collection) before computing spectral indices. See the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method for more info.</p>
+</div>
+</div>
+</div>
+<div class="section" id="list-of-indices">
+<h2>List of Indices<a class="headerlink" href="#list-of-indices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vegetation-indices">
+<h3>Vegetation Indices<a class="headerlink" href="#vegetation-indices" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the list of built-in vegetation indices:</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Built-in vegetation indices.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BNDVI</p></td>
+<td><p>Blue Normalized Difference Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=135">Index DataBase BNDVI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>CIG</p></td>
+<td><p>Chlorophyll Index - Green</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=128">Index DataBase CIG</a></p></td>
+</tr>
+<tr class="row-even"><td><p>CVI</p></td>
+<td><p>Chlorophyll Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=391">Index DataBase CVI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>EVI</p></td>
+<td><p>Enhanced Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=16">Index DataBase EVI</a></p></td>
+</tr>
+<tr class="row-even"><td><p>GNDVI</p></td>
+<td><p>Green Normalized Difference Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=401">Index DataBase GNDVI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>NDVI</p></td>
+<td><p>Normalized Difference Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=58">Index DataBase NDVI</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NGRDI</p></td>
+<td><p>Normalized Green Red Difference Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=390">Index DataBase NGRDI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>SR</p></td>
+<td><p>Simple Ratio</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SAVI</p></td>
+<td><p>Soil-Adjusted Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=87">Index DataBase SAVI</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="burn-indices">
+<h3>Burn Indices<a class="headerlink" href="#burn-indices" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the list of built-in burn indices:</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Built-in burn indices.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BAI</p></td>
+<td><p>Burned Area Index</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BAIS2</p></td>
+<td><p>Burned Area Index for Sentinel 2</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.3390/ecrs-2-05177">(Filipponi, 2018)</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NBR</p></td>
+<td><p>Normalized Burn Ratio</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=53">Index DataBase NBR</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="water-indices">
+<h3>Water Indices<a class="headerlink" href="#water-indices" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the list of built-in water indices:</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Built-in water indices.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MNDWI</p></td>
+<td><p>Modified Normalized Difference Water Index</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NDWI</p></td>
+<td><p>Normalized Difference Water Index</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="imageScaling.html" class="btn btn-neutral float-left" title="Image Scaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

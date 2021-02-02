@@ -18,6 +18,7 @@ Welcome to eemont!
    guide/closestImage      
    guide/maskingClouds
    guide/imageScaling
+   guide/spectralIndices
    
 .. toctree::
    :maxdepth: 2

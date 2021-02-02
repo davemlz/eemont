@@ -115,7 +115,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     Parameters
     ----------     
     self : ee.ImageCollection
-        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices Computation.
+        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices Computation > Supported Platforms.
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:
@@ -341,7 +341,7 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     Parameters
     ----------    
     self : ee.ImageCollection [this]
-        Image collection to mask. Check the supported platforms in User Guide > Masking Clouds and Shadows.
+        Image collection to mask. Check the supported platforms in User Guide > Masking Clouds and Shadows > Supported Platforms.
     method : string, default = 'cloud_prob'
         Method used to mask clouds.\n
         Available options:
@@ -552,7 +552,7 @@ def scale(self):
     Parameters
     ----------
     self : ee.ImageCollection (this)
-        Image collection to scale. Check the supported platforms in User Guide > Image Scaling.
+        Image collection to scale. Check the supported platforms in User Guide > Image Scaling > Supported Platforms.
         
     Returns
     -------

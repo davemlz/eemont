@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>eemont.image &mdash; eemont 0.1.6 documentation</title>
+  <title>eemont.image &mdash; eemont 0.1.7 documentation</title>
   
 
   
@@ -434,7 +434,7 @@
             <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>        
     
     <span class="n">listOfIndices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    <span class="n">listOfIndicesLandsat</span> <span class="o">=</span> <span class="n">listOfIndices</span>
+    <span class="n">listOfIndicesLandsat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">listOfIndices</span><span class="p">)</span>
     <span class="n">listOfIndicesLandsat</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
     
     <span class="n">lookupIndicesPlatform</span> <span class="o">=</span> <span class="p">{</span>
@@ -462,7 +462,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    self : ee.Image [this]</span>
-<span class="sd">        Image to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows.</span>
+<span class="sd">        Image to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows &gt; Supported Platforms.</span>
 <span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
 <span class="sd">        Method used to mask clouds.\n</span>
 <span class="sd">        Available options:</span>

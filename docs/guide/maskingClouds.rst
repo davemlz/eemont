@@ -37,26 +37,150 @@ ee.ImageCollection
 
    maskClouds
 
-This method automatically masks clouds and shadows on specific supported satellite platforms:
+Supported Platforms
+----------------------
 
+This method automatically masks clouds and shadows on the following supported satellite platforms:
+
+Sentinel Missions
+~~~~~~~~~~~~~~~~~~~
+
+- `Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI>`_
 - `Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en>`_
+
+Landsat Missions
+~~~~~~~~~~~~~~~~~~~
+
 - `USGS Landsat 8 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR>`_
 - `USGS Landsat 7 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR>`_
 - `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
 - `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
 
+MODIS Products
+~~~~~~~~~~~~~~~~~~~
+
+- `MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA>`_
+- `MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1>`_
+- `MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1>`_
+- `MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD15A3H>`_
+- `MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A2H>`_
+- `MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD16A2>`_
+- `MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13Q1>`_
+- `MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A1>`_
+- `MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A2>`_
+
 .. warning::
-   Not supported satellite platforms or not Surface Reflectance Products of the supported platforms will raise an *Exception*.   
+   Not supported satellite platforms will raise an *Exception*.   
 
-Let's check how to use the :code:`maskClouds()` method for:
+QA Method
+----------------------
 
-- :ref:`S2`.
-- :ref:`LS`.
+By default, the :code:`maskClouds()` uses the QA band of each paltform to compute the clouds and shadows masks (except for Sentinel-2, where the default method is Cloud Probability). The following table shows the band and the bits used for each platform (The value in parentheses is the valid value of the bitmask):
 
-.. _S2:
+.. list-table:: QA bits used for clouds/shadows masking
+   :widths: 20 20 20 20 20
+   :header-rows: 1
+
+   * - Platform
+     - QA Band
+     - Cloud Bitmask
+     - Cirrus Bitmask
+     - Shadow Bitmask
+   * - Sentinel-3
+     - quality_flags
+     - 27 (0)
+     -
+     -
+   * - Sentinel-2
+     - QA60
+     - 10 (0)
+     - 11 (0)
+     -
+   * - Landsat Series
+     - pixel_qa
+     - 5 (0)
+     - 
+     - 3 (0)
+   * - MOD09GA
+     - state_1km
+     - 0 (0)
+     - 8 (0)
+     - 2 (0)
+   * - MOD09Q1
+     - State
+     - 0 (0)
+     - 8 (0)
+     - 2 (0)
+   * - MOD09A1
+     - StateQA
+     - 0 (0)
+     - 8 (0)
+     - 2 (0)
+   * - MCD15A3H
+     - FparExtra_QC
+     - 5 (0)
+     - 4 (0)
+     - 6 (0)
+   * - MOD17A2H
+     - Psn_QC
+     - 3 (0)
+     - 
+     - 
+   * - MOD16A2
+     - ET_QC
+     - 3 (0)
+     - 
+     - 
+   * - MOD13Q1
+     - SummaryQA
+     - 0 (0)
+     - 
+     - 
+   * - MOD13A1
+     - SummaryQA
+     - 0 (0)
+     - 
+     -
+
+Usage
+-----
+
+Let's check how to use the :code:`maskClouds()` method for different platforms:
+
+Sentinel-3
+~~~~~~~~~~~~~~
+
+On Sentinel 3, clouds are masked according to the bright pixels in the quality_flags band of the `Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI>`_.
+
+.. warning::
+   This method may mask water as well on Sentinel-3 images. 
+
+Let's take the Sentinel-3 image collection as example:
+
+.. code-block:: python
+
+   S3 = ee.ImageCollection('COPERNICUS/S3/OLCI')
+   
+There is no need to specify any arguments, since they're ignored.
+
+.. code-block:: python
+
+   S3.maskClouds()
+  
+This method can also be applied to a single image:
+
+.. code-block:: python
+
+   S3.first().maskClouds()
+   
+And can be used for scaled images without specifying it:
+
+.. code-block:: python
+
+   S3.scale().maskClouds()
 
 Sentinel-2
-------------------
+~~~~~~~~~~~~~~~~
 
 On Sentinel 2, clouds can be masked using two methods: *QA* and *Cloud Probability*. The *QA* method uses the QA60 band in the `Surface Reflectance Product <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en>`_ to mask clouds, while the *Cloud Probability* method uses the
 `COPERNICUS/S2_CLOUD_PROBABILITY <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_CLOUD_PROBABILITY?hl=en>`_ collection to do it.
@@ -153,10 +277,8 @@ using the :code:`cdi` parameter:
    Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481’ 
    <https://www.sciencedirect.com/science/article/pii/S0034425718302037#:~:text=In%20this%20paper%2C%20we%20present,separated%20from%20bright%20ground%20objects.>`_.
 
-.. _LS:
-
 Landsat Series
-------------------
+~~~~~~~~~~~~~~~~
 
 On Landsat Series, both clouds and shadows are masked based on the pixel_qa band in the `Surface Reflectance Products <https://developers.google.com/earth-engine/datasets/catalog/landsat>`_.
 
@@ -166,7 +288,7 @@ Let's take the Landsat 8 image collection as example:
 
    L8 = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
    
-There is no need to specify most of the methods showed for Sentinel-2, since they're ignored.
+There is no need to specify most of the arguments showed for Sentinel-2, since they're ignored.
 
 .. code-block:: python
 
@@ -189,3 +311,44 @@ And can be used for scaled images without specifying it:
 .. code-block:: python
 
    L8.scale().maskClouds()
+   
+MODIS Products
+~~~~~~~~~~~~~~~~
+
+On MODIS Products, clouds and shadows are masked according to the specific QA band.
+
+Let's take the MOD13Q1 image collection as example:
+
+.. code-block:: python
+
+   MOD13Q1 = ee.ImageCollection('MODIS/006/MOD13Q1')
+   
+There is no need to specify most of the arguments showed for Sentinel-2, since they're ignored.
+
+.. code-block:: python
+
+   MOD13Q1.maskClouds()
+   
+MOD13Q1, MOD13A1, MOD17A2H and MOD16A2 products don't have cirrus and shadow bitmasks, therefore, the arguments :code:`maskShadows` and :code:`maskCirrus` are ignored. MOD09GA, MOD09Q1, MOD09A1 and MCD15A3H products have cirrus and shadows bitmasks, and by default, they are set to *True*. If required, they can be set to *False*:
+
+.. code-block:: python
+
+   MOD09GA = ee.ImageCollection('MODIS/006/MOD09GA').maskClouds(maskShadows = False, maskCirrus = False)
+   
+This method can also be applied to a single image:
+
+.. code-block:: python
+
+   MOD09GA.first().maskClouds()
+   
+And can be used for scaled images without specifying it:
+
+.. code-block:: python
+
+   MOD09GA.scale().maskClouds()
+   
+MOD13A2 doesn't have a bitmask QA band, instead, it has a Class QA band, where a value of zero means that the pixel has good data.
+
+.. code-block:: python
+
+   MOD13A2 = ee.ImageCollection('MODIS/006/MOD13A2').maskClouds()

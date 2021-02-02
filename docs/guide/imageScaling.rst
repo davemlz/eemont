@@ -37,15 +37,29 @@ ee.ImageCollection
 
    scale
 
+Supported Platforms
+----------------------
+
 This method automatically scales images from the following supported satellite platforms:
+
+Sentinel Missions
+~~~~~~~~~~~~~~~~~~~
 
 - `Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI>`_
 - `Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en>`_
 - `Sentinel-2 MSI: MultiSpectral Instrument, Level-1C <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands>`_
+
+Landsat Missions
+~~~~~~~~~~~~~~~~~~~
+
 - `USGS Landsat 8 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR>`_
 - `USGS Landsat 7 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR>`_
 - `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
 - `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
+
+MODIS Products
+~~~~~~~~~~~~~~~~~~~
+
 - `MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4>`_
 - `MCD43A3.006 MODIS Albedo Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A3>`_
 - `MOD09GQ.006 Terra Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ>`_
@@ -69,8 +83,6 @@ This method automatically scales images from the following supported satellite p
 
 .. warning::
    Not supported satellite platforms will raise an *Exception*.   
-
-Let's check how the :code:`scale()` method works:
 
 Usage
 ------------------

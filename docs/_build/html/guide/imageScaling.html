@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Image Scaling &mdash; eemont 0.1.6 documentation</title>
+  <title>Image Scaling &mdash; eemont 0.1.7 documentation</title>
   
 
   
@@ -99,6 +99,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ee-image">ee.Image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ee-imagecollection">ee.ImageCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-platforms">Supported Platforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sentinel-missions">Sentinel Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#landsat-missions">Landsat Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modis-products">MODIS Products</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
@@ -216,15 +222,31 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="supported-platforms">
+<h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
 <p>This method automatically scales images from the following supported satellite platforms:</p>
+<div class="section" id="sentinel-missions">
+<h3>Sentinel Missions<a class="headerlink" href="#sentinel-missions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI">Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en">Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands">Sentinel-2 MSI: MultiSpectral Instrument, Level-1C</a></p></li>
+</ul>
+</div>
+<div class="section" id="landsat-missions">
+<h3>Landsat Missions<a class="headerlink" href="#landsat-missions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR">USGS Landsat 8 Surface Reflectance Tier 1 and 2</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR">USGS Landsat 7 Surface Reflectance Tier 1 and 2</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR">USGS Landsat 5 Surface Reflectance Tier 1 and 2</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR">USGS Landsat 4 Surface Reflectance Tier 1 and 2</a></p></li>
+</ul>
+</div>
+<div class="section" id="modis-products">
+<h3>MODIS Products<a class="headerlink" href="#modis-products" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4">MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A3">MCD43A3.006 MODIS Albedo Daily 500m</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ">MOD09GQ.006 Terra Surface Reflectance Daily Global 250m</a></p></li>
@@ -250,7 +272,6 @@
 <p class="admonition-title">Warning</p>
 <p>Not supported satellite platforms will raise an <em>Exception</em>.</p>
 </div>
-<p>Let’s check how the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method works:</p>
 </div>
 </div>
 <div class="section" id="usage">

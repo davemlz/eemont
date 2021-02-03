@@ -92,7 +92,7 @@ def _getIndices():
             'formula' : '1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)',
             'description' : 'Burned Area Index',
             'type' : 'burn',
-            'reference' : None,
+            'reference' : 'https://digital.csic.es/bitstream/10261/6426/1/Martin_Isabel_Serie_Geografica.pdf',
             'contributor' : 'davemlz'
         },        
         'BAIS2' : {

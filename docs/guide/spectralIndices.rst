@@ -126,7 +126,7 @@ The following table shows the list of built-in burn indices:
      - Reference
    * - BAI
      - Burned Area Index
-     -   
+     - `(Martín, 1998) [spanish] <https://digital.csic.es/bitstream/10261/6426/1/Martin_Isabel_Serie_Geografica.pdf>`_ 
    * - BAIS2
      - Burned Area Index for Sentinel 2
      - `(Filipponi, 2018) <https://doi.org/10.3390/ecrs-2-05177>`_

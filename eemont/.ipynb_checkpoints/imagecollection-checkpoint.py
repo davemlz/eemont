@@ -1,6 +1,7 @@
 import ee
 import numpy as np
 import warnings
+from .spectralindices import _getIndices
 
 def _extend_eeImageCollection():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -128,10 +129,13 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'CIG' : Chlorophyll Index - Green.
             - 'CVI' : Chlorophyll Vegetation Index.
             - 'EVI' : Enhanced Vegetation Index.
+            - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
             - 'GNDVI' : Green Normalized Difference Vegetation Index.
+            - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
+            - 'MNDVI' : Modified Normalized Difference Vegetation Index.
             - 'NDVI' : Normalized Difference Vegetation Index.
             - 'NGRDI' : Normalized Green Red Difference Index.
-            - 'SR' : Simple Ratio.
+            - 'RVI' : Ratio Vegetation Index.
             - 'SAVI' : Soil-Adjusted Vegetation Index.
         Burn and fire indices:       
             - 'BAI' : Burned Area Index.
@@ -223,96 +227,34 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         
         return lookupPlatform[platformDict['platform']](img)
     
-    # VEGETATION INDICES
-    
-    def BNDVI(img):
-        return img.addBands(img.expression('(N - B) / (N + B)',lookupDic(img)).rename('BNDVI'))
-    
-    def CIG(img):
-        return img.addBands(img.expression('(N / G) - 1',lookupDic(img)).rename('CIG'))
-    
-    def CVI(img):
-        return img.addBands(img.expression('(N * R) / (G ** 2)',lookupDic(img)).rename('CVI'))
-    
-    def EVI(img):
-        return img.addBands(img.expression('G * (N - R) / (N + C1 * R - C2 * B + L)',lookupDic(img)).rename('EVI'))
-       
-    def GNDVI(img):
-        return img.addBands(img.expression('(N - G) / (N + G)',lookupDic(img)).rename('GNDVI'))
-    
-    def NDVI(img):
-        return img.addBands(img.expression('(N - R) / (N + R)',lookupDic(img)).rename('NDVI'))
-    
-    def NGRDI(img):
-        return img.addBands(img.expression('(G - R) / (G + R)',lookupDic(img)).rename('NGRDI'))
-    
-    def SAVI(img):
-        return img.addBands(img.expression('(1 + L) * (N - R) / (N + R + L)',lookupDic(img)).rename('SAVI'))
-    
-    def SR(img):
-        return img.addBands(img.expression('N / R',lookupDic(img)).rename('SR'))
-    
-    lookupVegetation = {
-        'BNDVI': BNDVI,
-        'CIG': CIG,
-        'CVI': CVI,
-        'EVI': EVI,
-        'GNDVI': GNDVI,
-        'NDVI': NDVI,
-        'NGRDI': NGRDI,        
-        'SAVI': SAVI,
-        'SR': SR,
-    }
-    
-    # BURN INDICES
-    
-    def BAI(img):
-        return img.addBands(img.expression('1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)',lookupDic(img)).rename('BAI'))
-    
-    def BAIS2(img):
-        first = img.expression('(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5)',lookupDic(img))
-        second = img.expression('(((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)',lookupDic(img))
-        return img.addBands(first.multiply(second).rename('BAIS2'))
-    
-    def NBR(img):
-        return img.addBands(img.expression('(N - S2) / (N + S2)',lookupDic(img)).rename('NBR'))
-    
-    lookupBurn = {
-        'BAI': BAI,
-        'BAIS2': BAIS2,
-        'NBR': NBR
-    }
-    
-    # WATER INDICES
-        
-    def MNDWI(img):
-        return img.addBands(img.expression('(G - S1) / (G + S1)',lookupDic(img)).rename('MNDWI'))
-    
-    def NDWI(img):
-        return img.addBands(img.expression('(G - N) / (G + N)',lookupDic(img)).rename('NDWI'))
-    
-    lookupWater = {
-        'MNDWI': MNDWI,
-        'NDWI': NDWI,
-    }
-    
-    # ALL INDICES
-    
-    lookup = {**lookupVegetation, **lookupBurn, **lookupWater}
+    spectralIndices = _getIndices()
+    indicesNames = list(spectralIndices.keys())
     
     if not isinstance(index, list):
         if index == 'all':
-            index = list(lookup.keys())
+            index = list(spectralIndices.keys())
         elif index == 'vegetation':
-            index = list(lookupVegetation.keys())
+            temporalListOfIndices = []
+            for idx in indicesNames:
+                if spectralIndices[idx]['type'] == 'vegetation':
+                    temporalListOfIndices.append(idx)
+            index = temporalListOfIndices
         elif index == 'burn':
-            index = list(lookupBurn.keys())
+            temporalListOfIndices = []
+            for idx in indicesNames:
+                if spectralIndices[idx]['type'] == 'burn':
+                    temporalListOfIndices.append(idx)
+            index = temporalListOfIndices
         elif index == 'water':
-            index = list(lookupWater.keys())
+            temporalListOfIndices = []
+            for idx in indicesNames:
+                if spectralIndices[idx]['type'] == 'water':
+                    temporalListOfIndices.append(idx)
+            index = temporalListOfIndices
         else:
             index = [index]        
     
-    listOfIndices = list(lookup.keys())
+    listOfIndices = list(spectralIndices.keys())
     listOfIndicesLandsat = list(listOfIndices)
     listOfIndicesLandsat.remove('BAIS2')
     
@@ -325,12 +267,14 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     }
     
     for idx in index:
-        if idx not in list(lookup.keys()):
+        if idx not in list(spectralIndices.keys()):
             warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!",Warning)
         elif idx not in lookupIndicesPlatform[platformDict['platform']]:
             warnings.warn("Index " + idx + " can't be computed for this platform!",Warning)
         else:
-            self = self.map(lookup[idx])
+            def temporalIndex(img):
+                return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic(img)).rename(idx))                
+            self = self.map(temporalIndex)
             
     return self
 

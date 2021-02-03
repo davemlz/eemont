@@ -31,7 +31,7 @@ MOD13A2 = ee.ImageCollection('MODIS/006/MOD13A2').first()
 MOD08_M3 = ee.ImageCollection('MODIS/061/MOD08_M3').first()
 MOD17A3HGF = ee.ImageCollection('MODIS/006/MOD17A3HGF').first()
 
-indices = ['NDVI','BAIS2']
+indices = 'all'
 
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""

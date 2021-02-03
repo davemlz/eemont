@@ -8,6 +8,7 @@ New Modules
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - *pd.DataFrame* module created.
+- *spectralindices* module created (it feeds the :code:`index()` method for both ee.Image and ee.ImageCollection).
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -54,3 +55,9 @@ Improvements
    - `MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A1>`_
    - `MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A2>`_
    - `MOD08_M3.061 Terra Atmosphere Monthly Global Product <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD08_M3>`_
+- The following vegetation indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
+   - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
+   - 'MNDVI' : Modified Normalized Difference Vegetation Index.
+- The 'SR' vegetation index was replaced by 'RVI' in the :code:`index()` extended method for ee.Image and ee.ImageCollection.

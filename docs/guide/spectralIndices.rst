@@ -86,21 +86,31 @@ The following table shows the list of built-in vegetation indices:
    * - EVI
      - Enhanced Vegetation Index
      - `Index DataBase EVI <https://www.indexdatabase.de/db/i-single.php?id=16>`_
+   * - GBNDVI
+     - Green-Blue Normalized Difference Vegetation Index
+     - `Index DataBase GBNDVI <https://www.indexdatabase.de/db/i-single.php?id=186>`_
    * - GNDVI
      - Green Normalized Difference Vegetation Index
      - `Index DataBase GNDVI <https://www.indexdatabase.de/db/i-single.php?id=401>`_
+   * - GRNDVI
+     - Green-Red Normalized Difference Vegetation Index
+     - `Index DataBase GRNDVI <https://www.indexdatabase.de/db/i-single.php?id=185>`_
+   * - MNDVI
+     - Modified Normalized Difference Vegetation Index
+     - `Index DataBase MNDVI <https://www.indexdatabase.de/db/i-single.php?id=245>`_
    * - NDVI
      - Normalized Difference Vegetation Index
      - `Index DataBase NDVI <https://www.indexdatabase.de/db/i-single.php?id=58>`_
    * - NGRDI
      - Normalized Green Red Difference Index
      - `Index DataBase NGRDI <https://www.indexdatabase.de/db/i-single.php?id=390>`_
-   * - SR
-     - Simple Ratio
-     - 
+   * - RVI
+     - Ratio Vegetation Index
+     - `Index DataBase RVI <https://www.indexdatabase.de/db/i-single.php?id=72>`_
    * - SAVI
      - Soil-Adjusted Vegetation Index
      - `Index DataBase SAVI <https://www.indexdatabase.de/db/i-single.php?id=87>`_
+     
      
 Burn Indices
 ~~~~~~~~~~~~~~~~~~~

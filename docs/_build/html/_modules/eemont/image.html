@@ -167,6 +167,7 @@
   <h1>Source code for eemont.image</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">.spectralindices</span> <span class="kn">import</span> <span class="n">_getIndices</span>
 
 <span class="k">def</span> <span class="nf">_extend_eeImage</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.ImageCollection class.&quot;&quot;&quot;</span>
@@ -250,11 +251,14 @@
 <span class="sd">            - &#39;CIG&#39; : Chlorophyll Index - Green.</span>
 <span class="sd">            - &#39;CVI&#39; : Chlorophyll Vegetation Index.</span>
 <span class="sd">            - &#39;EVI&#39; : Enhanced Vegetation Index.</span>
+<span class="sd">            - &#39;GBNDVI&#39; : Green-Blue Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;GNDVI&#39; : Green Normalized Difference Vegetation Index.</span>
+<span class="sd">            - &#39;GRNDVI&#39; : Green-Red Normalized Difference Vegetation Index.</span>
+<span class="sd">            - &#39;MNDVI&#39; : Modified Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;NDVI&#39; : Normalized Difference Vegetation Index.</span>
-<span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.        </span>
-<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
-<span class="sd">            - &#39;SR&#39; : Simple Ratio.</span>
+<span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.</span>
+<span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
+<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.            </span>
 <span class="sd">        Burn and fire indices:     </span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
@@ -275,7 +279,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Image with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">    &#39;&#39;&#39;</span>  
+<span class="sd">    &#39;&#39;&#39;</span>    
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
@@ -345,96 +349,34 @@
         
         <span class="k">return</span> <span class="n">lookupPlatform</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="n">img</span><span class="p">)</span>
     
-    <span class="c1"># VEGETATION INDICES</span>
-    
-    <span class="k">def</span> <span class="nf">BNDVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N - B) / (N + B)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;BNDVI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">CIG</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N / G) - 1&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;CIG&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">CVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N * R) / (G ** 2)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;CVI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">EVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;G * (N - R) / (N + C1 * R - C2 * B + L)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;EVI&#39;</span><span class="p">))</span>
-       
-    <span class="k">def</span> <span class="nf">GNDVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N - G) / (N + G)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">NDVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N - R) / (N + R)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">NGRDI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(G - R) / (G + R)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NGRDI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">SAVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(1 + L) * (N - R) / (N + R + L)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;SAVI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">SR</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;N / R&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;SR&#39;</span><span class="p">))</span>
-    
-    <span class="n">lookupVegetation</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;BNDVI&#39;</span><span class="p">:</span> <span class="n">BNDVI</span><span class="p">,</span>
-        <span class="s1">&#39;CIG&#39;</span><span class="p">:</span> <span class="n">CIG</span><span class="p">,</span>
-        <span class="s1">&#39;CVI&#39;</span><span class="p">:</span> <span class="n">CVI</span><span class="p">,</span>
-        <span class="s1">&#39;EVI&#39;</span><span class="p">:</span> <span class="n">EVI</span><span class="p">,</span>
-        <span class="s1">&#39;GNDVI&#39;</span><span class="p">:</span> <span class="n">GNDVI</span><span class="p">,</span>
-        <span class="s1">&#39;NDVI&#39;</span><span class="p">:</span> <span class="n">NDVI</span><span class="p">,</span>
-        <span class="s1">&#39;NGRDI&#39;</span><span class="p">:</span> <span class="n">NGRDI</span><span class="p">,</span>        
-        <span class="s1">&#39;SAVI&#39;</span><span class="p">:</span> <span class="n">SAVI</span><span class="p">,</span>
-        <span class="s1">&#39;SR&#39;</span><span class="p">:</span> <span class="n">SR</span>
-    <span class="p">}</span>
-    
-    <span class="c1"># BURN INDICES</span>
-    
-    <span class="k">def</span> <span class="nf">BAI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;BAI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">BAIS2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">first</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
-        <span class="n">second</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">first</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">second</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">NBR</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(N - S2) / (N + S2)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NBR&#39;</span><span class="p">))</span>
-    
-    <span class="n">lookupBurn</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;BAI&#39;</span><span class="p">:</span> <span class="n">BAI</span><span class="p">,</span>
-        <span class="s1">&#39;BAIS2&#39;</span><span class="p">:</span> <span class="n">BAIS2</span><span class="p">,</span>
-        <span class="s1">&#39;NBR&#39;</span><span class="p">:</span> <span class="n">NBR</span>
-    <span class="p">}</span>
-    
-    <span class="c1"># WATER INDICES</span>
-        
-    <span class="k">def</span> <span class="nf">MNDWI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(G - S1) / (G + S1)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;MNDWI&#39;</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">NDWI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;(G - N) / (G + N)&#39;</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;NDWI&#39;</span><span class="p">))</span>
-    
-    <span class="n">lookupWater</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;MNDWI&#39;</span><span class="p">:</span> <span class="n">MNDWI</span><span class="p">,</span>
-        <span class="s1">&#39;NDWI&#39;</span><span class="p">:</span> <span class="n">NDWI</span><span class="p">,</span>
-    <span class="p">}</span>
-    
-    <span class="c1"># ALL INDICES</span>
-    
-    <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookupVegetation</span><span class="p">,</span> <span class="o">**</span><span class="n">lookupBurn</span><span class="p">,</span> <span class="o">**</span><span class="n">lookupWater</span><span class="p">}</span>
+    <span class="n">spectralIndices</span> <span class="o">=</span> <span class="n">_getIndices</span><span class="p">()</span>
+    <span class="n">indicesNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
         <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupVegetation</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">temporalListOfIndices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indicesNames</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">:</span>
+                    <span class="n">temporalListOfIndices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">temporalListOfIndices</span>
         <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;burn&#39;</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupBurn</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">temporalListOfIndices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indicesNames</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;burn&#39;</span><span class="p">:</span>
+                    <span class="n">temporalListOfIndices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">temporalListOfIndices</span>
         <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;water&#39;</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupWater</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">temporalListOfIndices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indicesNames</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;water&#39;</span><span class="p">:</span>
+                    <span class="n">temporalListOfIndices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">temporalListOfIndices</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>        
     
-    <span class="n">listOfIndices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">listOfIndices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     <span class="n">listOfIndicesLandsat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">listOfIndices</span><span class="p">)</span>
     <span class="n">listOfIndicesLandsat</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
     
@@ -447,13 +389,15 @@
     <span class="p">}</span>
     
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookupIndicesPlatform</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]]:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; can&#39;t be computed for this platform!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">idx</span><span class="p">](</span><span class="bp">self</span><span class="p">)</span>
-        
+            <span class="k">def</span> <span class="nf">temporalIndex</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;formula&#39;</span><span class="p">],</span><span class="n">lookupDic</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>                
+            <span class="bp">self</span> <span class="o">=</span> <span class="n">temporalIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            
     <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/eeimage.html#eemont.image.maskClouds">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>

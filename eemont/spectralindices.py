@@ -1,4 +1,5 @@
 def _getIndices():
+    """Retrieves the dictionary of indices used for the index() method in ee.Image and ee.ImageCollection classes."""
     
     vegetationIndices = {
         'BNDVI' : {

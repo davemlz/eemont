@@ -128,6 +128,16 @@ def _getIndices():
         },    
     }
     
-    indices = {**vegetationIndices, **burnIndices, **waterIndices}
+    snowIndices = {
+        'NDSI' : {
+            'formula' : '(G - S1) / (G + S1)',
+            'description' : 'Normalized Difference Snow Index',
+            'type' : 'snow',
+            'reference' : 'https://doi.org/10.1109/IGARSS.1994.399618',
+            'contributor' : 'davemlz'
+        },   
+    }
+    
+    indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices}
     
     return indices

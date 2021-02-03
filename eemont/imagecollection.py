@@ -123,6 +123,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'vegetation' : Compute all vegetation indices.
             - 'burn' : Compute all burn indices.
             - 'water' : Compute all water indices.
+            - 'snow' : Compute all snow indices.
             - 'all' : Compute all indices listed below.
         Vegetation indices:     
             - 'BNDVI' : Blue Normalized Difference Vegetation Index.
@@ -143,7 +144,9 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'NBR' : Normalized Burn Ratio.
         Water indices:     
             - 'MNDWI' : Modified Normalized Difference Water Index.
-            - 'NDWI' : Normalized Difference Water Index.        
+            - 'NDWI' : Normalized Difference Water Index.
+        Snow indices:     
+            - 'NDSI' : Normalized Difference Snow Index.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -233,22 +236,10 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     if not isinstance(index, list):
         if index == 'all':
             index = list(spectralIndices.keys())
-        elif index == 'vegetation':
+        elif index in ['vegetation','burn','water','snow']:
             temporalListOfIndices = []
             for idx in indicesNames:
-                if spectralIndices[idx]['type'] == 'vegetation':
-                    temporalListOfIndices.append(idx)
-            index = temporalListOfIndices
-        elif index == 'burn':
-            temporalListOfIndices = []
-            for idx in indicesNames:
-                if spectralIndices[idx]['type'] == 'burn':
-                    temporalListOfIndices.append(idx)
-            index = temporalListOfIndices
-        elif index == 'water':
-            temporalListOfIndices = []
-            for idx in indicesNames:
-                if spectralIndices[idx]['type'] == 'water':
+                if spectralIndices[idx]['type'] == index:
                     temporalListOfIndices.append(idx)
             index = temporalListOfIndices
         else:

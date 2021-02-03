@@ -148,10 +148,10 @@ The following table shows the list of built-in water indices:
      - Reference
    * - MNDWI
      - Modified Normalized Difference Water Index
-     -   
+     - `(Xu, 2006) <https://doi.org/10.1080/01431160600589179>`_  
    * - NDWI
      - Normalized Difference Water Index
-     - 
+     - `(McFeeters, 1996) <https://doi.org/10.1080/01431169608948714>`_
 
 Usage
 ------------------

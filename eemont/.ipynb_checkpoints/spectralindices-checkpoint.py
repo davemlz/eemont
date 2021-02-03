@@ -116,14 +116,14 @@ def _getIndices():
             'formula' : '(G - S1) / (G + S1)',
             'description' : 'Modified Normalized Difference Water Index',
             'type' : 'water',
-            'reference' : None,
+            'reference' : 'https://doi.org/10.1080/01431160600589179',
             'contributor' : 'davemlz'
         },        
         'NDWI' : {
             'formula' : '(G - N) / (G + N)',
             'description' : 'Normalized Difference Water Index',
             'type' : 'water',
-            'reference' : None,
+            'reference' : 'https://doi.org/10.1080/01431169608948714',
             'contributor' : 'davemlz'
         },    
     }

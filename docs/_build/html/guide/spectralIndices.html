@@ -408,10 +408,83 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the satellite platform doesn’t have the required bands for computing an index, it won’t be computed.</p>
+</div>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method computes the specified spectral index and adds it as a new band.</p>
+<p>Let’s take the Sentinel-2 SR image collection as example (remember to scale your image or image collection!):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>By default, the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method computes the NDVI:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If required, any of the above-mentioned indices can be computed by modifying the <code class="code docutils literal notranslate"><span class="pre">index</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;EVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;EVI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Specific index-parameters can be changed, for example, the canopy background adjustment L is set to 1.0 for EVI, but for SAVI it can be changed to 0.5:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;SAVI&#39;</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SAVI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If more than one index is required, a list of indices can be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;CIG&#39;</span><span class="p">,</span><span class="s1">&#39;NBR&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">])</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;CIG&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NBR&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDWI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Indices can also be computed for single images:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;GBNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;MNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">])</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;GBNDVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;MNDVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;EVI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All vegetation indices can be computed by setting <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">vegetation</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;vegetation&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;RVI&#39;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>All burn indices can be computed by setting <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">burn</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;burn&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;BAI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NBR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All water indices can be computed by setting <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">water</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDWI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;MNDWI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All snow indices can be computed by setting <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">snow</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;snow&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDSI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to compute all available indices, you can set <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">all</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2withIndices</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;BAI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDWI&#39;</span><span class="p">)</span>
+<span class="n">S2withIndices</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NDSI&#39;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
 </div>
 </div>
 

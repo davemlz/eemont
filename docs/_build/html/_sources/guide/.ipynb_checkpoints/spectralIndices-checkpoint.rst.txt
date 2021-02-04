@@ -57,7 +57,7 @@ Landsat Missions
 - `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
 
 .. important::
-   It is highly recommended to scale the image (or image collection) before computing spectral indices. See the :code:`scale()` method for more info.   
+   It is highly recommended to scale the image (or image collection) before computing spectral indices. See the :code:`scale()` method for more info.  
 
 List of Indices
 ----------------------
@@ -169,5 +169,100 @@ The following table shows the list of built-in snow indices:
      - Normalized Difference Snow Index
      - `(Riggs et al., 1994) <https://doi.org/10.1109/IGARSS.1994.399618>`_ 
 
+.. warning::
+   If the satellite platform doesn't have the required bands for computing an index, it won't be computed.
+
 Usage
 ------------------
+
+The :code:`index()` method computes the specified spectral index and adds it as a new band.
+
+Let's take the Sentinel-2 SR image collection as example (remember to scale your image or image collection!):
+
+.. code-block:: python
+
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
+   
+By default, the :code:`index()` method computes the NDVI:
+
+.. code-block:: python
+
+   S2withIndices = S2.index()
+   S2withIndices.select('NDVI')
+   
+If required, any of the above-mentioned indices can be computed by modifying the :code:`index` parameter:
+
+.. code-block:: python
+
+   S2withIndices = S2.index(index = 'EVI')
+   S2withIndices.select('EVI')
+   
+Specific index-parameters can be changed, for example, the canopy background adjustment L is set to 1.0 for EVI, but for SAVI it can be changed to 0.5:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('SAVI',L = 0.5)
+   S2withIndices.select('SAVI')
+   
+If more than one index is required, a list of indices can be used:
+
+.. code-block:: python
+
+   S2withIndices = S2.index(['CIG','NBR','NDWI'])
+   S2withIndices.select('CIG')
+   S2withIndices.select('NBR')
+   S2withIndices.select('NDWI')
+   
+Indices can also be computed for single images:
+
+.. code-block:: python
+
+   S2withIndices = S2.first().index(['GBNDVI','MNDVI','EVI'])
+   S2withIndices.select('GBNDVI')
+   S2withIndices.select('MNDVI')
+   S2withIndices.select('EVI')
+   
+All vegetation indices can be computed by setting :code:`index = vegetation`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('vegetation')
+   S2withIndices.select('NDVI')
+   S2withIndices.select('GNDVI')
+   S2withIndices.select('RVI')
+   # ...
+   
+All burn indices can be computed by setting :code:`index = burn`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('burn')
+   S2withIndices.select('BAI')
+   S2withIndices.select('BAIS2')
+   S2withIndices.select('NBR')
+   
+All water indices can be computed by setting :code:`index = water`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('water')
+   S2withIndices.select('NDWI')
+   S2withIndices.select('MNDWI')
+   
+All snow indices can be computed by setting :code:`index = snow`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('snow')
+   S2withIndices.select('NDSI')
+   
+If you want to compute all available indices, you can set :code:`index = all`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('all')
+   S2withIndices.select('NDVI')
+   S2withIndices.select('BAI')
+   S2withIndices.select('NDWI')
+   S2withIndices.select('NDSI')
+   # ...

@@ -1,68 +1,13 @@
 import ee
 import warnings
-from .spectralindices import _getIndices
+from .algorithms import _get_indices
+from .algorithms import _get_platform
+from .algorithms import _get_scale_method
+from .algorithms import _get_expression_map
 
 def _extend_eeImage():
     """Decorator. Extends the ee.ImageCollection class."""
     return lambda f: (setattr(ee.image.Image,f.__name__,f) or f)
-
-def _get_platform(img):
-    '''Gets the platform (satellite) of an image and wheter if it is a Surface Reflectance product.
-    
-    Parameters
-    ----------
-    img : ee.Image [this]
-        Image to get platform.
-        
-    Returns
-    -------
-    dict
-        Platform and product of the image.
-    '''
-    platforms = [
-        'COPERNICUS/S3',
-        'COPERNICUS/S2',
-        'LANDSAT/LC08',
-        'LANDSAT/LE07',
-        'LANDSAT/LT05',
-        'LANDSAT/LT04',
-        'MODIS/006/MCD43A4',
-        'MODIS/006/MCD43A3',
-        'MODIS/006/MOD09GQ',
-        'MODIS/006/MOD10A1',
-        'MODIS/006/MOD11A1',
-        'MODIS/006/MOD09GA',
-        'MODIS/006/MODOCGA',
-        'MODIS/006/MOD14A1',
-        'MODIS/006/MCD43A1',
-        'MODIS/006/MCD15A3H',
-        'MODIS/006/MOD09Q1',
-        'MODIS/006/MOD09A1',
-        'MODIS/006/MOD11A2',
-        'MODIS/006/MOD17A2H',
-        'MODIS/006/MOD16A2',
-        'MODIS/006/MOD13Q1',
-        'MODIS/006/MOD13A1',
-        'MODIS/006/MOD13A2',
-        'MODIS/061/MOD08_M3',
-        'MODIS/006/MOD17A3HGF'
-    ]
-    
-    imgID = img.get('system:id').getInfo()
-    plt = None
-    
-    for platform in platforms:
-        if platform in imgID:
-            plt = platform
-        if '_SR' in imgID:
-            platformDict = {'platform': plt, 'sr': True}
-        else:
-            platformDict = {'platform': plt, 'sr': False}
-            
-    if plt is None:
-        raise Exception("Sorry, satellite platform not supported!")
-            
-    return platformDict
 
 @_extend_eeImage()
 def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
@@ -118,74 +63,14 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     '''    
     platformDict = _get_platform(self)
     
-    def lookupDic(img):
-        
-        def lookupS2(img):
-            return {
-                'G': float(G),
-                'C1': float(C1),
-                'C2': float(C2),
-                'L': float(L),
-                'A': img.select('B1'),
-                'B': img.select('B2'),
-                'G': img.select('B3'),
-                'R': img.select('B4'),
-                'RE1': img.select('B5'),
-                'RE2': img.select('B6'),
-                'RE3': img.select('B7'),
-                'N' : img.select('B8'),
-                'RE4': img.select('B8A'),
-                'WV' : img.select('B9'),            
-                'S1': img.select('B11'),
-                'S2': img.select('B12')
-            }
-        
-        def lookupL8(img):
-            return {
-                'G': float(G),
-                'C1': float(C1),
-                'C2': float(C2),
-                'L': float(L),
-                'A': img.select('B1'),
-                'B': img.select('B2'),
-                'G': img.select('B3'),
-                'R': img.select('B4'),
-                'N': img.select('B5'),
-                'S1': img.select('B6'),
-                'S2': img.select('B7'),                
-                'T1' : img.select('B10'),
-                'T2': img.select('B11')
-            }
-        
-        def lookupL457(img):
-            return {
-                'G': float(G),
-                'C1': float(C1),
-                'C2': float(C2),
-                'L': float(L),
-                'B': img.select('B1'),
-                'G': img.select('B2'),
-                'R': img.select('B3'),
-                'N': img.select('B4'),
-                'S1': img.select('B5'),
-                'T1': img.select('B6'),
-                'S2': img.select('B7')                
-            }
-        
-        lookupPlatform = {
-            'COPERNICUS/S2': lookupS2,
-            'LANDSAT/LC08': lookupL8,
-            'LANDSAT/LE07': lookupL457,
-            'LANDSAT/LT05': lookupL457,
-            'LANDSAT/LT04': lookupL457
-        }
-        
-        if platformDict['platform'] not in list(lookupPlatform.keys()):
-            raise Exception("Sorry, satellite platform not supported for index computation!")
-        
-        return lookupPlatform[platformDict['platform']](img)
+    additionalParameters = {
+        'g': float(G),
+        'C1': float(C1),
+        'C2': float(C2),
+        'L': float(L),
+    }
     
-    spectralIndices = _getIndices()
+    spectralIndices = _get_indices()
     indicesNames = list(spectralIndices.keys())
     
     if not isinstance(index, list):
@@ -199,27 +84,19 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             index = temporalListOfIndices
         else:
             index = [index]           
-    
-    listOfIndices = list(spectralIndices.keys())
-    listOfIndicesLandsat = list(listOfIndices)
-    listOfIndicesLandsat.remove('BAIS2')
-    
-    lookupIndicesPlatform = {
-        'COPERNICUS/S2': listOfIndices,
-        'LANDSAT/LC08': listOfIndicesLandsat,
-        'LANDSAT/LE07': listOfIndicesLandsat,
-        'LANDSAT/LT05': listOfIndicesLandsat,
-        'LANDSAT/LT04': listOfIndicesLandsat
-    }
-    
+        
     for idx in index:
         if idx not in list(spectralIndices.keys()):
             warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!",Warning)
-        elif idx not in lookupIndicesPlatform[platformDict['platform']]:
-            warnings.warn("Index " + idx + " can't be computed for this platform!",Warning)
         else:
             def temporalIndex(img):
-                return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic(img)).rename(idx))                
+                lookupDic = _get_expression_map(img, platformDict)
+                lookupDic = {**lookupDic, **additionalParameters}
+                if all(band in list(lookupDic.keys()) for band in spectralIndices[idx]['requires']):
+                    return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic).rename(idx))                
+                else:
+                    warnings.warn("This platform doesn't have the required bands for " + idx + " computation!",Warning)
+                    return img
             self = temporalIndex(self)
             
     return self
@@ -445,217 +322,8 @@ def scale(self):
     ee.Image
         Scaled image.
     '''
-    def S3(img):
-        scalars = [
-            0.0139465,
-            0.0133873,
-            0.0121481,
-            0.0115198,
-            0.0100953,
-            0.0123538,
-            0.00879161,
-            0.00876539,
-            0.0095103,
-            0.00773378,
-            0.00675523,
-            0.0071996,
-            0.00749684,
-            0.0086512,
-            0.00526779,
-            0.00530267,
-            0.00493004,
-            0.00549962,
-            0.00502847,
-            0.00326378,
-            0.00324118
-        ]
-        scaled = img.select(['Oa.*']).multiply(scalars).addBands(img.select('quality_flags'))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def S2(img):
-        scaled = img.select(['B.*']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['Q.*']))
-        if platformDict['sr']:            
-            scaled = scaled.addBands(img.select(['AOT','WVP']).divide(1e3))
-            scaled = scaled.addBands(img.select(['T.*']))            
-            scaled = scaled.addBands(img.select('SCL'))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def L8(img):               
-        if platformDict['sr']:
-            scaled = img.select(['B[1-9]']).divide(1e4)
-            scaled = scaled.addBands(img.select(['B10','B11']).divide(10)) 
-            scaled = scaled.addBands(img.select(['sr_aerosol','pixel_qa','radsat_qa']))
-            return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-        else:
-            warnings.warn("TOA reflectance for Landsat 8 is already scaled!",Warning)
-            pass
-        
-    def L457(img):               
-        if platformDict['sr']:
-            scaled = img.select(['B[1-5]','B7']).divide(1e4)
-            scaled = scaled.addBands(img.select(['B6']).divide(10)) 
-            scaled = scaled.addBands(img.select(['sr_atmos_opacity']).divide(1e3)) 
-            scaled = scaled.addBands(img.select(['sr_cloud_qa','pixel_qa','radsat_qa']))
-            return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-        else:
-            warnings.warn("TOA reflectance for Landsat 4, 5 and 7 is already scaled!",Warning)
-            pass
-    
-    def MCD43A4(img):
-        scaled = img.select(['Nadir.*']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['BRDF.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD43A3(img):
-        scaled = img.select(['Albedo.*']).divide(1e3)      
-        scaled = scaled.addBands(img.select(['BRDF.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09GQ(img):
-        scaled = img.select(['sur.*']).divide(1e4)
-        scaled = scaled.addBands(img.select(['obscov']).divide(100)) 
-        scaled = scaled.addBands(img.select(['num_observations','QC_250m','iobs_res','orbit_pnt','granule_pnt']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD10A1(img):
-        scaled = img.select(['NDSI']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['NDSI_Snow.*']))
-        scaled = scaled.addBands(img.select(['Snow.*']))
-        scaled = scaled.addBands(img.select(['orbit_pnt','granule_pnt']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD11A1(img):
-        scaled = img.select(['LST.*']).multiply(0.02)
-        scaled = scaled.addBands(img.select(['Day_view_time','Night_view_time']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['Emis.*']).multiply(0.002)) 
-        scaled = scaled.addBands(img.select(['Clear.*']).multiply(0.0005))
-        scaled = scaled.addBands(img.select(['QC_Day','Day_view_angle','QC_Night','Night_view_angle']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09GA(img):
-        scaled = img.select(['sur.*']).multiply(0.0001)        
-        scaled = scaled.addBands(img.select(['Sensor.*']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['Solar.*']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['Range']).multiply(25))
-        scaled = scaled.addBands(img.select(['num_observations_1km','state_1km','gflags','orbit_pnt','granule_pnt','num_observations_500m','QC_500m','obscov_500m','iobs_res','q_scan']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MODOCGA(img):
-        scaled = img.select(['sur.*']).multiply(0.0001)  
-        scaled = scaled.addBands(img.select(['num_observations','orbit_pnt','granule_pnt']))
-        scaled = scaled.addBands(img.select(['QC.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD14A1(img):
-        scaled = img.select(['MaxFRP']).multiply(0.1)  
-        scaled = scaled.addBands(img.select(['FireMask','sample','QA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD43A1(img):
-        scaled = img.select(['BRDF_Albedo_Parameters.*']).multiply(0.001)  
-        scaled = scaled.addBands(img.select(['BRDF_Albedo_Band.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD15A3H(img):
-        scaled = img.select(['Fpar','FparStdDev']).multiply(0.01)  
-        scaled = scaled.addBands(img.select(['Lai','LaiStdDev']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['FparLai_QC','FparExtra_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09Q1(img):
-        scaled = img.select(['sur.*']).divide(1e4)        
-        scaled = scaled.addBands(img.select(['State','QA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09A1(img):
-        scaled = img.select(['sur.*']).divide(1e4)
-        scaled = scaled.addBands(img.select(['SolarZenith','ViewZenith','RelativeAzimuth']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['QA','StateQA','DayOfYear']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD11A2(img):
-        scaled = img.select(['LST.*']).multiply(0.02)
-        scaled = scaled.addBands(img.select(['Day_view_time','Night_view_time']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['Emis.*']).multiply(0.002).add(0.49)) 
-        scaled = scaled.addBands(img.select(['Day_view_angl','Night_view_angl']).subtract(65))
-        scaled = scaled.addBands(img.select(['QC_Day','QC_Night','Clear_sky_days','Clear_sky_nights']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD17A2H(img):
-        scaled = img.select(['Gpp','PsnNet']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['Psn_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD16A2(img):
-        scaled = img.select(['ET','PET']).multiply(0.1)
-        scaled = scaled.addBands(img.select(['LE','PLE']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ET_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13Q1(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13A1(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13A2(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD08_M3(img):
-        scaled = img.select(['Aerosol.*']).multiply(0.001)
-        scaled = scaled.addBands(img.select(['Cirrus.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Log.*']).multiply(0.001))
-        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Mean_Uncertainty']).multiply(0.01))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD17A3HGF(img):
-        scaled = img.select(['Npp']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['Npp_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    lookup = {
-        'COPERNICUS/S3': S3,
-        'COPERNICUS/S2': S2,
-        'LANDSAT/LC08': L8,
-        'LANDSAT/LE07': L457,
-        'LANDSAT/LT05': L457,
-        'LANDSAT/LT04': L457,
-        'MODIS/006/MCD43A4': MCD43A4,
-        'MODIS/006/MCD43A3': MCD43A3,
-        'MODIS/006/MOD09GQ': MOD09GQ,
-        'MODIS/006/MOD10A1': MOD10A1,
-        'MODIS/006/MOD11A1': MOD11A1,
-        'MODIS/006/MOD09GA': MOD09GA,
-        'MODIS/006/MODOCGA': MODOCGA,
-        'MODIS/006/MOD14A1': MOD14A1,
-        'MODIS/006/MCD43A1': MCD43A1,
-        'MODIS/006/MCD15A3H': MCD15A3H,
-        'MODIS/006/MOD09Q1': MOD09Q1,
-        'MODIS/006/MOD09A1': MOD09A1,
-        'MODIS/006/MOD11A2': MOD11A2,
-        'MODIS/006/MOD17A2H': MOD17A2H,
-        'MODIS/006/MOD16A2': MOD16A2,
-        'MODIS/006/MOD13Q1': MOD13Q1,
-        'MODIS/006/MOD13A1': MOD13A1,
-        'MODIS/006/MOD13A2': MOD13A2,
-        'MODIS/061/MOD08_M3': MOD08_M3,
-        'MODIS/006/MOD17A3HGF': MOD17A3HGF
-    }
-    
-    platformDict = _get_platform(self)    
+    platformDict = _get_platform(self)
+    lookup = _get_scale_method(platformDict)
     
     if platformDict['platform'] not in list(lookup.keys()):
         raise Exception("Sorry, satellite platform not supported for scaling!")

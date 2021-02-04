@@ -1,13 +1,585 @@
 import ee
 import warnings
-from .algorithms import _get_indices
-from .algorithms import _get_platform
-from .algorithms import _get_scale_method
-from .algorithms import _get_expression_map
+from .common import _get_indices
+from .common import _get_platform
+from .common import _get_scale_method
+from .common import _get_expression_map
 
 def _extend_eeImage():
     """Decorator. Extends the ee.ImageCollection class."""
     return lambda f: (setattr(ee.image.Image,f.__name__,f) or f)
+
+@_extend_eeImage()
+def __add__(self, other):
+    '''Computes the addition between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Addition of two images.
+    '''
+    return self.add(other)
+
+@_extend_eeImage()
+def __radd__(self, other):
+    '''Computes the addition between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Addition of two images.
+    '''
+    return self.add(other)
+
+@_extend_eeImage()
+def __sub__(self, other):
+    '''Computes the subtraction between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Subtraction of two images.
+    '''
+    return self.subtract(other)
+
+@_extend_eeImage()
+def __rsub__(self, other):
+    '''Computes the subtraction between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Subtraction of two images.
+    '''
+    return ee.Image(other).subtract(self)
+
+@_extend_eeImage()
+def __mul__(self, other):
+    '''Computes the multiplication between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Multiplication of two images.
+    '''
+    return self.multiply(other)
+
+@_extend_eeImage()
+def __rmul__(self, other):
+    '''Computes the multiplication between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Multiplication of two images.
+    '''
+    return self.multiply(other)
+
+@_extend_eeImage()
+def __truediv__(self, other):
+    '''Computes the division between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Division of two images.
+    '''
+    return self.divide(other)
+
+@_extend_eeImage()
+def __rtruediv__(self, other):
+    '''Computes the division between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Division of two images.
+    '''
+    return ee.Image(other).divide(self)
+
+@_extend_eeImage()
+def __floordiv__(self, other):
+    '''Computes the floor division of two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Floor division of two images.
+    '''
+    return self.divide(other).floor()
+
+@_extend_eeImage()
+def __rfloordiv__(self, other):
+    '''Computes the floor division of two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Floor division of two images.
+    '''
+    return ee.Image(other).divide(self).floor()
+
+@_extend_eeImage()
+def __mod__(self, other):
+    '''Computes the modulo of two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Modulo of two images.
+    '''
+    return self.mod(other)
+
+@_extend_eeImage()
+def __rmod__(self, other):
+    '''Computes the modulo of two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Modulo of two images.
+    '''
+    return ee.Image(other).mod(self)
+
+@_extend_eeImage()
+def __pow__(self, other):
+    '''Computes the base (left operand) to the power (right operand).
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Bsae to the power of two images.
+    '''
+    return self.pow(other)
+
+@_extend_eeImage()
+def __rpow__(self, other):
+    '''Computes the base (left operand) to the power (right operand).
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Base to the power of two images.
+    '''
+    return ee.Image(other).pow(self)
+
+@_extend_eeImage()
+def __lshift__(self, other):
+    '''Computes the left shift operation between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Left shift operation.
+    '''
+    return self.leftShift(other)
+
+@_extend_eeImage()
+def __rlshift__(self, other):
+    '''Computes the left shift operation between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Left shift operation.
+    '''
+    return ee.Image(other).leftShift(self)
+
+@_extend_eeImage()
+def __rshift__(self, other):
+    '''Computes the right shift operation between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Right shift operation.
+    '''
+    return self.rightShift(other)
+
+@_extend_eeImage()
+def __rrshift__(self, other):
+    '''Computes the right shift operation between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Right shift operation.
+    '''
+    return ee.Image(other).rightShift(self)
+
+@_extend_eeImage()
+def __and__(self, other):
+    '''Computes the binary operator AND between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator AND.
+    '''
+    return self.And(other)
+
+@_extend_eeImage()
+def __rand__(self, other):
+    '''Computes the binary operator AND between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator AND.
+    '''
+    return ee.Image(other).And(self)
+
+@_extend_eeImage()
+def __xor__(self, other):
+    '''Computes the binary operator XOR between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator XOR.
+    '''
+    return self.Xor(other)
+
+@_extend_eeImage()
+def __rxor__(self, other):
+    '''Computes the binary operator XOR between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator XOR.
+    '''
+    return ee.Image(other).Xor(self)
+
+@_extend_eeImage()
+def __or__(self, other):
+    '''Computes the binary operator OR between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator OR.
+    '''
+    return self.Or(other)
+
+@_extend_eeImage()
+def __ror__(self, other):
+    '''Computes the binary operator OR between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Right operand.
+    other : ee.Image | numeric | list[numeric]
+        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Binary operator OR.
+    '''
+    return ee.Image(other).Or(self)
+
+@_extend_eeImage()
+def __lt__(self, other):
+    '''Computes the rich comparison LOWER THAN between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison LOWER THAN.
+    '''
+    return self.lt(other)
+
+@_extend_eeImage()
+def __le__(self, other):
+    '''Computes the rich comparison LOWER THAN OR EQUAL between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison LOWER THAN OR EQUAL.
+    '''
+    return self.lte(other)
+
+@_extend_eeImage()
+def __eq__(self, other):
+    '''Computes the rich comparison EQUAL between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison EQUAL.
+    '''
+    return self.eq(other)
+
+@_extend_eeImage()
+def __ne__(self, other):
+    '''Computes the rich comparison NOT EQUAL THAN between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison NOT EQUAL.
+    '''
+    return self.neq(other)
+
+@_extend_eeImage()
+def __gt__(self, other):
+    '''Computes the rich comparison GREATER THAN between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison GREATER THAN.
+    '''
+    return self.gt(other)
+
+@_extend_eeImage()
+def __ge__(self, other):
+    '''Computes the rich comparison GREATER THAN OR EQUAL between two images.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Left operand.
+    other : ee.Image | numeric | list[numeric]
+        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+
+    Returns
+    -------
+    ee.Image
+        Rich comparison GREATER THAN OR EQUAL.
+    '''
+    return self.gte(other)
+
+@_extend_eeImage()
+def __neg__(self, other):
+    '''Computes the unary operator NEGATIVE on an image.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Operand.
+
+    Returns
+    -------
+    ee.Image
+        Unary operator NEGATIVE.
+    '''
+    return self.multiply(-1)
+
+@_extend_eeImage()
+def __invert__(self, other):
+    '''Computes the unary operator NOT on an image.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Operand.
+
+    Returns
+    -------
+    ee.Image
+        Unary operator NOT.
+    '''
+    return self.Not()
 
 @_extend_eeImage()
 def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
@@ -16,7 +588,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices Computation > Supported Platforms.        
+        Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices > Supported Platforms.        
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:

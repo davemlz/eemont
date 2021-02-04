@@ -8,7 +8,7 @@ New Modules
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - The *pd.DataFrame* module was created.
-- The *algorithms* module was created (it feeds the :code:`index()`, :code:`scale()` and :code:`maskClouds()` methods for both ee.Image and ee.ImageCollection).
+- The *common* module was created (it feeds the :code:`index()`, :code:`scale()` and :code:`maskClouds()` methods for both ee.Image and ee.ImageCollection).
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~

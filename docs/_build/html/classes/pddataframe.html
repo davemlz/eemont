@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/dataConversion.html">Data Conversion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -172,8 +173,8 @@
 <h1>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h1>
 <p>Extended methods for the pd.DataFrame class:</p>
 <span class="target" id="module-eemont.dataframe"></span><dl class="py function">
-<dt id="eemont.dataframe.toFeatureCollection">
-<code class="sig-prename descclassname">eemont.dataframe.</code><code class="sig-name descname">toFeatureCollection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">latitude</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">longitude</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/dataframe.html#toFeatureCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.dataframe.toFeatureCollection" title="Permalink to this definition">¶</a></dt>
+<dt id="eemont.dataframe.toEEFeatureCollection">
+<code class="sig-prename descclassname">eemont.dataframe.</code><code class="sig-name descname">toEEFeatureCollection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">latitude</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">longitude</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/dataframe.html#toEEFeatureCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.dataframe.toEEFeatureCollection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection
 with an associated geometry.</p>
 <dl class="field-list simple">

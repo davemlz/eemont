@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -173,8 +174,8 @@
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the pd.DataFrame class.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
 
-<div class="viewcode-block" id="toFeatureCollection"><a class="viewcode-back" href="../../classes/pddataframe.html#eemont.dataframe.toFeatureCollection">[docs]</a><span class="nd">@_extend_pdDataFrame</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">toFeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">latitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">longitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="toEEFeatureCollection"><a class="viewcode-back" href="../../classes/pddataframe.html#eemont.dataframe.toEEFeatureCollection">[docs]</a><span class="nd">@_extend_pdDataFrame</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">toEEFeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">latitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">longitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection</span>
 <span class="sd">    with an associated geometry.</span>
 <span class="sd">    </span>

@@ -19,6 +19,7 @@ Welcome to eemont!
    guide/maskingClouds
    guide/imageScaling
    guide/spectralIndices
+   guide/dataConversion
    
 .. toctree::
    :maxdepth: 2
@@ -91,7 +92,7 @@ pd.DataFrame
 .. currentmodule:: eemont.dataframe
 .. autosummary::
 
-   toFeatureCollection   
+   toEEFeatureCollection   
 
 Satellite Platforms
 ------------------------

@@ -95,8 +95,7 @@ Let's take the Sentinel-2 SR image collection as example:
 
    S2 = ee.ImageCollection('COPERNICUS/S2_SR')
    
-The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they're unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and
-WVP bands must be multiplied by 0.001. This scaling is automatically done by the :code:`scale()` method, without any additional parameters:
+The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they're unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and WVP bands must be multiplied by 0.001. This scaling is automatically done by the :code:`scale()` method, without any additional parameters:
 
 .. code-block:: python
 

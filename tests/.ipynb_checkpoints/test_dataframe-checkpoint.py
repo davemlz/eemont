@@ -16,7 +16,7 @@ class Test(unittest.TestCase):
     
     def test_dataframe(self):
         """Test the image module for pd.DataFrame"""
-        dataframe_tested = df.toFeatureCollection('y','x')
+        dataframe_tested = df.toEEFeatureCollection('y','x')
         self.assertIsInstance(dataframe_tested, ee.featurecollection.FeatureCollection)
         
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ def _extend_pdDataFrame():
     return lambda f: (setattr(pd.core.frame.DataFrame,f.__name__,f) or f)
 
 @_extend_pdDataFrame()
-def toFeatureCollection(self,latitude = None,longitude = None):
+def toEEFeatureCollection(self,latitude = None,longitude = None):
     '''Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection
     with an associated geometry.
     

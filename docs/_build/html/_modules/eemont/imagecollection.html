@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -168,10 +169,10 @@
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">.algorithms</span> <span class="kn">import</span> <span class="n">_get_indices</span>
-<span class="kn">from</span> <span class="nn">.algorithms</span> <span class="kn">import</span> <span class="n">_get_platform</span>
-<span class="kn">from</span> <span class="nn">.algorithms</span> <span class="kn">import</span> <span class="n">_get_scale_method</span>
-<span class="kn">from</span> <span class="nn">.algorithms</span> <span class="kn">import</span> <span class="n">_get_expression_map</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_indices</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_platform</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_scale_method</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_expression_map</span>
 
 <span class="k">def</span> <span class="nf">_extend_eeImageCollection</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.ImageCollection class.&quot;&quot;&quot;</span>
@@ -228,7 +229,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------     </span>
 <span class="sd">    self : ee.ImageCollection</span>
-<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices Computation &gt; Supported Platforms.</span>
+<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices &gt; Supported Platforms.</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
 <span class="sd">        Index or list of indices to compute.\n</span>
 <span class="sd">        Available options:</span>

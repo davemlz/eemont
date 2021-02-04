@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataConversion.html">Data Conversion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -282,8 +283,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they’re unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and
-WVP bands must be multiplied by 0.001. This scaling is automatically done by the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method, without any additional parameters:</p>
+<p>The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they’re unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and WVP bands must be multiplied by 0.001. This scaling is automatically done by the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method, without any additional parameters:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
 </pre></div>
 </div>

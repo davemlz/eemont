@@ -1,10 +1,10 @@
 import ee
 import numpy as np
 import warnings
-from .algorithms import _get_indices
-from .algorithms import _get_platform
-from .algorithms import _get_scale_method
-from .algorithms import _get_expression_map
+from .common import _get_indices
+from .common import _get_platform
+from .common import _get_scale_method
+from .common import _get_expression_map
 
 def _extend_eeImageCollection():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -61,7 +61,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     Parameters
     ----------     
     self : ee.ImageCollection
-        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices Computation > Supported Platforms.
+        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices > Supported Platforms.
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:

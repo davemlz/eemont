@@ -152,6 +152,22 @@ The following table shows the list of built-in water indices:
    * - NDWI
      - Normalized Difference Water Index
      - `(McFeeters, 1996) <https://doi.org/10.1080/01431169608948714>`_
+     
+Snow Indices
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of built-in snow indices:
+
+.. list-table:: Built-in snow indices.
+   :widths: 20 50 30
+   :header-rows: 1
+
+   * - Index
+     - Description     
+     - Reference
+   * - NDSI
+     - Normalized Difference Snow Index
+     - `(Riggs et al., 1994) <https://doi.org/10.1109/IGARSS.1994.399618>`_ 
 
 Usage
 ------------------

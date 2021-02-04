@@ -182,8 +182,8 @@
 <div class="section" id="new-modules">
 <h3>New Modules<a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><em>pd.DataFrame</em> module created.</p></li>
-<li><p><em>spectralindices</em> module created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method for both ee.Image and ee.ImageCollection).</p></li>
+<li><p>The <em>pd.DataFrame</em> module was created.</p></li>
+<li><p>The <em>algorithms</em> module was created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code>, <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> and <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> methods for both ee.Image and ee.ImageCollection).</p></li>
 </ul>
 </div>
 <div class="section" id="new-features">
@@ -196,6 +196,7 @@
 <h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
+<li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">tolerance</span></code> and <code class="code docutils literal notranslate"><span class="pre">unit</span></code> parameters were added to the <code class="code docutils literal notranslate"><span class="pre">closest()</span></code> extended method for ee.ImageCollection classes.</p></li>
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
 <blockquote>
@@ -246,6 +247,13 @@
 <li><p>‘GBNDVI’ : Green-Blue Normalized Difference Vegetation Index.</p></li>
 <li><p>‘GRNDVI’ : Green-Red Normalized Difference Vegetation Index.</p></li>
 <li><p>‘MNDVI’ : Modified Normalized Difference Vegetation Index.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The following snow indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘NDSI’ : Normalized Difference Snow Index.</p></li>
 </ul>
 </div></blockquote>
 </li>

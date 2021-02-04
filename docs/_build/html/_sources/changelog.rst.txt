@@ -7,8 +7,8 @@ v0.1.7
 New Modules
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- *pd.DataFrame* module created.
-- *spectralindices* module created (it feeds the :code:`index()` method for both ee.Image and ee.ImageCollection).
+- The *pd.DataFrame* module was created.
+- The *algorithms* module was created (it feeds the :code:`index()`, :code:`scale()` and :code:`maskClouds()` methods for both ee.Image and ee.ImageCollection).
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -19,6 +19,7 @@ Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - *Exceptions* and *Warnings* were added to most methods.
+- Conflicts between the Gain factor and the Green band in the :code:`index()` method were solved.
 - :code:`tolerance` and :code:`unit` parameters were added to the :code:`closest()` extended method for ee.ImageCollection classes.
 - The :code:`maskClouds()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
 
@@ -60,4 +61,7 @@ Improvements
    - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
    - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
    - 'MNDVI' : Modified Normalized Difference Vegetation Index.
+- The following snow indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'NDSI' : Normalized Difference Snow Index.
 - The 'SR' vegetation index was replaced by 'RVI' in the :code:`index()` extended method for ee.Image and ee.ImageCollection.

@@ -18,7 +18,7 @@ def __add__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -36,7 +36,7 @@ def __radd__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -54,7 +54,7 @@ def __sub__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -72,7 +72,7 @@ def __rsub__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -90,7 +90,7 @@ def __mul__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -108,7 +108,7 @@ def __rmul__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -126,7 +126,7 @@ def __truediv__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -144,7 +144,7 @@ def __rtruediv__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -162,7 +162,7 @@ def __floordiv__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -180,7 +180,7 @@ def __rfloordiv__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -198,7 +198,7 @@ def __mod__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -216,7 +216,7 @@ def __rmod__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -234,7 +234,7 @@ def __pow__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -252,7 +252,7 @@ def __rpow__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -270,7 +270,7 @@ def __lshift__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -288,7 +288,7 @@ def __rlshift__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -306,7 +306,7 @@ def __rshift__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -324,7 +324,7 @@ def __rrshift__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -342,7 +342,7 @@ def __and__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -360,7 +360,7 @@ def __rand__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -378,7 +378,7 @@ def __xor__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -396,7 +396,7 @@ def __rxor__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -414,7 +414,7 @@ def __or__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -432,7 +432,7 @@ def __ror__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -450,7 +450,7 @@ def __lt__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -468,7 +468,7 @@ def __le__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -486,7 +486,7 @@ def __eq__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -504,7 +504,7 @@ def __ne__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -522,7 +522,7 @@ def __gt__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -540,7 +540,7 @@ def __ge__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from this its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------

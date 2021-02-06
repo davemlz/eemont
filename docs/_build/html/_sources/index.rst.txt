@@ -15,7 +15,8 @@ Welcome to eemont!
    :caption: User Guide      
    :hidden:
    
-   guide/closestImage      
+   guide/overloadedOperators
+   guide/closestImage
    guide/maskingClouds
    guide/imageScaling
    guide/spectralIndices

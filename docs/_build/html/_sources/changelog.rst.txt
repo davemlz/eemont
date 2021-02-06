@@ -13,7 +13,7 @@ New Modules
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- The :code:`toFeatureCollection()` extended method for pd.DataFrame classes was created.
+- The :code:`toEEFeatureCollection()` extended method for pd.DataFrame classes was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

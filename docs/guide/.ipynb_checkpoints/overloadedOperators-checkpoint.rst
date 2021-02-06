@@ -119,10 +119,10 @@ The following table shows the list of unary operators that are overloaded:
      - Overloaded Operator
    * - Negation
      - Image.multiply(-1)
-     - negImage = - Image
+     - \-\ Image
    * - Invert
      - Image.Not()
-     - invImage = ~ Image
+     - ~ Image
 
 Usage
 ------------------

@@ -14,6 +14,9 @@ New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - The :code:`toEEFeatureCollection()` extended method for pd.DataFrame classes was created.
+- The binary operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, ^, |) were overloaded for ee.Image objects.
+- The rich comparisons (<, <=, ==, !=, >, >=) were overloaded for ee.Image objects.
+- The unary operators (-, ~) were overloaded for ee.Image objects.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

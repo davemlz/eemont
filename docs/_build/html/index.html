@@ -178,6 +178,9 @@
 <div class="toctree-wrapper compound">
 </div>
 <p>The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.</p>
+<div class="section" id="how-it-works">
+<h2>How it works?<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.</p>
 <p>Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
 
@@ -195,16 +198,66 @@
 </pre></div>
 </div>
 <p>And just like that, the collection was pre-processed and processed!</p>
+</div>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<p>The following features are extended to Google Earth Engine thorugh eemont:</p>
+<p>The following features are extended thorugh eemont:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="o">-</span><span class="mf">76.21</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">])</span> <span class="c1"># Example ROI</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Clouds and shadows masking</p></li>
-<li><p>Image scaling</p></li>
-<li><p>Spectral indices calculation (vegetation, burn and water indices)</p></li>
-<li><p>Closest images to a specific date</p></li>
+<li><p>Overloaded operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, ^, <a href="#id1"><span class="problematic" id="id2">|</span></a>, &lt;, &lt;=, ==, !=, &gt;, &gt;=, -, ~):</p></li>
 </ul>
-<p>These features extends both ee.Image and ee.ImageCollection classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">())</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B8&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B4&#39;</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B2&#39;</span><span class="p">)</span>
+
+<span class="n">EVI</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">R</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">R</span> <span class="o">-</span> <span class="mf">7.5</span> <span class="o">*</span> <span class="n">B</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="c1"># Overloaded operators</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Clouds and shadows masking:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">prob</span> <span class="o">=</span> <span class="mi">65</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span> <span class="c1"># Clouds and shadows masking</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Image scaling:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MOD13Q1</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/006/MOD13Q1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span> <span class="c1"># Image scaling</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Spectral indices computation (vegetation, burn, water and snow indices):</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAI&#39;</span><span class="p">,</span><span class="s1">&#39;NDSI&#39;</span><span class="p">]))</span> <span class="c1"># Indices computation</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Closest image to a specific date:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S5NO2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S5P/OFFL/L3_NO2&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">))</span> <span class="c1"># Closest image to a date</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>The above-mentioned features extends both ee.Image and ee.ImageCollection classes:</p>
 <div class="section" id="ee-image">
 <h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
@@ -264,28 +317,22 @@
 </table>
 </div>
 </div>
-<div class="section" id="satellite-platforms">
-<h2>Satellite Platforms<a class="headerlink" href="#satellite-platforms" title="Permalink to this headline">¶</a></h2>
-<p>Some methods, like <code class="code docutils literal notranslate"><span class="pre">.maskClouds()</span></code> or <code class="code docutils literal notranslate"><span class="pre">.index()</span></code>, only accept specific platforms. The accepted platforms for all methods are:</p>
+<div class="section" id="supported-platforms">
+<h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
+<p>The Supported Platforms for each method can be found in the eemont documentation.</p>
 <ul class="simple">
-<li><p>Sentinel 2</p></li>
-<li><p>Landsat 8</p></li>
-<li><p>Landsat 7</p></li>
-<li><p>Landsat 5</p></li>
-<li><p>Landsat 4</p></li>
+<li><p>Masking clouds and shadows supports Sentinel Missions (Sentinel-2 SR and Sentinel-3), Landsat Missions (SR products) and some MODIS Products. Check all details in User Guide &gt; Masking Clouds and Shadows &gt; Supported Platforms.</p></li>
+<li><p>Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide &gt; Image Scaling &gt; Supported Platforms.</p></li>
+<li><p>Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide &gt; Spectral Indices &gt; Supported Platforms.</p></li>
+<li><p>Getting the closest image to a specific dat supports all image collections with the <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property.</p></li>
 </ul>
-<p>The method <code class="code docutils literal notranslate"><span class="pre">.closest()</span></code> accepts any image collection.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install the latest eemont version from PyPI by running:</p>
-<blockquote>
-<div><p>pip install eemont</p>
-</div></blockquote>
-<p>Install the eemont development version by running:</p>
-<blockquote>
-<div><p>pip install git+https://github.com/davemlz/eemont</p>
-</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">eemont</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>

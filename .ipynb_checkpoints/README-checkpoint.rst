@@ -118,7 +118,7 @@ The Supported Platforms for each method can be found in the eemont documentation
 - Masking clouds and shadows supports Sentinel Missions (Sentinel-2 SR and Sentinel-3), Landsat Missions (SR products) and some MODIS Products. Check all details in User Guide > Masking Clouds and Shadows > Supported Platforms.
 - Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide > Image Scaling > Supported Platforms.
 - Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide > Spectral Indices > Supported Platforms.
-- Getting the closest image to a specific dat supports all image collections with the :code:`system:time_start` property.
+- Getting the closest image to a specific date supports all image collections with the :code:`system:time_start` property.
 
 License
 -------

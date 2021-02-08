@@ -56,6 +56,15 @@ Look at this simple example where a Sentinel-2 collection is pre-processed and p
 
 And just like that, the collection was pre-processed and processed!
 
+Installation
+------------
+
+Install the latest eemont version from PyPI by running:
+
+.. code-block:: python   
+      
+   pip install eemont
+
 Features
 --------
 
@@ -160,15 +169,6 @@ The Supported Platforms for each method can be found in the eemont documentation
 - Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide > Image Scaling > Supported Platforms.
 - Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide > Spectral Indices > Supported Platforms.
 - Getting the closest image to a specific dat supports all image collections with the :code:`system:time_start` property.
-
-Installation
-------------
-
-Install the latest eemont version from PyPI by running:
-
-.. code-block:: python   
-      
-   pip install eemont
 
 License
 -------

@@ -18,7 +18,7 @@ eemont
 
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
-How it works?
+How does it works?
 ----------------
 
 Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.
@@ -61,7 +61,7 @@ The following features are extended thorugh eemont:
    
    point = ee.Geometry.Point([-76.21, 3.45]) # Example ROI
 
-- Overloaded operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, ^, |, <, <=, ==, !=, >, >=, -, ~):
+- Overloaded operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, ^, \|\, <, <=, ==, !=, >, >=, -, ~):
 
 .. code-block:: python   
    

@@ -68,13 +68,13 @@ Install the latest eemont version from PyPI by running:
 Features
 --------
 
-The following features are extended thorugh eemont:
+The following features are extended through eemont:
 
 .. code-block:: python   
    
    point = ee.Geometry.Point([-76.21, 3.45]) # Example ROI
 
-- Overloaded operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, ^, |, <, <=, ==, !=, >, >=, -, ~):
+- Overloaded operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, ^, \|\, <, <=, ==, !=, >, >=, -, ~):
 
 .. code-block:: python   
    

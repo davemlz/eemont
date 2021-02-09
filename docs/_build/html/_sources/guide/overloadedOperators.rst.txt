@@ -64,9 +64,6 @@ The following table shows the list of binary operators that are overloaded:
    * - And
      - Image1.And(Image2)
      - Image1 & Image2
-   * - Xor
-     - Image1.Xor(Image2)
-     - Image1 ^ Image2
    * - Or
      - Image1.Or(Image2)
      - Image1 | Image2

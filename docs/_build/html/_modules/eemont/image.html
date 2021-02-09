@@ -539,42 +539,6 @@
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="fm">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator XOR between two images.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    self : ee.Image</span>
-<span class="sd">        Left operand.</span>
-<span class="sd">    other : ee.Image | numeric | list[numeric]</span>
-<span class="sd">        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ee.Image</span>
-<span class="sd">        Binary operator XOR.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Xor</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-
-<span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="fm">__rxor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator XOR between two images.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    self : ee.Image</span>
-<span class="sd">        Right operand.</span>
-<span class="sd">    other : ee.Image | numeric | list[numeric]</span>
-<span class="sd">        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ee.Image</span>
-<span class="sd">        Binary operator XOR.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">Xor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-<span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes the binary operator OR between two images.</span>
 
@@ -719,7 +683,7 @@
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes the unary operator NEGATIVE on an image.</span>
 
 <span class="sd">    Parameters</span>
@@ -735,7 +699,7 @@
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes the unary operator NOT on an image.</span>
 
 <span class="sd">    Parameters</span>

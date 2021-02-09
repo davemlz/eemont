@@ -370,42 +370,6 @@ def __rand__(self, other):
     return ee.Image(other).And(self)
 
 @_extend_eeImage()
-def __xor__(self, other):
-    '''Computes the binary operator XOR between two images.
-
-    Parameters
-    ----------
-    self : ee.Image
-        Left operand.
-    other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
-
-    Returns
-    -------
-    ee.Image
-        Binary operator XOR.
-    '''
-    return self.Xor(other)
-
-@_extend_eeImage()
-def __rxor__(self, other):
-    '''Computes the binary operator XOR between two images.
-
-    Parameters
-    ----------
-    self : ee.Image
-        Right operand.
-    other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
-
-    Returns
-    -------
-    ee.Image
-        Binary operator XOR.
-    '''
-    return ee.Image(other).Xor(self)
-
-@_extend_eeImage()
 def __or__(self, other):
     '''Computes the binary operator OR between two images.
 
@@ -550,7 +514,7 @@ def __ge__(self, other):
     return self.gte(other)
 
 @_extend_eeImage()
-def __neg__(self, other):
+def __neg__(self):
     '''Computes the unary operator NEGATIVE on an image.
 
     Parameters
@@ -566,7 +530,7 @@ def __neg__(self, other):
     return self.multiply(-1)
 
 @_extend_eeImage()
-def __invert__(self, other):
+def __invert__(self):
     '''Computes the unary operator NOT on an image.
 
     Parameters

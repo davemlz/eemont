@@ -36,6 +36,26 @@ indices = 'all'
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
     
+    def test_binary1(self):
+        """Test the image module for binary operators 1"""
+        binary1_tested = ee.Image(1) + 0 - 0 * 1 / 1 // 1 % 1 ** 1 << 1 >> 1
+        self.assertIsInstance(binary1_tested, ee.image.Image)
+        
+    def test_binary2(self):
+        """Test the image module for binary operators 2"""
+        binary2_tested_a = (ee.Image(1) > 1) & (ee.Image(1) < 1)
+        binary2_tested_b = (ee.Image(1) >= 1) | (ee.Image(1) <= 1)
+        binary2_tested_c = (ee.Image(1) == 1) & (ee.Image(1) != 1)
+        binary2_tested = binary2_tested_a + binary2_tested_b + binary2_tested_c
+        self.assertIsInstance(binary2_tested, ee.image.Image)
+        
+    def test_unary(self):
+        """Test the image module for unary operators"""
+        unary_tested_a = - ee.Image(1)
+        unary_tested_b = ~ ee.Image(1)
+        unary_tested = unary_tested_a + unary_tested_b
+        self.assertIsInstance(unary_tested, ee.image.Image)
+    
     def test_S3(self):
         """Test the image module for Sentinel-3"""
         S3_tested = S3.maskClouds().scale()

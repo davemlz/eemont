@@ -19,7 +19,7 @@ eemont
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 How does it work?
-----------------
+---------------------
 
 Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.
 

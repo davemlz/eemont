@@ -578,7 +578,11 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         Burn and fire indices:     
             - 'BAI' : Burned Area Index.
             - 'BAIS2' : Burned Area Index for Sentinel 2.
+            - 'CSIT' : Char Soil Index Thermal.
             - 'NBR' : Normalized Burn Ratio.
+            - 'NBRT' : Normalized Burn Ratio Thermal.
+            - 'NDVIT' : Normalized Difference Vegetation Index Thermal
+            - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
         Water indices:            
             - 'MNDWI' : Modified Normalized Difference Water Index.
             - 'NDWI' : Normalized Difference Water Index. 

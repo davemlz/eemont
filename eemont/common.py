@@ -200,6 +200,14 @@ def _get_indices():
             'reference' : 'https://doi.org/10.3390/ecrs-2-05177',
             'contributor' : 'davemlz'
         },  
+        'CSIT' : {
+            'formula' : 'N / (S2 * T1 / 10000.0)',
+            'description' : 'Char Soil Index Thermal',
+            'type' : 'burn',
+            'requires' : ['N','S2','T1'],
+            'reference' : 'https://doi.org/10.1080/01431160600954704',
+            'contributor' : 'davemlz'
+        }, 
         'NBR' : {
             'formula' : '(N - S2) / (N + S2)',
             'description' : 'Normalized Burn Ratio',
@@ -208,6 +216,30 @@ def _get_indices():
             'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=53',
             'contributor' : 'davemlz'
         }, 
+        'NBRT' : {
+            'formula' : '(N - (S2 * T1 / 10000.0)) / (N + (S2 * T1 / 10000.0))',
+            'description' : 'Normalized Burn Ratio Thermal',
+            'type' : 'burn',
+            'requires' : ['N','S2','T1'],
+            'reference' : 'https://doi.org/10.1080/01431160500239008',
+            'contributor' : 'davemlz'
+        }, 
+        'NDVIT' : {
+            'formula' : '(N - (R * T1 / 10000.0))/(N + (R * T1 / 10000.0))',
+            'description' : 'Normalized Difference Vegetation Index Thermal',
+            'type' : 'burn',
+            'requires' : ['N','R','T1'],
+            'reference' : 'https://doi.org/10.1080/01431160600954704',
+            'contributor' : 'davemlz'
+        }, 
+        'SAVIT' : {
+            'formula' : '(1.0 + L) * (N - (R * T1 / 10000.0)) / (N + (R * T1 / 10000.0) + L)',
+            'description' : 'Soil-Adjusted Vegetation Index Thermal',
+            'type' : 'burn',
+            'requires' : ['N','R','L','T1'],
+            'reference' : 'https://doi.org/10.1080/01431160600954704',
+            'contributor' : 'davemlz'
+        },
     }
     
     waterIndices = {

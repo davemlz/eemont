@@ -102,10 +102,14 @@
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-8">v0.1.8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#v0-1-7">v0.1.7</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#new-modules">New Modules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Improvements</a></li>
 </ul>
 </li>
 </ul>
@@ -179,6 +183,31 @@
             
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-1-8">
+<h2>v0.1.8<a class="headerlink" href="#v0-1-8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>The following vegetation indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘EVI2’ : Two-Band Enhanced Vegetation Index.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The following burn indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘CSIT’ : Char Soil Index Thermal.</p></li>
+<li><p>‘NBRT’ : Normalized Burn Ratio Thermal.</p></li>
+<li><p>‘NDVIT’ : Normalized Difference Vegetation Index Thermal</p></li>
+<li><p>‘SAVIT’ : Soil-Adjusted Vegetation Index Thermal.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="v0-1-7">
 <h2>v0.1.7<a class="headerlink" href="#v0-1-7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-modules">
@@ -197,8 +226,8 @@
 <li><p>The unary operators (-, ~) were overloaded for ee.Image objects.</p></li>
 </ul>
 </div>
-<div class="section" id="improvements">
-<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Improvements<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
 <li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>

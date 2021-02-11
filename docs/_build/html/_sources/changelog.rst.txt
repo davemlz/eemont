@@ -1,6 +1,23 @@
 Changelog
 ============
 
+v0.1.8
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The following vegetation indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'EVI2' : Two-Band Enhanced Vegetation Index.
+   
+- The following burn indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'CSIT' : Char Soil Index Thermal.
+   - 'NBRT' : Normalized Burn Ratio Thermal.
+   - 'NDVIT' : Normalized Difference Vegetation Index Thermal
+   - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
+
 v0.1.7
 --------------
 

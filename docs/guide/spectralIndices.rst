@@ -133,9 +133,21 @@ The following table shows the list of built-in burn indices:
    * - BAIS2
      - Burned Area Index for Sentinel 2
      - `(Filipponi, 2018) <https://doi.org/10.3390/ecrs-2-05177>`_
+   * - CSIT
+     - Char Soil Index Thermal
+     - `(Smith et al., 2007) <https://doi.org/10.1080/01431160600954704>`_
    * - NBR
      - Normalized Burn Ratio
      - `Index DataBase NBR <https://www.indexdatabase.de/db/i-single.php?id=53>`_
+   * - NBRT
+     - Normalized Burn Ratio Thermal
+     - `(Holden et al., 2005) <https://doi.org/10.1080/01431160500239008>`_
+   * - NDVIT
+     - Normalized Difference Vegetation Index Thermal
+     - `(Smith et al., 2007) <https://doi.org/10.1080/01431160600954704>`_
+   * - SAVIT
+     - Soil-Adjusted Vegetation Index Thermal
+     - `(Smith et al., 2007) <https://doi.org/10.1080/01431160600954704>`_
      
 Water Indices
 ~~~~~~~~~~~~~~~~~~~

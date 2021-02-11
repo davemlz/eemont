@@ -86,6 +86,9 @@ The following table shows the list of built-in vegetation indices:
    * - EVI
      - Enhanced Vegetation Index
      - `Index DataBase EVI <https://www.indexdatabase.de/db/i-single.php?id=16>`_
+   * - EVI2
+     - Two-Band Enhanced Vegetation Index
+     - `(Jiang et al., 2008) <https://doi.org/10.1016/j.rse.2008.06.006>`_
    * - GBNDVI
      - Green-Blue Normalized Difference Vegetation Index
      - `Index DataBase GBNDVI <https://www.indexdatabase.de/db/i-single.php?id=186>`_

@@ -108,6 +108,14 @@ def _get_indices():
             'requires' : ['N','g','R','C1','C2','B','L'],
             'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=16',
             'contributor' : 'davemlz'
+        },
+        'EVI2' : {
+            'formula' : 'g * (N - R) / (N + 2.4 * R + L)',
+            'description' : 'Two-Band Enhanced Vegetation Index',
+            'type' : 'vegetation',
+            'requires' : ['N','g','R','L'],
+            'reference' : 'https://doi.org/10.1016/j.rse.2008.06.006',
+            'contributor' : 'davemlz'
         },  
         'GBNDVI' : {
             'formula' : '(N - (G + B))/(N + (G + B))',

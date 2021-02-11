@@ -75,6 +75,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'CIG' : Chlorophyll Index - Green.
             - 'CVI' : Chlorophyll Vegetation Index.
             - 'EVI' : Enhanced Vegetation Index.
+            - 'EVI2' : Two-Band Enhanced Vegetation Index.
             - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
             - 'GNDVI' : Green Normalized Difference Vegetation Index.
             - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.

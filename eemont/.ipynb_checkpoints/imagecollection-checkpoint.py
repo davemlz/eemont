@@ -355,10 +355,10 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     if platformDict['platform'] not in list(lookup.keys()):
         raise Exception("Sorry, satellite platform not supported for cloud masking!")
     
-    if platformDict['platform'] == 'COPERNICUS/S2':
+    if platformDict['platform'] == 'COPERNICUS/S2':        
         maskedImageCollection = lookup[platformDict['platform']](self)
-    else:
-        maskedImageCollection = self.map(lookup[platformDict['platform']])
+    else:        
+        maskedImageCollection = self.map(lookup[platformDict['platform']])    
     
     return maskedImageCollection
 

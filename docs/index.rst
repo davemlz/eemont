@@ -3,7 +3,7 @@ Welcome to eemont!
 
 .. toctree::   
    :maxdepth: 2
-   :caption: Documentation 
+   :caption: Extended Classes 
    :hidden:
       
    classes/eeimage

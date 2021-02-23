@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>User Guide &mdash; eemont 0.1.7 documentation</title>
+  <title>eemont.misc &mdash; eemont 0.1.7 documentation</title>
   
 
   
@@ -91,12 +91,12 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spectralIndices.html">Spectral Indices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -149,14 +149,12 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>User Guide</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>eemont.misc</li>
     
     
       <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../../_sources/guide/.ipynb_checkpoints/index-checkpoint.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -168,12 +166,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="user-guide">
-<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
-</div>
+  <h1>Source code for eemont.misc</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">ee</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
 
+<div class="viewcode-block" id="getPalette"><a class="viewcode-back" href="../../additional/misc.html#eemont.misc.getPalette">[docs]</a><span class="k">def</span> <span class="nf">getPalette</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span><span class="p">,</span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets a color palette from a matplotlib colormap.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : string, default = &#39;viridis&#39;</span>
+<span class="sd">        Name of the matplotlib colormap.</span>
+<span class="sd">    N : int, default = 20</span>
+<span class="sd">        Number of RGB quantization levels.</span>
+<span class="sd">    reverse : boolean, default = False</span>
+<span class="sd">        Whether to invert the color palette. This can also be achieved by adding &#39;_r&#39; to the matplotlib colormap name (e.g. &#39;viridis_r&#39;).</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        Ready-to-use color palette in hex format.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="n">palette</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">rgba</span> <span class="o">=</span> <span class="n">colormap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+        <span class="n">palette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">rgba</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="n">palette</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">palette</span></div>
+</pre></div>
 
            </div>
            

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>User Guide &mdash; eemont 0.1.7 documentation</title>
+  <title>eemont in R &mdash; eemont 0.1.7 documentation</title>
   
 
   
@@ -154,13 +154,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>User Guide</li>
+      <li>eemont in R</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/guide/.ipynb_checkpoints/index-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/guide/.ipynb_checkpoints/eemontR-checkpoint.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,9 +173,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="user-guide">
-<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="eemont-in-r">
+<h1>eemont in R<a class="headerlink" href="#eemont-in-r" title="Permalink to this headline">¶</a></h1>
+<p>Let’s see how to use eemont in R with rgee!</p>
+<p>Before anything, let’s import our modules and authenticate in Google Earth Engine:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">rgee</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">reticulate</span><span class="p">)</span>
+
+<span class="nf">ee_Initialize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we are ready to go!</p>
+<p>First, we have to install <code class="code docutils literal notranslate"><span class="pre">eemont</span></code> (if required):</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">py_install</span><span class="p">(</span><span class="s">&quot;eemont&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, <code class="code docutils literal notranslate"><span class="pre">eemont</span></code> can be imported!</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">eemont</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&quot;eemont&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All python methods are available here, let’s take a look!</p>
+<p>Define a point of interest:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">&lt;-</span> <span class="n">ee</span><span class="o">$</span><span class="n">Geometry</span><span class="o">$</span><span class="nf">Point</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-74.0592</span><span class="p">,</span><span class="m">11.3172</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Get and filter the Landsat 8 SR collection:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">&lt;-</span> <span class="n">ee</span><span class="o">$</span><span class="nf">ImageCollection</span><span class="p">(</span><span class="s">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">)</span><span class="o">$</span><span class="nf">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And use <code class="code docutils literal notranslate"><span class="pre">eemont</span></code> as you wish!</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">&lt;-</span> <span class="n">L8</span><span class="o">$</span><span class="nf">maskClouds</span><span class="p">()</span><span class="o">$</span><span class="nf">scale</span><span class="p">()</span><span class="o">$</span><span class="nf">index</span><span class="p">(</span><span class="s">&quot;NDWI&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 

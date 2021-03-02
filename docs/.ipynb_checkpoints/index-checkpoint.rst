@@ -21,6 +21,14 @@ Welcome to eemont!
    guide/imageScaling
    guide/spectralIndices
    guide/dataConversion
+   guide/timeSeries
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Other Languages     
+   :hidden:
+   
+   guide/eemontR
    
 .. toctree::
    :maxdepth: 2
@@ -122,6 +130,33 @@ The following features are extended through eemont:
    S5NO2 = (ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_NO2')
        .filterBounds(point)
        .closest('2020-10-15')) # Closest image to a date
+       
+- Time series by region (or regions):
+
+.. code-block:: python
+
+   f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{'ID':'A'})
+   f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{'ID':'B'})
+   fc = ee.FeatureCollection([f1,f2])
+
+   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+      .filterBounds(fc)
+      .filterDate('2020-01-01','2021-01-01')
+      .maskClouds()
+      .scale()
+      .index(['EVI','NDVI']))
+
+   # By Region
+   ts = S2.getTimeSeriesByRegion(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+                                 geometry = fc,
+                                 bands = ['EVI','NDVI'],
+                                 scale = 10)
+   
+   # By Regions
+   ts = S2.getTimeSeriesByRegions(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+                                  collection = fc,
+                                  bands = ['EVI','NDVI'],
+                                  scale = 10)
 
 Methods
 --------
@@ -170,7 +205,7 @@ The Supported Platforms for each method can be found in the eemont documentation
 - Masking clouds and shadows supports Sentinel Missions (Sentinel-2 SR and Sentinel-3), Landsat Missions (SR products) and some MODIS Products. Check all details in User Guide > Masking Clouds and Shadows > Supported Platforms.
 - Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide > Image Scaling > Supported Platforms.
 - Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide > Spectral Indices > Supported Platforms.
-- Getting the closest image to a specific date supports all image collections with the :code:`system:time_start` property.
+- Getting the closest image to a specific date and time series supports all image collections with the :code:`system:time_start` property.
 
 License
 -------

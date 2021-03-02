@@ -98,6 +98,11 @@
 <li class="toctree-l1"><a class="reference internal" href="guide/imageScaling.html">Image Scaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/spectralIndices.html">Spectral Indices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/timeSeries.html">Time Series By Regions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Languages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide/eemontR.html">eemont in R</a></li>
 </ul>
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul>
@@ -171,6 +176,8 @@
             
   <div class="section" id="welcome-to-eemont">
 <h1>Welcome to eemont!<a class="headerlink" href="#welcome-to-eemont" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -261,6 +268,33 @@
     <span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">))</span> <span class="c1"># Closest image to a date</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Time series by region (or regions):</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">3.984770</span><span class="p">,</span><span class="mf">48.767221</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">})</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">4.101367</span><span class="p">,</span><span class="mf">48.748076</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">})</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
+
+<span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+   <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+   <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">)</span>
+   <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+   <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+   <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">]))</span>
+
+<span class="c1"># By Region</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">getTimeSeriesByRegion</span><span class="p">(</span><span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">()],</span>
+                              <span class="n">geometry</span> <span class="o">=</span> <span class="n">fc</span><span class="p">,</span>
+                              <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">],</span>
+                              <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># By Regions</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">getTimeSeriesByRegions</span><span class="p">(</span><span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">()],</span>
+                               <span class="n">collection</span> <span class="o">=</span> <span class="n">fc</span><span class="p">,</span>
+                               <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">],</span>
+                               <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
@@ -337,7 +371,7 @@
 <li><p>Masking clouds and shadows supports Sentinel Missions (Sentinel-2 SR and Sentinel-3), Landsat Missions (SR products) and some MODIS Products. Check all details in User Guide &gt; Masking Clouds and Shadows &gt; Supported Platforms.</p></li>
 <li><p>Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide &gt; Image Scaling &gt; Supported Platforms.</p></li>
 <li><p>Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide &gt; Spectral Indices &gt; Supported Platforms.</p></li>
-<li><p>Getting the closest image to a specific date supports all image collections with the <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property.</p></li>
+<li><p>Getting the closest image to a specific date and time series supports all image collections with the <code class="code docutils literal notranslate"><span class="pre">system:time_start</span></code> property.</p></li>
 </ul>
 </div>
 <div class="section" id="license">

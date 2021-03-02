@@ -103,13 +103,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#v0-1-8">v0.1.8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#v0-1-7">v0.1.7</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#new-modules">New Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Improvements</a></li>
 </ul>
 </li>
 </ul>
@@ -185,6 +186,13 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="v0-1-8">
 <h2>v0.1.8<a class="headerlink" href="#v0-1-8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">getTimeSeriesByRegion()</span></code> extended method for ee.ImageCollection classes was created.</p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">getTimeSeriesByRegions()</span></code> extended method for ee.ImageCollection classes was created.</p></li>
+</ul>
+</div>
 <div class="section" id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <ul>
@@ -217,17 +225,17 @@
 <li><p>The <em>common</em> module was created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code>, <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> and <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> methods for both ee.Image and ee.ImageCollection).</p></li>
 </ul>
 </div>
-<div class="section" id="new-features">
-<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>New Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">toEEFeatureCollection()</span></code> extended method for pd.DataFrame classes was created.</p></li>
-<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>) were overloaded for ee.Image objects.</p></li>
+<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id2"><span class="problematic" id="id3">|</span></a>) were overloaded for ee.Image objects.</p></li>
 <li><p>The rich comparisons (&lt;, &lt;=, ==, !=, &gt;, &gt;=) were overloaded for ee.Image objects.</p></li>
 <li><p>The unary operators (-, ~) were overloaded for ee.Image objects.</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>Improvements<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Improvements<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
 <li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>

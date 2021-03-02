@@ -146,6 +146,8 @@ ee.ImageCollection
 .. autosummary::
 
    closest 
+   getTimeSeriesByRegion
+   getTimeSeriesByRegions
    index
    maskClouds
    scale

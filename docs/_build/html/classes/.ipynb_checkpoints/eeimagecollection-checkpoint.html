@@ -195,6 +195,67 @@ with a high temporal resolution.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt id="eemont.imagecollection.getTimeSeriesByRegion">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">getTimeSeriesByRegion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">reducer</span></em>, <em class="sig-param"><span class="n">bands</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">geometry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crsTransform</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bestEffort</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">maxPixels</span><span class="o">=</span><span class="default_value">1000000000000.0</span></em>, <em class="sig-param"><span class="n">tileScale</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">dateColumn</span><span class="o">=</span><span class="default_value">'date'</span></em>, <em class="sig-param"><span class="n">dateFormat</span><span class="o">=</span><span class="default_value">'ms'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#getTimeSeriesByRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.getTimeSeriesByRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to get the time series from.</p></li>
+<li><p><strong>reducer</strong> (<em>ee.Reducer | list</em><em>[</em><em>ee.Reducer</em><em>]</em>) – Reducer or list of reducers to use for region reduction.</p></li>
+<li><p><strong>bands</strong> (<em>str | list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>default = None</em>) – Selection of bands to get the time series from. Defaults to all bands in the image collection.</p></li>
+<li><p><strong>geometry</strong> (<em>ee.Geometry | ee.Feature | ee.FeatureCollection</em><em>, </em><em>default = None</em>) – Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection, the geometry() method is called. In order to get reductions by each feature please see
+the getTimeSeriesByRegions() method. Defaults to the footprint of the first band for each image in the collection.</p></li>
+<li><p><strong>scale</strong> (<em>numeric</em><em>, </em><em>default = None</em>) – Nomical scale in meters.</p></li>
+<li><p><strong>crs</strong> (<em>Projection</em><em>, </em><em>default = None</em>) – The projection to work in. If unspecified, the projection of the image’s first band is used. If specified in addition to scale, rescaled to the specified scale.</p></li>
+<li><p><strong>crsTransform</strong> (<em>list</em><em>, </em><em>default = None</em>) – The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
+This option is mutually exclusive with ‘scale’, and replaces any transform already set on the projection.</p></li>
+<li><p><strong>bestEffort</strong> (<em>boolean</em><em>, </em><em>default = False</em>) – If the polygon would contain too many pixels at the given scale, compute and use a larger scale which would allow the operation to succeed.</p></li>
+<li><p><strong>maxPixels</strong> (<em>numeric</em><em>, </em><em>default = 1e12</em>) – The maximum number of pixels to reduce.</p></li>
+<li><p><strong>tileScale</strong> (<em>numeric</em><em>, </em><em>default = 1</em>) – A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.</p></li>
+<li><p><strong>dateColumn</strong> (<em>str</em><em>, </em><em>default = 'date'</em>) – Output name of the date column.</p></li>
+<li><p><strong>dateFormat</strong> (<em>str</em><em>, </em><em>default = 'ms'</em>) – Output format of the date column. Defaults to milliseconds. Available options: ‘ms’ (for milliseconds), ‘ISO’ (for ISO Standard Format) or a custom format pattern.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Time series by region retrieved as a Feature Collection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.FeatureCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="eemont.imagecollection.getTimeSeriesByRegions">
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">getTimeSeriesByRegions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">reducer</span></em>, <em class="sig-param"><span class="n">collection</span></em>, <em class="sig-param"><span class="n">bands</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crsTransform</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tileScale</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">dateColumn</span><span class="o">=</span><span class="default_value">'date'</span></em>, <em class="sig-param"><span class="n">dateFormat</span><span class="o">=</span><span class="default_value">'ms'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#getTimeSeriesByRegions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.getTimeSeriesByRegions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to get the time series from.</p></li>
+<li><p><strong>reducer</strong> (<em>ee.Reducer | list</em><em>[</em><em>ee.Reducer</em><em>]</em>) – Reducer or list of reducers to use for region reduction.</p></li>
+<li><p><strong>collection</strong> (<em>ee.FeatureCollection</em>) – Feature Collection to perform the reductions on. Image reductions are applied to each feature in the collection.</p></li>
+<li><p><strong>bands</strong> (<em>str | list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>default = None</em>) – Selection of bands to get the time series from. Defaults to all bands in the image collection.</p></li>
+<li><p><strong>scale</strong> (<em>numeric</em><em>, </em><em>default = None</em>) – Nomical scale in meters.</p></li>
+<li><p><strong>crs</strong> (<em>Projection</em><em>, </em><em>default = None</em>) – The projection to work in. If unspecified, the projection of the image’s first band is used. If specified in addition to scale, rescaled to the specified scale.</p></li>
+<li><p><strong>crsTransform</strong> (<em>list</em><em>, </em><em>default = None</em>) – The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
+This option is mutually exclusive with ‘scale’, and replaces any transform already set on the projection.</p></li>
+<li><p><strong>tileScale</strong> (<em>numeric</em><em>, </em><em>default = 1</em>) – A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.</p></li>
+<li><p><strong>dateColumn</strong> (<em>str</em><em>, </em><em>default = 'date'</em>) – Output name of the date column.</p></li>
+<li><p><strong>dateFormat</strong> (<em>str</em><em>, </em><em>default = 'ms'</em>) – Output format of the date column. Defaults to milliseconds. Available options: ‘ms’ (for milliseconds), ‘ISO’ (for ISO Standard Format) or a custom format pattern.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Time series by regions retrieved as a Feature Collection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.FeatureCollection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="eemont.imagecollection.index">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p>

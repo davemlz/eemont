@@ -55,6 +55,181 @@ def closest(self, date, tolerance = 1, unit = 'month'):
     return self
 
 @_extend_eeImageCollection()
+def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None,crs = None,crsTransform = None,bestEffort = False,
+                          maxPixels = 1e12,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
+    '''Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).
+    
+    Parameters
+    ----------
+    self : ee.ImageCollection (this)
+        Image collection to get the time series from.
+    reducer : ee.Reducer | list[ee.Reducer]
+        Reducer or list of reducers to use for region reduction.
+    bands : str | list[str], default = None
+        Selection of bands to get the time series from. Defaults to all bands in the image collection.    
+    geometry : ee.Geometry | ee.Feature | ee.FeatureCollection, default = None
+        Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection, the geometry() method is called. In order to get reductions by each feature please see
+        the getTimeSeriesByRegions() method. Defaults to the footprint of the first band for each image in the collection.
+    scale : numeric, default = None
+        Nomical scale in meters.
+    crs : Projection, default = None
+        The projection to work in. If unspecified, the projection of the image's first band is used. If specified in addition to scale, rescaled to the specified scale.
+    crsTransform : list, default = None
+        The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
+        This option is mutually exclusive with 'scale', and replaces any transform already set on the projection.
+    bestEffort : boolean, default = False
+        If the polygon would contain too many pixels at the given scale, compute and use a larger scale which would allow the operation to succeed.
+    maxPixels : numeric, default = 1e12
+        The maximum number of pixels to reduce.
+    tileScale : numeric, default = 1
+        A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.
+    dateColumn : str, default = 'date'
+        Output name of the date column.
+    dateFormat : str, default = 'ISO'
+        Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
+    naValue : numeric, default = -9999
+        Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
+        
+    Returns
+    -------
+    ee.FeatureCollection
+        Time series by region retrieved as a Feature Collection.
+    '''    
+    if bands != None:
+        if not isinstance(bands,list):
+            bands = [bands]
+        self = self.select(bands)
+    
+    if not isinstance(reducer, list):
+        reducer = [reducer]
+    
+    if not isinstance(geometry, ee.geometry.Geometry):
+        geometry = geometry.geometry()
+    
+    collections = []
+    
+    for red in reducer:
+        
+        reducerName = red.getOutputs().get(0)
+    
+        def reduceImageCollectionByRegion(img):
+            dictionary = img.reduceRegion(red,geometry,scale,crs,crsTransform,bestEffort,maxPixels,tileScale)
+            if dateFormat == 'ms':
+                date = ee.Date(img.get('system:time_start')).millis()
+            elif dateFormat == 'ISO':
+                date = ee.Date(img.get('system:time_start')).format()
+            else:
+                date = ee.Date(img.get('system:time_start')).format(dateFormat)
+            return ee.Feature(None,dictionary).set({dateColumn:date,'reducer':reducerName})
+        
+        collections.append(ee.FeatureCollection(self.map(reduceImageCollectionByRegion)))
+    
+    flattenfc = ee.FeatureCollection(collections).flatten()
+    
+    def setNA(feature):        
+        feature = ee.Algorithms.If(condition = feature.propertyNames().size().eq(3),
+                                   trueCase = feature.set(ee.Dictionary.fromLists(bands,[naValue] * len(bands))),
+                                   falseCase = feature)                    
+        feature = ee.Feature(feature) 
+        return feature
+    
+    return flattenfc.map(setNA)
+
+@_extend_eeImageCollection()
+def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs = None,crsTransform = None,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
+    '''Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
+    
+    Parameters
+    ----------
+    self : ee.ImageCollection (this)
+        Image collection to get the time series from.
+    reducer : ee.Reducer | list[ee.Reducer]
+        Reducer or list of reducers to use for region reduction.
+    collection : ee.FeatureCollection
+        Feature Collection to perform the reductions on. Image reductions are applied to each feature in the collection.
+    bands : str | list[str], default = None
+        Selection of bands to get the time series from. Defaults to all bands in the image collection.
+    scale : numeric, default = None
+        Nomical scale in meters.
+    crs : Projection, default = None
+        The projection to work in. If unspecified, the projection of the image's first band is used. If specified in addition to scale, rescaled to the specified scale.
+    crsTransform : list, default = None
+        The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
+        This option is mutually exclusive with 'scale', and replaces any transform already set on the projection.
+    tileScale : numeric, default = 1
+        A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.
+    dateColumn : str, default = 'date'
+        Output name of the date column.
+    dateFormat : str, default = 'ISO'
+        Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
+    naValue : numeric, default = -9999
+        Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
+        
+    Returns
+    -------
+    ee.FeatureCollection
+        Time series by regions retrieved as a Feature Collection.
+    ''' 
+    if bands != None:
+        if not isinstance(bands,list):
+            bands = [bands]
+        self = self.select(bands)
+    
+    if not isinstance(reducer, list):
+        reducer = [reducer]
+    
+    if not isinstance(collection,ee.featurecollection.FeatureCollection):
+        raise Exception("Parameter collection must be an ee.FeatureCollection!")
+    
+    props = collection.first().propertyNames()
+    
+    collections = []
+    
+    imgList = self.toList(self.size())
+    
+    for red in reducer:
+        
+        reducerName = red.getOutputs().get(0)
+    
+        def reduceImageCollectionByRegions(img):
+            
+            img = ee.Image(img)
+            
+            fc = img.reduceRegions(collection,red,scale,crs,crsTransform,tileScale)
+                
+            if isinstance(bands, list):
+                if len(bands) == 1:                              
+                    fc = ee.Algorithms.If(condition = fc.first().propertyNames().size().eq(props.size()),
+                                          trueCase = fc,
+                                          falseCase = fc.select(props.add(reducerName),props.add(bands[0])))                    
+                    fc = ee.FeatureCollection(fc) 
+                        
+            if dateFormat == 'ms':
+                date = ee.Date(img.get('system:time_start')).millis()
+            elif dateFormat == 'ISO':
+                date = ee.Date(img.get('system:time_start')).format()
+            else:
+                date = ee.Date(img.get('system:time_start')).format(dateFormat)
+                
+            def setProperties(feature):
+                return feature.set({dateColumn:date,'reducer':reducerName})
+            
+            return fc.map(setProperties)
+    
+        collections.append(self.map(reduceImageCollectionByRegions).flatten())
+    
+    flattenfc = ee.FeatureCollection(collections).flatten()
+    
+    def setNA(feature):        
+        feature = ee.Algorithms.If(condition = feature.propertyNames().size().eq(props.size().add(2)),
+                                   trueCase = feature.set(ee.Dictionary.fromLists(bands,[naValue] * len(bands))),
+                                   falseCase = feature)                    
+        feature = ee.Feature(feature) 
+        return feature
+    
+    return flattenfc.map(setNA)
+
+@_extend_eeImageCollection()
 def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     '''Computes one or more spectral indices (indices are added as bands) for an image collection.
     

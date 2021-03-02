@@ -4,6 +4,12 @@ Changelog
 v0.1.8
 --------------
 
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`getTimeSeriesByRegion()` extended method for ee.ImageCollection classes was created.
+- The :code:`getTimeSeriesByRegions()` extended method for ee.ImageCollection classes was created.
+
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 

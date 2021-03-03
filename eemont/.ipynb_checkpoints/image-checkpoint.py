@@ -601,6 +601,16 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     -------
     ee.Image
         Image with the computed spectral index, or indices, as new bands.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scale().index(['NDVI','EVI','GNDVI'])
+    
+    See Also
+    --------
+    scale : Scales bands on an image collection.
     '''    
     platformDict = _get_platform(self)
     
@@ -680,6 +690,16 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     -------
     ee.Image
         Cloud-shadow masked image.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().maskClouds(prob = 75,buffer = 300,cdi = -0.5)
+        
+    Notes
+    -----
+    This method may mask water as well as clouds for the Sentinel-3 Radiance product.
     '''
     def S3(args):
         qa = args.select('quality_flags')
@@ -862,6 +882,12 @@ def scale(self):
     -------
     ee.Image
         Scaled image.
+    
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scale()
     '''
     platformDict = _get_platform(self)
     lookup = _get_scale_method(platformDict)

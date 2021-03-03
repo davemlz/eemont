@@ -211,7 +211,8 @@
 <span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).closest(&#39;2020-10-15&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span> 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">ee_date</span><span class="o">.</span><span class="n">Date</span><span class="p">):</span>
@@ -277,6 +278,28 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by region retrieved as a Feature Collection.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{&#39;ID&#39;:&#39;A&#39;})</span>
+<span class="sd">    &gt;&gt;&gt; f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{&#39;ID&#39;:&#39;B&#39;})</span>
+<span class="sd">    &gt;&gt;&gt; fc = ee.FeatureCollection([f1,f2])</span>
+<span class="sd">    &gt;&gt;&gt; S2 = (ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;)</span>
+<span class="sd">    ...      .filterBounds(fc)</span>
+<span class="sd">    ...      .filterDate(&#39;2020-01-01&#39;,&#39;2021-01-01&#39;)</span>
+<span class="sd">    ...      .maskClouds()</span>
+<span class="sd">    ...      .scale()</span>
+<span class="sd">    ...      .index([&#39;EVI&#39;,&#39;NDVI&#39;]))</span>
+<span class="sd">    &gt;&gt;&gt; ts = S2.getTimeSeriesByRegion(reducer = [ee.Reducer.mean(),ee.Reducer.median()],</span>
+<span class="sd">    ...                               geometry = fc,</span>
+<span class="sd">    ...                               bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
+<span class="sd">    ...                               scale = 10)</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
@@ -352,6 +375,29 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by regions retrieved as a Feature Collection.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{&#39;ID&#39;:&#39;A&#39;})</span>
+<span class="sd">    &gt;&gt;&gt; f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{&#39;ID&#39;:&#39;B&#39;})</span>
+<span class="sd">    &gt;&gt;&gt; fc = ee.FeatureCollection([f1,f2])</span>
+<span class="sd">    &gt;&gt;&gt; S2 = (ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;)</span>
+<span class="sd">    ...      .filterBounds(fc)</span>
+<span class="sd">    ...      .filterDate(&#39;2020-01-01&#39;,&#39;2021-01-01&#39;)</span>
+<span class="sd">    ...      .maskClouds()</span>
+<span class="sd">    ...      .scale()</span>
+<span class="sd">    ...      .index([&#39;EVI&#39;,&#39;NDVI&#39;]))</span>
+<span class="sd">    &gt;&gt;&gt; ts = S2.getTimeSeriesByRegions(reducer = [ee.Reducer.mean(),ee.Reducer.median()],</span>
+<span class="sd">    ...                                collection = fc,</span>
+<span class="sd">    ...                                bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
+<span class="sd">    ...                                scale = 10)</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)</span>
+<span class="sd">        according to the specified reducer (or reducers).</span>
 <span class="sd">    &#39;&#39;&#39;</span> 
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
@@ -471,7 +517,8 @@
 <span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale().index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
 <span class="sd">    </span>
 <span class="sd">    See Also</span>
@@ -560,7 +607,8 @@
 <span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
 <span class="sd">        </span>
 <span class="sd">    Notes</span>
@@ -751,6 +799,12 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Scaled image collection.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale()</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="n">lookup</span> <span class="o">=</span> <span class="n">_get_scale_method</span><span class="p">(</span><span class="n">platformDict</span><span class="p">)</span>

@@ -202,6 +202,14 @@ with an associated geometry.</p>
 <dd class="field-odd"><p>ee.FeatureCollection</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.92846</span><span class="p">,</span> <span class="mf">4.8927</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">76.0269</span><span class="p">,</span> <span class="o">-</span><span class="mf">75.3188</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Nevado del Huila&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevado del Ruiz&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">toEEFeatureCollection</span><span class="p">(</span><span class="n">latitude</span> <span class="o">=</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">longitude</span> <span class="o">=</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

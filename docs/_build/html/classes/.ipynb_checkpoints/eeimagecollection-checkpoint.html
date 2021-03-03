@@ -202,7 +202,8 @@ with a high temporal resolution.</p></li>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">eemont</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">closest</span><span class="p">(</span><span class="s1">&#39;2020-10-15&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -239,6 +240,31 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 <dd class="field-odd"><p>ee.FeatureCollection</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f1</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">3.984770</span><span class="p">,</span><span class="mf">48.767221</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">4.101367</span><span class="p">,</span><span class="mf">48.748076</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">getTimeSeriesByRegion</span><span class="p">(</span><span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">()],</span>
+<span class="gp">... </span>                              <span class="n">geometry</span> <span class="o">=</span> <span class="n">fc</span><span class="p">,</span>
+<span class="gp">... </span>                              <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                              <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../eeimagecollection.html#eemont.imagecollection.getTimeSeriesByRegions" title="eemont.imagecollection.getTimeSeriesByRegions"><code class="xref py py-func docutils literal notranslate"><span class="pre">getTimeSeriesByRegions()</span></code></a></dt><dd><p>Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</p>
+</dd>
+</dl>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -269,6 +295,31 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 <dd class="field-odd"><p>ee.FeatureCollection</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f1</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">3.984770</span><span class="p">,</span><span class="mf">48.767221</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="mf">4.101367</span><span class="p">,</span><span class="mf">48.748076</span><span class="p">])</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">50</span><span class="p">),{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">)</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+<span class="gp">... </span>     <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">S2</span><span class="o">.</span><span class="n">getTimeSeriesByRegions</span><span class="p">(</span><span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">()],</span>
+<span class="gp">... </span>                               <span class="n">collection</span> <span class="o">=</span> <span class="n">fc</span><span class="p">,</span>
+<span class="gp">... </span>                               <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                               <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../eeimagecollection.html#eemont.imagecollection.getTimeSeriesByRegion" title="eemont.imagecollection.getTimeSeriesByRegion"><code class="xref py py-func docutils literal notranslate"><span class="pre">getTimeSeriesByRegion()</span></code></a></dt><dd><p>Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</p>
+</dd>
+</dl>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -340,7 +391,8 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">eemont</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -393,7 +445,8 @@ This parameter is ignored for Landsat products.</p></li>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">eemont</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">prob</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span><span class="n">buffer</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span><span class="n">cdi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -416,6 +469,12 @@ This parameter is ignored for Landsat products.</p></li>
 <dd class="field-odd"><p>ee.ImageCollection</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

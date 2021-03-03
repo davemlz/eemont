@@ -202,6 +202,14 @@
 <span class="sd">    -------    </span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Data Frame converted into a Feature Collection.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame()</span>
+<span class="sd">    &gt;&gt;&gt; df[&#39;lat&#39;] = [2.92846, 4.8927]</span>
+<span class="sd">    &gt;&gt;&gt; df[&#39;lon&#39;] = [-76.0269, -75.3188]</span>
+<span class="sd">    &gt;&gt;&gt; df[&#39;name&#39;] = [&#39;Nevado del Huila&#39;, &#39;Nevado del Ruiz&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; fc = df.toEEFeatureCollection(latitude = &#39;lat&#39;,longitude = &#39;lon&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">getFeature</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
         <span class="n">properties</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>

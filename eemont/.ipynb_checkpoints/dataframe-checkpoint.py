@@ -24,6 +24,14 @@ def toEEFeatureCollection(self,latitude = None,longitude = None):
     -------    
     ee.FeatureCollection
         Data Frame converted into a Feature Collection.
+        
+    Examples
+    --------
+    >>> df = pd.DataFrame()
+    >>> df['lat'] = [2.92846, 4.8927]
+    >>> df['lon'] = [-76.0269, -75.3188]
+    >>> df['name'] = ['Nevado del Huila', 'Nevado del Ruiz']
+    >>> fc = df.toEEFeatureCollection(latitude = 'lat',longitude = 'lon')
     '''
     def getFeature(r):
         properties = r.to_dict()

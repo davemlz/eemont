@@ -33,7 +33,8 @@ def closest(self, date, tolerance = 1, unit = 'month'):
         
     Examples
     --------
-    >>> import eemont
+    >>> import ee, eemont
+    >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
     ''' 
     if not isinstance(date, ee.ee_date.Date):
@@ -99,6 +100,28 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     -------
     ee.FeatureCollection
         Time series by region retrieved as a Feature Collection.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{'ID':'A'})
+    >>> f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{'ID':'B'})
+    >>> fc = ee.FeatureCollection([f1,f2])
+    >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+    ...      .filterBounds(fc)
+    ...      .filterDate('2020-01-01','2021-01-01')
+    ...      .maskClouds()
+    ...      .scale()
+    ...      .index(['EVI','NDVI']))
+    >>> ts = S2.getTimeSeriesByRegion(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+    ...                               geometry = fc,
+    ...                               bands = ['EVI','NDVI'],
+    ...                               scale = 10)
+    
+    See Also
+    --------
+    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
     '''    
     if bands != None:
         if not isinstance(bands,list):
@@ -174,6 +197,29 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
     -------
     ee.FeatureCollection
         Time series by regions retrieved as a Feature Collection.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{'ID':'A'})
+    >>> f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{'ID':'B'})
+    >>> fc = ee.FeatureCollection([f1,f2])
+    >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+    ...      .filterBounds(fc)
+    ...      .filterDate('2020-01-01','2021-01-01')
+    ...      .maskClouds()
+    ...      .scale()
+    ...      .index(['EVI','NDVI']))
+    >>> ts = S2.getTimeSeriesByRegions(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+    ...                                collection = fc,
+    ...                                bands = ['EVI','NDVI'],
+    ...                                scale = 10)
+    
+    See Also
+    --------
+    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)
+        according to the specified reducer (or reducers).
     ''' 
     if bands != None:
         if not isinstance(bands,list):
@@ -293,7 +339,8 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         
     Examples
     --------
-    >>> import eemont
+    >>> import ee, eemont
+    >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale().index(['NDVI','EVI','GNDVI'])
     
     See Also
@@ -382,7 +429,8 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         
     Examples
     --------
-    >>> import eemont
+    >>> import ee, eemont
+    >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
         
     Notes
@@ -573,6 +621,12 @@ def scale(self):
     -------
     ee.ImageCollection
         Scaled image collection.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     '''
     platformDict = _get_platform(self)
     lookup = _get_scale_method(platformDict)

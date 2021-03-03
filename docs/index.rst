@@ -9,6 +9,13 @@ Welcome to eemont!
    classes/eeimage
    classes/eeimagecollection
    classes/pddataframe
+
+.. toctree::   
+   :maxdepth: 2
+   :caption: Modules 
+   :hidden:
+      
+   modules/common
    
 .. toctree::
    :maxdepth: 2

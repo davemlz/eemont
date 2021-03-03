@@ -1,4 +1,5 @@
 import ee
+from box import Box
 
 def _get_expression_map(img, platformDict):
     '''Gets the dictionary required for the map parameter in ee.Image.expression.
@@ -275,6 +276,43 @@ def _get_indices():
     indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices}
     
     return indices
+
+def indices():
+    '''Gets the dictionary of available indices as a Box object.
+        
+    Returns
+    -------
+    Box
+        Dictionary of available indices. For each index, the keys 'description', 'formula', 'requires', 'reference' and 'contributor' can be checked.
+        
+    Examples
+    --------
+    >>> import eemont
+    >>> indices = eemont.indices()
+    >>> indices.BAIS2.description
+    'Burned Area Index for Sentinel 2'
+    >>> indices.BAIS2.formula
+    '(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)'
+    >>> indices.BAIS2.reference
+    'https://doi.org/10.3390/ecrs-2-05177'
+    '''
+    return Box(_get_indices(),frozen_box = True)
+
+def listIndices():
+    '''Gets the list of available indices.
+        
+    Returns
+    -------
+    list
+        List of available indices.
+        
+    Examples
+    --------
+    >>> import eemont
+    >>> eemont.listIndices()
+    ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]
+    '''
+    return list(_get_indices().keys())
 
 def _get_platform(args):
     '''Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.

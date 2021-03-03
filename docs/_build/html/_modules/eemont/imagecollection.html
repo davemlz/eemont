@@ -89,6 +89,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../classes/eeimagecollection.html">ee.ImageCollection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../classes/pddataframe.html">pd.DataFrame</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/common.html">common</a></li>
+</ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
@@ -204,6 +208,11 @@
 <span class="sd">    -------    </span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Closest images to the specified date.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).closest(&#39;2020-10-15&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span> 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">ee_date</span><span class="o">.</span><span class="n">Date</span><span class="p">):</span>
         <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
@@ -459,6 +468,15 @@
 <span class="sd">    -------    </span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Image collection with the computed spectral index, or indices, as new bands.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale().index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    scale : Scales bands on an image collection.</span>
 <span class="sd">    &#39;&#39;&#39;</span>  
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
@@ -539,6 +557,15 @@
 <span class="sd">    -------    </span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Cloud-shadow masked image collection.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import eemont</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
+<span class="sd">        </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This method may mask water as well as clouds for the Sentinel-3 Radiance product.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">S3</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;quality_flags&#39;</span><span class="p">)</span>

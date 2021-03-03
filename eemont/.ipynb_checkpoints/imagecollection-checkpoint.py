@@ -30,6 +30,11 @@ def closest(self, date, tolerance = 1, unit = 'month'):
     -------    
     ee.ImageCollection
         Closest images to the specified date.
+        
+    Examples
+    --------
+    >>> import eemont
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
     ''' 
     if not isinstance(date, ee.ee_date.Date):
         date = ee.Date(date)
@@ -285,6 +290,15 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     -------    
     ee.ImageCollection
         Image collection with the computed spectral index, or indices, as new bands.
+        
+    Examples
+    --------
+    >>> import eemont
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale().index(['NDVI','EVI','GNDVI'])
+    
+    See Also
+    --------
+    scale : Scales bands on an image collection.
     '''  
     platformDict = _get_platform(self)
     
@@ -365,6 +379,15 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     -------    
     ee.ImageCollection
         Cloud-shadow masked image collection.
+        
+    Examples
+    --------
+    >>> import eemont
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
+        
+    Notes
+    -----
+    This method may mask water as well as clouds for the Sentinel-3 Radiance product.
     '''
     def S3(args):
         qa = args.select('quality_flags')

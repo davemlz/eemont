@@ -9,6 +9,8 @@ New Features
 
 - The :code:`getTimeSeriesByRegion()` extended method for ee.ImageCollection classes was created.
 - The :code:`getTimeSeriesByRegions()` extended method for ee.ImageCollection classes was created.
+- The :code:`indices()` function was created.
+- The :code:`listIndices()` function was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

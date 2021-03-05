@@ -193,6 +193,40 @@
 <div class="section" id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <ul>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA">MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1">MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1">MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A2H">MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13Q1">MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A1">MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2">MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GQ">MYD09GQ.006 Aqua Surface Reflectance Daily Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA">MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1">MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1">MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD10A1">MYD10A1.006 Aqua Snow Cover Daily Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A1">MYD11A1.006 Aqua Land Surface Temperature and Emissivity Daily Global 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A2">MYD11A2.006 Aqua Land Surface Temperature and Emissivity 8-Day Global 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYDOCGA">MYDOCGA.006 Aqua Ocean Reflectance Daily Global 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD14A1">MYD14A1.006: Aqua Thermal Anomalies &amp; Fire Daily Global 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A2H">MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A3HGF">MYD17A3HGF.006: Aqua Net Primary Production Gap-Filled Yearly Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13Q1">MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A1">MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2">MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD08_M3">MYD08_M3.061 Aqua Atmosphere Monthly Global Product</a></p></li>
+</ul>
+</div></blockquote>
+</li>
 <li><p>The following vegetation indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
 <blockquote>
 <div><ul class="simple">
@@ -222,17 +256,17 @@
 <li><p>The <em>common</em> module was created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code>, <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> and <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> methods for both ee.Image and ee.ImageCollection).</p></li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h3>New Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>New Features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">toEEFeatureCollection()</span></code> extended method for pd.DataFrame classes was created.</p></li>
-<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id2"><span class="problematic" id="id3">|</span></a>) were overloaded for ee.Image objects.</p></li>
+<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id9"><span class="problematic" id="id10">|</span></a>) were overloaded for ee.Image objects.</p></li>
 <li><p>The rich comparisons (&lt;, &lt;=, ==, !=, &gt;, &gt;=) were overloaded for ee.Image objects.</p></li>
 <li><p>The unary operators (-, ~) were overloaded for ee.Image objects.</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>Improvements<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Improvements<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
 <li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>

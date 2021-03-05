@@ -361,3 +361,74 @@ If you want to compute all available indices, you can set :code:`index = all`:
    S2withIndices.select('NDWI')
    S2withIndices.select('NDSI')
    # ...
+   
+Contribute
+------------------
+
+Do you know a spectral index that would fit in here? Check this, I'll show you how to add it to eemont!
+
+First, fork the `eemont <https://github.com/davemlz/eemont>`_ repository and clone it to your local machine. Then, create a development branch::
+
+   git checkout -b name-of-dev-branch
+   
+Now, you'll have to look for the :code:`common.py` module (eemont > eemont > common.py). Open this module and look for the :code:`_get_indices()` method. Inside this method, you'll find 4 dictionaries: :code:`vegetationIndices`, :code:`burnIndices`, :code:`waterIndices`, and :code:`snowIndices`. Go for the dictionary that best fits your spectral index and create a new item (this new item will be the new spectral index). Indices in each dictionary are structured as follows:
+
+.. code-block:: python
+
+   vegetationIndices = {
+       ...,
+       'NGRDI' : {
+            'formula' : '(G - R) / (G + R)',
+            'description' : 'Normalized Green Red Difference Index',
+            'type' : 'vegetation',
+            'requires' : ['G','R'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=390',
+            'contributor' : 'davemlz'
+        },
+        ...
+   }
+   
+Now, let's image you are going to create a new index. Each index is a dictionary with the following items:
+
+- Key of dictionary: This is the official index name, make sure the index doesn't exist yet.
+- *formula* (string): Spectral index expression. This is the formula that eemont will use to compute the index. Follow the names described in the *List of Bands* table.
+- *description* (string): Full name of the spectral index.
+- *type* (string): One of 'vegetation', 'burn', 'water', 'snow'.
+- *requires* (list[string]): List of bands required to compute the spectral index. Follow the names described in the *List of Bands* table.
+- *reference* (string): Link to the DOI of the spectral index paper or to the `Index Database Link <https://www.indexdatabase.de/>`_. Include the full link.
+- *contributor* (string | list[string]): Your GitHub username, and, if you want, your Twitter username (If using both, please create a list with both usernames ['gh_username','t_username']).
+
+.. important::
+   Make sure you have all the items. Spectral indices with missing elements WON'T be accepted.
+   
+After you have your own index, add it to the dictionary that best fits. It should look like this:
+
+.. code-block:: python
+
+   vegetationIndices = {
+       ...,
+       'your_index_name' : {
+            'formula' : 'expression_formula_of_your_index',
+            'description' : 'full_name_of_your_index',
+            'type' : 'vegetation',
+            'requires' : ['band1_used','band2_used',...], # e.g. ['N','R']
+            'reference' : 'link_to_index_reference',
+            'contributor' : 'your_gh_username'
+        },
+   }
+
+Now it's time to test your index! Go to the :code:`tests` folder (eemont > tests) and run the following lines::
+
+  cd tests
+  python test_image.py
+  python test_imagecollection.py
+
+The tests will start running for ee.Image and ee.ImageCollection classes. At the end, no ERRORS should appear and the final message should be OK. If any deprecation warning appears, please ignore it, I'll look into it later.
+
+Now it's time to commit your changes and push your development branch::
+
+  git add .
+  git commit -m "Description of your work"
+  git push origin name-of-dev-branch
+  
+And finally, submit a pull request (and don't forget to add the tests!).

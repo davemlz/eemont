@@ -353,7 +353,23 @@ def _get_platform(args):
         'MODIS/006/MOD13A1',
         'MODIS/006/MOD13A2',
         'MODIS/061/MOD08_M3',
-        'MODIS/006/MOD17A3HGF'
+        'MODIS/006/MOD17A3HGF',
+        'MODIS/006/MYD09GQ',
+        'MODIS/006/MYD10A1',
+        'MODIS/006/MYD11A1',
+        'MODIS/006/MYD09GA',
+        'MODIS/006/MYDOCGA',
+        'MODIS/006/MYD14A1',        
+        'MODIS/006/MYD09Q1',
+        'MODIS/006/MYD09A1',
+        'MODIS/006/MYD11A2',
+        'MODIS/006/MYD17A2H',
+        'MODIS/006/MYD16A2',
+        'MODIS/006/MYD13Q1',
+        'MODIS/006/MYD13A1',
+        'MODIS/006/MYD13A2',
+        'MODIS/061/MYD08_M3',
+        'MODIS/006/MYD17A3HGF'
     ]
     
     if isinstance(args, ee.imagecollection.ImageCollection):
@@ -598,7 +614,23 @@ def _get_scale_method(platformDict):
         'MODIS/006/MOD13A1': MOD13A1,
         'MODIS/006/MOD13A2': MOD13A2,
         'MODIS/061/MOD08_M3': MOD08_M3,
-        'MODIS/006/MOD17A3HGF': MOD17A3HGF
+        'MODIS/006/MOD17A3HGF': MOD17A3HGF,       
+        'MODIS/006/MYD09GQ': MOD09GQ,
+        'MODIS/006/MYD10A1': MOD10A1,
+        'MODIS/006/MYD11A1': MOD11A1,
+        'MODIS/006/MYD09GA': MOD09GA,
+        'MODIS/006/MYDOCGA': MODOCGA,
+        'MODIS/006/MYD14A1': MOD14A1,        
+        'MODIS/006/MYD09Q1': MOD09Q1,
+        'MODIS/006/MYD09A1': MOD09A1,
+        'MODIS/006/MYD11A2': MOD11A2,
+        'MODIS/006/MYD17A2H': MOD17A2H,
+        'MODIS/006/MYD16A2': MOD16A2,
+        'MODIS/006/MYD13Q1': MOD13Q1,
+        'MODIS/006/MYD13A1': MOD13A1,
+        'MODIS/006/MYD13A2': MOD13A2,
+        'MODIS/061/MYD08_M3': MOD08_M3,
+        'MODIS/006/MYD17A3HGF': MOD17A3HGF
     }
     
     return lookup

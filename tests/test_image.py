@@ -4,22 +4,29 @@ from eemont import image
 
 ee.Initialize()
 
+# SENTINEL MISSIONS
 S3 = ee.ImageCollection('COPERNICUS/S3/OLCI').first()
 S2 = ee.ImageCollection('COPERNICUS/S2_SR').first()
+
+# LANDSAT MISSIONS
 L8 = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR').first()
 L7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR').first()
 L5 = ee.ImageCollection('LANDSAT/LT05/C01/T1_SR').first()
 L4 = ee.ImageCollection('LANDSAT/LT04/C01/T1_SR').first()
+
+# MODIS (TERRA + AQUA)
 MCD43A4 = ee.ImageCollection('MODIS/006/MCD43A4').first()
 MCD43A3 = ee.ImageCollection('MODIS/006/MCD43A3').first()
+MCD43A1 = ee.ImageCollection('MODIS/006/MCD43A1').first()
+MCD15A3H = ee.ImageCollection('MODIS/006/MCD15A3H').first()
+
+# MODIS (TERRA)
 MOD09GQ = ee.ImageCollection('MODIS/006/MOD09GQ').first()
 MOD10A1 = ee.ImageCollection('MODIS/006/MOD10A1').first()
 MOD11A1 = ee.ImageCollection('MODIS/006/MOD11A1').first()
 MOD09GA = ee.ImageCollection('MODIS/006/MOD09GA').first()
 MODOCGA = ee.ImageCollection('MODIS/006/MODOCGA').first()
 MOD14A1 = ee.ImageCollection('MODIS/006/MOD14A1').first()
-MCD43A1 = ee.ImageCollection('MODIS/006/MCD43A1').first()
-MCD15A3H = ee.ImageCollection('MODIS/006/MCD15A3H').first()
 MOD09Q1 = ee.ImageCollection('MODIS/006/MOD09Q1').first()
 MOD09A1 = ee.ImageCollection('MODIS/006/MOD09A1').first()
 MOD11A2 = ee.ImageCollection('MODIS/006/MOD11A2').first()
@@ -31,10 +38,30 @@ MOD13A2 = ee.ImageCollection('MODIS/006/MOD13A2').first()
 MOD08_M3 = ee.ImageCollection('MODIS/061/MOD08_M3').first()
 MOD17A3HGF = ee.ImageCollection('MODIS/006/MOD17A3HGF').first()
 
+# MODIS (AQUA)
+MYD09GQ = ee.ImageCollection('MODIS/006/MYD09GQ').first()
+MYD10A1 = ee.ImageCollection('MODIS/006/MYD10A1').first()
+MYD11A1 = ee.ImageCollection('MODIS/006/MYD11A1').first()
+MYD09GA = ee.ImageCollection('MODIS/006/MYD09GA').first()
+MYDOCGA = ee.ImageCollection('MODIS/006/MYDOCGA').first()
+MYD14A1 = ee.ImageCollection('MODIS/006/MYD14A1').first()
+MYD09Q1 = ee.ImageCollection('MODIS/006/MYD09Q1').first()
+MYD09A1 = ee.ImageCollection('MODIS/006/MYD09A1').first()
+MYD11A2 = ee.ImageCollection('MODIS/006/MYD11A2').first()
+MYD17A2H = ee.ImageCollection('MODIS/006/MYD17A2H').first()
+MYD16A2 = ee.ImageCollection('MODIS/006/MYD16A2').first()
+MYD13Q1 = ee.ImageCollection('MODIS/006/MYD13Q1').first()
+MYD13A1 = ee.ImageCollection('MODIS/006/MYD13A1').first()
+MYD13A2 = ee.ImageCollection('MODIS/006/MYD13A2').first()
+MYD08_M3 = ee.ImageCollection('MODIS/061/MYD08_M3').first()
+MYD17A3HGF = ee.ImageCollection('MODIS/006/MYD17A3HGF').first()
+
 indices = 'all'
 
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
+    
+    # OVERLOADED OPERATIONS
     
     def test_binary1(self):
         """Test the image module for binary operators 1"""
@@ -56,6 +83,8 @@ class Test(unittest.TestCase):
         unary_tested = unary_tested_a + unary_tested_b
         self.assertIsInstance(unary_tested, ee.image.Image)
     
+    # SENTINEL MISSIONS
+    
     def test_S3(self):
         """Test the image module for Sentinel-3"""
         S3_tested = S3.maskClouds().scale()
@@ -65,6 +94,8 @@ class Test(unittest.TestCase):
         """Test the image module for Sentinel-2"""
         S2_tested = S2.maskClouds().scale().index(indices)
         self.assertIsInstance(S2_tested, ee.image.Image)
+        
+    # LANDSAT MISSIONS
         
     def test_L8(self):
         """Test the image module for Landsat 8"""
@@ -86,6 +117,8 @@ class Test(unittest.TestCase):
         L4_tested = L4.maskClouds().scale().index(indices)
         self.assertIsInstance(L4_tested, ee.image.Image)
     
+    # MODIS (TERRA + AQUA)
+    
     def test_MCD43A4(self):
         """Test the image module for MCD43A4"""
         MCD43A4_tested = MCD43A4.scale()
@@ -95,6 +128,18 @@ class Test(unittest.TestCase):
         """Test the image module for MCD43A3"""
         MCD43A3_tested = MCD43A3.scale()
         self.assertIsInstance(MCD43A3_tested, ee.image.Image)
+        
+    def test_MCD43A1(self):
+        """Test the image module for MCD43A1"""
+        MCD43A1_tested = MCD43A1.scale()
+        self.assertIsInstance(MCD43A1_tested, ee.image.Image)
+        
+    def test_MCD15A3H(self):
+        """Test the image module for MCD15A3H"""
+        MCD15A3H_tested = MCD15A3H.maskClouds().scale()
+        self.assertIsInstance(MCD15A3H_tested, ee.image.Image)
+        
+    # MODIS (TERRA)
         
     def test_MOD09GQ(self):
         """Test the image module for MOD09GQ"""
@@ -125,16 +170,6 @@ class Test(unittest.TestCase):
         """Test the image module for MOD14A1"""
         MOD14A1_tested = MOD14A1.scale()
         self.assertIsInstance(MOD14A1_tested, ee.image.Image)
-        
-    def test_MCD43A1(self):
-        """Test the image module for MCD43A1"""
-        MCD43A1_tested = MCD43A1.scale()
-        self.assertIsInstance(MCD43A1_tested, ee.image.Image)
-        
-    def test_MCD15A3H(self):
-        """Test the image module for MCD15A3H"""
-        MCD15A3H_tested = MCD15A3H.maskClouds().scale()
-        self.assertIsInstance(MCD15A3H_tested, ee.image.Image)
         
     def test_MOD09Q1(self):
         """Test the image module for MOD09Q1"""
@@ -185,6 +220,89 @@ class Test(unittest.TestCase):
         """Test the image module for MOD17A3HGF"""
         MOD17A3HGF_tested = MOD17A3HGF.scale()
         self.assertIsInstance(MOD17A3HGF_tested, ee.image.Image)
+        
+    # MODIS (AQUA)
+        
+    def test_MYD09GQ(self):
+        """Test the image module for MYD09GQ"""
+        MYD09GQ_tested = MYD09GQ.scale()
+        self.assertIsInstance(MYD09GQ_tested, ee.image.Image)
+        
+    def test_MYD10A1(self):
+        """Test the image module for MYD10A1"""
+        MYD10A1_tested = MYD10A1.scale()
+        self.assertIsInstance(MYD10A1_tested, ee.image.Image)
+        
+    def test_MYD11A1(self):
+        """Test the image module for MYD11A1"""
+        MYD11A1_tested = MYD11A1.scale()
+        self.assertIsInstance(MYD11A1_tested, ee.image.Image)
+        
+    def test_MYD09GA(self):
+        """Test the image module for MYD09GA"""
+        MYD09GA_tested = MYD09GA.maskClouds().scale()
+        self.assertIsInstance(MYD09GA_tested, ee.image.Image)
+        
+    def test_MYDOCGA(self):
+        """Test the image module for MYDOCGA"""
+        MYDOCGA_tested = MYDOCGA.scale()
+        self.assertIsInstance(MYDOCGA_tested, ee.image.Image)
+        
+    def test_MYD14A1(self):
+        """Test the image module for MYD14A1"""
+        MYD14A1_tested = MYD14A1.scale()
+        self.assertIsInstance(MYD14A1_tested, ee.image.Image)
+        
+    def test_MYD09Q1(self):
+        """Test the image module for MYD09Q1"""
+        MYD09Q1_tested = MYD09Q1.maskClouds().scale()
+        self.assertIsInstance(MYD09Q1_tested, ee.image.Image)
+        
+    def test_MYD09A1(self):
+        """Test the image module for MYD09A1"""
+        MYD09A1_tested = MYD09A1.maskClouds().scale()
+        self.assertIsInstance(MYD09A1_tested, ee.image.Image)
+        
+    def test_MYD11A2(self):
+        """Test the image module for MYD11A2"""
+        MYD11A2_tested = MYD11A2.scale()
+        self.assertIsInstance(MYD11A2_tested, ee.image.Image)
+        
+    def test_MYD17A2H(self):
+        """Test the image module for MYD17A2H"""
+        MYD17A2H_tested = MYD17A2H.maskClouds().scale()
+        self.assertIsInstance(MYD17A2H_tested, ee.image.Image)
+    
+    # CURRENTLY UNAVAILABLE
+    #def test_MYD16A2(self):
+    #    """Test the image module for MYD16A2"""
+    #    MYD16A2_tested = MYD16A2.maskClouds().scale()
+    #    self.assertIsInstance(MYD16A2_tested, ee.image.Image)
+    
+    def test_MYD13Q1(self):
+        """Test the image module for MYD13Q1"""
+        MYD13Q1_tested = MYD13Q1.maskClouds().scale()
+        self.assertIsInstance(MYD13Q1_tested, ee.image.Image)
+        
+    def test_MYD13A1(self):
+        """Test the image module for MYD13A1"""
+        MYD13A1_tested = MYD13A1.maskClouds().scale()
+        self.assertIsInstance(MYD13A1_tested, ee.image.Image)
+        
+    def test_MYD13A2(self):
+        """Test the image module for MYD13A2"""
+        MYD13A2_tested = MYD13A2.maskClouds().scale()
+        self.assertIsInstance(MYD13A2_tested, ee.image.Image)
+        
+    def test_MYD08_M3(self):
+        """Test the image module for MYD08_M3"""
+        MYD08_M3_tested = MYD08_M3.scale()
+        self.assertIsInstance(MYD08_M3_tested, ee.image.Image)
+        
+    def test_MYD17A3HGF(self):
+        """Test the image module for MYD17A3HGF"""
+        MYD17A3HGF_tested = MYD17A3HGF.scale()
+        self.assertIsInstance(MYD17A3HGF_tested, ee.image.Image)
         
 if __name__ == '__main__':
     unittest.main()

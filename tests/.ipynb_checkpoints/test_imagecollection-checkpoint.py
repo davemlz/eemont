@@ -6,22 +6,29 @@ ee.Initialize()
 
 point = ee.Geometry.Point([-76.21,3.45])
 
+# SENTINEL MISSIONS
 S3 = ee.ImageCollection('COPERNICUS/S3/OLCI').filterBounds(point)
 S2 = ee.ImageCollection('COPERNICUS/S2_SR').filterBounds(point)
+
+# LANDSAT MISSIONS
 L8 = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR').filterBounds(point)
 L7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR').filterBounds(point)
 L5 = ee.ImageCollection('LANDSAT/LT05/C01/T1_SR').filterBounds(point)
 L4 = ee.ImageCollection('LANDSAT/LT04/C01/T1_SR').filterBounds(point)
+
+# MODIS (TERRA + AQUA)
 MCD43A4 = ee.ImageCollection('MODIS/006/MCD43A4').filterBounds(point)
 MCD43A3 = ee.ImageCollection('MODIS/006/MCD43A3').filterBounds(point)
+MCD43A1 = ee.ImageCollection('MODIS/006/MCD43A1').filterBounds(point)
+MCD15A3H = ee.ImageCollection('MODIS/006/MCD15A3H').filterBounds(point)
+
+# MODIS (TERRA)
 MOD09GQ = ee.ImageCollection('MODIS/006/MOD09GQ').filterBounds(point)
 MOD10A1 = ee.ImageCollection('MODIS/006/MOD10A1').filterBounds(point)
 MOD11A1 = ee.ImageCollection('MODIS/006/MOD11A1').filterBounds(point)
 MOD09GA = ee.ImageCollection('MODIS/006/MOD09GA').filterBounds(point)
 MODOCGA = ee.ImageCollection('MODIS/006/MODOCGA').filterBounds(point)
 MOD14A1 = ee.ImageCollection('MODIS/006/MOD14A1').filterBounds(point)
-MCD43A1 = ee.ImageCollection('MODIS/006/MCD43A1').filterBounds(point)
-MCD15A3H = ee.ImageCollection('MODIS/006/MCD15A3H').filterBounds(point)
 MOD09Q1 = ee.ImageCollection('MODIS/006/MOD09Q1').filterBounds(point)
 MOD09A1 = ee.ImageCollection('MODIS/006/MOD09A1').filterBounds(point)
 MOD11A2 = ee.ImageCollection('MODIS/006/MOD11A2').filterBounds(point)
@@ -33,10 +40,30 @@ MOD13A2 = ee.ImageCollection('MODIS/006/MOD13A2').filterBounds(point)
 MOD08_M3 = ee.ImageCollection('MODIS/061/MOD08_M3').filterBounds(point)
 MOD17A3HGF = ee.ImageCollection('MODIS/006/MOD17A3HGF').filterBounds(point)
 
+# MODIS (AQUA)
+MYD09GQ = ee.ImageCollection('MODIS/006/MYD09GQ').filterBounds(point)
+MYD10A1 = ee.ImageCollection('MODIS/006/MYD10A1').filterBounds(point)
+MYD11A1 = ee.ImageCollection('MODIS/006/MYD11A1').filterBounds(point)
+MYD09GA = ee.ImageCollection('MODIS/006/MYD09GA').filterBounds(point)
+MYDOCGA = ee.ImageCollection('MODIS/006/MYDOCGA').filterBounds(point)
+MYD14A1 = ee.ImageCollection('MODIS/006/MYD14A1').filterBounds(point)
+MYD09Q1 = ee.ImageCollection('MODIS/006/MYD09Q1').filterBounds(point)
+MYD09A1 = ee.ImageCollection('MODIS/006/MYD09A1').filterBounds(point)
+MYD11A2 = ee.ImageCollection('MODIS/006/MYD11A2').filterBounds(point)
+MYD17A2H = ee.ImageCollection('MODIS/006/MYD17A2H').filterBounds(point)
+MYD16A2 = ee.ImageCollection('MODIS/006/MYD16A2').filterBounds(point)
+MYD13Q1 = ee.ImageCollection('MODIS/006/MYD13Q1').filterBounds(point)
+MYD13A1 = ee.ImageCollection('MODIS/006/MYD13A1').filterBounds(point)
+MYD13A2 = ee.ImageCollection('MODIS/006/MYD13A2').filterBounds(point)
+MYD08_M3 = ee.ImageCollection('MODIS/061/MYD08_M3').filterBounds(point)
+MYD17A3HGF = ee.ImageCollection('MODIS/006/MYD17A3HGF').filterBounds(point)
+
 indices = 'all'
 
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
+    
+    # SENTINEL MISSIONS
     
     def test_S3(self):
         """Test the image collection module for Sentinel-3"""
@@ -47,7 +74,9 @@ class Test(unittest.TestCase):
         """Test the image collection module for Sentinel-2"""
         S2_tested = S2.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
-        
+    
+    # LANDSAT MISSIONS
+    
     def test_L8(self):
         """Test the image collection module for Landsat 8"""
         L8_tested = L8.closest('2020-01-15').maskClouds().scale().index(indices)
@@ -67,7 +96,9 @@ class Test(unittest.TestCase):
         """Test the image collection module for Landsat 4"""
         L4_tested = L4.closest('1990-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(L4_tested, ee.imagecollection.ImageCollection)
-        
+    
+    # MODIS (TERRA + AQUA)
+    
     def test_MCD43A4(self):
         """Test the image collection module for MCD43A4"""
         MCD43A4_tested = MCD43A4.closest('2020-01-15').scale()
@@ -77,6 +108,18 @@ class Test(unittest.TestCase):
         """Test the image collection module for MCD43A3"""
         MCD43A3_tested = MCD43A3.closest('2020-01-15').scale()
         self.assertIsInstance(MCD43A3_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MCD43A1(self):
+        """Test the image collection module for MCD43A1"""
+        MCD43A1_tested = MCD43A1.closest('2020-01-15').scale()
+        self.assertIsInstance(MCD43A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MCD15A3H(self):
+        """Test the image collection module for MCD15A3H"""
+        MCD15A3H_tested = MCD15A3H.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MCD15A3H_tested, ee.imagecollection.ImageCollection)
+        
+    # MODIS (TERRA)
         
     def test_MOD09GQ(self):
         """Test the image collection module for MOD09GQ"""
@@ -107,16 +150,6 @@ class Test(unittest.TestCase):
         """Test the image collection module for MOD14A1"""
         MOD14A1_tested = MOD14A1.closest('2020-01-15').scale()
         self.assertIsInstance(MOD14A1_tested, ee.imagecollection.ImageCollection)
-        
-    def test_MCD43A1(self):
-        """Test the image collection module for MCD43A1"""
-        MCD43A1_tested = MCD43A1.closest('2020-01-15').scale()
-        self.assertIsInstance(MCD43A1_tested, ee.imagecollection.ImageCollection)
-        
-    def test_MCD15A3H(self):
-        """Test the image collection module for MCD15A3H"""
-        MCD15A3H_tested = MCD15A3H.closest('2020-01-15').maskClouds().scale()
-        self.assertIsInstance(MCD15A3H_tested, ee.imagecollection.ImageCollection)
         
     def test_MOD09Q1(self):
         """Test the image collection module for MOD09Q1"""
@@ -167,6 +200,89 @@ class Test(unittest.TestCase):
         """Test the image collection module for MOD17A3HGF"""
         MOD17A3HGF_tested = MOD17A3HGF.closest('2019-01-15').scale()
         self.assertIsInstance(MOD17A3HGF_tested, ee.imagecollection.ImageCollection)
+        
+    # MODIS (AQUA)
+        
+    def test_MYD09GQ(self):
+        """Test the image collection module for MYD09GQ"""
+        MYD09GQ_tested = MYD09GQ.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD10A1(self):
+        """Test the image collection module for MYD10A1"""
+        MYD10A1_tested = MYD10A1.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD10A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD11A1(self):
+        """Test the image collection module for MYD11A1"""
+        MYD11A1_tested = MYD11A1.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD11A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD09GA(self):
+        """Test the image collection module for MYD09GA"""
+        MYD09GA_tested = MYD09GA.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYDOCGA(self):
+        """Test the image collection module for MYDOCGA"""
+        MYDOCGA_tested = MYDOCGA.closest('2020-01-15').scale()
+        self.assertIsInstance(MYDOCGA_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD14A1(self):
+        """Test the image collection module for MYD14A1"""
+        MYD14A1_tested = MYD14A1.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD14A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD09Q1(self):
+        """Test the image collection module for MYD09Q1"""
+        MYD09Q1_tested = MYD09Q1.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD09A1(self):
+        """Test the image collection module for MYD09A1"""
+        MYD09A1_tested = MYD09A1.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD11A2(self):
+        """Test the image collection module for MYD11A2"""
+        MYD11A2_tested = MYD11A2.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD11A2_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD17A2H(self):
+        """Test the image collection module for MYD17A2H"""
+        MYD17A2H_tested = MYD17A2H.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
+    
+    # CURRENTLY UNAVAILABLE
+    #def test_MYD16A2(self):
+    #    """Test the image collection module for MYD16A2"""
+    #    MYD16A2_tested = MYD16A2.closest('2020-01-15').maskClouds().scale()
+    #    self.assertIsInstance(MYD16A2_tested, ee.imagecollection.ImageCollection)
+    
+    def test_MYD13Q1(self):
+        """Test the image collection module for MYD13Q1"""
+        MYD13Q1_tested = MYD13Q1.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD13Q1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD13A1(self):
+        """Test the image collection module for MYD13A1"""
+        MYD13A1_tested = MYD13A1.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD13A1_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD13A2(self):
+        """Test the image collection module for MYD13A2"""
+        MYD13A2_tested = MYD13A2.closest('2020-01-15').maskClouds().scale()
+        self.assertIsInstance(MYD13A2_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD08_M3(self):
+        """Test the image collection module for MYD08_M3"""
+        MYD08_M3_tested = MYD08_M3.closest('2020-01-15').scale()
+        self.assertIsInstance(MYD08_M3_tested, ee.imagecollection.ImageCollection)
+        
+    def test_MYD17A3HGF(self):
+        """Test the image collection module for MYD17A3HGF"""
+        MYD17A3HGF_tested = MYD17A3HGF.closest('2019-01-15').scale()
+        self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
         
 if __name__ == '__main__':
     unittest.main()

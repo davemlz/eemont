@@ -593,7 +593,15 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         'MODIS/006/MOD16A2': MOD16A2,
         'MODIS/006/MOD13Q1': MOD13Q1A1,
         'MODIS/006/MOD13A1': MOD13Q1A1,
-        'MODIS/006/MOD13A2': MOD13A2
+        'MODIS/006/MOD13A2': MOD13A2,
+        'MODIS/006/MYD09GA': MOD09GA,
+        'MODIS/006/MYD09Q1': MOD09Q1,
+        'MODIS/006/MYD09A1': MOD09A1,
+        'MODIS/006/MYD17A2H': MOD17A2H,
+        'MODIS/006/MYD16A2': MOD16A2,
+        'MODIS/006/MYD13Q1': MOD13Q1A1,
+        'MODIS/006/MYD13A1': MOD13Q1A1,
+        'MODIS/006/MYD13A2': MOD13A2
     }
     
     platformDict = _get_platform(self)

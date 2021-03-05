@@ -56,6 +56,27 @@ Landsat Missions
 - `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
 - `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
 
+MODIS Products (Terra + Aqua)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4>`_
+
+MODIS Products (Terra)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `MOD09GQ.006 Terra Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ>`_
+- `MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA>`_
+- `MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1>`_
+- `MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1>`_
+
+MODIS Products (Aqua)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `MYD09GQ.006 Aqua Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GQ>`_
+- `MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA>`_
+- `MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1>`_
+- `MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1>`_
+
 .. important::
    It is highly recommended to scale the image (or image collection) before computing spectral indices. See the :code:`scale()` method for more info.  
 
@@ -190,7 +211,7 @@ List of Bands
 The following table shows the list of bands used for spectral indices computation:
 
 .. list-table:: Bands used for spectral indices computation.
-   :widths: 20 20 20 20 20
+   :widths: 18 18 16 16 16 16
    :header-rows: 1
 
    * - Description
@@ -198,71 +219,85 @@ The following table shows the list of bands used for spectral indices computatio
      - Sentinel-2
      - Landsat 8
      - Landsat 4, 5, 7
+     - MODIS     
    * - Aerosols
      - A
      - B1
      - B1
      -
+     -     
    * - Blue
      - B
      - B2
      - B2
      - B1
+     - B3 
    * - Green
      - G
      - B3
      - B3
      - B2
+     - B4    
    * - Red
      - R
      - B4
      - B4
      - B3
+     - B1
    * - Red Edge 1
      - RE1
      - B5
      - 
      -
+     -     
    * - Red Edge 2
      - RE2
      - B6
      - 
      -
+     -     
    * - Red Edge 3
      - RE3
      - B7
      - 
      -
+     -     
    * - Red Edge 4
      - RE4
      - B8A
      - 
      -
+     -     
    * - NIR
      - N
      - B8
      - B5
      - B4
+     - B2
    * - SWIR 1
      - S1
      - B11
      - B6
      - B5
+     - B6     
    * - SWIR 2
      - S2
      - B12
      - B7
      - B7
+     - B7   
    * - Thermal 1
      - T1
      - 
      - B10
      - B6
+     -     
    * - Thermal 2
      - T2
      - 
      - B11
      - 
+     -     
 
 .. warning::
    If the satellite platform doesn't have the required bands for computing an index, it won't be computed.

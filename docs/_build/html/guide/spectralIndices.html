@@ -110,6 +110,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#supported-platforms">Supported Platforms</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sentinel-missions">Sentinel Missions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#landsat-missions">Landsat Missions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modis-products-terra-aqua">MODIS Products (Terra + Aqua)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modis-products-terra">MODIS Products (Terra)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modis-products-aqua">MODIS Products (Aqua)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-indices">List of Indices</a><ul>
@@ -261,6 +264,30 @@
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR">USGS Landsat 7 Surface Reflectance Tier 1 and 2</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR">USGS Landsat 5 Surface Reflectance Tier 1 and 2</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR">USGS Landsat 4 Surface Reflectance Tier 1 and 2</a></p></li>
+</ul>
+</div>
+<div class="section" id="modis-products-terra-aqua">
+<h3>MODIS Products (Terra + Aqua)<a class="headerlink" href="#modis-products-terra-aqua" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4">MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m</a></p></li>
+</ul>
+</div>
+<div class="section" id="modis-products-terra">
+<h3>MODIS Products (Terra)<a class="headerlink" href="#modis-products-terra" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ">MOD09GQ.006 Terra Surface Reflectance Daily Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA">MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1">MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1">MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m</a></p></li>
+</ul>
+</div>
+<div class="section" id="modis-products-aqua">
+<h3>MODIS Products (Aqua)<a class="headerlink" href="#modis-products-aqua" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GQ">MYD09GQ.006 Aqua Surface Reflectance Daily Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA">MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1">MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1">MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</a></p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -449,11 +476,12 @@
 <table class="colwidths-given docutils align-default" id="id7">
 <caption><span class="caption-text">Bands used for spectral indices computation.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Description</p></th>
@@ -461,6 +489,7 @@
 <th class="head"><p>Sentinel-2</p></th>
 <th class="head"><p>Landsat 8</p></th>
 <th class="head"><p>Landsat 4, 5, 7</p></th>
+<th class="head"><p>MODIS</p></th>
 </tr>
 </thead>
 <tbody>
@@ -469,28 +498,33 @@
 <td><p>B1</p></td>
 <td><p>B1</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Blue</p></td>
 <td><p>B</p></td>
 <td><p>B2</p></td>
 <td><p>B2</p></td>
 <td><p>B1</p></td>
+<td><p>B3</p></td>
 </tr>
 <tr class="row-even"><td><p>Green</p></td>
 <td><p>G</p></td>
 <td><p>B3</p></td>
 <td><p>B3</p></td>
 <td><p>B2</p></td>
+<td><p>B4</p></td>
 </tr>
 <tr class="row-odd"><td><p>Red</p></td>
 <td><p>R</p></td>
 <td><p>B4</p></td>
 <td><p>B4</p></td>
 <td><p>B3</p></td>
+<td><p>B1</p></td>
 </tr>
 <tr class="row-even"><td><p>Red Edge 1</p></td>
 <td><p>RE1</p></td>
 <td><p>B5</p></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -499,10 +533,12 @@
 <td><p>B6</p></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Red Edge 3</p></td>
 <td><p>RE3</p></td>
 <td><p>B7</p></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -511,22 +547,26 @@
 <td><p>B8A</p></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>NIR</p></td>
 <td><p>N</p></td>
 <td><p>B8</p></td>
 <td><p>B5</p></td>
 <td><p>B4</p></td>
+<td><p>B2</p></td>
 </tr>
 <tr class="row-odd"><td><p>SWIR 1</p></td>
 <td><p>S1</p></td>
 <td><p>B11</p></td>
 <td><p>B6</p></td>
 <td><p>B5</p></td>
+<td><p>B6</p></td>
 </tr>
 <tr class="row-even"><td><p>SWIR 2</p></td>
 <td><p>S2</p></td>
 <td><p>B12</p></td>
+<td><p>B7</p></td>
 <td><p>B7</p></td>
 <td><p>B7</p></td>
 </tr>
@@ -535,11 +575,13 @@
 <td></td>
 <td><p>B10</p></td>
 <td><p>B6</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Thermal 2</p></td>
 <td><p>T2</p></td>
 <td></td>
 <td><p>B11</p></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

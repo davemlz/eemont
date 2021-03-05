@@ -180,7 +180,7 @@
 <span class="kn">from</span> <span class="nn">box</span> <span class="kn">import</span> <span class="n">Box</span>
 
 <span class="k">def</span> <span class="nf">_get_expression_map</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">platformDict</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the dictionary required for the map parameter in ee.Image.expression.</span>
+    <span class="sd">&#39;&#39;&#39;Gets the dictionary required for the map parameter in ee.Image.expression() method.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -233,13 +233,48 @@
             <span class="s1">&#39;T1&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B6&#39;</span><span class="p">),</span>
             <span class="s1">&#39;S2&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B7&#39;</span><span class="p">)</span>                
         <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">lookupMOD09GQ</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>            
+            <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b01&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b02&#39;</span><span class="p">)</span>            
+        <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">lookupMOD09GA</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>            
+            <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b03&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b04&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b01&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b02&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;S1&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b06&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;S2&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;sur_refl_b07&#39;</span><span class="p">)</span>           
+        <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">lookupMCD43A4</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>            
+            <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band3&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band4&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band1&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band2&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;S1&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band6&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;S2&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Nadir_Reflectance_Band7&#39;</span><span class="p">)</span>           
+        <span class="p">}</span>
 
     <span class="n">lookupPlatform</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">lookupS2</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">lookupL8</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
         <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">lookupL457</span>
+        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09GQ&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD09GQ&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GA</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD09GA&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GA</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09Q1&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD09Q1&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MOD09A1&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GA</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD09A1&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GA</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MCD43A4&#39;</span><span class="p">:</span> <span class="n">lookupMCD43A4</span>
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupPlatform</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
@@ -541,8 +576,7 @@
         <span class="s1">&#39;MODIS/006/MYD09Q1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD09A1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD11A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD16A2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">,</span>        
         <span class="s1">&#39;MODIS/006/MYD13Q1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13A1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">,</span>
@@ -802,8 +836,7 @@
         <span class="s1">&#39;MODIS/006/MYD09Q1&#39;</span><span class="p">:</span> <span class="n">MOD09Q1</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD09A1&#39;</span><span class="p">:</span> <span class="n">MOD09A1</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD11A2&#39;</span><span class="p">:</span> <span class="n">MOD11A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">:</span> <span class="n">MOD17A2H</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD16A2&#39;</span><span class="p">:</span> <span class="n">MOD16A2</span><span class="p">,</span>
+        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">:</span> <span class="n">MOD17A2H</span><span class="p">,</span>        
         <span class="s1">&#39;MODIS/006/MYD13Q1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13A1&#39;</span><span class="p">:</span> <span class="n">MOD13A1</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span><span class="p">,</span>

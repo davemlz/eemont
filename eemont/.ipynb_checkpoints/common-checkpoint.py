@@ -2,7 +2,7 @@ import ee
 from box import Box
 
 def _get_expression_map(img, platformDict):
-    '''Gets the dictionary required for the map parameter in ee.Image.expression.
+    '''Gets the dictionary required for the map parameter in ee.Image.expression() method.
     
     Parameters
     ----------
@@ -55,13 +55,48 @@ def _get_expression_map(img, platformDict):
             'T1': img.select('B6'),
             'S2': img.select('B7')                
         }
+    
+    def lookupMOD09GQ(img):
+        return {            
+            'R': img.select('sur_refl_b01'),
+            'N': img.select('sur_refl_b02')            
+        }
+    
+    def lookupMOD09GA(img):
+        return {            
+            'B': img.select('sur_refl_b03'),
+            'G': img.select('sur_refl_b04'),
+            'R': img.select('sur_refl_b01'),
+            'N': img.select('sur_refl_b02'),
+            'S1': img.select('sur_refl_b06'),
+            'S2': img.select('sur_refl_b07')           
+        }
+    
+    def lookupMCD43A4(img):
+        return {            
+            'B': img.select('Nadir_Reflectance_Band3'),
+            'G': img.select('Nadir_Reflectance_Band4'),
+            'R': img.select('Nadir_Reflectance_Band1'),
+            'N': img.select('Nadir_Reflectance_Band2'),
+            'S1': img.select('Nadir_Reflectance_Band6'),
+            'S2': img.select('Nadir_Reflectance_Band7')           
+        }
 
     lookupPlatform = {
         'COPERNICUS/S2': lookupS2,
         'LANDSAT/LC08': lookupL8,
         'LANDSAT/LE07': lookupL457,
         'LANDSAT/LT05': lookupL457,
-        'LANDSAT/LT04': lookupL457
+        'LANDSAT/LT04': lookupL457,
+        'MODIS/006/MOD09GQ': lookupMOD09GQ,
+        'MODIS/006/MYD09GQ': lookupMOD09GQ,
+        'MODIS/006/MOD09GA': lookupMOD09GA,
+        'MODIS/006/MYD09GA': lookupMOD09GA,
+        'MODIS/006/MOD09Q1': lookupMOD09GQ,
+        'MODIS/006/MYD09Q1': lookupMOD09GQ,
+        'MODIS/006/MOD09A1': lookupMOD09GA,
+        'MODIS/006/MYD09A1': lookupMOD09GA,
+        'MODIS/006/MCD43A4': lookupMCD43A4
     }
 
     if platformDict['platform'] not in list(lookupPlatform.keys()):
@@ -363,8 +398,7 @@ def _get_platform(args):
         'MODIS/006/MYD09Q1',
         'MODIS/006/MYD09A1',
         'MODIS/006/MYD11A2',
-        'MODIS/006/MYD17A2H',
-        'MODIS/006/MYD16A2',
+        'MODIS/006/MYD17A2H',        
         'MODIS/006/MYD13Q1',
         'MODIS/006/MYD13A1',
         'MODIS/006/MYD13A2',
@@ -624,8 +658,7 @@ def _get_scale_method(platformDict):
         'MODIS/006/MYD09Q1': MOD09Q1,
         'MODIS/006/MYD09A1': MOD09A1,
         'MODIS/006/MYD11A2': MOD11A2,
-        'MODIS/006/MYD17A2H': MOD17A2H,
-        'MODIS/006/MYD16A2': MOD16A2,
+        'MODIS/006/MYD17A2H': MOD17A2H,        
         'MODIS/006/MYD13Q1': MOD13Q1,
         'MODIS/006/MYD13A1': MOD13A1,
         'MODIS/006/MYD13A2': MOD13A2,

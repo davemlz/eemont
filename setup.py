@@ -27,7 +27,7 @@ setup(
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),
 
-    install_requires=['earthengine-api','numpy','pandas','python-box'],
+    install_requires=['earthengine-api','numpy','pandas','python-box','geopy'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

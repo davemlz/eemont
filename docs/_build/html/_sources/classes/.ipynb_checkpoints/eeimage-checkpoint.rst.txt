@@ -1,5 +1,5 @@
 ee.Image
-======
+========
 
 Extended methods for the ee.Image class:
 

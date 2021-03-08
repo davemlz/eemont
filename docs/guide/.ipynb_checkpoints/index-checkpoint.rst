@@ -1,5 +1,5 @@
 User Guide
-========
+===========
 
 .. toctree::
    :caption: Table of Contents

@@ -85,6 +85,9 @@
             
               <p class="caption"><span class="caption-text">Extended Classes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eefeature.html">ee.Feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eefeaturecollection.html">ee.FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/eegeometry.html">ee.Geometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../classes/eeimage.html">ee.Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../classes/eeimagecollection.html">ee.ImageCollection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../classes/pddataframe.html">pd.DataFrame</a></li>
@@ -300,10 +303,69 @@
                                <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>New Geometry, Feature and Feature Collection constructors:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seattle_bbox</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Seattle&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-eemont-query-example&#39;</span><span class="p">)</span>
+<span class="n">cali_coords</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Cali, Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-eemont-query-example&#39;</span><span class="p">)</span>
+<span class="n">amazonas_river</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Río Amazonas&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-eemont-query-example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<p>The above-mentioned features extends both ee.Image and ee.ImageCollection classes:</p>
+<p>The above-mentioned features extends the following Earth Engine classes:</p>
+<div class="section" id="ee-feature">
+<h3>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eefeature.html#eemont.feature.BBoxFromQuery" title="eemont.feature.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eefeature.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-featurecollection">
+<h3>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eefeaturecollection.html#eemont.featurecollection.MultiPointFromQuery" title="eemont.featurecollection.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-geometry">
+<h3>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eegeometry.html#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eegeometry.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eegeometry.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="ee-image">
 <h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">

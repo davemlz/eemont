@@ -6,6 +6,9 @@ Welcome to eemont!
    :caption: Extended Classes 
    :hidden:
       
+   classes/eefeature
+   classes/eefeaturecollection
+   classes/eegeometry
    classes/eeimage
    classes/eeimagecollection
    classes/pddataframe
@@ -47,7 +50,7 @@ Welcome to eemont!
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 How does it work?
-----------------
+-------------------
 
 Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.
 
@@ -164,11 +167,49 @@ The following features are extended through eemont:
                                   collection = fc,
                                   bands = ['EVI','NDVI'],
                                   scale = 10)
+                                  
+- New Geometry, Feature and Feature Collection constructors:
+
+.. code-block:: python
+
+   seattle_bbox = ee.Geometry.BBoxFromQuery('Seattle',user_agent = 'my-eemont-query-example')
+   cali_coords = ee.Feature.PointFromQuery('Cali, Colombia',user_agent = 'my-eemont-query-example')
+   amazonas_river = ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = 'my-eemont-query-example')
 
 Methods
 --------
 
-The above-mentioned features extends both ee.Image and ee.ImageCollection classes:
+The above-mentioned features extends the following Earth Engine classes:
+
+ee.Feature
+~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.feature
+
+.. autosummary::
+
+   BBoxFromQuery
+   PointFromQuery
+   
+ee.FeatureCollection
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.featurecollection
+
+.. autosummary::
+   
+   MultiPointFromQuery
+   
+ee.Geometry
+~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.geometry
+
+.. autosummary::
+
+   BBoxFromQuery
+   PointFromQuery
+   MultiPointFromQuery
 
 ee.Image
 ~~~~~~~~

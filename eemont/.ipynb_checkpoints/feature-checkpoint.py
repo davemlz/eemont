@@ -18,7 +18,7 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
-    **kwargs : dict
+    **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
         
@@ -48,6 +48,10 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_type': 'node',
       'place_id': 17287419,
       'type': 'volcano'}}
+      
+    See Also
+    --------
+    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.    
     '''
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)
@@ -69,7 +73,7 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
         Geocoder to use. One of 'nominatim' or 'arcgis'. Please visit https://geopy.readthedocs.io/ for more info.
-    **kwargs : dict
+    **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
         
@@ -106,6 +110,10 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_type': 'relation',
       'place_id': 259216862,
       'type': 'administrative'}}
+      
+    See Also
+    --------    
+    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.
     '''
     if geocoder in ['nominatim','arcgis']:
         cls = get_geocoder_for_service(geocoder)

@@ -4,6 +4,13 @@ Changelog
 v0.1.8
 --------------
 
+New Modules
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The *ee.Feature* module was created.
+- The *ee.FeatureCollection* module was created.
+- The *ee.Geometry* module was created.
+
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -11,6 +18,10 @@ New Features
 - The :code:`getTimeSeriesByRegions()` extended method for ee.ImageCollection classes was created.
 - The :code:`indices()` function was created.
 - The :code:`listIndices()` function was created.
+- The :code:`BBoxFromQuery()` extended constructor for ee.Geometry and ee.Feature classes was created.
+- The :code:`PointFromQuery()` extended constructor for ee.Geometry and ee.Feature classes was created.
+- The :code:`MultiPointFromQuery()` extended constructor for ee.Geometry and ee.FeatureCollection classes was created.
+
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

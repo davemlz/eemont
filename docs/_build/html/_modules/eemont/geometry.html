@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>eemont.geometry &mdash; eemont 0.1.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Extended Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eefeature.html">ee.Feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eefeaturecollection.html">ee.FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eegeometry.html">ee.Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/common.html">common</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/timeSeries.html">Time Series By Regions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Languages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/eemontR.html">eemont in R</a></li>
+</ul>
+<p class="caption"><span class="caption-text">What's new?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>eemont.geometry</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for eemont.geometry</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">ee</span>
+<span class="kn">import</span> <span class="nn">geopy</span>
+<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">get_geocoder_for_service</span>
+
+<span class="k">def</span> <span class="nf">_extend_staticmethod_eeGeometry</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.Geometry class with a static method.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Geometry</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BBoxFromQuery"><a class="viewcode-back" href="../../classes/eegeometry.html#eemont.geometry.BBoxFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">BBoxFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    query : str</span>
+<span class="sd">        Address, query or structured query to geocode.</span>
+<span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
+<span class="sd">        Geocoder to use. One of &#39;nominatim&#39; or &#39;arcgis&#39;. Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
+<span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Geometry.Polygon</span>
+<span class="sd">        Geometry describing a bounding box from the specified query.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Geometry.BBoxFromQuery(&#39;Seattle&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
+<span class="sd">    ee.Geometry({</span>
+<span class="sd">      &quot;functionInvocationValue&quot;: {</span>
+<span class="sd">        &quot;functionName&quot;: &quot;GeometryConstructors.Polygon&quot;,</span>
+<span class="sd">        &quot;arguments&quot;: {</span>
+<span class="sd">          &quot;coordinates&quot;: {</span>
+<span class="sd">            &quot;constantValue&quot;: [</span>
+<span class="sd">              [</span>
+<span class="sd">                [</span>
+<span class="sd">                  -122.45969600000001,</span>
+<span class="sd">                  47.7341357</span>
+<span class="sd">                ],</span>
+<span class="sd">                [</span>
+<span class="sd">                  -122.45969600000001,</span>
+<span class="sd">                  47.4810022</span>
+<span class="sd">                ],</span>
+<span class="sd">                [</span>
+<span class="sd">                  -122.224433,</span>
+<span class="sd">                  47.4810022</span>
+<span class="sd">                ],</span>
+<span class="sd">                [</span>
+<span class="sd">                  -122.224433,</span>
+<span class="sd">                  47.7341357</span>
+<span class="sd">                ]</span>
+<span class="sd">              ]</span>
+<span class="sd">            ]</span>
+<span class="sd">          },</span>
+<span class="sd">          &quot;geodesic&quot;: {</span>
+<span class="sd">            &quot;constantValue&quot;: false</span>
+<span class="sd">          }</span>
+<span class="sd">        }</span>
+<span class="sd">      }</span>
+<span class="sd">    })</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">geocoder</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nominatim&#39;</span><span class="p">,</span><span class="s1">&#39;arcgis&#39;</span><span class="p">]:</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid geocoder! Use one of &quot;nominatim&quot; or &quot;arcgis&quot;.&#39;</span><span class="p">)</span>
+    <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s1">&#39;nominatim&#39;</span><span class="p">:</span>
+            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;boundingbox&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">elif</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s1">&#39;arcgis&#39;</span><span class="p">:</span>
+            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;extent&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;ymin&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;ymax&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid geocoder! Use one of &quot;nominatim&quot; or &quot;arcgis&quot;.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PointFromQuery"><a class="viewcode-back" href="../../classes/eegeometry.html#eemont.geometry.PointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">PointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    query : str</span>
+<span class="sd">        Address, query or structured query to geocode.</span>
+<span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
+<span class="sd">        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
+<span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Geometry.Point</span>
+<span class="sd">        Geometry describing a point from the specified query.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Geometry.PointFromQuery(&#39;Mt. Rainier, USA&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
+<span class="sd">    ee.Geometry({</span>
+<span class="sd">      &quot;functionInvocationValue&quot;: {</span>
+<span class="sd">        &quot;functionName&quot;: &quot;GeometryConstructors.Point&quot;,</span>
+<span class="sd">        &quot;arguments&quot;: {</span>
+<span class="sd">          &quot;coordinates&quot;: {</span>
+<span class="sd">            &quot;constantValue&quot;: [</span>
+<span class="sd">              -121.757682,</span>
+<span class="sd">              46.8521484</span>
+<span class="sd">            ]</span>
+<span class="sd">          }</span>
+<span class="sd">        }</span>
+<span class="sd">      }</span>
+<span class="sd">    })</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
+    <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span></div>
+    
+<div class="viewcode-block" id="MultiPointFromQuery"><a class="viewcode-back" href="../../classes/eegeometry.html#eemont.geometry.MultiPointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    query : str</span>
+<span class="sd">        Address, query or structured query to geocode.</span>
+<span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
+<span class="sd">        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
+<span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Geometry.MultiPoint</span>
+<span class="sd">        Geometry describing a multi-point from the specified query.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Geometry.MultiPointFromQuery(&#39;Mt. Rainier, USA&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
+<span class="sd">    ee.Geometry({</span>
+<span class="sd">      &quot;functionInvocationValue&quot;: {</span>
+<span class="sd">        &quot;functionName&quot;: &quot;GeometryConstructors.MultiPoint&quot;,</span>
+<span class="sd">        &quot;arguments&quot;: {</span>
+<span class="sd">          &quot;coordinates&quot;: {</span>
+<span class="sd">            &quot;constantValue&quot;: [</span>
+<span class="sd">              [</span>
+<span class="sd">                -121.757682,</span>
+<span class="sd">                46.8521484</span>
+<span class="sd">              ],</span>
+<span class="sd">              [</span>
+<span class="sd">                -76.9649751,</span>
+<span class="sd">                38.9415</span>
+<span class="sd">              ],</span>
+<span class="sd">              [</span>
+<span class="sd">                -97.78689,</span>
+<span class="sd">                30.154197</span>
+<span class="sd">              ],</span>
+<span class="sd">              [</span>
+<span class="sd">                -84.130098,</span>
+<span class="sd">                39.863452</span>
+<span class="sd">              ]</span>
+<span class="sd">            ]</span>
+<span class="sd">          }</span>
+<span class="sd">        }</span>
+<span class="sd">      }</span>
+<span class="sd">    })</span>
+<span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
+    <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">exactly_one</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">locations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">locations</span><span class="p">:</span>
+            <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">MultiPoint</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

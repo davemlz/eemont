@@ -2,3 +2,4 @@ earthengine-api
 numpy
 pandas
 python-box
+geopy

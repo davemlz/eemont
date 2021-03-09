@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="eemont",
-    version="0.1.7",
+    version="0.1.8",
     url="https://github.com/davemlz/eemont",
     license='MIT',
 

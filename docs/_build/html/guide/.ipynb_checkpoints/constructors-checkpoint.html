@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Constructors &mdash; eemont 0.1.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> eemont
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Extended Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eefeature.html">ee.Feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eefeaturecollection.html">ee.FeatureCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eegeometry.html">ee.Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eeimage.html">ee.Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/eeimagecollection.html">ee.ImageCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/pddataframe.html">pd.DataFrame</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/common.html">common</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constructors.html">Constructors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../closestImage.html">Closest Image to a Specific Date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../timeSeries.html">Time Series By Regions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Languages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eemontR.html">eemont in R</a></li>
+</ul>
+<p class="caption"><span class="caption-text">What's new?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">eemont</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Constructors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/guide/.ipynb_checkpoints/constructors-checkpoint.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="constructors">
+<h1>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
+<p>Let’s see how to use the extended constructors available through eemont!</p>
+<p>Before anything, let’s import our modules and authenticate in Google Earth Engine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we are ready to go!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The eemont package extends the ee.Geometry, ee.Feature and ee.FeatureCollection classes with the following constructors:</p>
+<div class="section" id="ee-geometry">
+<h3>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/eegeometry.html#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../classes/eegeometry.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/eegeometry.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-feature">
+<h3>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/eefeature.html#eemont.feature.BBoxFromQuery" title="eemont.feature.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../classes/eefeature.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-featurecollection">
+<h3>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/eefeaturecollection.html#eemont.featurecollection.MultiPointFromQuery" title="eemont.featurecollection.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructors-by-query">
+<h3>Constructors By Query<a class="headerlink" href="#constructors-by-query" title="Permalink to this headline">¶</a></h3>
+<p>The constructors by query use the <a class="reference external" href="https://pypi.org/project/geopy/">geopy package</a> to construct geometries, features and feature collections.</p>
+<p>The simplest geometry to construct is the Point, and can be constructed for ee.Geometry and ee.Feature classes;</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Cali, Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Cali, Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It has to be noted that the <code class="code docutils literal notranslate"><span class="pre">user_agent</span></code> argument is mandatory and it can be set to any string representing the app or the GEE username.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the <code class="code docutils literal notranslate"><span class="pre">user_agent</span></code> argument is not defined, the constructor will raise an Exception.</p>
+</div>
+<p>By default, to geocode the query, the Nominatim geocoder is used. If required, this parameter can be modified:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Cali, Colombia&#39;</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s1">&#39;arcgis&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The second geometry to construct is the MultiPoint, and can be constructed for ee.Geometry and ee.FeatureCollection classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+<span class="n">feature_collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a query is submitted, a set of locations is retrieved. The MultiPoint constructors create a class taking all locations into account. The Point constructors just take the first one.</p>
+</div>
+<p>The last geometry to construct is the Bounding Box, and can be constructed for ee.Geometry and ee.Feature classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Europe&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Europe&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-user-guide-constructors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using constructors for ee.Feature and ee.FeatureCollection classes, the raw properties of the location, or locations, are set for the feature or feature collection.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, David Montero Loaiza.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

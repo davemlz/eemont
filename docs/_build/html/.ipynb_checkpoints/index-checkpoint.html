@@ -99,6 +99,7 @@
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/closestImage.html">Closest Image to a Specific Date</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
@@ -266,6 +267,12 @@
     <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
     <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
     <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAI&#39;</span><span class="p">,</span><span class="s1">&#39;NDSI&#39;</span><span class="p">]))</span> <span class="c1"># Indices computation</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="n">eemont</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
+<span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">formula</span> <span class="c1"># check info about spectral indices</span>
+<span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">reference</span>
+
+<span class="n">eemont</span><span class="o">.</span><span class="n">listIndices</span><span class="p">()</span> <span class="c1"># Check all available indices</span>
 </pre></div>
 </div>
 <ul class="simple">

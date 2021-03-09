@@ -26,6 +26,7 @@ Welcome to eemont!
    :hidden:
    
    guide/overloadedOperators
+   guide/constructors
    guide/closestImage
    guide/maskingClouds
    guide/imageScaling
@@ -132,6 +133,12 @@ The following features are extended through eemont:
        .maskClouds()
        .scale()
        .index(['GNDVI','NDWI','BAI','NDSI'])) # Indices computation
+       
+   indices = eemont.indices() 
+   indices.BAIS2.formula # check info about spectral indices
+   indices.BAIS2.reference
+   
+   eemont.listIndices() # Check all available indices
 
 - Closest image to a specific date:
 
@@ -179,7 +186,7 @@ The following features are extended through eemont:
 Methods
 --------
 
-The above-mentioned features extends the following Earth Engine classes:
+The above-mentioned features extend the following Earth Engine classes:
 
 ee.Feature
 ~~~~~~~~~~~~~

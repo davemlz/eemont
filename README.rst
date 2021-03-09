@@ -7,8 +7,8 @@ eemont
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
         :target: https://opensource.org/licenses/MIT
         
-.. image:: https://img.shields.io/badge/Documentation-0.1.7-green.svg
-        :target: https://eemont.readthedocs.io/en/0.1.7/
+.. image:: https://img.shields.io/badge/Documentation-0.1.8-green.svg
+        :target: https://eemont.readthedocs.io/en/0.1.8/
 
 .. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
         :target: https://www.buymeacoffee.com/davemlz

@@ -19,9 +19,9 @@ eemont
 The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
 
 How does it work?
----------------------
+-------------------
 
-Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.
+Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods and constructors are added to these classes in order to make the code more fluid by being friendly with the Python method chaining.
 
 Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:
 
@@ -32,7 +32,7 @@ Look at this simple example where a Sentinel-2 collection is pre-processed and p
    ee.Authenticate()
    ee.Initialize()
    
-   point = ee.Geometry.Point([-76.21, 3.45])
+   point = ee.Geometry.PointFromQuery('Cali, Colombia',user_agent = 'eemont-example') # Extended constructor
    
    S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
        .filterBounds(point)
@@ -101,6 +101,12 @@ The following features are extended through eemont:
        .maskClouds()
        .scale()
        .index(['GNDVI','NDWI','BAI','NDSI'])) # Indices computation
+       
+   indices = eemont.indices() 
+   indices.BAIS2.formula # check info about spectral indices
+   indices.BAIS2.reference
+   
+   eemont.listIndices() # Check all available indices
 
 - Closest image to a specific date:
 
@@ -109,6 +115,41 @@ The following features are extended through eemont:
    S5NO2 = (ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_NO2')
        .filterBounds(point)
        .closest('2020-10-15')) # Closest image to a date
+       
+- Time series by region (or regions):
+
+.. code-block:: python
+
+   f1 = ee.Feature(ee.Geometry.Point([3.984770,48.767221]).buffer(50),{'ID':'A'})
+   f2 = ee.Feature(ee.Geometry.Point([4.101367,48.748076]).buffer(50),{'ID':'B'})
+   fc = ee.FeatureCollection([f1,f2])
+
+   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+      .filterBounds(fc)
+      .filterDate('2020-01-01','2021-01-01')
+      .maskClouds()
+      .scale()
+      .index(['EVI','NDVI']))
+
+   # By Region
+   ts = S2.getTimeSeriesByRegion(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+                                 geometry = fc,
+                                 bands = ['EVI','NDVI'],
+                                 scale = 10)
+   
+   # By Regions
+   ts = S2.getTimeSeriesByRegions(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
+                                  collection = fc,
+                                  bands = ['EVI','NDVI'],
+                                  scale = 10)
+                                  
+- New Geometry, Feature and Feature Collection constructors:
+
+.. code-block:: python
+
+   seattle_bbox = ee.Geometry.BBoxFromQuery('Seattle',user_agent = 'my-eemont-query-example')
+   cali_coords = ee.Feature.PointFromQuery('Cali, Colombia',user_agent = 'my-eemont-query-example')
+   amazonas_river = ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = 'my-eemont-query-example')
 
 Supported Platforms
 ------------------------
@@ -118,7 +159,7 @@ The Supported Platforms for each method can be found in the eemont documentation
 - Masking clouds and shadows supports Sentinel Missions (Sentinel-2 SR and Sentinel-3), Landsat Missions (SR products) and some MODIS Products. Check all details in User Guide > Masking Clouds and Shadows > Supported Platforms.
 - Image scaling supports Sentinel Missions (Sentinel-2 and Sentinel-3), Landsat Missions and most MODIS Products. Check all details in User Guide > Image Scaling > Supported Platforms.
 - Spectral indices computation supports Sentinel-2 and Landsat Missions. Check all details in User Guide > Spectral Indices > Supported Platforms.
-- Getting the closest image to a specific date supports all image collections with the :code:`system:time_start` property.
+- Getting the closest image to a specific date and time series supports all image collections with the :code:`system:time_start` property.
 
 License
 -------

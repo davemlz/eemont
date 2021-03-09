@@ -53,7 +53,7 @@ The eemont package extends Google Earth Engine with pre-processing and processin
 How does it work?
 -------------------
 
-Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.
+Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods and constructors are added to these classes in order to make the code more fluid by being friendly with the Python method chaining.
 
 Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:
 
@@ -64,7 +64,7 @@ Look at this simple example where a Sentinel-2 collection is pre-processed and p
    ee.Authenticate()
    ee.Initialize()
    
-   point = ee.Geometry.Point([-76.21, 3.45])
+   point = ee.Geometry.PointFromQuery('Cali, Colombia',user_agent = 'eemont-example') # Extended constructor
    
    S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
        .filterBounds(point)

@@ -2,6 +2,9 @@
 
 __version__ = '0.1.7'
 
+from . import feature
+from . import featurecollection
+from . import geometry
 from . import image
 from . import imagecollection
 from . import dataframe

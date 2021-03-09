@@ -101,7 +101,7 @@ class Test(unittest.TestCase):
     
     def test_MCD43A4(self):
         """Test the image collection module for MCD43A4"""
-        MCD43A4_tested = MCD43A4.closest('2020-01-15').scale()
+        MCD43A4_tested = MCD43A4.closest('2020-01-15').scale().index(indices)
         self.assertIsInstance(MCD43A4_tested, ee.imagecollection.ImageCollection)
         
     def test_MCD43A3(self):
@@ -123,7 +123,7 @@ class Test(unittest.TestCase):
         
     def test_MOD09GQ(self):
         """Test the image collection module for MOD09GQ"""
-        MOD09GQ_tested = MOD09GQ.closest('2020-01-15').scale()
+        MOD09GQ_tested = MOD09GQ.closest('2020-01-15').scale().index(indices)
         self.assertIsInstance(MOD09GQ_tested, ee.imagecollection.ImageCollection)
         
     def test_MOD10A1(self):
@@ -138,7 +138,7 @@ class Test(unittest.TestCase):
         
     def test_MOD09GA(self):
         """Test the image collection module for MOD09GA"""
-        MOD09GA_tested = MOD09GA.closest('2020-01-15').maskClouds().scale()
+        MOD09GA_tested = MOD09GA.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MOD09GA_tested, ee.imagecollection.ImageCollection)
         
     def test_MODOCGA(self):
@@ -153,12 +153,12 @@ class Test(unittest.TestCase):
         
     def test_MOD09Q1(self):
         """Test the image collection module for MOD09Q1"""
-        MOD09Q1_tested = MOD09Q1.closest('2020-01-15').maskClouds().scale()
+        MOD09Q1_tested = MOD09Q1.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MOD09Q1_tested, ee.imagecollection.ImageCollection)
         
     def test_MOD09A1(self):
         """Test the image collection module for MOD09A1"""
-        MOD09A1_tested = MOD09A1.closest('2020-01-15').maskClouds().scale()
+        MOD09A1_tested = MOD09A1.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MOD09A1_tested, ee.imagecollection.ImageCollection)
         
     def test_MOD11A2(self):
@@ -205,7 +205,7 @@ class Test(unittest.TestCase):
         
     def test_MYD09GQ(self):
         """Test the image collection module for MYD09GQ"""
-        MYD09GQ_tested = MYD09GQ.closest('2020-01-15').scale()
+        MYD09GQ_tested = MYD09GQ.closest('2020-01-15').scale().index(indices)
         self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
         
     def test_MYD10A1(self):
@@ -220,7 +220,7 @@ class Test(unittest.TestCase):
         
     def test_MYD09GA(self):
         """Test the image collection module for MYD09GA"""
-        MYD09GA_tested = MYD09GA.closest('2020-01-15').maskClouds().scale()
+        MYD09GA_tested = MYD09GA.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
         
     def test_MYDOCGA(self):
@@ -235,12 +235,12 @@ class Test(unittest.TestCase):
         
     def test_MYD09Q1(self):
         """Test the image collection module for MYD09Q1"""
-        MYD09Q1_tested = MYD09Q1.closest('2020-01-15').maskClouds().scale()
+        MYD09Q1_tested = MYD09Q1.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
         
     def test_MYD09A1(self):
         """Test the image collection module for MYD09A1"""
-        MYD09A1_tested = MYD09A1.closest('2020-01-15').maskClouds().scale()
+        MYD09A1_tested = MYD09A1.closest('2020-01-15').maskClouds().scale().index(indices)
         self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
         
     def test_MYD11A2(self):

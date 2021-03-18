@@ -4,6 +4,7 @@ from .common import _get_indices
 from .common import _get_platform
 from .common import _get_scale_method
 from .common import _get_expression_map
+from .common import _index
 
 def _extend_eeImage():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -560,6 +561,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'burn' : Compute all burn indices.
             - 'water' : Compute all water indices.
             - 'snow' : Compute all snow indices.
+            - 'drought' : Compute all drought indices.
             - 'all' : Compute all indices listed below.
         Vegetation indices:
             - 'BNDVI' : Blue Normalized Difference Vegetation Index.
@@ -567,9 +569,13 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'CVI' : Chlorophyll Vegetation Index.
             - 'EVI' : Enhanced Vegetation Index.
             - 'EVI2' : Two-Band Enhanced Vegetation Index.
+            - 'GARI' : Green Atmospherically Resistant Vegetation Index.
             - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
+            - 'GEMI' : Global Environment Monitoring Index.
+            - 'GLI' : Green Leaf Index.
             - 'GNDVI' : Green Normalized Difference Vegetation Index.
             - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
+            - 'GVMI' : Global Vegetation Moisture Index.
             - 'MNDVI' : Modified Normalized Difference Vegetation Index.
             - 'NDVI' : Normalized Difference Vegetation Index.
             - 'NGRDI' : Normalized Green Red Difference Index.
@@ -588,6 +594,8 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'NDWI' : Normalized Difference Water Index. 
         Snow indices:     
             - 'NDSI' : Normalized Difference Snow Index.
+        Drought indices:     
+            - 'NDDI' : Normalized Difference Drought Index.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'. 
     C1 : float, default = 6.0
@@ -612,45 +620,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     --------
     scale : Scales bands on an image collection.
     '''    
-    platformDict = _get_platform(self)
-    
-    additionalParameters = {
-        'g': float(G),
-        'C1': float(C1),
-        'C2': float(C2),
-        'L': float(L),
-    }
-    
-    spectralIndices = _get_indices()
-    indicesNames = list(spectralIndices.keys())
-    
-    if not isinstance(index, list):
-        if index == 'all':
-            index = list(spectralIndices.keys())
-        elif index in ['vegetation','burn','water','snow']:
-            temporalListOfIndices = []
-            for idx in indicesNames:
-                if spectralIndices[idx]['type'] == index:
-                    temporalListOfIndices.append(idx)
-            index = temporalListOfIndices
-        else:
-            index = [index]           
-        
-    for idx in index:
-        if idx not in list(spectralIndices.keys()):
-            warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!",Warning)
-        else:
-            def temporalIndex(img):
-                lookupDic = _get_expression_map(img, platformDict)
-                lookupDic = {**lookupDic, **additionalParameters}
-                if all(band in list(lookupDic.keys()) for band in spectralIndices[idx]['requires']):
-                    return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic).rename(idx))                
-                else:
-                    warnings.warn("This platform doesn't have the required bands for " + idx + " computation!",Warning)
-                    return img
-            self = temporalIndex(self)
-            
-    return self
+    return _index(self,index,G,C1,C2,L)
 
 @_extend_eeImage()
 def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):

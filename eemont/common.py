@@ -1,4 +1,5 @@
 import ee
+import warnings
 from box import Box
 
 def _get_expression_map(img, platformDict):
@@ -152,7 +153,15 @@ def _get_indices():
             'requires' : ['N','g','R','L'],
             'reference' : 'https://doi.org/10.1016/j.rse.2008.06.006',
             'contributor' : 'davemlz'
-        },  
+        },
+        'GARI' : {
+            'formula' : '(N - (G - (B - R))) / (N - (G + (B - R)))',
+            'description' : 'Green Atmospherically Resistant Vegetation Index',
+            'type' : 'vegetation',
+            'requires' : ['N','G','B','R'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=363',
+            'contributor' : 'davemlz'
+        },
         'GBNDVI' : {
             'formula' : '(N - (G + B))/(N + (G + B))',
             'description' : 'Green-Blue Normalized Difference Vegetation Index',
@@ -161,6 +170,22 @@ def _get_indices():
             'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=186',
             'contributor' : 'davemlz'
         }, 
+        'GEMI' : {
+            'formula' : '((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))',
+            'description' : 'Global Environment Monitoring Index',
+            'type' : 'vegetation',
+            'requires' : ['N','R'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=25',
+            'contributor' : 'davemlz'
+        },
+        'GLI' : {
+            'formula' : '(2.0 * G - R - B) / (2.0 * G + R + B)',
+            'description' : 'Green Leaf Index',
+            'type' : 'vegetation',
+            'requires' : ['G','B','R'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=375',
+            'contributor' : 'davemlz'
+        },
         'GNDVI' : {
             'formula' : '(N - G)/(N + G)',
             'description' : 'Green Normalized Difference Vegetation Index',
@@ -176,7 +201,15 @@ def _get_indices():
             'requires' : ['N','G','R'],
             'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=185',
             'contributor' : 'davemlz'
-        }, 
+        },
+        'GVMI' : {
+            'formula' : '((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))',
+            'description' : 'Global Vegetation Moisture Index',
+            'type' : 'vegetation',
+            'requires' : ['N','S2'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=372',
+            'contributor' : 'davemlz'
+        },
         'MNDVI' : {
             'formula' : '(N - S2)/(N + S2)',
             'description' : 'Modified Normalized Difference Vegetation Index',
@@ -308,7 +341,18 @@ def _get_indices():
         },   
     }
     
-    indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices}
+    droughtIndices = {
+        'NDDI' : {
+            'formula' : '(((N - R)/(N + R)) - ((G - N)/(G + N)))/(((N - R)/(N + R)) + ((G - N)/(G + N)))',
+            'description' : 'Normalized Difference Drought Index',
+            'type' : 'drought',
+            'requires' : ['N','R','G'],
+            'reference' : 'https://doi.org/10.1029/2006GL029127',
+            'contributor' : 'davemlz'
+        },
+    }
+    
+    indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices, **droughtIndices}
     
     return indices
 
@@ -350,7 +394,7 @@ def _index(self,index,G,C1,C2,L):
     if not isinstance(index, list):
         if index == 'all':
             index = list(spectralIndices.keys())
-        elif index in ['vegetation','burn','water','snow']:
+        elif index in ['vegetation','burn','water','snow','drought']:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]['type'] == index:

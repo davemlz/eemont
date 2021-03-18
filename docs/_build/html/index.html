@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Welcome to eemont! &mdash; eemont 0.1.7 documentation</title>
+  <title>Welcome to eemont! &mdash; eemont 0.1.8 documentation</title>
   
 
   
@@ -197,14 +197,14 @@
 <p>The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.</p>
 <div class="section" id="how-does-it-work">
 <h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
-<p>Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods are added to these classes to make the code more fluid.</p>
+<p>Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods and constructors are added to these classes in order to make the code more fluid by being friendly with the Python method chaining.</p>
 <p>Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
 
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 
-<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="o">-</span><span class="mf">76.21</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">])</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Cali, Colombia&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;eemont-example&#39;</span><span class="p">)</span> <span class="c1"># Extended constructor</span>
 
 <span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
@@ -322,7 +322,7 @@
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<p>The above-mentioned features extends the following Earth Engine classes:</p>
+<p>The above-mentioned features extend the following Earth Engine classes:</p>
 <div class="section" id="ee-feature">
 <h3>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">

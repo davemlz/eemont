@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Spectral Indices &mdash; eemont 0.1.7 documentation</title>
+  <title>Spectral Indices &mdash; eemont 0.1.8 documentation</title>
   
 
   
@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#burn-indices">Burn Indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#water-indices">Water Indices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snow-indices">Snow Indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drought-indices">Drought Indices</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-bands">List of Bands</a></li>
@@ -338,17 +339,33 @@
 <td><p>Two-Band Enhanced Vegetation Index</p></td>
 <td><p><a class="reference external" href="https://doi.org/10.1016/j.rse.2008.06.006">(Jiang et al., 2008)</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>GBNDVI</p></td>
+<tr class="row-odd"><td><p>GARI</p></td>
+<td><p>Green Atmospherically Resistant Vegetation Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=363">Index DataBase GARI</a></p></td>
+</tr>
+<tr class="row-even"><td><p>GBNDVI</p></td>
 <td><p>Green-Blue Normalized Difference Vegetation Index</p></td>
 <td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=186">Index DataBase GBNDVI</a></p></td>
 </tr>
-<tr class="row-even"><td><p>GNDVI</p></td>
+<tr class="row-odd"><td><p>GEMI</p></td>
+<td><p>Global Environment Monitoring Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=25">Index DataBase GEMI</a></p></td>
+</tr>
+<tr class="row-even"><td><p>GLI</p></td>
+<td><p>Green Leaf Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=375">Index DataBase GLI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GNDVI</p></td>
 <td><p>Green Normalized Difference Vegetation Index</p></td>
 <td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=401">Index DataBase GNDVI</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>GRNDVI</p></td>
+<tr class="row-even"><td><p>GRNDVI</p></td>
 <td><p>Green-Red Normalized Difference Vegetation Index</p></td>
 <td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=185">Index DataBase GRNDVI</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GVMI</p></td>
+<td><p>Global Vegetation Moisture Index</p></td>
+<td><p><a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=372">Index DataBase GVMI</a></p></td>
 </tr>
 <tr class="row-even"><td><p>MNDVI</p></td>
 <td><p>Modified Normalized Difference Vegetation Index</p></td>
@@ -473,12 +490,36 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="drought-indices">
+<h3>Drought Indices<a class="headerlink" href="#drought-indices" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the list of built-in drought indices:</p>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">Built-in snow indices.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NDDI</p></td>
+<td><p>Normalized Difference Drought Index</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1029/2006GL029127">(Gu et al., 2007)</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="list-of-bands">
 <h2>List of Bands<a class="headerlink" href="#list-of-bands" title="Permalink to this headline">¶</a></h2>
 <p>The following table shows the list of bands used for spectral indices computation:</p>
-<table class="colwidths-given docutils align-default" id="id7">
-<caption><span class="caption-text">Bands used for spectral indices computation.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">Bands used for spectral indices computation.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 18%" />

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>eemont.common &mdash; eemont 0.1.7 documentation</title>
+  <title>eemont.common &mdash; eemont 0.1.8 documentation</title>
   
 
   
@@ -181,6 +181,7 @@
             
   <h1>Source code for eemont.common</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">box</span> <span class="kn">import</span> <span class="n">Box</span>
 
 <span class="k">def</span> <span class="nf">_get_expression_map</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">platformDict</span><span class="p">):</span>
@@ -334,7 +335,15 @@
             <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">],</span>
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1016/j.rse.2008.06.006&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
-        <span class="p">},</span>  
+        <span class="p">},</span>
+        <span class="s1">&#39;GARI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(N - (G - (B - R))) / (N - (G + (B - R)))&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Green Atmospherically Resistant Vegetation Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=363&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
         <span class="s1">&#39;GBNDVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(N - (G + B))/(N + (G + B))&#39;</span><span class="p">,</span>
             <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Green-Blue Normalized Difference Vegetation Index&#39;</span><span class="p">,</span>
@@ -343,6 +352,22 @@
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=186&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
         <span class="p">},</span> 
+        <span class="s1">&#39;GEMI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Global Environment Monitoring Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=25&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;GLI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(2.0 * G - R - B) / (2.0 * G + R + B)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Green Leaf Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=375&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
         <span class="s1">&#39;GNDVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(N - G)/(N + G)&#39;</span><span class="p">,</span>
             <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Green Normalized Difference Vegetation Index&#39;</span><span class="p">,</span>
@@ -358,7 +383,15 @@
             <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=185&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
-        <span class="p">},</span> 
+        <span class="p">},</span>
+        <span class="s1">&#39;GVMI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Global Vegetation Moisture Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;S2&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=372&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
         <span class="s1">&#39;MNDVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(N - S2)/(N + S2)&#39;</span><span class="p">,</span>
             <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Modified Normalized Difference Vegetation Index&#39;</span><span class="p">,</span>
@@ -490,9 +523,86 @@
         <span class="p">},</span>   
     <span class="p">}</span>
     
-    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">vegetationIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">burnIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">waterIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">snowIndices</span><span class="p">}</span>
+    <span class="n">droughtIndices</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;NDDI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(((N - R)/(N + R)) - ((G - N)/(G + N)))/(((N - R)/(N + R)) + ((G - N)/(G + N)))&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Normalized Difference Drought Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;drought&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1029/2006GL029127&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">vegetationIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">burnIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">waterIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">snowIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">droughtIndices</span><span class="p">}</span>
     
     <span class="k">return</span> <span class="n">indices</span>
+
+<span class="k">def</span> <span class="nf">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image oir image collection.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    self : ee.Image | ee.ImageCollection</span>
+<span class="sd">        Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices &gt; Supported Platforms.        </span>
+<span class="sd">    index : string | list[string]</span>
+<span class="sd">        Index or list of indices to compute.</span>
+<span class="sd">    G : float</span>
+<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;. </span>
+<span class="sd">    C1 : float</span>
+<span class="sd">        Coefficient 1 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
+<span class="sd">    C2 : float</span>
+<span class="sd">        Coefficient 2 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
+<span class="sd">    L : float</span>
+<span class="sd">        Canopy background adjustment. Used just for index = [&#39;EVI&#39;,&#39;SAVI&#39;].</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image | ee.ImageCollection</span>
+<span class="sd">        Image (or Image Collection) with the computed spectral index, or indices, as new bands.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
+    <span class="n">additionalParameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">G</span><span class="p">),</span>
+        <span class="s1">&#39;C1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span>
+        <span class="s1">&#39;C2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span>
+        <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">L</span><span class="p">),</span>
+    <span class="p">}</span>
+    
+    <span class="n">spectralIndices</span> <span class="o">=</span> <span class="n">_get_indices</span><span class="p">()</span>
+    <span class="n">indicesNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="n">index</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;vegetation&#39;</span><span class="p">,</span><span class="s1">&#39;burn&#39;</span><span class="p">,</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;snow&#39;</span><span class="p">,</span><span class="s1">&#39;drought&#39;</span><span class="p">]:</span>
+            <span class="n">temporalListOfIndices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indicesNames</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span>
+                    <span class="n">temporalListOfIndices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">temporalListOfIndices</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>        
+            
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">temporalIndex</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+                <span class="n">lookupDic</span> <span class="o">=</span> <span class="n">_get_expression_map</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">platformDict</span><span class="p">)</span>
+                <span class="n">lookupDic</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookupDic</span><span class="p">,</span> <span class="o">**</span><span class="n">additionalParameters</span><span class="p">}</span>
+                <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">band</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupDic</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;requires&#39;</span><span class="p">]):</span>
+                    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;formula&#39;</span><span class="p">],</span><span class="n">lookupDic</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>                
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform doesn&#39;t have the required bands for &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; computation!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">img</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
+                <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">temporalIndex</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
+                <span class="bp">self</span> <span class="o">=</span> <span class="n">temporalIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="bp">self</span>
 
 <div class="viewcode-block" id="indices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.indices">[docs]</a><span class="k">def</span> <span class="nf">indices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Gets the dictionary of available indices as a Box object.</span>

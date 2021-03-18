@@ -1,6 +1,22 @@
 Changelog
 ============
 
+v0.1.9
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The following vegetation indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'GARI' : Green Atmospherically Resistant Vegetation Index.
+   - 'GEMI' : Global Environment Monitoring Index.
+   - 'GLI' : Green Leaf Index
+   - 'GVMI' : Global Vegetation Moisture Index.   
+- The following drought indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'NDDI' : Normalized Difference Drought Index.
+
 v0.1.8
 --------------
 

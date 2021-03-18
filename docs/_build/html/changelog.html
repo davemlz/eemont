@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Changelog &mdash; eemont 0.1.7 documentation</title>
+  <title>Changelog &mdash; eemont 0.1.8 documentation</title>
   
 
   
@@ -115,16 +115,20 @@
 <p class="caption"><span class="caption-text">What's new?</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#v0-1-8">v0.1.8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#new-modules">New Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-9">v0.1.9</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-8">v0.1.8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-modules">New Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#v0-1-7">v0.1.7</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">New Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">New Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Improvements</a></li>
 </ul>
 </li>
 </ul>
@@ -198,6 +202,31 @@
             
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-1-9">
+<h2>v0.1.9<a class="headerlink" href="#v0-1-9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>The following vegetation indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘GARI’ : Green Atmospherically Resistant Vegetation Index.</p></li>
+<li><p>‘GEMI’ : Global Environment Monitoring Index.</p></li>
+<li><p>‘GLI’ : Green Leaf Index</p></li>
+<li><p>‘GVMI’ : Global Vegetation Moisture Index.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The following drought indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘NDDI’ : Normalized Difference Drought Index.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="v0-1-8">
 <h2>v0.1.8<a class="headerlink" href="#v0-1-8" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-modules">
@@ -220,8 +249,8 @@
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code> extended constructor for ee.Geometry and ee.FeatureCollection classes was created.</p></li>
 </ul>
 </div>
-<div class="section" id="improvements">
-<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
 <blockquote>
@@ -294,24 +323,24 @@
 </div>
 <div class="section" id="v0-1-7">
 <h2>v0.1.7<a class="headerlink" href="#v0-1-7" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>New Modules<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>New Modules<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <em>pd.DataFrame</em> module was created.</p></li>
 <li><p>The <em>common</em> module was created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code>, <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> and <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> methods for both ee.Image and ee.ImageCollection).</p></li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>New Features<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>New Features<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">toEEFeatureCollection()</span></code> extended method for pd.DataFrame classes was created.</p></li>
-<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id14"><span class="problematic" id="id15">|</span></a>) were overloaded for ee.Image objects.</p></li>
+<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id15"><span class="problematic" id="id16">|</span></a>) were overloaded for ee.Image objects.</p></li>
 <li><p>The rich comparisons (&lt;, &lt;=, ==, !=, &gt;, &gt;=) were overloaded for ee.Image objects.</p></li>
 <li><p>The unary operators (-, ~) were overloaded for ee.Image objects.</p></li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>Improvements<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>Improvements<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
 <li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>

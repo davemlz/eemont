@@ -110,15 +110,27 @@ The following table shows the list of built-in vegetation indices:
    * - EVI2
      - Two-Band Enhanced Vegetation Index
      - `(Jiang et al., 2008) <https://doi.org/10.1016/j.rse.2008.06.006>`_
+   * - GARI
+     - Green Atmospherically Resistant Vegetation Index
+     - `Index DataBase GARI <https://www.indexdatabase.de/db/i-single.php?id=363>`_
    * - GBNDVI
      - Green-Blue Normalized Difference Vegetation Index
      - `Index DataBase GBNDVI <https://www.indexdatabase.de/db/i-single.php?id=186>`_
+   * - GEMI
+     - Global Environment Monitoring Index
+     - `Index DataBase GEMI <https://www.indexdatabase.de/db/i-single.php?id=25>`_
+   * - GLI
+     - Green Leaf Index
+     - `Index DataBase GLI <https://www.indexdatabase.de/db/i-single.php?id=375>`_
    * - GNDVI
      - Green Normalized Difference Vegetation Index
      - `Index DataBase GNDVI <https://www.indexdatabase.de/db/i-single.php?id=401>`_
    * - GRNDVI
      - Green-Red Normalized Difference Vegetation Index
      - `Index DataBase GRNDVI <https://www.indexdatabase.de/db/i-single.php?id=185>`_
+   * - GVMI
+     - Global Vegetation Moisture Index
+     - `Index DataBase GVMI <https://www.indexdatabase.de/db/i-single.php?id=372>`_
    * - MNDVI
      - Modified Normalized Difference Vegetation Index
      - `Index DataBase MNDVI <https://www.indexdatabase.de/db/i-single.php?id=245>`_
@@ -203,7 +215,23 @@ The following table shows the list of built-in snow indices:
      - Reference
    * - NDSI
      - Normalized Difference Snow Index
-     - `(Riggs et al., 1994) <https://doi.org/10.1109/IGARSS.1994.399618>`_ 
+     - `(Riggs et al., 1994) <https://doi.org/10.1109/IGARSS.1994.399618>`_
+     
+Drought Indices
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of built-in drought indices:
+
+.. list-table:: Built-in snow indices.
+   :widths: 20 50 30
+   :header-rows: 1
+
+   * - Index
+     - Description     
+     - Reference
+   * - NDDI
+     - Normalized Difference Drought Index
+     - `(Gu et al., 2007) <https://doi.org/10.1029/2006GL029127>`_
 
 List of Bands
 ----------------------

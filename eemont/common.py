@@ -312,6 +312,72 @@ def _get_indices():
     
     return indices
 
+def _index(self,index,G,C1,C2,L):
+    '''Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
+    
+    Parameters
+    ----------    
+    self : ee.Image | ee.ImageCollection
+        Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices > Supported Platforms.        
+    index : string | list[string]
+        Index or list of indices to compute.
+    G : float
+        Gain factor. Used just for index = 'EVI'. 
+    C1 : float
+        Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
+    C2 : float
+        Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
+    L : float
+        Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+        
+    Returns
+    -------
+    ee.Image | ee.ImageCollection
+        Image (or Image Collection) with the computed spectral index, or indices, as new bands.
+    '''
+    platformDict = _get_platform(self)
+    
+    additionalParameters = {
+        'g': float(G),
+        'C1': float(C1),
+        'C2': float(C2),
+        'L': float(L),
+    }
+    
+    spectralIndices = _get_indices()
+    indicesNames = list(spectralIndices.keys())
+        
+    if not isinstance(index, list):
+        if index == 'all':
+            index = list(spectralIndices.keys())
+        elif index in ['vegetation','burn','water','snow']:
+            temporalListOfIndices = []
+            for idx in indicesNames:
+                if spectralIndices[idx]['type'] == index:
+                    temporalListOfIndices.append(idx)
+            index = temporalListOfIndices
+        else:
+            index = [index]        
+            
+    for idx in index:
+        if idx not in list(spectralIndices.keys()):
+            warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!",Warning)
+        else:
+            def temporalIndex(img):
+                lookupDic = _get_expression_map(img, platformDict)
+                lookupDic = {**lookupDic, **additionalParameters}
+                if all(band in list(lookupDic.keys()) for band in spectralIndices[idx]['requires']):
+                    return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic).rename(idx))                
+                else:
+                    warnings.warn("This platform doesn't have the required bands for " + idx + " computation!",Warning)
+                    return img
+            if isinstance(self,ee.imagecollection.ImageCollection):
+                self = self.map(temporalIndex)
+            elif isinstance(self,ee.image.Image):
+                self = temporalIndex(self)
+            
+    return self
+
 def indices():
     '''Gets the dictionary of available indices as a Box object.
         

@@ -327,7 +327,7 @@ def _get_indices():
             'requires' : ['G','N'],
             'reference' : 'https://doi.org/10.1080/01431169608948714',
             'contributor' : 'davemlz'
-        },    
+        },   
     }
     
     snowIndices = {
@@ -352,11 +352,125 @@ def _get_indices():
         },
     }
     
-    indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices, **droughtIndices}
+    kernelIndices = {
+        'kNDVI' : {
+            'formula' : '(kNN - kNR)/(kNN + kNR)',
+            'description' : 'Kernel Normalized Difference Vegetation Index',
+            'type' : 'kernel',
+            'requires' : ['kNN','kNR'],
+            'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
+            'contributor' : 'davemlz'
+        },
+        'kRVI' : {
+            'formula' : 'kNN / kNR',
+            'description' : 'Kernel Ratio Vegetation Index',
+            'type' : 'kernel',
+            'requires' : ['kNN','kNR'],
+            'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
+            'contributor' : 'davemlz'
+        },
+        'kEVI' : {
+            'formula' : 'g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)',
+            'description' : 'Kernel Enhanced Vegetation Index',
+            'type' : 'kernel',
+            'requires' : ['kNN','g','kNR','C1','C2','kNB','kNL'],
+            'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
+            'contributor' : 'davemlz'
+        },
+    }
+    
+    indices = {**vegetationIndices, **burnIndices, **waterIndices, **snowIndices, **droughtIndices, **kernelIndices}
     
     return indices
 
-def _index(self,index,G,C1,C2,L):
+def _get_kernel_image(img,lookup,kernel,sigma,a,b):
+    '''Creates an ee.Image representing a kernel computed on bands [a] and [b].
+    
+    Parameters
+    ----------    
+    img : ee.Image
+        Image to compute the kernel on.       
+    lookup : dict
+        Dictionary retrieved from _get_expression_map().
+    kernel : str
+        Kernel to use.
+    sigma : str | float
+        Length-scale parameter. Used for kernel = 'RBF'.
+    a : str
+        Key of the first band to use.
+    b : str
+        Key of the second band to use.
+        
+    Returns
+    -------
+    ee.Image
+        Kernel image.
+    '''
+    if a not in list(lookup.keys()) or b not in list(lookup.keys()):
+        return None
+    else:    
+        lookupab = {
+            'a': lookup[a],
+            'b': lookup[b]
+        }
+        if isinstance(sigma,str):
+            lookup = {**lookup, **lookupab, 'sigma': img.expression(sigma,lookupab)}
+        else:
+            lookup = {**lookup, **lookupab, 'sigma': sigma}        
+        kernels = {
+            'linear' : 'a * b',
+            'RBF': 'exp((-1.0 * (a - b) ** 2.0)/(2.0 * sigma ** 2.0))',
+            'poly': '((a * b) + c) ** p',
+        }
+        return img.expression(kernels[kernel],lookup)
+
+def _remove_none_dict(dictionary):
+    '''Removes elements from a dictionary with None values.
+    
+    Parameters
+    ----------    
+    dictionary : dict
+        
+    Returns
+    -------
+    dict
+        Curated dictionary.
+    '''
+    newDictionary = dict(dictionary)
+    for key in dictionary.keys():
+        if dictionary[key] is None:
+            del newDictionary[key]
+    return newDictionary    
+
+def _get_kernel_parameters(img,lookup,kernel,sigma):
+    '''Gets the additional kernel parameters to compute kernel indices.
+    
+    Parameters
+    ----------    
+    img : ee.Image
+        Image to compute the kernel parameters on.       
+    lookup : dict
+        Dictionary retrieved from _get_expression_map().
+    kernel : str
+        Kernel to use.
+    sigma : str | float
+        Length-scale parameter. Used for kernel = 'RBF'.
+        
+    Returns
+    -------
+    dict
+        Kernel parameters.
+    '''
+    kernelParameters = {
+        'kNN' : _get_kernel_image(img,lookup,kernel,sigma,'N','N'),
+        'kNR' : _get_kernel_image(img,lookup,kernel,sigma,'N','R'),
+        'kNB' : _get_kernel_image(img,lookup,kernel,sigma,'N','B'),
+        'kNL' : _get_kernel_image(img,lookup,kernel,sigma,'N','L')
+    }
+
+    return kernelParameters
+
+def _index(self,index,G,C1,C2,L,kernel,sigma,p,c):
     '''Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
     
     Parameters
@@ -373,7 +487,15 @@ def _index(self,index,G,C1,C2,L):
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
-        
+    kernel : str
+        Kernel used for kernel indices.
+    sigma : str | float
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+    p : float
+        Kernel degree. Used for kernel = 'poly'.
+    c : float
+        Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = 'poly'. This must be greater than or equal to 0.
+            
     Returns
     -------
     ee.Image | ee.ImageCollection
@@ -381,11 +503,20 @@ def _index(self,index,G,C1,C2,L):
     '''
     platformDict = _get_platform(self)
     
+    if isinstance(sigma,int) or isinstance(sigma,float):
+        if sigma < 0:
+            raise Exception('[sigma] must be positive!')
+    
+    if p <= 0 or c < 0:
+        raise Exception('[p] and [c] must be positive!')
+    
     additionalParameters = {
         'g': float(G),
         'C1': float(C1),
         'C2': float(C2),
         'L': float(L),
+        'p': float(p),
+        'c': float(c)
     }
     
     spectralIndices = _get_indices()
@@ -394,7 +525,7 @@ def _index(self,index,G,C1,C2,L):
     if not isinstance(index, list):
         if index == 'all':
             index = list(spectralIndices.keys())
-        elif index in ['vegetation','burn','water','snow','drought']:
+        elif index in ['vegetation','burn','water','snow','drought','kernel']:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]['type'] == index:
@@ -410,8 +541,11 @@ def _index(self,index,G,C1,C2,L):
             def temporalIndex(img):
                 lookupDic = _get_expression_map(img, platformDict)
                 lookupDic = {**lookupDic, **additionalParameters}
-                if all(band in list(lookupDic.keys()) for band in spectralIndices[idx]['requires']):
-                    return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDic).rename(idx))                
+                kernelParameters = _get_kernel_parameters(img,lookupDic,kernel,sigma)
+                lookupDic = {**lookupDic, **kernelParameters}
+                lookupDicCurated = _remove_none_dict(lookupDic)
+                if all(band in list(lookupDicCurated.keys()) for band in spectralIndices[idx]['requires']):
+                    return img.addBands(img.expression(spectralIndices[idx]['formula'],lookupDicCurated).rename(idx))                
                 else:
                     warnings.warn("This platform doesn't have the required bands for " + idx + " computation!",Warning)
                     return img

@@ -547,7 +547,7 @@ def __invert__(self):
     return self.Not()
 
 @_extend_eeImage()
-def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
+def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
     '''Computes one or more spectral indices (indices are added as bands) for an image.
     
     Parameters
@@ -596,6 +596,10 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
             - 'NDSI' : Normalized Difference Snow Index.
         Drought indices:     
             - 'NDDI' : Normalized Difference Drought Index.
+        Kernel indices:     
+            - 'kEVI' : Kernel Enhanced Vegetation Index.
+            - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
+            - 'kRVI' : Kernel Ratio Vegetation Index.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'. 
     C1 : float, default = 6.0
@@ -604,6 +608,19 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    kernel : str, default = 'RBF'
+        Kernel used for kernel indices.\n
+        Available options:
+            - 'linear' : Linear Kernel -> k(a,b) = a * b.
+            - 'RBF' : Radial Basis Function (RBF) Kernel -> k(a,b) = exp((-1.0 * (a - b) ** 2.0)/(2.0 * sigma ** 2.0)).
+            - 'poly' : Polynomial Kernel -> k(a,b) = ((a * b) + c) ** p.            
+    sigma : str | float, default = '0.5 * (a + b)'
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+    p : float, default = 2.0
+        Kernel degree. Used for kernel = 'poly'.
+    c : float, default = 1.0
+        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
+        Used for kernel = 'poly'. This must be greater than or equal to 0.
         
     Returns
     -------
@@ -620,7 +637,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0):
     --------
     scale : Scales bands on an image collection.
     '''    
-    return _index(self,index,G,C1,C2,L)
+    return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
 
 @_extend_eeImage()
 def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):

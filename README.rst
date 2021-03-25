@@ -40,7 +40,7 @@ The eemont python package extends the following Earth Engine classes:
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining. These methods are mandatory for some pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, etc.), and they are presented as simple functions that give researchers, students and analysts the chance to analyze data with far fewer lines of code.
 
-Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collection<https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR>`_ is pre-processed and processed in just one step:
+Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collection <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR>`_ is pre-processed and processed in just one step:
 
 .. code-block:: python
 

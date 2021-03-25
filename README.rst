@@ -1,4 +1,5 @@
 .. image:: images/eemont.png
+        :width: 100
         :class: center
 
 eemont

@@ -1,3 +1,6 @@
+.. image:: images/eemont.png
+        :class: center
+
 eemont
 ========
 

@@ -5,7 +5,7 @@
 eemont
 ========
 
-**A Python package that extends `Google Earth Engine <https://earthengine.google.com/>`__**
+**A Python package that extends `Google Earth Engine <https://earthengine.google.com/>`_**
 
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont

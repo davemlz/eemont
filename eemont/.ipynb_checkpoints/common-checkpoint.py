@@ -249,7 +249,15 @@ def _get_indices():
             'requires' : ['N','R','L'],
             'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=87',
             'contributor' : 'davemlz'
-        },          
+        },
+        'VARI' : {
+            'formula' : '(G - R) / (G + R - B)',
+            'description' : 'Visible Atmospherically Resistant Index',
+            'type' : 'vegetation',
+            'requires' : ['G','R','B'],
+            'reference' : 'https://www.indexdatabase.de/db/i-single.php?id=356',
+            'contributor' : 'davemlz'
+        },
     }
     
     burnIndices = {
@@ -308,7 +316,7 @@ def _get_indices():
             'requires' : ['N','R','L','T1'],
             'reference' : 'https://doi.org/10.1080/01431160600954704',
             'contributor' : 'davemlz'
-        },
+        },        
     }
     
     waterIndices = {
@@ -353,6 +361,14 @@ def _get_indices():
     }
     
     kernelIndices = {
+        'kEVI' : {
+            'formula' : 'g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)',
+            'description' : 'Kernel Enhanced Vegetation Index',
+            'type' : 'kernel',
+            'requires' : ['kNN','g','kNR','C1','C2','kNB','kNL'],
+            'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
+            'contributor' : 'davemlz'
+        },
         'kNDVI' : {
             'formula' : '(kNN - kNR)/(kNN + kNR)',
             'description' : 'Kernel Normalized Difference Vegetation Index',
@@ -369,11 +385,11 @@ def _get_indices():
             'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
             'contributor' : 'davemlz'
         },
-        'kEVI' : {
-            'formula' : 'g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)',
-            'description' : 'Kernel Enhanced Vegetation Index',
+        'kVARI' : {
+            'formula' : '(kGG - kGR) / (kGG + kGR - kGB)',
+            'description' : 'Kernel Visible Atmospherically Resistant Index',
             'type' : 'kernel',
-            'requires' : ['kNN','g','kNR','C1','C2','kNB','kNL'],
+            'requires' : ['kGG','kGR','kGB'],
             'reference' : 'https://doi.org/10.1126/sciadv.abc7447',
             'contributor' : 'davemlz'
         },
@@ -465,7 +481,10 @@ def _get_kernel_parameters(img,lookup,kernel,sigma):
         'kNN' : _get_kernel_image(img,lookup,kernel,sigma,'N','N'),
         'kNR' : _get_kernel_image(img,lookup,kernel,sigma,'N','R'),
         'kNB' : _get_kernel_image(img,lookup,kernel,sigma,'N','B'),
-        'kNL' : _get_kernel_image(img,lookup,kernel,sigma,'N','L')
+        'kNL' : _get_kernel_image(img,lookup,kernel,sigma,'N','L'),
+        'kGG' : _get_kernel_image(img,lookup,kernel,sigma,'G','G'),
+        'kGR' : _get_kernel_image(img,lookup,kernel,sigma,'G','R'),
+        'kGB' : _get_kernel_image(img,lookup,kernel,sigma,'G','B'),
     }
 
     return kernelParameters

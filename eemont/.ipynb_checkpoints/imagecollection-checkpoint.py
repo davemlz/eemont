@@ -297,6 +297,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
             - 'water' : Compute all water indices.
             - 'snow' : Compute all snow indices.
             - 'drought' : Compute all drought indices.
+            - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Vegetation indices:
             - 'BNDVI' : Blue Normalized Difference Vegetation Index.
@@ -315,7 +316,8 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
             - 'NDVI' : Normalized Difference Vegetation Index.
             - 'NGRDI' : Normalized Green Red Difference Index.
             - 'RVI' : Ratio Vegetation Index.
-            - 'SAVI' : Soil-Adjusted Vegetation Index.            
+            - 'SAVI' : Soil-Adjusted Vegetation Index.  
+            - 'VARI' : Visible Atmospherically Resistant Index.
         Burn and fire indices:     
             - 'BAI' : Burned Area Index.
             - 'BAIS2' : Burned Area Index for Sentinel 2.
@@ -335,6 +337,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
             - 'kEVI' : Kernel Enhanced Vegetation Index.
             - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
             - 'kRVI' : Kernel Ratio Vegetation Index.
+            - 'kVARI' : Kernel Visible Atmospherically Resistant Index.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0

@@ -33,6 +33,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -98,13 +99,13 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/timeSeries.html">Time Series By Regions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Languages</span></p>
@@ -431,7 +432,15 @@
             <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">],</span>
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=87&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
-        <span class="p">},</span>          
+        <span class="p">},</span>
+        <span class="s1">&#39;VARI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(G - R) / (G + R - B)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Visible Atmospherically Resistant Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;vegetation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://www.indexdatabase.de/db/i-single.php?id=356&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
     <span class="p">}</span>
     
     <span class="n">burnIndices</span> <span class="o">=</span> <span class="p">{</span>
@@ -490,7 +499,7 @@
             <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T1&#39;</span><span class="p">],</span>
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1080/01431160600954704&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
-        <span class="p">},</span>
+        <span class="p">},</span>        
     <span class="p">}</span>
     
     <span class="n">waterIndices</span> <span class="o">=</span> <span class="p">{</span>
@@ -509,7 +518,7 @@
             <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">],</span>
             <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1080/01431169608948714&#39;</span><span class="p">,</span>
             <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
-        <span class="p">},</span>    
+        <span class="p">},</span>   
     <span class="p">}</span>
     
     <span class="n">snowIndices</span> <span class="o">=</span> <span class="p">{</span>
@@ -534,11 +543,136 @@
         <span class="p">},</span>
     <span class="p">}</span>
     
-    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">vegetationIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">burnIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">waterIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">snowIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">droughtIndices</span><span class="p">}</span>
+    <span class="n">kernelIndices</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;kEVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kernel Enhanced Vegetation Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;kernel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kNN&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;kNR&#39;</span><span class="p">,</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;kNB&#39;</span><span class="p">,</span><span class="s1">&#39;kNL&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1126/sciadv.abc7447&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;kNDVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(kNN - kNR)/(kNN + kNR)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kernel Normalized Difference Vegetation Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;kernel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kNN&#39;</span><span class="p">,</span><span class="s1">&#39;kNR&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1126/sciadv.abc7447&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;kRVI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;kNN / kNR&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kernel Ratio Vegetation Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;kernel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kNN&#39;</span><span class="p">,</span><span class="s1">&#39;kNR&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1126/sciadv.abc7447&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;kVARI&#39;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;formula&#39;</span> <span class="p">:</span> <span class="s1">&#39;(kGG - kGR) / (kGG + kGR - kGB)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kernel Visible Atmospherically Resistant Index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;kernel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;requires&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kGG&#39;</span><span class="p">,</span><span class="s1">&#39;kGR&#39;</span><span class="p">,</span><span class="s1">&#39;kGB&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;reference&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1126/sciadv.abc7447&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;contributor&#39;</span> <span class="p">:</span> <span class="s1">&#39;davemlz&#39;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">vegetationIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">burnIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">waterIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">snowIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">droughtIndices</span><span class="p">,</span> <span class="o">**</span><span class="n">kernelIndices</span><span class="p">}</span>
     
     <span class="k">return</span> <span class="n">indices</span>
 
-<span class="k">def</span> <span class="nf">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Creates an ee.Image representing a kernel computed on bands [a] and [b].</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    img : ee.Image</span>
+<span class="sd">        Image to compute the kernel on.       </span>
+<span class="sd">    lookup : dict</span>
+<span class="sd">        Dictionary retrieved from _get_expression_map().</span>
+<span class="sd">    kernel : str</span>
+<span class="sd">        Kernel to use.</span>
+<span class="sd">    sigma : str | float</span>
+<span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;.</span>
+<span class="sd">    a : str</span>
+<span class="sd">        Key of the first band to use.</span>
+<span class="sd">    b : str</span>
+<span class="sd">        Key of the second band to use.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image</span>
+<span class="sd">        Kernel image.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>    
+        <span class="n">lookupab</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">a</span><span class="p">],</span>
+            <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookup</span><span class="p">,</span> <span class="o">**</span><span class="n">lookupab</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">lookupab</span><span class="p">)}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookup</span><span class="p">,</span> <span class="o">**</span><span class="n">lookupab</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">}</span>        
+        <span class="n">kernels</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;linear&#39;</span> <span class="p">:</span> <span class="s1">&#39;a * b&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;RBF&#39;</span><span class="p">:</span> <span class="s1">&#39;exp((-1.0 * (a - b) ** 2.0)/(2.0 * sigma ** 2.0))&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;poly&#39;</span><span class="p">:</span> <span class="s1">&#39;((a * b) + c) ** p&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">kernels</span><span class="p">[</span><span class="n">kernel</span><span class="p">],</span><span class="n">lookup</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_remove_none_dict</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Removes elements from a dictionary with None values.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    dictionary : dict</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Curated dictionary.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">newDictionary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">newDictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">newDictionary</span>    
+
+<span class="k">def</span> <span class="nf">_get_kernel_parameters</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets the additional kernel parameters to compute kernel indices.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    img : ee.Image</span>
+<span class="sd">        Image to compute the kernel parameters on.       </span>
+<span class="sd">    lookup : dict</span>
+<span class="sd">        Dictionary retrieved from _get_expression_map().</span>
+<span class="sd">    kernel : str</span>
+<span class="sd">        Kernel to use.</span>
+<span class="sd">    sigma : str | float</span>
+<span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Kernel parameters.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">kernelParameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;kNN&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kNR&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kNB&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kNL&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kGG&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kGR&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;kGB&#39;</span> <span class="p">:</span> <span class="n">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookup</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">kernelParameters</span>
+
+<span class="k">def</span> <span class="nf">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image oir image collection.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -555,7 +689,15 @@
 <span class="sd">        Coefficient 2 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    L : float</span>
 <span class="sd">        Canopy background adjustment. Used just for index = [&#39;EVI&#39;,&#39;SAVI&#39;].</span>
-<span class="sd">        </span>
+<span class="sd">    kernel : str</span>
+<span class="sd">        Kernel used for kernel indices.</span>
+<span class="sd">    sigma : str | float</span>
+<span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
+<span class="sd">    p : float</span>
+<span class="sd">        Kernel degree. Used for kernel = &#39;poly&#39;.</span>
+<span class="sd">    c : float</span>
+<span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
+<span class="sd">            </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image | ee.ImageCollection</span>
@@ -563,11 +705,20 @@
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sigma</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;[sigma] must be positive!&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;[p] and [c] must be positive!&#39;</span><span class="p">)</span>
+    
     <span class="n">additionalParameters</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">G</span><span class="p">),</span>
         <span class="s1">&#39;C1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span>
         <span class="s1">&#39;C2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span>
         <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">L</span><span class="p">),</span>
+        <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span>
+        <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
     <span class="p">}</span>
     
     <span class="n">spectralIndices</span> <span class="o">=</span> <span class="n">_get_indices</span><span class="p">()</span>
@@ -576,7 +727,7 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
             <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="k">elif</span> <span class="n">index</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;vegetation&#39;</span><span class="p">,</span><span class="s1">&#39;burn&#39;</span><span class="p">,</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;snow&#39;</span><span class="p">,</span><span class="s1">&#39;drought&#39;</span><span class="p">]:</span>
+        <span class="k">elif</span> <span class="n">index</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;vegetation&#39;</span><span class="p">,</span><span class="s1">&#39;burn&#39;</span><span class="p">,</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;snow&#39;</span><span class="p">,</span><span class="s1">&#39;drought&#39;</span><span class="p">,</span><span class="s1">&#39;kernel&#39;</span><span class="p">]:</span>
             <span class="n">temporalListOfIndices</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indicesNames</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span>
@@ -592,8 +743,11 @@
             <span class="k">def</span> <span class="nf">temporalIndex</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
                 <span class="n">lookupDic</span> <span class="o">=</span> <span class="n">_get_expression_map</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">platformDict</span><span class="p">)</span>
                 <span class="n">lookupDic</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookupDic</span><span class="p">,</span> <span class="o">**</span><span class="n">additionalParameters</span><span class="p">}</span>
-                <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">band</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupDic</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;requires&#39;</span><span class="p">]):</span>
-                    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;formula&#39;</span><span class="p">],</span><span class="n">lookupDic</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>                
+                <span class="n">kernelParameters</span> <span class="o">=</span> <span class="n">_get_kernel_parameters</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">lookupDic</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+                <span class="n">lookupDic</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">lookupDic</span><span class="p">,</span> <span class="o">**</span><span class="n">kernelParameters</span><span class="p">}</span>
+                <span class="n">lookupDicCurated</span> <span class="o">=</span> <span class="n">_remove_none_dict</span><span class="p">(</span><span class="n">lookupDic</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">band</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupDicCurated</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;requires&#39;</span><span class="p">]):</span>
+                    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;formula&#39;</span><span class="p">],</span><span class="n">lookupDicCurated</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>                
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform doesn&#39;t have the required bands for &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; computation!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
                     <span class="k">return</span> <span class="n">img</span>

@@ -33,6 +33,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -98,13 +99,13 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/timeSeries.html">Time Series By Regions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Languages</span></p>
@@ -464,7 +465,7 @@
     <span class="k">return</span> <span class="n">flattenfc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setNA</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="index"><a class="viewcode-back" href="../../classes/eeimagecollection.html#eemont.imagecollection.index">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -479,6 +480,7 @@
 <span class="sd">            - &#39;water&#39; : Compute all water indices.</span>
 <span class="sd">            - &#39;snow&#39; : Compute all snow indices.</span>
 <span class="sd">            - &#39;drought&#39; : Compute all drought indices.</span>
+<span class="sd">            - &#39;kernel&#39; : Compute all kernel indices.</span>
 <span class="sd">            - &#39;all&#39; : Compute all indices listed below.</span>
 <span class="sd">        Vegetation indices:</span>
 <span class="sd">            - &#39;BNDVI&#39; : Blue Normalized Difference Vegetation Index.</span>
@@ -497,7 +499,8 @@
 <span class="sd">            - &#39;NDVI&#39; : Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.</span>
 <span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
-<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.            </span>
+<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.  </span>
+<span class="sd">            - &#39;VARI&#39; : Visible Atmospherically Resistant Index.</span>
 <span class="sd">        Burn and fire indices:     </span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
@@ -513,6 +516,11 @@
 <span class="sd">            - &#39;NDSI&#39; : Normalized Difference Snow Index.</span>
 <span class="sd">        Drought indices:     </span>
 <span class="sd">            - &#39;NDDI&#39; : Normalized Difference Drought Index.</span>
+<span class="sd">        Kernel indices:     </span>
+<span class="sd">            - &#39;kEVI&#39; : Kernel Enhanced Vegetation Index.</span>
+<span class="sd">            - &#39;kNDVI&#39; : Kernel Normalized Difference Vegetation Index.</span>
+<span class="sd">            - &#39;kRVI&#39; : Kernel Ratio Vegetation Index.</span>
+<span class="sd">            - &#39;kVARI&#39; : Kernel Visible Atmospherically Resistant Index.</span>
 <span class="sd">    G : float, default = 2.5</span>
 <span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    C1 : float, default = 6.0</span>
@@ -521,7 +529,20 @@
 <span class="sd">        Coefficient 2 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    L : float, default = 1.0</span>
 <span class="sd">        Canopy background adjustment. Used just for index = [&#39;EVI&#39;,&#39;SAVI&#39;].</span>
-<span class="sd">        </span>
+<span class="sd">    kernel : str, default = &#39;RBF&#39;</span>
+<span class="sd">        Kernel used for kernel indices.\n</span>
+<span class="sd">        Available options:</span>
+<span class="sd">            - &#39;linear&#39; : Linear Kernel.</span>
+<span class="sd">            - &#39;RBF&#39; : Radial Basis Function (RBF) Kernel.</span>
+<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.          </span>
+<span class="sd">    sigma : str | float, default = &#39;0.5 * (a + b)&#39;</span>
+<span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
+<span class="sd">    p : float, default = 2.0</span>
+<span class="sd">        Kernel degree. Used for kernel = &#39;poly&#39;.</span>
+<span class="sd">    c : float, default = 1.0</span>
+<span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
+<span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.    </span>
+<span class="sd">            </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------    </span>
 <span class="sd">    ee.ImageCollection</span>
@@ -537,7 +558,7 @@
 <span class="sd">    --------</span>
 <span class="sd">    scale : Scales bands on an image collection.</span>
 <span class="sd">    &#39;&#39;&#39;</span>  
-    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/eeimagecollection.html#eemont.imagecollection.maskClouds">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>

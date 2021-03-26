@@ -25,13 +25,13 @@ Welcome to eemont!
    :caption: User Guide      
    :hidden:
    
-   guide/overloadedOperators
-   guide/constructors
    guide/closestImage
-   guide/maskingClouds
-   guide/imageScaling
-   guide/spectralIndices
+   guide/constructors
    guide/dataConversion
+   guide/imageScaling
+   guide/maskingClouds
+   guide/overloadedOperators
+   guide/spectralIndices   
    guide/timeSeries
    
 .. toctree::
@@ -48,14 +48,25 @@ Welcome to eemont!
       
    changelog
 
-The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.
+Overview
+-------------------
+
+`Google Earth Engine <https://earthengine.google.com/>`_ is a cloud-based service for geospatial processing of vector and raster data. The Earth Engine platform has a `JavaScript and a Python API <https://developers.google.com/earth-engine/guides>`_ with different methods to process geospatial objects. Google Earth Engine also provides a `HUGE PETABYTE-SCALE CATALOG <https://developers.google.com/earth-engine/datasets/>`_ of raster and vector data that users can process online (e.g. Landsat Missions Image Collections, Sentinel Missions Image Collections, MODIS Products Image Collections, World Database of Protected Areas, etc.). The eemont package extends the `Google Earth Engine Python API <https://developers.google.com/earth-engine/guides/python_install>`_ with pre-processing and processing tools for the most used satellite platforms by adding utility methods for different `Earth Engine Objects <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_ that are friendly with the Python method chaining.
 
 How does it work?
 -------------------
 
-Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods and constructors are added to these classes in order to make the code more fluid by being friendly with the Python method chaining.
+The eemont python package extends the following Earth Engine classes:
 
-Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:
+- `ee.Feature <https://developers.google.com/earth-engine/guides/features>`_
+- `ee.FeatureCollection <https://developers.google.com/earth-engine/guides/feature_collections>`_
+- `ee.Geometry <https://developers.google.com/earth-engine/guides/geometries>`_
+- `ee.Image <https://developers.google.com/earth-engine/guides/image_overview>`_
+- `ee.ImageCollection <https://developers.google.com/earth-engine/guides/ic_creating>`_
+
+New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining. These methods are mandatory for some pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, etc.), and they are presented as simple functions that give researchers, students and analysts the chance to analyze data with far fewer lines of code.
+
+Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collection <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR>`_ is pre-processed and processed in just one step:
 
 .. code-block:: python
 
@@ -73,7 +84,7 @@ Look at this simple example where a Sentinel-2 collection is pre-processed and p
        .scale() # Extended (pre-processing)
        .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
 
-And just like that, the collection was pre-processed and processed!
+And just like that, the collection was pre-processed, processed and ready to be analyzed!
 
 Installation
 ------------

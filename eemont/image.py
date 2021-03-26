@@ -614,9 +614,9 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
-            - 'linear' : Linear Kernel -> k(a,b) = a * b.
-            - 'RBF' : Radial Basis Function (RBF) Kernel -> k(a,b) = exp((-1.0 * (a - b) ** 2.0)/(2.0 * sigma ** 2.0)).
-            - 'poly' : Polynomial Kernel -> k(a,b) = ((a * b) + c) ** p.            
+            - 'linear' : Linear Kernel.
+            - 'RBF' : Radial Basis Function (RBF) Kernel.
+            - 'poly' : Polynomial Kernel.           
     sigma : str | float, default = '0.5 * (a + b)'
         Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0

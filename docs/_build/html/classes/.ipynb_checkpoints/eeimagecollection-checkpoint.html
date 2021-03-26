@@ -33,6 +33,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -98,13 +99,13 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide/timeSeries.html">Time Series By Regions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Languages</span></p>
@@ -328,7 +329,7 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 
 <dl class="py function">
 <dt id="eemont.imagecollection.index">
-<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">'RBF'</span></em>, <em class="sig-param"><span class="n">sigma</span><span class="o">=</span><span class="default_value">'0.5 * (a + b)'</span></em>, <em class="sig-param"><span class="n">p</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">c</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/imagecollection.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -342,6 +343,7 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 <li><p>’water’ : Compute all water indices.</p></li>
 <li><p>’snow’ : Compute all snow indices.</p></li>
 <li><p>’drought’ : Compute all drought indices.</p></li>
+<li><p>’kernel’ : Compute all kernel indices.</p></li>
 <li><p>’all’ : Compute all indices listed below.</p></li>
 </ul>
 </dd>
@@ -363,6 +365,7 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 <li><p>’NGRDI’ : Normalized Green Red Difference Index.</p></li>
 <li><p>’RVI’ : Ratio Vegetation Index.</p></li>
 <li><p>’SAVI’ : Soil-Adjusted Vegetation Index.</p></li>
+<li><p>’VARI’ : Visible Atmospherically Resistant Index.</p></li>
 </ul>
 </dd>
 <dt>Burn and fire indices:</dt><dd><ul>
@@ -388,12 +391,33 @@ This option is mutually exclusive with ‘scale’, and replaces any transform a
 <li><p>’NDDI’ : Normalized Difference Drought Index.</p></li>
 </ul>
 </dd>
+<dt>Kernel indices:</dt><dd><ul>
+<li><p>’kEVI’ : Kernel Enhanced Vegetation Index.</p></li>
+<li><p>’kNDVI’ : Kernel Normalized Difference Vegetation Index.</p></li>
+<li><p>’kRVI’ : Kernel Ratio Vegetation Index.</p></li>
+<li><p>’kVARI’ : Kernel Visible Atmospherically Resistant Index.</p></li>
+</ul>
+</dd>
 </dl>
 </p></li>
 <li><p><strong>G</strong> (<em>float</em><em>, </em><em>default = 2.5</em>) – Gain factor. Used just for index = ‘EVI’.</p></li>
 <li><p><strong>C1</strong> (<em>float</em><em>, </em><em>default = 6.0</em>) – Coefficient 1 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
 <li><p><strong>C2</strong> (<em>float</em><em>, </em><em>default = 7.5</em>) – Coefficient 2 for the aerosol resistance term. Used just for index = ‘EVI’.</p></li>
 <li><p><strong>L</strong> (<em>float</em><em>, </em><em>default = 1.0</em>) – Canopy background adjustment. Used just for index = [‘EVI’,’SAVI’].</p></li>
+<li><p><strong>kernel</strong> (<em>str</em><em>, </em><em>default = 'RBF'</em>) – <p>Kernel used for kernel indices.</p>
+<dl class="simple">
+<dt>Available options:</dt><dd><ul>
+<li><p>’linear’ : Linear Kernel.</p></li>
+<li><p>’RBF’ : Radial Basis Function (RBF) Kernel.</p></li>
+<li><p>’poly’ : Polynomial Kernel.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>sigma</strong> (<em>str | float</em><em>, </em><em>default = '0.5 *</em><em> (</em><em>a + b</em><em>)</em><em>'</em>) – Length-scale parameter. Used for kernel = ‘RBF’. If str, this must be an expression including ‘a’ and ‘b’. If numeric, this must be positive.</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>default = 2.0</em>) – Kernel degree. Used for kernel = ‘poly’.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em>, </em><em>default = 1.0</em>) – Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
+Used for kernel = ‘poly’. This must be greater than or equal to 0.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

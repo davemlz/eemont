@@ -33,6 +33,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -98,13 +99,13 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/spectralIndices.html">Spectral Indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/constructors.html">Constructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/dataConversion.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/overloadedOperators.html">Overloaded Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/spectralIndices.html">Spectral Indices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/timeSeries.html">Time Series By Regions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Languages</span></p>
@@ -193,11 +194,22 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
-<p>The eemont package extends Google Earth Engine with pre-processing and processing tools for the most used satellite platforms.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a> is a cloud-based service for geospatial processing of vector and raster data. The Earth Engine platform has a <a class="reference external" href="https://developers.google.com/earth-engine/guides">JavaScript and a Python API</a> with different methods to process geospatial objects. Google Earth Engine also provides a <a class="reference external" href="https://developers.google.com/earth-engine/datasets/">HUGE PETABYTE-SCALE CATALOG</a> of raster and vector data that users can process online (e.g. Landsat Missions Image Collections, Sentinel Missions Image Collections, MODIS Products Image Collections, World Database of Protected Areas, etc.). The eemont package extends the <a class="reference external" href="https://developers.google.com/earth-engine/guides/python_install">Google Earth Engine Python API</a> with pre-processing and processing tools for the most used satellite platforms by adding utility methods for different <a class="reference external" href="https://developers.google.com/earth-engine/guides/objects_methods_overview">Earth Engine Objects</a> that are friendly with the Python method chaining.</p>
+</div>
 <div class="section" id="how-does-it-work">
 <h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
-<p>Earth Engine classes, such as ee.Image and ee.ImageCollection, are extended with eemont. New methods and constructors are added to these classes in order to make the code more fluid by being friendly with the Python method chaining.</p>
-<p>Look at this simple example where a Sentinel-2 collection is pre-processed and processed in just one step:</p>
+<p>The eemont python package extends the following Earth Engine classes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/guides/features">ee.Feature</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/guides/feature_collections">ee.FeatureCollection</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/guides/geometries">ee.Geometry</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/guides/image_overview">ee.Image</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/guides/ic_creating">ee.ImageCollection</a></p></li>
+</ul>
+<p>New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining. These methods are mandatory for some pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, etc.), and they are presented as simple functions that give researchers, students and analysts the chance to analyze data with far fewer lines of code.</p>
+<p>Look at this simple example where a <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR">Sentinel-2 Surface Reflectance Image Collection</a> is pre-processed and processed in just one step:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
 
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
@@ -213,7 +225,7 @@
     <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAIS2&#39;</span><span class="p">]))</span> <span class="c1"># Extended (processing)</span>
 </pre></div>
 </div>
-<p>And just like that, the collection was pre-processed and processed!</p>
+<p>And just like that, the collection was pre-processed, processed and ready to be analyzed!</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -322,8 +334,8 @@
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <p>The above-mentioned features extend the following Earth Engine classes:</p>
-<div class="section" id="ee-feature">
-<h3>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>ee.Feature<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -339,8 +351,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="ee-featurecollection">
-<h3>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>ee.FeatureCollection<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -353,8 +365,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="ee-geometry">
-<h3>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>ee.Geometry<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -373,15 +385,15 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="ee-image">
-<h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>ee.Image<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
 <td><p>Computes one or more spectral indices (indices are added as bands) for an image.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimage.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
@@ -393,8 +405,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="ee-imagecollection">
-<h3>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>ee.ImageCollection<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -410,7 +422,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.getTimeSeriesByRegions" title="eemont.imagecollection.getTimeSeriesByRegions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTimeSeriesByRegions</span></code></a>(self, reducer, collection)</p></td>
 <td><p>Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
 <td><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../classes/eeimagecollection.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>

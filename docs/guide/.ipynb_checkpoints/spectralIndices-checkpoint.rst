@@ -146,7 +146,9 @@ The following table shows the list of built-in vegetation indices:
    * - SAVI
      - Soil-Adjusted Vegetation Index
      - `Index DataBase SAVI <https://www.indexdatabase.de/db/i-single.php?id=87>`_
-     
+   * - VARI
+     - Visible Atmospherically Resistant Index
+     - `Index DataBase VARI <https://www.indexdatabase.de/db/i-single.php?id=356>`_     
      
 Burn Indices
 ~~~~~~~~~~~~~~~~~~~
@@ -232,6 +234,67 @@ The following table shows the list of built-in drought indices:
    * - NDDI
      - Normalized Difference Drought Index
      - `(Gu et al., 2007) <https://doi.org/10.1029/2006GL029127>`_
+     
+Generalized Kernel Indices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of built-in kernel indices:
+
+.. list-table:: Built-in kernel indices.
+   :widths: 20 50 30
+   :header-rows: 1
+
+   * - Index
+     - Description     
+     - Reference
+   * - kEVI
+     - Kernel Enhanced Vegetation Index
+     - `(Camps-Valls et al., 2021) <https://doi.org/10.1126/sciadv.abc7447>`_
+   * - kNDVI
+     - Kernel Normalized Difference Vegetation Index
+     - `(Camps-Valls et al., 2021) <https://doi.org/10.1126/sciadv.abc7447>`_
+   * - kRVI
+     - Kernel Ratio Vegetation Index
+     - `(Camps-Valls et al., 2021) <https://doi.org/10.1126/sciadv.abc7447>`_
+   * - kVARI
+     - Kernel Visible Atmospherically Resistant Index
+     - `(Camps-Valls et al., 2021) <https://doi.org/10.1126/sciadv.abc7447>`_
+
+Kernels
+----------------------
+
+In the case of generalized kernel indices, the following kernels are available:
+
+Linear Kernel
+~~~~~~~~~~~~~~~~~~~
+
+The linear kernel for generalized kernel indices can be selected by setting :code:`kernel = 'linear'`.
+
+.. math::
+
+   k(a,b) = ab
+   
+RBF Kernel
+~~~~~~~~~~~~~~~~~~~
+
+The Radial Basis Function (RBF) kernel for generalized kernel indices can be selected by setting :code:`kernel = 'RBF'`.
+
+.. math::
+
+   k(a,b) = exp(- \frac{(a - b) ^ 2}{2 \sigma ^ 2})
+   
+Where :math:`\sigma` is a free length-scale parameter.
+   
+Polynomial Kernel
+~~~~~~~~~~~~~~~~~~~
+
+The polynomial kernel for generalized kernel indices can be selected by setting :code:`kernel = 'poly'`.
+
+.. math::
+
+   k(a,b) = (ab + c) ^ p
+
+Where :math:`c` is a free parameter that trades off the influence of higher-order versus lower-order terms and :math:`p` is the kernel degree.
 
 List of Bands
 ----------------------
@@ -424,7 +487,52 @@ If you want to compute all available indices, you can set :code:`index = all`:
    S2withIndices.select('NDWI')
    S2withIndices.select('NDSI')
    # ...
+
+Generalized Kernel Indices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Generalized kernel indices are availabe through eemont (e.g. kNDVI):
+
+.. code-block:: python
+
+   S2withIndices = S2.index('kNDVI')
+   S2withIndices.select('kNDVI')
    
+By default, the RBF kernel is used and the :code:`sigma` parameter is :code:`0.5 * (a + b)` (this means, that for :code:`k(N,R)`, :code:`sigma = '0.5 * (N + R)'`). If required, :code:`sigma` can be modified by another expression (using :code:`a` and :code:`b`) or a float:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('kNDVI',sigma = 1)
+   S2withIndices.select('kNDVI')
+   
+The kernel can be modified by modifying the :code:`kernel` parameter:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('kNDVI',kernel = 'poly')
+   S2withIndices.select('kNDVI')
+   
+For the polynomial kernel, the :code:`p` and :code:`c` parameters can be modified:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('kNDVI',kernel = 'poly',p = 4,c = 0)
+   S2withIndices.select('kNDVI')
+   
+All kernel indices can be computed by setting :code:`index = kernel`:
+
+.. code-block:: python
+
+   S2withIndices = S2.index('kernel')
+   S2withIndices.select('kEVI')
+   S2withIndices.select('kNDVI')
+   S2withIndices.select('kRVI')
+   S2withIndices.select('kVARI')
+   
+.. seealso::
+   For more info on generalized kernel indices, please visit
+   `‘Camps-Valls, G., et al. 2021. A unified vegetation index for quantifying the terrestrial biosphere. Science Advances 7 (9): eabc7447. Doi: 10.1126/sciadv.abc7447’ <https://doi.org/10.1126/sciadv.abc7447>`_.
+
 Contribute
 ------------------
 

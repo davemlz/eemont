@@ -7,15 +7,23 @@ v0.1.9
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
+- :code:`kernel`, :code:`sigma`, :code:`p` and :code:`c` parameters were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection classes.
 - The following vegetation indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
 
    - 'GARI' : Green Atmospherically Resistant Vegetation Index.
    - 'GEMI' : Global Environment Monitoring Index.
-   - 'GLI' : Green Leaf Index
-   - 'GVMI' : Global Vegetation Moisture Index.   
+   - 'GLI' : Green Leaf Index.
+   - 'GVMI' : Global Vegetation Moisture Index.
+   - 'VARI' : Visible Atmospherically Resistant Index.
 - The following drought indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
 
    - 'NDDI' : Normalized Difference Drought Index.
+- The following kernel indices were added to the :code:`index()` extended method for ee.Image and ee.ImageCollection:
+
+   - 'kEVI' : Kernel Enhanced Vegetation Index.
+   - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
+   - 'kRVI' : Kernel Ratio Vegetation Index.
+   - 'kVARI' : Kernel Visible Atmospherically Resistant Index.
 
 v0.1.8
 --------------

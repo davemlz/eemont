@@ -1,6 +1,11 @@
 Welcome to eemont!
 ==================
 
+**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
+
+.. image:: images/eemont.png        
+        :align: center
+
 .. toctree::   
    :maxdepth: 2
    :caption: Extended Classes 
@@ -135,7 +140,7 @@ The following features are extended through eemont:
    
    MOD13Q1 = ee.ImageCollection('MODIS/006/MOD13Q1').scale() # Image scaling
 
-- Spectral indices computation (vegetation, burn, water and snow indices):
+- Spectral indices computation (vegetation, burn, water, snow, drought and kernel indices):
 
 .. code-block:: python   
    
@@ -143,7 +148,7 @@ The following features are extended through eemont:
        .filterBounds(point)
        .maskClouds()
        .scale()
-       .index(['GNDVI','NDWI','BAI','NDSI'])) # Indices computation
+       .index(['GNDVI','NDWI','BAI','NDSI','kNDVI'])) # Indices computation
        
    indices = eemont.indices() 
    indices.BAIS2.formula # check info about spectral indices

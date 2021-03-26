@@ -184,6 +184,8 @@
             
   <div class="section" id="welcome-to-eemont">
 <h1>Welcome to eemont!<a class="headerlink" href="#welcome-to-eemont" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Python package that extends</strong> <a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a></p>
+<img alt=".ipynb_checkpoints\images/eemont.png" class="align-center" src=".ipynb_checkpoints\images/eemont.png" />
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -272,13 +274,13 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Spectral indices computation (vegetation, burn, water and snow indices):</p></li>
+<li><p>Spectral indices computation (vegetation, burn, water, snow, drought and kernel indices):</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
     <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
     <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAI&#39;</span><span class="p">,</span><span class="s1">&#39;NDSI&#39;</span><span class="p">]))</span> <span class="c1"># Indices computation</span>
+    <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">,</span><span class="s1">&#39;NDWI&#39;</span><span class="p">,</span><span class="s1">&#39;BAI&#39;</span><span class="p">,</span><span class="s1">&#39;NDSI&#39;</span><span class="p">,</span><span class="s1">&#39;kNDVI&#39;</span><span class="p">]))</span> <span class="c1"># Indices computation</span>
 
 <span class="n">indices</span> <span class="o">=</span> <span class="n">eemont</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
 <span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">formula</span> <span class="c1"># check info about spectral indices</span>
@@ -334,8 +336,8 @@
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <p>The above-mentioned features extend the following Earth Engine classes:</p>
-<div class="section" id="id1">
-<h3>ee.Feature<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>ee.Feature<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -351,8 +353,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id2">
-<h3>ee.FeatureCollection<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>ee.FeatureCollection<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -365,8 +367,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id3">
-<h3>ee.Geometry<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>ee.Geometry<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -385,8 +387,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id4">
-<h3>ee.Image<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>ee.Image<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -405,8 +407,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id5">
-<h3>ee.ImageCollection<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>ee.ImageCollection<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />

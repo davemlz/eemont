@@ -40,8 +40,8 @@ The eemont python package extends the following Earth Engine classes:
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining.
 The added methods are mandatory for pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, time series, etc.),
-and they are presented as simple functions that give researchers, students and analysts the chance to process geospatial data with far fewer lines of code,
-improving code-writing and giving ready-to-analyze data. The following chunk shows an example of the simple usage of eemont:
+and they are presented as simple functions that give researchers, students and analysts the chance to process large numbers of geospatial objects with far fewer lines of code,
+improving code-writing and giving ready-to-analyze geospatial data. The following chunk shows an example of the simple usage of eemont:
 
 ```python
 import ee, eemont
@@ -49,7 +49,7 @@ import ee, eemont
 ee.Authenticate()
 ee.Initialize()
 
-point = ee.Geometry.PointFromQuery('Cali, Colombia',user_agent = 'eemont-example') # Extended constructor
+point = ee.Geometry.Point([-74.0592,11.3172])
 
 S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
     .filterBounds(point)

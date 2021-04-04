@@ -666,7 +666,9 @@ def _get_platform(args):
         'MODIS/006/MYD13A1',
         'MODIS/006/MYD13A2',
         'MODIS/061/MYD08_M3',
-        'MODIS/006/MYD17A3HGF'
+        'MODIS/006/MYD17A3HGF',
+        'NOAA/VIIRS/001/VNP09GA',
+        'NOAA/VIIRS/001/VNP13A1'
     ]
     
     if isinstance(args, ee.imagecollection.ImageCollection):
@@ -885,6 +887,17 @@ def _get_scale_method(platformDict):
         scaled = scaled.addBands(img.select(['Npp_QC']))
         return ee.Image(scaled.copyProperties(img,img.propertyNames()))
     
+    def VNP09GA(img):
+        scaled = img.select(['M.*','I.*']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['Sensor.*','Solar.*']).multiply(0.01))
+        scaled = scaled.addBands(img.select(['iobs_res','num.*','o.*','QF.*']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
+    def VNP13A1(img):
+        scaled = img.select(['EVI','EVI2','NDVI']).multiply(0.0001)
+        scaled = scaled.addBands(img.select(['NIR.*','SWIR.*','VI.*','red.*','green.*','blue.*','composite.*','pixel.*','relative.*','sun.*','view.*']))
+        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    
     lookup = {
         'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
@@ -926,7 +939,9 @@ def _get_scale_method(platformDict):
         'MODIS/006/MYD13A1': MOD13A1,
         'MODIS/006/MYD13A2': MOD13A2,
         'MODIS/061/MYD08_M3': MOD08_M3,
-        'MODIS/006/MYD17A3HGF': MOD17A3HGF
+        'MODIS/006/MYD17A3HGF': MOD17A3HGF,
+        'NOAA/VIIRS/001/VNP09GA': VNP09GA,
+        'NOAA/VIIRS/001/VNP13A1': VNP13A1
     }
     
     return lookup

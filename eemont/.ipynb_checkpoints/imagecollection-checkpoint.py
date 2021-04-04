@@ -568,6 +568,24 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         notCloud = qa.eq(0)
         return args.updateMask(notCloud)
     
+    def VNP09GA(args):
+        qf1 = args.select('QF1')
+        qf2 = args.select('QF2')
+        notCloud = qf1.bitwiseAnd(1 << 2).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qf2.bitwiseAnd(1 << 3).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qf2.bitwiseAnd(1 << 6).eq(0))
+            notCloud = notCloud.And(qf2.bitwiseAnd(1 << 7).eq(0))
+        return args.updateMask(notCloud)
+    
+    def VNP13A1(args):
+        qa = args.select('pixel_reliability')
+        notCloud = qa.neq(9)
+        if maskShadows:
+            notCloud = notCloud.And(qa.neq(7))
+        return args.updateMask(notCloud)
+    
     lookup = {
         'COPERNICUS/S3': S3,
         'COPERNICUS/S2': S2,
@@ -591,7 +609,9 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         'MODIS/006/MYD16A2': MOD16A2,
         'MODIS/006/MYD13Q1': MOD13Q1A1,
         'MODIS/006/MYD13A1': MOD13Q1A1,
-        'MODIS/006/MYD13A2': MOD13A2
+        'MODIS/006/MYD13A2': MOD13A2,
+        'NOAA/VIIRS/001/VNP09GA': VNP09GA,
+        'NOAA/VIIRS/001/VNP13A1': VNP13A1
     }
     
     platformDict = _get_platform(self)

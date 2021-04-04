@@ -84,6 +84,12 @@ MODIS Products (Aqua)
 - `MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A1>`_
 - `MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2>`_
 
+VIIRS Products
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
+- `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
+
 .. warning::
    Not supported satellite platforms will raise an *Exception*.   
 
@@ -156,6 +162,11 @@ By default, the :code:`maskClouds()` uses the QA band of each paltform to comput
      - 0 (0)
      - 
      -
+   * - VNP09GA
+     - QF1, QF2
+     - 2 (0)
+     - 6 (0), 7 (0)
+     - 3 (0)
 
 Usage
 -----
@@ -367,3 +378,50 @@ MOD13A2 doesn't have a bitmask QA band, instead, it has a Class QA band, where a
 .. code-block:: python
 
    MOD13A2 = ee.ImageCollection('MODIS/006/MOD13A2').maskClouds()
+   
+VIIRS Products
+~~~~~~~~~~~~~~~~
+
+On VIIRS Products, clouds and shadows are masked according to the specific QA band.
+
+Let's take the VNP09GA image collection as example:
+
+.. code-block:: python
+
+   VNP09GA = ee.ImageCollection('NOAA/VIIRS/001/VNP13A1')
+   
+There is no need to specify most of the arguments showed for Sentinel-2, since they're ignored.
+
+.. code-block:: python
+
+   VNP09GA.maskClouds()
+   
+If required, the arguments :code:`maskShadows` and :code:`maskCirrus` can be set to *False*:
+
+.. code-block:: python
+
+   VNP09GA.maskClouds(maskShadows = False, maskCirrus = False)
+   
+This method can also be applied to a single image:
+
+.. code-block:: python
+
+   VNP09GA.first().maskClouds()
+   
+And can be used for scaled images without specifying it:
+
+.. code-block:: python
+
+   VNP09GA.scale().maskClouds()
+   
+VNP13A1 doesn't have a bitmask QA band, instead, it has a Class QA band, where a value of 9 means that the pixel is a cloud, while a value of 7 means that the pixel is a cloud shadows.
+
+.. code-block:: python
+
+   VNP13A1 = ee.ImageCollection('NOAA/VIIRS/001/VNP13A1').maskClouds()
+   
+If required, the argument :code:`maskShadows` can be set to *False*:
+
+.. code-block:: python
+
+   VNP13A1 = ee.ImageCollection('NOAA/VIIRS/001/VNP13A1').maskClouds(maskShadows = False)

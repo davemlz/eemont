@@ -104,6 +104,12 @@ MODIS Products (Aqua)
 - `MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2>`_
 - `MYD08_M3.061 Aqua Atmosphere Monthly Global Product <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD08_M3>`_
 
+VIIRS Products
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
+- `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
+
 .. warning::
    Not supported satellite platforms will raise an *Exception*.   
 

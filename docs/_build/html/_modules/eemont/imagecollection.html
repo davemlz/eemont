@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>eemont.imagecollection &mdash; eemont 0.1.8 documentation</title>
+  <title>eemont.imagecollection &mdash; eemont 0.1.9 documentation</title>
   
 
   
@@ -751,6 +751,24 @@
         <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
     
+    <span class="k">def</span> <span class="nf">VNP09GA</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qf1</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QF1&#39;</span><span class="p">)</span>
+        <span class="n">qf2</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QF2&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qf1</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qf2</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">maskCirrus</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qf2</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qf2</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">VNP13A1</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;pixel_reliability&#39;</span><span class="p">)</span>
+        <span class="n">notCloud</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maskShadows</span><span class="p">:</span>
+            <span class="n">notCloud</span> <span class="o">=</span> <span class="n">notCloud</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
+    
     <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;COPERNICUS/S3&#39;</span><span class="p">:</span> <span class="n">S3</span><span class="p">,</span>
         <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">S2</span><span class="p">,</span>
@@ -774,7 +792,9 @@
         <span class="s1">&#39;MODIS/006/MYD16A2&#39;</span><span class="p">:</span> <span class="n">MOD16A2</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13Q1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1A1</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD13A1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span>
+        <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span><span class="p">,</span>
+        <span class="s1">&#39;NOAA/VIIRS/001/VNP09GA&#39;</span><span class="p">:</span> <span class="n">VNP09GA</span><span class="p">,</span>
+        <span class="s1">&#39;NOAA/VIIRS/001/VNP13A1&#39;</span><span class="p">:</span> <span class="n">VNP13A1</span>
     <span class="p">}</span>
     
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>

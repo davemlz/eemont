@@ -1,4 +1,4 @@
 recommonmark
 sphinxcontrib-autoprogram
 pydata-sphinx-theme
-google-auth<2.0dev
+google-auth

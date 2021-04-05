@@ -36,7 +36,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     'sphinx.ext.napoleon',
-    "sphinx_rtd_theme",
+    #"sphinx_rtd_theme",
     'sphinx.ext.autosummary',
     'sphinx.ext.autosectionlabel'
 ]

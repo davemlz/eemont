@@ -733,7 +733,7 @@
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Not</span><span class="p">()</span>
 
-<div class="viewcode-block" id="index"><a class="viewcode-back" href="../../classes/eeimage.html#eemont.image.index">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
+<div class="viewcode-block" id="index"><a class="viewcode-back" href="../../classes/stubs/eemont.image.index.html#eemont.image.index">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image.</span>
 <span class="sd">    </span>
@@ -829,7 +829,7 @@
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/eeimage.html#eemont.image.maskClouds">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
+<div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/stubs/eemont.image.maskClouds.html#eemont.image.maskClouds">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image (valid just for Surface Reflectance products).</span>
 <span class="sd">    </span>
@@ -1074,7 +1074,7 @@
     
     <span class="k">return</span> <span class="n">maskedImage</span></div>
 
-<div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../classes/eeimage.html#eemont.image.scale">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
+<div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../classes/stubs/eemont.image.scale.html#eemont.image.scale">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
     <span class="sd">&#39;&#39;&#39;Scales bands on an image.</span>
 <span class="sd">    </span>

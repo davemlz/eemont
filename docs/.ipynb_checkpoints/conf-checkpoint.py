@@ -24,7 +24,6 @@ author = 'David Montero Loaiza'
 # The full version, including alpha/beta/rc tags
 release = '0.1.9'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -36,7 +35,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     'sphinx.ext.napoleon',
-    #"sphinx_rtd_theme",
+    "sphinx_rtd_theme",
     'sphinx.ext.autosummary',
     'sphinx.ext.autosectionlabel'
 ]
@@ -58,33 +57,17 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_rtd_theme'
 #html_theme = "insegel"
 #html_theme = "divio_docs_theme"
 #html_theme = "karma_sphinx_theme"
 #html_theme = "sphinx_materialdesign_theme"
-html_theme = "pydata_sphinx_theme"
-
-html_theme_options = {    
-    "icon_links": [
-        {
-            "name": "GitHub",
-            "url": "https://github.com/davemlz/eemont",
-            "icon": "fab fa-github-square",
-        },
-        {
-            "name": "Twitter",
-            "url": "https://twitter.com/dmlmont",
-            "icon": "fab fa-twitter-square",
-        },
-    ],    
-}
-
+#html_theme = "pydata_sphinx_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-html_logo = "_static/logo.png"
+#html_logo = "_static/logo.png"
 
-#html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
+html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }

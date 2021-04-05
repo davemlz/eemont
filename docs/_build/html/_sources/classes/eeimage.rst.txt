@@ -3,11 +3,7 @@ ee.Image
 
 Extended methods for the ee.Image class:
 
-.. currentmodule:: eemont.image
-
-.. autosummary::
-   :toctree: stubs
-
-   index
-   maskClouds
-   scale
+.. automodule:: eemont.image
+   :members:
+   :undoc-members:
+   :show-inheritance:

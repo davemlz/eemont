@@ -3,7 +3,11 @@ ee.Geometry
 
 Extended methods for the ee.Geometry class:
 
-.. automodule:: eemont.geometry
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. currentmodule:: eemont.geometry
+
+.. autosummary::
+   :toctree: stubs
+
+   BBoxFromQuery
+   PointFromQuery
+   MultiPointFromQuery

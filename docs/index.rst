@@ -11,33 +11,21 @@ Welcome to eemont!
    :caption: Extended Classes 
    :hidden:
       
-   classes/eefeature
-   classes/eefeaturecollection
-   classes/eegeometry
-   classes/eeimage
-   classes/eeimagecollection
-   classes/pddataframe
+   classes/index   
 
 .. toctree::   
    :maxdepth: 2
    :caption: Modules 
    :hidden:
       
-   modules/common
+   modules/index
    
 .. toctree::
    :maxdepth: 2
    :caption: User Guide      
    :hidden:
    
-   guide/closestImage
-   guide/constructors
-   guide/dataConversion
-   guide/imageScaling
-   guide/maskingClouds
-   guide/overloadedOperators
-   guide/spectralIndices   
-   guide/timeSeries
+   guide/index
    
 .. toctree::
    :maxdepth: 2
@@ -52,6 +40,13 @@ Welcome to eemont!
    :hidden:
       
    changelog
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials 
+   :hidden:
+      
+   tutorials
 
 Overview
 -------------------

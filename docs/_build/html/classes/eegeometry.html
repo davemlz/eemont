@@ -1,423 +1,254 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>ee.Geometry &mdash; eemont 0.1.9 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ee.Geometry &#8212; eemont 0.1.9 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ee.Image" href="eeimage.html" />
-    <link rel="prev" title="ee.FeatureCollection" href="eefeaturecollection.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <link rel="next" title="eemont.geometry.BBoxFromQuery" href="stubs/eemont.geometry.BBoxFromQuery.html" />
+    <link rel="prev" title="eemont.featurecollection.MultiPointFromQuery" href="stubs/eemont.featurecollection.MultiPointFromQuery.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> eemont
-          
 
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Extended Classes</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="eefeature.html">ee.Feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eefeaturecollection.html">ee.FeatureCollection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ee.Geometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eeimage.html">ee.Image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eeimagecollection.html">ee.ImageCollection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pddataframe.html">pd.DataFrame</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules/common.html">common</a></li>
-</ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/constructors.html">Constructors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/dataConversion.html">Data Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/spectralIndices.html">Spectral Indices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/timeSeries.html">Time Series By Regions</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Other Languages</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide/eemontR.html">eemont in R</a></li>
-</ul>
-<p class="caption"><span class="caption-text">What's new?</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
+    
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">eemont</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../_static/logo.png" class="logo" alt="logo">
+      </a>
+      
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>ee.Geometry</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../_sources/classes/eegeometry.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
 
-  
-  <hr/>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Extended Classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../modules/index.html">
+  Other Modules
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guide/eemontR.html">
+  eemont in R
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog.html">
+  Changelog
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/davemlz/eemont" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/dmlmont" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
             
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="eefeature.html">
+   ee.Feature
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eefeaturecollection.html">
+   ee.FeatureCollection
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="current reference internal" href="#">
+   ee.Geometry
+  </a>
+  <ul>
+   <li class="toctree-l3">
+    <a class="reference internal" href="stubs/eemont.geometry.BBoxFromQuery.html">
+     eemont.geometry.BBoxFromQuery
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="stubs/eemont.geometry.PointFromQuery.html">
+     eemont.geometry.PointFromQuery
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="stubs/eemont.geometry.MultiPointFromQuery.html">
+     eemont.geometry.MultiPointFromQuery
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eeimage.html">
+   ee.Image
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eeimagecollection.html">
+   ee.ImageCollection
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="pddataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="ee-geometry">
 <h1>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h1>
 <p>Extended methods for the ee.Geometry class:</p>
-<span class="target" id="module-eemont.geometry"></span><dl class="py function">
-<dt id="eemont.geometry.BBoxFromQuery">
-<code class="sig-prename descclassname">eemont.geometry.</code><code class="sig-name descname">BBoxFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/geometry.html#BBoxFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.geometry.BBoxFromQuery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>str</em>) – Address, query or structured query to geocode.</p></li>
-<li><p><strong>geocoder</strong> (<em>str</em><em>, </em><em>default = 'nominatim'</em>) – Geocoder to use. One of ‘nominatim’ or ‘arcgis’. Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-<li><p><strong>**kwargs</strong> – Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = ‘my-gee-username’ or
-user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Geometry describing a bounding box from the specified query.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ee.Geometry.Polygon</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Seattle&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span>
-<span class="go">ee.Geometry({</span>
-<span class="go">  &quot;functionInvocationValue&quot;: {</span>
-<span class="go">    &quot;functionName&quot;: &quot;GeometryConstructors.Polygon&quot;,</span>
-<span class="go">    &quot;arguments&quot;: {</span>
-<span class="go">      &quot;coordinates&quot;: {</span>
-<span class="go">        &quot;constantValue&quot;: [</span>
-<span class="go">          [</span>
-<span class="go">            [</span>
-<span class="go">              -122.45969600000001,</span>
-<span class="go">              47.7341357</span>
-<span class="go">            ],</span>
-<span class="go">            [</span>
-<span class="go">              -122.45969600000001,</span>
-<span class="go">              47.4810022</span>
-<span class="go">            ],</span>
-<span class="go">            [</span>
-<span class="go">              -122.224433,</span>
-<span class="go">              47.4810022</span>
-<span class="go">            ],</span>
-<span class="go">            [</span>
-<span class="go">              -122.224433,</span>
-<span class="go">              47.7341357</span>
-<span class="go">            ]</span>
-<span class="go">          ]</span>
-<span class="go">        ]</span>
-<span class="go">      },</span>
-<span class="go">      &quot;geodesic&quot;: {</span>
-<span class="go">        &quot;constantValue&quot;: false</span>
-<span class="go">      }</span>
-<span class="go">    }</span>
-<span class="go">  }</span>
-<span class="go">})</span>
-</pre></div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-<dt><a class="reference internal" href="#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-</dl>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="eemont.geometry.MultiPointFromQuery">
-<code class="sig-prename descclassname">eemont.geometry.</code><code class="sig-name descname">MultiPointFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/geometry.html#MultiPointFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.geometry.MultiPointFromQuery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>str</em>) – Address, query or structured query to geocode.</p></li>
-<li><p><strong>geocoder</strong> (<em>str</em><em>, </em><em>default = 'nominatim'</em>) – Geocoder to use. Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-<li><p><strong>**kwargs</strong> – Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = ‘my-gee-username’ or
-user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Geometry describing a multi-point from the specified query.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ee.Geometry.MultiPoint</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Mt. Rainier, USA&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span>
-<span class="go">ee.Geometry({</span>
-<span class="go">  &quot;functionInvocationValue&quot;: {</span>
-<span class="go">    &quot;functionName&quot;: &quot;GeometryConstructors.MultiPoint&quot;,</span>
-<span class="go">    &quot;arguments&quot;: {</span>
-<span class="go">      &quot;coordinates&quot;: {</span>
-<span class="go">        &quot;constantValue&quot;: [</span>
-<span class="go">          [</span>
-<span class="go">            -121.757682,</span>
-<span class="go">            46.8521484</span>
-<span class="go">          ],</span>
-<span class="go">          [</span>
-<span class="go">            -76.9649751,</span>
-<span class="go">            38.9415</span>
-<span class="go">          ],</span>
-<span class="go">          [</span>
-<span class="go">            -97.78689,</span>
-<span class="go">            30.154197</span>
-<span class="go">          ],</span>
-<span class="go">          [</span>
-<span class="go">            -84.130098,</span>
-<span class="go">            39.863452</span>
-<span class="go">          ]</span>
-<span class="go">        ]</span>
-<span class="go">      }</span>
-<span class="go">    }</span>
-<span class="go">  }</span>
-<span class="go">})</span>
-</pre></div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">BBoxFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-<dt><a class="reference internal" href="#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-</dl>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="eemont.geometry.PointFromQuery">
-<code class="sig-prename descclassname">eemont.geometry.</code><code class="sig-name descname">PointFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/geometry.html#PointFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.geometry.PointFromQuery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>str</em>) – Address, query or structured query to geocode.</p></li>
-<li><p><strong>geocoder</strong> (<em>str</em><em>, </em><em>default = 'nominatim'</em>) – Geocoder to use. Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-<li><p><strong>**kwargs</strong> – Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = ‘my-gee-username’ or
-user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Geometry describing a point from the specified query.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ee.Geometry.Point</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">PointFromQuery</span><span class="p">(</span><span class="s1">&#39;Mt. Rainier, USA&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span>
-<span class="go">ee.Geometry({</span>
-<span class="go">  &quot;functionInvocationValue&quot;: {</span>
-<span class="go">    &quot;functionName&quot;: &quot;GeometryConstructors.Point&quot;,</span>
-<span class="go">    &quot;arguments&quot;: {</span>
-<span class="go">      &quot;coordinates&quot;: {</span>
-<span class="go">        &quot;constantValue&quot;: [</span>
-<span class="go">          -121.757682,</span>
-<span class="go">          46.8521484</span>
-<span class="go">        ]</span>
-<span class="go">      }</span>
-<span class="go">    }</span>
-<span class="go">  }</span>
-<span class="go">})</span>
-</pre></div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">BBoxFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-<dt><a class="reference internal" href="#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-</dl>
-</div>
-</dd></dl>
-
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/eemont.geometry.BBoxFromQuery.html#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="eeimage.html" class="btn btn-neutral float-right" title="ee.Image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="eefeaturecollection.html" class="btn btn-neutral float-left" title="ee.FeatureCollection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="stubs/eemont.featurecollection.MultiPointFromQuery.html" title="previous page">eemont.featurecollection.MultiPointFromQuery</a>
+    <a class='right-next' id="next-link" href="stubs/eemont.geometry.BBoxFromQuery.html" title="next page">eemont.geometry.BBoxFromQuery</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
 
-  <hr/>
+    
+  <script src="../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2021, David Montero Loaiza.
-
+          &copy; Copyright 2021, David Montero Loaiza.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eemont.featurecollection.MultiPointFromQuery &#8212; eemont 0.1.9 documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1e043a052b0af929e4d8.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+      
+      <a class="navbar-brand" href="../../../index.html">
+        <img src="../../../_static/logo.png" class="logo" alt="logo">
+      </a>
+      
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Extended Classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules/index.html">
+  Other Modules
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../guide/eemontR.html">
+  eemont in R
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../changelog.html">
+  Changelog
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/davemlz/eemont" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/dmlmont" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="eemont-featurecollection-multipointfromquery">
+<h1>eemont.featurecollection.MultiPointFromQuery<a class="headerlink" href="#eemont-featurecollection-multipointfromquery" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="eemont.featurecollection.MultiPointFromQuery">
+<code class="sig-prename descclassname">eemont.featurecollection.</code><code class="sig-name descname">MultiPointFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/eemont/featurecollection.html#MultiPointFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.featurecollection.MultiPointFromQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
+The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – Address, query or structured query to geocode.</p></li>
+<li><p><strong>geocoder</strong> (<em>str</em><em>, </em><em>default = 'nominatim'</em>) – Geocoder to use. Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
+<li><p><strong>**kwargs</strong> – Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = ‘my-gee-username’ or
+user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" href="https://geopy.readthedocs.io/">https://geopy.readthedocs.io/</a> for more info.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Feature Collection with point geometries from the specified query.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ee.FeatureCollection</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Río Amazonas&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="go">{&#39;type&#39;: &#39;FeatureCollection&#39;,</span>
+<span class="go"> &#39;columns&#39;: {&#39;boundingbox&#39;: &#39;List&lt;String&gt;&#39;,</span>
+<span class="go">  &#39;class&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;display_name&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;importance&#39;: &#39;Float&#39;,</span>
+<span class="go">  &#39;lat&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;licence&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;lon&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;osm_id&#39;: &#39;Integer&#39;,</span>
+<span class="go">  &#39;osm_type&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;place_id&#39;: &#39;Integer&#39;,</span>
+<span class="go">  &#39;system:index&#39;: &#39;String&#39;,</span>
+<span class="go">  &#39;type&#39;: &#39;String&#39;},</span>
+<span class="go"> &#39;features&#39;: [{&#39;type&#39;: &#39;Feature&#39;,</span>
+<span class="go">   &#39;geometry&#39;: {&#39;type&#39;: &#39;Point&#39;, &#39;coordinates&#39;: [-57.4801276, -2.3740229]},</span>
+<span class="go">   &#39;id&#39;: &#39;0&#39;,</span>
+<span class="go">   &#39;properties&#39;: {&#39;boundingbox&#39;: [&#39;-4.4421898&#39;,</span>
+<span class="go">     &#39;0.7065296&#39;,</span>
+<span class="go">     &#39;-73.4501259&#39;,</span>
+<span class="go">     &#39;-49.2759133&#39;],</span>
+<span class="go">    &#39;class&#39;: &#39;waterway&#39;,</span>
+<span class="go">    &#39;display_name&#39;: &#39;Rio Amazonas, Região Norte, 69100-143, Brasil&#39;,</span>
+<span class="go">    &#39;importance&#39;: 0.4,</span>
+<span class="go">    &#39;lat&#39;: &#39;-2.3740229&#39;,</span>
+<span class="go">    &#39;licence&#39;: &#39;Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright&#39;,</span>
+<span class="go">    &#39;lon&#39;: &#39;-57.4801276&#39;,</span>
+<span class="go">    &#39;osm_id&#39;: 2295651,</span>
+<span class="go">    &#39;osm_type&#39;: &#39;relation&#39;,</span>
+<span class="go">    &#39;place_id&#39;: 258650987,</span>
+<span class="go">    &#39;type&#39;: &#39;river&#39;}},</span>
+<span class="go">  {&#39;type&#39;: &#39;Feature&#39;,</span>
+<span class="go">   &#39;geometry&#39;: {&#39;type&#39;: &#39;Point&#39;,</span>
+<span class="go">    &#39;coordinates&#39;: [-70.04978704421745, -4.10958645]},</span>
+<span class="go">   &#39;id&#39;: &#39;1&#39;,</span>
+<span class="go">   &#39;properties&#39;: {&#39;boundingbox&#39;: [&#39;-4.2647706&#39;,</span>
+<span class="go">     &#39;-3.9548576&#39;,</span>
+<span class="go">     &#39;-70.1817875&#39;,</span>
+<span class="go">     &#39;-69.9440055&#39;],</span>
+<span class="go">    &#39;class&#39;: &#39;natural&#39;,</span>
+<span class="go">    &#39;display_name&#39;: &#39;Río Amazonas, Ramón Castilla, Mariscal Ramón Castilla, Loreto, Perú&#39;,</span>
+<span class="go">    &#39;importance&#39;: 0.39999999999999997,</span>
+<span class="go">    &#39;lat&#39;: &#39;-4.10958645&#39;,</span>
+<span class="go">    &#39;licence&#39;: &#39;Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright&#39;,</span>
+<span class="go">    &#39;lon&#39;: &#39;-70.04978704421745&#39;,</span>
+<span class="go">    &#39;osm_id&#39;: 8495385,</span>
+<span class="go">    &#39;osm_type&#39;: &#39;relation&#39;,</span>
+<span class="go">    &#39;place_id&#39;: 297654614,</span>
+<span class="go">    &#39;type&#39;: &#39;water&#39;}},</span>
+<span class="go">  ...]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.1e043a052b0af929e4d8.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, David Montero Loaiza.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

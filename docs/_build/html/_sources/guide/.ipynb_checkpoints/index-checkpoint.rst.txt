@@ -1,8 +1,17 @@
 User Guide
 ===========
 
+Here you can find the user guide for the extended methods:
+
 .. toctree::
    :caption: Table of Contents
-   :maxdepth: 1
+   :maxdepth: 3
 
-   maskingClouds   
+   closestImage
+   constructors
+   dataConversion
+   imageScaling
+   maskingClouds
+   overloadedOperators
+   spectralIndices   
+   timeSeries

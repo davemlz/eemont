@@ -1,240 +1,344 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Extended Classes &mdash; eemont 0.1.9 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Classes &#8212; eemont 0.1.9 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../index.html" class="icon icon-home"> eemont
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Extended Classes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../eefeature.html">ee.Feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../eefeaturecollection.html">ee.FeatureCollection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../eegeometry.html">ee.Geometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../eeimage.html">ee.Image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../eeimagecollection.html">ee.ImageCollection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pddataframe.html">pd.DataFrame</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/common.html">common</a></li>
-</ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/closestImage.html">Closest Image to a Specific Date</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/constructors.html">Constructors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/dataConversion.html">Data Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/imageScaling.html">Image Scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/maskingClouds.html">Masking Clouds and Shadows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/overloadedOperators.html">Overloaded Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/spectralIndices.html">Spectral Indices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/timeSeries.html">Time Series By Regions</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Other Languages</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../guide/eemontR.html">eemont in R</a></li>
-</ul>
-<p class="caption"><span class="caption-text">What's new?</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">eemont</a>
-        
-      </nav>
 
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Extended Classes</li>
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../../_sources/classes/.ipynb_checkpoints/index-checkpoint.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
-  
-  <hr/>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+      
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../_static/logo.png" class="logo" alt="logo">
+      </a>
+      
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Extended Classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../modules/index.html">
+  Other Modules
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../guide/eemontR.html">
+  eemont in R
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../changelog.html">
+  Changelog
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/davemlz/eemont" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/dmlmont" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
             
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ee-feature">
+   ee.Feature
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ee-featurecollection">
+   ee.FeatureCollection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ee-geometry">
+   ee.Geometry
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ee-image">
+   ee.Image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ee-imagecollection">
+   ee.ImageCollection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pd-dataframe">
+   pd.DataFrame
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="extended-classes">
 <h1>Extended Classes<a class="headerlink" href="#extended-classes" title="Permalink to this headline">¶</a></h1>
 <p>Here you can find the reference of the new methods for each one of the Earth Engine classes listed below:</p>
 <div class="toctree-wrapper compound">
 </div>
+<p>The above-mentioned classes are extended with:</p>
+<div class="section" id="ee-feature">
+<h2>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.feature.BBoxFromQuery.html#eemont.feature.BBoxFromQuery" title="eemont.feature.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.feature.PointFromQuery.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-featurecollection">
+<h2>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.featurecollection.MultiPointFromQuery.html#eemont.featurecollection.MultiPointFromQuery" title="eemont.featurecollection.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-geometry">
+<h2>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.geometry.BBoxFromQuery.html#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
+<td><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-image">
+<h2>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.image.index.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
+<td><p>Computes one or more spectral indices (indices are added as bands) for an image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.image.maskClouds.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<td><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.image.scale.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ee-imagecollection">
+<h2>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.closest.html#eemont.imagecollection.closest" title="eemont.imagecollection.closest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest</span></code></a>(self, date[, tolerance, unit])</p></td>
+<td><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.getTimeSeriesByRegion.html#eemont.imagecollection.getTimeSeriesByRegion" title="eemont.imagecollection.getTimeSeriesByRegion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTimeSeriesByRegion</span></code></a>(self, reducer[, …])</p></td>
+<td><p>Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.getTimeSeriesByRegions.html#eemont.imagecollection.getTimeSeriesByRegions" title="eemont.imagecollection.getTimeSeriesByRegions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTimeSeriesByRegions</span></code></a>(self, reducer, collection)</p></td>
+<td><p>Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.index.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
+<td><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.maskClouds.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
+<td><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../stubs/eemont.imagecollection.scale.html#eemont.imagecollection.scale" title="eemont.imagecollection.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image collection.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Non-Earth Engine classes such as pd.DataFrame are also extended:</p>
+</div>
+<div class="section" id="pd-dataframe">
+<h2>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../stubs/eemont.dataframe.toEEFeatureCollection.html#eemont.dataframe.toEEFeatureCollection" title="eemont.dataframe.toEEFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toEEFeatureCollection</span></code></a>(self[, latitude, …])</p></td>
+<td><p>Converts a pd.DataFrame object into an ee.FeatureCollection object.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.1e043a052b0af929e4d8.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2021, David Montero Loaiza.
-
+          &copy; Copyright 2021, David Montero Loaiza.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

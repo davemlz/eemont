@@ -1,0 +1,3 @@
+recommonmark
+sphinxcontrib-autoprogram
+pydata-sphinx-theme

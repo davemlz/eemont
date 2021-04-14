@@ -2,4 +2,4 @@ sphinx>=1.4, !=1.5.4
 recommonmark
 sphinxcontrib-autoprogram
 pydata-sphinx-theme
-google-auth==1.16.0
+google-auth==1.21.1

@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -170,6 +164,10 @@
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
 <span class="sd">    The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    query : str</span>
@@ -188,6 +186,7 @@
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.FeatureCollection.MultiPointFromQuery(&#39;Río Amazonas&#39;,user_agent = &#39;my-gee-eemont-query&#39;).getInfo()</span>
 <span class="sd">    {&#39;type&#39;: &#39;FeatureCollection&#39;,</span>

@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -162,6 +156,10 @@
 <code class="sig-prename descclassname">eemont.featurecollection.</code><code class="sig-name descname">MultiPointFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/eemont/featurecollection.html#MultiPointFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.featurecollection.MultiPointFromQuery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
 The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about constructors in the <a class="reference internal" href="../../../guide/constructors.html#constructors"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -180,6 +178,7 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="o">.</span><span class="n">MultiPointFromQuery</span><span class="p">(</span><span class="s1">&#39;Río Amazonas&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
 <span class="go">{&#39;type&#39;: &#39;FeatureCollection&#39;,</span>

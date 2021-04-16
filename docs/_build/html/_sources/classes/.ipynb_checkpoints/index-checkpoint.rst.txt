@@ -1,20 +1,23 @@
-Extended Classes
+API Reference
 ================
-
-Here you can find the reference of the new methods for each one of the Earth Engine classes listed below:
 
 .. toctree::
    :caption: Extended Classes
    :maxdepth: 2
+   :hidden:
 
+   common
+   pddataframe
    eefeature
    eefeaturecollection
    eegeometry
    eeimage
-   eeimagecollection
-   pddataframe
-   
-The above-mentioned classes are extended with:
+   eeimagecollection   
+
+Extended Earth Engine Object Classes
+------------------------------------------
+
+Here you can find the reference of the new methods for each one of the Earth Engine classes:
 
 ee.Feature
 ~~~~~~~~~~~~~
@@ -52,7 +55,7 @@ ee.Image
 .. currentmodule:: eemont.image
 
 .. autosummary::
-
+   
    index
    maskClouds
    scale
@@ -70,6 +73,9 @@ ee.ImageCollection
    maskClouds
    scale
 
+Extended Non-Earth Engine Object Classes
+------------------------------------------
+
 Non-Earth Engine classes such as pd.DataFrame are also extended:
 
 pd.DataFrame
@@ -79,3 +85,17 @@ pd.DataFrame
 .. autosummary::
 
    toEEFeatureCollection
+   
+Additional Modules
+------------------------------------------
+
+Functions of additional modules:
+
+Common
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: eemont.common
+.. autosummary::
+
+   indices
+   listIndices

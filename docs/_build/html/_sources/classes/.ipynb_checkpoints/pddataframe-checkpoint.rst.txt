@@ -1,4 +1,4 @@
-pd.DataFrame
+Data Frame
 ==================
 
 Extended methods for the pd.DataFrame class:

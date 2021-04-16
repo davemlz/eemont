@@ -1,4 +1,4 @@
-ee.Feature
+Feature
 ===========
 
 Extended methods for the ee.Feature class:

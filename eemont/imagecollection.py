@@ -15,6 +15,10 @@ def _extend_eeImageCollection():
 def closest(self, date, tolerance = 1, unit = 'month'):
     '''Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
     
+    Tip
+    ----------    
+    Check more info about getting the closest image to a specific date in the :ref:`User Guide<Closest Image to a Specific Date>`.
+    
     Parameters
     ----------    
     self : ee.ImageCollection [this]
@@ -66,6 +70,10 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
                           maxPixels = 1e12,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
     '''Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).
     
+    Tip
+    ----------    
+    Check more info about time series in the :ref:`User Guide<Time Series By Regions>`.
+    
     Parameters
     ----------
     self : ee.ImageCollection (this)
@@ -102,6 +110,10 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     ee.FeatureCollection
         Time series by region retrieved as a Feature Collection.
         
+    See Also
+    --------
+    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
+        
     Examples
     --------
     >>> import ee, eemont
@@ -119,10 +131,6 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     ...                               geometry = fc,
     ...                               bands = ['EVI','NDVI'],
     ...                               scale = 10)
-    
-    See Also
-    --------
-    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
     '''    
     if bands != None:
         if not isinstance(bands,list):
@@ -168,6 +176,10 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
 def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs = None,crsTransform = None,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
     '''Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
     
+    Tip
+    ----------    
+    Check more info about time series in the :ref:`User Guide<Time Series By Regions>`.
+    
     Parameters
     ----------
     self : ee.ImageCollection (this)
@@ -199,6 +211,11 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
     ee.FeatureCollection
         Time series by regions retrieved as a Feature Collection.
         
+    See Also
+    --------
+    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)
+        according to the specified reducer (or reducers).
+        
     Examples
     --------
     >>> import ee, eemont
@@ -216,11 +233,6 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
     ...                                collection = fc,
     ...                                bands = ['EVI','NDVI'],
     ...                                scale = 10)
-    
-    See Also
-    --------
-    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)
-        according to the specified reducer (or reducers).
     ''' 
     if bands != None:
         if not isinstance(bands,list):
@@ -285,10 +297,18 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
 def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
     '''Computes one or more spectral indices (indices are added as bands) for an image collection.
     
+    Warning
+    -------------    
+    **Deprecation**: The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
+    
+    Tip
+    ----------    
+    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
+    
     Parameters
     ----------     
     self : ee.ImageCollection
-        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices > Supported Platforms.
+        Image collection to compute indices on. Must be scaled to [0,1].
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:
@@ -364,16 +384,41 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
     -------    
     ee.ImageCollection
         Image collection with the computed spectral index, or indices, as new bands.
-        
-    Examples
-    --------
-    >>> import ee, eemont
-    >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale().index(['NDVI','EVI','GNDVI'])
     
     See Also
     --------
     scale : Scales bands on an image collection.
+    
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
+    
+    - Computing one spectral index:
+        
+    >>> S2.index('NDVI')    
+    
+    - Computing indices with different parameters:
+    
+    >>> S2.index('SAVI',L = 0.5) 
+    
+    - Computing multiple indices:
+    
+    >>> S2.index(['NDVI','EVI','GNDVI'])    
+    
+    - Computing a specific group of indices:
+    
+    >>> S2.index('vegetation')    
+    
+    - Computing kernel indices:
+    
+    >>> S2.index(['kNDVI'],kernel = 'poly',p = 5)
+    
+    - Computing all indices:
+    
+    >>> S2.index('all')   
     '''  
     return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
 
@@ -381,10 +426,14 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
 def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
     '''Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).
     
+    Tip
+    ----------    
+    Check more info about the supported platforms and clouds masking in the :ref:`User Guide<Masking Clouds and Shadows>`.
+    
     Parameters
     ----------    
     self : ee.ImageCollection [this]
-        Image collection to mask. Check the supported platforms in User Guide > Masking Clouds and Shadows > Supported Platforms.
+        Image collection to mask.
     method : string, default = 'cloud_prob'
         Method used to mask clouds.\n
         Available options:
@@ -417,15 +466,16 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     ee.ImageCollection
         Cloud-shadow masked image collection.
         
-    Examples
-    --------
-    >>> import ee, eemont
-    >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
-        
     Notes
     -----
     This method may mask water as well as clouds for the Sentinel-3 Radiance product.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
     '''
     def S3(args):
         qa = args.select('quality_flags')
@@ -630,10 +680,18 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
 def scale(self):    
     '''Scales bands on an image collection.
     
+    Warning
+    -------------    
+    **Deprecation**: The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
+    
+    Tip
+    ----------    
+    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    
     Parameters
     ----------
     self : ee.ImageCollection (this)
-        Image collection to scale. Check the supported platforms in User Guide > Image Scaling > Supported Platforms.
+        Image collection to scale.
         
     Returns
     -------
@@ -643,6 +701,7 @@ def scale(self):
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     '''

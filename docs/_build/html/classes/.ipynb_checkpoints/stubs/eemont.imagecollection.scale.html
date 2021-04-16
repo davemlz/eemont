@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -161,9 +155,17 @@
 <dt id="eemont.imagecollection.scale">
 <code class="sig-prename descclassname">eemont.imagecollection.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/eemont/imagecollection.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.imagecollection.scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scales bands on an image collection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Deprecation</strong>: The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method will no longer be available for future versions. Please use <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> instead.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about the supported platforms and image scaling the <a class="reference internal" href="../../../guide/imageScaling.html#image-scaling"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to scale. Check the supported platforms in User Guide &gt; Image Scaling &gt; Supported Platforms.</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>ee.ImageCollection</em><em> (</em><em>this</em><em>)</em>) – Image collection to scale.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Scaled image collection.</p>
@@ -174,6 +176,7 @@
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
 </pre></div>

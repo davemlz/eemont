@@ -582,7 +582,11 @@ def indices():
     -------
     Box
         Dictionary of available indices. For each index, the keys 'description', 'formula', 'requires', 'reference' and 'contributor' can be checked.
-        
+    
+    See Also
+    --------
+    listIndices : Gets the list of available indices.
+    
     Examples
     --------
     >>> import eemont
@@ -603,7 +607,11 @@ def listIndices():
     -------
     list
         List of available indices.
-        
+    
+    See Also
+    --------
+    indices : Gets the dictionary of available indices as a Box object.
+    
     Examples
     --------
     >>> import eemont

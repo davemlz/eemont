@@ -12,6 +12,10 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
     '''Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
     
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
+    
     Parameters
     ----------    
     query : str
@@ -27,9 +31,14 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
     ee.Feature
         Feature with a geometry describing a point from the specified query.
     
+    See Also
+    --------
+    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package. 
+    
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.Feature.PointFromQuery('Mt. Rainier, USA',user_agent = 'my-gee-eemont-query').getInfo()
     {'type': 'Feature',
@@ -47,11 +56,7 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_id': 1744903493,
       'osm_type': 'node',
       'place_id': 17287419,
-      'type': 'volcano'}}
-      
-    See Also
-    --------
-    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.    
+      'type': 'volcano'}}   
     '''
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)
@@ -66,6 +71,10 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
 def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
     '''Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
+    
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
     
     Parameters
     ----------    
@@ -82,9 +91,14 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
     ee.Feature
         Feature with a geometry describing a bounding box from the specified query.
     
+    See Also
+    --------    
+    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.
+    
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.Feature.BBoxFromQuery('Bogotá',user_agent = 'my-gee-eemont-query').getInfo()
     {'type': 'Feature',
@@ -110,10 +124,6 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_type': 'relation',
       'place_id': 259216862,
       'type': 'administrative'}}
-      
-    See Also
-    --------    
-    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.
     '''
     if geocoder in ['nominatim','arcgis']:
         cls = get_geocoder_for_service(geocoder)

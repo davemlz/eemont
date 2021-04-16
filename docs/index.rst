@@ -12,13 +12,6 @@ Welcome to eemont!
    :hidden:      
    
    classes/index
-
-.. toctree::   
-   :maxdepth: 2
-   :caption: Modules 
-   :hidden:
-      
-   modules/index
    
 .. toctree::
    :maxdepth: 2

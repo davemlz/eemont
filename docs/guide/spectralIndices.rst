@@ -309,7 +309,7 @@ The following table shows the list of bands used for spectral indices computatio
      - Name     
      - Sentinel-2
      - Landsat 8
-     - Landsat 4, 5, 7
+     - Landsat 457
      - MODIS     
    * - Aerosols
      - A

@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -161,10 +155,14 @@
 <dt id="eemont.image.maskClouds">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">maskClouds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'cloud_prob'</span></em>, <em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">60</span></em>, <em class="sig-param"><span class="n">maskCirrus</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">maskShadows</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scaledImage</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">dark</span><span class="o">=</span><span class="default_value">0.15</span></em>, <em class="sig-param"><span class="n">cloudDist</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">buffer</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cdi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/eemont/image.html#maskClouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.maskClouds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about the supported platforms and clouds masking in the <a class="reference internal" href="../../../guide/maskingClouds.html#masking-clouds-and-shadows"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows &gt; Supported Platforms.</p></li>
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to mask.</p></li>
 <li><p><strong>method</strong> (<em>string</em><em>, </em><em>default = 'cloud_prob'</em>) – <p>Method used to mask clouds.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -195,14 +193,15 @@ This parameter is ignored for Landsat products.</p></li>
 <dd class="field-odd"><p>ee.Image</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>This method may mask water as well as clouds for the Sentinel-3 Radiance product.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">maskClouds</span><span class="p">(</span><span class="n">prob</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span><span class="n">buffer</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span><span class="n">cdi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="rubric">Notes</p>
-<p>This method may mask water as well as clouds for the Sentinel-3 Radiance product.</p>
 </dd></dl>
 
 </div>

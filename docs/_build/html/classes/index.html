@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extended Classes &#8212; eemont 0.1.9 documentation</title>
+    <title>API Reference &#8212; eemont 0.1.9 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ee.Feature" href="eefeature.html" />
+    <link rel="next" title="Common" href="common.html" />
     <link rel="prev" title="Welcome to eemont!" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -62,13 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -131,33 +125,38 @@
   <div class="bd-toc-item active">
     <ul class="nav bd-sidenav">
  <li class="toctree-l2">
-  <a class="reference internal" href="eefeature.html">
-   ee.Feature
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="eefeaturecollection.html">
-   ee.FeatureCollection
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="eegeometry.html">
-   ee.Geometry
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="eeimage.html">
-   ee.Image
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="eeimagecollection.html">
-   ee.ImageCollection
+  <a class="reference internal" href="common.html">
+   Common
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="pddataframe.html">
-   pd.DataFrame
+   Data Frame
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eefeature.html">
+   Feature
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eefeaturecollection.html">
+   Feature Collection
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eegeometry.html">
+   Geometry
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eeimage.html">
+   Image
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="eeimagecollection.html">
+   Image Collection
   </a>
  </li>
 </ul>
@@ -177,34 +176,60 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ee-feature">
-   ee.Feature
+  <a class="reference internal nav-link" href="#extended-earth-engine-object-classes">
+   Extended Earth Engine Object Classes
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ee-feature">
+     ee.Feature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ee-featurecollection">
+     ee.FeatureCollection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ee-geometry">
+     ee.Geometry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ee-image">
+     ee.Image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ee-imagecollection">
+     ee.ImageCollection
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ee-featurecollection">
-   ee.FeatureCollection
+  <a class="reference internal nav-link" href="#extended-non-earth-engine-object-classes">
+   Extended Non-Earth Engine Object Classes
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pd-dataframe">
+     pd.DataFrame
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ee-geometry">
-   ee.Geometry
+  <a class="reference internal nav-link" href="#additional-modules">
+   Additional Modules
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ee-image">
-   ee.Image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ee-imagecollection">
-   ee.ImageCollection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pd-dataframe">
-   pd.DataFrame
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common">
+     Common
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -223,51 +248,15 @@
               
               <div>
                 
-  <div class="section" id="extended-classes">
-<h1>Extended Classes<a class="headerlink" href="#extended-classes" title="Permalink to this headline">¶</a></h1>
-<p>Here you can find the reference of the new methods for each one of the Earth Engine classes listed below:</p>
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Extended Classes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="eefeature.html">ee.Feature</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.feature.BBoxFromQuery.html">eemont.feature.BBoxFromQuery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.feature.PointFromQuery.html">eemont.feature.PointFromQuery</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="eefeaturecollection.html">ee.FeatureCollection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.featurecollection.MultiPointFromQuery.html">eemont.featurecollection.MultiPointFromQuery</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="eegeometry.html">ee.Geometry</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.geometry.BBoxFromQuery.html">eemont.geometry.BBoxFromQuery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.geometry.PointFromQuery.html">eemont.geometry.PointFromQuery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.geometry.MultiPointFromQuery.html">eemont.geometry.MultiPointFromQuery</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="eeimage.html">ee.Image</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.image.index.html">eemont.image.index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.image.maskClouds.html">eemont.image.maskClouds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.image.scale.html">eemont.image.scale</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="eeimagecollection.html">ee.ImageCollection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.closest.html">eemont.imagecollection.closest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.getTimeSeriesByRegion.html">eemont.imagecollection.getTimeSeriesByRegion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.getTimeSeriesByRegions.html">eemont.imagecollection.getTimeSeriesByRegions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.index.html">eemont.imagecollection.index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.maskClouds.html">eemont.imagecollection.maskClouds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.imagecollection.scale.html">eemont.imagecollection.scale</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pddataframe.html">pd.DataFrame</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/eemont.dataframe.toEEFeatureCollection.html">eemont.dataframe.toEEFeatureCollection</a></li>
-</ul>
-</li>
-</ul>
 </div>
-<p>The above-mentioned classes are extended with:</p>
+<div class="section" id="extended-earth-engine-object-classes">
+<h2>Extended Earth Engine Object Classes<a class="headerlink" href="#extended-earth-engine-object-classes" title="Permalink to this headline">¶</a></h2>
+<p>Here you can find the reference of the new methods for each one of the Earth Engine classes:</p>
 <div class="section" id="ee-feature">
-<h2>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h2>
+<h3>ee.Feature<a class="headerlink" href="#ee-feature" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -284,7 +273,7 @@
 </table>
 </div>
 <div class="section" id="ee-featurecollection">
-<h2>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h2>
+<h3>ee.FeatureCollection<a class="headerlink" href="#ee-featurecollection" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -298,7 +287,7 @@
 </table>
 </div>
 <div class="section" id="ee-geometry">
-<h2>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h2>
+<h3>ee.Geometry<a class="headerlink" href="#ee-geometry" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -318,7 +307,7 @@
 </table>
 </div>
 <div class="section" id="ee-image">
-<h2>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h2>
+<h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -338,7 +327,7 @@
 </table>
 </div>
 <div class="section" id="ee-imagecollection">
-<h2>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h2>
+<h3>ee.ImageCollection<a class="headerlink" href="#ee-imagecollection" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -365,21 +354,46 @@
 </tr>
 </tbody>
 </table>
-<p>Non-Earth Engine classes such as pd.DataFrame are also extended:</p>
 </div>
+</div>
+<div class="section" id="extended-non-earth-engine-object-classes">
+<h2>Extended Non-Earth Engine Object Classes<a class="headerlink" href="#extended-non-earth-engine-object-classes" title="Permalink to this headline">¶</a></h2>
+<p>Non-Earth Engine classes such as pd.DataFrame are also extended:</p>
 <div class="section" id="pd-dataframe">
-<h2>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h2>
+<h3>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="stubs/eemont.dataframe.toEEFeatureCollection.html#eemont.dataframe.toEEFeatureCollection" title="eemont.dataframe.toEEFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toEEFeatureCollection</span></code></a>(self[, latitude, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/.ipynb_checkpoints/eemont.dataframe.toEEFeatureCollection-checkpoint.html#eemont.dataframe.toEEFeatureCollection" title="eemont.dataframe.toEEFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toEEFeatureCollection</span></code></a>(self[, latitude, …])</p></td>
 <td><p>Converts a pd.DataFrame object into an ee.FeatureCollection object.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="additional-modules">
+<h2>Additional Modules<a class="headerlink" href="#additional-modules" title="Permalink to this headline">¶</a></h2>
+<p>Functions of additional modules:</p>
+<div class="section" id="common">
+<h3>Common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/.ipynb_checkpoints/eemont.common.indices-checkpoint.html#eemont.common.indices" title="eemont.common.indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code></a>()</p></td>
+<td><p>Gets the dictionary of available indices as a Box object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/eemont.common.listIndices.html#eemont.common.listIndices" title="eemont.common.listIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listIndices</span></code></a>()</p></td>
+<td><p>Gets the list of available indices.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -390,7 +404,7 @@
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Welcome to eemont!</a>
-    <a class='right-next' id="next-link" href="eefeature.html" title="next page">ee.Feature</a>
+    <a class='right-next' id="next-link" href="common.html" title="next page">Common</a>
 
               </div>
               

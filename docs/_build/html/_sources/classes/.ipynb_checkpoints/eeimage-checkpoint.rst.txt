@@ -1,4 +1,4 @@
-ee.Image
+Image
 ========
 
 Extended methods for the ee.Image class:
@@ -7,7 +7,7 @@ Extended methods for the ee.Image class:
 
 .. autosummary::
    :toctree: stubs
-
+   
    index
    maskClouds
    scale

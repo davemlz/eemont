@@ -550,10 +550,18 @@ def __invert__(self):
 def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
     '''Computes one or more spectral indices (indices are added as bands) for an image.
     
+    Warning
+    -------------    
+    **Deprecation**: The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
+    
+    Tip
+    ----------    
+    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
+    
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide > Spectral Indices > Supported Platforms.        
+        Image to compute indices on. Must be scaled to [0,1].      
     index : string | list[string], default = 'NDVI'
         Index or list of indices to compute.\n
         Available options:
@@ -630,15 +638,40 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
     ee.Image
         Image with the computed spectral index, or indices, as new bands.
         
-    Examples
-    --------
-    >>> import ee, eemont
-    >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scale().index(['NDVI','EVI','GNDVI'])
-    
     See Also
     --------
     scale : Scales bands on an image collection.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale().first()
+    
+    - Computing one spectral index:
+        
+    >>> S2.index('NDVI')    
+    
+    - Computing indices with different parameters:
+    
+    >>> S2.index('SAVI',L = 0.5) 
+    
+    - Computing multiple indices:
+    
+    >>> S2.index(['NDVI','EVI','GNDVI'])    
+    
+    - Computing a specific group of indices:
+    
+    >>> S2.index('vegetation')    
+    
+    - Computing kernel indices:
+    
+    >>> S2.index(['kNDVI'],kernel = 'poly',p = 5)
+    
+    - Computing all indices:
+    
+    >>> S2.index('all')
     '''    
     return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
 
@@ -646,10 +679,14 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
 def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
     '''Masks clouds and shadows in an image (valid just for Surface Reflectance products).
     
+    Tip
+    ----------    
+    Check more info about the supported platforms and clouds masking in the :ref:`User Guide<Masking Clouds and Shadows>`.
+    
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to mask. Check the supported platforms in User Guide > Masking Clouds and Shadows > Supported Platforms.
+        Image to mask.
     method : string, default = 'cloud_prob'
         Method used to mask clouds.\n
         Available options:
@@ -681,15 +718,16 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
     ee.Image
         Cloud-shadow masked image.
         
-    Examples
-    --------
-    >>> import ee, eemont
-    >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().maskClouds(prob = 75,buffer = 300,cdi = -0.5)
-        
     Notes
     -----
     This method may mask water as well as clouds for the Sentinel-3 Radiance product.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().maskClouds(prob = 75,buffer = 300,cdi = -0.5)
     '''
     def S3(args):
         qa = args.select('quality_flags')
@@ -891,10 +929,18 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
 def scale(self):    
     '''Scales bands on an image.
     
+    Warning
+    -------------    
+    **Deprecation**: The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
+    
+    Tip
+    ----------    
+    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    
     Parameters
     ----------    
     self : ee.Image [this]
-        Image to scale. Check the supported platforms in User Guide > Image Scaling > Supported Platforms.
+        Image to scale.
         
     Returns
     -------
@@ -904,6 +950,7 @@ def scale(self):
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scale()
     '''

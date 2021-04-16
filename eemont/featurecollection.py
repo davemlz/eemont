@@ -12,6 +12,10 @@ def MultiPointFromQuery(query,geocoder = "nominatim",**kwargs):
     '''Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
     The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.
     
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
+    
     Parameters
     ----------    
     query : str
@@ -30,6 +34,7 @@ def MultiPointFromQuery(query,geocoder = "nominatim",**kwargs):
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = 'my-gee-eemont-query').getInfo()
     {'type': 'FeatureCollection',

@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -168,6 +162,10 @@
 <span class="k">def</span> <span class="nf">BBoxFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    query : str</span>
@@ -183,9 +181,15 @@
 <span class="sd">    ee.Geometry.Polygon</span>
 <span class="sd">        Geometry describing a bounding box from the specified query.</span>
 <span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Geometry.BBoxFromQuery(&#39;Seattle&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
 <span class="sd">    ee.Geometry({</span>
@@ -220,11 +224,6 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">geocoder</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nominatim&#39;</span><span class="p">,</span><span class="s1">&#39;arcgis&#39;</span><span class="p">]:</span>
         <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
@@ -248,6 +247,10 @@
 <span class="k">def</span> <span class="nf">PointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    query : str</span>
@@ -263,9 +266,15 @@
 <span class="sd">    ee.Geometry.Point</span>
 <span class="sd">        Geometry describing a point from the specified query.</span>
 <span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Geometry.PointFromQuery(&#39;Mt. Rainier, USA&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
 <span class="sd">    ee.Geometry({</span>
@@ -281,11 +290,6 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -298,6 +302,10 @@
 <div class="viewcode-block" id="MultiPointFromQuery"><a class="viewcode-back" href="../../classes/stubs/eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
+<span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
@@ -314,9 +322,15 @@
 <span class="sd">    ee.Geometry.MultiPoint</span>
 <span class="sd">        Geometry describing a multi-point from the specified query.</span>
 <span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Geometry.MultiPointFromQuery(&#39;Mt. Rainier, USA&#39;,user_agent = &#39;my-gee-eemont-query&#39;)</span>
 <span class="sd">    ee.Geometry({</span>
@@ -346,11 +360,6 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

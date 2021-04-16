@@ -35,7 +35,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Extended Classes" href="classes/index.html" />
+    <link rel="next" title="API Reference" href="classes/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -61,13 +61,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -165,43 +159,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methods">
-   Methods
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     ee.Feature
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     ee.FeatureCollection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     ee.Geometry
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     ee.Image
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     ee.ImageCollection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pd-dataframe">
-     pd.DataFrame
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#supported-platforms">
    Supported Platforms
   </a>
@@ -209,6 +166,33 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#license">
    License
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributing">
+   Contributing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugs">
+     Bugs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enhancement">
+     Enhancement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution-steps">
+   Contribution Steps
   </a>
  </li>
 </ul>
@@ -232,8 +216,6 @@
 <h1>Welcome to eemont!<a class="headerlink" href="#welcome-to-eemont" title="Permalink to this headline">¶</a></h1>
 <p><strong>A Python package that extends</strong> <a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a></p>
 <img alt="_images/eemont.png" class="align-center" src="_images/eemont.png" />
-<div class="toctree-wrapper compound">
-</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -381,125 +363,6 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<p>The above-mentioned features extend the following Earth Engine classes:</p>
-<div class="section" id="id2">
-<h3>ee.Feature<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.feature.BBoxFromQuery.html#eemont.feature.BBoxFromQuery" title="eemont.feature.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.feature.PointFromQuery.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id3">
-<h3>ee.FeatureCollection<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.featurecollection.MultiPointFromQuery.html#eemont.featurecollection.MultiPointFromQuery" title="eemont.featurecollection.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id4">
-<h3>ee.Geometry<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.geometry.BBoxFromQuery.html#eemont.geometry.BBoxFromQuery" title="eemont.geometry.BBoxFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BBoxFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiPointFromQuery</span></code></a>(query[, geocoder])</p></td>
-<td><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id5">
-<h3>ee.Image<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.image.index.html#eemont.image.index" title="eemont.image.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
-<td><p>Computes one or more spectral indices (indices are added as bands) for an image.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.image.maskClouds.html#eemont.image.maskClouds" title="eemont.image.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
-<td><p>Masks clouds and shadows in an image (valid just for Surface Reflectance products).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.image.scale.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales bands on an image.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id6">
-<h3>ee.ImageCollection<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.closest.html#eemont.imagecollection.closest" title="eemont.imagecollection.closest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest</span></code></a>(self, date[, tolerance, unit])</p></td>
-<td><p>Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.getTimeSeriesByRegion.html#eemont.imagecollection.getTimeSeriesByRegion" title="eemont.imagecollection.getTimeSeriesByRegion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTimeSeriesByRegion</span></code></a>(self, reducer[, …])</p></td>
-<td><p>Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.getTimeSeriesByRegions.html#eemont.imagecollection.getTimeSeriesByRegions" title="eemont.imagecollection.getTimeSeriesByRegions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTimeSeriesByRegions</span></code></a>(self, reducer, collection)</p></td>
-<td><p>Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.index.html#eemont.imagecollection.index" title="eemont.imagecollection.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(self[, index, G, C1, C2, L, kernel, …])</p></td>
-<td><p>Computes one or more spectral indices (indices are added as bands) for an image collection.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.maskClouds.html#eemont.imagecollection.maskClouds" title="eemont.imagecollection.maskClouds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskClouds</span></code></a>(self[, method, prob, maskCirrus, …])</p></td>
-<td><p>Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="classes/stubs/eemont.imagecollection.scale.html#eemont.imagecollection.scale" title="eemont.imagecollection.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales bands on an image collection.</p></td>
-</tr>
-</tbody>
-</table>
-<p>Non-Earth Engine classes such as pd.DataFrame are also extended:</p>
-</div>
-<div class="section" id="pd-dataframe">
-<h3>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="classes/stubs/eemont.dataframe.toEEFeatureCollection.html#eemont.dataframe.toEEFeatureCollection" title="eemont.dataframe.toEEFeatureCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toEEFeatureCollection</span></code></a>(self[, latitude, …])</p></td>
-<td><p>Converts a pd.DataFrame object into an ee.FeatureCollection object.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <div class="section" id="supported-platforms">
 <h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
 <p>The Supported Platforms for each method can be found in the eemont documentation.</p>
@@ -514,6 +377,86 @@
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>The project is licensed under the MIT license.</p>
 </div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Contributions to eemont are welcome! Here you will find how to do it:</p>
+<div class="section" id="bugs">
+<h3>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h3>
+<p>If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.</p>
+<p>If you want to contributte by fixing an issue, please check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">bug</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p>
+</div>
+<div class="section" id="enhancement">
+<h3>Enhancement<a class="headerlink" href="#enhancement" title="Permalink to this headline">¶</a></h3>
+<p>New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">enhancement</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.</p>
+</div>
+</div>
+<div class="section" id="contribution-steps">
+<h2>Contribution Steps<a class="headerlink" href="#contribution-steps" title="Permalink to this headline">¶</a></h2>
+<p>First, fork the <a class="reference external" href="https://github.com/davemlz/eemont">eemont</a> repository and clone it to your local machine. Then, create a development branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">name</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">branch</span>
+</pre></div>
+</div>
+<p>eemont is divided according to Earth Engine classes, and you will find a module for each class (e.g. <code class="code docutils literal notranslate"><span class="pre">imagecollection.py</span></code>). Look for the required class as follows:</p>
+<ul class="simple">
+<li><p>ee.Feature: <code class="code docutils literal notranslate"><span class="pre">feature.py</span></code></p></li>
+<li><p>ee.FeatureCollection: <code class="code docutils literal notranslate"><span class="pre">featurecollection.py</span></code></p></li>
+<li><p>ee.Geometry: <code class="code docutils literal notranslate"><span class="pre">geometry.py</span></code></p></li>
+<li><p>ee.Image: <code class="code docutils literal notranslate"><span class="pre">image.py</span></code></p></li>
+<li><p>ee.ImageCollection: <code class="code docutils literal notranslate"><span class="pre">imagecollection.py</span></code></p></li>
+</ul>
+<p>The <code class="code docutils literal notranslate"><span class="pre">common.py</span></code> is used for methods that can be used for more than one Earth Engine class.</p>
+<p>When creating new features, please start with the <code class="code docutils literal notranslate"><span class="pre">self</span></code> argument and add the corresponding decorator (e.g. <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeImageCollection()</span></code>). Check this example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@_extend_eeImage</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_new_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;Returns the addition of and image and a float.</span>
+
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     self : ee.Image [this]</span>
+<span class="sd">         Image to add.</span>
+<span class="sd">     other : float</span>
+<span class="sd">         Float to add.</span>
+
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     ee.Image</span>
+<span class="sd">         Addition of an ee.Image and a float.</span>
+
+<span class="sd">     Examples</span>
+<span class="sd">     --------</span>
+<span class="sd">     &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">     &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">     &gt;&gt;&gt; img = ee.Image(0).my_new_method(other = 3.14)</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By using the <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeImage()</span></code> decorator, the <code class="code docutils literal notranslate"><span class="pre">my_new_method()</span></code> method is added to the <code class="code docutils literal notranslate"><span class="pre">ee.Image</span></code> class. Look for the required decorator as follows:</p>
+<ul class="simple">
+<li><p>ee.Feature: <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeFeature()</span></code></p></li>
+<li><p>ee.FeatureCollection: <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeFeatureCollection()</span></code></p></li>
+<li><p>ee.Geometry: <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeGeometry()</span></code></p></li>
+<li><p>ee.Image: <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeImage()</span></code></p></li>
+<li><p>ee.ImageCollection: <code class="code docutils literal notranslate"><span class="pre">&#64;_extend_eeImageCollection()</span></code></p></li>
+</ul>
+<p>In order to test additions, you can use <code class="code docutils literal notranslate"><span class="pre">pytest</span></code> over the <code class="code docutils literal notranslate"><span class="pre">tests</span></code> folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">tests</span>
+</pre></div>
+</div>
+<p>This will autmatically test all modules for the available satellite platforms through eemont. If you have added a new feature, please include it in the tests.</p>
+<p>To test across different Python versions, please use <code class="code docutils literal notranslate"><span class="pre">tox</span></code>.</p>
+<p>Now it’s time to commit your changes and push your development branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Description of your work&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">name</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">branch</span>
+</pre></div>
+</div>
+<p>And finally, submit a pull request.</p>
+</div>
 </div>
 
 
@@ -522,7 +465,7 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='right-next' id="next-link" href="classes/index.html" title="next page">Extended Classes</a>
+    <a class='right-next' id="next-link" href="classes/index.html" title="next page">API Reference</a>
 
               </div>
               

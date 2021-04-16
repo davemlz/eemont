@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="eemont.image.maskClouds" href="eemont.image.maskClouds.html" />
-    <link rel="prev" title="ee.Image" href="../eeimage.html" />
+    <link rel="prev" title="Image" href="../eeimage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -62,13 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -131,23 +125,33 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2">
+  <a class="reference internal" href="../common.html">
+   Common
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../pddataframe.html">
+   Data Frame
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="../eefeature.html">
-   ee.Feature
+   Feature
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eefeaturecollection.html">
-   ee.FeatureCollection
+   Feature Collection
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eegeometry.html">
-   ee.Geometry
+   Geometry
   </a>
  </li>
  <li class="toctree-l2 current active">
   <a class="reference internal" href="../eeimage.html">
-   ee.Image
+   Image
   </a>
   <ul class="current">
    <li class="toctree-l3 current active">
@@ -169,12 +173,7 @@
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eeimagecollection.html">
-   ee.ImageCollection
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="../pddataframe.html">
-   pd.DataFrame
+   Image Collection
   </a>
  </li>
 </ul>
@@ -211,10 +210,18 @@
 <dt id="eemont.image.index">
 <code class="sig-prename descclassname">eemont.image.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">'NDVI'</span></em>, <em class="sig-param"><span class="n">G</span><span class="o">=</span><span class="default_value">2.5</span></em>, <em class="sig-param"><span class="n">C1</span><span class="o">=</span><span class="default_value">6.0</span></em>, <em class="sig-param"><span class="n">C2</span><span class="o">=</span><span class="default_value">7.5</span></em>, <em class="sig-param"><span class="n">L</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">'RBF'</span></em>, <em class="sig-param"><span class="n">sigma</span><span class="o">=</span><span class="default_value">'0.5 * (a + b)'</span></em>, <em class="sig-param"><span class="n">p</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">c</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/image.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.image.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes one or more spectral indices (indices are added as bands) for an image.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Deprecation</strong>: The <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method will no longer be available for future versions. Please use <code class="code docutils literal notranslate"><span class="pre">spectralIndices()</span></code> instead.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about the supported platforms and spectral indices in the <a class="reference internal" href="../../guide/spectralIndices.html#spectral-indices"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices &gt; Supported Platforms.</p></li>
+<li><p><strong>self</strong> (<em>ee.Image</em><em> [</em><em>this</em><em>]</em>) – Image to compute indices on. Must be scaled to [0,1].</p></li>
 <li><p><strong>index</strong> (<em>string | list</em><em>[</em><em>string</em><em>]</em><em>, </em><em>default = 'NDVI'</em>) – <p>Index or list of indices to compute.</p>
 <dl class="simple">
 <dt>Available options:</dt><dd><ul>
@@ -307,18 +314,55 @@ Used for kernel = ‘poly’. This must be greater than or equal to 0.</p></li>
 <dd class="field-odd"><p>ee.Image</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
 <dt><a class="reference internal" href="eemont.image.scale.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-func docutils literal notranslate"><span class="pre">scale()</span></code></a></dt><dd><p>Scales bands on an image collection.</p>
 </dd>
 </dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing one spectral index:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing indices with different parameters:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;SAVI&#39;</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing multiple indices:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing a specific group of indices:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;vegetation&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing kernel indices:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;kNDVI&#39;</span><span class="p">],</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Computing all indices:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
 </dd></dl>
 
@@ -330,7 +374,7 @@ Used for kernel = ‘poly’. This must be greater than or equal to 0.</p></li>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../eeimage.html" title="previous page">ee.Image</a>
+    <a class='left-prev' id="prev-link" href="../eeimage.html" title="previous page">Image</a>
     <a class='right-next' id="next-link" href="eemont.image.maskClouds.html" title="next page">eemont.image.maskClouds</a>
 
               </div>

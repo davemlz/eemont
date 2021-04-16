@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -170,6 +164,10 @@
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</span>
 <span class="sd">    The properties of the feature correspond to the raw properties retrieved by the location of the query.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    query : str</span>
@@ -185,9 +183,14 @@
 <span class="sd">    ee.Feature</span>
 <span class="sd">        Feature with a geometry describing a point from the specified query.</span>
 <span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package. </span>
+<span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Feature.PointFromQuery(&#39;Mt. Rainier, USA&#39;,user_agent = &#39;my-gee-eemont-query&#39;).getInfo()</span>
 <span class="sd">    {&#39;type&#39;: &#39;Feature&#39;,</span>
@@ -205,11 +208,7 @@
 <span class="sd">      &#39;osm_id&#39;: 1744903493,</span>
 <span class="sd">      &#39;osm_type&#39;: &#39;node&#39;,</span>
 <span class="sd">      &#39;place_id&#39;: 17287419,</span>
-<span class="sd">      &#39;type&#39;: &#39;volcano&#39;}}</span>
-<span class="sd">      </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.    </span>
+<span class="sd">      &#39;type&#39;: &#39;volcano&#39;}}   </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -224,6 +223,10 @@
 <span class="k">def</span> <span class="nf">BBoxFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    The properties of the feature correspond to the raw properties retrieved by the location of the query.</span>
+<span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
@@ -240,9 +243,14 @@
 <span class="sd">    ee.Feature</span>
 <span class="sd">        Feature with a geometry describing a bounding box from the specified query.</span>
 <span class="sd">    </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------    </span>
+<span class="sd">    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</span>
+<span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Feature.BBoxFromQuery(&#39;Bogotá&#39;,user_agent = &#39;my-gee-eemont-query&#39;).getInfo()</span>
 <span class="sd">    {&#39;type&#39;: &#39;Feature&#39;,</span>
@@ -268,10 +276,6 @@
 <span class="sd">      &#39;osm_type&#39;: &#39;relation&#39;,</span>
 <span class="sd">      &#39;place_id&#39;: 259216862,</span>
 <span class="sd">      &#39;type&#39;: &#39;administrative&#39;}}</span>
-<span class="sd">      </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------    </span>
-<span class="sd">    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">geocoder</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nominatim&#39;</span><span class="p">,</span><span class="s1">&#39;arcgis&#39;</span><span class="p">]:</span>
         <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>

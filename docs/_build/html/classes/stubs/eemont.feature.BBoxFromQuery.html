@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="eemont.feature.PointFromQuery" href="eemont.feature.PointFromQuery.html" />
-    <link rel="prev" title="ee.Feature" href="../eefeature.html" />
+    <link rel="prev" title="Feature" href="../eefeature.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -62,13 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -130,9 +124,19 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="../common.html">
+   Common
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../pddataframe.html">
+   Data Frame
+  </a>
+ </li>
  <li class="toctree-l2 current active">
   <a class="reference internal" href="../eefeature.html">
-   ee.Feature
+   Feature
   </a>
   <ul class="current">
    <li class="toctree-l3 current active">
@@ -149,27 +153,22 @@
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eefeaturecollection.html">
-   ee.FeatureCollection
+   Feature Collection
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eegeometry.html">
-   ee.Geometry
+   Geometry
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eeimage.html">
-   ee.Image
+   Image
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eeimagecollection.html">
-   ee.ImageCollection
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="../pddataframe.html">
-   pd.DataFrame
+   Image Collection
   </a>
  </li>
 </ul>
@@ -207,6 +206,10 @@
 <code class="sig-prename descclassname">eemont.feature.</code><code class="sig-name descname">BBoxFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/feature.html#BBoxFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.feature.BBoxFromQuery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
 The properties of the feature correspond to the raw properties retrieved by the location of the query.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about constructors in the <a class="reference internal" href="../../guide/constructors.html#constructors"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -223,8 +226,16 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
 <dd class="field-odd"><p>ee.Feature</p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="eemont.feature.PointFromQuery.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p>
+</dd>
+</dl>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Bogotá&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
 <span class="go">{&#39;type&#39;: &#39;Feature&#39;,</span>
@@ -252,13 +263,6 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
 <span class="go">  &#39;type&#39;: &#39;administrative&#39;}}</span>
 </pre></div>
 </div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="eemont.feature.PointFromQuery.html#eemont.feature.PointFromQuery" title="eemont.feature.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-</dl>
-</div>
 </dd></dl>
 
 </div>
@@ -269,7 +273,7 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../eefeature.html" title="previous page">ee.Feature</a>
+    <a class='left-prev' id="prev-link" href="../eefeature.html" title="previous page">Feature</a>
     <a class='right-next' id="next-link" href="eemont.feature.PointFromQuery.html" title="next page">eemont.feature.PointFromQuery</a>
 
               </div>

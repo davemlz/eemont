@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -169,6 +163,10 @@
     <span class="sd">&#39;&#39;&#39;Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection</span>
 <span class="sd">    with an associated geometry.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about data conversion in the :ref:`User Guide&lt;Data Conversion&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    self : pd.DataFrame [this]</span>
@@ -185,6 +183,9 @@
 <span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; df = pd.DataFrame()</span>
 <span class="sd">    &gt;&gt;&gt; df[&#39;lat&#39;] = [2.92846, 4.8927]</span>
 <span class="sd">    &gt;&gt;&gt; df[&#39;lon&#39;] = [-76.0269, -75.3188]</span>

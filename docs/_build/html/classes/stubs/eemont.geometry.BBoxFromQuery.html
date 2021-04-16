@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="eemont.geometry.PointFromQuery" href="eemont.geometry.PointFromQuery.html" />
-    <link rel="prev" title="ee.Geometry" href="../eegeometry.html" />
+    <link rel="prev" title="Geometry" href="../eegeometry.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -62,13 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -131,18 +125,28 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2">
+  <a class="reference internal" href="../common.html">
+   Common
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../pddataframe.html">
+   Data Frame
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="../eefeature.html">
-   ee.Feature
+   Feature
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eefeaturecollection.html">
-   ee.FeatureCollection
+   Feature Collection
   </a>
  </li>
  <li class="toctree-l2 current active">
   <a class="reference internal" href="../eegeometry.html">
-   ee.Geometry
+   Geometry
   </a>
   <ul class="current">
    <li class="toctree-l3 current active">
@@ -164,17 +168,12 @@
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eeimage.html">
-   ee.Image
+   Image
   </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="../eeimagecollection.html">
-   ee.ImageCollection
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="../pddataframe.html">
-   pd.DataFrame
+   Image Collection
   </a>
  </li>
 </ul>
@@ -211,6 +210,10 @@
 <dt id="eemont.geometry.BBoxFromQuery">
 <code class="sig-prename descclassname">eemont.geometry.</code><code class="sig-name descname">BBoxFromQuery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">geocoder</span><span class="o">=</span><span class="default_value">'nominatim'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/eemont/geometry.html#BBoxFromQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.geometry.BBoxFromQuery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check more info about constructors in the <a class="reference internal" href="../../guide/constructors.html#constructors"><span class="std std-ref">User Guide</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -227,8 +230,18 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
 <dd class="field-odd"><p>ee.Geometry.Polygon</p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p>
+</dd>
+<dt><a class="reference internal" href="eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p>
+</dd>
+</dl>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBoxFromQuery</span><span class="p">(</span><span class="s1">&#39;Seattle&#39;</span><span class="p">,</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;my-gee-eemont-query&#39;</span><span class="p">)</span>
 <span class="go">ee.Geometry({</span>
@@ -265,15 +278,6 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
 <span class="go">})</span>
 </pre></div>
 </div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery" title="eemont.geometry.PointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">PointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-<dt><a class="reference internal" href="eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery" title="eemont.geometry.MultiPointFromQuery"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code></a></dt><dd><p>Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</p>
-</dd>
-</dl>
-</div>
 </dd></dl>
 
 </div>
@@ -284,7 +288,7 @@ user_agent = ‘my-gee-app-name’). Please visit <a class="reference external" 
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../eegeometry.html" title="previous page">ee.Geometry</a>
+    <a class='left-prev' id="prev-link" href="../eegeometry.html" title="previous page">Geometry</a>
     <a class='right-next' id="next-link" href="eemont.geometry.PointFromQuery.html" title="next page">eemont.geometry.PointFromQuery</a>
 
               </div>

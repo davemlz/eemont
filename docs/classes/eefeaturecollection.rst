@@ -1,4 +1,4 @@
-ee.FeatureCollection
+Feature Collection
 ====================
 
 Extended methods for the ee.FeatureCollection class:

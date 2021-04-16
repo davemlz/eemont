@@ -1,4 +1,4 @@
-ee.Geometry
+Geometry
 ===========
 
 Extended methods for the ee.Geometry class:

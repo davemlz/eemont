@@ -10,6 +10,10 @@ def _extend_staticmethod_eeGeometry():
 def BBoxFromQuery(query,geocoder = "nominatim", **kwargs):
     '''Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
     
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
+    
     Parameters
     ----------    
     query : str
@@ -25,9 +29,15 @@ def BBoxFromQuery(query,geocoder = "nominatim", **kwargs):
     ee.Geometry.Polygon
         Geometry describing a bounding box from the specified query.
     
+    See Also
+    --------
+    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
+    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
+    
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.Geometry.BBoxFromQuery('Seattle',user_agent = 'my-gee-eemont-query')
     ee.Geometry({
@@ -62,11 +72,6 @@ def BBoxFromQuery(query,geocoder = "nominatim", **kwargs):
         }
       }
     })
-    
-    See Also
-    --------
-    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
-    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
     '''
     if geocoder in ['nominatim','arcgis']:
         cls = get_geocoder_for_service(geocoder)
@@ -90,6 +95,10 @@ def BBoxFromQuery(query,geocoder = "nominatim", **kwargs):
 def PointFromQuery(query,geocoder = "nominatim", **kwargs):
     '''Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
     
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
+    
     Parameters
     ----------    
     query : str
@@ -105,9 +114,15 @@ def PointFromQuery(query,geocoder = "nominatim", **kwargs):
     ee.Geometry.Point
         Geometry describing a point from the specified query.
     
+    See Also
+    --------
+    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
+    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
+    
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.Geometry.PointFromQuery('Mt. Rainier, USA',user_agent = 'my-gee-eemont-query')
     ee.Geometry({
@@ -123,11 +138,6 @@ def PointFromQuery(query,geocoder = "nominatim", **kwargs):
         }
       }
     })
-    
-    See Also
-    --------
-    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
-    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
     '''
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)
@@ -140,6 +150,10 @@ def PointFromQuery(query,geocoder = "nominatim", **kwargs):
 @_extend_staticmethod_eeGeometry()
 def MultiPointFromQuery(query,geocoder = "nominatim", **kwargs):
     '''Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
+    
+    Tip
+    ----------    
+    Check more info about constructors in the :ref:`User Guide<Constructors>`.
     
     Parameters
     ----------    
@@ -156,9 +170,15 @@ def MultiPointFromQuery(query,geocoder = "nominatim", **kwargs):
     ee.Geometry.MultiPoint
         Geometry describing a multi-point from the specified query.
     
+    See Also
+    --------
+    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
+    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
+    
     Examples
     --------
     >>> import ee, eemont
+    >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> ee.Geometry.MultiPointFromQuery('Mt. Rainier, USA',user_agent = 'my-gee-eemont-query')
     ee.Geometry({
@@ -188,11 +208,6 @@ def MultiPointFromQuery(query,geocoder = "nominatim", **kwargs):
         }
       }
     })
-    
-    See Also
-    --------
-    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
-    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
     '''
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)

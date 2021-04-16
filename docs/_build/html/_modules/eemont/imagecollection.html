@@ -60,13 +60,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../classes/index.html">
-  Extended Classes
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
+  API Reference
  </a>
 </li>
 
@@ -173,6 +167,10 @@
 <span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;month&#39;</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about getting the closest image to a specific date in the :ref:`User Guide&lt;Closest Image to a Specific Date&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    self : ee.ImageCollection [this]</span>
@@ -224,6 +222,10 @@
                           <span class="n">maxPixels</span> <span class="o">=</span> <span class="mf">1e12</span><span class="p">,</span><span class="n">tileScale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">dateColumn</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s1">&#39;ISO&#39;</span><span class="p">,</span><span class="n">naValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about time series in the :ref:`User Guide&lt;Time Series By Regions&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
@@ -260,6 +262,10 @@
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by region retrieved as a Feature Collection.</span>
 <span class="sd">        </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
+<span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -277,10 +283,6 @@
 <span class="sd">    ...                               geometry = fc,</span>
 <span class="sd">    ...                               bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
 <span class="sd">    ...                               scale = 10)</span>
-<span class="sd">    </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
 <span class="sd">    &#39;&#39;&#39;</span>    
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
@@ -326,6 +328,10 @@
 <span class="k">def</span> <span class="nf">getTimeSeriesByRegions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">reducer</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">bands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crsTransform</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">tileScale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">dateColumn</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s1">&#39;ISO&#39;</span><span class="p">,</span><span class="n">naValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about time series in the :ref:`User Guide&lt;Time Series By Regions&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
@@ -357,6 +363,11 @@
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by regions retrieved as a Feature Collection.</span>
 <span class="sd">        </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)</span>
+<span class="sd">        according to the specified reducer (or reducers).</span>
+<span class="sd">        </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -374,11 +385,6 @@
 <span class="sd">    ...                                collection = fc,</span>
 <span class="sd">    ...                                bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
 <span class="sd">    ...                                scale = 10)</span>
-<span class="sd">    </span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
-<span class="sd">    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)</span>
-<span class="sd">        according to the specified reducer (or reducers).</span>
 <span class="sd">    &#39;&#39;&#39;</span> 
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
@@ -443,10 +449,18 @@
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
 <span class="sd">    </span>
+<span class="sd">    Warning</span>
+<span class="sd">    -------------    </span>
+<span class="sd">    **Deprecation**: The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.</span>
+<span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about the supported platforms and spectral indices in the :ref:`User Guide&lt;Spectral Indices&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------     </span>
 <span class="sd">    self : ee.ImageCollection</span>
-<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1]. Check the supported platforms in User Guide &gt; Spectral Indices &gt; Supported Platforms.</span>
+<span class="sd">        Image collection to compute indices on. Must be scaled to [0,1].</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
 <span class="sd">        Index or list of indices to compute.\n</span>
 <span class="sd">        Available options:</span>
@@ -522,16 +536,41 @@
 <span class="sd">    -------    </span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Image collection with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">        </span>
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
-<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
-<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale().index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
 <span class="sd">    </span>
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    scale : Scales bands on an image collection.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale()</span>
+<span class="sd">    </span>
+<span class="sd">    - Computing one spectral index:</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;NDVI&#39;)    </span>
+<span class="sd">    </span>
+<span class="sd">    - Computing indices with different parameters:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;SAVI&#39;,L = 0.5) </span>
+<span class="sd">    </span>
+<span class="sd">    - Computing multiple indices:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; S2.index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])    </span>
+<span class="sd">    </span>
+<span class="sd">    - Computing a specific group of indices:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;vegetation&#39;)    </span>
+<span class="sd">    </span>
+<span class="sd">    - Computing kernel indices:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; S2.index([&#39;kNDVI&#39;],kernel = &#39;poly&#39;,p = 5)</span>
+<span class="sd">    </span>
+<span class="sd">    - Computing all indices:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;all&#39;)   </span>
 <span class="sd">    &#39;&#39;&#39;</span>  
     <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
 
@@ -539,10 +578,14 @@
 <span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</span>
 <span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about the supported platforms and clouds masking in the :ref:`User Guide&lt;Masking Clouds and Shadows&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------    </span>
 <span class="sd">    self : ee.ImageCollection [this]</span>
-<span class="sd">        Image collection to mask. Check the supported platforms in User Guide &gt; Masking Clouds and Shadows &gt; Supported Platforms.</span>
+<span class="sd">        Image collection to mask.</span>
 <span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
 <span class="sd">        Method used to mask clouds.\n</span>
 <span class="sd">        Available options:</span>
@@ -575,15 +618,16 @@
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Cloud-shadow masked image collection.</span>
 <span class="sd">        </span>
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
-<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
-<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
-<span class="sd">        </span>
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    This method may mask water as well as clouds for the Sentinel-3 Radiance product.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">S3</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="n">qa</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;quality_flags&#39;</span><span class="p">)</span>
@@ -788,10 +832,18 @@
 <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
     <span class="sd">&#39;&#39;&#39;Scales bands on an image collection.</span>
 <span class="sd">    </span>
+<span class="sd">    Warning</span>
+<span class="sd">    -------------    </span>
+<span class="sd">    **Deprecation**: The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.</span>
+<span class="sd">    </span>
+<span class="sd">    Tip</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    Check more info about the supported platforms and image scaling the :ref:`User Guide&lt;Image Scaling&gt;`.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
-<span class="sd">        Image collection to scale. Check the supported platforms in User Guide &gt; Image Scaling &gt; Supported Platforms.</span>
+<span class="sd">        Image collection to scale.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -801,6 +853,7 @@
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale()</span>
 <span class="sd">    &#39;&#39;&#39;</span>

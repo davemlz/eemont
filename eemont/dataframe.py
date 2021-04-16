@@ -11,6 +11,10 @@ def toEEFeatureCollection(self,latitude = None,longitude = None):
     '''Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection
     with an associated geometry.
     
+    Tip
+    ----------    
+    Check more info about data conversion in the :ref:`User Guide<Data Conversion>`.
+    
     Parameters
     ----------    
     self : pd.DataFrame [this]
@@ -27,6 +31,9 @@ def toEEFeatureCollection(self,latitude = None,longitude = None):
         
     Examples
     --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
     >>> df = pd.DataFrame()
     >>> df['lat'] = [2.92846, 4.8927]
     >>> df['lon'] = [-76.0269, -75.3188]

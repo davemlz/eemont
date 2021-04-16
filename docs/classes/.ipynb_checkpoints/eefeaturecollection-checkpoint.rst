@@ -1,5 +1,5 @@
 ee.FeatureCollection
-====================
+=======================
 
 Extended methods for the ee.FeatureCollection class:
 

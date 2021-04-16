@@ -1,5 +1,5 @@
-Geometry
-===========
+ee.Geometry
+=============
 
 Extended methods for the ee.Geometry class:
 

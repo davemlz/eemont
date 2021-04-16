@@ -1,5 +1,5 @@
-Image Collection
-==================
+ee.ImageCollection
+====================
 
 Extended methods for the ee.ImageCollection class:
 

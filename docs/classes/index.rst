@@ -2,17 +2,29 @@ API Reference
 ================
 
 .. toctree::
-   :caption: Extended Classes
+   :caption: Earth Engine Classes
    :maxdepth: 2
    :hidden:
-
-   common
-   pddataframe
+   
    eefeature
    eefeaturecollection
    eegeometry
    eeimage
-   eeimagecollection   
+   eeimagecollection
+   
+.. toctree::
+   :caption: Non-Earth Engine Classes
+   :maxdepth: 2
+   :hidden:
+   
+   pddataframe
+   
+.. toctree::
+   :caption: Additional Modules
+   :maxdepth: 2
+   :hidden:
+   
+   common
 
 Extended Earth Engine Object Classes
 ------------------------------------------

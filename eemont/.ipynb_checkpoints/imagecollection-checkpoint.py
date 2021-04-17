@@ -1,11 +1,9 @@
 import ee
 import numpy as np
 import warnings
-from .common import _get_indices
 from .common import _get_platform
-from .common import _get_scale_method
-from .common import _get_expression_map
 from .common import _index
+from .common import _scale
 
 def _extend_eeImageCollection():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -705,12 +703,4 @@ def scale(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     '''
-    platformDict = _get_platform(self)
-    lookup = _get_scale_method(platformDict)
-    
-    if platformDict['platform'] not in list(lookup.keys()):
-        raise Exception("Sorry, satellite platform not supported for scaling!")
-    
-    scaledImageCollection = self.map(lookup[platformDict['platform']])
-    
-    return scaledImageCollection
+    return _scale(self)

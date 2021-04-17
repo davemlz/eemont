@@ -953,3 +953,29 @@ def _get_scale_method(platformDict):
     }
     
     return lookup
+
+def _scale(self):
+    '''Scales bands on an image or image collection.
+    
+    Parameters
+    ----------    
+    self : ee.Image | ee.ImageCollection
+        Image or iage collection to scale.
+        
+    Returns
+    -------
+    ee.Image | ee.ImageCollection
+        Scaled image or image collection.
+    '''
+    platformDict = _get_platform(self)
+    lookup = _get_scale_method(platformDict)
+    
+    if platformDict['platform'] not in list(lookup.keys()):
+        raise Exception("Sorry, satellite platform not supported for scaling!")
+    
+    if isinstance(self,ee.image.Image):
+        scaled = lookup[platformDict['platform']](self)
+    elif isinstance(self,ee.imagecollection.ImageCollection):
+        scaled = self.map(lookup[platformDict['platform']])
+        
+    return scaled

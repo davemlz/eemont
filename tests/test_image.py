@@ -87,221 +87,221 @@ class Test(unittest.TestCase):
     
     def test_S3(self):
         """Test the image module for Sentinel-3"""
-        S3_tested = S3.maskClouds().scale()
+        S3_tested = S3.maskClouds().scaleAndOffset()
         self.assertIsInstance(S3_tested, ee.image.Image)
     
     def test_S2(self):
         """Test the image module for Sentinel-2"""
-        S2_tested = S2.maskClouds().scale().index(indices)
+        S2_tested = S2.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(S2_tested, ee.image.Image)
         
     # LANDSAT MISSIONS
         
     def test_L8(self):
         """Test the image module for Landsat 8"""
-        L8_tested = L8.maskClouds().scale().index(indices)
+        L8_tested = L8.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L8_tested, ee.image.Image)
         
     def test_L7(self):
         """Test the image module for Landsat 7"""
-        L7_tested = L7.maskClouds().scale().index(indices)
+        L7_tested = L7.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L7_tested, ee.image.Image)
         
     def test_L5(self):
         """Test the image module for Landsat 5"""
-        L5_tested = L5.maskClouds().scale().index(indices)
+        L5_tested = L5.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L5_tested, ee.image.Image)
                 
     def test_L4(self):
         """Test the image module for Landsat 4"""
-        L4_tested = L4.maskClouds().scale().index(indices)
+        L4_tested = L4.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L4_tested, ee.image.Image)
     
     # MODIS (TERRA + AQUA)
     
     def test_MCD43A4(self):
         """Test the image module for MCD43A4"""
-        MCD43A4_tested = MCD43A4.scale().index(indices)
+        MCD43A4_tested = MCD43A4.scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MCD43A4_tested, ee.image.Image)
         
     def test_MCD43A3(self):
         """Test the image module for MCD43A3"""
-        MCD43A3_tested = MCD43A3.scale()
+        MCD43A3_tested = MCD43A3.scaleAndOffset()
         self.assertIsInstance(MCD43A3_tested, ee.image.Image)
         
     def test_MCD43A1(self):
         """Test the image module for MCD43A1"""
-        MCD43A1_tested = MCD43A1.scale()
+        MCD43A1_tested = MCD43A1.scaleAndOffset()
         self.assertIsInstance(MCD43A1_tested, ee.image.Image)
         
     def test_MCD15A3H(self):
         """Test the image module for MCD15A3H"""
-        MCD15A3H_tested = MCD15A3H.maskClouds().scale()
+        MCD15A3H_tested = MCD15A3H.maskClouds().scaleAndOffset()
         self.assertIsInstance(MCD15A3H_tested, ee.image.Image)
         
     # MODIS (TERRA)
         
     def test_MOD09GQ(self):
         """Test the image module for MOD09GQ"""
-        MOD09GQ_tested = MOD09GQ.scale().index(indices)
+        MOD09GQ_tested = MOD09GQ.scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MOD09GQ_tested, ee.image.Image)
         
     def test_MOD10A1(self):
         """Test the image module for MOD10A1"""
-        MOD10A1_tested = MOD10A1.scale()
+        MOD10A1_tested = MOD10A1.scaleAndOffset()
         self.assertIsInstance(MOD10A1_tested, ee.image.Image)
         
     def test_MOD11A1(self):
         """Test the image module for MOD11A1"""
-        MOD11A1_tested = MOD11A1.scale()
+        MOD11A1_tested = MOD11A1.scaleAndOffset()
         self.assertIsInstance(MOD11A1_tested, ee.image.Image)
         
     def test_MOD09GA(self):
         """Test the image module for MOD09GA"""
-        MOD09GA_tested = MOD09GA.maskClouds().scale().index(indices)
+        MOD09GA_tested = MOD09GA.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MOD09GA_tested, ee.image.Image)
         
     def test_MODOCGA(self):
         """Test the image module for MODOCGA"""
-        MODOCGA_tested = MODOCGA.scale()
+        MODOCGA_tested = MODOCGA.scaleAndOffset()
         self.assertIsInstance(MODOCGA_tested, ee.image.Image)
         
     def test_MOD14A1(self):
         """Test the image module for MOD14A1"""
-        MOD14A1_tested = MOD14A1.scale()
+        MOD14A1_tested = MOD14A1.scaleAndOffset()
         self.assertIsInstance(MOD14A1_tested, ee.image.Image)
         
     def test_MOD09Q1(self):
         """Test the image module for MOD09Q1"""
-        MOD09Q1_tested = MOD09Q1.maskClouds().scale().index(indices)
+        MOD09Q1_tested = MOD09Q1.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MOD09Q1_tested, ee.image.Image)
         
     def test_MOD09A1(self):
         """Test the image module for MOD09A1"""
-        MOD09A1_tested = MOD09A1.maskClouds().scale().index(indices)
+        MOD09A1_tested = MOD09A1.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MOD09A1_tested, ee.image.Image)
         
     def test_MOD11A2(self):
         """Test the image module for MOD11A2"""
-        MOD11A2_tested = MOD11A2.scale()
+        MOD11A2_tested = MOD11A2.scaleAndOffset()
         self.assertIsInstance(MOD11A2_tested, ee.image.Image)
         
     def test_MOD17A2H(self):
         """Test the image module for MOD17A2H"""
-        MOD17A2H_tested = MOD17A2H.maskClouds().scale()
+        MOD17A2H_tested = MOD17A2H.maskClouds().scaleAndOffset()
         self.assertIsInstance(MOD17A2H_tested, ee.image.Image)
         
     def test_MOD16A2(self):
         """Test the image module for MOD16A2"""
-        MOD16A2_tested = MOD16A2.maskClouds().scale()
+        MOD16A2_tested = MOD16A2.maskClouds().scaleAndOffset()
         self.assertIsInstance(MOD16A2_tested, ee.image.Image)
     
     def test_MOD13Q1(self):
         """Test the image module for MOD13Q1"""
-        MOD13Q1_tested = MOD13Q1.maskClouds().scale()
+        MOD13Q1_tested = MOD13Q1.maskClouds().scaleAndOffset()
         self.assertIsInstance(MOD13Q1_tested, ee.image.Image)
         
     def test_MOD13A1(self):
         """Test the image module for MOD13A1"""
-        MOD13A1_tested = MOD13A1.maskClouds().scale()
+        MOD13A1_tested = MOD13A1.maskClouds().scaleAndOffset()
         self.assertIsInstance(MOD13A1_tested, ee.image.Image)
         
     def test_MOD13A2(self):
         """Test the image module for MOD13A2"""
-        MOD13A2_tested = MOD13A2.maskClouds().scale()
+        MOD13A2_tested = MOD13A2.maskClouds().scaleAndOffset()
         self.assertIsInstance(MOD13A2_tested, ee.image.Image)
         
     def test_MOD08_M3(self):
         """Test the image module for MOD08_M3"""
-        MOD08_M3_tested = MOD08_M3.scale()
+        MOD08_M3_tested = MOD08_M3.scaleAndOffset()
         self.assertIsInstance(MOD08_M3_tested, ee.image.Image)
         
     def test_MOD17A3HGF(self):
         """Test the image module for MOD17A3HGF"""
-        MOD17A3HGF_tested = MOD17A3HGF.scale()
+        MOD17A3HGF_tested = MOD17A3HGF.scaleAndOffset()
         self.assertIsInstance(MOD17A3HGF_tested, ee.image.Image)
         
     # MODIS (AQUA)
         
     def test_MYD09GQ(self):
         """Test the image module for MYD09GQ"""
-        MYD09GQ_tested = MYD09GQ.scale().index(indices)
+        MYD09GQ_tested = MYD09GQ.scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MYD09GQ_tested, ee.image.Image)
         
     def test_MYD10A1(self):
         """Test the image module for MYD10A1"""
-        MYD10A1_tested = MYD10A1.scale()
+        MYD10A1_tested = MYD10A1.scaleAndOffset()
         self.assertIsInstance(MYD10A1_tested, ee.image.Image)
         
     def test_MYD11A1(self):
         """Test the image module for MYD11A1"""
-        MYD11A1_tested = MYD11A1.scale()
+        MYD11A1_tested = MYD11A1.scaleAndOffset()
         self.assertIsInstance(MYD11A1_tested, ee.image.Image)
         
     def test_MYD09GA(self):
         """Test the image module for MYD09GA"""
-        MYD09GA_tested = MYD09GA.maskClouds().scale().index(indices)
+        MYD09GA_tested = MYD09GA.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MYD09GA_tested, ee.image.Image)
         
     def test_MYDOCGA(self):
         """Test the image module for MYDOCGA"""
-        MYDOCGA_tested = MYDOCGA.scale()
+        MYDOCGA_tested = MYDOCGA.scaleAndOffset()
         self.assertIsInstance(MYDOCGA_tested, ee.image.Image)
         
     def test_MYD14A1(self):
         """Test the image module for MYD14A1"""
-        MYD14A1_tested = MYD14A1.scale()
+        MYD14A1_tested = MYD14A1.scaleAndOffset()
         self.assertIsInstance(MYD14A1_tested, ee.image.Image)
         
     def test_MYD09Q1(self):
         """Test the image module for MYD09Q1"""
-        MYD09Q1_tested = MYD09Q1.maskClouds().scale().index(indices)
+        MYD09Q1_tested = MYD09Q1.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MYD09Q1_tested, ee.image.Image)
         
     def test_MYD09A1(self):
         """Test the image module for MYD09A1"""
-        MYD09A1_tested = MYD09A1.maskClouds().scale().index(indices)
+        MYD09A1_tested = MYD09A1.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(MYD09A1_tested, ee.image.Image)
         
     def test_MYD11A2(self):
         """Test the image module for MYD11A2"""
-        MYD11A2_tested = MYD11A2.scale()
+        MYD11A2_tested = MYD11A2.scaleAndOffset()
         self.assertIsInstance(MYD11A2_tested, ee.image.Image)
         
     def test_MYD17A2H(self):
         """Test the image module for MYD17A2H"""
-        MYD17A2H_tested = MYD17A2H.maskClouds().scale()
+        MYD17A2H_tested = MYD17A2H.maskClouds().scaleAndOffset()
         self.assertIsInstance(MYD17A2H_tested, ee.image.Image)
     
     # CURRENTLY UNAVAILABLE
     #def test_MYD16A2(self):
     #    """Test the image module for MYD16A2"""
-    #    MYD16A2_tested = MYD16A2.maskClouds().scale()
+    #    MYD16A2_tested = MYD16A2.maskClouds().scaleAndOffset()
     #    self.assertIsInstance(MYD16A2_tested, ee.image.Image)
     
     def test_MYD13Q1(self):
         """Test the image module for MYD13Q1"""
-        MYD13Q1_tested = MYD13Q1.maskClouds().scale()
+        MYD13Q1_tested = MYD13Q1.maskClouds().scaleAndOffset()
         self.assertIsInstance(MYD13Q1_tested, ee.image.Image)
         
     def test_MYD13A1(self):
         """Test the image module for MYD13A1"""
-        MYD13A1_tested = MYD13A1.maskClouds().scale()
+        MYD13A1_tested = MYD13A1.maskClouds().scaleAndOffset()
         self.assertIsInstance(MYD13A1_tested, ee.image.Image)
         
     def test_MYD13A2(self):
         """Test the image module for MYD13A2"""
-        MYD13A2_tested = MYD13A2.maskClouds().scale()
+        MYD13A2_tested = MYD13A2.maskClouds().scaleAndOffset()
         self.assertIsInstance(MYD13A2_tested, ee.image.Image)
         
     def test_MYD08_M3(self):
         """Test the image module for MYD08_M3"""
-        MYD08_M3_tested = MYD08_M3.scale()
+        MYD08_M3_tested = MYD08_M3.scaleAndOffset()
         self.assertIsInstance(MYD08_M3_tested, ee.image.Image)
         
     def test_MYD17A3HGF(self):
         """Test the image module for MYD17A3HGF"""
-        MYD17A3HGF_tested = MYD17A3HGF.scale()
+        MYD17A3HGF_tested = MYD17A3HGF.scaleAndOffset()
         self.assertIsInstance(MYD17A3HGF_tested, ee.image.Image)
         
 if __name__ == '__main__':

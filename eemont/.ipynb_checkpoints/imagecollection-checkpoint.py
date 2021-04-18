@@ -124,8 +124,8 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     ...      .filterBounds(fc)
     ...      .filterDate('2020-01-01','2021-01-01')
     ...      .maskClouds()
-    ...      .scale()
-    ...      .index(['EVI','NDVI']))
+    ...      .scaleAndOffset()
+    ...      .spectralIndices(['EVI','NDVI']))
     >>> ts = S2.getTimeSeriesByRegion(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
     ...                               geometry = fc,
     ...                               bands = ['EVI','NDVI'],
@@ -226,8 +226,8 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
     ...      .filterBounds(fc)
     ...      .filterDate('2020-01-01','2021-01-01')
     ...      .maskClouds()
-    ...      .scale()
-    ...      .index(['EVI','NDVI']))
+    ...      .scaleAndOffset()
+    ...      .spectralIndices(['EVI','NDVI']))
     >>> ts = S2.getTimeSeriesByRegions(reducer = [ee.Reducer.mean(),ee.Reducer.median()],
     ...                                collection = fc,
     ...                                bands = ['EVI','NDVI'],
@@ -298,7 +298,7 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
     
     Warning
     -------------    
-    **Deprecation**: The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
+    **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
     
     Tip
     ----------    
@@ -418,7 +418,134 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
     - Computing all indices:
     
     >>> S2.index('all')   
-    '''  
+    '''
+    warnings.warn("index() will be deprecated in future versions, please use spectralIndices() instead",PendingDeprecationWarning)
+    
+    return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
+
+@_extend_eeImageCollection()
+def spectralIndices(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
+    '''Computes one or more spectral indices (indices are added as bands) for an image collection.
+        
+    Tip
+    ----------    
+    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
+    
+    Parameters
+    ----------     
+    self : ee.ImageCollection
+        Image collection to compute indices on. Must be scaled to [0,1].
+    index : string | list[string], default = 'NDVI'
+        Index or list of indices to compute.\n
+        Available options:
+            - 'vegetation' : Compute all vegetation indices.
+            - 'burn' : Compute all burn indices.
+            - 'water' : Compute all water indices.
+            - 'snow' : Compute all snow indices.
+            - 'drought' : Compute all drought indices.
+            - 'kernel' : Compute all kernel indices.
+            - 'all' : Compute all indices listed below.
+        Vegetation indices:
+            - 'BNDVI' : Blue Normalized Difference Vegetation Index.
+            - 'CIG' : Chlorophyll Index - Green.
+            - 'CVI' : Chlorophyll Vegetation Index.
+            - 'EVI' : Enhanced Vegetation Index.
+            - 'EVI2' : Two-Band Enhanced Vegetation Index.
+            - 'GARI' : Green Atmospherically Resistant Vegetation Index.
+            - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
+            - 'GEMI' : Global Environment Monitoring Index.
+            - 'GLI' : Green Leaf Index.
+            - 'GNDVI' : Green Normalized Difference Vegetation Index.
+            - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
+            - 'GVMI' : Global Vegetation Moisture Index.
+            - 'MNDVI' : Modified Normalized Difference Vegetation Index.
+            - 'NDVI' : Normalized Difference Vegetation Index.
+            - 'NGRDI' : Normalized Green Red Difference Index.
+            - 'RVI' : Ratio Vegetation Index.
+            - 'SAVI' : Soil-Adjusted Vegetation Index.  
+            - 'VARI' : Visible Atmospherically Resistant Index.
+        Burn and fire indices:     
+            - 'BAI' : Burned Area Index.
+            - 'BAIS2' : Burned Area Index for Sentinel 2.
+            - 'CSIT' : Char Soil Index Thermal.
+            - 'NBR' : Normalized Burn Ratio.
+            - 'NBRT' : Normalized Burn Ratio Thermal.
+            - 'NDVIT' : Normalized Difference Vegetation Index Thermal
+            - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
+        Water indices:            
+            - 'MNDWI' : Modified Normalized Difference Water Index.
+            - 'NDWI' : Normalized Difference Water Index. 
+        Snow indices:     
+            - 'NDSI' : Normalized Difference Snow Index.
+        Drought indices:     
+            - 'NDDI' : Normalized Difference Drought Index.
+        Kernel indices:     
+            - 'kEVI' : Kernel Enhanced Vegetation Index.
+            - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
+            - 'kRVI' : Kernel Ratio Vegetation Index.
+            - 'kVARI' : Kernel Visible Atmospherically Resistant Index.
+    G : float, default = 2.5
+        Gain factor. Used just for index = 'EVI'.
+    C1 : float, default = 6.0
+        Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
+    C2 : float, default = 7.5
+        Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
+    L : float, default = 1.0
+        Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    kernel : str, default = 'RBF'
+        Kernel used for kernel indices.\n
+        Available options:
+            - 'linear' : Linear Kernel.
+            - 'RBF' : Radial Basis Function (RBF) Kernel.
+            - 'poly' : Polynomial Kernel.          
+    sigma : str | float, default = '0.5 * (a + b)'
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+    p : float, default = 2.0
+        Kernel degree. Used for kernel = 'poly'.
+    c : float, default = 1.0
+        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
+        Used for kernel = 'poly'. This must be greater than or equal to 0.    
+            
+    Returns
+    -------    
+    ee.ImageCollection
+        Image collection with the computed spectral index, or indices, as new bands.
+    
+    See Also
+    --------
+    scaleAndOffset : Scales bands on an image collection.
+    
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
+    
+    - Computing one spectral index:
+        
+    >>> S2.spectralIndices('NDVI')    
+    
+    - Computing indices with different parameters:
+    
+    >>> S2.spectralIndices('SAVI',L = 0.5) 
+    
+    - Computing multiple indices:
+    
+    >>> S2.spectralIndices(['NDVI','EVI','GNDVI'])    
+    
+    - Computing a specific group of indices:
+    
+    >>> S2.spectralIndices('vegetation')    
+    
+    - Computing kernel indices:
+    
+    >>> S2.spectralIndices(['kNDVI'],kernel = 'poly',p = 5)
+    
+    - Computing all indices:
+    
+    >>> S2.spectralIndices('all')   
+    '''
     return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
 
 @_extend_eeImageCollection()
@@ -484,7 +611,7 @@ def scale(self):
     
     Warning
     -------------    
-    **Deprecation**: The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
+    **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
     
     Tip
     ----------    
@@ -507,4 +634,33 @@ def scale(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     '''
+    warnings.warn("scale() will be deprecated in future versions, please use scaleAndOffset() instead",PendingDeprecationWarning)
+    
+    return _scale(self)
+
+@_extend_eeImageCollection()
+def scaleAndOffset(self):    
+    '''Scales bands on an image collection according to their scale and offset parameters.    
+   
+    Tip
+    ----------    
+    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    
+    Parameters
+    ----------
+    self : ee.ImageCollection (this)
+        Image collection to scale.
+        
+    Returns
+    -------
+    ee.ImageCollection
+        Scaled image collection.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
+    '''    
     return _scale(self)

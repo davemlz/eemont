@@ -65,12 +65,6 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../modules/index.html">
-  Other Modules
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../guide/index.html">
   User Guide
  </a>
@@ -144,12 +138,34 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-1-10">
+   v0.1.10
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvements">
+     Improvements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pending-deprecation">
+     Pending Deprecation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#v0-1-9">
    v0.1.9
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#improvements">
+    <a class="reference internal nav-link" href="#id3">
      Improvements
     </a>
    </li>
@@ -166,12 +182,12 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#new-features">
+    <a class="reference internal nav-link" href="#id4">
      New Features
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id5">
      Improvements
     </a>
    </li>
@@ -183,17 +199,17 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
+    <a class="reference internal nav-link" href="#id17">
      New Modules
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
+    <a class="reference internal nav-link" href="#id18">
      New Features
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
+    <a class="reference internal nav-link" href="#id21">
      Improvements
     </a>
    </li>
@@ -218,10 +234,48 @@
                 
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="v0-1-9">
-<h2>v0.1.9<a class="headerlink" href="#v0-1-9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v0-1-10">
+<h2>v0.1.10<a class="headerlink" href="#v0-1-10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> extended method for ee.Image and ee.ImageCollection classes was created and will replace the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method.</p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">spectralIndices()</span></code> extended method for ee.Image and ee.ImageCollection classes was created and will replace the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method.</p></li>
+</ul>
+</div>
 <div class="section" id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en">VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en">VNP13A1: VIIRS Vegetation Indices 16-Day 500m</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en">VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en">VNP13A1: VIIRS Vegetation Indices 16-Day 500m</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="pending-deprecation">
+<h3>Pending Deprecation<a class="headerlink" href="#pending-deprecation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method for ee.Image and ee.ImageCollection classes will be deprecated in future versions.</p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method for ee.Image and ee.ImageCollection classes will be deprecated in future versions.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-1-9">
+<h2>v0.1.9<a class="headerlink" href="#v0-1-9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Improvements<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><code class="code docutils literal notranslate"><span class="pre">kernel</span></code>, <code class="code docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="code docutils literal notranslate"><span class="pre">p</span></code> and <code class="code docutils literal notranslate"><span class="pre">c</span></code> parameters were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection classes.</p></li>
 <li><p>The following vegetation indices were added to the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection:</p>
@@ -265,8 +319,8 @@
 <li><p>The <em>ee.Geometry</em> module was created.</p></li>
 </ul>
 </div>
-<div class="section" id="new-features">
-<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>New Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">getTimeSeriesByRegion()</span></code> extended method for ee.ImageCollection classes was created.</p></li>
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">getTimeSeriesByRegions()</span></code> extended method for ee.ImageCollection classes was created.</p></li>
@@ -277,8 +331,8 @@
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">MultiPointFromQuery()</span></code> extended constructor for ee.Geometry and ee.FeatureCollection classes was created.</p></li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h3>Improvements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Improvements<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">index()</span></code> extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:</p>
 <blockquote>
@@ -351,24 +405,24 @@
 </div>
 <div class="section" id="v0-1-7">
 <h2>v0.1.7<a class="headerlink" href="#v0-1-7" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id13">
-<h3>New Modules<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>New Modules<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <em>pd.DataFrame</em> module was created.</p></li>
 <li><p>The <em>common</em> module was created (it feeds the <code class="code docutils literal notranslate"><span class="pre">index()</span></code>, <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> and <code class="code docutils literal notranslate"><span class="pre">maskClouds()</span></code> methods for both ee.Image and ee.ImageCollection).</p></li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>New Features<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>New Features<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">toEEFeatureCollection()</span></code> extended method for pd.DataFrame classes was created.</p></li>
-<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id15"><span class="problematic" id="id16">|</span></a>) were overloaded for ee.Image objects.</p></li>
+<li><p>The binary operators (+, -, *, /, //, %, **, &lt;&lt;, &gt;&gt;, &amp;, <a href="#id19"><span class="problematic" id="id20">|</span></a>) were overloaded for ee.Image objects.</p></li>
 <li><p>The rich comparisons (&lt;, &lt;=, ==, !=, &gt;, &gt;=) were overloaded for ee.Image objects.</p></li>
 <li><p>The unary operators (-, ~) were overloaded for ee.Image objects.</p></li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h3>Improvements<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>Improvements<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p><em>Exceptions</em> and <em>Warnings</em> were added to most methods.</p></li>
 <li><p>Conflicts between the Gain factor and the Green band in the <code class="code docutils literal notranslate"><span class="pre">index()</span></code> method were solved.</p></li>

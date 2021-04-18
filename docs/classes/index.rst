@@ -71,6 +71,8 @@ ee.Image
    index
    maskClouds
    scale
+   scaleAndOffset
+   spectralIndices
    
 ee.ImageCollection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,6 +86,8 @@ ee.ImageCollection
    index
    maskClouds
    scale
+   scaleAndOffset
+   spectralIndices
 
 Extended Non-Earth Engine Object Classes
 ------------------------------------------

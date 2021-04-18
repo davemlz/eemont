@@ -1,6 +1,33 @@
 Changelog
 ============
 
+v0.1.10
+--------------
+
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`scaleAndOffset()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`scale()` method.
+- The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`index()` method.
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`maskClouds()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
+   
+   - `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
+   - `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
+- The :code:`scale()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
+   
+   - `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
+   - `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
+   
+Pending Deprecation
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`index()` method for ee.Image and ee.ImageCollection classes will be deprecated in future versions.
+- The :code:`scale()` method for ee.Image and ee.ImageCollection classes will be deprecated in future versions.
+
 v0.1.9
 --------------
 

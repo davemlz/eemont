@@ -17,7 +17,7 @@ Now, we are ready to go!
 Overview
 -----------
 
-The eemont package extends the ee.Image and ee.ImageCollection classes with the method :code:`index()`:
+The eemont package extends the ee.Image and ee.ImageCollection classes with the method :code:`spectralIndices()`:
 
 ee.Image
 ~~~~~~~~
@@ -26,7 +26,7 @@ ee.Image
 
 .. autosummary::
 
-   index
+   spectralIndices
       
 ee.ImageCollection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,7 +35,7 @@ ee.ImageCollection
 
 .. autosummary::
 
-   index
+   spectralIndices
 
 Supported Platforms
 ----------------------
@@ -78,7 +78,7 @@ MODIS Products (Aqua)
 - `MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1>`_
 
 .. important::
-   It is highly recommended to scale the image (or image collection) before computing spectral indices. See the :code:`scale()` method for more info.  
+   It is highly recommended to scale the image (or image collection) before computing spectral indices. See the :code:`scaleAndOffset()` method for more info.  
 
 List of Indices
 ----------------------
@@ -396,40 +396,40 @@ The following table shows the list of bands used for spectral indices computatio
 Usage
 ------------------
 
-The :code:`index()` method computes the specified spectral index and adds it as a new band.
+The :code:`spectralIndices()` method computes the specified spectral index and adds it as a new band.
 
 Let's take the Sentinel-2 SR image collection as example (remember to scale your image or image collection!):
 
 .. code-block:: python
 
-   S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
    
-By default, the :code:`index()` method computes the NDVI:
+By default, the :code:`spectralIndices()` method computes the NDVI:
 
 .. code-block:: python
 
-   S2withIndices = S2.index()
+   S2withIndices = S2.spectralIndices()
    S2withIndices.select('NDVI')
    
 If required, any of the above-mentioned indices can be computed by modifying the :code:`index` parameter:
 
 .. code-block:: python
 
-   S2withIndices = S2.index(index = 'EVI')
+   S2withIndices = S2.spectralIndices(index = 'EVI')
    S2withIndices.select('EVI')
    
 Specific index-parameters can be changed, for example, the canopy background adjustment L is set to 1.0 for EVI, but for SAVI it can be changed to 0.5:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('SAVI',L = 0.5)
+   S2withIndices = S2.spectralIndices('SAVI',L = 0.5)
    S2withIndices.select('SAVI')
    
 If more than one index is required, a list of indices can be used:
 
 .. code-block:: python
 
-   S2withIndices = S2.index(['CIG','NBR','NDWI'])
+   S2withIndices = S2.spectralIndices(['CIG','NBR','NDWI'])
    S2withIndices.select('CIG')
    S2withIndices.select('NBR')
    S2withIndices.select('NDWI')
@@ -438,7 +438,7 @@ Indices can also be computed for single images:
 
 .. code-block:: python
 
-   S2withIndices = S2.first().index(['GBNDVI','MNDVI','EVI'])
+   S2withIndices = S2.first().spectralIndices(['GBNDVI','MNDVI','EVI'])
    S2withIndices.select('GBNDVI')
    S2withIndices.select('MNDVI')
    S2withIndices.select('EVI')
@@ -447,7 +447,7 @@ All vegetation indices can be computed by setting :code:`index = vegetation`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('vegetation')
+   S2withIndices = S2.spectralIndices('vegetation')
    S2withIndices.select('NDVI')
    S2withIndices.select('GNDVI')
    S2withIndices.select('RVI')
@@ -457,7 +457,7 @@ All burn indices can be computed by setting :code:`index = burn`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('burn')
+   S2withIndices = S2.spectralIndices('burn')
    S2withIndices.select('BAI')
    S2withIndices.select('BAIS2')
    S2withIndices.select('NBR')
@@ -466,7 +466,7 @@ All water indices can be computed by setting :code:`index = water`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('water')
+   S2withIndices = S2.spectralIndices('water')
    S2withIndices.select('NDWI')
    S2withIndices.select('MNDWI')
    
@@ -474,14 +474,14 @@ All snow indices can be computed by setting :code:`index = snow`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('snow')
+   S2withIndices = S2.spectralIndices('snow')
    S2withIndices.select('NDSI')
    
 If you want to compute all available indices, you can set :code:`index = all`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('all')
+   S2withIndices = S2.spectralIndices('all')
    S2withIndices.select('NDVI')
    S2withIndices.select('BAI')
    S2withIndices.select('NDWI')
@@ -495,35 +495,35 @@ Generalized kernel indices are availabe through eemont (e.g. kNDVI):
 
 .. code-block:: python
 
-   S2withIndices = S2.index('kNDVI')
+   S2withIndices = S2.spectralIndices('kNDVI')
    S2withIndices.select('kNDVI')
    
 By default, the RBF kernel is used and the :code:`sigma` parameter is :code:`0.5 * (a + b)` (this means, that for :code:`k(N,R)`, :code:`sigma = '0.5 * (N + R)'`). If required, :code:`sigma` can be modified by another expression (using :code:`a` and :code:`b`) or a float:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('kNDVI',sigma = 1)
+   S2withIndices = S2.spectralIndices('kNDVI',sigma = 1)
    S2withIndices.select('kNDVI')
    
 The kernel can be modified by modifying the :code:`kernel` parameter:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('kNDVI',kernel = 'poly')
+   S2withIndices = S2.spectralIndices('kNDVI',kernel = 'poly')
    S2withIndices.select('kNDVI')
    
 For the polynomial kernel, the :code:`p` and :code:`c` parameters can be modified:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('kNDVI',kernel = 'poly',p = 4,c = 0)
+   S2withIndices = S2.spectralIndices('kNDVI',kernel = 'poly',p = 4,c = 0)
    S2withIndices.select('kNDVI')
    
 All kernel indices can be computed by setting :code:`index = kernel`:
 
 .. code-block:: python
 
-   S2withIndices = S2.index('kernel')
+   S2withIndices = S2.spectralIndices('kernel')
    S2withIndices.select('kEVI')
    S2withIndices.select('kNDVI')
    S2withIndices.select('kRVI')

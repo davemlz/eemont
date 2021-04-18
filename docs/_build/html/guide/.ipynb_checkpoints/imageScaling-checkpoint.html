@@ -65,12 +65,6 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../modules/index.html">
-  Other Modules
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../index.html">
   User Guide
  </a>
@@ -232,7 +226,7 @@
 <p>Now, we are ready to go!</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the method <code class="code docutils literal notranslate"><span class="pre">scale()</span></code>:</p>
+<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the method <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code>:</p>
 <div class="section" id="ee-image">
 <h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
@@ -241,8 +235,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/stubs/eemont.image.scale.html#eemont.image.scale" title="eemont.image.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales bands on an image.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/stubs/eemont.image.scaleAndOffset.html#eemont.image.scaleAndOffset" title="eemont.image.scaleAndOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scaleAndOffset</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image according to their scale and offset parameters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -255,8 +249,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/stubs/eemont.imagecollection.scale.html#eemont.imagecollection.scale" title="eemont.imagecollection.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a>(self)</p></td>
-<td><p>Scales bands on an image collection.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../classes/stubs/eemont.imagecollection.scaleAndOffset.html#eemont.imagecollection.scaleAndOffset" title="eemont.imagecollection.scaleAndOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scaleAndOffset</span></code></a>(self)</p></td>
+<td><p>Scales bands on an image collection according to their scale and offset parameters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -346,24 +340,24 @@
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method scales each image according to the <em>Scale</em> and <em>Offset</em> parameters.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method scales each image according to the <em>Scale</em> and <em>Offset</em> parameters.</p>
 <p>Let’s take the Sentinel-2 SR image collection as example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they’re unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and WVP bands must be multiplied by 0.001. This scaling is automatically done by the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method, without any additional parameters:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+<p>The spectral bands from Sentinel-2 have values close to the (0, 10000) range, but they’re unscaled. In order to get the real values, each spectral band must be multiplied by 0.0001, while AOT and WVP bands must be multiplied by 0.001. This scaling is automatically done by the <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method, without any additional parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span><span class="o">.</span><span class="n">scaleAndOffset</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <em>Scale</em> and <em>Offset</em> parameters vary according to the satellite platform and the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method detects the platform and do the scaling according to its parameters.</p>
+<p>The <em>Scale</em> and <em>Offset</em> parameters vary according to the satellite platform and the <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method detects the platform and do the scaling according to its parameters.</p>
 <p>Let’s take now the MOD11A2 product from MODIS. The LST_Day_1km and LST_Night_1km bands must be multiplied by 0.02, the Day_view_time and Night_view_time bands must be multiplied by 0.1,
 the Emis_31 and Emis_32 bands must be multiplied by 0.002 and added by 0.49, while the Day_view_angl and Night_view_angl bands must be added by -65. All of this scaling
-is simply done by the <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MOD11A2scaled</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+is simply done by the <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MOD11A2scaled</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scaleAndOffset</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The <code class="code docutils literal notranslate"><span class="pre">scale()</span></code> method can be applied to single images as well:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MOD11A2scaled</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MOD11A2scaled</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">scaleAndOffset</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

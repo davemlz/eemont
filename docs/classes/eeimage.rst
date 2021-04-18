@@ -11,3 +11,5 @@ Extended methods for the ee.Image class:
    index
    maskClouds
    scale
+   scaleAndOffset
+   spectralIndices

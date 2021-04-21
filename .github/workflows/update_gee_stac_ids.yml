@@ -20,7 +20,7 @@ jobs:
           pip install requests
       - name: execute        
         run: |
-          python python ./.github/scripts/update_gee_stac_ids.py
+          python ./.github/scripts/update_gee_stac_ids.py
       - name: commit
         continue-on-error: true
         run: |

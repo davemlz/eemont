@@ -8,4 +8,5 @@ from . import geometry
 from . import image
 from . import imagecollection
 from . import dataframe
+from . import number
 from .common import *

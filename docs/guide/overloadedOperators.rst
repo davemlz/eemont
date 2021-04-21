@@ -17,10 +17,10 @@ Now, we are ready to go!
 Overview
 -----------
 
-The eemont package extends the ee.Image with the binary and unary operators (including rich comparisons).
+The eemont package extends the ee.Image and ee.Number classes with the binary and unary operators (including rich comparisons).
 
-List of Operators
-----------------------
+ee.Image 
+-------------------
 
 Binary Operators
 ~~~~~~~~~~~~~~~~~~~
@@ -120,11 +120,113 @@ The following table shows the list of unary operators that are overloaded:
    * - Invert
      - Image.Not()
      - ~ Image
+     
+ee.Number 
+-------------------
+
+Binary Operators
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of binary operators that are overloaded:
+
+.. list-table:: Binary operators.
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - Operation
+     - GEE Python method     
+     - Overloaded Operator
+   * - Addition
+     - Number1.add(Number2)
+     - Number1 + Number2 
+   * - Subtraction
+     - Number1.subtract(Number2)
+     - Number1 - Number2
+   * - Multiplication
+     - Number1.multiply(Number2)
+     - Number1 * Number2
+   * - Division
+     - Number1.divide(Number2)
+     - Image1 / Image2
+   * - Floor Division
+     - Number1.divide(Number2).floor()
+     - Number1 // Number2
+   * - Modulo
+     - Number1.mod(Number2)
+     - Number1 % Number2
+   * - Power
+     - Number1.pow(Number2)
+     - Number1 ** Number2
+   * - Left Shift
+     - Number1.leftShift(Number2)
+     - Number1 << Number2
+   * - Right Shift
+     - Number1.rightShift(Number2)
+     - Number1 >> Number2
+   * - And
+     - Number1.And(Number2)
+     - Number1 & Number2
+   * - Or
+     - Number1.Or(Number2)
+     - Number1 | Number2
+          
+Rich Comparisons
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of rich comparisons that are overloaded:
+
+.. list-table:: Rich comparisons.
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - Operation
+     - GEE Python method          
+     - Overloaded Operator
+   * - Lower Than
+     - Number1.lt(Number2)
+     - Number1 < Number2 
+   * - Lower Than or Equal
+     - Number1.lte(Number2)
+     - Number1 <= Number2
+   * - Equal
+     - Number1.eq(Number2)
+     - Number1 == Number2
+   * - Not Equal
+     - Number1.neq(Number2)    
+     - Number1 != Number2
+   * - Greater Than
+     - Number1.gt(Number2)
+     - Number1 > Number2 
+   * - Greater Than or Equal
+     - Number1.gte(Number2)
+     - Number1 >= Number2
+   * - Equal
+     - Number1.eq(Number2)
+     - Number1 == Number2
+     
+Unary Operators
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of unary operators that are overloaded:
+
+.. list-table:: Unary operators.
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - Operation
+     - GEE Python method          
+     - Overloaded Operator
+   * - Negation
+     - Number.multiply(-1)
+     - \-\ Number
+   * - Invert
+     - Number.Not()
+     - ~ Number
 
 Usage
 ------------------
 
-Overloaded operators can be used on any ee.Image object. Let's see how to compute the EVI using overloaded operators!
+Overloaded operators can be used on any ee.Image or ee.Number object. Let's see how to compute the EVI using overloaded operators!
 
 Let's take the Sentinel-2 SR image collection as example (remember to scale your image or image collection!):
 

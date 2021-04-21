@@ -1,6 +1,5 @@
 import ee
 import warnings
-from .common import _get_platform
 from .common import _index
 from .common import _scale
 from .common import _maskClouds

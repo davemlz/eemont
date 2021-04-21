@@ -1,6 +1,142 @@
 import ee
+import json
+import pkg_resources
+import os
 import warnings
 from box import Box
+
+# Platforms IDs
+# --------------------------
+
+def _get_platform(args):
+    '''Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
+    
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image to get platform.
+        
+    Returns
+    -------
+    dict
+        Platform and product of the image (or image collection).
+    '''
+    platforms = [
+        'COPERNICUS/S3',
+        'COPERNICUS/S2',
+        'LANDSAT/LC08',
+        'LANDSAT/LE07',
+        'LANDSAT/LT05',
+        'LANDSAT/LT04',
+        'MODIS/006/MCD43A4',
+        'MODIS/006/MCD43A3',
+        'MODIS/006/MOD09GQ',
+        'MODIS/006/MOD10A1',
+        'MODIS/006/MOD11A1',
+        'MODIS/006/MOD09GA',
+        'MODIS/006/MODOCGA',
+        'MODIS/006/MOD14A1',
+        'MODIS/006/MCD43A1',
+        'MODIS/006/MCD15A3H',
+        'MODIS/006/MOD09Q1',
+        'MODIS/006/MOD09A1',
+        'MODIS/006/MOD11A2',
+        'MODIS/006/MOD17A2H',
+        'MODIS/006/MOD16A2',
+        'MODIS/006/MOD13Q1',
+        'MODIS/006/MOD13A1',
+        'MODIS/006/MOD13A2',
+        'MODIS/061/MOD08_M3',
+        'MODIS/006/MOD17A3HGF',
+        'MODIS/006/MYD09GQ',
+        'MODIS/006/MYD10A1',
+        'MODIS/006/MYD11A1',
+        'MODIS/006/MYD09GA',
+        'MODIS/006/MYDOCGA',
+        'MODIS/006/MYD14A1',        
+        'MODIS/006/MYD09Q1',
+        'MODIS/006/MYD09A1',
+        'MODIS/006/MYD11A2',
+        'MODIS/006/MYD17A2H',        
+        'MODIS/006/MYD13Q1',
+        'MODIS/006/MYD13A1',
+        'MODIS/006/MYD13A2',
+        'MODIS/061/MYD08_M3',
+        'MODIS/006/MYD17A3HGF',
+        'NOAA/VIIRS/001/VNP09GA',
+        'NOAA/VIIRS/001/VNP13A1'
+    ]
+    
+    if isinstance(args, ee.imagecollection.ImageCollection):
+        imgID = args.first().get('system:id').getInfo()
+    elif isinstance(args, ee.image.Image):
+        imgID = args.get('system:id').getInfo()
+    else:
+        raise Exception("Sorry, just ee.Image or ee.ImageCollection classes supported!")
+    
+    plt = None
+    
+    for platform in platforms:
+        if platform in imgID:
+            plt = platform
+        if '_SR' in imgID:
+            platformDict = {'platform': plt, 'sr': True}
+        else:
+            platformDict = {'platform': plt, 'sr': False}
+            
+    if plt is None:
+        raise Exception("Sorry, satellite platform not supported!")
+            
+    return platformDict
+
+def _get_platform_STAC(args):
+    '''Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
+    
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the platform from.
+        
+    Returns
+    -------
+    dict
+        Platform and product of the image (or image collection).
+    '''
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-ids.json")
+    
+    f = open(dataPath)
+    eeDict = json.load(f)
+    platforms = list(eeDict.keys())
+    
+    ID = args.get('system:id').getInfo()
+    
+    plt = None
+    
+    for platform in platforms:
+        
+        if eeDict[platform] == 'image_collection' and isinstance(args, ee.image.Image):
+            pltID = '/'.join(ID.split('/')[:-1])            
+        elif eeDict[platform] == 'image' and isinstance(args, ee.imagecollection.ImageCollection):
+            pass
+        else:
+            pltID = ID            
+        
+        if platform == pltID:
+            plt = pltID
+            
+        if '_SR' in pltID:
+            platformDict = {'platform': plt, 'sr': True}
+        else:
+            platformDict = {'platform': plt, 'sr': False}
+            
+    if plt is None:
+        raise Exception("Sorry, satellite platform not supported!")    
+            
+    return platformDict
+
+# Spectral Indices
+# --------------------------
 
 def _get_expression_map(img, platformDict):
     '''Gets the dictionary required for the map parameter in ee.Image.expression() method.
@@ -85,10 +221,15 @@ def _get_expression_map(img, platformDict):
 
     lookupPlatform = {
         'COPERNICUS/S2': lookupS2,
-        'LANDSAT/LC08': lookupL8,
-        'LANDSAT/LE07': lookupL457,
-        'LANDSAT/LT05': lookupL457,
-        'LANDSAT/LT04': lookupL457,
+        'COPERNICUS/S2_SR': lookupS2,
+        'LANDSAT/LC08/C01/T1_SR': lookupL8,
+        'LANDSAT/LC08/C01/T2_SR': lookupL8,
+        'LANDSAT/LE07/C01/T1_SR': lookupL457,
+        'LANDSAT/LE07/C01/T2_SR': lookupL457,
+        'LANDSAT/LT05/C01/T1_SR': lookupL457,
+        'LANDSAT/LT05/C01/T2_SR': lookupL457,
+        'LANDSAT/LT04/C01/T1_SR': lookupL457,
+        'LANDSAT/LT04/C01/T2_SR': lookupL457,
         'MODIS/006/MOD09GQ': lookupMOD09GQ,
         'MODIS/006/MYD09GQ': lookupMOD09GQ,
         'MODIS/006/MOD09GA': lookupMOD09GA,
@@ -520,7 +661,7 @@ def _index(self,index,G,C1,C2,L,kernel,sigma,p,c):
     ee.Image | ee.ImageCollection
         Image (or Image Collection) with the computed spectral index, or indices, as new bands.
     '''
-    platformDict = _get_platform(self)
+    platformDict = _get_platform_STAC(self)
     
     if isinstance(sigma,int) or isinstance(sigma,float):
         if sigma < 0:
@@ -620,86 +761,8 @@ def listIndices():
     '''
     return list(_get_indices().keys())
 
-def _get_platform(args):
-    '''Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
-    
-    Parameters
-    ----------
-    args : ee.Image | ee.ImageCollection
-        Image to get platform.
-        
-    Returns
-    -------
-    dict
-        Platform and product of the image (or image collection).
-    '''
-    platforms = [
-        'COPERNICUS/S3',
-        'COPERNICUS/S2',
-        'LANDSAT/LC08',
-        'LANDSAT/LE07',
-        'LANDSAT/LT05',
-        'LANDSAT/LT04',
-        'MODIS/006/MCD43A4',
-        'MODIS/006/MCD43A3',
-        'MODIS/006/MOD09GQ',
-        'MODIS/006/MOD10A1',
-        'MODIS/006/MOD11A1',
-        'MODIS/006/MOD09GA',
-        'MODIS/006/MODOCGA',
-        'MODIS/006/MOD14A1',
-        'MODIS/006/MCD43A1',
-        'MODIS/006/MCD15A3H',
-        'MODIS/006/MOD09Q1',
-        'MODIS/006/MOD09A1',
-        'MODIS/006/MOD11A2',
-        'MODIS/006/MOD17A2H',
-        'MODIS/006/MOD16A2',
-        'MODIS/006/MOD13Q1',
-        'MODIS/006/MOD13A1',
-        'MODIS/006/MOD13A2',
-        'MODIS/061/MOD08_M3',
-        'MODIS/006/MOD17A3HGF',
-        'MODIS/006/MYD09GQ',
-        'MODIS/006/MYD10A1',
-        'MODIS/006/MYD11A1',
-        'MODIS/006/MYD09GA',
-        'MODIS/006/MYDOCGA',
-        'MODIS/006/MYD14A1',        
-        'MODIS/006/MYD09Q1',
-        'MODIS/006/MYD09A1',
-        'MODIS/006/MYD11A2',
-        'MODIS/006/MYD17A2H',        
-        'MODIS/006/MYD13Q1',
-        'MODIS/006/MYD13A1',
-        'MODIS/006/MYD13A2',
-        'MODIS/061/MYD08_M3',
-        'MODIS/006/MYD17A3HGF',
-        'NOAA/VIIRS/001/VNP09GA',
-        'NOAA/VIIRS/001/VNP13A1'
-    ]
-    
-    if isinstance(args, ee.imagecollection.ImageCollection):
-        imgID = args.first().get('system:id').getInfo()
-    elif isinstance(args, ee.image.Image):
-        imgID = args.get('system:id').getInfo()
-    else:
-        raise Exception("Sorry, just ee.Image or ee.ImageCollection classes supported!")
-    
-    plt = None
-    
-    for platform in platforms:
-        if platform in imgID:
-            plt = platform
-        if '_SR' in imgID:
-            platformDict = {'platform': plt, 'sr': True}
-        else:
-            platformDict = {'platform': plt, 'sr': False}
-            
-    if plt is None:
-        raise Exception("Sorry, satellite platform not supported!")
-            
-    return platformDict
+# Image Scaling
+# --------------------------
 
 def _get_scale_method(platformDict):
     '''Gets the scale algorithms for the scale() method in ee.Imge and ee.ImageCollection.
@@ -907,12 +970,17 @@ def _get_scale_method(platformDict):
         return ee.Image(scaled.copyProperties(img,img.propertyNames()))
     
     lookup = {
-        'COPERNICUS/S3': S3,
+        'COPERNICUS/S3/OLCI': S3,
         'COPERNICUS/S2': S2,
-        'LANDSAT/LC08': L8,
-        'LANDSAT/LE07': L457,
-        'LANDSAT/LT05': L457,
-        'LANDSAT/LT04': L457,
+        'COPERNICUS/S2_SR': S2,
+        'LANDSAT/LC08/C01/T1_SR': L8,
+        'LANDSAT/LC08/C01/T2_SR': L8,
+        'LANDSAT/LE07/C01/T1_SR': L457,
+        'LANDSAT/LE07/C01/T2_SR': L457,
+        'LANDSAT/LT05/C01/T1_SR': L457,
+        'LANDSAT/LT05/C01/T2_SR': L457,
+        'LANDSAT/LT04/C01/T1_SR': L457,
+        'LANDSAT/LT04/C01/T2_SR': L457,
         'MODIS/006/MCD43A4': MCD43A4,
         'MODIS/006/MCD43A3': MCD43A3,
         'MODIS/006/MOD09GQ': MOD09GQ,
@@ -967,7 +1035,7 @@ def _scale(self):
     ee.Image | ee.ImageCollection
         Scaled image or image collection.
     '''
-    platformDict = _get_platform(self)
+    platformDict = _get_platform_STAC(self)
     lookup = _get_scale_method(platformDict)
     
     if platformDict['platform'] not in list(lookup.keys()):
@@ -979,6 +1047,9 @@ def _scale(self):
         scaled = self.map(lookup[platformDict['platform']])
         
     return scaled
+
+# Cloud Masking
+# --------------------------
 
 def _maskClouds(self,method,prob,maskCirrus,maskShadows,scaledImage,dark,cloudDist,buffer,cdi):
     '''Masks clouds and shadows in an image or image collection (valid just for Surface Reflectance products).
@@ -1192,12 +1263,16 @@ def _maskClouds(self,method,prob,maskCirrus,maskShadows,scaledImage,dark,cloudDi
         return args.updateMask(notCloud)
     
     lookup = {
-        'COPERNICUS/S3': S3,
-        'COPERNICUS/S2': S2,
-        'LANDSAT/LC08': L8,
-        'LANDSAT/LE07': L457,
-        'LANDSAT/LT05': L457,
-        'LANDSAT/LT04': L457,
+        'COPERNICUS/S3/OLCI': S3,        
+        'COPERNICUS/S2_SR': S2,
+        'LANDSAT/LC08/C01/T1_SR': L8,
+        'LANDSAT/LC08/C01/T2_SR': L8,
+        'LANDSAT/LE07/C01/T1_SR': L457,
+        'LANDSAT/LE07/C01/T2_SR': L457,
+        'LANDSAT/LT05/C01/T1_SR': L457,
+        'LANDSAT/LT05/C01/T2_SR': L457,
+        'LANDSAT/LT04/C01/T1_SR': L457,
+        'LANDSAT/LT04/C01/T2_SR': L457,
         'MODIS/006/MOD09GA': MOD09GA,
         'MODIS/006/MCD15A3H': MCD15A3H,
         'MODIS/006/MOD09Q1': MOD09Q1,
@@ -1219,7 +1294,7 @@ def _maskClouds(self,method,prob,maskCirrus,maskShadows,scaledImage,dark,cloudDi
         'NOAA/VIIRS/001/VNP13A1': VNP13A1
     }
     
-    platformDict = _get_platform(self)
+    platformDict = _get_platform_STAC(self)
     
     if platformDict['platform'] not in list(lookup.keys()):
         raise Exception("Sorry, satellite platform not supported for cloud masking!")

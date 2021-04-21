@@ -683,265 +683,61 @@ def listIndices():
 # Image Scaling
 # --------------------------
 
-def _get_scale_method(platformDict):
-    '''Gets the scale algorithms for the scale() method in ee.Imge and ee.ImageCollection.
+def _get_scale_params(args):
+    '''Gets the scale parameters for each band of the image or image collection.
     
     Parameters
     ----------
-    platformDict : dict
-        Dictionary retrieved from the _get_platform() method.
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the scale parameters from.
         
     Returns
     -------
     dict
-        Lookup dictionary for scale algorithms.
-    '''    
-    def S3(img):
-        scalars = [
-            0.0139465,
-            0.0133873,
-            0.0121481,
-            0.0115198,
-            0.0100953,
-            0.0123538,
-            0.00879161,
-            0.00876539,
-            0.0095103,
-            0.00773378,
-            0.00675523,
-            0.0071996,
-            0.00749684,
-            0.0086512,
-            0.00526779,
-            0.00530267,
-            0.00493004,
-            0.00549962,
-            0.00502847,
-            0.00326378,
-            0.00324118
-        ]
-        scaled = img.select(['Oa.*']).multiply(scalars).addBands(img.select('quality_flags'))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+        Dictionary with the scale parameters for each band.
+    '''
+    platformDict = _get_platform_STAC(args)
     
-    def S2(img):
-        scaled = img.select(['B.*']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['Q.*']))
-        if platformDict['sr']:            
-            scaled = scaled.addBands(img.select(['AOT','WVP']).divide(1e3))
-            scaled = scaled.addBands(img.select(['T.*']))            
-            scaled = scaled.addBands(img.select('SCL'))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-scale.json")
     
-    def L8(img):               
-        if platformDict['sr']:
-            scaled = img.select(['B[1-9]']).divide(1e4)
-            scaled = scaled.addBands(img.select(['B10','B11']).divide(10)) 
-            scaled = scaled.addBands(img.select(['sr_aerosol','pixel_qa','radsat_qa']))
-            return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-        else:
-            warnings.warn("TOA reflectance for Landsat 8 is already scaled!",Warning)
-            pass
+    f = open(dataPath)
+    eeDict = json.load(f)
+    platforms = list(eeDict.keys())
+    
+    if platformDict['platform'] not in platforms:
+        raise Exception("Sorry, satellite platform not supported for getting scale parameters!")
         
-    def L457(img):               
-        if platformDict['sr']:
-            scaled = img.select(['B[1-5]','B7']).divide(1e4)
-            scaled = scaled.addBands(img.select(['B6']).divide(10)) 
-            scaled = scaled.addBands(img.select(['sr_atmos_opacity']).divide(1e3)) 
-            scaled = scaled.addBands(img.select(['sr_cloud_qa','pixel_qa','radsat_qa']))
-            return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-        else:
-            warnings.warn("TOA reflectance for Landsat 4, 5 and 7 is already scaled!",Warning)
-            pass
-    
-    def MCD43A4(img):
-        scaled = img.select(['Nadir.*']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['BRDF.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD43A3(img):
-        scaled = img.select(['Albedo.*']).divide(1e3)      
-        scaled = scaled.addBands(img.select(['BRDF.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09GQ(img):
-        scaled = img.select(['sur.*']).divide(1e4)
-        scaled = scaled.addBands(img.select(['obscov']).divide(100)) 
-        scaled = scaled.addBands(img.select(['num_observations','QC_250m','iobs_res','orbit_pnt','granule_pnt']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD10A1(img):
-        scaled = img.select(['NDSI']).divide(1e4)      
-        scaled = scaled.addBands(img.select(['NDSI_Snow.*']))
-        scaled = scaled.addBands(img.select(['Snow.*']))
-        scaled = scaled.addBands(img.select(['orbit_pnt','granule_pnt']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD11A1(img):
-        scaled = img.select(['LST.*']).multiply(0.02)
-        scaled = scaled.addBands(img.select(['Day_view_time','Night_view_time']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['Emis.*']).multiply(0.002)) 
-        scaled = scaled.addBands(img.select(['Clear.*']).multiply(0.0005))
-        scaled = scaled.addBands(img.select(['QC_Day','Day_view_angle','QC_Night','Night_view_angle']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09GA(img):
-        scaled = img.select(['sur.*']).multiply(0.0001)        
-        scaled = scaled.addBands(img.select(['Sensor.*']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['Solar.*']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['Range']).multiply(25))
-        scaled = scaled.addBands(img.select(['num_observations_1km','state_1km','gflags','orbit_pnt','granule_pnt','num_observations_500m','QC_500m','obscov_500m','iobs_res','q_scan']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MODOCGA(img):
-        scaled = img.select(['sur.*']).multiply(0.0001)  
-        scaled = scaled.addBands(img.select(['num_observations','orbit_pnt','granule_pnt']))
-        scaled = scaled.addBands(img.select(['QC.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD14A1(img):
-        scaled = img.select(['MaxFRP']).multiply(0.1)  
-        scaled = scaled.addBands(img.select(['FireMask','sample','QA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD43A1(img):
-        scaled = img.select(['BRDF_Albedo_Parameters.*']).multiply(0.001)  
-        scaled = scaled.addBands(img.select(['BRDF_Albedo_Band.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MCD15A3H(img):
-        scaled = img.select(['Fpar','FparStdDev']).multiply(0.01)  
-        scaled = scaled.addBands(img.select(['Lai','LaiStdDev']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['FparLai_QC','FparExtra_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09Q1(img):
-        scaled = img.select(['sur.*']).divide(1e4)        
-        scaled = scaled.addBands(img.select(['State','QA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD09A1(img):
-        scaled = img.select(['sur.*']).divide(1e4)
-        scaled = scaled.addBands(img.select(['SolarZenith','ViewZenith','RelativeAzimuth']).multiply(0.01)) 
-        scaled = scaled.addBands(img.select(['QA','StateQA','DayOfYear']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD11A2(img):
-        scaled = img.select(['LST.*']).multiply(0.02)
-        scaled = scaled.addBands(img.select(['Day_view_time','Night_view_time']).multiply(0.1)) 
-        scaled = scaled.addBands(img.select(['Emis.*']).multiply(0.002).add(0.49)) 
-        scaled = scaled.addBands(img.select(['Day_view_angl','Night_view_angl']).subtract(65))
-        scaled = scaled.addBands(img.select(['QC_Day','QC_Night','Clear_sky_days','Clear_sky_nights']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD17A2H(img):
-        scaled = img.select(['Gpp','PsnNet']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['Psn_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD16A2(img):
-        scaled = img.select(['ET','PET']).multiply(0.1)
-        scaled = scaled.addBands(img.select(['LE','PLE']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ET_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13Q1(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13A1(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD13A2(img):
-        scaled = img.select(['NDVI','EVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['sur.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['ViewZenith','SolarZenith','RelativeAzimuth']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['DetailedQA','DayOfYear','SummaryQA']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD08_M3(img):
-        scaled = img.select(['Aerosol.*']).multiply(0.001)
-        scaled = scaled.addBands(img.select(['Cirrus.*']).multiply(0.0001))
-        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Log.*']).multiply(0.001))
-        scaled = scaled.addBands(img.select(['Cloud_Optical_Thickness_Liquid_Mean_Uncertainty']).multiply(0.01))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def MOD17A3HGF(img):
-        scaled = img.select(['Npp']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['Npp_QC']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def VNP09GA(img):
-        scaled = img.select(['M.*','I.*']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['Sensor.*','Solar.*']).multiply(0.01))
-        scaled = scaled.addBands(img.select(['iobs_res','num.*','o.*','QF.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    def VNP13A1(img):
-        scaled = img.select(['EVI','EVI2','NDVI']).multiply(0.0001)
-        scaled = scaled.addBands(img.select(['NIR.*','SWIR.*','VI.*','red.*','green.*','blue.*','composite.*','pixel.*','relative.*','sun.*','view.*']))
-        return ee.Image(scaled.copyProperties(img,img.propertyNames()))
-    
-    lookup = {
-        'COPERNICUS/S3/OLCI': S3,
-        'COPERNICUS/S2': S2,
-        'COPERNICUS/S2_SR': S2,
-        'LANDSAT/LC08/C01/T1_SR': L8,
-        'LANDSAT/LC08/C01/T2_SR': L8,
-        'LANDSAT/LE07/C01/T1_SR': L457,
-        'LANDSAT/LE07/C01/T2_SR': L457,
-        'LANDSAT/LT05/C01/T1_SR': L457,
-        'LANDSAT/LT05/C01/T2_SR': L457,
-        'LANDSAT/LT04/C01/T1_SR': L457,
-        'LANDSAT/LT04/C01/T2_SR': L457,
-        'MODIS/006/MCD43A4': MCD43A4,
-        'MODIS/006/MCD43A3': MCD43A3,
-        'MODIS/006/MOD09GQ': MOD09GQ,
-        'MODIS/006/MOD10A1': MOD10A1,
-        'MODIS/006/MOD11A1': MOD11A1,
-        'MODIS/006/MOD09GA': MOD09GA,
-        'MODIS/006/MODOCGA': MODOCGA,
-        'MODIS/006/MOD14A1': MOD14A1,
-        'MODIS/006/MCD43A1': MCD43A1,
-        'MODIS/006/MCD15A3H': MCD15A3H,
-        'MODIS/006/MOD09Q1': MOD09Q1,
-        'MODIS/006/MOD09A1': MOD09A1,
-        'MODIS/006/MOD11A2': MOD11A2,
-        'MODIS/006/MOD17A2H': MOD17A2H,
-        'MODIS/006/MOD16A2': MOD16A2,
-        'MODIS/006/MOD13Q1': MOD13Q1,
-        'MODIS/006/MOD13A1': MOD13A1,
-        'MODIS/006/MOD13A2': MOD13A2,
-        'MODIS/061/MOD08_M3': MOD08_M3,
-        'MODIS/006/MOD17A3HGF': MOD17A3HGF,       
-        'MODIS/006/MYD09GQ': MOD09GQ,
-        'MODIS/006/MYD10A1': MOD10A1,
-        'MODIS/006/MYD11A1': MOD11A1,
-        'MODIS/006/MYD09GA': MOD09GA,
-        'MODIS/006/MYDOCGA': MODOCGA,
-        'MODIS/006/MYD14A1': MOD14A1,        
-        'MODIS/006/MYD09Q1': MOD09Q1,
-        'MODIS/006/MYD09A1': MOD09A1,
-        'MODIS/006/MYD11A2': MOD11A2,
-        'MODIS/006/MYD17A2H': MOD17A2H,        
-        'MODIS/006/MYD13Q1': MOD13Q1,
-        'MODIS/006/MYD13A1': MOD13A1,
-        'MODIS/006/MYD13A2': MOD13A2,
-        'MODIS/061/MYD08_M3': MOD08_M3,
-        'MODIS/006/MYD17A3HGF': MOD17A3HGF,
-        'NOAA/VIIRS/001/VNP09GA': VNP09GA,
-        'NOAA/VIIRS/001/VNP13A1': VNP13A1
-    }
-    
-    return lookup
+    return eeDict[platformDict['platform']]
 
-def _scale(self):
+def _get_offset_params(args):
+    '''Gets the offset parameters for each band of the image or image collection.
+    
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the offset parameters from.
+        
+    Returns
+    -------
+    dict
+        Dictionary with the offset parameters for each band.
+    '''
+    platformDict = _get_platform_STAC(args)
+    
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-offset.json")
+    
+    f = open(dataPath)
+    eeDict = json.load(f)
+    platforms = list(eeDict.keys())
+    
+    if platformDict['platform'] not in platforms:
+        raise Exception("Sorry, satellite platform not supported for getting offset parameters!")
+        
+    return eeDict[platformDict['platform']]
+
+def _scale_STAC(self):
     '''Scales bands on an image or image collection.
     
     Parameters
@@ -954,16 +750,22 @@ def _scale(self):
     ee.Image | ee.ImageCollection
         Scaled image or image collection.
     '''
-    platformDict = _get_platform_STAC(self)
-    lookup = _get_scale_method(platformDict)
+    scaleParams = ee.Dictionary(_get_scale_params(self)).toImage()
+    offsetParams = ee.Dictionary(_get_offset_params(self)).toImage()
     
-    if platformDict['platform'] not in list(lookup.keys()):
-        raise Exception("Sorry, satellite platform not supported for scaling!")
+    def scaleOffset(img):
+        bands = img.bandNames()
+        scaleList = scaleParams.bandNames()
+        bands = bands.filter(ee.Filter.inList('item',scaleList))
+        SOscaleParams = scaleParams.select(bands)
+        SOoffsetParams = offsetParams.select(bands)
+        scaled = img.select(bands).multiply(SOscaleParams).add(SOoffsetParams)
+        return ee.Image(scaled.copyProperties(img,img.propertyNames())) 
     
     if isinstance(self,ee.image.Image):
-        scaled = lookup[platformDict['platform']](self)
+        scaled = scaleOffset(self)
     elif isinstance(self,ee.imagecollection.ImageCollection):
-        scaled = self.map(lookup[platformDict['platform']])
+        scaled = self.map(scaleOffset)
         
     return scaled
 
@@ -1221,7 +1023,7 @@ def _maskClouds(self,method,prob,maskCirrus,maskShadows,scaledImage,dark,cloudDi
     if isinstance(self,ee.image.Image):
         masked = lookup[platformDict['platform']](self)
     elif isinstance(self,ee.imagecollection.ImageCollection):
-        if platformDict['platform'] == 'COPERNICUS/S2':        
+        if platformDict['platform'] == 'COPERNICUS/S2_SR':        
             masked = lookup[platformDict['platform']](self)
         else:        
             masked = self.map(lookup[platformDict['platform']])         

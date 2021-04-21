@@ -8,6 +8,8 @@ Extended methods for the ee.Image class:
 .. autosummary::
    :toctree: stubs
    
+   getOffsetParams
+   getScaleParams
    index
    maskClouds
    scale

@@ -68,6 +68,8 @@ ee.Image
 
 .. autosummary::
    
+   getOffsetParams
+   getScaleParams
    index
    maskClouds
    scale
@@ -80,7 +82,9 @@ ee.ImageCollection
 .. currentmodule:: eemont.imagecollection
 .. autosummary::
 
-   closest 
+   closest
+   getOffsetParams
+   getScaleParams
    getTimeSeriesByRegion
    getTimeSeriesByRegions
    index

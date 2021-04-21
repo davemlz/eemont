@@ -2,8 +2,10 @@ import ee
 import numpy as np
 import warnings
 from .common import _index
-from .common import _scale
 from .common import _maskClouds
+from .common import _get_scale_params
+from .common import _get_offset_params
+from .common import _scale_STAC
 
 def _extend_eeImageCollection():
     """Decorator. Extends the ee.ImageCollection class."""
@@ -635,7 +637,87 @@ def scale(self):
     '''
     warnings.warn("scale() will be deprecated in future versions, please use scaleAndOffset() instead",PendingDeprecationWarning)
     
-    return _scale(self)
+    return _scale_STAC(self)
+
+@_extend_eeImageCollection()
+def getScaleParams(self):
+    '''Gets the scale parameters for each band of the image collection.
+    
+    Parameters
+    ----------
+    self : ee.ImageCollection (this)
+        Image collection to get the scale parameters from.
+        
+    Returns
+    -------
+    dict
+        Dictionary with the scale parameters for each band.
+        
+    See Also
+    --------
+    getOffsetParams : Gets the offset parameters for each band of the image collection.
+    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
+    
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('MODIS/006/MOD11A2').getScaleParams()
+    {'Clear_sky_days': 1.0,
+     'Clear_sky_nights': 1.0,
+     'Day_view_angl': 1.0,
+     'Day_view_time': 0.1,
+     'Emis_31': 0.002,
+     'Emis_32': 0.002,
+     'LST_Day_1km': 0.02,
+     'LST_Night_1km': 0.02,
+     'Night_view_angl': 1.0,
+     'Night_view_time': 0.1,
+     'QC_Day': 1.0,
+     'QC_Night': 1.0}
+    '''
+    return _get_scale_params(self)
+
+@_extend_eeImageCollection()
+def getOffsetParams(self):
+    '''Gets the offset parameters for each band of the image collection.
+    
+    Parameters
+    ----------
+    self : ee.ImageCollection (this)
+        Image collection to get the offset parameters from.
+        
+    Returns
+    -------
+    dict
+        Dictionary with the offset parameters for each band.
+        
+    See Also
+    --------
+    getScaleParams : Gets the scale parameters for each band of the image collection.
+    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
+    
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('MODIS/006/MOD11A2').getOffsetParams()
+    {'Clear_sky_days': 0.0,
+     'Clear_sky_nights': 0.0,
+     'Day_view_angl': -65.0,
+     'Day_view_time': 0.0,
+     'Emis_31': 0.49,
+     'Emis_32': 0.49,
+     'LST_Day_1km': 0.0,
+     'LST_Night_1km': 0.0,
+     'Night_view_angl': -65.0,
+     'Night_view_time': 0.0,
+     'QC_Day': 0.0,
+     'QC_Night': 0.0}
+    '''
+    return _get_offset_params(self)
 
 @_extend_eeImageCollection()
 def scaleAndOffset(self):    
@@ -655,6 +737,11 @@ def scaleAndOffset(self):
     ee.ImageCollection
         Scaled image collection.
         
+    See Also
+    --------
+    getOffsetParams : Gets the offset parameters for each band of the image collection.
+    getScaleParams : Gets the scale parameters for each band of the image collection.
+        
     Examples
     --------
     >>> import ee, eemont
@@ -662,4 +749,4 @@ def scaleAndOffset(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
     '''    
-    return _scale(self)
+    return _scale_STAC(self)

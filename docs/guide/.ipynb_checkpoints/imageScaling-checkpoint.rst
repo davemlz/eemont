@@ -17,7 +17,7 @@ Now, we are ready to go!
 Overview
 -----------
 
-The eemont package extends the ee.Image and ee.ImageCollection classes with the method :code:`scaleAndOffset()`:
+The eemont package extends the ee.Image and ee.ImageCollection classes with the methods :code:`getScaleParams()`, :code:`getOffsetParams()` and :code:`scaleAndOffset()`:
 
 ee.Image
 ~~~~~~~~
@@ -26,6 +26,8 @@ ee.Image
 
 .. autosummary::
 
+   getOffsetParams
+   getScaleParams
    scaleAndOffset
       
 ee.ImageCollection
@@ -35,88 +37,19 @@ ee.ImageCollection
 
 .. autosummary::
 
+   getOffsetParams
+   getScaleParams
    scaleAndOffset
 
 Supported Platforms
 ----------------------
 
-This method automatically scales images from the following supported satellite platforms:
-
-Sentinel Missions
-~~~~~~~~~~~~~~~~~~~
-
-- `Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI>`_
-- `Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en>`_
-- `Sentinel-2 MSI: MultiSpectral Instrument, Level-1C <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands>`_
-
-Landsat Missions
-~~~~~~~~~~~~~~~~~~~
-
-- `USGS Landsat 8 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR>`_
-- `USGS Landsat 7 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR>`_
-- `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
-- `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
-
-MODIS Products (Terra + Aqua)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4>`_
-- `MCD43A3.006 MODIS Albedo Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A3>`_
-- `MCD43A1.006 MODIS BRDF-Albedo Model Parameters Daily 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A1>`_
-- `MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD15A3H>`_
-
-MODIS Products (Terra)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `MOD09GQ.006 Terra Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ>`_
-- `MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA>`_
-- `MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1>`_
-- `MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1>`_
-- `MOD10A1.006 Terra Snow Cover Daily Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD10A1>`_
-- `MOD11A1.006 Terra Land Surface Temperature and Emissivity Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A1>`_
-- `MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A2>`_
-- `MODOCGA.006 Terra Ocean Reflectance Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MODOCGA>`_
-- `MOD14A1.006: Terra Thermal Anomalies & Fire Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD14A1>`_
-- `MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A2H>`_
-- `MOD17A3HGF.006: Terra Net Primary Production Gap-Filled Yearly Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A3HGF>`_
-- `MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD16A2>`_
-- `MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13Q1>`_
-- `MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A1>`_
-- `MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A2>`_
-- `MOD08_M3.061 Terra Atmosphere Monthly Global Product <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD08_M3>`_
-
-MODIS Products (Aqua)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `MYD09GQ.006 Aqua Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GQ>`_
-- `MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA>`_
-- `MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1>`_
-- `MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1>`_
-- `MYD10A1.006 Aqua Snow Cover Daily Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD10A1>`_
-- `MYD11A1.006 Aqua Land Surface Temperature and Emissivity Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A1>`_
-- `MYD11A2.006 Aqua Land Surface Temperature and Emissivity 8-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A2>`_
-- `MYDOCGA.006 Aqua Ocean Reflectance Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYDOCGA>`_
-- `MYD14A1.006: Aqua Thermal Anomalies & Fire Daily Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD14A1>`_   
-- `MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A2H>`_
-- `MYD17A3HGF.006: Aqua Net Primary Production Gap-Filled Yearly Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A3HGF>`_   
-- `MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13Q1>`_
-- `MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A1>`_
-- `MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2>`_
-- `MYD08_M3.061 Aqua Atmosphere Monthly Global Product <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD08_M3>`_
-
-VIIRS Products
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
-- `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
-
-.. warning::
-   Not supported satellite platforms will raise an *Exception*.   
+This method automatically scales ALL images from the `Google Earth Engine STAC Catalog <https://developers.google.com/earth-engine/datasets>`_ by using the `List of Scale and Offset Paramaters from the GEE STAC Catalog Repository <https://github.com/davemlz/ee-catalog-scale-offset-params>`_.
 
 Usage
 ------------------
 
-The :code:`scaleAndOffset()` method scales each image according to the *Scale* and *Offset* parameters. 
+The :code:`scaleAndOffset()` method scales each image according to the *Scale* and *Offset* parameters for each band of the image. 
 
 Let's take the Sentinel-2 SR image collection as example:
 

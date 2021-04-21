@@ -151,8 +151,63 @@
                 
   <h1>Source code for eemont.common</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">box</span> <span class="kn">import</span> <span class="n">Box</span>
+
+<span class="c1"># Platforms IDs</span>
+<span class="c1"># --------------------------</span>
+
+<span class="k">def</span> <span class="nf">_get_platform_STAC</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    args : ee.Image | ee.ImageCollection</span>
+<span class="sd">        Image or image collection to get the platform from.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Platform and product of the image (or image collection).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">eemontDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;eemont&quot;</span><span class="p">,</span> <span class="s2">&quot;eemont.py&quot;</span><span class="p">))</span>
+    <span class="n">dataPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eemontDir</span><span class="p">,</span> <span class="s2">&quot;data/ee-catalog-ids.json&quot;</span><span class="p">)</span>
+    
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dataPath</span><span class="p">)</span>
+    <span class="n">eeDict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">platforms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    
+    <span class="n">ID</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+    
+    <span class="n">plt</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">for</span> <span class="n">platform</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platform</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;image_collection&#39;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
+            <span class="n">pltID</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ID</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>            
+        <span class="k">elif</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platform</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pltID</span> <span class="o">=</span> <span class="n">ID</span>            
+        
+        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="n">pltID</span><span class="p">:</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pltID</span>
+            
+        <span class="k">if</span> <span class="s1">&#39;_SR&#39;</span> <span class="ow">in</span> <span class="n">pltID</span><span class="p">:</span>
+            <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+            
+    <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported!&quot;</span><span class="p">)</span>    
+            
+    <span class="k">return</span> <span class="n">platformDict</span>
+
+<span class="c1"># Spectral Indices</span>
+<span class="c1"># --------------------------</span>
 
 <span class="k">def</span> <span class="nf">_get_expression_map</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">platformDict</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Gets the dictionary required for the map parameter in ee.Image.expression() method.</span>
@@ -237,10 +292,15 @@
 
     <span class="n">lookupPlatform</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">lookupS2</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">lookupL8</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">:</span> <span class="n">lookupS2</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">lookupL8</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">lookupL8</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">lookupL457</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MOD09GQ&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MYD09GQ&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GQ</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">:</span> <span class="n">lookupMOD09GA</span><span class="p">,</span>
@@ -672,7 +732,7 @@
 <span class="sd">    ee.Image | ee.ImageCollection</span>
 <span class="sd">        Image (or Image Collection) with the computed spectral index, or indices, as new bands.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">sigma</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -772,341 +832,64 @@
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
 
-<span class="k">def</span> <span class="nf">_get_platform</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.</span>
+<span class="c1"># Image Scaling</span>
+<span class="c1"># --------------------------</span>
+
+<span class="k">def</span> <span class="nf">_get_scale_params</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets the scale parameters for each band of the image or image collection.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    args : ee.Image | ee.ImageCollection</span>
-<span class="sd">        Image to get platform.</span>
+<span class="sd">        Image or image collection to get the scale parameters from.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
-<span class="sd">        Platform and product of the image (or image collection).</span>
+<span class="sd">        Dictionary with the scale parameters for each band.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">platforms</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;COPERNICUS/S3&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A4&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A3&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09GQ&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD10A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD11A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MODOCGA&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD14A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD15A3H&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09Q1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD17A2H&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD16A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13Q1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/061/MOD08_M3&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD17A3HGF&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD09GQ&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD10A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD11A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD09GA&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYDOCGA&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD14A1&#39;</span><span class="p">,</span>        
-        <span class="s1">&#39;MODIS/006/MYD09Q1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD09A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD11A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">,</span>        
-        <span class="s1">&#39;MODIS/006/MYD13Q1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD13A1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/061/MYD08_M3&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A3HGF&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;NOAA/VIIRS/001/VNP09GA&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;NOAA/VIIRS/001/VNP13A1&#39;</span>
-    <span class="p">]</span>
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform_STAC</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
-        <span class="n">imgID</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-        <span class="n">imgID</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, just ee.Image or ee.ImageCollection classes supported!&quot;</span><span class="p">)</span>
+    <span class="n">eemontDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;eemont&quot;</span><span class="p">,</span> <span class="s2">&quot;eemont.py&quot;</span><span class="p">))</span>
+    <span class="n">dataPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eemontDir</span><span class="p">,</span> <span class="s2">&quot;data/ee-catalog-scale.json&quot;</span><span class="p">)</span>
     
-    <span class="n">plt</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dataPath</span><span class="p">)</span>
+    <span class="n">eeDict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">platforms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     
-    <span class="k">for</span> <span class="n">platform</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">platform</span> <span class="ow">in</span> <span class="n">imgID</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">platform</span>
-        <span class="k">if</span> <span class="s1">&#39;_SR&#39;</span> <span class="ow">in</span> <span class="n">imgID</span><span class="p">:</span>
-            <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">platformDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;platform&#39;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-            
-    <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported!&quot;</span><span class="p">)</span>
-            
-    <span class="k">return</span> <span class="n">platformDict</span>
+    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for getting scale parameters!&quot;</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]]</span>
 
-<span class="k">def</span> <span class="nf">_get_scale_method</span><span class="p">(</span><span class="n">platformDict</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the scale algorithms for the scale() method in ee.Imge and ee.ImageCollection.</span>
+<span class="k">def</span> <span class="nf">_get_offset_params</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Gets the offset parameters for each band of the image or image collection.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    platformDict : dict</span>
-<span class="sd">        Dictionary retrieved from the _get_platform() method.</span>
+<span class="sd">    args : ee.Image | ee.ImageCollection</span>
+<span class="sd">        Image or image collection to get the offset parameters from.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
-<span class="sd">        Lookup dictionary for scale algorithms.</span>
-<span class="sd">    &#39;&#39;&#39;</span>    
-    <span class="k">def</span> <span class="nf">S3</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scalars</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="mf">0.0139465</span><span class="p">,</span>
-            <span class="mf">0.0133873</span><span class="p">,</span>
-            <span class="mf">0.0121481</span><span class="p">,</span>
-            <span class="mf">0.0115198</span><span class="p">,</span>
-            <span class="mf">0.0100953</span><span class="p">,</span>
-            <span class="mf">0.0123538</span><span class="p">,</span>
-            <span class="mf">0.00879161</span><span class="p">,</span>
-            <span class="mf">0.00876539</span><span class="p">,</span>
-            <span class="mf">0.0095103</span><span class="p">,</span>
-            <span class="mf">0.00773378</span><span class="p">,</span>
-            <span class="mf">0.00675523</span><span class="p">,</span>
-            <span class="mf">0.0071996</span><span class="p">,</span>
-            <span class="mf">0.00749684</span><span class="p">,</span>
-            <span class="mf">0.0086512</span><span class="p">,</span>
-            <span class="mf">0.00526779</span><span class="p">,</span>
-            <span class="mf">0.00530267</span><span class="p">,</span>
-            <span class="mf">0.00493004</span><span class="p">,</span>
-            <span class="mf">0.00549962</span><span class="p">,</span>
-            <span class="mf">0.00502847</span><span class="p">,</span>
-            <span class="mf">0.00326378</span><span class="p">,</span>
-            <span class="mf">0.00324118</span>
-        <span class="p">]</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Oa.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">scalars</span><span class="p">)</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;quality_flags&#39;</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
+<span class="sd">        Dictionary with the offset parameters for each band.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform_STAC</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">S2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>      
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Q.*&#39;</span><span class="p">]))</span>
-        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;sr&#39;</span><span class="p">]:</span>            
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;AOT&#39;</span><span class="p">,</span><span class="s1">&#39;WVP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e3</span><span class="p">))</span>
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;T.*&#39;</span><span class="p">]))</span>            
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SCL&#39;</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
+    <span class="n">eemontDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;eemont&quot;</span><span class="p">,</span> <span class="s2">&quot;eemont.py&quot;</span><span class="p">))</span>
+    <span class="n">dataPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eemontDir</span><span class="p">,</span> <span class="s2">&quot;data/ee-catalog-offset.json&quot;</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">L8</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>               
-        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;sr&#39;</span><span class="p">]:</span>
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B[1-9]&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B10&#39;</span><span class="p">,</span><span class="s1">&#39;B11&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> 
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sr_aerosol&#39;</span><span class="p">,</span><span class="s1">&#39;pixel_qa&#39;</span><span class="p">,</span><span class="s1">&#39;radsat_qa&#39;</span><span class="p">]))</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;TOA reflectance for Landsat 8 is already scaled!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
-            <span class="k">pass</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dataPath</span><span class="p">)</span>
+    <span class="n">eeDict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">platforms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for getting offset parameters!&quot;</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="nf">L457</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>               
-        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;sr&#39;</span><span class="p">]:</span>
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B[1-5]&#39;</span><span class="p">,</span><span class="s1">&#39;B7&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;B6&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> 
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sr_atmos_opacity&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e3</span><span class="p">))</span> 
-            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sr_cloud_qa&#39;</span><span class="p">,</span><span class="s1">&#39;pixel_qa&#39;</span><span class="p">,</span><span class="s1">&#39;radsat_qa&#39;</span><span class="p">]))</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;TOA reflectance for Landsat 4, 5 and 7 is already scaled!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
-            <span class="k">pass</span>
-    
-    <span class="k">def</span> <span class="nf">MCD43A4</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Nadir.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>      
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;BRDF.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MCD43A3</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Albedo.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>      
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;BRDF.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD09GQ</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;obscov&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;num_observations&#39;</span><span class="p">,</span><span class="s1">&#39;QC_250m&#39;</span><span class="p">,</span><span class="s1">&#39;iobs_res&#39;</span><span class="p">,</span><span class="s1">&#39;orbit_pnt&#39;</span><span class="p">,</span><span class="s1">&#39;granule_pnt&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD10A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NDSI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>      
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NDSI_Snow.*&#39;</span><span class="p">]))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Snow.*&#39;</span><span class="p">]))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;orbit_pnt&#39;</span><span class="p">,</span><span class="s1">&#39;granule_pnt&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD11A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;LST.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Day_view_time&#39;</span><span class="p">,</span><span class="s1">&#39;Night_view_time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Emis.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Clear.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;QC_Day&#39;</span><span class="p">,</span><span class="s1">&#39;Day_view_angle&#39;</span><span class="p">,</span><span class="s1">&#39;QC_Night&#39;</span><span class="p">,</span><span class="s1">&#39;Night_view_angle&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD09GA</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>        
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Sensor.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Solar.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Range&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;num_observations_1km&#39;</span><span class="p">,</span><span class="s1">&#39;state_1km&#39;</span><span class="p">,</span><span class="s1">&#39;gflags&#39;</span><span class="p">,</span><span class="s1">&#39;orbit_pnt&#39;</span><span class="p">,</span><span class="s1">&#39;granule_pnt&#39;</span><span class="p">,</span><span class="s1">&#39;num_observations_500m&#39;</span><span class="p">,</span><span class="s1">&#39;QC_500m&#39;</span><span class="p">,</span><span class="s1">&#39;obscov_500m&#39;</span><span class="p">,</span><span class="s1">&#39;iobs_res&#39;</span><span class="p">,</span><span class="s1">&#39;q_scan&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MODOCGA</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>  
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;num_observations&#39;</span><span class="p">,</span><span class="s1">&#39;orbit_pnt&#39;</span><span class="p">,</span><span class="s1">&#39;granule_pnt&#39;</span><span class="p">]))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;QC.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD14A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;MaxFRP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;FireMask&#39;</span><span class="p">,</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span><span class="s1">&#39;QA&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MCD43A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;BRDF_Albedo_Parameters.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>  
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;BRDF_Albedo_Band.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MCD15A3H</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Fpar&#39;</span><span class="p">,</span><span class="s1">&#39;FparStdDev&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Lai&#39;</span><span class="p">,</span><span class="s1">&#39;LaiStdDev&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;FparLai_QC&#39;</span><span class="p">,</span><span class="s1">&#39;FparExtra_QC&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD09Q1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>        
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;QA&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD09A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;SolarZenith&#39;</span><span class="p">,</span><span class="s1">&#39;ViewZenith&#39;</span><span class="p">,</span><span class="s1">&#39;RelativeAzimuth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;QA&#39;</span><span class="p">,</span><span class="s1">&#39;StateQA&#39;</span><span class="p">,</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD11A2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;LST.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Day_view_time&#39;</span><span class="p">,</span><span class="s1">&#39;Night_view_time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Emis.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.002</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mf">0.49</span><span class="p">))</span> 
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Day_view_angl&#39;</span><span class="p">,</span><span class="s1">&#39;Night_view_angl&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mi">65</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;QC_Day&#39;</span><span class="p">,</span><span class="s1">&#39;QC_Night&#39;</span><span class="p">,</span><span class="s1">&#39;Clear_sky_days&#39;</span><span class="p">,</span><span class="s1">&#39;Clear_sky_nights&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD17A2H</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Gpp&#39;</span><span class="p">,</span><span class="s1">&#39;PsnNet&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Psn_QC&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD16A2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;ET&#39;</span><span class="p">,</span><span class="s1">&#39;PET&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;LE&#39;</span><span class="p">,</span><span class="s1">&#39;PLE&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;ET_QC&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD13Q1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;ViewZenith&#39;</span><span class="p">,</span><span class="s1">&#39;SolarZenith&#39;</span><span class="p">,</span><span class="s1">&#39;RelativeAzimuth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;DetailedQA&#39;</span><span class="p">,</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">,</span><span class="s1">&#39;SummaryQA&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD13A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;ViewZenith&#39;</span><span class="p">,</span><span class="s1">&#39;SolarZenith&#39;</span><span class="p">,</span><span class="s1">&#39;RelativeAzimuth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;DetailedQA&#39;</span><span class="p">,</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">,</span><span class="s1">&#39;SummaryQA&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD13A2</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;sur.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;ViewZenith&#39;</span><span class="p">,</span><span class="s1">&#39;SolarZenith&#39;</span><span class="p">,</span><span class="s1">&#39;RelativeAzimuth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;DetailedQA&#39;</span><span class="p">,</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">,</span><span class="s1">&#39;SummaryQA&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD08_M3</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Aerosol.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Cirrus.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Cloud_Optical_Thickness_Liquid_Log.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.001</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Cloud_Optical_Thickness_Liquid_Mean_Uncertainty&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">MOD17A3HGF</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Npp&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Npp_QC&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">VNP09GA</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;M.*&#39;</span><span class="p">,</span><span class="s1">&#39;I.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;Sensor.*&#39;</span><span class="p">,</span><span class="s1">&#39;Solar.*&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;iobs_res&#39;</span><span class="p">,</span><span class="s1">&#39;num.*&#39;</span><span class="p">,</span><span class="s1">&#39;o.*&#39;</span><span class="p">,</span><span class="s1">&#39;QF.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="k">def</span> <span class="nf">VNP13A1</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI2&#39;</span><span class="p">,</span><span class="s1">&#39;NDVI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaled</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;NIR.*&#39;</span><span class="p">,</span><span class="s1">&#39;SWIR.*&#39;</span><span class="p">,</span><span class="s1">&#39;VI.*&#39;</span><span class="p">,</span><span class="s1">&#39;red.*&#39;</span><span class="p">,</span><span class="s1">&#39;green.*&#39;</span><span class="p">,</span><span class="s1">&#39;blue.*&#39;</span><span class="p">,</span><span class="s1">&#39;composite.*&#39;</span><span class="p">,</span><span class="s1">&#39;pixel.*&#39;</span><span class="p">,</span><span class="s1">&#39;relative.*&#39;</span><span class="p">,</span><span class="s1">&#39;sun.*&#39;</span><span class="p">,</span><span class="s1">&#39;view.*&#39;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
-    
-    <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;COPERNICUS/S3&#39;</span><span class="p">:</span> <span class="n">S3</span><span class="p">,</span>
-        <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">S2</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">L8</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A4&#39;</span><span class="p">:</span> <span class="n">MCD43A4</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A3&#39;</span><span class="p">:</span> <span class="n">MCD43A3</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09GQ&#39;</span><span class="p">:</span> <span class="n">MOD09GQ</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD10A1&#39;</span><span class="p">:</span> <span class="n">MOD10A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD11A1&#39;</span><span class="p">:</span> <span class="n">MOD11A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">:</span> <span class="n">MOD09GA</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MODOCGA&#39;</span><span class="p">:</span> <span class="n">MODOCGA</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD14A1&#39;</span><span class="p">:</span> <span class="n">MOD14A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD43A1&#39;</span><span class="p">:</span> <span class="n">MCD43A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MCD15A3H&#39;</span><span class="p">:</span> <span class="n">MCD15A3H</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09Q1&#39;</span><span class="p">:</span> <span class="n">MOD09Q1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD09A1&#39;</span><span class="p">:</span> <span class="n">MOD09A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD11A2&#39;</span><span class="p">:</span> <span class="n">MOD11A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD17A2H&#39;</span><span class="p">:</span> <span class="n">MOD17A2H</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD16A2&#39;</span><span class="p">:</span> <span class="n">MOD16A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13Q1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13A1&#39;</span><span class="p">:</span> <span class="n">MOD13A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/061/MOD08_M3&#39;</span><span class="p">:</span> <span class="n">MOD08_M3</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MOD17A3HGF&#39;</span><span class="p">:</span> <span class="n">MOD17A3HGF</span><span class="p">,</span>       
-        <span class="s1">&#39;MODIS/006/MYD09GQ&#39;</span><span class="p">:</span> <span class="n">MOD09GQ</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD10A1&#39;</span><span class="p">:</span> <span class="n">MOD10A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD11A1&#39;</span><span class="p">:</span> <span class="n">MOD11A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD09GA&#39;</span><span class="p">:</span> <span class="n">MOD09GA</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYDOCGA&#39;</span><span class="p">:</span> <span class="n">MODOCGA</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD14A1&#39;</span><span class="p">:</span> <span class="n">MOD14A1</span><span class="p">,</span>        
-        <span class="s1">&#39;MODIS/006/MYD09Q1&#39;</span><span class="p">:</span> <span class="n">MOD09Q1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD09A1&#39;</span><span class="p">:</span> <span class="n">MOD09A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD11A2&#39;</span><span class="p">:</span> <span class="n">MOD11A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A2H&#39;</span><span class="p">:</span> <span class="n">MOD17A2H</span><span class="p">,</span>        
-        <span class="s1">&#39;MODIS/006/MYD13Q1&#39;</span><span class="p">:</span> <span class="n">MOD13Q1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD13A1&#39;</span><span class="p">:</span> <span class="n">MOD13A1</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD13A2&#39;</span><span class="p">:</span> <span class="n">MOD13A2</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/061/MYD08_M3&#39;</span><span class="p">:</span> <span class="n">MOD08_M3</span><span class="p">,</span>
-        <span class="s1">&#39;MODIS/006/MYD17A3HGF&#39;</span><span class="p">:</span> <span class="n">MOD17A3HGF</span><span class="p">,</span>
-        <span class="s1">&#39;NOAA/VIIRS/001/VNP09GA&#39;</span><span class="p">:</span> <span class="n">VNP09GA</span><span class="p">,</span>
-        <span class="s1">&#39;NOAA/VIIRS/001/VNP13A1&#39;</span><span class="p">:</span> <span class="n">VNP13A1</span>
-    <span class="p">}</span>
-    
-    <span class="k">return</span> <span class="n">lookup</span>
+    <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]]</span>
 
-<span class="k">def</span> <span class="nf">_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Scales bands on an image or image collection.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -1119,18 +902,27 @@
 <span class="sd">    ee.Image | ee.ImageCollection</span>
 <span class="sd">        Scaled image or image collection.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-    <span class="n">lookup</span> <span class="o">=</span> <span class="n">_get_scale_method</span><span class="p">(</span><span class="n">platformDict</span><span class="p">)</span>
+    <span class="n">scaleParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">_get_scale_params</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
+    <span class="n">offsetParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">_get_offset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
     
-    <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for scaling!&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">scaleOffset</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+        <span class="n">bands</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+        <span class="n">scaleList</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+        <span class="n">bands</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">inList</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span><span class="n">scaleList</span><span class="p">))</span>
+        <span class="n">SOscaleParams</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+        <span class="n">SOoffsetParams</span> <span class="o">=</span> <span class="n">offsetParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">SOscaleParams</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SOoffsetParams</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span> 
     
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaleOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]])</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">scaleOffset</span><span class="p">)</span>
         
     <span class="k">return</span> <span class="n">scaled</span>
+
+<span class="c1"># Cloud Masking</span>
+<span class="c1"># --------------------------</span>
 
 <span class="k">def</span> <span class="nf">_maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">method</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">maskCirrus</span><span class="p">,</span><span class="n">maskShadows</span><span class="p">,</span><span class="n">scaledImage</span><span class="p">,</span><span class="n">dark</span><span class="p">,</span><span class="n">cloudDist</span><span class="p">,</span><span class="n">buffer</span><span class="p">,</span><span class="n">cdi</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image or image collection (valid just for Surface Reflectance products).</span>
@@ -1344,12 +1136,16 @@
         <span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">notCloud</span><span class="p">)</span>
     
     <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;COPERNICUS/S3&#39;</span><span class="p">:</span> <span class="n">S3</span><span class="p">,</span>
-        <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span> <span class="n">S2</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LC08&#39;</span><span class="p">:</span> <span class="n">L8</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LE07&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT05&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
-        <span class="s1">&#39;LANDSAT/LT04&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;COPERNICUS/S3/OLCI&#39;</span><span class="p">:</span> <span class="n">S3</span><span class="p">,</span>        
+        <span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">:</span> <span class="n">S2</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">L8</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LC08/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">L8</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LE07/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT05/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04/C01/T1_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
+        <span class="s1">&#39;LANDSAT/LT04/C01/T2_SR&#39;</span><span class="p">:</span> <span class="n">L457</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MOD09GA&#39;</span><span class="p">:</span> <span class="n">MOD09GA</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MCD15A3H&#39;</span><span class="p">:</span> <span class="n">MCD15A3H</span><span class="p">,</span>
         <span class="s1">&#39;MODIS/006/MOD09Q1&#39;</span><span class="p">:</span> <span class="n">MOD09Q1</span><span class="p">,</span>
@@ -1371,7 +1167,7 @@
         <span class="s1">&#39;NOAA/VIIRS/001/VNP13A1&#39;</span><span class="p">:</span> <span class="n">VNP13A1</span>
     <span class="p">}</span>
     
-    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for cloud masking!&quot;</span><span class="p">)</span>
@@ -1379,7 +1175,7 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
         <span class="n">masked</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">:</span>        
+        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">:</span>        
             <span class="n">masked</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>        
             <span class="n">masked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]])</span>         

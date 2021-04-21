@@ -8,7 +8,9 @@ Extended methods for the ee.ImageCollection class:
 .. autosummary::
    :toctree: stubs
 
-   closest 
+   closest
+   getOffsetParams
+   getScaleParams
    getTimeSeriesByRegion
    getTimeSeriesByRegions
    index

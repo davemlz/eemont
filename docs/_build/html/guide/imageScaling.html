@@ -201,38 +201,6 @@
   <a class="reference internal nav-link" href="#supported-platforms">
    Supported Platforms
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sentinel-missions">
-     Sentinel Missions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#landsat-missions">
-     Landsat Missions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modis-products-terra-aqua">
-     MODIS Products (Terra + Aqua)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modis-products-terra">
-     MODIS Products (Terra)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modis-products-aqua">
-     MODIS Products (Aqua)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#viirs-products">
-     VIIRS Products
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#usage">
@@ -269,7 +237,7 @@
 <p>Now, we are ready to go!</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the method <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code>:</p>
+<p>The eemont package extends the ee.Image and ee.ImageCollection classes with the methods <code class="code docutils literal notranslate"><span class="pre">getScaleParams()</span></code>, <code class="code docutils literal notranslate"><span class="pre">getOffsetParams()</span></code> and <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code>:</p>
 <div class="section" id="ee-image">
 <h3>ee.Image<a class="headerlink" href="#ee-image" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
@@ -278,6 +246,12 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/stubs/eemont.image.getOffsetParams.html#eemont.image.getOffsetParams" title="eemont.image.getOffsetParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOffsetParams</span></code></a>(self)</p></td>
+<td><p>Gets the offset parameters for each band of the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/stubs/eemont.image.getScaleParams.html#eemont.image.getScaleParams" title="eemont.image.getScaleParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getScaleParams</span></code></a>(self)</p></td>
+<td><p>Gets the scale parameters for each band of the image.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../classes/stubs/eemont.image.scaleAndOffset.html#eemont.image.scaleAndOffset" title="eemont.image.scaleAndOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scaleAndOffset</span></code></a>(self)</p></td>
 <td><p>Scales bands on an image according to their scale and offset parameters.</p></td>
 </tr>
@@ -292,6 +266,12 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../classes/stubs/eemont.imagecollection.getOffsetParams.html#eemont.imagecollection.getOffsetParams" title="eemont.imagecollection.getOffsetParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOffsetParams</span></code></a>(self)</p></td>
+<td><p>Gets the offset parameters for each band of the image collection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../classes/stubs/eemont.imagecollection.getScaleParams.html#eemont.imagecollection.getScaleParams" title="eemont.imagecollection.getScaleParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getScaleParams</span></code></a>(self)</p></td>
+<td><p>Gets the scale parameters for each band of the image collection.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../classes/stubs/eemont.imagecollection.scaleAndOffset.html#eemont.imagecollection.scaleAndOffset" title="eemont.imagecollection.scaleAndOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scaleAndOffset</span></code></a>(self)</p></td>
 <td><p>Scales bands on an image collection according to their scale and offset parameters.</p></td>
 </tr>
@@ -301,89 +281,11 @@
 </div>
 <div class="section" id="supported-platforms">
 <h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
-<p>This method automatically scales images from the following supported satellite platforms:</p>
-<div class="section" id="sentinel-missions">
-<h3>Sentinel Missions<a class="headerlink" href="#sentinel-missions" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S3_OLCI">Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR?hl=en">Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands">Sentinel-2 MSI: MultiSpectral Instrument, Level-1C</a></p></li>
-</ul>
-</div>
-<div class="section" id="landsat-missions">
-<h3>Landsat Missions<a class="headerlink" href="#landsat-missions" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR">USGS Landsat 8 Surface Reflectance Tier 1 and 2</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR">USGS Landsat 7 Surface Reflectance Tier 1 and 2</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR">USGS Landsat 5 Surface Reflectance Tier 1 and 2</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR">USGS Landsat 4 Surface Reflectance Tier 1 and 2</a></p></li>
-</ul>
-</div>
-<div class="section" id="modis-products-terra-aqua">
-<h3>MODIS Products (Terra + Aqua)<a class="headerlink" href="#modis-products-terra-aqua" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A4">MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A3">MCD43A3.006 MODIS Albedo Daily 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD43A1">MCD43A1.006 MODIS BRDF-Albedo Model Parameters Daily 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD15A3H">MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m</a></p></li>
-</ul>
-</div>
-<div class="section" id="modis-products-terra">
-<h3>MODIS Products (Terra)<a class="headerlink" href="#modis-products-terra" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GQ">MOD09GQ.006 Terra Surface Reflectance Daily Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09GA">MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09Q1">MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD09A1">MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD10A1">MOD10A1.006 Terra Snow Cover Daily Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A1">MOD11A1.006 Terra Land Surface Temperature and Emissivity Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A2">MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MODOCGA">MODOCGA.006 Terra Ocean Reflectance Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD14A1">MOD14A1.006: Terra Thermal Anomalies &amp; Fire Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A2H">MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD17A3HGF">MOD17A3HGF.006: Terra Net Primary Production Gap-Filled Yearly Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD16A2">MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13Q1">MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A1">MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD13A2">MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD08_M3">MOD08_M3.061 Terra Atmosphere Monthly Global Product</a></p></li>
-</ul>
-</div>
-<div class="section" id="modis-products-aqua">
-<h3>MODIS Products (Aqua)<a class="headerlink" href="#modis-products-aqua" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GQ">MYD09GQ.006 Aqua Surface Reflectance Daily Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09GA">MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09Q1">MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD09A1">MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD10A1">MYD10A1.006 Aqua Snow Cover Daily Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A1">MYD11A1.006 Aqua Land Surface Temperature and Emissivity Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A2">MYD11A2.006 Aqua Land Surface Temperature and Emissivity 8-Day Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYDOCGA">MYDOCGA.006 Aqua Ocean Reflectance Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD14A1">MYD14A1.006: Aqua Thermal Anomalies &amp; Fire Daily Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A2H">MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD17A3HGF">MYD17A3HGF.006: Aqua Net Primary Production Gap-Filled Yearly Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13Q1">MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A1">MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD13A2">MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD08_M3">MYD08_M3.061 Aqua Atmosphere Monthly Global Product</a></p></li>
-</ul>
-</div>
-<div class="section" id="viirs-products">
-<h3>VIIRS Products<a class="headerlink" href="#viirs-products" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en">VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en">VNP13A1: VIIRS Vegetation Indices 16-Day 500m</a></p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Not supported satellite platforms will raise an <em>Exception</em>.</p>
-</div>
-</div>
+<p>This method automatically scales ALL images from the <a class="reference external" href="https://developers.google.com/earth-engine/datasets">Google Earth Engine STAC Catalog</a> by using the <a class="reference external" href="https://github.com/davemlz/ee-catalog-scale-offset-params">List of Scale and Offset Paramaters from the GEE STAC Catalog Repository</a>.</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method scales each image according to the <em>Scale</em> and <em>Offset</em> parameters.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">scaleAndOffset()</span></code> method scales each image according to the <em>Scale</em> and <em>Offset</em> parameters for each band of the image.</p>
 <p>Let’s take the Sentinel-2 SR image collection as example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
 </pre></div>

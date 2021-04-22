@@ -46,6 +46,11 @@ Overview
 
 `Google Earth Engine <https://earthengine.google.com/>`_ is a cloud-based service for geospatial processing of vector and raster data. The Earth Engine platform has a `JavaScript and a Python API <https://developers.google.com/earth-engine/guides>`_ with different methods to process geospatial objects. Google Earth Engine also provides a `HUGE PETABYTE-SCALE CATALOG <https://developers.google.com/earth-engine/datasets/>`_ of raster and vector data that users can process online (e.g. Landsat Missions Image Collections, Sentinel Missions Image Collections, MODIS Products Image Collections, World Database of Protected Areas, etc.). The eemont package extends the `Google Earth Engine Python API <https://developers.google.com/earth-engine/guides/python_install>`_ with pre-processing and processing tools for the most used satellite platforms by adding utility methods for different `Earth Engine Objects <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_ that are friendly with the Python method chaining.
 
+Google Earth Engine Community: Developer Resources
+-----------------------------------------------------
+
+The eemont Python package can be found in the `Google Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ together with other awesome resources such as `geemap <https://geemap.org/>`_ and `rgee <https://github.com/r-spatial/rgee>`_.
+
 How does it work?
 -------------------
 

@@ -3,21 +3,26 @@ import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
 
+
 def _extend_staticmethod_eeFeatureCollection():
     """Decorator. Extends the ee.FeatureCollection class with a static method."""
-    return lambda f: (setattr(ee.featurecollection.FeatureCollection,f.__name__,staticmethod(f)) or f)
+    return lambda f: (
+        setattr(ee.featurecollection.FeatureCollection, f.__name__, staticmethod(f))
+        or f
+    )
+
 
 @_extend_staticmethod_eeFeatureCollection()
-def MultiPointFromQuery(query,geocoder = "nominatim",**kwargs):
-    '''Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
+def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
+    """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
     The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.
-    
+
     Tip
-    ----------    
+    ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-    
+
     Parameters
-    ----------    
+    ----------
     query : str
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
@@ -25,12 +30,12 @@ def MultiPointFromQuery(query,geocoder = "nominatim",**kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-        
+
     Returns
     -------
     ee.FeatureCollection
         Feature Collection with point geometries from the specified query.
-    
+
     Examples
     --------
     >>> import ee, eemont
@@ -86,16 +91,16 @@ def MultiPointFromQuery(query,geocoder = "nominatim",**kwargs):
         'place_id': 297654614,
         'type': 'water'}},
       ...]}
-    '''
+    """
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)
-    locations = geolocator.geocode(query,exactly_one = False)
+    locations = geolocator.geocode(query, exactly_one=False)
     if locations is None:
-        raise Exception('No matches were found for your query!')
+        raise Exception("No matches were found for your query!")
     else:
         features = []
         for location in locations:
-            geometry = ee.Geometry.Point([location.longitude,location.latitude])
-            feature = ee.Feature(geometry,location.raw)
+            geometry = ee.Geometry.Point([location.longitude, location.latitude])
+            feature = ee.Feature(geometry, location.raw)
             features.append(feature)
         return ee.FeatureCollection(features)

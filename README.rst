@@ -17,6 +17,9 @@ eemont
         :target: https://eemont.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
 .. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
         :target: https://www.buymeacoffee.com/davemlz
         
@@ -269,7 +272,9 @@ By using the :code:`@_extend_eeImage()` decorator, the :code:`my_new_method()` m
 - ee.Geometry: :code:`@_extend_eeGeometry()`
 - ee.Image: :code:`@_extend_eeImage()`
 - ee.ImageCollection: :code:`@_extend_eeImageCollection()`
-   
+
+Remember to use `Black <https://github.com/psf/black>`_!
+
 In order to test additions, you can use :code:`pytest` over the :code:`tests` folder::
 
    pytest tests

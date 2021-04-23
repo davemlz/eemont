@@ -3,21 +3,23 @@ import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
 
+
 def _extend_staticmethod_eeFeature():
     """Decorator. Extends the ee.Feature class with a static method."""
-    return lambda f: (setattr(ee.feature.Feature,f.__name__,staticmethod(f)) or f)
+    return lambda f: (setattr(ee.feature.Feature, f.__name__, staticmethod(f)) or f)
+
 
 @_extend_staticmethod_eeFeature()
-def PointFromQuery(query,geocoder = "nominatim",**kwargs):
-    '''Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
+def PointFromQuery(query, geocoder="nominatim", **kwargs):
+    """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
-    
+
     Tip
-    ----------    
+    ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-    
+
     Parameters
-    ----------    
+    ----------
     query : str
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
@@ -25,16 +27,16 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-        
+
     Returns
     -------
     ee.Feature
         Feature with a geometry describing a point from the specified query.
-    
+
     See Also
     --------
-    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package. 
-    
+    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
+
     Examples
     --------
     >>> import ee, eemont
@@ -56,28 +58,29 @@ def PointFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_id': 1744903493,
       'osm_type': 'node',
       'place_id': 17287419,
-      'type': 'volcano'}}   
-    '''
+      'type': 'volcano'}}
+    """
     cls = get_geocoder_for_service(geocoder)
     geolocator = cls(**kwargs)
     location = geolocator.geocode(query)
     if location == None:
-        raise Exception('No matches were found for your query!')
+        raise Exception("No matches were found for your query!")
     else:
-        geometry = ee.Geometry.Point([location.longitude,location.latitude])
-    return ee.Feature(geometry,location.raw)
+        geometry = ee.Geometry.Point([location.longitude, location.latitude])
+    return ee.Feature(geometry, location.raw)
+
 
 @_extend_staticmethod_eeFeature()
-def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
-    '''Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
+def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
+    """Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
-    
+
     Tip
-    ----------    
+    ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-    
+
     Parameters
-    ----------    
+    ----------
     query : str
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
@@ -85,16 +88,16 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-        
+
     Returns
     -------
     ee.Feature
         Feature with a geometry describing a bounding box from the specified query.
-    
+
     See Also
-    --------    
+    --------
     PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.
-    
+
     Examples
     --------
     >>> import ee, eemont
@@ -124,23 +127,27 @@ def BBoxFromQuery(query,geocoder = "nominatim",**kwargs):
       'osm_type': 'relation',
       'place_id': 259216862,
       'type': 'administrative'}}
-    '''
-    if geocoder in ['nominatim','arcgis']:
+    """
+    if geocoder in ["nominatim", "arcgis"]:
         cls = get_geocoder_for_service(geocoder)
     else:
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
     geolocator = cls(**kwargs)
     location = geolocator.geocode(query)
     if location is None:
-        raise Exception('No matches were found for your query!')
+        raise Exception("No matches were found for your query!")
     else:
-        if geocoder == 'nominatim':
-            BBox = location.raw['boundingbox']
-            geometry = ee.Geometry.BBox(float(BBox[2]),float(BBox[0]),float(BBox[3]),float(BBox[1]))
-            return ee.Feature(geometry,location.raw)
-        elif geocoder == 'arcgis':
-            BBox = location.raw['extent']
-            geometry = ee.Geometry.BBox(BBox['xmin'],BBox['ymin'],BBox['xmax'],BBox['ymax'])
-            return ee.Feature(geometry,location.raw)
+        if geocoder == "nominatim":
+            BBox = location.raw["boundingbox"]
+            geometry = ee.Geometry.BBox(
+                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+            )
+            return ee.Feature(geometry, location.raw)
+        elif geocoder == "arcgis":
+            BBox = location.raw["extent"]
+            geometry = ee.Geometry.BBox(
+                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
+            )
+            return ee.Feature(geometry, location.raw)
         else:
             raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')

@@ -76,8 +76,7 @@ By using the :code:`@_extend_eeImage()` decorator, the :code:`my_new_method()` m
 - ee.Image: :code:`@_extend_eeImage()`
 - ee.ImageCollection: :code:`@_extend_eeImageCollection()`
 
-.. important::
-   Remember to add the Docstrings to the new method.
+Remember to use `Black <https://github.com/psf/black>`_!
    
 In order to test additions, you can use :code:`pytest` over the :code:`tests` folder::
 

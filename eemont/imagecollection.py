@@ -7,20 +7,22 @@ from .common import _get_scale_params
 from .common import _get_offset_params
 from .common import _scale_STAC
 
+
 def _extend_eeImageCollection():
     """Decorator. Extends the ee.ImageCollection class."""
-    return lambda f: (setattr(ee.imagecollection.ImageCollection,f.__name__,f) or f)
+    return lambda f: (setattr(ee.imagecollection.ImageCollection, f.__name__, f) or f)
+
 
 @_extend_eeImageCollection()
-def closest(self, date, tolerance = 1, unit = 'month'):
-    '''Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
-    
+def closest(self, date, tolerance=1, unit="month"):
+    """Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
+
     Tip
-    ----------    
+    ----------
     Check more info about getting the closest image to a specific date in the :ref:`User Guide<Closest Image to a Specific Date>`.
-    
+
     Parameters
-    ----------    
+    ----------
     self : ee.ImageCollection [this]
         Image Collection from which to get the closest image to the specified date.
     date : ee.Date | string
@@ -30,50 +32,67 @@ def closest(self, date, tolerance = 1, unit = 'month'):
         with a high temporal resolution.
     unit : string, default = 'month'
         Units for tolerance. Available units: 'year', 'month', 'week', 'day', 'hour', 'minute' or 'second'.
-        
+
     Returns
-    -------    
+    -------
     ee.ImageCollection
         Closest images to the specified date.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
-    ''' 
+    """
     if not isinstance(date, ee.ee_date.Date):
         date = ee.Date(date)
-    
+
     startDate = date.advance(-tolerance, unit)
     endDate = date.advance(tolerance, unit)
     self = self.filterDate(startDate, endDate)
-    
-    def setProperties(img):        
-        img = img.set('dateDist',ee.Number(img.get('system:time_start')).subtract(date.millis()).abs())        
-        img = img.set('day',ee.Date(img.get('system:time_start')).get('day')) 
-        img = img.set('month',ee.Date(img.get('system:time_start')).get('month')) 
-        img = img.set('year',ee.Date(img.get('system:time_start')).get('year')) 
+
+    def setProperties(img):
+        img = img.set(
+            "dateDist",
+            ee.Number(img.get("system:time_start")).subtract(date.millis()).abs(),
+        )
+        img = img.set("day", ee.Date(img.get("system:time_start")).get("day"))
+        img = img.set("month", ee.Date(img.get("system:time_start")).get("month"))
+        img = img.set("year", ee.Date(img.get("system:time_start")).get("year"))
         return img
-    
-    self = self.map(setProperties).sort('dateDist')
-    closestImageTime = self.limit(1).first().get('system:time_start')
-    dayToFilter = ee.Filter.eq('day',ee.Date(closestImageTime).get('day'))
-    monthToFilter = ee.Filter.eq('month',ee.Date(closestImageTime).get('month'))
-    yearToFilter = ee.Filter.eq('year',ee.Date(closestImageTime).get('year'))
-    self = self.filter(ee.Filter.And(dayToFilter,monthToFilter,yearToFilter))
-    
+
+    self = self.map(setProperties).sort("dateDist")
+    closestImageTime = self.limit(1).first().get("system:time_start")
+    dayToFilter = ee.Filter.eq("day", ee.Date(closestImageTime).get("day"))
+    monthToFilter = ee.Filter.eq("month", ee.Date(closestImageTime).get("month"))
+    yearToFilter = ee.Filter.eq("year", ee.Date(closestImageTime).get("year"))
+    self = self.filter(ee.Filter.And(dayToFilter, monthToFilter, yearToFilter))
+
     return self
 
+
 @_extend_eeImageCollection()
-def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None,crs = None,crsTransform = None,bestEffort = False,
-                          maxPixels = 1e12,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
-    '''Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).
-    
+def getTimeSeriesByRegion(
+    self,
+    reducer,
+    bands=None,
+    geometry=None,
+    scale=None,
+    crs=None,
+    crsTransform=None,
+    bestEffort=False,
+    maxPixels=1e12,
+    tileScale=1,
+    dateColumn="date",
+    dateFormat="ISO",
+    naValue=-9999,
+):
+    """Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).
+
     Tip
-    ----------    
+    ----------
     Check more info about time series in the :ref:`User Guide<Time Series By Regions>`.
-    
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
@@ -81,7 +100,7 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     reducer : ee.Reducer | list[ee.Reducer]
         Reducer or list of reducers to use for region reduction.
     bands : str | list[str], default = None
-        Selection of bands to get the time series from. Defaults to all bands in the image collection.    
+        Selection of bands to get the time series from. Defaults to all bands in the image collection.
     geometry : ee.Geometry | ee.Feature | ee.FeatureCollection, default = None
         Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection, the geometry() method is called. In order to get reductions by each feature please see
         the getTimeSeriesByRegions() method. Defaults to the footprint of the first band for each image in the collection.
@@ -104,16 +123,16 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
         Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
     naValue : numeric, default = -9999
         Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
-        
+
     Returns
     -------
     ee.FeatureCollection
         Time series by region retrieved as a Feature Collection.
-        
+
     See Also
     --------
     getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
-        
+
     Examples
     --------
     >>> import ee, eemont
@@ -131,55 +150,85 @@ def getTimeSeriesByRegion(self,reducer,bands = None,geometry = None,scale = None
     ...                               geometry = fc,
     ...                               bands = ['EVI','NDVI'],
     ...                               scale = 10)
-    '''    
+    """
     if bands != None:
-        if not isinstance(bands,list):
+        if not isinstance(bands, list):
             bands = [bands]
         self = self.select(bands)
-    
+
     if not isinstance(reducer, list):
         reducer = [reducer]
-    
+
     if not isinstance(geometry, ee.geometry.Geometry):
         geometry = geometry.geometry()
-    
+
     collections = []
-    
+
     for red in reducer:
-        
+
         reducerName = red.getOutputs().get(0)
-    
+
         def reduceImageCollectionByRegion(img):
-            dictionary = img.reduceRegion(red,geometry,scale,crs,crsTransform,bestEffort,maxPixels,tileScale)
-            if dateFormat == 'ms':
-                date = ee.Date(img.get('system:time_start')).millis()
-            elif dateFormat == 'ISO':
-                date = ee.Date(img.get('system:time_start')).format()
+            dictionary = img.reduceRegion(
+                red,
+                geometry,
+                scale,
+                crs,
+                crsTransform,
+                bestEffort,
+                maxPixels,
+                tileScale,
+            )
+            if dateFormat == "ms":
+                date = ee.Date(img.get("system:time_start")).millis()
+            elif dateFormat == "ISO":
+                date = ee.Date(img.get("system:time_start")).format()
             else:
-                date = ee.Date(img.get('system:time_start')).format(dateFormat)
-            return ee.Feature(None,dictionary).set({dateColumn:date,'reducer':reducerName})
-        
-        collections.append(ee.FeatureCollection(self.map(reduceImageCollectionByRegion)))
-    
+                date = ee.Date(img.get("system:time_start")).format(dateFormat)
+            return ee.Feature(None, dictionary).set(
+                {dateColumn: date, "reducer": reducerName}
+            )
+
+        collections.append(
+            ee.FeatureCollection(self.map(reduceImageCollectionByRegion))
+        )
+
     flattenfc = ee.FeatureCollection(collections).flatten()
-    
-    def setNA(feature):        
-        feature = ee.Algorithms.If(condition = feature.propertyNames().size().eq(3),
-                                   trueCase = feature.set(ee.Dictionary.fromLists(bands,[naValue] * len(bands))),
-                                   falseCase = feature)                    
-        feature = ee.Feature(feature) 
+
+    def setNA(feature):
+        feature = ee.Algorithms.If(
+            condition=feature.propertyNames().size().eq(3),
+            trueCase=feature.set(
+                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
+            ),
+            falseCase=feature,
+        )
+        feature = ee.Feature(feature)
         return feature
-    
+
     return flattenfc.map(setNA)
 
+
 @_extend_eeImageCollection()
-def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs = None,crsTransform = None,tileScale = 1,dateColumn = 'date',dateFormat = 'ISO',naValue = -9999):
-    '''Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
-    
+def getTimeSeriesByRegions(
+    self,
+    reducer,
+    collection,
+    bands=None,
+    scale=None,
+    crs=None,
+    crsTransform=None,
+    tileScale=1,
+    dateColumn="date",
+    dateFormat="ISO",
+    naValue=-9999,
+):
+    """Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
+
     Tip
-    ----------    
+    ----------
     Check more info about time series in the :ref:`User Guide<Time Series By Regions>`.
-    
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
@@ -205,17 +254,17 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
         Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
     naValue : numeric, default = -9999
         Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
-        
+
     Returns
     -------
     ee.FeatureCollection
         Time series by regions retrieved as a Feature Collection.
-        
+
     See Also
     --------
     getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)
         according to the specified reducer (or reducers).
-        
+
     Examples
     --------
     >>> import ee, eemont
@@ -233,80 +282,100 @@ def getTimeSeriesByRegions(self,reducer,collection,bands = None,scale = None,crs
     ...                                collection = fc,
     ...                                bands = ['EVI','NDVI'],
     ...                                scale = 10)
-    ''' 
+    """
     if bands != None:
-        if not isinstance(bands,list):
+        if not isinstance(bands, list):
             bands = [bands]
         self = self.select(bands)
-    
+
     if not isinstance(reducer, list):
         reducer = [reducer]
-    
-    if not isinstance(collection,ee.featurecollection.FeatureCollection):
+
+    if not isinstance(collection, ee.featurecollection.FeatureCollection):
         raise Exception("Parameter collection must be an ee.FeatureCollection!")
-    
+
     props = collection.first().propertyNames()
-    
+
     collections = []
-    
+
     imgList = self.toList(self.size())
-    
+
     for red in reducer:
-        
+
         reducerName = red.getOutputs().get(0)
-    
+
         def reduceImageCollectionByRegions(img):
-            
+
             img = ee.Image(img)
-            
-            fc = img.reduceRegions(collection,red,scale,crs,crsTransform,tileScale)
-                
+
+            fc = img.reduceRegions(collection, red, scale, crs, crsTransform, tileScale)
+
             if isinstance(bands, list):
-                if len(bands) == 1:                              
-                    fc = ee.Algorithms.If(condition = fc.first().propertyNames().size().eq(props.size()),
-                                          trueCase = fc,
-                                          falseCase = fc.select(props.add(reducerName),props.add(bands[0])))                    
-                    fc = ee.FeatureCollection(fc) 
-                        
-            if dateFormat == 'ms':
-                date = ee.Date(img.get('system:time_start')).millis()
-            elif dateFormat == 'ISO':
-                date = ee.Date(img.get('system:time_start')).format()
+                if len(bands) == 1:
+                    fc = ee.Algorithms.If(
+                        condition=fc.first().propertyNames().size().eq(props.size()),
+                        trueCase=fc,
+                        falseCase=fc.select(
+                            props.add(reducerName), props.add(bands[0])
+                        ),
+                    )
+                    fc = ee.FeatureCollection(fc)
+
+            if dateFormat == "ms":
+                date = ee.Date(img.get("system:time_start")).millis()
+            elif dateFormat == "ISO":
+                date = ee.Date(img.get("system:time_start")).format()
             else:
-                date = ee.Date(img.get('system:time_start')).format(dateFormat)
-                
+                date = ee.Date(img.get("system:time_start")).format(dateFormat)
+
             def setProperties(feature):
-                return feature.set({dateColumn:date,'reducer':reducerName})
-            
+                return feature.set({dateColumn: date, "reducer": reducerName})
+
             return fc.map(setProperties)
-    
+
         collections.append(self.map(reduceImageCollectionByRegions).flatten())
-    
+
     flattenfc = ee.FeatureCollection(collections).flatten()
-    
-    def setNA(feature):        
-        feature = ee.Algorithms.If(condition = feature.propertyNames().size().eq(props.size().add(2)),
-                                   trueCase = feature.set(ee.Dictionary.fromLists(bands,[naValue] * len(bands))),
-                                   falseCase = feature)                    
-        feature = ee.Feature(feature) 
+
+    def setNA(feature):
+        feature = ee.Algorithms.If(
+            condition=feature.propertyNames().size().eq(props.size().add(2)),
+            trueCase=feature.set(
+                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
+            ),
+            falseCase=feature,
+        )
+        feature = ee.Feature(feature)
         return feature
-    
+
     return flattenfc.map(setNA)
 
+
 @_extend_eeImageCollection()
-def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
-    '''Computes one or more spectral indices (indices are added as bands) for an image collection.
-    
+def index(
+    self,
+    index="NDVI",
+    G=2.5,
+    C1=6.0,
+    C2=7.5,
+    L=1.0,
+    kernel="RBF",
+    sigma="0.5 * (a + b)",
+    p=2.0,
+    c=1.0,
+):
+    """Computes one or more spectral indices (indices are added as bands) for an image collection.
+
     Warning
-    -------------    
+    -------------
     **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
-    
+
     Tip
-    ----------    
+    ----------
     Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
-    
+
     Parameters
-    ----------     
+    ----------
     self : ee.ImageCollection
         Image collection to compute indices on. Must be scaled to [0,1].
     index : string | list[string], default = 'NDVI'
@@ -336,9 +405,9 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
             - 'NDVI' : Normalized Difference Vegetation Index.
             - 'NGRDI' : Normalized Green Red Difference Index.
             - 'RVI' : Ratio Vegetation Index.
-            - 'SAVI' : Soil-Adjusted Vegetation Index.  
+            - 'SAVI' : Soil-Adjusted Vegetation Index.
             - 'VARI' : Visible Atmospherically Resistant Index.
-        Burn and fire indices:     
+        Burn and fire indices:
             - 'BAI' : Burned Area Index.
             - 'BAIS2' : Burned Area Index for Sentinel 2.
             - 'CSIT' : Char Soil Index Thermal.
@@ -346,14 +415,14 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
             - 'NBRT' : Normalized Burn Ratio Thermal.
             - 'NDVIT' : Normalized Difference Vegetation Index Thermal
             - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
-        Water indices:            
+        Water indices:
             - 'MNDWI' : Modified Normalized Difference Water Index.
-            - 'NDWI' : Normalized Difference Water Index. 
-        Snow indices:     
+            - 'NDWI' : Normalized Difference Water Index.
+        Snow indices:
             - 'NDSI' : Normalized Difference Snow Index.
-        Drought indices:     
+        Drought indices:
             - 'NDDI' : Normalized Difference Drought Index.
-        Kernel indices:     
+        Kernel indices:
             - 'kEVI' : Kernel Enhanced Vegetation Index.
             - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
             - 'kRVI' : Kernel Ratio Vegetation Index.
@@ -371,69 +440,84 @@ def index(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',s
         Available options:
             - 'linear' : Linear Kernel.
             - 'RBF' : Radial Basis Function (RBF) Kernel.
-            - 'poly' : Polynomial Kernel.          
+            - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
         Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
         Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.    
-            
+        Used for kernel = 'poly'. This must be greater than or equal to 0.
+
     Returns
-    -------    
+    -------
     ee.ImageCollection
         Image collection with the computed spectral index, or indices, as new bands.
-    
+
     See Also
     --------
     scale : Scales bands on an image collection.
-    
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
-    
+
     - Computing one spectral index:
-        
-    >>> S2.index('NDVI')    
-    
+
+    >>> S2.index('NDVI')
+
     - Computing indices with different parameters:
-    
-    >>> S2.index('SAVI',L = 0.5) 
-    
+
+    >>> S2.index('SAVI',L = 0.5)
+
     - Computing multiple indices:
-    
-    >>> S2.index(['NDVI','EVI','GNDVI'])    
-    
+
+    >>> S2.index(['NDVI','EVI','GNDVI'])
+
     - Computing a specific group of indices:
-    
-    >>> S2.index('vegetation')    
-    
+
+    >>> S2.index('vegetation')
+
     - Computing kernel indices:
-    
+
     >>> S2.index(['kNDVI'],kernel = 'poly',p = 5)
-    
+
     - Computing all indices:
-    
-    >>> S2.index('all')   
-    '''
-    warnings.warn("index() will be deprecated in future versions, please use spectralIndices() instead",PendingDeprecationWarning)
-    
-    return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
+
+    >>> S2.index('all')
+    """
+    warnings.warn(
+        "index() will be deprecated in future versions, please use spectralIndices() instead",
+        PendingDeprecationWarning,
+    )
+
+    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c)
+
 
 @_extend_eeImageCollection()
-def spectralIndices(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel = 'RBF',sigma = '0.5 * (a + b)',p = 2.0,c = 1.0):
-    '''Computes one or more spectral indices (indices are added as bands) for an image collection.
-        
+def spectralIndices(
+    self,
+    index="NDVI",
+    G=2.5,
+    C1=6.0,
+    C2=7.5,
+    L=1.0,
+    kernel="RBF",
+    sigma="0.5 * (a + b)",
+    p=2.0,
+    c=1.0,
+):
+    """Computes one or more spectral indices (indices are added as bands) for an image collection.
+
     Tip
-    ----------    
+    ----------
     Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
-    
+
     Parameters
-    ----------     
+    ----------
     self : ee.ImageCollection
         Image collection to compute indices on. Must be scaled to [0,1].
     index : string | list[string], default = 'NDVI'
@@ -463,9 +547,9 @@ def spectralIndices(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel
             - 'NDVI' : Normalized Difference Vegetation Index.
             - 'NGRDI' : Normalized Green Red Difference Index.
             - 'RVI' : Ratio Vegetation Index.
-            - 'SAVI' : Soil-Adjusted Vegetation Index.  
+            - 'SAVI' : Soil-Adjusted Vegetation Index.
             - 'VARI' : Visible Atmospherically Resistant Index.
-        Burn and fire indices:     
+        Burn and fire indices:
             - 'BAI' : Burned Area Index.
             - 'BAIS2' : Burned Area Index for Sentinel 2.
             - 'CSIT' : Char Soil Index Thermal.
@@ -473,14 +557,14 @@ def spectralIndices(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel
             - 'NBRT' : Normalized Burn Ratio Thermal.
             - 'NDVIT' : Normalized Difference Vegetation Index Thermal
             - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
-        Water indices:            
+        Water indices:
             - 'MNDWI' : Modified Normalized Difference Water Index.
-            - 'NDWI' : Normalized Difference Water Index. 
-        Snow indices:     
+            - 'NDWI' : Normalized Difference Water Index.
+        Snow indices:
             - 'NDSI' : Normalized Difference Snow Index.
-        Drought indices:     
+        Drought indices:
             - 'NDDI' : Normalized Difference Drought Index.
-        Kernel indices:     
+        Kernel indices:
             - 'kEVI' : Kernel Enhanced Vegetation Index.
             - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
             - 'kRVI' : Kernel Ratio Vegetation Index.
@@ -498,67 +582,79 @@ def spectralIndices(self,index = 'NDVI',G = 2.5,C1 = 6.0,C2 = 7.5,L = 1.0,kernel
         Available options:
             - 'linear' : Linear Kernel.
             - 'RBF' : Radial Basis Function (RBF) Kernel.
-            - 'poly' : Polynomial Kernel.          
+            - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
         Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
         Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.    
-            
+        Used for kernel = 'poly'. This must be greater than or equal to 0.
+
     Returns
-    -------    
+    -------
     ee.ImageCollection
         Image collection with the computed spectral index, or indices, as new bands.
-    
+
     See Also
     --------
     scaleAndOffset : Scales bands on an image collection.
-    
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
-    
+
     - Computing one spectral index:
-        
-    >>> S2.spectralIndices('NDVI')    
-    
+
+    >>> S2.spectralIndices('NDVI')
+
     - Computing indices with different parameters:
-    
-    >>> S2.spectralIndices('SAVI',L = 0.5) 
-    
+
+    >>> S2.spectralIndices('SAVI',L = 0.5)
+
     - Computing multiple indices:
-    
-    >>> S2.spectralIndices(['NDVI','EVI','GNDVI'])    
-    
+
+    >>> S2.spectralIndices(['NDVI','EVI','GNDVI'])
+
     - Computing a specific group of indices:
-    
-    >>> S2.spectralIndices('vegetation')    
-    
+
+    >>> S2.spectralIndices('vegetation')
+
     - Computing kernel indices:
-    
+
     >>> S2.spectralIndices(['kNDVI'],kernel = 'poly',p = 5)
-    
+
     - Computing all indices:
-    
-    >>> S2.spectralIndices('all')   
-    '''
-    return _index(self,index,G,C1,C2,L,kernel,sigma,p,c)
+
+    >>> S2.spectralIndices('all')
+    """
+    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c)
+
 
 @_extend_eeImageCollection()
-def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskShadows = True, scaledImage = False, dark = 0.15, cloudDist = 1000, buffer = 250, cdi = None):
-    '''Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).
-    
+def maskClouds(
+    self,
+    method="cloud_prob",
+    prob=60,
+    maskCirrus=True,
+    maskShadows=True,
+    scaledImage=False,
+    dark=0.15,
+    cloudDist=1000,
+    buffer=250,
+    cdi=None,
+):
+    """Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).
+
     Tip
-    ----------    
+    ----------
     Check more info about the supported platforms and clouds masking in the :ref:`User Guide<Masking Clouds and Shadows>`.
-    
+
     Parameters
-    ----------    
+    ----------
     self : ee.ImageCollection [this]
         Image collection to mask.
     method : string, default = 'cloud_prob'
@@ -587,77 +683,93 @@ def maskClouds(self, method = 'cloud_prob', prob = 60, maskCirrus = True, maskSh
         'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
         Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
         This parameter is ignored for Landsat products.
-        
+
     Returns
-    -------    
+    -------
     ee.ImageCollection
         Cloud-shadow masked image collection.
-        
+
     Notes
     -----
     This method may mask water as well as clouds for the Sentinel-3 Radiance product.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
-    '''
-    return _maskClouds(self,method,prob,maskCirrus,maskShadows,scaledImage,dark,cloudDist,buffer,cdi)
+    """
+    return _maskClouds(
+        self,
+        method,
+        prob,
+        maskCirrus,
+        maskShadows,
+        scaledImage,
+        dark,
+        cloudDist,
+        buffer,
+        cdi,
+    )
+
 
 @_extend_eeImageCollection()
-def scale(self):    
-    '''Scales bands on an image collection.
-    
+def scale(self):
+    """Scales bands on an image collection.
+
     Warning
-    -------------    
+    -------------
     **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
-    
+
     Tip
-    ----------    
+    ----------
     Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
-    
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
         Image collection to scale.
-        
+
     Returns
     -------
     ee.ImageCollection
         Scaled image collection.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
-    '''
-    warnings.warn("scale() will be deprecated in future versions, please use scaleAndOffset() instead",PendingDeprecationWarning)
-    
+    """
+    warnings.warn(
+        "scale() will be deprecated in future versions, please use scaleAndOffset() instead",
+        PendingDeprecationWarning,
+    )
+
     return _scale_STAC(self)
+
 
 @_extend_eeImageCollection()
 def getScaleParams(self):
-    '''Gets the scale parameters for each band of the image collection.
-    
+    """Gets the scale parameters for each band of the image collection.
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
         Image collection to get the scale parameters from.
-        
+
     Returns
     -------
     dict
         Dictionary with the scale parameters for each band.
-        
+
     See Also
     --------
     getOffsetParams : Gets the offset parameters for each band of the image collection.
     scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
-    
+
     Examples
     --------
     >>> import ee, eemont
@@ -676,28 +788,29 @@ def getScaleParams(self):
      'Night_view_time': 0.1,
      'QC_Day': 1.0,
      'QC_Night': 1.0}
-    '''
+    """
     return _get_scale_params(self)
+
 
 @_extend_eeImageCollection()
 def getOffsetParams(self):
-    '''Gets the offset parameters for each band of the image collection.
-    
+    """Gets the offset parameters for each band of the image collection.
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
         Image collection to get the offset parameters from.
-        
+
     Returns
     -------
     dict
         Dictionary with the offset parameters for each band.
-        
+
     See Also
     --------
     getScaleParams : Gets the scale parameters for each band of the image collection.
     scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
-    
+
     Examples
     --------
     >>> import ee, eemont
@@ -716,37 +829,38 @@ def getOffsetParams(self):
      'Night_view_time': 0.0,
      'QC_Day': 0.0,
      'QC_Night': 0.0}
-    '''
+    """
     return _get_offset_params(self)
 
+
 @_extend_eeImageCollection()
-def scaleAndOffset(self):    
-    '''Scales bands on an image collection according to their scale and offset parameters.    
-   
+def scaleAndOffset(self):
+    """Scales bands on an image collection according to their scale and offset parameters.
+
     Tip
-    ----------    
+    ----------
     Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
-    
+
     Parameters
     ----------
     self : ee.ImageCollection (this)
         Image collection to scale.
-        
+
     Returns
     -------
     ee.ImageCollection
         Scaled image collection.
-        
+
     See Also
     --------
     getOffsetParams : Gets the offset parameters for each band of the image collection.
     getScaleParams : Gets the scale parameters for each band of the image collection.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
-    '''    
+    """
     return _scale_STAC(self)

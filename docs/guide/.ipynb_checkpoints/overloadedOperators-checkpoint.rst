@@ -222,6 +222,28 @@ The following table shows the list of unary operators that are overloaded:
    * - Invert
      - Number.Not()
      - ~ Number
+     
+ee.List 
+-------------------
+
+Binary Operators
+~~~~~~~~~~~~~~~~~~~
+
+The following table shows the list of binary operators that are overloaded:
+
+.. list-table:: Binary operators.
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - Operation
+     - GEE Python method     
+     - Overloaded Operator
+   * - Concatenation
+     - List1.cat(List2)
+     - List1 + List2
+   * - Repeat
+     - ee.List.repeat(List,Value)
+     - List * Value
 
 Usage
 ------------------

@@ -8,6 +8,7 @@ New Modules
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - The *ee.Number* module was created.
+- The *ee.List* module was created.
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -17,6 +18,7 @@ New Features
 - The :code:`scaleAndOffset()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`scale()` method.
 - The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`index()` method.
 - The binary operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, |) were overloaded for ee.Number objects.
+- The binary operators (+, \*\) were overloaded for ee.List objects.
 - The rich comparisons (<, <=, ==, !=, >, >=) were overloaded for ee.Number objects.
 - The unary operators (-, ~) were overloaded for ee.Number objects.
 

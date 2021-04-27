@@ -154,20 +154,22 @@
 <span class="kn">import</span> <span class="nn">geopy</span>
 <span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">get_geocoder_for_service</span>
 
+
 <span class="k">def</span> <span class="nf">_extend_staticmethod_eeGeometry</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.Geometry class with a static method.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Geometry</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Geometry</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="BBoxFromQuery"><a class="viewcode-back" href="../../classes/stubs/eemont.geometry.BBoxFromQuery.html#eemont.geometry.BBoxFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">BBoxFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">BBoxFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">geocoder</span><span class="o">=</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    query : str</span>
 <span class="sd">        Address, query or structured query to geocode.</span>
 <span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
@@ -175,17 +177,17 @@
 <span class="sd">    **kwargs :</span>
 <span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
 <span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Geometry.Polygon</span>
 <span class="sd">        Geometry describing a bounding box from the specified query.</span>
-<span class="sd">    </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -224,35 +226,40 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">geocoder</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nominatim&#39;</span><span class="p">,</span><span class="s1">&#39;arcgis&#39;</span><span class="p">]:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">geocoder</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="s2">&quot;arcgis&quot;</span><span class="p">]:</span>
         <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid geocoder! Use one of &quot;nominatim&quot; or &quot;arcgis&quot;.&#39;</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No matches were found for your query!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s1">&#39;nominatim&#39;</span><span class="p">:</span>
-            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;boundingbox&#39;</span><span class="p">]</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="k">elif</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s1">&#39;arcgis&#39;</span><span class="p">:</span>
-            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;extent&#39;</span><span class="p">]</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;ymin&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span><span class="n">BBox</span><span class="p">[</span><span class="s1">&#39;ymax&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">:</span>
+            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s2">&quot;boundingbox&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">BBox</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">geocoder</span> <span class="o">==</span> <span class="s2">&quot;arcgis&quot;</span><span class="p">:</span>
+            <span class="n">BBox</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s2">&quot;extent&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">BBox</span><span class="p">(</span>
+                <span class="n">BBox</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">BBox</span><span class="p">[</span><span class="s2">&quot;ymin&quot;</span><span class="p">],</span> <span class="n">BBox</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">],</span> <span class="n">BBox</span><span class="p">[</span><span class="s2">&quot;ymax&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid geocoder! Use one of &quot;nominatim&quot; or &quot;arcgis&quot;.&#39;</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="PointFromQuery"><a class="viewcode-back" href="../../classes/stubs/eemont.geometry.PointFromQuery.html#eemont.geometry.PointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">PointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">PointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">geocoder</span><span class="o">=</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    query : str</span>
 <span class="sd">        Address, query or structured query to geocode.</span>
 <span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
@@ -260,17 +267,17 @@
 <span class="sd">    **kwargs :</span>
 <span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
 <span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Geometry.Point</span>
 <span class="sd">        Geometry describing a point from the specified query.</span>
-<span class="sd">    </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -290,25 +297,26 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No matches were found for your query!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span></div>
-    
+        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span></div>
+
+
 <div class="viewcode-block" id="MultiPointFromQuery"><a class="viewcode-back" href="../../classes/stubs/eemont.geometry.MultiPointFromQuery.html#eemont.geometry.MultiPointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeGeometry</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">geocoder</span><span class="o">=</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    query : str</span>
 <span class="sd">        Address, query or structured query to geocode.</span>
 <span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
@@ -316,17 +324,17 @@
 <span class="sd">    **kwargs :</span>
 <span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
 <span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Geometry.MultiPoint</span>
 <span class="sd">        Geometry describing a multi-point from the specified query.</span>
-<span class="sd">    </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.</span>
 <span class="sd">    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -360,16 +368,16 @@
 <span class="sd">        }</span>
 <span class="sd">      }</span>
 <span class="sd">    })</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">exactly_one</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">locations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No matches were found for your query!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">locations</span><span class="p">:</span>
-            <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span>
+            <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">MultiPoint</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span></div>
 </pre></div>
 

@@ -73,7 +73,8 @@ Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collec
    ee.Authenticate()
    ee.Initialize()
    
-   point = ee.Geometry.PointFromQuery('Cali, Colombia',user_agent = 'eemont-example') # Extended constructor
+   point = ee.Geometry.PointFromQuery('Cali, Colombia',
+       user_agent = 'eemont-example') # Extended constructor
    
    S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
        .filterBounds(point)
@@ -96,68 +97,238 @@ Install the latest eemont version from PyPI by running:
 Features
 --------
 
-The following features are extended through eemont:
+Let's see some of the main features of eemont and how simple they are compared to the GEE Python API original methods:
+
+Overloaded Operators
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operators are overloaded: +, -, \*\, /, //, %, \**\ , <<, >>, &, \|\, <, <=, ==, !=, >, >=, -, ~. (and you can avoid the :code:`ee.Image.expression()` method!)
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python   
+          :linenos:
+          
+          ds = 'COPERNICUS/S2_SR'
+          
+          S2 = (ee.ImageCollection(ds)
+            .first())
+            
+          exp = '2.5*(N-R)/(N+(6*R)-(7.5*B)+1)'
+          
+          imgDict = {
+            'N': S2.select('B8'),
+            'R': S2.select('B4'),
+            'B': S2.select('B2')
+          }
+   
+          EVI = S2.expression(exp,imgDict)
+     - .. code-block:: python 
+          :linenos:          
+   
+          ds = 'COPERNICUS/S2_SR'
+          
+          S2 = (ee.ImageCollection(ds)
+            .first())
+
+          N = S2.select('B8')
+          R = S2.select('B4')
+          B = S2.select('B2')
+
+          EVI = 2.5*(N-R)/(N+(6*R)-(7.5*B)+1)
+
+Clouds and Shadows Masking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Masking clouds and shadows can be done using eemont with just one method: :code:`maskClouds()`!
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python   
+          :linenos:
+          
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          def maskCloudsShadows(img):
+              c = (1 << 3)
+              s = (1 << 5)
+              qa = 'pixel_qa'
+              qa = img.select(qa)
+              cm = qa.bitwiseAnd(c).eq(0)
+              sm = qa.bitwiseAnd(s).eq(0)
+              mask = cm.And(sm)
+              return img.updateMask(mask)
+              
+          (ee.ImageCollection(ds)
+            .map(maskCloudsShadows))
+     - .. code-block:: python 
+          :linenos:          
+   
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          (ee.ImageCollection(ds)
+            .maskClouds())
+
+Image Scaling and Offsetting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Scaling and offsetting can also be done using eemont with just one method: :code:`scale()`!
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python
+          :linenos:          
+   
+          def scaleBands(img):
+              scaling = img.select([
+                'NDVI',
+                'EVI',
+                'sur.*'
+              ])
+              x = scaling.multiply(0.0001)
+              scaling = img.select('.*th')
+              scaling = scaling.multiply(0.01)
+              x = x.addBands(scaling)
+              notScaling = img.select([
+                'DetailedQA',
+                'DayOfYear',
+                'SummaryQA'
+              ])
+              return x.addBands(notScaling)              
+          
+          ds = 'MODIS/006/MOD13Q1'
+          
+          (ee.ImageCollection(ds)
+            .map(scaleBands))
+     - .. code-block:: python
+          :linenos:          
+   
+          ds = 'MODIS/006/MOD13Q1'
+          
+          (ee.ImageCollection(ds)
+            .scale())
+
+Spectral Indices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Do you need to compute several spectral indices? Use the :code:`index()` method! A lot of built-in vegetation, burn, water, snow, drought and kernel indices can be computed:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python
+          :linenos:          
+   
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          def addIndices(img):
+              x = ['B5','B4']
+              a = img.normalizedDifference(x)
+              a = a.rename('NDVI')
+              x = ['B5','B3']
+              b = img.normalizedDifference(x)
+              b = b.rename('GNDVI')
+              x = ['B3','B6']
+              c = img.normalizedDifference(x)
+              c = b.rename('NDSI')
+              return img.addBands([a,b,c])                    
+          
+          (ee.ImageCollection(ds)
+            .map(addIndices))
+          
+     - .. code-block:: python
+          :linenos:          
+   
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          (ee.ImageCollection(ds)
+            .index(['NDVI','GNDVI','NDSI']))
+
+The list of available indices can be retrieved by running:
+
+.. code-block:: python  
+   
+   eemont.listIndices()
+
+Information about the indices can also be checked:
 
 .. code-block:: python   
-   
-   point = ee.Geometry.Point([-76.21, 3.45]) # Example ROI
-
-- Overloaded operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, \|\, <, <=, ==, !=, >, >=, -, ~):
-
-.. code-block:: python   
-   
-   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
-       .filterBounds(point)
-       .sort('CLOUDY_PIXEL_PERCENTAGE')
-       .first()
-       .maskClouds()
-       .scale())
-   
-   N = S2.select('B8')
-   R = S2.select('B4')
-   B = S2.select('B2')
-   
-   EVI = 2.5 * (N - R) / (N + 6.0 * R - 7.5 * B + 1.0) # Overloaded operators
-
-- Clouds and shadows masking:
-
-.. code-block:: python   
-   
-   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
-       .maskClouds(prob = 65, cdi = -0.5, buffer = 300) # Clouds and shadows masking
-       .first())
-
-- Image scaling:
-
-.. code-block:: python   
-   
-   MOD13Q1 = ee.ImageCollection('MODIS/006/MOD13Q1').scale() # Image scaling
-
-- Spectral indices computation (vegetation, burn, water, snow, drought and kernel indices):
-
-.. code-block:: python   
-   
-   L8 = (ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-       .filterBounds(point)
-       .maskClouds()
-       .scale()
-       .index(['GNDVI','NDWI','BAI','NDSI','kNDVI'])) # Indices computation
        
    indices = eemont.indices() 
-   indices.BAIS2.formula # check info about spectral indices
+   indices.BAIS2.formula
    indices.BAIS2.reference
+
+Closest Image to a Specific Date
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Struggling to get the closest image to a specific date? Here is the solution: the :code:`closest()` method!
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python
+          :linenos:          
    
-   eemont.listIndices() # Check all available indices
-
-- Closest image to a specific date:
-
-.. code-block:: python   
-      
-   S5NO2 = (ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_NO2')
-       .filterBounds(point)
-       .closest('2020-10-15')) # Closest image to a date
+          ds = 'COPERNICUS/S5P/OFFL/L3_NO2'
+          
+          xy = [-76.21, 3.45]
+          poi = ee.Geometry.Point(xy)
+          
+          date = ee.Date('2020-10-15')
+          date = date.millis()
+          
+          def setTimeDelta(img):              
+              prop = 'system:time_start'
+              prop = img.get(prop)
+              prop = ee.Number(prop)              
+              delta = prop.subtract(date)
+              delta = delta.abs()              
+              return img.set(
+                'dateDist',
+                delta)                     
+          
+          (ee.ImageCollection(ds)
+            .filterBounds(poi)
+            .map(setTimeDelta)
+            .sort('dateDist')
+            .first())
+          
+     - .. code-block:: python
+          :linenos:          
+   
+          ds = 'COPERNICUS/S5P/OFFL/L3_NO2'
+          
+          xy = [-76.21, 3.45]
+          poi = ee.Geometry.Point(xy)
+          
+          (ee.ImageCollection(ds)
+            .filterBounds(poi)
+            .closest('2020-10-15'))
        
-- Time series by region (or regions):
+Time Series By Regions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The JavaScript API has a method for time series extraction (included in the ui.Chart module), but this method is missing in the Python API... so, here it is!
+
+PD: Actually, there are two methods that you can use: :code:`getTimeSeriesByRegion()` and :code:`getTimeSeriesByRegions()`!
 
 .. code-block:: python
 
@@ -184,13 +355,18 @@ The following features are extended through eemont:
                                   bands = ['EVI','NDVI'],
                                   scale = 10)
                                   
-- New Geometry, Feature and Feature Collection constructors:
+Constructors by Queries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Don't you have the coordinates of a place? You can construct them by using queries!
 
 .. code-block:: python
 
-   seattle_bbox = ee.Geometry.BBoxFromQuery('Seattle',user_agent = 'my-eemont-query-example')
-   cali_coords = ee.Feature.PointFromQuery('Cali, Colombia',user_agent = 'my-eemont-query-example')
-   amazonas_river = ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = 'my-eemont-query-example')
+   usr = 'my-eemont-query-example'
+   
+   seattle_bbox = ee.Geometry.BBoxFromQuery('Seattle',user_agent = usr)
+   cali_coords = ee.Feature.PointFromQuery('Cali, Colombia',user_agent = usr)
+   amazonas_river = ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = usr)
 
 Supported Platforms
 ------------------------

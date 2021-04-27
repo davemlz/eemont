@@ -159,20 +159,22 @@
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_offset_params</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_scale_STAC</span>
 
+
 <span class="k">def</span> <span class="nf">_extend_eeImageCollection</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.ImageCollection class.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="closest"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.closest.html#eemont.imagecollection.closest">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;month&#39;</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about getting the closest image to a specific date in the :ref:`User Guide&lt;Closest Image to a Specific Date&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection [this]</span>
 <span class="sd">        Image Collection from which to get the closest image to the specified date.</span>
 <span class="sd">    date : ee.Date | string</span>
@@ -182,50 +184,67 @@
 <span class="sd">        with a high temporal resolution.</span>
 <span class="sd">    unit : string, default = &#39;month&#39;</span>
 <span class="sd">        Units for tolerance. Available units: &#39;year&#39;, &#39;month&#39;, &#39;week&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39; or &#39;second&#39;.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
-<span class="sd">    -------    </span>
+<span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Closest images to the specified date.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).closest(&#39;2020-10-15&#39;)</span>
-<span class="sd">    &#39;&#39;&#39;</span> 
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">ee_date</span><span class="o">.</span><span class="n">Date</span><span class="p">):</span>
         <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
-    
+
     <span class="n">startDate</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="o">-</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
     <span class="n">endDate</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
     <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span> <span class="n">endDate</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">setProperties</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>        
-        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;dateDist&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">millis</span><span class="p">())</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>        
-        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">))</span> 
-        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">))</span> 
-        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">))</span> 
+
+    <span class="k">def</span> <span class="nf">setProperties</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="s2">&quot;dateDist&quot;</span><span class="p">,</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">millis</span><span class="p">())</span><span class="o">.</span><span class="n">abs</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">img</span>
-    
-    <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setProperties</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;dateDist&#39;</span><span class="p">)</span>
-    <span class="n">closestImageTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span>
-    <span class="n">dayToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">))</span>
-    <span class="n">monthToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">))</span>
-    <span class="n">yearToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">))</span>
-    <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">dayToFilter</span><span class="p">,</span><span class="n">monthToFilter</span><span class="p">,</span><span class="n">yearToFilter</span><span class="p">))</span>
-    
+
+    <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setProperties</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;dateDist&quot;</span><span class="p">)</span>
+    <span class="n">closestImageTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">)</span>
+    <span class="n">dayToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">))</span>
+    <span class="n">monthToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">))</span>
+    <span class="n">yearToFilter</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">closestImageTime</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">))</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">dayToFilter</span><span class="p">,</span> <span class="n">monthToFilter</span><span class="p">,</span> <span class="n">yearToFilter</span><span class="p">))</span>
+
     <span class="k">return</span> <span class="bp">self</span></div>
 
+
 <div class="viewcode-block" id="getTimeSeriesByRegion"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.getTimeSeriesByRegion.html#eemont.imagecollection.getTimeSeriesByRegion">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">getTimeSeriesByRegion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">reducer</span><span class="p">,</span><span class="n">bands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">geometry</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crsTransform</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">bestEffort</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-                          <span class="n">maxPixels</span> <span class="o">=</span> <span class="mf">1e12</span><span class="p">,</span><span class="n">tileScale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">dateColumn</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s1">&#39;ISO&#39;</span><span class="p">,</span><span class="n">naValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">getTimeSeriesByRegion</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">reducer</span><span class="p">,</span>
+    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">crsTransform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">bestEffort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e12</span><span class="p">,</span>
+    <span class="n">tileScale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">dateColumn</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">dateFormat</span><span class="o">=</span><span class="s2">&quot;ISO&quot;</span><span class="p">,</span>
+    <span class="n">naValue</span><span class="o">=-</span><span class="mi">9999</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about time series in the :ref:`User Guide&lt;Time Series By Regions&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
@@ -233,7 +252,7 @@
 <span class="sd">    reducer : ee.Reducer | list[ee.Reducer]</span>
 <span class="sd">        Reducer or list of reducers to use for region reduction.</span>
 <span class="sd">    bands : str | list[str], default = None</span>
-<span class="sd">        Selection of bands to get the time series from. Defaults to all bands in the image collection.    </span>
+<span class="sd">        Selection of bands to get the time series from. Defaults to all bands in the image collection.</span>
 <span class="sd">    geometry : ee.Geometry | ee.Feature | ee.FeatureCollection, default = None</span>
 <span class="sd">        Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection, the geometry() method is called. In order to get reductions by each feature please see</span>
 <span class="sd">        the getTimeSeriesByRegions() method. Defaults to the footprint of the first band for each image in the collection.</span>
@@ -256,16 +275,16 @@
 <span class="sd">        Output format of the date column. Defaults to ISO. Available options: &#39;ms&#39; (for milliseconds), &#39;ISO&#39; (for ISO Standard Format) or a custom format pattern.</span>
 <span class="sd">    naValue : numeric, default = -9999</span>
 <span class="sd">        Value to use as NA when the region reduction doesn&#39;t retrieve a value due to masked pixels.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by region retrieved as a Feature Collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -283,55 +302,85 @@
 <span class="sd">    ...                               geometry = fc,</span>
 <span class="sd">    ...                               bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
 <span class="sd">    ...                               scale = 10)</span>
-<span class="sd">    &#39;&#39;&#39;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="n">bands</span><span class="p">]</span>
         <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reducer</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">reducer</span><span class="p">]</span>
-    
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Geometry</span><span class="p">):</span>
         <span class="n">geometry</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
-    
+
     <span class="n">collections</span> <span class="o">=</span> <span class="p">[]</span>
-    
+
     <span class="k">for</span> <span class="n">red</span> <span class="ow">in</span> <span class="n">reducer</span><span class="p">:</span>
-        
+
         <span class="n">reducerName</span> <span class="o">=</span> <span class="n">red</span><span class="o">.</span><span class="n">getOutputs</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    
+
         <span class="k">def</span> <span class="nf">reduceImageCollectionByRegion</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-            <span class="n">dictionary</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">red</span><span class="p">,</span><span class="n">geometry</span><span class="p">,</span><span class="n">scale</span><span class="p">,</span><span class="n">crs</span><span class="p">,</span><span class="n">crsTransform</span><span class="p">,</span><span class="n">bestEffort</span><span class="p">,</span><span class="n">maxPixels</span><span class="p">,</span><span class="n">tileScale</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s1">&#39;ms&#39;</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">millis</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s1">&#39;ISO&#39;</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
+            <span class="n">dictionary</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
+                <span class="n">red</span><span class="p">,</span>
+                <span class="n">geometry</span><span class="p">,</span>
+                <span class="n">scale</span><span class="p">,</span>
+                <span class="n">crs</span><span class="p">,</span>
+                <span class="n">crsTransform</span><span class="p">,</span>
+                <span class="n">bestEffort</span><span class="p">,</span>
+                <span class="n">maxPixels</span><span class="p">,</span>
+                <span class="n">tileScale</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s2">&quot;ms&quot;</span><span class="p">:</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">millis</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s2">&quot;ISO&quot;</span><span class="p">:</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dateFormat</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="n">dictionary</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="n">dateColumn</span><span class="p">:</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;reducer&#39;</span><span class="p">:</span><span class="n">reducerName</span><span class="p">})</span>
-        
-        <span class="n">collections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">reduceImageCollectionByRegion</span><span class="p">)))</span>
-    
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dateFormat</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="p">{</span><span class="n">dateColumn</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s2">&quot;reducer&quot;</span><span class="p">:</span> <span class="n">reducerName</span><span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="n">collections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">reduceImageCollectionByRegion</span><span class="p">))</span>
+        <span class="p">)</span>
+
     <span class="n">flattenfc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">collections</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-    
-    <span class="k">def</span> <span class="nf">setNA</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>        
-        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-                                   <span class="n">trueCase</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">bands</span><span class="p">,[</span><span class="n">naValue</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">))),</span>
-                                   <span class="n">falseCase</span> <span class="o">=</span> <span class="n">feature</span><span class="p">)</span>                    
-        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> 
+
+    <span class="k">def</span> <span class="nf">setNA</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span>
+            <span class="n">condition</span><span class="o">=</span><span class="n">feature</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">trueCase</span><span class="o">=</span><span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span> <span class="p">[</span><span class="n">naValue</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">))</span>
+            <span class="p">),</span>
+            <span class="n">falseCase</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">feature</span>
-    
+
     <span class="k">return</span> <span class="n">flattenfc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setNA</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="getTimeSeriesByRegions"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.getTimeSeriesByRegions.html#eemont.imagecollection.getTimeSeriesByRegions">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">getTimeSeriesByRegions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">reducer</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">bands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">crsTransform</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">tileScale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">dateColumn</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s1">&#39;ISO&#39;</span><span class="p">,</span><span class="n">naValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">getTimeSeriesByRegions</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">reducer</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">,</span>
+    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">crsTransform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">tileScale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">dateColumn</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">dateFormat</span><span class="o">=</span><span class="s2">&quot;ISO&quot;</span><span class="p">,</span>
+    <span class="n">naValue</span><span class="o">=-</span><span class="mi">9999</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about time series in the :ref:`User Guide&lt;Time Series By Regions&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
@@ -357,17 +406,17 @@
 <span class="sd">        Output format of the date column. Defaults to ISO. Available options: &#39;ms&#39; (for milliseconds), &#39;ISO&#39; (for ISO Standard Format) or a custom format pattern.</span>
 <span class="sd">    naValue : numeric, default = -9999</span>
 <span class="sd">        Value to use as NA when the region reduction doesn&#39;t retrieve a value due to masked pixels.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Time series by regions retrieved as a Feature Collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)</span>
 <span class="sd">        according to the specified reducer (or reducers).</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -385,80 +434,100 @@
 <span class="sd">    ...                                collection = fc,</span>
 <span class="sd">    ...                                bands = [&#39;EVI&#39;,&#39;NDVI&#39;],</span>
 <span class="sd">    ...                                scale = 10)</span>
-<span class="sd">    &#39;&#39;&#39;</span> 
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">bands</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="n">bands</span><span class="p">]</span>
         <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reducer</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="n">reducer</span> <span class="o">=</span> <span class="p">[</span><span class="n">reducer</span><span class="p">]</span>
-    
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span><span class="n">ee</span><span class="o">.</span><span class="n">featurecollection</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">featurecollection</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Parameter collection must be an ee.FeatureCollection!&quot;</span><span class="p">)</span>
-    
+
     <span class="n">props</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span>
-    
+
     <span class="n">collections</span> <span class="o">=</span> <span class="p">[]</span>
-    
+
     <span class="n">imgList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
-    
+
     <span class="k">for</span> <span class="n">red</span> <span class="ow">in</span> <span class="n">reducer</span><span class="p">:</span>
-        
+
         <span class="n">reducerName</span> <span class="o">=</span> <span class="n">red</span><span class="o">.</span><span class="n">getOutputs</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    
+
         <span class="k">def</span> <span class="nf">reduceImageCollectionByRegions</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-            
+
             <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-            
-            <span class="n">fc</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegions</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">scale</span><span class="p">,</span><span class="n">crs</span><span class="p">,</span><span class="n">crsTransform</span><span class="p">,</span><span class="n">tileScale</span><span class="p">)</span>
-                
+
+            <span class="n">fc</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegions</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">crsTransform</span><span class="p">,</span> <span class="n">tileScale</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>                              
-                    <span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">size</span><span class="p">()),</span>
-                                          <span class="n">trueCase</span> <span class="o">=</span> <span class="n">fc</span><span class="p">,</span>
-                                          <span class="n">falseCase</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">reducerName</span><span class="p">),</span><span class="n">props</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bands</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>                    
-                    <span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span> 
-                        
-            <span class="k">if</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s1">&#39;ms&#39;</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">millis</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s1">&#39;ISO&#39;</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span>
+                        <span class="n">condition</span><span class="o">=</span><span class="n">fc</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">size</span><span class="p">()),</span>
+                        <span class="n">trueCase</span><span class="o">=</span><span class="n">fc</span><span class="p">,</span>
+                        <span class="n">falseCase</span><span class="o">=</span><span class="n">fc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+                            <span class="n">props</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">reducerName</span><span class="p">),</span> <span class="n">props</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bands</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="p">),</span>
+                    <span class="p">)</span>
+                    <span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s2">&quot;ms&quot;</span><span class="p">:</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">millis</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">dateFormat</span> <span class="o">==</span> <span class="s2">&quot;ISO&quot;</span><span class="p">:</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dateFormat</span><span class="p">)</span>
-                
+                <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dateFormat</span><span class="p">)</span>
+
             <span class="k">def</span> <span class="nf">setProperties</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="n">dateColumn</span><span class="p">:</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;reducer&#39;</span><span class="p">:</span><span class="n">reducerName</span><span class="p">})</span>
-            
+                <span class="k">return</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="n">dateColumn</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s2">&quot;reducer&quot;</span><span class="p">:</span> <span class="n">reducerName</span><span class="p">})</span>
+
             <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setProperties</span><span class="p">)</span>
-    
+
         <span class="n">collections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">reduceImageCollectionByRegions</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-    
+
     <span class="n">flattenfc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">collections</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-    
-    <span class="k">def</span> <span class="nf">setNA</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>        
-        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
-                                   <span class="n">trueCase</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">bands</span><span class="p">,[</span><span class="n">naValue</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">))),</span>
-                                   <span class="n">falseCase</span> <span class="o">=</span> <span class="n">feature</span><span class="p">)</span>                    
-        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> 
+
+    <span class="k">def</span> <span class="nf">setNA</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span>
+            <span class="n">condition</span><span class="o">=</span><span class="n">feature</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+            <span class="n">trueCase</span><span class="o">=</span><span class="n">feature</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">bands</span><span class="p">,</span> <span class="p">[</span><span class="n">naValue</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">))</span>
+            <span class="p">),</span>
+            <span class="n">falseCase</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">feature</span>
-    
+
     <span class="k">return</span> <span class="n">flattenfc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">setNA</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="index"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.index.html#eemont.imagecollection.index">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;NDVI&quot;</span><span class="p">,</span>
+    <span class="n">G</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">C1</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">C2</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span>
+    <span class="n">L</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;RBF&quot;</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.5 * (a + b)&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
+
 <span class="sd">    Warning</span>
-<span class="sd">    -------------    </span>
+<span class="sd">    -------------</span>
 <span class="sd">    **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and spectral indices in the :ref:`User Guide&lt;Spectral Indices&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------     </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection</span>
 <span class="sd">        Image collection to compute indices on. Must be scaled to [0,1].</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
@@ -488,9 +557,9 @@
 <span class="sd">            - &#39;NDVI&#39; : Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.</span>
 <span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
-<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.  </span>
+<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
 <span class="sd">            - &#39;VARI&#39; : Visible Atmospherically Resistant Index.</span>
-<span class="sd">        Burn and fire indices:     </span>
+<span class="sd">        Burn and fire indices:</span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
 <span class="sd">            - &#39;CSIT&#39; : Char Soil Index Thermal.</span>
@@ -498,14 +567,14 @@
 <span class="sd">            - &#39;NBRT&#39; : Normalized Burn Ratio Thermal.</span>
 <span class="sd">            - &#39;NDVIT&#39; : Normalized Difference Vegetation Index Thermal</span>
 <span class="sd">            - &#39;SAVIT&#39; : Soil-Adjusted Vegetation Index Thermal.</span>
-<span class="sd">        Water indices:            </span>
+<span class="sd">        Water indices:</span>
 <span class="sd">            - &#39;MNDWI&#39; : Modified Normalized Difference Water Index.</span>
-<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index. </span>
-<span class="sd">        Snow indices:     </span>
+<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index.</span>
+<span class="sd">        Snow indices:</span>
 <span class="sd">            - &#39;NDSI&#39; : Normalized Difference Snow Index.</span>
-<span class="sd">        Drought indices:     </span>
+<span class="sd">        Drought indices:</span>
 <span class="sd">            - &#39;NDDI&#39; : Normalized Difference Drought Index.</span>
-<span class="sd">        Kernel indices:     </span>
+<span class="sd">        Kernel indices:</span>
 <span class="sd">            - &#39;kEVI&#39; : Kernel Enhanced Vegetation Index.</span>
 <span class="sd">            - &#39;kNDVI&#39; : Kernel Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;kRVI&#39; : Kernel Ratio Vegetation Index.</span>
@@ -523,69 +592,84 @@
 <span class="sd">        Available options:</span>
 <span class="sd">            - &#39;linear&#39; : Linear Kernel.</span>
 <span class="sd">            - &#39;RBF&#39; : Radial Basis Function (RBF) Kernel.</span>
-<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.          </span>
+<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.</span>
 <span class="sd">    sigma : str | float, default = &#39;0.5 * (a + b)&#39;</span>
 <span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
 <span class="sd">    p : float, default = 2.0</span>
 <span class="sd">        Kernel degree. Used for kernel = &#39;poly&#39;.</span>
 <span class="sd">    c : float, default = 1.0</span>
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
-<span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.    </span>
-<span class="sd">            </span>
+<span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
+
 <span class="sd">    Returns</span>
-<span class="sd">    -------    </span>
+<span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Image collection with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">    </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    scale : Scales bands on an image collection.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale()</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing one spectral index:</span>
-<span class="sd">        </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;NDVI&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;NDVI&#39;)</span>
+
 <span class="sd">    - Computing indices with different parameters:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;SAVI&#39;,L = 0.5) </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;SAVI&#39;,L = 0.5)</span>
+
 <span class="sd">    - Computing multiple indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
+
 <span class="sd">    - Computing a specific group of indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;vegetation&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;vegetation&#39;)</span>
+
 <span class="sd">    - Computing kernel indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.index([&#39;kNDVI&#39;],kernel = &#39;poly&#39;,p = 5)</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing all indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;all&#39;)   </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;index() will be deprecated in future versions, please use spectralIndices() instead&quot;</span><span class="p">,</span><span class="ne">PendingDeprecationWarning</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;all&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;index() will be deprecated in future versions, please use spectralIndices() instead&quot;</span><span class="p">,</span>
+        <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="spectralIndices"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.spectralIndices.html#eemont.imagecollection.spectralIndices">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">spectralIndices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
-<span class="sd">        </span>
+<span class="k">def</span> <span class="nf">spectralIndices</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;NDVI&quot;</span><span class="p">,</span>
+    <span class="n">G</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">C1</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">C2</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span>
+    <span class="n">L</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;RBF&quot;</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.5 * (a + b)&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Computes one or more spectral indices (indices are added as bands) for an image collection.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and spectral indices in the :ref:`User Guide&lt;Spectral Indices&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------     </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection</span>
 <span class="sd">        Image collection to compute indices on. Must be scaled to [0,1].</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
@@ -615,9 +699,9 @@
 <span class="sd">            - &#39;NDVI&#39; : Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;NGRDI&#39; : Normalized Green Red Difference Index.</span>
 <span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
-<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.  </span>
+<span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
 <span class="sd">            - &#39;VARI&#39; : Visible Atmospherically Resistant Index.</span>
-<span class="sd">        Burn and fire indices:     </span>
+<span class="sd">        Burn and fire indices:</span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
 <span class="sd">            - &#39;CSIT&#39; : Char Soil Index Thermal.</span>
@@ -625,14 +709,14 @@
 <span class="sd">            - &#39;NBRT&#39; : Normalized Burn Ratio Thermal.</span>
 <span class="sd">            - &#39;NDVIT&#39; : Normalized Difference Vegetation Index Thermal</span>
 <span class="sd">            - &#39;SAVIT&#39; : Soil-Adjusted Vegetation Index Thermal.</span>
-<span class="sd">        Water indices:            </span>
+<span class="sd">        Water indices:</span>
 <span class="sd">            - &#39;MNDWI&#39; : Modified Normalized Difference Water Index.</span>
-<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index. </span>
-<span class="sd">        Snow indices:     </span>
+<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index.</span>
+<span class="sd">        Snow indices:</span>
 <span class="sd">            - &#39;NDSI&#39; : Normalized Difference Snow Index.</span>
-<span class="sd">        Drought indices:     </span>
+<span class="sd">        Drought indices:</span>
 <span class="sd">            - &#39;NDDI&#39; : Normalized Difference Drought Index.</span>
-<span class="sd">        Kernel indices:     </span>
+<span class="sd">        Kernel indices:</span>
 <span class="sd">            - &#39;kEVI&#39; : Kernel Enhanced Vegetation Index.</span>
 <span class="sd">            - &#39;kNDVI&#39; : Kernel Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;kRVI&#39; : Kernel Ratio Vegetation Index.</span>
@@ -650,67 +734,79 @@
 <span class="sd">        Available options:</span>
 <span class="sd">            - &#39;linear&#39; : Linear Kernel.</span>
 <span class="sd">            - &#39;RBF&#39; : Radial Basis Function (RBF) Kernel.</span>
-<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.          </span>
+<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.</span>
 <span class="sd">    sigma : str | float, default = &#39;0.5 * (a + b)&#39;</span>
 <span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
 <span class="sd">    p : float, default = 2.0</span>
 <span class="sd">        Kernel degree. Used for kernel = &#39;poly&#39;.</span>
 <span class="sd">    c : float, default = 1.0</span>
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
-<span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.    </span>
-<span class="sd">            </span>
+<span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
+
 <span class="sd">    Returns</span>
-<span class="sd">    -------    </span>
+<span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Image collection with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">    </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image collection.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scaleAndOffset()</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing one spectral index:</span>
-<span class="sd">        </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;NDVI&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;NDVI&#39;)</span>
+
 <span class="sd">    - Computing indices with different parameters:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;SAVI&#39;,L = 0.5) </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;SAVI&#39;,L = 0.5)</span>
+
 <span class="sd">    - Computing multiple indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
+
 <span class="sd">    - Computing a specific group of indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;vegetation&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;vegetation&#39;)</span>
+
 <span class="sd">    - Computing kernel indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;kNDVI&#39;],kernel = &#39;poly&#39;,p = 5)</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing all indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;all&#39;)   </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;all&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.maskClouds.html#eemont.imagecollection.maskClouds">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cloud_prob&quot;</span><span class="p">,</span>
+    <span class="n">prob</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">maskCirrus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">maskShadows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">scaledImage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">dark</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+    <span class="n">cloudDist</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">buffer</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">cdi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and clouds masking in the :ref:`User Guide&lt;Masking Clouds and Shadows&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection [this]</span>
 <span class="sd">        Image collection to mask.</span>
 <span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
@@ -739,77 +835,93 @@
 <span class="sd">        &#39;Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:</span>
 <span class="sd">        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481&#39;.</span>
 <span class="sd">        This parameter is ignored for Landsat products.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
-<span class="sd">    -------    </span>
+<span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Cloud-shadow masked image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    This method may mask water as well as clouds for the Sentinel-3 Radiance product.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">_maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">method</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">maskCirrus</span><span class="p">,</span><span class="n">maskShadows</span><span class="p">,</span><span class="n">scaledImage</span><span class="p">,</span><span class="n">dark</span><span class="p">,</span><span class="n">cloudDist</span><span class="p">,</span><span class="n">buffer</span><span class="p">,</span><span class="n">cdi</span><span class="p">)</span></div>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_maskClouds</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">,</span>
+        <span class="n">prob</span><span class="p">,</span>
+        <span class="n">maskCirrus</span><span class="p">,</span>
+        <span class="n">maskShadows</span><span class="p">,</span>
+        <span class="n">scaledImage</span><span class="p">,</span>
+        <span class="n">dark</span><span class="p">,</span>
+        <span class="n">cloudDist</span><span class="p">,</span>
+        <span class="n">buffer</span><span class="p">,</span>
+        <span class="n">cdi</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.scale.html#eemont.imagecollection.scale">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Scales bands on an image collection.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scales bands on an image collection.</span>
+
 <span class="sd">    Warning</span>
-<span class="sd">    -------------    </span>
+<span class="sd">    -------------</span>
 <span class="sd">    **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and image scaling the :ref:`User Guide&lt;Image Scaling&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
 <span class="sd">        Image collection to scale.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Scaled image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale()</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;scale() will be deprecated in future versions, please use scaleAndOffset() instead&quot;</span><span class="p">,</span><span class="ne">PendingDeprecationWarning</span><span class="p">)</span>
-    
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;scale() will be deprecated in future versions, please use scaleAndOffset() instead&quot;</span><span class="p">,</span>
+        <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="getScaleParams"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.getScaleParams.html#eemont.imagecollection.getScaleParams">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">getScaleParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the scale parameters for each band of the image collection.</span>
-<span class="sd">    </span>
+    <span class="sd">&quot;&quot;&quot;Gets the scale parameters for each band of the image collection.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
 <span class="sd">        Image collection to get the scale parameters from.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Dictionary with the scale parameters for each band.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getOffsetParams : Gets the offset parameters for each band of the image collection.</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -828,28 +940,29 @@
 <span class="sd">     &#39;Night_view_time&#39;: 0.1,</span>
 <span class="sd">     &#39;QC_Day&#39;: 1.0,</span>
 <span class="sd">     &#39;QC_Night&#39;: 1.0}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_get_scale_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="getOffsetParams"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.getOffsetParams.html#eemont.imagecollection.getOffsetParams">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">getOffsetParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the offset parameters for each band of the image collection.</span>
-<span class="sd">    </span>
+    <span class="sd">&quot;&quot;&quot;Gets the offset parameters for each band of the image collection.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
 <span class="sd">        Image collection to get the offset parameters from.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Dictionary with the offset parameters for each band.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getScaleParams : Gets the scale parameters for each band of the image collection.</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -868,39 +981,40 @@
 <span class="sd">     &#39;Night_view_time&#39;: 0.0,</span>
 <span class="sd">     &#39;QC_Day&#39;: 0.0,</span>
 <span class="sd">     &#39;QC_Night&#39;: 0.0}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_get_offset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="scaleAndOffset"><a class="viewcode-back" href="../../classes/stubs/eemont.imagecollection.scaleAndOffset.html#eemont.imagecollection.scaleAndOffset">[docs]</a><span class="nd">@_extend_eeImageCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">scaleAndOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Scales bands on an image collection according to their scale and offset parameters.    </span>
-<span class="sd">   </span>
+<span class="k">def</span> <span class="nf">scaleAndOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scales bands on an image collection according to their scale and offset parameters.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and image scaling the :ref:`User Guide&lt;Image Scaling&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.ImageCollection (this)</span>
 <span class="sd">        Image collection to scale.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.ImageCollection</span>
 <span class="sd">        Scaled image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getOffsetParams : Gets the offset parameters for each band of the image collection.</span>
 <span class="sd">    getScaleParams : Gets the scale parameters for each band of the image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scaleAndOffset()</span>
-<span class="sd">    &#39;&#39;&#39;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 </pre></div>
 

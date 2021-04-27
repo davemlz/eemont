@@ -155,21 +155,26 @@
 <span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">get_geocoder_for_service</span>
 <span class="kn">from</span> <span class="nn">.geometry</span> <span class="kn">import</span> <span class="o">*</span>
 
+
 <span class="k">def</span> <span class="nf">_extend_staticmethod_eeFeatureCollection</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.FeatureCollection class with a static method.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">featurecollection</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">featurecollection</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="ow">or</span> <span class="n">f</span>
+    <span class="p">)</span>
+
 
 <div class="viewcode-block" id="MultiPointFromQuery"><a class="viewcode-back" href="../../classes/stubs/eemont.featurecollection.MultiPointFromQuery.html#eemont.featurecollection.MultiPointFromQuery">[docs]</a><span class="nd">@_extend_staticmethod_eeFeatureCollection</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">geocoder</span> <span class="o">=</span> <span class="s2">&quot;nominatim&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
+<span class="k">def</span> <span class="nf">MultiPointFromQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">geocoder</span><span class="o">=</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.</span>
 <span class="sd">    The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about constructors in the :ref:`User Guide&lt;Constructors&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    query : str</span>
 <span class="sd">        Address, query or structured query to geocode.</span>
 <span class="sd">    geocoder : str, default = &#39;nominatim&#39;</span>
@@ -177,12 +182,12 @@
 <span class="sd">    **kwargs :</span>
 <span class="sd">        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = &#39;my-gee-username&#39; or</span>
 <span class="sd">        user_agent = &#39;my-gee-app-name&#39;). Please visit https://geopy.readthedocs.io/ for more info.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Feature Collection with point geometries from the specified query.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -238,17 +243,17 @@
 <span class="sd">        &#39;place_id&#39;: 297654614,</span>
 <span class="sd">        &#39;type&#39;: &#39;water&#39;}},</span>
 <span class="sd">      ...]}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_geocoder_for_service</span><span class="p">(</span><span class="n">geocoder</span><span class="p">)</span>
     <span class="n">geolocator</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">exactly_one</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">locations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No matches were found for your query!&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No matches were found for your query!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">locations</span><span class="p">:</span>
-            <span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span>
-            <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+            <span class="n">geometry</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">])</span>
+            <span class="n">feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
             <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">features</span><span class="p">)</span></div>
 </pre></div>

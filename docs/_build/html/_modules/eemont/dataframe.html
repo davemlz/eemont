@@ -154,33 +154,35 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
+
 <span class="k">def</span> <span class="nf">_extend_pdDataFrame</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the pd.DataFrame class.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="toEEFeatureCollection"><a class="viewcode-back" href="../../classes/stubs/eemont.dataframe.toEEFeatureCollection.html#eemont.dataframe.toEEFeatureCollection">[docs]</a><span class="nd">@_extend_pdDataFrame</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">toEEFeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">latitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">longitude</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection</span>
+<span class="k">def</span> <span class="nf">toEEFeatureCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection</span>
 <span class="sd">    with an associated geometry.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about data conversion in the :ref:`User Guide&lt;Data Conversion&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : pd.DataFrame [this]</span>
 <span class="sd">        Data Frame to convert into a Feature Collection.</span>
 <span class="sd">    latitude : string</span>
 <span class="sd">        Name of a latitude column, if available. Coupled with a longitude column, an ee.Geometry.Point is created and associated to each Feature.</span>
 <span class="sd">    longitude : string</span>
 <span class="sd">        Name of a longitude column, if available. Coupled with a latitude column, an ee.Geometry.Point is created and associated to each Feature.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
-<span class="sd">    -------    </span>
+<span class="sd">    -------</span>
 <span class="sd">    ee.FeatureCollection</span>
 <span class="sd">        Data Frame converted into a Feature Collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -191,24 +193,31 @@
 <span class="sd">    &gt;&gt;&gt; df[&#39;lon&#39;] = [-76.0269, -75.3188]</span>
 <span class="sd">    &gt;&gt;&gt; df[&#39;name&#39;] = [&#39;Nevado del Huila&#39;, &#39;Nevado del Ruiz&#39;]</span>
 <span class="sd">    &gt;&gt;&gt; fc = df.toEEFeatureCollection(latitude = &#39;lat&#39;,longitude = &#39;lon&#39;)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">getFeature</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
         <span class="n">properties</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">latitude</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">longitude</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;longitude missing, Feature Collection with no geometries generated!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="n">properties</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;longitude missing, Feature Collection with no geometries generated!&quot;</span><span class="p">,</span>
+                <span class="ne">Warning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">properties</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">latitude</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">longitude</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;latitude missing, Feature Collection with no geometries generated!&quot;</span><span class="p">,</span><span class="ne">Warning</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="n">properties</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;latitude missing, Feature Collection with no geometries generated!&quot;</span><span class="p">,</span>
+                <span class="ne">Warning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">properties</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">latitude</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">longitude</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="n">longitude</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">latitude</span><span class="p">]])</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">point</span><span class="p">,</span><span class="n">properties</span><span class="p">)</span>
+            <span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="n">longitude</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="n">latitude</span><span class="p">]])</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">properties</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="n">properties</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">properties</span><span class="p">)</span>
 
     <span class="n">dataFrame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">getFeature</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>    
-    <span class="n">featureCollection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">dataFrame</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">getFeature</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">featureCollection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
     <span class="k">return</span> <span class="n">featureCollection</span></div>
 </pre></div>

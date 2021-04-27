@@ -158,13 +158,15 @@
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_offset_params</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_scale_STAC</span>
 
+
 <span class="k">def</span> <span class="nf">_extend_eeImage</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Decorator. Extends the ee.ImageCollection class.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="__add__"><a class="viewcode-back" href="../../classes/stubs/eemont.image.__add__.html#eemont.image.__add__">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the addition between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the addition between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -177,12 +179,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Addition of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="__radd__"><a class="viewcode-back" href="../../classes/stubs/eemont.image.__radd__.html#eemont.image.__radd__">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the addition between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the addition between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -195,12 +198,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Addition of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the subtraction between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the subtraction between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -213,12 +217,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Subtraction of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the subtraction between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the subtraction between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -231,12 +236,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Subtraction of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the multiplication between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the multiplication between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -249,12 +255,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Multiplication of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the multiplication between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the multiplication between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -267,12 +274,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Multiplication of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the division between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the division between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -285,12 +293,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Division of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the division between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the division between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -303,12 +312,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Division of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the floor division of two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the floor division of two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -321,12 +331,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Floor division of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rfloordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the floor division of two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the floor division of two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -339,12 +350,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Floor division of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the modulo of two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the modulo of two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -357,12 +369,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Modulo of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rmod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the modulo of two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the modulo of two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -375,12 +388,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Modulo of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the base (left operand) to the power (right operand).</span>
+    <span class="sd">&quot;&quot;&quot;Computes the base (left operand) to the power (right operand).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -393,12 +407,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Bsae to the power of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rpow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the base (left operand) to the power (right operand).</span>
+    <span class="sd">&quot;&quot;&quot;Computes the base (left operand) to the power (right operand).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -411,12 +426,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Base to the power of two images.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__lshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the left shift operation between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the left shift operation between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -429,12 +445,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Left shift operation.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftShift</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rlshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the left shift operation between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the left shift operation between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -447,12 +464,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Left shift operation.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">leftShift</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the right shift operation between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the right shift operation between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -465,12 +483,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Right shift operation.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightShift</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rrshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the right shift operation between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the right shift operation between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -483,12 +502,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Right shift operation.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">rightShift</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator AND between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the binary operator AND between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -501,12 +521,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Binary operator AND.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__rand__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator AND between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the binary operator AND between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -519,12 +540,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Binary operator AND.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator OR between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the binary operator OR between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -537,12 +559,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Binary operator OR.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Or</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__ror__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the binary operator OR between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the binary operator OR between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -555,12 +578,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Binary operator OR.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="n">Or</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison LOWER THAN between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison LOWER THAN between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -573,12 +597,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison LOWER THAN.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison LOWER THAN OR EQUAL between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison LOWER THAN OR EQUAL between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -591,12 +616,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison LOWER THAN OR EQUAL.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lte</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison EQUAL between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison EQUAL between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -609,12 +635,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison EQUAL.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison NOT EQUAL THAN between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison NOT EQUAL THAN between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -627,12 +654,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison NOT EQUAL.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison GREATER THAN between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison GREATER THAN between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -645,12 +673,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison GREATER THAN.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the rich comparison GREATER THAN OR EQUAL between two images.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the rich comparison GREATER THAN OR EQUAL between two images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -663,12 +692,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Rich comparison GREATER THAN OR EQUAL.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the unary operator NEGATIVE on an image.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the unary operator NEGATIVE on an image.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -679,12 +709,13 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Unary operator NEGATIVE.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
 
 <span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the unary operator NOT on an image.</span>
+    <span class="sd">&quot;&quot;&quot;Computes the unary operator NOT on an image.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -695,25 +726,37 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Unary operator NOT.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Not</span><span class="p">()</span>
 
+
 <div class="viewcode-block" id="index"><a class="viewcode-back" href="../../classes/stubs/eemont.image.index.html#eemont.image.index">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;NDVI&quot;</span><span class="p">,</span>
+    <span class="n">G</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">C1</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">C2</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span>
+    <span class="n">L</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;RBF&quot;</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.5 * (a + b)&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Computes one or more spectral indices (indices are added as bands) for an image.</span>
+
 <span class="sd">    Warning</span>
-<span class="sd">    -------------    </span>
+<span class="sd">    -------------</span>
 <span class="sd">    **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and spectral indices in the :ref:`User Guide&lt;Spectral Indices&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image [this]</span>
-<span class="sd">        Image to compute indices on. Must be scaled to [0,1].      </span>
+<span class="sd">        Image to compute indices on. Must be scaled to [0,1].</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
 <span class="sd">        Index or list of indices to compute.\n</span>
 <span class="sd">        Available options:</span>
@@ -743,7 +786,7 @@
 <span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
 <span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
 <span class="sd">            - &#39;VARI&#39; : Visible Atmospherically Resistant Index.</span>
-<span class="sd">        Burn and fire indices:     </span>
+<span class="sd">        Burn and fire indices:</span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
 <span class="sd">            - &#39;CSIT&#39; : Char Soil Index Thermal.</span>
@@ -751,20 +794,20 @@
 <span class="sd">            - &#39;NBRT&#39; : Normalized Burn Ratio Thermal.</span>
 <span class="sd">            - &#39;NDVIT&#39; : Normalized Difference Vegetation Index Thermal</span>
 <span class="sd">            - &#39;SAVIT&#39; : Soil-Adjusted Vegetation Index Thermal.</span>
-<span class="sd">        Water indices:            </span>
+<span class="sd">        Water indices:</span>
 <span class="sd">            - &#39;MNDWI&#39; : Modified Normalized Difference Water Index.</span>
-<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index. </span>
-<span class="sd">        Snow indices:     </span>
+<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index.</span>
+<span class="sd">        Snow indices:</span>
 <span class="sd">            - &#39;NDSI&#39; : Normalized Difference Snow Index.</span>
-<span class="sd">        Drought indices:     </span>
+<span class="sd">        Drought indices:</span>
 <span class="sd">            - &#39;NDDI&#39; : Normalized Difference Drought Index.</span>
-<span class="sd">        Kernel indices:     </span>
+<span class="sd">        Kernel indices:</span>
 <span class="sd">            - &#39;kEVI&#39; : Kernel Enhanced Vegetation Index.</span>
 <span class="sd">            - &#39;kNDVI&#39; : Kernel Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;kRVI&#39; : Kernel Ratio Vegetation Index.</span>
 <span class="sd">            - &#39;kVARI&#39; : Kernel Visible Atmospherically Resistant Index.</span>
 <span class="sd">    G : float, default = 2.5</span>
-<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;. </span>
+<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    C1 : float, default = 6.0</span>
 <span class="sd">        Coefficient 1 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    C2 : float, default = 7.5</span>
@@ -776,7 +819,7 @@
 <span class="sd">        Available options:</span>
 <span class="sd">            - &#39;linear&#39; : Linear Kernel.</span>
 <span class="sd">            - &#39;RBF&#39; : Radial Basis Function (RBF) Kernel.</span>
-<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.           </span>
+<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.</span>
 <span class="sd">    sigma : str | float, default = &#39;0.5 * (a + b)&#39;</span>
 <span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
 <span class="sd">    p : float, default = 2.0</span>
@@ -784,63 +827,78 @@
 <span class="sd">    c : float, default = 1.0</span>
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
 <span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Image with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    scale : Scales bands on an image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scale().first()</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing one spectral index:</span>
-<span class="sd">        </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;NDVI&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;NDVI&#39;)</span>
+
 <span class="sd">    - Computing indices with different parameters:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;SAVI&#39;,L = 0.5) </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;SAVI&#39;,L = 0.5)</span>
+
 <span class="sd">    - Computing multiple indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
+
 <span class="sd">    - Computing a specific group of indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.index(&#39;vegetation&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.index(&#39;vegetation&#39;)</span>
+
 <span class="sd">    - Computing kernel indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.index([&#39;kNDVI&#39;],kernel = &#39;poly&#39;,p = 5)</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing all indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.index(&#39;all&#39;)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;index() will be deprecated in future versions, please use spectralIndices() instead&quot;</span><span class="p">,</span><span class="ne">PendingDeprecationWarning</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;index() will be deprecated in future versions, please use spectralIndices() instead&quot;</span><span class="p">,</span>
+        <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="spectralIndices"><a class="viewcode-back" href="../../classes/stubs/eemont.image.spectralIndices.html#eemont.image.spectralIndices">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">spectralIndices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="n">G</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span><span class="n">C1</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span><span class="n">C2</span> <span class="o">=</span> <span class="mf">7.5</span><span class="p">,</span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;RBF&#39;</span><span class="p">,</span><span class="n">sigma</span> <span class="o">=</span> <span class="s1">&#39;0.5 * (a + b)&#39;</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes one or more spectral indices (indices are added as bands) for an image.</span>
-<span class="sd">        </span>
+<span class="k">def</span> <span class="nf">spectralIndices</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;NDVI&quot;</span><span class="p">,</span>
+    <span class="n">G</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">C1</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">C2</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span>
+    <span class="n">L</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;RBF&quot;</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.5 * (a + b)&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Computes one or more spectral indices (indices are added as bands) for an image.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and spectral indices in the :ref:`User Guide&lt;Spectral Indices&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image [this]</span>
-<span class="sd">        Image to compute indices on. Must be scaled to [0,1].      </span>
+<span class="sd">        Image to compute indices on. Must be scaled to [0,1].</span>
 <span class="sd">    index : string | list[string], default = &#39;NDVI&#39;</span>
 <span class="sd">        Index or list of indices to compute.\n</span>
 <span class="sd">        Available options:</span>
@@ -870,7 +928,7 @@
 <span class="sd">            - &#39;RVI&#39; : Ratio Vegetation Index.</span>
 <span class="sd">            - &#39;SAVI&#39; : Soil-Adjusted Vegetation Index.</span>
 <span class="sd">            - &#39;VARI&#39; : Visible Atmospherically Resistant Index.</span>
-<span class="sd">        Burn and fire indices:     </span>
+<span class="sd">        Burn and fire indices:</span>
 <span class="sd">            - &#39;BAI&#39; : Burned Area Index.</span>
 <span class="sd">            - &#39;BAIS2&#39; : Burned Area Index for Sentinel 2.</span>
 <span class="sd">            - &#39;CSIT&#39; : Char Soil Index Thermal.</span>
@@ -878,20 +936,20 @@
 <span class="sd">            - &#39;NBRT&#39; : Normalized Burn Ratio Thermal.</span>
 <span class="sd">            - &#39;NDVIT&#39; : Normalized Difference Vegetation Index Thermal</span>
 <span class="sd">            - &#39;SAVIT&#39; : Soil-Adjusted Vegetation Index Thermal.</span>
-<span class="sd">        Water indices:            </span>
+<span class="sd">        Water indices:</span>
 <span class="sd">            - &#39;MNDWI&#39; : Modified Normalized Difference Water Index.</span>
-<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index. </span>
-<span class="sd">        Snow indices:     </span>
+<span class="sd">            - &#39;NDWI&#39; : Normalized Difference Water Index.</span>
+<span class="sd">        Snow indices:</span>
 <span class="sd">            - &#39;NDSI&#39; : Normalized Difference Snow Index.</span>
-<span class="sd">        Drought indices:     </span>
+<span class="sd">        Drought indices:</span>
 <span class="sd">            - &#39;NDDI&#39; : Normalized Difference Drought Index.</span>
-<span class="sd">        Kernel indices:     </span>
+<span class="sd">        Kernel indices:</span>
 <span class="sd">            - &#39;kEVI&#39; : Kernel Enhanced Vegetation Index.</span>
 <span class="sd">            - &#39;kNDVI&#39; : Kernel Normalized Difference Vegetation Index.</span>
 <span class="sd">            - &#39;kRVI&#39; : Kernel Ratio Vegetation Index.</span>
 <span class="sd">            - &#39;kVARI&#39; : Kernel Visible Atmospherically Resistant Index.</span>
 <span class="sd">    G : float, default = 2.5</span>
-<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;. </span>
+<span class="sd">        Gain factor. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    C1 : float, default = 6.0</span>
 <span class="sd">        Coefficient 1 for the aerosol resistance term. Used just for index = &#39;EVI&#39;.</span>
 <span class="sd">    C2 : float, default = 7.5</span>
@@ -903,7 +961,7 @@
 <span class="sd">        Available options:</span>
 <span class="sd">            - &#39;linear&#39; : Linear Kernel.</span>
 <span class="sd">            - &#39;RBF&#39; : Radial Basis Function (RBF) Kernel.</span>
-<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.           </span>
+<span class="sd">            - &#39;poly&#39; : Polynomial Kernel.</span>
 <span class="sd">    sigma : str | float, default = &#39;0.5 * (a + b)&#39;</span>
 <span class="sd">        Length-scale parameter. Used for kernel = &#39;RBF&#39;. If str, this must be an expression including &#39;a&#39; and &#39;b&#39;. If numeric, this must be positive.</span>
 <span class="sd">    p : float, default = 2.0</span>
@@ -911,59 +969,71 @@
 <span class="sd">    c : float, default = 1.0</span>
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
 <span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Image with the computed spectral index, or indices, as new bands.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image collection.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).scaleAndOffset().first()</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing one spectral index:</span>
-<span class="sd">        </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;NDVI&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;NDVI&#39;)</span>
+
 <span class="sd">    - Computing indices with different parameters:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;SAVI&#39;,L = 0.5) </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;SAVI&#39;,L = 0.5)</span>
+
 <span class="sd">    - Computing multiple indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;NDVI&#39;,&#39;EVI&#39;,&#39;GNDVI&#39;])</span>
+
 <span class="sd">    - Computing a specific group of indices:</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;vegetation&#39;)    </span>
-<span class="sd">    </span>
+
+<span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;vegetation&#39;)</span>
+
 <span class="sd">    - Computing kernel indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.spectralIndices([&#39;kNDVI&#39;],kernel = &#39;poly&#39;,p = 5)</span>
-<span class="sd">    </span>
+
 <span class="sd">    - Computing all indices:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; S2.spectralIndices(&#39;all&#39;)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></div>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="maskClouds"><a class="viewcode-back" href="../../classes/stubs/eemont.image.maskClouds.html#eemont.image.maskClouds">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;cloud_prob&#39;</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">maskCirrus</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">maskShadows</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dark</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">cloudDist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">cdi</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Masks clouds and shadows in an image (valid just for Surface Reflectance products).</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">maskClouds</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cloud_prob&quot;</span><span class="p">,</span>
+    <span class="n">prob</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">maskCirrus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">maskShadows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">scaledImage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">dark</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+    <span class="n">cloudDist</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">buffer</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">cdi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Masks clouds and shadows in an image (valid just for Surface Reflectance products).</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and clouds masking in the :ref:`User Guide&lt;Masking Clouds and Shadows&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image [this]</span>
 <span class="sd">        Image to mask.</span>
 <span class="sd">    method : string, default = &#39;cloud_prob&#39;</span>
@@ -987,81 +1057,97 @@
 <span class="sd">    buffer : int, default = 250</span>
 <span class="sd">        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.</span>
 <span class="sd">    cdi : float [-1,1], default = None</span>
-<span class="sd">        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds. </span>
+<span class="sd">        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.</span>
 <span class="sd">        A cdi = None means that the index is not used. For more info see &#39;Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:</span>
 <span class="sd">        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481&#39;.</span>
 <span class="sd">        This parameter is ignored for Landsat products.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Cloud-shadow masked image.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    This method may mask water as well as clouds for the Sentinel-3 Radiance product.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).first().maskClouds(prob = 75,buffer = 300,cdi = -0.5)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">_maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">method</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">maskCirrus</span><span class="p">,</span><span class="n">maskShadows</span><span class="p">,</span><span class="n">scaledImage</span><span class="p">,</span><span class="n">dark</span><span class="p">,</span><span class="n">cloudDist</span><span class="p">,</span><span class="n">buffer</span><span class="p">,</span><span class="n">cdi</span><span class="p">)</span></div>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_maskClouds</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">,</span>
+        <span class="n">prob</span><span class="p">,</span>
+        <span class="n">maskCirrus</span><span class="p">,</span>
+        <span class="n">maskShadows</span><span class="p">,</span>
+        <span class="n">scaledImage</span><span class="p">,</span>
+        <span class="n">dark</span><span class="p">,</span>
+        <span class="n">cloudDist</span><span class="p">,</span>
+        <span class="n">buffer</span><span class="p">,</span>
+        <span class="n">cdi</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../classes/stubs/eemont.image.scale.html#eemont.image.scale">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Scales bands on an image.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scales bands on an image.</span>
+
 <span class="sd">    Warning</span>
-<span class="sd">    -------------    </span>
+<span class="sd">    -------------</span>
 <span class="sd">    **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and image scaling the :ref:`User Guide&lt;Image Scaling&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image [this]</span>
 <span class="sd">        Image to scale.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Scaled image.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).first().scale()</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;scale() will be deprecated in future versions, please use scaleAndOffset() instead&quot;</span><span class="p">,</span><span class="ne">PendingDeprecationWarning</span><span class="p">)</span>
-    
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;scale() will be deprecated in future versions, please use scaleAndOffset() instead&quot;</span><span class="p">,</span>
+        <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="getScaleParams"><a class="viewcode-back" href="../../classes/stubs/eemont.image.getScaleParams.html#eemont.image.getScaleParams">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">getScaleParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the scale parameters for each band of the image.</span>
-<span class="sd">    </span>
+    <span class="sd">&quot;&quot;&quot;Gets the scale parameters for each band of the image.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image (this)</span>
 <span class="sd">        Image to get the scale parameters from.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Dictionary with the scale parameters for each band.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getOffsetParams : Gets the offset parameters for each band of the image.</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image according to their scale and offset parameters.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -1080,28 +1166,29 @@
 <span class="sd">     &#39;Night_view_time&#39;: 0.1,</span>
 <span class="sd">     &#39;QC_Day&#39;: 1.0,</span>
 <span class="sd">     &#39;QC_Night&#39;: 1.0}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_get_scale_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="getOffsetParams"><a class="viewcode-back" href="../../classes/stubs/eemont.image.getOffsetParams.html#eemont.image.getOffsetParams">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">getOffsetParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Gets the offset parameters for each band of the image.</span>
-<span class="sd">    </span>
+    <span class="sd">&quot;&quot;&quot;Gets the offset parameters for each band of the image.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image (this)</span>
 <span class="sd">        Image to get the offset parameters from.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Dictionary with the offset parameters for each band.</span>
-<span class="sd">        </span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    getScaleParams : Gets the scale parameters for each band of the image.</span>
 <span class="sd">    scaleAndOffset : Scales bands on an image according to their scale and offset parameters.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
@@ -1120,34 +1207,35 @@
 <span class="sd">     &#39;Night_view_time&#39;: 0.0,</span>
 <span class="sd">     &#39;QC_Day&#39;: 0.0,</span>
 <span class="sd">     &#39;QC_Night&#39;: 0.0}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_get_offset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="scaleAndOffset"><a class="viewcode-back" href="../../classes/stubs/eemont.image.scaleAndOffset.html#eemont.image.scaleAndOffset">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">scaleAndOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Scales bands on an image according to their scale and offset parameters.</span>
-<span class="sd">    </span>
+<span class="k">def</span> <span class="nf">scaleAndOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scales bands on an image according to their scale and offset parameters.</span>
+
 <span class="sd">    Tip</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    Check more info about the supported platforms and image scaling the :ref:`User Guide&lt;Image Scaling&gt;`.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------    </span>
+<span class="sd">    ----------</span>
 <span class="sd">    self : ee.Image [this]</span>
 <span class="sd">        Image to scale.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Scaled image.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
 <span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
 <span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).first().scaleAndOffset()</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 </pre></div>
 

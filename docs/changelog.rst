@@ -30,6 +30,7 @@ Improvements
    - `VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP09GA?hl=en>`_
    - `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
 - The :code:`scaleAndOffset()` extended method for ee.Image and ee.ImageCollection classes now supports ALL raster datasets from the `Google Earth Engine STAC Catalog <https://developers.google.com/earth-engine/datasets>`_.
+- The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes now supports ALL indices from the `Awesome List of Spectral Indices for Google Earth Engine <https://github.com/davemlz/awesome-ee-spectral-indices>`_.
    
 Pending Deprecation
 ~~~~~~~~~~~~~~~~~~~~~~

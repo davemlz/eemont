@@ -61,7 +61,7 @@ def __mul__(self, other):
     ee.List
         Repeated list.
     """
-    return ee.List.repeat(self,other).flatten()
+    return ee.List.repeat(self, other).flatten()
 
 
 @_extend_eeList()
@@ -80,4 +80,4 @@ def __rmul__(self, other):
     ee.List
         Repeated list.
     """
-    return ee.List.repeat(self,other).flatten()
+    return ee.List.repeat(self, other).flatten()

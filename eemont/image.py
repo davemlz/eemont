@@ -737,7 +737,7 @@ def spectralIndices(
     p=2.0,
     c=1.0,
 ):
-    """Computes one or more spectral indices (indices are added as bands) for an image.
+    """Computes one or more spectral indices (indices are added as bands) for an image from the Awesome List of Spectral Indices.
 
     Tip
     ----------

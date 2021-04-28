@@ -179,298 +179,13 @@ def _get_indices():
     dict
         Indices.
     """
-    vegetationIndices = {
-        "BNDVI": {
-            "formula": "(N - B)/(N + B)",
-            "description": "Blue Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "B"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=135",
-            "contributor": "davemlz",
-        },
-        "CIG": {
-            "formula": "(N / G) - 1.0",
-            "description": "Blue Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "G"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=128",
-            "contributor": "davemlz",
-        },
-        "CVI": {
-            "formula": "(N * R) / (G ** 2.0)",
-            "description": "Chlorophyll Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "R", "G"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=391",
-            "contributor": "davemlz",
-        },
-        "EVI": {
-            "formula": "g * (N - R) / (N + C1 * R - C2 * B + L)",
-            "description": "Enhanced Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "g", "R", "C1", "C2", "B", "L"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=16",
-            "contributor": "davemlz",
-        },
-        "EVI2": {
-            "formula": "g * (N - R) / (N + 2.4 * R + L)",
-            "description": "Two-Band Enhanced Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "g", "R", "L"],
-            "reference": "https://doi.org/10.1016/j.rse.2008.06.006",
-            "contributor": "davemlz",
-        },
-        "GARI": {
-            "formula": "(N - (G - (B - R))) / (N - (G + (B - R)))",
-            "description": "Green Atmospherically Resistant Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "G", "B", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=363",
-            "contributor": "davemlz",
-        },
-        "GBNDVI": {
-            "formula": "(N - (G + B))/(N + (G + B))",
-            "description": "Green-Blue Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "B", "G"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=186",
-            "contributor": "davemlz",
-        },
-        "GEMI": {
-            "formula": "((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))",
-            "description": "Global Environment Monitoring Index",
-            "type": "vegetation",
-            "requires": ["N", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=25",
-            "contributor": "davemlz",
-        },
-        "GLI": {
-            "formula": "(2.0 * G - R - B) / (2.0 * G + R + B)",
-            "description": "Green Leaf Index",
-            "type": "vegetation",
-            "requires": ["G", "B", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=375",
-            "contributor": "davemlz",
-        },
-        "GNDVI": {
-            "formula": "(N - G)/(N + G)",
-            "description": "Green Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "G"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=401",
-            "contributor": "davemlz",
-        },
-        "GRNDVI": {
-            "formula": "(N - (G + R))/(N + (G + R))",
-            "description": "Green-Red Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "G", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=185",
-            "contributor": "davemlz",
-        },
-        "GVMI": {
-            "formula": "((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))",
-            "description": "Global Vegetation Moisture Index",
-            "type": "vegetation",
-            "requires": ["N", "S2"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=372",
-            "contributor": "davemlz",
-        },
-        "MNDVI": {
-            "formula": "(N - S2)/(N + S2)",
-            "description": "Modified Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "S2"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=245",
-            "contributor": "davemlz",
-        },
-        "NDVI": {
-            "formula": "(N - R)/(N + R)",
-            "description": "Normalized Difference Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=58",
-            "contributor": "davemlz",
-        },
-        "NGRDI": {
-            "formula": "(G - R) / (G + R)",
-            "description": "Normalized Green Red Difference Index",
-            "type": "vegetation",
-            "requires": ["G", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=390",
-            "contributor": "davemlz",
-        },
-        "RVI": {
-            "formula": "N / R",
-            "description": "Ratio Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "R"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=72",
-            "contributor": "davemlz",
-        },
-        "SAVI": {
-            "formula": "(1.0 + L) * (N - R) / (N + R + L)",
-            "description": "Soil-Adjusted Vegetation Index",
-            "type": "vegetation",
-            "requires": ["N", "R", "L"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=87",
-            "contributor": "davemlz",
-        },
-        "VARI": {
-            "formula": "(G - R) / (G + R - B)",
-            "description": "Visible Atmospherically Resistant Index",
-            "type": "vegetation",
-            "requires": ["G", "R", "B"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=356",
-            "contributor": "davemlz",
-        },
-    }
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/spectral-indices-dict.json")
 
-    burnIndices = {
-        "BAI": {
-            "formula": "1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)",
-            "description": "Burned Area Index",
-            "type": "burn",
-            "requires": ["N", "R"],
-            "reference": "https://digital.csic.es/bitstream/10261/6426/1/Martin_Isabel_Serie_Geografica.pdf",
-            "contributor": "davemlz",
-        },
-        "BAIS2": {
-            "formula": "(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)",
-            "description": "Burned Area Index for Sentinel 2",
-            "type": "burn",
-            "requires": ["RE2", "RE3", "RE4", "R", "S2"],
-            "reference": "https://doi.org/10.3390/ecrs-2-05177",
-            "contributor": "davemlz",
-        },
-        "CSIT": {
-            "formula": "N / (S2 * T1 / 10000.0)",
-            "description": "Char Soil Index Thermal",
-            "type": "burn",
-            "requires": ["N", "S2", "T1"],
-            "reference": "https://doi.org/10.1080/01431160600954704",
-            "contributor": "davemlz",
-        },
-        "NBR": {
-            "formula": "(N - S2) / (N + S2)",
-            "description": "Normalized Burn Ratio",
-            "type": "burn",
-            "requires": ["N", "S2"],
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=53",
-            "contributor": "davemlz",
-        },
-        "NBRT": {
-            "formula": "(N - (S2 * T1 / 10000.0)) / (N + (S2 * T1 / 10000.0))",
-            "description": "Normalized Burn Ratio Thermal",
-            "type": "burn",
-            "requires": ["N", "S2", "T1"],
-            "reference": "https://doi.org/10.1080/01431160500239008",
-            "contributor": "davemlz",
-        },
-        "NDVIT": {
-            "formula": "(N - (R * T1 / 10000.0))/(N + (R * T1 / 10000.0))",
-            "description": "Normalized Difference Vegetation Index Thermal",
-            "type": "burn",
-            "requires": ["N", "R", "T1"],
-            "reference": "https://doi.org/10.1080/01431160600954704",
-            "contributor": "davemlz",
-        },
-        "SAVIT": {
-            "formula": "(1.0 + L) * (N - (R * T1 / 10000.0)) / (N + (R * T1 / 10000.0) + L)",
-            "description": "Soil-Adjusted Vegetation Index Thermal",
-            "type": "burn",
-            "requires": ["N", "R", "L", "T1"],
-            "reference": "https://doi.org/10.1080/01431160600954704",
-            "contributor": "davemlz",
-        },
-    }
+    f = open(dataPath)
+    indices = json.load(f)
 
-    waterIndices = {
-        "MNDWI": {
-            "formula": "(G - S1) / (G + S1)",
-            "description": "Modified Normalized Difference Water Index",
-            "type": "water",
-            "requires": ["G", "S1"],
-            "reference": "https://doi.org/10.1080/01431160600589179",
-            "contributor": "davemlz",
-        },
-        "NDWI": {
-            "formula": "(G - N) / (G + N)",
-            "description": "Normalized Difference Water Index",
-            "type": "water",
-            "requires": ["G", "N"],
-            "reference": "https://doi.org/10.1080/01431169608948714",
-            "contributor": "davemlz",
-        },
-    }
-
-    snowIndices = {
-        "NDSI": {
-            "formula": "(G - S1) / (G + S1)",
-            "description": "Normalized Difference Snow Index",
-            "type": "snow",
-            "requires": ["G", "S1"],
-            "reference": "https://doi.org/10.1109/IGARSS.1994.399618",
-            "contributor": "davemlz",
-        },
-    }
-
-    droughtIndices = {
-        "NDDI": {
-            "formula": "(((N - R)/(N + R)) - ((G - N)/(G + N)))/(((N - R)/(N + R)) + ((G - N)/(G + N)))",
-            "description": "Normalized Difference Drought Index",
-            "type": "drought",
-            "requires": ["N", "R", "G"],
-            "reference": "https://doi.org/10.1029/2006GL029127",
-            "contributor": "davemlz",
-        },
-    }
-
-    kernelIndices = {
-        "kEVI": {
-            "formula": "g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)",
-            "description": "Kernel Enhanced Vegetation Index",
-            "type": "kernel",
-            "requires": ["kNN", "g", "kNR", "C1", "C2", "kNB", "kNL"],
-            "reference": "https://doi.org/10.1126/sciadv.abc7447",
-            "contributor": "davemlz",
-        },
-        "kNDVI": {
-            "formula": "(kNN - kNR)/(kNN + kNR)",
-            "description": "Kernel Normalized Difference Vegetation Index",
-            "type": "kernel",
-            "requires": ["kNN", "kNR"],
-            "reference": "https://doi.org/10.1126/sciadv.abc7447",
-            "contributor": "davemlz",
-        },
-        "kRVI": {
-            "formula": "kNN / kNR",
-            "description": "Kernel Ratio Vegetation Index",
-            "type": "kernel",
-            "requires": ["kNN", "kNR"],
-            "reference": "https://doi.org/10.1126/sciadv.abc7447",
-            "contributor": "davemlz",
-        },
-        "kVARI": {
-            "formula": "(kGG - kGR) / (kGG + kGR - kGB)",
-            "description": "Kernel Visible Atmospherically Resistant Index",
-            "type": "kernel",
-            "requires": ["kGG", "kGR", "kGB"],
-            "reference": "https://doi.org/10.1126/sciadv.abc7447",
-            "contributor": "davemlz",
-        },
-    }
-
-    indices = {
-        **vegetationIndices,
-        **burnIndices,
-        **waterIndices,
-        **snowIndices,
-        **droughtIndices,
-        **kernelIndices,
-    }
-
-    return indices
+    return indices["SpectralIndices"]
 
 
 def _get_kernel_image(img, lookup, kernel, sigma, a, b):
@@ -643,7 +358,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c):
                 lookupDicCurated = _remove_none_dict(lookupDic)
                 if all(
                     band in list(lookupDicCurated.keys())
-                    for band in spectralIndices[idx]["requires"]
+                    for band in spectralIndices[idx]["bands"]
                 ):
                     return img.addBands(
                         img.expression(
@@ -673,7 +388,7 @@ def indices():
     Returns
     -------
     Box
-        Dictionary of available indices. For each index, the keys 'description', 'formula', 'requires', 'reference' and 'contributor' can be checked.
+        Dictionary of available indices. For each index, the keys 'short_name', 'long_name', 'formula', 'bands', 'reference', 'type', 'date_of_addition' and 'contributor' can be checked.
 
     See Also
     --------
@@ -683,7 +398,7 @@ def indices():
     --------
     >>> import eemont
     >>> indices = eemont.indices()
-    >>> indices.BAIS2.description
+    >>> indices.BAIS2.long_name
     'Burned Area Index for Sentinel 2'
     >>> indices.BAIS2.formula
     '(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)'

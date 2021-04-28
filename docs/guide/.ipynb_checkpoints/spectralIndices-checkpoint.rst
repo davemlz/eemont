@@ -83,6 +83,8 @@ MODIS Products (Aqua)
 List of Indices
 ----------------------
 
+The list of indices is retrieved from the `Awesome List of Spectral Indices for Google Earth Engine <https://github.com/davemlz/awesome-ee-spectral-indices>`_
+
 Vegetation Indices
 ~~~~~~~~~~~~~~~~~~~
 

@@ -26,8 +26,7 @@ setup(
     long_description=read("README.rst"),
 
     packages=find_packages(exclude=('tests',),include=["eemont", "eemont.*"]),
-
-    package_dir={'eemont': 'eemont/eemont'},
+    
     package_data={'eemont': ['data/*.json']},
     
     install_requires=['earthengine-api','numpy','pandas','python-box','geopy'],

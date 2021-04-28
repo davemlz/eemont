@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade tox
       - name: execute        
         run: |
-          python ./.github/update_ee_token.py
+          python ./.github/scripts/update_ee_token.py
         env:
           EE_TOKEN: ${{ secrets.EE_TOKEN }}
       - name: tests

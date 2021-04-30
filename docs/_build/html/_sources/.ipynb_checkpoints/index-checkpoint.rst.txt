@@ -102,7 +102,7 @@ Let's see some of the main features of eemont and how simple they are compared t
 Overloaded Operators
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The following operators are overloaded: +, -, \*\, /, //, %, \**\ , <<, >>, &, \|\, <, <=, ==, !=, >, >=, -, ~. (and you can avoiod the :code:`ee.Image.expression()` method!)
+The following operators are overloaded: +, -, \*\, /, //, %, \**\ , <<, >>, &, \|\, <, <=, ==, !=, >, >=, -, ~. (and you can avoid the :code:`ee.Image.expression()` method!)
 
 .. list-table::
    :widths: 50 50

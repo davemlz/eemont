@@ -1,6 +1,7 @@
 import ee
 import numpy as np
 import warnings
+import requests
 from .common import _index
 from .common import _maskClouds
 from .common import _get_scale_params
@@ -363,6 +364,7 @@ def index(
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
+    online=False,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image collection.
 
@@ -448,6 +450,10 @@ def index(
     c : float, default = 1.0
         Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
         Used for kernel = 'poly'. This must be greater than or equal to 0.
+    online : boolean, default = False
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+
+        .. versionadded:: 0.2.0
 
     Returns
     -------
@@ -494,7 +500,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c)
+    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()
@@ -509,6 +515,7 @@ def spectralIndices(
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
+    online=False,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image collection from the Awesome List of Spectral Indices.
 
@@ -590,6 +597,8 @@ def spectralIndices(
     c : float, default = 1.0
         Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
         Used for kernel = 'poly'. This must be greater than or equal to 0.
+    online : boolean, default = False
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
@@ -631,7 +640,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c)
+    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()

@@ -29,7 +29,7 @@ setup(
     
     package_data={'eemont': ['data/*.json']},
     
-    install_requires=['earthengine-api','numpy','pandas','python-box','geopy'],
+    install_requires=['earthengine-api','numpy','pandas','python-box','geopy','requests'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

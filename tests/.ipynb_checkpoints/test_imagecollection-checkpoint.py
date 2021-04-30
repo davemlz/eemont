@@ -74,6 +74,16 @@ class Test(unittest.TestCase):
         """Test the image collection module for Sentinel-2"""
         S2_tested = S2.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
+        
+    def test_S2_online(self):
+        """Test the image collection module for Sentinel-2"""
+        S2_tested = S2.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices,online = True)
+        self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
+        
+    def test_S2_previous(self):
+        """Test the image collection module for Sentinel-2"""
+        S2_tested = S2.closest('2020-01-15').maskClouds().scale().index(indices,online = True)
+        self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
     
     # LANDSAT MISSIONS
     

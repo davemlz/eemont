@@ -3,6 +3,7 @@ import json
 import pkg_resources
 import os
 import warnings
+import requests
 from box import Box
 
 # Platforms IDs
@@ -171,19 +172,30 @@ def _get_expression_map(img, platformDict):
     return lookupPlatform[platformDict["platform"]](img)
 
 
-def _get_indices():
+def _get_indices(online):
     """Retrieves the dictionary of indices used for the index() method in ee.Image and ee.ImageCollection classes.
+
+    Parameters
+    ----------
+    online : boolean
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
     dict
         Indices.
     """
-    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
-    dataPath = os.path.join(eemontDir, "data/spectral-indices-dict.json")
-
-    f = open(dataPath)
-    indices = json.load(f)
+    if online:
+        indices = requests.get(
+            "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
+        ).json()
+    else:
+        eemontDir = os.path.dirname(
+            pkg_resources.resource_filename("eemont", "eemont.py")
+        )
+        dataPath = os.path.join(eemontDir, "data/spectral-indices-dict.json")
+        f = open(dataPath)
+        indices = json.load(f)
 
     return indices["SpectralIndices"]
 
@@ -278,7 +290,7 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, kernel, sigma, p, c):
+def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -303,6 +315,8 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c):
         Kernel degree. Used for kernel = 'poly'.
     c : float
         Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = 'poly'. This must be greater than or equal to 0.
+    online : boolean
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
@@ -327,7 +341,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c):
         "c": float(c),
     }
 
-    spectralIndices = _get_indices()
+    spectralIndices = _get_indices(online)
     indicesNames = list(spectralIndices.keys())
 
     if not isinstance(index, list):
@@ -382,8 +396,13 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c):
     return self
 
 
-def indices():
+def indices(online=False):
     """Gets the dictionary of available indices as a Box object.
+
+    Parameters
+    ----------
+    online : boolean
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
@@ -405,11 +424,16 @@ def indices():
     >>> indices.BAIS2.reference
     'https://doi.org/10.3390/ecrs-2-05177'
     """
-    return Box(_get_indices(), frozen_box=True)
+    return Box(_get_indices(online), frozen_box=True)
 
 
-def listIndices():
+def listIndices(online=False):
     """Gets the list of available indices.
+
+    Parameters
+    ----------
+    online : boolean
+        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
@@ -426,7 +450,7 @@ def listIndices():
     >>> eemont.listIndices()
     ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]
     """
-    return list(_get_indices().keys())
+    return list(_get_indices(online).keys())
 
 
 # Image Scaling

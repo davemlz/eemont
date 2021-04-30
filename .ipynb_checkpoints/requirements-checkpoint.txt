@@ -1,5 +1,6 @@
 earthengine-api
+geopy
 numpy
 pandas
 python-box
-geopy
+requests

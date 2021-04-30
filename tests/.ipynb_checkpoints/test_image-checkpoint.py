@@ -95,6 +95,16 @@ class Test(unittest.TestCase):
         S2_tested = S2.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(S2_tested, ee.image.Image)
         
+    def test_S2_online(self):
+        """Test the image module for Sentinel-2"""
+        S2_tested = S2.maskClouds().scaleAndOffset().spectralIndices(indices,online = True)
+        self.assertIsInstance(S2_tested, ee.image.Image)
+        
+    def test_S2_previous(self):
+        """Test the image module for Sentinel-2"""
+        S2_tested = S2.maskClouds().scale().index(indices,online = True)
+        self.assertIsInstance(S2_tested, ee.image.Image)
+        
     # LANDSAT MISSIONS
         
     def test_L8(self):

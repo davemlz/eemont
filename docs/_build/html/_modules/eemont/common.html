@@ -323,306 +323,32 @@
     <span class="k">return</span> <span class="n">lookupPlatform</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]](</span><span class="n">img</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_get_indices</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">_get_indices</span><span class="p">(</span><span class="n">online</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retrieves the dictionary of indices used for the index() method in ee.Image and ee.ImageCollection classes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    online : boolean</span>
+<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Indices.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">vegetationIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;BNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - B)/(N + B)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Blue Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=135&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;CIG&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N / G) - 1.0&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Blue Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=128&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;CVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N * R) / (G ** 2.0)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Chlorophyll Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=391&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;EVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;g * (N - R) / (N + C1 * R - C2 * B + L)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Enhanced Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=16&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;EVI2&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;g * (N - R) / (N + 2.4 * R + L)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Two-Band Enhanced Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1016/j.rse.2008.06.006&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GARI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - (G - (B - R))) / (N - (G + (B - R)))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Green Atmospherically Resistant Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=363&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GBNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - (G + B))/(N + (G + B))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Green-Blue Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=186&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GEMI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Global Environment Monitoring Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=25&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GLI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(2.0 * G - R - B) / (2.0 * G + R + B)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Green Leaf Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=375&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - G)/(N + G)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Green Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=401&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GRNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - (G + R))/(N + (G + R))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Green-Red Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=185&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;GVMI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Global Vegetation Moisture Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=372&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;MNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - S2)/(N + S2)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Modified Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=245&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - R)/(N + R)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=58&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NGRDI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(G - R) / (G + R)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Green Red Difference Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=390&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;RVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;N / R&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Ratio Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=72&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;SAVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(1.0 + L) * (N - R) / (N + R + L)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Soil-Adjusted Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=87&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;VARI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(G - R) / (G + R - B)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Visible Atmospherically Resistant Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=356&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">eemontDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span>
+            <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;eemont&quot;</span><span class="p">,</span> <span class="s2">&quot;eemont.py&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">dataPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eemontDir</span><span class="p">,</span> <span class="s2">&quot;data/spectral-indices-dict.json&quot;</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dataPath</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    <span class="n">burnIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;BAI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0 / ((0.1 - R) ** 2.0 + (0.06 - N) ** 2.0)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Burned Area Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://digital.csic.es/bitstream/10261/6426/1/Martin_Isabel_Serie_Geografica.pdf&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;BAIS2&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Burned Area Index for Sentinel 2&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RE2&quot;</span><span class="p">,</span> <span class="s2">&quot;RE3&quot;</span><span class="p">,</span> <span class="s2">&quot;RE4&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.3390/ecrs-2-05177&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;CSIT&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;N / (S2 * T1 / 10000.0)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Char Soil Index Thermal&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">,</span> <span class="s2">&quot;T1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431160600954704&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NBR&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - S2) / (N + S2)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Burn Ratio&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.indexdatabase.de/db/i-single.php?id=53&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NBRT&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - (S2 * T1 / 10000.0)) / (N + (S2 * T1 / 10000.0))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Burn Ratio Thermal&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">,</span> <span class="s2">&quot;T1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431160500239008&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NDVIT&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(N - (R * T1 / 10000.0))/(N + (R * T1 / 10000.0))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Difference Vegetation Index Thermal&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;T1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431160600954704&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;SAVIT&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(1.0 + L) * (N - (R * T1 / 10000.0)) / (N + (R * T1 / 10000.0) + L)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Soil-Adjusted Vegetation Index Thermal&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;burn&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;T1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431160600954704&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-
-    <span class="n">waterIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;MNDWI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(G - S1) / (G + S1)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Modified Normalized Difference Water Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;water&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;S1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431160600589179&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;NDWI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(G - N) / (G + N)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Difference Water Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;water&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1080/01431169608948714&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-
-    <span class="n">snowIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;NDSI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(G - S1) / (G + S1)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Difference Snow Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;snow&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;S1&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1109/IGARSS.1994.399618&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-
-    <span class="n">droughtIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;NDDI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(((N - R)/(N + R)) - ((G - N)/(G + N)))/(((N - R)/(N + R)) + ((G - N)/(G + N)))&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Normalized Difference Drought Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;drought&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1029/2006GL029127&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-
-    <span class="n">kernelIndices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;kEVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Kernel Enhanced Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;kernel&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kNN&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;kNR&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;kNB&quot;</span><span class="p">,</span> <span class="s2">&quot;kNL&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1126/sciadv.abc7447&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;kNDVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(kNN - kNR)/(kNN + kNR)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Kernel Normalized Difference Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;kernel&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kNN&quot;</span><span class="p">,</span> <span class="s2">&quot;kNR&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1126/sciadv.abc7447&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;kRVI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;kNN / kNR&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Kernel Ratio Vegetation Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;kernel&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kNN&quot;</span><span class="p">,</span> <span class="s2">&quot;kNR&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1126/sciadv.abc7447&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;kVARI&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;formula&quot;</span><span class="p">:</span> <span class="s2">&quot;(kGG - kGR) / (kGG + kGR - kGB)&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Kernel Visible Atmospherically Resistant Index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;kernel&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kGG&quot;</span><span class="p">,</span> <span class="s2">&quot;kGR&quot;</span><span class="p">,</span> <span class="s2">&quot;kGB&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.1126/sciadv.abc7447&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;davemlz&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-
-    <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="o">**</span><span class="n">vegetationIndices</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">burnIndices</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">waterIndices</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">snowIndices</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">droughtIndices</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">kernelIndices</span><span class="p">,</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="n">indices</span>
+    <span class="k">return</span> <span class="n">indices</span><span class="p">[</span><span class="s2">&quot;SpectralIndices&quot;</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">_get_kernel_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -715,7 +441,7 @@
     <span class="k">return</span> <span class="n">kernelParameters</span>
 
 
-<span class="k">def</span> <span class="nf">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">online</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Computes one or more spectral indices (indices are added as bands) for an image oir image collection.</span>
 
 <span class="sd">    Parameters</span>
@@ -740,6 +466,8 @@
 <span class="sd">        Kernel degree. Used for kernel = &#39;poly&#39;.</span>
 <span class="sd">    c : float</span>
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
+<span class="sd">    online : boolean</span>
+<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -764,7 +492,7 @@
         <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">),</span>
     <span class="p">}</span>
 
-    <span class="n">spectralIndices</span> <span class="o">=</span> <span class="n">_get_indices</span><span class="p">()</span>
+    <span class="n">spectralIndices</span> <span class="o">=</span> <span class="n">_get_indices</span><span class="p">(</span><span class="n">online</span><span class="p">)</span>
     <span class="n">indicesNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -795,7 +523,7 @@
                 <span class="n">lookupDicCurated</span> <span class="o">=</span> <span class="n">_remove_none_dict</span><span class="p">(</span><span class="n">lookupDic</span><span class="p">)</span>
                 <span class="k">if</span> <span class="nb">all</span><span class="p">(</span>
                     <span class="n">band</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookupDicCurated</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-                    <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;requires&quot;</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">spectralIndices</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;bands&quot;</span><span class="p">]</span>
                 <span class="p">):</span>
                     <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span>
                         <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span>
@@ -819,13 +547,18 @@
     <span class="k">return</span> <span class="bp">self</span>
 
 
-<div class="viewcode-block" id="indices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.indices">[docs]</a><span class="k">def</span> <span class="nf">indices</span><span class="p">():</span>
+<div class="viewcode-block" id="indices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.indices">[docs]</a><span class="k">def</span> <span class="nf">indices</span><span class="p">(</span><span class="n">online</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the dictionary of available indices as a Box object.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    online : boolean</span>
+<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Box</span>
-<span class="sd">        Dictionary of available indices. For each index, the keys &#39;description&#39;, &#39;formula&#39;, &#39;requires&#39;, &#39;reference&#39; and &#39;contributor&#39; can be checked.</span>
+<span class="sd">        Dictionary of available indices. For each index, the keys &#39;short_name&#39;, &#39;long_name&#39;, &#39;formula&#39;, &#39;bands&#39;, &#39;reference&#39;, &#39;type&#39;, &#39;date_of_addition&#39; and &#39;contributor&#39; can be checked.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -835,18 +568,23 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import eemont</span>
 <span class="sd">    &gt;&gt;&gt; indices = eemont.indices()</span>
-<span class="sd">    &gt;&gt;&gt; indices.BAIS2.description</span>
+<span class="sd">    &gt;&gt;&gt; indices.BAIS2.long_name</span>
 <span class="sd">    &#39;Burned Area Index for Sentinel 2&#39;</span>
 <span class="sd">    &gt;&gt;&gt; indices.BAIS2.formula</span>
 <span class="sd">    &#39;(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)&#39;</span>
 <span class="sd">    &gt;&gt;&gt; indices.BAIS2.reference</span>
 <span class="sd">    &#39;https://doi.org/10.3390/ecrs-2-05177&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">Box</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">(),</span> <span class="n">frozen_box</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">Box</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">(</span><span class="n">online</span><span class="p">),</span> <span class="n">frozen_box</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="listIndices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.listIndices">[docs]</a><span class="k">def</span> <span class="nf">listIndices</span><span class="p">():</span>
+<div class="viewcode-block" id="listIndices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.listIndices">[docs]</a><span class="k">def</span> <span class="nf">listIndices</span><span class="p">(</span><span class="n">online</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the list of available indices.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    online : boolean</span>
+<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -863,7 +601,7 @@
 <span class="sd">    &gt;&gt;&gt; eemont.listIndices()</span>
 <span class="sd">    [&#39;BNDVI&#39;,&#39;CIG&#39;,&#39;CVI&#39;,&#39;EVI&#39;,&#39;EVI2&#39;,&#39;GBNDVI&#39;,&#39;GNDVI&#39;,...]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">(</span><span class="n">online</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
 
 
 <span class="c1"># Image Scaling</span>

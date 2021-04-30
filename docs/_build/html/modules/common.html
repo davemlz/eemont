@@ -154,14 +154,17 @@
 <p>Functions of the common module:</p>
 <span class="target" id="module-eemont.common"></span><dl class="py function">
 <dt id="eemont.common.indices">
-<code class="sig-prename descclassname">eemont.common.</code><code class="sig-name descname">indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/common.html#indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.common.indices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">eemont.common.</code><code class="sig-name descname">indices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">online</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/common.html#indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.common.indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the dictionary of available indices as a Box object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Dictionary of available indices. For each index, the keys ‘description’, ‘formula’, ‘requires’, ‘reference’ and ‘contributor’ can be checked.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>online</strong> (<em>boolean</em>) – Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Box</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary of available indices. For each index, the keys ‘short_name’, ‘long_name’, ‘formula’, ‘bands’, ‘reference’, ‘type’, ‘date_of_addition’ and ‘contributor’ can be checked.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Box</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -174,7 +177,7 @@
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">eemont</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span> <span class="o">=</span> <span class="n">eemont</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">description</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">long_name</span>
 <span class="go">&#39;Burned Area Index for Sentinel 2&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span><span class="o">.</span><span class="n">BAIS2</span><span class="o">.</span><span class="n">formula</span>
 <span class="go">&#39;(1.0 - ((RE2 * RE3 * RE4) / R) ** 0.5) * (((S2 - RE4)/(S2 + RE4) ** 0.5) + 1.0)&#39;</span>
@@ -186,14 +189,17 @@
 
 <dl class="py function">
 <dt id="eemont.common.listIndices">
-<code class="sig-prename descclassname">eemont.common.</code><code class="sig-name descname">listIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/common.html#listIndices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.common.listIndices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">eemont.common.</code><code class="sig-name descname">listIndices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">online</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/eemont/common.html#listIndices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eemont.common.listIndices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the list of available indices.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>List of available indices.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>online</strong> (<em>boolean</em>) – Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of available indices.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 <div class="admonition seealso">

@@ -679,6 +679,7 @@ def index(
         Used for kernel = 'poly'. This must be greater than or equal to 0.
     online : boolean, default = False
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        
         .. versionadded:: 0.2.0
 
     Returns

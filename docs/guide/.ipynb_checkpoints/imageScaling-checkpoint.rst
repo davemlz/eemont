@@ -17,7 +17,7 @@ Now, we are ready to go!
 Overview
 -----------
 
-The eemont package extends the ee.Image and ee.ImageCollection classes with the methods :code:`getScaleParams()`, :code:`getOffsetParams()` and :code:`scaleAndOffset()`:
+The eemont package extends the ee.Image and ee.ImageCollection classes with the following methods:
 
 ee.Image
 ~~~~~~~~
@@ -28,6 +28,7 @@ ee.Image
 
    getOffsetParams
    getScaleParams
+   preprocess
    scaleAndOffset
       
 ee.ImageCollection
@@ -39,6 +40,7 @@ ee.ImageCollection
 
    getOffsetParams
    getScaleParams
+   preprocess
    scaleAndOffset
 
 Supported Platforms
@@ -78,3 +80,12 @@ The :code:`scale()` method can be applied to single images as well:
 .. code-block:: python
 
    MOD11A2scaled = ee.ImageCollection('MODIS/006/MOD11A2').first().scaleAndOffset()
+   
+Preprocessing
+~~~~~~~~~~~~~~~~~
+   
+Additionally, if required, the :code:`preprocess()` method can be used to scale and mask images and image collections:
+
+.. code-block:: python
+
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess()

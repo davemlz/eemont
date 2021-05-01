@@ -15,6 +15,7 @@ Extended methods for the ee.ImageCollection class:
    getTimeSeriesByRegions
    index
    maskClouds
+   preprocess
    scale
    scaleAndOffset
    spectralIndices

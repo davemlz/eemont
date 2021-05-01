@@ -17,6 +17,7 @@ New Features
 - The :code:`getScaleParams()` extended method for ee.Image and ee.ImageCollection classes was created.
 - The :code:`scaleAndOffset()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`scale()` method.
 - The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes was created and will replace the :code:`index()` method.
+- The :code:`preprocess()` extended method for ee.Image and ee.ImageCollection classes was created.
 - The binary operators (+, -, \*\, /, //, %, \**\ , <<, >>, &, |) were overloaded for ee.Number objects.
 - The binary operators (+, \*\) were overloaded for ee.List objects.
 - The rich comparisons (<, <=, ==, !=, >, >=) were overloaded for ee.Number objects.

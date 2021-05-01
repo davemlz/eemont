@@ -152,11 +152,13 @@
   <h1>Source code for eemont.image</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ee</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_index</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_maskClouds</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_scale_params</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_get_offset_params</span>
 <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_scale_STAC</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">_preprocess</span>
 
 
 <span class="k">def</span> <span class="nf">_extend_eeImage</span><span class="p">():</span>
@@ -829,10 +831,9 @@
 <span class="sd">        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.</span>
 <span class="sd">        Used for kernel = &#39;poly&#39;. This must be greater than or equal to 0.</span>
 <span class="sd">    online : boolean, default = False</span>
+<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 <span class="sd">        </span>
 <span class="sd">        .. versionadded:: 0.2.0</span>
-<span class="sd">    </span>
-<span class="sd">        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1237,6 +1238,11 @@
 <span class="sd">    -------</span>
 <span class="sd">    ee.Image</span>
 <span class="sd">        Scaled image.</span>
+<span class="sd">        </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getScaleParams : Gets the scale parameters for each band of the image.</span>
+<span class="sd">    getOffsetParams : Gets the offset parameters for each band of the image.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1246,6 +1252,43 @@
 <span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).first().scaleAndOffset()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="preprocess"><a class="viewcode-back" href="../../classes/stubs/eemont.image.preprocess.html#eemont.image.preprocess">[docs]</a><span class="nd">@_extend_eeImage</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pre-processes the image: masks clouds and shadows, and scales and offsets the image. </span>
+
+<span class="sd">    Tip</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Check more info here about the supported platforms, :ref:`Image Scaling&lt;Image Scaling&gt;` and :ref:`Masking Clouds and Shadows&lt;Masking Clouds and Shadows&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    self : ee.Image [this]</span>
+<span class="sd">        Image to pre-process.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Keywords arguments for maskClouds().</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image</span>
+<span class="sd">        Pre-processed image.</span>
+<span class="sd">        </span>
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    getScaleParams : Gets the scale parameters for each band of the image.</span>
+<span class="sd">    getOffsetParams : Gets the offset parameters for each band of the image.</span>
+<span class="sd">    scaleAndOffset : Scales bands on an image according to their scale and offset parameters.</span>
+<span class="sd">    maskClouds : Masks clouds and shadows in an image.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import ee, eemont</span>
+<span class="sd">    &gt;&gt;&gt; ee.Authenticate()</span>
+<span class="sd">    &gt;&gt;&gt; ee.Initialize()</span>
+<span class="sd">    &gt;&gt;&gt; S2 = ee.ImageCollection(&#39;COPERNICUS/S2_SR&#39;).first().preprocess()</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">return</span> <span class="n">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
 
               </div>

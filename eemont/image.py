@@ -6,6 +6,7 @@ from .common import _maskClouds
 from .common import _get_scale_params
 from .common import _get_offset_params
 from .common import _scale_STAC
+from .common import _preprocess
 
 
 def _extend_eeImage():
@@ -1085,6 +1086,11 @@ def scaleAndOffset(self):
     -------
     ee.Image
         Scaled image.
+        
+    See Also
+    --------
+    getScaleParams : Gets the scale parameters for each band of the image.
+    getOffsetParams : Gets the offset parameters for each band of the image.
 
     Examples
     --------
@@ -1094,3 +1100,40 @@ def scaleAndOffset(self):
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scaleAndOffset()
     """
     return _scale_STAC(self)
+
+
+@_extend_eeImage()
+def preprocess(self,**kwargs):
+    """Pre-processes the image: masks clouds and shadows, and scales and offsets the image. 
+
+    Tip
+    ----------
+    Check more info here about the supported platforms, :ref:`Image Scaling<Image Scaling>` and :ref:`Masking Clouds and Shadows<Masking Clouds and Shadows>`.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to pre-process.
+    **kwargs :
+        Keywords arguments for maskClouds().
+
+    Returns
+    -------
+    ee.Image
+        Pre-processed image.
+        
+    See Also
+    --------
+    getScaleParams : Gets the scale parameters for each band of the image.
+    getOffsetParams : Gets the offset parameters for each band of the image.
+    scaleAndOffset : Scales bands on an image according to their scale and offset parameters.
+    maskClouds : Masks clouds and shadows in an image.
+        
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().preprocess()
+    """ 
+    return _preprocess(self,**kwargs)

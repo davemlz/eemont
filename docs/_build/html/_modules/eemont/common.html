@@ -155,7 +155,10 @@
 <span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">box</span> <span class="kn">import</span> <span class="n">Box</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
 
 <span class="c1"># Platforms IDs</span>
 <span class="c1"># --------------------------</span>
@@ -339,7 +342,7 @@
     <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
         <span class="n">indices</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
             <span class="s2">&quot;https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json&quot;</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">json</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">eemontDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span>
             <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;eemont&quot;</span><span class="p">,</span> <span class="s2">&quot;eemont.py&quot;</span><span class="p">)</span>
@@ -510,8 +513,7 @@
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">spectralIndices</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span><span class="p">,</span>
-                <span class="ne">Warning</span><span class="p">,</span>
+                <span class="s2">&quot;Index &quot;</span> <span class="o">+</span> <span class="n">idx</span> <span class="o">+</span> <span class="s2">&quot; is not a built-in index and it won&#39;t be computed!&quot;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
 
@@ -534,8 +536,7 @@
                     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
                         <span class="s2">&quot;This platform doesn&#39;t have the required bands for &quot;</span>
                         <span class="o">+</span> <span class="n">idx</span>
-                        <span class="o">+</span> <span class="s2">&quot; computation!&quot;</span><span class="p">,</span>
-                        <span class="ne">Warning</span><span class="p">,</span>
+                        <span class="o">+</span> <span class="s2">&quot; computation!&quot;</span>
                     <span class="p">)</span>
                     <span class="k">return</span> <span class="n">img</span>
 
@@ -547,7 +548,7 @@
     <span class="k">return</span> <span class="bp">self</span>
 
 
-<div class="viewcode-block" id="indices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.indices">[docs]</a><span class="k">def</span> <span class="nf">indices</span><span class="p">(</span><span class="n">online</span><span class="p">):</span>
+<div class="viewcode-block" id="indices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.indices">[docs]</a><span class="k">def</span> <span class="nf">indices</span><span class="p">(</span><span class="n">online</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the dictionary of available indices as a Box object.</span>
 
 <span class="sd">    Parameters</span>
@@ -578,7 +579,7 @@
     <span class="k">return</span> <span class="n">Box</span><span class="p">(</span><span class="n">_get_indices</span><span class="p">(</span><span class="n">online</span><span class="p">),</span> <span class="n">frozen_box</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="listIndices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.listIndices">[docs]</a><span class="k">def</span> <span class="nf">listIndices</span><span class="p">(</span><span class="n">online</span><span class="p">):</span>
+<div class="viewcode-block" id="listIndices"><a class="viewcode-back" href="../../modules/common.html#eemont.common.listIndices">[docs]</a><span class="k">def</span> <span class="nf">listIndices</span><span class="p">(</span><span class="n">online</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the list of available indices.</span>
 
 <span class="sd">    Parameters</span>
@@ -631,12 +632,11 @@
     <span class="n">platforms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-            <span class="s2">&quot;Sorry, satellite platform not supported for getting scale parameters!&quot;</span>
-        <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]]</span>
-
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform is not supported for getting scale parameters.&quot;</span><span class="p">)</span>   
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]]</span>
+    
 
 <span class="k">def</span> <span class="nf">_get_offset_params</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the offset parameters for each band of the image or image collection.</span>
@@ -661,11 +661,10 @@
     <span class="n">platforms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">platforms</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-            <span class="s2">&quot;Sorry, satellite platform not supported for getting offset parameters!&quot;</span>
-        <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]]</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform is not supported for getting offset parameters.&quot;</span><span class="p">)</span>   
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">eeDict</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]]</span>
 
 
 <span class="k">def</span> <span class="nf">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -681,24 +680,31 @@
 <span class="sd">    ee.Image | ee.ImageCollection</span>
 <span class="sd">        Scaled image or image collection.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">scaleParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">_get_scale_params</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
-    <span class="n">offsetParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">_get_offset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
+    <span class="n">scaleParams</span> <span class="o">=</span> <span class="n">_get_scale_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">offsetParams</span> <span class="o">=</span> <span class="n">_get_offset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">scaleParams</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">offsetParams</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform is not supported for scaling and offsetting.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">else</span><span class="p">:</span>    
+        <span class="n">scaleParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">scaleParams</span><span class="p">)</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
+        <span class="n">offsetParams</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">offsetParams</span><span class="p">)</span><span class="o">.</span><span class="n">toImage</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">scaleOffset</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-        <span class="n">bands</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
-        <span class="n">scaleList</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
-        <span class="n">bands</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">inList</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">scaleList</span><span class="p">))</span>
-        <span class="n">SOscaleParams</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
-        <span class="n">SOoffsetParams</span> <span class="o">=</span> <span class="n">offsetParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">SOscaleParams</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SOoffsetParams</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
+        <span class="k">def</span> <span class="nf">scaleOffset</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+            <span class="n">bands</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+            <span class="n">scaleList</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+            <span class="n">bands</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">inList</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">scaleList</span><span class="p">))</span>
+            <span class="n">SOscaleParams</span> <span class="o">=</span> <span class="n">scaleParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+            <span class="n">SOoffsetParams</span> <span class="o">=</span> <span class="n">offsetParams</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+            <span class="n">scaled</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">SOscaleParams</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SOoffsetParams</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">copyProperties</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">()))</span>
 
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaleOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
-        <span class="n">scaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">scaleOffset</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
+            <span class="n">scaled</span> <span class="o">=</span> <span class="n">scaleOffset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
+            <span class="n">scaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">scaleOffset</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">scaled</span>
+        <span class="k">return</span> <span class="n">scaled</span>
 
 
 <span class="c1"># Cloud Masking</span>
@@ -986,17 +992,57 @@
     <span class="n">platformDict</span> <span class="o">=</span> <span class="n">_get_platform_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Sorry, satellite platform not supported for cloud masking!&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-        <span class="n">masked</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COPERNICUS/S2_SR&quot;</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This platform is not supported for cloud masking.&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">else</span><span class="p">:</span>      
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
             <span class="n">masked</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">masked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]])</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee</span><span class="o">.</span><span class="n">imagecollection</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COPERNICUS/S2_SR&quot;</span><span class="p">:</span>
+                <span class="n">masked</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]](</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">masked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="n">platformDict</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">masked</span>
 
-    <span class="k">return</span> <span class="n">masked</span>
+<span class="c1"># Preprocessing</span>
+<span class="c1"># --------------------------</span>
+
+<span class="k">def</span> <span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    self : ee.Image | ee.ImageCollection</span>
+<span class="sd">        Image or Image Collection to pre-process.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Keywords arguments for maskClouds().</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ee.Image | ee.ImageCollection</span>
+<span class="sd">        Pre-processed image or image collection.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">maskCloudsDefault</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;cloud_prob&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;prob&quot;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span>
+        <span class="s2">&quot;maskCirrus&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;maskShadows&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;scaledImage&quot;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;dark&quot;</span><span class="p">:</span><span class="mf">0.15</span><span class="p">,</span>
+        <span class="s2">&quot;cloudDist&quot;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;buffer&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+        <span class="s2">&quot;cdi&quot;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">}</span>
+    
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">maskCloudsDefault</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            
+    <span class="bp">self</span> <span class="o">=</span> <span class="n">_maskClouds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="n">_scale_STAC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="bp">self</span>
+    
 </pre></div>
 
               </div>

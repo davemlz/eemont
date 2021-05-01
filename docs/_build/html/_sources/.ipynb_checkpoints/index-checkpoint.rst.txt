@@ -219,6 +219,58 @@ Scaling and offsetting can also be done using eemont with just one method: :code
           
           (ee.ImageCollection(ds)
             .scale())
+            
+Complete Preprocessing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The complete preprocessing workflow (Masking clouds and shadows, and image scaling and offsetting) can be done using eemont with just one method: :code:`preprocess()`!
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python   
+          :linenos:
+          
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          def maskCloudsShadows(img):
+              c = (1 << 3)
+              s = (1 << 5)
+              qa = 'pixel_qa'
+              qa = img.select(qa)
+              cm = qa.bitwiseAnd(c).eq(0)
+              sm = qa.bitwiseAnd(s).eq(0)
+              mask = cm.And(sm)
+              return img.updateMask(mask)
+              
+          def scaleBands(img):
+              scaling = img.select('B[1-7]')
+              x = scaling.multiply(0.0001)
+              scaling = img.select([
+                'B10','B11'
+              ])
+              scaling = scaling.multiply(0.1)
+              x = x.addBands(scaling)
+              notScaling = img.select([
+                'sr_aerosol',
+                'pixel_qa',
+                'radsat_qa'
+              ])
+              return x.addBands(notScaling)
+              
+          (ee.ImageCollection(ds)
+            .map(maskCloudsShadows)
+            .map(scaleBands))
+     - .. code-block:: python 
+          :linenos:          
+   
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          (ee.ImageCollection(ds)
+            .preprocess())
 
 Spectral Indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

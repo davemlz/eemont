@@ -6,6 +6,8 @@ import warnings
 import requests
 from box import Box
 
+warnings.simplefilter('always', UserWarning)
+
 # Platforms IDs
 # --------------------------
 
@@ -359,8 +361,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
     for idx in index:
         if idx not in list(spectralIndices.keys()):
             warnings.warn(
-                "Index " + idx + " is not a built-in index and it won't be computed!",
-                Warning,
+                "Index " + idx + " is not a built-in index and it won't be computed!"
             )
         else:
 
@@ -383,8 +384,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
                     warnings.warn(
                         "This platform doesn't have the required bands for "
                         + idx
-                        + " computation!",
-                        Warning,
+                        + " computation!"
                     )
                     return img
 
@@ -480,12 +480,11 @@ def _get_scale_params(args):
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
-        raise Exception(
-            "Sorry, satellite platform not supported for getting scale parameters!"
-        )
-
-    return eeDict[platformDict["platform"]]
-
+        warnings.warn("This platform is not supported for getting scale parameters.")   
+        return None
+    else:
+        return eeDict[platformDict["platform"]]
+    
 
 def _get_offset_params(args):
     """Gets the offset parameters for each band of the image or image collection.
@@ -510,11 +509,10 @@ def _get_offset_params(args):
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
-        raise Exception(
-            "Sorry, satellite platform not supported for getting offset parameters!"
-        )
-
-    return eeDict[platformDict["platform"]]
+        warnings.warn("This platform is not supported for getting offset parameters.")   
+        return None
+    else:
+        return eeDict[platformDict["platform"]]
 
 
 def _scale_STAC(self):
@@ -530,24 +528,31 @@ def _scale_STAC(self):
     ee.Image | ee.ImageCollection
         Scaled image or image collection.
     """
-    scaleParams = ee.Dictionary(_get_scale_params(self)).toImage()
-    offsetParams = ee.Dictionary(_get_offset_params(self)).toImage()
+    scaleParams = _get_scale_params(self)
+    offsetParams = _get_offset_params(self)
+    
+    if scaleParams is None or offsetParams is None:
+        warnings.warn("This platform is not supported for scaling and offsetting.")
+        return self
+    else:    
+        scaleParams = ee.Dictionary(scaleParams).toImage()
+        offsetParams = ee.Dictionary(offsetParams).toImage()
 
-    def scaleOffset(img):
-        bands = img.bandNames()
-        scaleList = scaleParams.bandNames()
-        bands = bands.filter(ee.Filter.inList("item", scaleList))
-        SOscaleParams = scaleParams.select(bands)
-        SOoffsetParams = offsetParams.select(bands)
-        scaled = img.select(bands).multiply(SOscaleParams).add(SOoffsetParams)
-        return ee.Image(scaled.copyProperties(img, img.propertyNames()))
+        def scaleOffset(img):
+            bands = img.bandNames()
+            scaleList = scaleParams.bandNames()
+            bands = bands.filter(ee.Filter.inList("item", scaleList))
+            SOscaleParams = scaleParams.select(bands)
+            SOoffsetParams = offsetParams.select(bands)
+            scaled = img.select(bands).multiply(SOscaleParams).add(SOoffsetParams)
+            return ee.Image(scaled.copyProperties(img, img.propertyNames()))
 
-    if isinstance(self, ee.image.Image):
-        scaled = scaleOffset(self)
-    elif isinstance(self, ee.imagecollection.ImageCollection):
-        scaled = self.map(scaleOffset)
+        if isinstance(self, ee.image.Image):
+            scaled = scaleOffset(self)
+        elif isinstance(self, ee.imagecollection.ImageCollection):
+            scaled = self.map(scaleOffset)
 
-    return scaled
+        return scaled
 
 
 # Cloud Masking
@@ -835,14 +840,54 @@ def _maskClouds(
     platformDict = _get_platform_STAC(self)
 
     if platformDict["platform"] not in list(lookup.keys()):
-        raise Exception("Sorry, satellite platform not supported for cloud masking!")
-
-    if isinstance(self, ee.image.Image):
-        masked = lookup[platformDict["platform"]](self)
-    elif isinstance(self, ee.imagecollection.ImageCollection):
-        if platformDict["platform"] == "COPERNICUS/S2_SR":
+        warnings.warn("This platform is not supported for cloud masking.")        
+        return self
+    else:      
+        if isinstance(self, ee.image.Image):
             masked = lookup[platformDict["platform"]](self)
-        else:
-            masked = self.map(lookup[platformDict["platform"]])
+        elif isinstance(self, ee.imagecollection.ImageCollection):
+            if platformDict["platform"] == "COPERNICUS/S2_SR":
+                masked = lookup[platformDict["platform"]](self)
+            else:
+                masked = self.map(lookup[platformDict["platform"]])
+        return masked
 
-    return masked
+# Preprocessing
+# --------------------------
+
+def _preprocess(self,**kwargs):
+    """Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection. 
+
+    Parameters
+    ----------
+    self : ee.Image | ee.ImageCollection
+        Image or Image Collection to pre-process.
+    **kwargs :
+        Keywords arguments for maskClouds().
+
+    Returns
+    -------
+    ee.Image | ee.ImageCollection
+        Pre-processed image or image collection.
+    """
+    maskCloudsDefault = {
+        "method":"cloud_prob",
+        "prob":60,
+        "maskCirrus":True,
+        "maskShadows":True,
+        "scaledImage":False,
+        "dark":0.15,
+        "cloudDist":1000,
+        "buffer":250,
+        "cdi":None,
+    }
+    
+    for key, value in maskCloudsDefault.items():
+        if key not in kwargs.keys():
+            kwargs[key] = value
+            
+    self = _maskClouds(self,**kwargs)
+    self = _scale_STAC(self)
+    
+    return self
+    

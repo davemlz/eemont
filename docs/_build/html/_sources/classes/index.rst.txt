@@ -72,6 +72,7 @@ ee.Image
    getScaleParams
    index
    maskClouds
+   preprocess
    scale
    scaleAndOffset
    spectralIndices
@@ -89,6 +90,7 @@ ee.ImageCollection
    getTimeSeriesByRegions
    index
    maskClouds
+   preprocess
    scale
    scaleAndOffset
    spectralIndices

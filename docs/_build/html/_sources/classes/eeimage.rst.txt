@@ -12,6 +12,7 @@ Extended methods for the ee.Image class:
    getScaleParams
    index
    maskClouds
+   preprocess
    scale
    scaleAndOffset
    spectralIndices

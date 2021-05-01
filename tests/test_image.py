@@ -313,6 +313,236 @@ class Test(unittest.TestCase):
         """Test the image module for MYD17A3HGF"""
         MYD17A3HGF_tested = MYD17A3HGF.scaleAndOffset()
         self.assertIsInstance(MYD17A3HGF_tested, ee.image.Image)
+
+    # ----------------------
+    # CHECKING PREPROCESS
+    # ----------------------
+        
+    # SENTINEL MISSIONS
+    
+    def test_S3_preprocess(self):
+        """Test the image module for Sentinel-3"""
+        S3_tested = S3.preprocess()
+        self.assertIsInstance(S3_tested, ee.image.Image)
+    
+    def test_S2_preprocess(self):
+        """Test the image module for Sentinel-2"""
+        S2_tested = S2.preprocess().spectralIndices(indices)
+        self.assertIsInstance(S2_tested, ee.image.Image)
+        
+    def test_S2_online_preprocess(self):
+        """Test the image module for Sentinel-2"""
+        S2_tested = S2.preprocess().spectralIndices(indices,online = True)
+        self.assertIsInstance(S2_tested, ee.image.Image)
+        
+    # LANDSAT MISSIONS
+        
+    def test_L8_preprocess(self):
+        """Test the image module for Landsat 8"""
+        L8_tested = L8.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L8_tested, ee.image.Image)
+        
+    def test_L7_preprocess(self):
+        """Test the image module for Landsat 7"""
+        L7_tested = L7.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L7_tested, ee.image.Image)
+        
+    def test_L5_preprocess(self):
+        """Test the image module for Landsat 5"""
+        L5_tested = L5.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L5_tested, ee.image.Image)
+                
+    def test_L4_preprocess(self):
+        """Test the image module for Landsat 4"""
+        L4_tested = L4.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L4_tested, ee.image.Image)
+    
+    # MODIS (TERRA + AQUA)
+    
+    def test_MCD43A4_preprocess(self):
+        """Test the image module for MCD43A4"""
+        MCD43A4_tested = MCD43A4.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MCD43A4_tested, ee.image.Image)
+        
+    def test_MCD43A3_preprocess(self):
+        """Test the image module for MCD43A3"""
+        MCD43A3_tested = MCD43A3.preprocess()
+        self.assertIsInstance(MCD43A3_tested, ee.image.Image)
+        
+    def test_MCD43A1_preprocess(self):
+        """Test the image module for MCD43A1"""
+        MCD43A1_tested = MCD43A1.preprocess()
+        self.assertIsInstance(MCD43A1_tested, ee.image.Image)
+        
+    def test_MCD15A3H_preprocess(self):
+        """Test the image module for MCD15A3H"""
+        MCD15A3H_tested = MCD15A3H.preprocess()
+        self.assertIsInstance(MCD15A3H_tested, ee.image.Image)
+        
+    # MODIS (TERRA)
+        
+    def test_MOD09GQ_preprocess(self):
+        """Test the image module for MOD09GQ"""
+        MOD09GQ_tested = MOD09GQ.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MOD09GQ_tested, ee.image.Image)
+        
+    def test_MOD10A1_preprocess(self):
+        """Test the image module for MOD10A1"""
+        MOD10A1_tested = MOD10A1.preprocess()
+        self.assertIsInstance(MOD10A1_tested, ee.image.Image)
+        
+    def test_MOD11A1_preprocess(self):
+        """Test the image module for MOD11A1"""
+        MOD11A1_tested = MOD11A1.preprocess()
+        self.assertIsInstance(MOD11A1_tested, ee.image.Image)
+        
+    def test_MOD09GA_preprocess(self):
+        """Test the image module for MOD09GA"""
+        MOD09GA_tested = MOD09GA.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MOD09GA_tested, ee.image.Image)
+        
+    def test_MODOCGA_preprocess(self):
+        """Test the image module for MODOCGA"""
+        MODOCGA_tested = MODOCGA.preprocess()
+        self.assertIsInstance(MODOCGA_tested, ee.image.Image)
+        
+    def test_MOD14A1_preprocess(self):
+        """Test the image module for MOD14A1"""
+        MOD14A1_tested = MOD14A1.preprocess()
+        self.assertIsInstance(MOD14A1_tested, ee.image.Image)
+        
+    def test_MOD09Q1_preprocess(self):
+        """Test the image module for MOD09Q1"""
+        MOD09Q1_tested = MOD09Q1.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MOD09Q1_tested, ee.image.Image)
+        
+    def test_MOD09A1_preprocess(self):
+        """Test the image module for MOD09A1"""
+        MOD09A1_tested = MOD09A1.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MOD09A1_tested, ee.image.Image)
+        
+    def test_MOD11A2_preprocess(self):
+        """Test the image module for MOD11A2"""
+        MOD11A2_tested = MOD11A2.preprocess()
+        self.assertIsInstance(MOD11A2_tested, ee.image.Image)
+        
+    def test_MOD17A2H_preprocess(self):
+        """Test the image module for MOD17A2H"""
+        MOD17A2H_tested = MOD17A2H.preprocess()
+        self.assertIsInstance(MOD17A2H_tested, ee.image.Image)
+        
+    def test_MOD16A2_preprocess(self):
+        """Test the image module for MOD16A2"""
+        MOD16A2_tested = MOD16A2.preprocess()
+        self.assertIsInstance(MOD16A2_tested, ee.image.Image)
+    
+    def test_MOD13Q1_preprocess(self):
+        """Test the image module for MOD13Q1"""
+        MOD13Q1_tested = MOD13Q1.preprocess()
+        self.assertIsInstance(MOD13Q1_tested, ee.image.Image)
+        
+    def test_MOD13A1_preprocess(self):
+        """Test the image module for MOD13A1"""
+        MOD13A1_tested = MOD13A1.preprocess()
+        self.assertIsInstance(MOD13A1_tested, ee.image.Image)
+        
+    def test_MOD13A2_preprocess(self):
+        """Test the image module for MOD13A2"""
+        MOD13A2_tested = MOD13A2.preprocess()
+        self.assertIsInstance(MOD13A2_tested, ee.image.Image)
+        
+    def test_MOD08_M3_preprocess(self):
+        """Test the image module for MOD08_M3"""
+        MOD08_M3_tested = MOD08_M3.preprocess()
+        self.assertIsInstance(MOD08_M3_tested, ee.image.Image)
+        
+    def test_MOD17A3HGF_preprocess(self):
+        """Test the image module for MOD17A3HGF"""
+        MOD17A3HGF_tested = MOD17A3HGF.preprocess()
+        self.assertIsInstance(MOD17A3HGF_tested, ee.image.Image)
+        
+    # MODIS (AQUA)
+        
+    def test_MYD09GQ_preprocess(self):
+        """Test the image module for MYD09GQ"""
+        MYD09GQ_tested = MYD09GQ.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MYD09GQ_tested, ee.image.Image)
+        
+    def test_MYD10A1_preprocess(self):
+        """Test the image module for MYD10A1"""
+        MYD10A1_tested = MYD10A1.preprocess()
+        self.assertIsInstance(MYD10A1_tested, ee.image.Image)
+        
+    def test_MYD11A1_preprocess(self):
+        """Test the image module for MYD11A1"""
+        MYD11A1_tested = MYD11A1.preprocess()
+        self.assertIsInstance(MYD11A1_tested, ee.image.Image)
+        
+    def test_MYD09GA_preprocess(self):
+        """Test the image module for MYD09GA"""
+        MYD09GA_tested = MYD09GA.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MYD09GA_tested, ee.image.Image)
+        
+    def test_MYDOCGA_preprocess(self):
+        """Test the image module for MYDOCGA"""
+        MYDOCGA_tested = MYDOCGA.preprocess()
+        self.assertIsInstance(MYDOCGA_tested, ee.image.Image)
+        
+    def test_MYD14A1_preprocess(self):
+        """Test the image module for MYD14A1"""
+        MYD14A1_tested = MYD14A1.preprocess()
+        self.assertIsInstance(MYD14A1_tested, ee.image.Image)
+        
+    def test_MYD09Q1_preprocess(self):
+        """Test the image module for MYD09Q1"""
+        MYD09Q1_tested = MYD09Q1.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MYD09Q1_tested, ee.image.Image)
+        
+    def test_MYD09A1_preprocess(self):
+        """Test the image module for MYD09A1"""
+        MYD09A1_tested = MYD09A1.preprocess().spectralIndices(indices)
+        self.assertIsInstance(MYD09A1_tested, ee.image.Image)
+        
+    def test_MYD11A2_preprocess(self):
+        """Test the image module for MYD11A2"""
+        MYD11A2_tested = MYD11A2.preprocess()
+        self.assertIsInstance(MYD11A2_tested, ee.image.Image)
+        
+    def test_MYD17A2H_preprocess(self):
+        """Test the image module for MYD17A2H"""
+        MYD17A2H_tested = MYD17A2H.preprocess()
+        self.assertIsInstance(MYD17A2H_tested, ee.image.Image)
+    
+    # CURRENTLY UNAVAILABLE
+    #def test_MYD16A2_preprocess(self):
+    #    """Test the image module for MYD16A2"""
+    #    MYD16A2_tested = MYD16A2.preprocess()
+    #    self.assertIsInstance(MYD16A2_tested, ee.image.Image)
+    
+    def test_MYD13Q1_preprocess(self):
+        """Test the image module for MYD13Q1"""
+        MYD13Q1_tested = MYD13Q1.preprocess()
+        self.assertIsInstance(MYD13Q1_tested, ee.image.Image)
+        
+    def test_MYD13A1_preprocess(self):
+        """Test the image module for MYD13A1"""
+        MYD13A1_tested = MYD13A1.preprocess()
+        self.assertIsInstance(MYD13A1_tested, ee.image.Image)
+        
+    def test_MYD13A2_preprocess(self):
+        """Test the image module for MYD13A2"""
+        MYD13A2_tested = MYD13A2.preprocess()
+        self.assertIsInstance(MYD13A2_tested, ee.image.Image)
+        
+    def test_MYD08_M3_preprocess(self):
+        """Test the image module for MYD08_M3"""
+        MYD08_M3_tested = MYD08_M3.preprocess()
+        self.assertIsInstance(MYD08_M3_tested, ee.image.Image)
+        
+    def test_MYD17A3HGF_preprocess(self):
+        """Test the image module for MYD17A3HGF"""
+        MYD17A3HGF_tested = MYD17A3HGF.preprocess()
+        self.assertIsInstance(MYD17A3HGF_tested, ee.image.Image)
         
 if __name__ == '__main__':
     unittest.main()

@@ -17,7 +17,7 @@ Now, we are ready to go!
 Overview
 -----------
 
-The eemont package extends the ee.Image and ee.ImageCollection classes with the method :code:`maskClouds()`:
+The eemont package extends the ee.Image and ee.ImageCollection classes with the following methods:
 
 ee.Image
 ~~~~~~~~
@@ -27,6 +27,7 @@ ee.Image
 .. autosummary::
 
    maskClouds
+   preprocess
       
 ee.ImageCollection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,6 +37,7 @@ ee.ImageCollection
 .. autosummary::
 
    maskClouds
+   preprocess
 
 Supported Platforms
 ----------------------
@@ -91,7 +93,7 @@ VIIRS Products
 - `VNP13A1: VIIRS Vegetation Indices 16-Day 500m <https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_001_VNP13A1?hl=en>`_
 
 .. warning::
-   Not supported satellite platforms will raise an *Exception*.   
+   Not supported satellite platforms will raise a *Warning*.   
 
 QA Method
 ----------------------
@@ -425,3 +427,18 @@ If required, the argument :code:`maskShadows` can be set to *False*:
 .. code-block:: python
 
    VNP13A1 = ee.ImageCollection('NOAA/VIIRS/001/VNP13A1').maskClouds(maskShadows = False)
+   
+Preprocessing
+~~~~~~~~~~~~~~~
+   
+Additionally, if required, the :code:`preprocess()` method can be used to scale and mask images and image collections:
+
+.. code-block:: python
+
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess()
+   
+The arguments for the :code:`maskClouds()` method can be used inside the :code:`preprocess()` method:
+
+.. code-block:: python
+
+   S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess(prob = 55,maskCirrus = False,buffer = 300,cdi = -0.5)

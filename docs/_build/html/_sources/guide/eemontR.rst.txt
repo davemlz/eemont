@@ -1,9 +1,51 @@
-eemont in R
+Extensions
 ====================================
 
-Let's see how to use eemont in R with rgee!
+Did you know that you can use eemont inside QGIS or R? Let's see how!
 
-Before anything, let's import our modules and authenticate in Google Earth Engine:
+QGIS
+-----------
+
+In order to use eemont inside QGIS, please follow these steps:
+
+First, make sure that you have successfully installed the `Google Earth Engine Plugin for QGIS <https://gee-community.github.io/qgis-earthengine-plugin/>`_.
+
+Then, open the OSGeo4W shell and run the following line:
+
+.. code-block::
+
+   py3_env
+   
+This will set the Python 3 environment. Afterwards, you can install eemont by running:
+
+.. code-block::
+
+   python -m pip install eemont
+   
+After installation, eemont can be used in the Python console inside QGIS:
+
+.. code-block:: python
+
+   import ee, eemont
+   from ee_plugin import Map
+
+   S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+       .maskClouds()
+       .scale()
+       .index(['NDVI','EVI','GNDVI'])
+       .first())
+
+   Map.addLayer(S2,{'min':0,'max':1,'bands':'NDVI'},'NDVI',True)
+
+
+R
+------
+
+In order to use eemont inside R, please follow these steps:
+
+First, make sure that you have successfully installed the `rgee <https://github.com/r-spatial/rgee>`_ and `reticulate <https://rstudio.github.io/reticulate/>`_.
+
+Then, open a new R script and run the following chunk:
 
 .. code-block:: r
 

@@ -47,7 +47,7 @@ Welcome to eemont!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Other Languages     
+   :caption: Extensions    
    :hidden:
    
    guide/eemontR

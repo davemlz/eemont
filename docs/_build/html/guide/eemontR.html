@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eemont in R &#8212; eemont 0.1.9 documentation</title>
+    <title>Extensions &#8212; eemont 0.1.9 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -74,7 +74,7 @@
 
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  eemont in R
+  Extensions
  </a>
 </li>
 
@@ -133,9 +133,24 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qgis">
+   QGIS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#r">
+   R
+  </a>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -151,10 +166,40 @@
               
               <div>
                 
-  <div class="section" id="eemont-in-r">
-<h1>eemont in R<a class="headerlink" href="#eemont-in-r" title="Permalink to this headline">¶</a></h1>
-<p>Let’s see how to use eemont in R with rgee!</p>
-<p>Before anything, let’s import our modules and authenticate in Google Earth Engine:</p>
+  <div class="section" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+<p>Did you know that you can use eemont inside QGIS or R? Let’s see how!</p>
+<div class="section" id="qgis">
+<h2>QGIS<a class="headerlink" href="#qgis" title="Permalink to this headline">¶</a></h2>
+<p>In order to use eemont inside QGIS, please follow these steps:</p>
+<p>First, make sure that you have successfully installed the <a class="reference external" href="https://gee-community.github.io/qgis-earthengine-plugin/">Google Earth Engine Plugin for QGIS</a>.</p>
+<p>Then, open the OSGeo4W shell and run the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">py3_env</span>
+</pre></div>
+</div>
+<p>This will set the Python 3 environment. Afterwards, you can install eemont by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">eemont</span>
+</pre></div>
+</div>
+<p>After installation, eemont can be used in the Python console inside QGIS:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span><span class="o">,</span> <span class="nn">eemont</span>
+<span class="kn">from</span> <span class="nn">ee_plugin</span> <span class="kn">import</span> <span class="n">Map</span>
+
+<span class="n">S2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">maskClouds</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;GNDVI&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">())</span>
+
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">S2</span><span class="p">,{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;bands&#39;</span><span class="p">:</span><span class="s1">&#39;NDVI&#39;</span><span class="p">},</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="r">
+<h2>R<a class="headerlink" href="#r" title="Permalink to this headline">¶</a></h2>
+<p>In order to use eemont inside R, please follow these steps:</p>
+<p>First, make sure that you have successfully installed the <a class="reference external" href="https://github.com/r-spatial/rgee">rgee</a> and <a class="reference external" href="https://rstudio.github.io/reticulate/">reticulate</a>.</p>
+<p>Then, open a new R script and run the following chunk:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">rgee</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">reticulate</span><span class="p">)</span>
 
@@ -182,6 +227,7 @@
 <p>And use <code class="code docutils literal notranslate"><span class="pre">eemont</span></code> as you wish!</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">L8</span> <span class="o">&lt;-</span> <span class="n">L8</span><span class="o">$</span><span class="nf">maskClouds</span><span class="p">()</span><span class="o">$</span><span class="nf">scale</span><span class="p">()</span><span class="o">$</span><span class="nf">index</span><span class="p">(</span><span class="s">&quot;NDWI&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 

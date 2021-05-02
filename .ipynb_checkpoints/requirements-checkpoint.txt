@@ -1,6 +1,0 @@
-earthengine-api
-geopy
-numpy
-pandas
-python-box
-requests

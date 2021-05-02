@@ -237,8 +237,7 @@ The complete preprocessing workflow (Masking clouds and shadows, and image scali
 
    * - GEE Python API
      - eemont-style     
-   * - .. code-block:: python   
-          :linenos:
+   * - .. code-block:: python          
           
           ds = 'LANDSAT/LC08/C01/T1_SR'
           
@@ -270,8 +269,7 @@ The complete preprocessing workflow (Masking clouds and shadows, and image scali
           (ee.ImageCollection(ds)
             .map(maskCloudsShadows)
             .map(scaleBands))
-     - .. code-block:: python 
-          :linenos:          
+     - .. code-block:: python                
    
           ds = 'LANDSAT/LC08/C01/T1_SR'
           

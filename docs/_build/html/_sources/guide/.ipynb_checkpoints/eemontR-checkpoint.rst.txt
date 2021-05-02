@@ -18,7 +18,7 @@ First, we have to install :code:`eemont` (if required):
 
 .. code-block:: r
 
-   py_install("eemont")
+   py_install("eemont",pip = TRUE)
    
 Then, :code:`eemont` can be imported!
 

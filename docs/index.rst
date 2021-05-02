@@ -1,10 +1,35 @@
 Welcome to eemont!
 ==================
 
-**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
+.. image:: https://img.shields.io/pypi/v/eemont.svg
+        :target: https://pypi.python.org/pypi/eemont
+        
+.. image:: https://img.shields.io/badge/License-MIT-blue.svg
+        :target: https://opensource.org/licenses/MIT
+        
+.. image:: https://readthedocs.org/projects/eemont/badge/?version=latest
+        :target: https://eemont.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
 
-.. image:: images/eemont.png        
-        :align: center
+.. image:: https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg
+        :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml        
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
+.. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
+        :target: https://www.buymeacoffee.com/davemlz
+        
+.. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=lightgrey&left_text=Downloads
+        :target: https://pepy.tech/project/eemont
+        
+.. image:: https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg
+        :target: https://developers.google.com/earth-engine/tutorials/community/developer-resources
+        
+.. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
+        :target: https://twitter.com/dmlmont
+
+**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
 
 .. toctree::   
    :maxdepth: 2
@@ -41,6 +66,17 @@ Welcome to eemont!
       
    tutorials
 
+**Table of Contents**
+
+- `Overview`_
+- `Google Earth Engine Community: Developer Resources`_
+- `How does it work?`_
+- `Installation`_
+- `Features`_
+- `Supported Platforms`_
+- `License`_
+- `Contributing`_
+
 Overview
 -------------------
 
@@ -49,7 +85,7 @@ Overview
 Google Earth Engine Community: Developer Resources
 -----------------------------------------------------
 
-The eemont Python package can be found in the `Google Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ together with other awesome resources such as `geemap <https://geemap.org/>`_ and `rgee <https://github.com/r-spatial/rgee>`_.
+The eemont Python package can be found in the `Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ together with other awesome resources such as `geemap <https://geemap.org/>`_ and `rgee <https://github.com/r-spatial/rgee>`_.
 
 How does it work?
 -------------------
@@ -93,6 +129,18 @@ Install the latest eemont version from PyPI by running:
 .. code-block:: python   
       
    pip install eemont
+
+Upgrade eemont by running:
+
+.. code-block:: python   
+      
+   pip install -U eemont
+
+Install the development version from GitHub by running:
+
+.. code-block:: python   
+      
+   pip install git+https://github.com/davemlz/eemont
 
 Features
 --------
@@ -440,25 +488,16 @@ Contributing
 
 Contributions to eemont are welcome! Here you will find how to do it:
 
-Bugs
-~~~~~~~~~~~
+- **Bugs:** If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.
 
-If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.
+- **Fixing Issues:** If you want to contributte by fixing an issue, please   check the eemont issues: contributions are welcome for open issues with labels :code:`bug` and :code:`help wanted`.
 
-If you want to contributte by fixing an issue, please check the eemont issues: contributions are welcome for open issues with labels :code:`bug` and :code:`help wanted`.
+- **Enhancement:** New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels :code:`enhancement` and :code:`help wanted`.
 
-Enhancement
-~~~~~~~~~~~
-
-New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels :code:`enhancement` and :code:`help wanted`.
-
-Documentation
-~~~~~~~~~~~~~~~~~~~~~~
-
-You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.
+- **Documentation:** You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.
 
 Contribution Steps
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, fork the `eemont <https://github.com/davemlz/eemont>`_ repository and clone it to your local machine. Then, create a development branch::
 

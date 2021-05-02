@@ -220,26 +220,11 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bugs">
-     Bugs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enhancement">
-     Enhancement
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#documentation">
-     Documentation
+    <a class="reference internal nav-link" href="#contribution-steps">
+     Contribution Steps
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contribution-steps">
-   Contribution Steps
-  </a>
  </li>
 </ul>
 
@@ -260,8 +245,16 @@
                 
   <div class="section" id="welcome-to-eemont">
 <h1>Welcome to eemont!<a class="headerlink" href="#welcome-to-eemont" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/eemont"><img alt="https://img.shields.io/pypi/v/eemont.svg" src="https://img.shields.io/pypi/v/eemont.svg" /></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/MIT"><img alt="https://img.shields.io/badge/License-MIT-blue.svg" src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
+<a class="reference external image-reference" href="https://eemont.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/eemont/badge/?version=latest" /></a>
+<a class="reference external image-reference" href="https://github.com/davemlz/eemont/actions/workflows/tests.yml"><img alt="https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg" src="https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://github.com/psf/black"><img alt="https://img.shields.io/badge/code%20style-black-000000.svg" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
+<a class="reference external image-reference" href="https://www.buymeacoffee.com/davemlz"><img alt="https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg" src="https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg" /></a>
+<a class="reference external image-reference" href="https://pepy.tech/project/eemont"><img alt="https://static.pepy.tech/personalized-badge/eemont?period=total&amp;units=international_system&amp;left_color=grey&amp;right_color=lightgrey&amp;left_text=Downloads" src="https://static.pepy.tech/personalized-badge/eemont?period=total&amp;units=international_system&amp;left_color=grey&amp;right_color=lightgrey&amp;left_text=Downloads" /></a>
+<a class="reference external image-reference" href="https://developers.google.com/earth-engine/tutorials/community/developer-resources"><img alt="https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg" src="https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg" /></a>
+<a class="reference external image-reference" href="https://twitter.com/dmlmont"><img alt="https://img.shields.io/twitter/follow/dmlmont?style=social" src="https://img.shields.io/twitter/follow/dmlmont?style=social" /></a>
 <p><strong>A Python package that extends</strong> <a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a></p>
-<img alt=".ipynb_checkpoints\images/eemont.png" class="align-center" src=".ipynb_checkpoints\images/eemont.png" />
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -272,13 +265,24 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<p><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview">Overview</a></p></li>
+<li><p><a class="reference internal" href="#google-earth-engine-community-developer-resources">Google Earth Engine Community: Developer Resources</a></p></li>
+<li><p><a class="reference internal" href="#how-does-it-work">How does it work?</a></p></li>
+<li><p><a class="reference internal" href="#installation">Installation</a></p></li>
+<li><p><a class="reference internal" href="#features">Features</a></p></li>
+<li><p><a class="reference internal" href="#supported-platforms">Supported Platforms</a></p></li>
+<li><p><a class="reference internal" href="#license">License</a></p></li>
+<li><p><a class="reference internal" href="#contributing">Contributing</a></p></li>
+</ul>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://earthengine.google.com/">Google Earth Engine</a> is a cloud-based service for geospatial processing of vector and raster data. The Earth Engine platform has a <a class="reference external" href="https://developers.google.com/earth-engine/guides">JavaScript and a Python API</a> with different methods to process geospatial objects. Google Earth Engine also provides a <a class="reference external" href="https://developers.google.com/earth-engine/datasets/">HUGE PETABYTE-SCALE CATALOG</a> of raster and vector data that users can process online (e.g. Landsat Missions Image Collections, Sentinel Missions Image Collections, MODIS Products Image Collections, World Database of Protected Areas, etc.). The eemont package extends the <a class="reference external" href="https://developers.google.com/earth-engine/guides/python_install">Google Earth Engine Python API</a> with pre-processing and processing tools for the most used satellite platforms by adding utility methods for different <a class="reference external" href="https://developers.google.com/earth-engine/guides/objects_methods_overview">Earth Engine Objects</a> that are friendly with the Python method chaining.</p>
 </div>
 <div class="section" id="google-earth-engine-community-developer-resources">
 <h2>Google Earth Engine Community: Developer Resources<a class="headerlink" href="#google-earth-engine-community-developer-resources" title="Permalink to this headline">¶</a></h2>
-<p>The eemont Python package can be found in the <a class="reference external" href="https://developers.google.com/earth-engine/tutorials/community/developer-resources">Google Earth Engine Community: Developer Resources</a> together with other awesome resources such as <a class="reference external" href="https://geemap.org/">geemap</a> and <a class="reference external" href="https://github.com/r-spatial/rgee">rgee</a>.</p>
+<p>The eemont Python package can be found in the <a class="reference external" href="https://developers.google.com/earth-engine/tutorials/community/developer-resources">Earth Engine Community: Developer Resources</a> together with other awesome resources such as <a class="reference external" href="https://geemap.org/">geemap</a> and <a class="reference external" href="https://github.com/r-spatial/rgee">rgee</a>.</p>
 </div>
 <div class="section" id="how-does-it-work">
 <h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
@@ -314,6 +318,14 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install the latest eemont version from PyPI by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">eemont</span>
+</pre></div>
+</div>
+<p>Upgrade eemont by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">eemont</span>
+</pre></div>
+</div>
+<p>Install the development version from GitHub by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">davemlz</span><span class="o">/</span><span class="n">eemont</span>
 </pre></div>
 </div>
 </div>
@@ -824,22 +836,14 @@
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>Contributions to eemont are welcome! Here you will find how to do it:</p>
-<div class="section" id="bugs">
-<h3>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h3>
-<p>If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.</p>
-<p>If you want to contributte by fixing an issue, please check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">bug</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p>
-</div>
-<div class="section" id="enhancement">
-<h3>Enhancement<a class="headerlink" href="#enhancement" title="Permalink to this headline">¶</a></h3>
-<p>New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">enhancement</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p>
-</div>
-<div class="section" id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
-<p>You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.</p>
-</div>
-</div>
+<ul class="simple">
+<li><p><strong>Bugs:</strong> If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.</p></li>
+<li><p><strong>Fixing Issues:</strong> If you want to contributte by fixing an issue, please   check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">bug</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p></li>
+<li><p><strong>Enhancement:</strong> New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels <code class="code docutils literal notranslate"><span class="pre">enhancement</span></code> and <code class="code docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code>.</p></li>
+<li><p><strong>Documentation:</strong> You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.</p></li>
+</ul>
 <div class="section" id="contribution-steps">
-<h2>Contribution Steps<a class="headerlink" href="#contribution-steps" title="Permalink to this headline">¶</a></h2>
+<h3>Contribution Steps<a class="headerlink" href="#contribution-steps" title="Permalink to this headline">¶</a></h3>
 <p>First, fork the <a class="reference external" href="https://github.com/davemlz/eemont">eemont</a> repository and clone it to your local machine. Then, create a development branch:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">name</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">branch</span>
 </pre></div>
@@ -900,6 +904,7 @@
 </pre></div>
 </div>
 <p>And finally, submit a pull request.</p>
+</div>
 </div>
 </div>
 

@@ -1,11 +1,5 @@
-.. image:: images/eemont.png
-        :width: 10
-        :align: center
-
 eemont
 ========
-
-**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
 
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont
@@ -35,6 +29,19 @@ eemont
 .. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
         :target: https://twitter.com/dmlmont
 
+**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
+
+**Table of Contents**
+
+- `Overview`_
+- `Google Earth Engine Community: Developer Resources`_
+- `How does it work?`_
+- `Installation`_
+- `Features`_
+- `Supported Platforms`_
+- `License`_
+- `Contributing`_
+
 Overview
 -------------------
 
@@ -43,7 +50,7 @@ Overview
 Google Earth Engine Community: Developer Resources
 -----------------------------------------------------
 
-The eemont Python package can be found in the `Google Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ together with other awesome resources such as `geemap <https://geemap.org/>`_ and `rgee <https://github.com/r-spatial/rgee>`_.
+The eemont Python package can be found in the `Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ together with other awesome resources such as `geemap <https://geemap.org/>`_ and `rgee <https://github.com/r-spatial/rgee>`_.
 
 How does it work?
 -------------------
@@ -86,6 +93,18 @@ Install the latest eemont version from PyPI by running:
 .. code-block:: python   
       
    pip install eemont
+
+Upgrade eemont by running:
+
+.. code-block:: python   
+      
+   pip install -U eemont
+
+Install the development version from GitHub by running:
+
+.. code-block:: python   
+      
+   pip install git+https://github.com/davemlz/eemont
 
 Features
 --------
@@ -206,6 +225,58 @@ Scaling and offsetting can also be done using eemont with just one method: :code
           
           (ee.ImageCollection(ds)
             .scale())
+
+Complete Preprocessing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The complete preprocessing workflow (Masking clouds and shadows, and image scaling and offsetting) can be done using eemont with just one method: :code:`preprocess()`!
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - GEE Python API
+     - eemont-style     
+   * - .. code-block:: python   
+          :linenos:
+          
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          def maskCloudsShadows(img):
+              c = (1 << 3)
+              s = (1 << 5)
+              qa = 'pixel_qa'
+              qa = img.select(qa)
+              cm = qa.bitwiseAnd(c).eq(0)
+              sm = qa.bitwiseAnd(s).eq(0)
+              mask = cm.And(sm)
+              return img.updateMask(mask)
+              
+          def scaleBands(img):
+              scaling = img.select('B[1-7]')
+              x = scaling.multiply(0.0001)
+              scaling = img.select([
+                'B10','B11'
+              ])
+              scaling = scaling.multiply(0.1)
+              x = x.addBands(scaling)
+              notScaling = img.select([
+                'sr_aerosol',
+                'pixel_qa',
+                'radsat_qa'
+              ])
+              return x.addBands(notScaling)
+              
+          (ee.ImageCollection(ds)
+            .map(maskCloudsShadows)
+            .map(scaleBands))
+     - .. code-block:: python 
+          :linenos:          
+   
+          ds = 'LANDSAT/LC08/C01/T1_SR'
+          
+          (ee.ImageCollection(ds)
+            .preprocess())
 
 Spectral Indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -371,25 +442,16 @@ Contributing
 
 Contributions to eemont are welcome! Here you will find how to do it:
 
-Bugs
-~~~~~~~~~~~
+- **Bugs:** If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details. 
 
-If you find a bug, please report it by opening an issue. if possible, please attach the error, code, version, and other details.
+- **Fixing Issues:** If you want to contributte by fixing an issue, please   check the eemont issues: contributions are welcome for open issues with labels :code:`bug` and :code:`help wanted`.
 
-If you want to contributte by fixing an issue, please check the eemont issues: contributions are welcome for open issues with labels :code:`bug` and :code:`help wanted`.
+- **Enhancement:** New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels :code:`enhancement` and :code:`help wanted`.
 
-Enhancement
-~~~~~~~~~~~
-
-New features and modules are welcome! You can check the eemont issues: contributions are welcome for open issues with labels :code:`enhancement` and :code:`help wanted`.
-
-Documentation
-~~~~~~~~~~~~~~~~~~~~~~
-
-You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.
+- **Documentation:** You can add examples, notes and references to the eemont documentation by using the NumPy Docstrings of the eemont documentation, or by creating blogs, tutorials or papers.
 
 Contribution Steps
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, fork the `eemont <https://github.com/davemlz/eemont>`_ repository and clone it to your local machine. Then, create a development branch::
 

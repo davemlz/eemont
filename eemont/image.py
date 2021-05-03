@@ -7,6 +7,9 @@ from .common import _get_scale_params
 from .common import _get_offset_params
 from .common import _scale_STAC
 from .common import _preprocess
+from .common import _getSTAC
+from .common import _getDOI
+from .common import _getCitation
 
 
 def _extend_eeImage():
@@ -680,7 +683,7 @@ def index(
         Used for kernel = 'poly'. This must be greater than or equal to 0.
     online : boolean, default = False
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
-        
+
         .. versionadded:: 0.2.0
 
     Returns
@@ -1086,7 +1089,7 @@ def scaleAndOffset(self):
     -------
     ee.Image
         Scaled image.
-        
+
     See Also
     --------
     getScaleParams : Gets the scale parameters for each band of the image.
@@ -1103,8 +1106,8 @@ def scaleAndOffset(self):
 
 
 @_extend_eeImage()
-def preprocess(self,**kwargs):
-    """Pre-processes the image: masks clouds and shadows, and scales and offsets the image. 
+def preprocess(self, **kwargs):
+    """Pre-processes the image: masks clouds and shadows, and scales and offsets the image.
 
     Tip
     ----------
@@ -1121,19 +1124,111 @@ def preprocess(self,**kwargs):
     -------
     ee.Image
         Pre-processed image.
-        
+
     See Also
     --------
     getScaleParams : Gets the scale parameters for each band of the image.
     getOffsetParams : Gets the offset parameters for each band of the image.
     scaleAndOffset : Scales bands on an image according to their scale and offset parameters.
     maskClouds : Masks clouds and shadows in an image.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().preprocess()
-    """ 
-    return _preprocess(self,**kwargs)
+    """
+    return _preprocess(self, **kwargs)
+
+
+@_extend_eeImage()
+def getSTAC(self):
+    """Gets the STAC of the image.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to get the STAC from.
+
+    Returns
+    -------
+    dict
+        STAC of the image.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('COPERNICUS/S2_SR').first().getSTAC()
+    {'stac_version': '1.0.0-rc.2',
+     'type': 'Collection',
+     'stac_extensions': ['https://stac-extensions.github.io/eo/v1.0.0/schema.json'],
+     'id': 'COPERNICUS/S2_SR',
+     'title': 'Sentinel-2 MSI: MultiSpectral Instrument, Level-2A',
+     'gee:type': 'image_collection',
+     ...}
+    """
+    return _getSTAC(self)
+
+
+@_extend_eeImage()
+def getDOI(self):
+    """Gets the DOI of the image, if available.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to get the DOI from.
+
+    Returns
+    -------
+    str
+        DOI of the ee.Image dataset.
+
+    See Also
+    --------
+    getCitation : Gets the citation of the image, if available.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').first().getDOI()
+    '10.5067/GPM/IMERG/3B-HH/06'
+    """
+    return _getDOI(self)
+
+
+@_extend_eeImage()
+def getCitation(self):
+    """Gets the citation of the image, if available.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to get the citation from.
+
+    Returns
+    -------
+    str
+        Citation of the ee.Image dataset.
+
+    See Also
+    --------
+    getDOI : Gets the DOI of the image, if available.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').first().getCitation()
+    'Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
+    GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt,
+    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date],
+    [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
+    """
+    return _getCitation(self)

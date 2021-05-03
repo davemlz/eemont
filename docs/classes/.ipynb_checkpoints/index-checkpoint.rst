@@ -68,8 +68,11 @@ ee.Image
 
 .. autosummary::
    
+   getCitation
+   getDOI
    getOffsetParams
    getScaleParams
+   getSTAC
    index
    maskClouds
    preprocess
@@ -84,8 +87,11 @@ ee.ImageCollection
 .. autosummary::
 
    closest
+   getCitation
+   getDOI
    getOffsetParams
    getScaleParams
+   getSTAC
    getTimeSeriesByRegion
    getTimeSeriesByRegions
    index

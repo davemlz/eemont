@@ -9,8 +9,11 @@ Extended methods for the ee.ImageCollection class:
    :toctree: stubs
 
    closest
+   getCitation
+   getDOI
    getOffsetParams
    getScaleParams
+   getSTAC
    getTimeSeriesByRegion
    getTimeSeriesByRegions
    index

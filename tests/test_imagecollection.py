@@ -75,6 +75,21 @@ class Test(unittest.TestCase):
         S2_tested = S2.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
         
+    def test_S2_STAC(self):
+        """Test the image collection module for Sentinel-2"""
+        S2_tested = S2.getSTAC()
+        self.assertIsInstance(S2_tested, dict)
+        
+    def test_S2_DOI(self):
+        """Test the image collection module for Sentinel-2"""
+        S2_tested = S2.getDOI()
+        self.assertIsInstance(S2_tested, str)
+        
+    def test_S2_Citation(self):
+        """Test the image collection module for Sentinel-2"""
+        S2_tested = S2.getCitation()
+        self.assertIsInstance(S2_tested, str)
+        
     def test_S2_online(self):
         """Test the image collection module for Sentinel-2"""
         S2_tested = S2.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices,online = True)

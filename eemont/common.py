@@ -6,9 +6,9 @@ import warnings
 import requests
 from box import Box
 
-warnings.simplefilter('always', UserWarning)
+warnings.simplefilter("always", UserWarning)
 
-# Platforms IDs
+# STAC
 # --------------------------
 
 
@@ -38,9 +38,11 @@ def _get_platform_STAC(args):
 
     for platform in platforms:
 
-        if eeDict[platform] == "image_collection" and isinstance(args, ee.image.Image):
+        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(
+            args, ee.image.Image
+        ):
             pltID = "/".join(ID.split("/")[:-1])
-        elif eeDict[platform] == "image" and isinstance(
+        elif eeDict[platform]["gee:type"] == "image" and isinstance(
             args, ee.imagecollection.ImageCollection
         ):
             pass
@@ -59,6 +61,32 @@ def _get_platform_STAC(args):
         raise Exception("Sorry, satellite platform not supported!")
 
     return platformDict
+
+
+def _getSTAC(args):
+    """Gets the STAC of the specified platform.
+
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the STAC from.
+
+    Returns
+    -------
+    dict
+        STAC of the ee.Image or ee.ImageCollection dataset.
+    """
+    platformDict = _get_platform_STAC(args)
+
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-ids.json")
+
+    f = open(dataPath)
+    eeDict = json.load(f)
+
+    STAC = requests.get(eeDict[platformDict["platform"]]["href"]).json()
+
+    return STAC
 
 
 # Spectral Indices
@@ -480,11 +508,11 @@ def _get_scale_params(args):
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
-        warnings.warn("This platform is not supported for getting scale parameters.")   
+        warnings.warn("This platform is not supported for getting scale parameters.")
         return None
     else:
         return eeDict[platformDict["platform"]]
-    
+
 
 def _get_offset_params(args):
     """Gets the offset parameters for each band of the image or image collection.
@@ -509,7 +537,7 @@ def _get_offset_params(args):
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
-        warnings.warn("This platform is not supported for getting offset parameters.")   
+        warnings.warn("This platform is not supported for getting offset parameters.")
         return None
     else:
         return eeDict[platformDict["platform"]]
@@ -530,11 +558,11 @@ def _scale_STAC(self):
     """
     scaleParams = _get_scale_params(self)
     offsetParams = _get_offset_params(self)
-    
+
     if scaleParams is None or offsetParams is None:
         warnings.warn("This platform is not supported for scaling and offsetting.")
         return self
-    else:    
+    else:
         scaleParams = ee.Dictionary(scaleParams).toImage()
         offsetParams = ee.Dictionary(offsetParams).toImage()
 
@@ -840,9 +868,9 @@ def _maskClouds(
     platformDict = _get_platform_STAC(self)
 
     if platformDict["platform"] not in list(lookup.keys()):
-        warnings.warn("This platform is not supported for cloud masking.")        
+        warnings.warn("This platform is not supported for cloud masking.")
         return self
-    else:      
+    else:
         if isinstance(self, ee.image.Image):
             masked = lookup[platformDict["platform"]](self)
         elif isinstance(self, ee.imagecollection.ImageCollection):
@@ -852,11 +880,13 @@ def _maskClouds(
                 masked = self.map(lookup[platformDict["platform"]])
         return masked
 
+
 # Preprocessing
 # --------------------------
 
-def _preprocess(self,**kwargs):
-    """Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection. 
+
+def _preprocess(self, **kwargs):
+    """Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection.
 
     Parameters
     ----------
@@ -871,23 +901,74 @@ def _preprocess(self,**kwargs):
         Pre-processed image or image collection.
     """
     maskCloudsDefault = {
-        "method":"cloud_prob",
-        "prob":60,
-        "maskCirrus":True,
-        "maskShadows":True,
-        "scaledImage":False,
-        "dark":0.15,
-        "cloudDist":1000,
-        "buffer":250,
-        "cdi":None,
+        "method": "cloud_prob",
+        "prob": 60,
+        "maskCirrus": True,
+        "maskShadows": True,
+        "scaledImage": False,
+        "dark": 0.15,
+        "cloudDist": 1000,
+        "buffer": 250,
+        "cdi": None,
     }
-    
+
     for key, value in maskCloudsDefault.items():
         if key not in kwargs.keys():
             kwargs[key] = value
-            
-    self = _maskClouds(self,**kwargs)
+
+    self = _maskClouds(self, **kwargs)
     self = _scale_STAC(self)
-    
+
     return self
-    
+
+
+# Citation Tools
+# --------------------------
+
+
+def _getDOI(args):
+    """Gets the DOI of the specified platform, if available.
+
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the DOI from.
+
+    Returns
+    -------
+    str
+        DOI of the ee.Image or ee.ImageCollection dataset.
+    """
+    platformDict = _get_platform_STAC(args)
+
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-ids.json")
+
+    f = open(dataPath)
+    eeDict = json.load(f)
+
+    return eeDict[platformDict["platform"]]["sci:doi"]
+
+
+def _getCitation(args):
+    """Gets the citation of the specified platform, if available.
+
+    Parameters
+    ----------
+    args : ee.Image | ee.ImageCollection
+        Image or image collection to get the citation from.
+
+    Returns
+    -------
+    str
+        Citation of the ee.Image or ee.ImageCollection dataset.
+    """
+    platformDict = _get_platform_STAC(args)
+
+    eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
+    dataPath = os.path.join(eemontDir, "data/ee-catalog-ids.json")
+
+    f = open(dataPath)
+    eeDict = json.load(f)
+
+    return eeDict[platformDict["platform"]]["sci:citation"]

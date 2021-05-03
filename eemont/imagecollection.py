@@ -8,6 +8,9 @@ from .common import _get_scale_params
 from .common import _get_offset_params
 from .common import _scale_STAC
 from .common import _preprocess
+from .common import _getSTAC
+from .common import _getDOI
+from .common import _getCitation
 
 
 def _extend_eeImageCollection():
@@ -877,8 +880,8 @@ def scaleAndOffset(self):
 
 
 @_extend_eeImageCollection()
-def preprocess(self,**kwargs):
-    """Pre-processes the image collection: masks clouds and shadows, and scales and offsets the image collection. 
+def preprocess(self, **kwargs):
+    """Pre-processes the image collection: masks clouds and shadows, and scales and offsets the image collection.
 
     Tip
     ----------
@@ -895,19 +898,111 @@ def preprocess(self,**kwargs):
     -------
     ee.ImageCollection
         Pre-processed image collection.
-        
+
     See Also
     --------
     getScaleParams : Gets the scale parameters for each band of the image collection.
     getOffsetParams : Gets the offset parameters for each band of the image collection.
     scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
     maskClouds : Masks clouds and shadows in an image collection.
-        
+
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess()
-    """ 
-    return _preprocess(self,**kwargs)
+    """
+    return _preprocess(self, **kwargs)
+
+
+@_extend_eeImageCollection()
+def getSTAC(self):
+    """Gets the STAC of the image collection.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection [this]
+        Image Collection to get the STAC from.
+
+    Returns
+    -------
+    dict
+        STAC of the image collection.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('COPERNICUS/S2_SR').getSTAC()
+    {'stac_version': '1.0.0-rc.2',
+     'type': 'Collection',
+     'stac_extensions': ['https://stac-extensions.github.io/eo/v1.0.0/schema.json'],
+     'id': 'COPERNICUS/S2_SR',
+     'title': 'Sentinel-2 MSI: MultiSpectral Instrument, Level-2A',
+     'gee:type': 'image_collection',
+     ...}
+    """
+    return _getSTAC(self)
+
+
+@_extend_eeImageCollection()
+def getDOI(self):
+    """Gets the DOI of the image collection, if available.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection [this]
+        Image Collection to get the DOI from.
+
+    Returns
+    -------
+    str
+        DOI of the ee.ImageCollection dataset.
+
+    See Also
+    --------
+    getCitation : Gets the citation of the image collection, if available.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').getDOI()
+    '10.5067/GPM/IMERG/3B-HH/06'
+    """
+    return _getDOI(self)
+
+
+@_extend_eeImageCollection()
+def getCitation(self):
+    """Gets the citation of the image collection, if available.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection [this]
+        Image Collection to get the citation from.
+
+    Returns
+    -------
+    str
+        Citation of the ee.ImageCollection dataset.
+
+    See Also
+    --------
+    getDOI : Gets the DOI of the image collection, if available.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').getCitation()
+    'Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
+    GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt,
+    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date],
+    [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
+    """
+    return _getCitation(self)

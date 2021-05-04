@@ -22,5 +22,17 @@ class Test(unittest.TestCase):
         test = ee.Geometry.MultiPointFromQuery('Colombia',user_agent = 'eemon-feature-test')
         self.assertIsInstance(test, ee.geometry.Geometry)
         
+    def test_PointFromFullPlusCode(self):
+        """Test the PointFromPlusCode constructor with a full plus code"""
+        code = "85FPQXGV+XH"
+        test = ee.Geometry.PointFromPlusCode(code, user_agent = 'eemont-feature-test')
+        self.assertIsInstance(test, ee.geometry.Geometry)
+    
+    def test_PointFromShortPlusCode(self):
+        """Test the PointFromPlusCode constructor with a short plus code"""
+        code = "QXGV+XH Denver, CO, USA"
+        test = ee.Geometry.PointFromPlusCode(code, user_agent = 'eemont-feature-test')
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
 if __name__ == '__main__':
     unittest.main()

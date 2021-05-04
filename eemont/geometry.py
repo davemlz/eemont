@@ -1,6 +1,7 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
+from eemont.common import _convert_pluscode_to_lnglat
 
 
 def _extend_staticmethod_eeGeometry():
@@ -86,14 +87,10 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     else:
         if geocoder == "nominatim":
             BBox = location.raw["boundingbox"]
-            return ee.Geometry.BBox(
-                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
-            )
+            return ee.Geometry.BBox(float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1]))
         elif geocoder == "arcgis":
             BBox = location.raw["extent"]
-            return ee.Geometry.BBox(
-                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
-            )
+            return ee.Geometry.BBox(BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"])
         else:
             raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
@@ -227,3 +224,49 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
         for location in locations:
             coords.append([location.longitude, location.latitude])
         return ee.Geometry.MultiPoint(coords)
+
+
+@_extend_staticmethod_eeGeometry()
+def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
+    coordinates = _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs)
+    return ee.Geometry.Point(coordinates)
+
+
+@_extend_staticmethod_eeGeometry()
+def MultiPointFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def PolygonFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def MultiPolygonFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def LineStringFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def MultiLineStringFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def LinearRingFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def RectangleFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError
+
+
+@_extend_staticmethod_eeGeometry()
+def BBoxFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
+    raise NotImplementedError

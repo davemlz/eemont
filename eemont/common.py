@@ -5,6 +5,8 @@ import os
 import warnings
 import requests
 from box import Box
+from geopy.geocoders import get_geocoder_for_service
+import re
 
 warnings.simplefilter("always", UserWarning)
 
@@ -38,13 +40,9 @@ def _get_platform_STAC(args):
 
     for platform in platforms:
 
-        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(
-            args, ee.image.Image
-        ):
+        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(args, ee.image.Image):
             pltID = "/".join(ID.split("/")[:-1])
-        elif eeDict[platform]["gee:type"] == "image" and isinstance(
-            args, ee.imagecollection.ImageCollection
-        ):
+        elif eeDict[platform]["gee:type"] == "image" and isinstance(args, ee.imagecollection.ImageCollection):
             pass
         else:
             pltID = ID
@@ -195,9 +193,7 @@ def _get_expression_map(img, platformDict):
     }
 
     if platformDict["platform"] not in list(lookupPlatform.keys()):
-        raise Exception(
-            "Sorry, satellite platform not supported for index computation!"
-        )
+        raise Exception("Sorry, satellite platform not supported for index computation!")
 
     return lookupPlatform[platformDict["platform"]](img)
 
@@ -220,9 +216,7 @@ def _get_indices(online):
             "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
         ).json()
     else:
-        eemontDir = os.path.dirname(
-            pkg_resources.resource_filename("eemont", "eemont.py")
-        )
+        eemontDir = os.path.dirname(pkg_resources.resource_filename("eemont", "eemont.py"))
         dataPath = os.path.join(eemontDir, "data/spectral-indices-dict.json")
         f = open(dataPath)
         indices = json.load(f)
@@ -388,9 +382,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
 
     for idx in index:
         if idx not in list(spectralIndices.keys()):
-            warnings.warn(
-                "Index " + idx + " is not a built-in index and it won't be computed!"
-            )
+            warnings.warn("Index " + idx + " is not a built-in index and it won't be computed!")
         else:
 
             def temporalIndex(img):
@@ -399,21 +391,10 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
                 kernelParameters = _get_kernel_parameters(img, lookupDic, kernel, sigma)
                 lookupDic = {**lookupDic, **kernelParameters}
                 lookupDicCurated = _remove_none_dict(lookupDic)
-                if all(
-                    band in list(lookupDicCurated.keys())
-                    for band in spectralIndices[idx]["bands"]
-                ):
-                    return img.addBands(
-                        img.expression(
-                            spectralIndices[idx]["formula"], lookupDicCurated
-                        ).rename(idx)
-                    )
+                if all(band in list(lookupDicCurated.keys()) for band in spectralIndices[idx]["bands"]):
+                    return img.addBands(img.expression(spectralIndices[idx]["formula"], lookupDicCurated).rename(idx))
                 else:
-                    warnings.warn(
-                        "This platform doesn't have the required bands for "
-                        + idx
-                        + " computation!"
-                    )
+                    warnings.warn("This platform doesn't have the required bands for " + idx + " computation!")
                     return img
 
             if isinstance(self, ee.imagecollection.ImageCollection):
@@ -660,11 +641,7 @@ def _maskClouds(
 
         def CDI(img):
             idx = img.get("system:index")
-            S2TOA = (
-                ee.ImageCollection("COPERNICUS/S2")
-                .filter(ee.Filter.eq("system:index", idx))
-                .first()
-            )
+            S2TOA = ee.ImageCollection("COPERNICUS/S2").filter(ee.Filter.eq("system:index", idx)).first()
             CloudDisplacementIndex = ee.Algorithms.Sentinel2.CDI(S2TOA)
             isCloud = CloudDisplacementIndex.lt(cdi).rename("CLOUD_MASK_CDI")
             return img.addBands(isCloud)
@@ -675,16 +652,10 @@ def _maskClouds(
                 darkPixels = img.select("B8").lt(dark * 1e4).multiply(notWater)
             else:
                 darkPixels = img.select("B8").lt(dark).multiply(notWater)
-            shadowAzimuth = ee.Number(90).subtract(
-                ee.Number(img.get("MEAN_SOLAR_AZIMUTH_ANGLE"))
-            )
-            cloudProjection = img.select("CLOUD_MASK").directionalDistanceTransform(
-                shadowAzimuth, cloudDist / 10
-            )
+            shadowAzimuth = ee.Number(90).subtract(ee.Number(img.get("MEAN_SOLAR_AZIMUTH_ANGLE")))
+            cloudProjection = img.select("CLOUD_MASK").directionalDistanceTransform(shadowAzimuth, cloudDist / 10)
             cloudProjection = (
-                cloudProjection.reproject(crs=img.select(0).projection(), scale=10)
-                .select("distance")
-                .mask()
+                cloudProjection.reproject(crs=img.select(0).projection(), scale=10).select("distance").mask()
             )
             isShadow = cloudProjection.multiply(darkPixels).rename("SHADOW_MASK")
             return img.addBands(isShadow)
@@ -708,12 +679,8 @@ def _maskClouds(
         if isinstance(self, ee.image.Image):
             if method == "cloud_prob":
                 S2Clouds = ee.ImageCollection("COPERNICUS/S2_CLOUD_PROBABILITY")
-                fil = ee.Filter.equals(
-                    leftField="system:index", rightField="system:index"
-                )
-                S2WithCloudMask = ee.Join.saveFirst("cloud_mask").apply(
-                    ee.ImageCollection(args), S2Clouds, fil
-                )
+                fil = ee.Filter.equals(leftField="system:index", rightField="system:index")
+                S2WithCloudMask = ee.Join.saveFirst("cloud_mask").apply(ee.ImageCollection(args), S2Clouds, fil)
                 S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob).first()
             elif method == "qa":
                 S2Masked = QA(args)
@@ -725,12 +692,8 @@ def _maskClouds(
         elif isinstance(self, ee.imagecollection.ImageCollection):
             if method == "cloud_prob":
                 S2Clouds = ee.ImageCollection("COPERNICUS/S2_CLOUD_PROBABILITY")
-                fil = ee.Filter.equals(
-                    leftField="system:index", rightField="system:index"
-                )
-                S2WithCloudMask = ee.Join.saveFirst("cloud_mask").apply(
-                    args, S2Clouds, fil
-                )
+                fil = ee.Filter.equals(leftField="system:index", rightField="system:index")
+                S2WithCloudMask = ee.Join.saveFirst("cloud_mask").apply(args, S2Clouds, fil)
                 S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob)
             elif method == "qa":
                 S2Masked = args.map(QA)
@@ -972,3 +935,96 @@ def _getCitation(args):
     eeDict = json.load(f)
 
     return eeDict[platformDict["platform"]]["sci:citation"]
+
+
+# Plus Codes
+# --------------------------
+
+
+def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
+    """Take a complete or shortened plus code and convert it to a longitude and latitude.
+
+    Parameters
+    ----------
+    pluscode : str
+        Either a full plus code or short plus code with a queryable reference location appended to it.
+
+    Returns
+    -------
+    tuple
+        The longitude and latitude of the plus code centroid.
+
+    """
+    try:
+        from openlocationcode import openlocationcode as olc
+    except ImportError:
+        raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
+
+    if not olc.isFull(pluscode):
+        if olc.isShort(pluscode):
+            raise ValueError('Short plus codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").')
+
+        shortcode, reference = _split_short_pluscode(pluscode)
+        ref_lng, ref_lat = _lnglat_from_query(reference, geocoder, **kwargs)
+
+        pluscode = olc.recoverNearest(shortcode, ref_lat, ref_lng)
+
+    area = olc.decode(pluscode)
+    return [area.longitudeCenter, area.latitudeCenter]
+
+
+def _split_short_pluscode(pluscode):
+    """Split a short plus code into a plus code and reference using regex. For example, "QXGV+XH Denver, CO, USA" will
+    return ("QXGV+XH", "Denver, CO, USA").
+
+    Parameters
+    ----------
+    pluscode : str
+        A short plus code with a queryable reference location appended to it.
+
+    Returns
+    -------
+    tuple
+        The short plus code and the reference.
+    """
+    pattern = re.compile(
+        r"""
+        (?P<code>\w{1,8}\+\w*) # Alphanumeric prefix, +, and optional suffix
+        (?:\S*\s) # Optional character delimeters and required whitespace
+        (?P<reference>.*) # Accept anything as a reference
+        """,
+        re.VERBOSE,
+    )
+    match = re.match(pattern, pluscode)
+
+    if not match:
+        raise ValueError("Plus code could not be decoded.")
+
+    return (match.group("code"), match.group("reference"))
+
+
+def _lnglat_from_query(query, geocoder, **kwargs):
+    """Returns a longitude and latitude describing a point from a query submitted to a geocoder using the geopy package.
+
+    Parameters
+    ----------
+    query : str
+        Address, query or structured query to geocode.
+    geocoder : str, default = 'nominatim'
+        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
+    **kwargs :
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
+        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+
+    Returns
+    -------
+    tuple
+        The longitude and latitude geocoded from the query.
+    """
+    cls = get_geocoder_for_service(geocoder)
+    geolocator = cls(**kwargs)
+    location = geolocator.geocode(query)
+    if location is None:
+        raise Exception("No matches were found for your query!")
+    else:
+        return [location.longitude, location.latitude]

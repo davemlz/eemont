@@ -16,10 +16,12 @@ warnings.simplefilter("always", UserWarning)
 
 def _get_platform_STAC(args):
     """Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the platform from.
+
     Returns
     -------
     dict
@@ -65,10 +67,12 @@ def _get_platform_STAC(args):
 
 def _getSTAC(args):
     """Gets the STAC of the specified platform.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the STAC from.
+
     Returns
     -------
     dict
@@ -93,12 +97,14 @@ def _getSTAC(args):
 
 def _get_expression_map(img, platformDict):
     """Gets the dictionary required for the map parameter in ee.Image.expression() method.
+
     Parameters
     ----------
     img : ee.Image
         Image to get the dictionary from.
     platformDict : dict
         Dictionary retrieved from the _get_platform() method.
+
     Returns
     -------
     dict
@@ -200,10 +206,12 @@ def _get_expression_map(img, platformDict):
 
 def _get_indices(online):
     """Retrieves the dictionary of indices used for the index() method in ee.Image and ee.ImageCollection classes.
+
     Parameters
     ----------
     online : boolean
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+
     Returns
     -------
     dict
@@ -226,6 +234,7 @@ def _get_indices(online):
 
 def _get_kernel_image(img, lookup, kernel, sigma, a, b):
     """Creates an ee.Image representing a kernel computed on bands [a] and [b].
+
     Parameters
     ----------
     img : ee.Image
@@ -240,6 +249,7 @@ def _get_kernel_image(img, lookup, kernel, sigma, a, b):
         Key of the first band to use.
     b : str
         Key of the second band to use.
+
     Returns
     -------
     ee.Image
@@ -263,9 +273,11 @@ def _get_kernel_image(img, lookup, kernel, sigma, a, b):
 
 def _remove_none_dict(dictionary):
     """Removes elements from a dictionary with None values.
+
     Parameters
     ----------
     dictionary : dict
+
     Returns
     -------
     dict
@@ -280,6 +292,7 @@ def _remove_none_dict(dictionary):
 
 def _get_kernel_parameters(img, lookup, kernel, sigma):
     """Gets the additional kernel parameters to compute kernel indices.
+
     Parameters
     ----------
     img : ee.Image
@@ -290,6 +303,7 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
         Kernel to use.
     sigma : str | float
         Length-scale parameter. Used for kernel = 'RBF'.
+
     Returns
     -------
     dict
@@ -310,6 +324,7 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
 
 def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
+
     Parameters
     ----------
     self : ee.Image | ee.ImageCollection
@@ -334,6 +349,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
         Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = 'poly'. This must be greater than or equal to 0.
     online : boolean
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+
     Returns
     -------
     ee.Image | ee.ImageCollection
@@ -412,17 +428,21 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
 
 def indices(online=False):
     """Gets the dictionary of available indices as a Box object.
+
     Parameters
     ----------
     online : boolean
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+
     Returns
     -------
     Box
         Dictionary of available indices. For each index, the keys 'short_name', 'long_name', 'formula', 'bands', 'reference', 'type', 'date_of_addition' and 'contributor' can be checked.
+
     See Also
     --------
     listIndices : Gets the list of available indices.
+
     Examples
     --------
     >>> import eemont
@@ -439,17 +459,21 @@ def indices(online=False):
 
 def listIndices(online=False):
     """Gets the list of available indices.
+
     Parameters
     ----------
     online : boolean
         Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+
     Returns
     -------
     list
         List of available indices.
+
     See Also
     --------
     indices : Gets the dictionary of available indices as a Box object.
+
     Examples
     --------
     >>> import eemont
@@ -465,10 +489,12 @@ def listIndices(online=False):
 
 def _get_scale_params(args):
     """Gets the scale parameters for each band of the image or image collection.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the scale parameters from.
+
     Returns
     -------
     dict
@@ -492,10 +518,12 @@ def _get_scale_params(args):
 
 def _get_offset_params(args):
     """Gets the offset parameters for each band of the image or image collection.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the offset parameters from.
+
     Returns
     -------
     dict
@@ -519,10 +547,12 @@ def _get_offset_params(args):
 
 def _scale_STAC(self):
     """Scales bands on an image or image collection.
+
     Parameters
     ----------
     self : ee.Image | ee.ImageCollection
         Image or iage collection to scale.
+
     Returns
     -------
     ee.Image | ee.ImageCollection
@@ -572,6 +602,7 @@ def _maskClouds(
     cdi,
 ):
     """Masks clouds and shadows in an image or image collection (valid just for Surface Reflectance products).
+
     Parameters
     ----------
     self : ee.Image | ee.ImageCollection
@@ -601,6 +632,7 @@ def _maskClouds(
         A cdi = None means that the index is not used. For more info see 'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
         Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
         This parameter is ignored for Landsat products.
+
     Returns
     -------
     ee.Image | ee.ImageCollection
@@ -857,12 +889,14 @@ def _maskClouds(
 
 def _preprocess(self, **kwargs):
     """Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection.
+
     Parameters
     ----------
     self : ee.Image | ee.ImageCollection
         Image or Image Collection to pre-process.
     **kwargs :
         Keywords arguments for maskClouds().
+
     Returns
     -------
     ee.Image | ee.ImageCollection
@@ -896,10 +930,12 @@ def _preprocess(self, **kwargs):
 
 def _getDOI(args):
     """Gets the DOI of the specified platform, if available.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the DOI from.
+
     Returns
     -------
     str
@@ -918,10 +954,12 @@ def _getDOI(args):
 
 def _getCitation(args):
     """Gets the citation of the specified platform, if available.
+
     Parameters
     ----------
     args : ee.Image | ee.ImageCollection
         Image or image collection to get the citation from.
+
     Returns
     -------
     str

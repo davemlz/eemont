@@ -9,6 +9,11 @@ def _extend_staticmethod_eeFeature():
     return lambda f: (setattr(ee.feature.Feature, f.__name__, staticmethod(f)) or f)
 
 
+def _extend_eeFeature():
+    """Decorator. Extends the ee.Feature class."""
+    return lambda f: (setattr(ee.feature.Feature, f.__name__, f) or f)
+
+
 @_extend_staticmethod_eeFeature()
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.

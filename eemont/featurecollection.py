@@ -12,6 +12,13 @@ def _extend_staticmethod_eeFeatureCollection():
     )
 
 
+def _extend_eeFeatureCollection():
+    """Decorator. Extends the ee.FeatureCollection class."""
+    return lambda f: (
+        setattr(ee.featurecollection.FeatureCollection, f.__name__, f) or f
+    )
+
+
 @_extend_staticmethod_eeFeatureCollection()
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.

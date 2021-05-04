@@ -9,6 +9,11 @@ def _extend_staticmethod_eeGeometry():
     return lambda f: (setattr(ee.geometry.Geometry, f.__name__, staticmethod(f)) or f)
 
 
+def _extend_eeGeometry():
+    """Decorator. Extends the ee.Geometry class."""
+    return lambda f: (setattr(ee.geometry.Geometry, f.__name__, f) or f)
+
+
 @_extend_staticmethod_eeGeometry()
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.

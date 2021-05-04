@@ -17,11 +17,9 @@ def _extend_eeGeometry():
 @_extend_staticmethod_eeGeometry()
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
-
     Tip
     ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-
     Parameters
     ----------
     query : str
@@ -31,17 +29,14 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-
     Returns
     -------
     ee.Geometry.Polygon
         Geometry describing a bounding box from the specified query.
-
     See Also
     --------
     PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
     MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
-
     Examples
     --------
     >>> import ee, eemont
@@ -92,10 +87,14 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     else:
         if geocoder == "nominatim":
             BBox = location.raw["boundingbox"]
-            return ee.Geometry.BBox(float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1]))
+            return ee.Geometry.BBox(
+                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+            )
         elif geocoder == "arcgis":
             BBox = location.raw["extent"]
-            return ee.Geometry.BBox(BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"])
+            return ee.Geometry.BBox(
+                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
+            )
         else:
             raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
@@ -103,11 +102,9 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 @_extend_staticmethod_eeGeometry()
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
-
     Tip
     ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-
     Parameters
     ----------
     query : str
@@ -117,17 +114,14 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-
     Returns
     -------
     ee.Geometry.Point
         Geometry describing a point from the specified query.
-
     See Also
     --------
     BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
     MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
-
     Examples
     --------
     >>> import ee, eemont
@@ -160,11 +154,9 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
 @_extend_staticmethod_eeGeometry()
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
-
     Tip
     ----------
     Check more info about constructors in the :ref:`User Guide<Constructors>`.
-
     Parameters
     ----------
     query : str
@@ -174,17 +166,14 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     **kwargs :
         Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
         user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-
     Returns
     -------
     ee.Geometry.MultiPoint
         Geometry describing a multi-point from the specified query.
-
     See Also
     --------
     BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
     PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
-
     Examples
     --------
     >>> import ee, eemont

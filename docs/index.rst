@@ -4,6 +4,9 @@ Welcome to eemont!
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont
         
+.. image:: https://img.shields.io/conda/vn/conda-forge/eemont.svg
+        :target: https://anaconda.org/conda-forge/eemont
+        
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
         :target: https://opensource.org/licenses/MIT
         
@@ -126,21 +129,27 @@ Installation
 
 Install the latest eemont version from PyPI by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install eemont
 
 Upgrade eemont by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install -U eemont
 
 Install the development version from GitHub by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install git+https://github.com/davemlz/eemont
+   
+Install the latest eemont version from conda-forge by running:
+
+.. code-block::   
+      
+   conda install -c conda-forge eemont
 
 Features
 --------

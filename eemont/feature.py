@@ -156,3 +156,32 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
             return ee.Feature(geometry, location.raw)
         else:
             raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
+
+
+@_extend_eeFeature()
+def plusCode(self, codeLength=10):
+    """Convert the coordinates of the geometry an ee.Feature to plus codes.
+
+    Parameters
+    ----------
+    self : ee.Feature
+        The feature to extract coordinates from.
+    codeLength : int, default = 10
+        The number of significant digits in the output codes, between 2 and 15. Shorter codes are less precise.
+
+    Returns
+    -------
+    str | list
+        The plus code coordinates of the feature's geometry. If the feature is a point, one plus code string will be 
+        returned. Otherwise, a list of plus codes will be returned.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> pt = ee.Feature(ee.Geometry.Point([-105, 40]))
+    >>> pt.plusCode()
+    '85GQ2222+22'
+    """
+    return self.geometry().plusCode()

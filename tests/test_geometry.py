@@ -33,6 +33,25 @@ class Test(unittest.TestCase):
         code = "QXGV+XH Denver, CO, USA"
         test = ee.Geometry.PointFromPlusCode(code, user_agent = 'eemont-feature-test')
         self.assertIsInstance(test, ee.geometry.Geometry)
+    
+    def test_pluscode_from_point(self):
+        """Test that an ee.Geometry.Point returns a plus code string"""
+        pt = ee.Geometry.Point([-105, 40])
+        test = pt.plusCode()
+        self.assertIsInstance(test, str)
+
+    def test_pluscode_from_polygon(self):
+        """Test that an ee.Geometry.Polygon returns a plus code list of correct length"""
+        poly = ee.Geometry.Polygon([
+            [-105, 40],
+            [-105, 39],
+            [-104, 39],
+            [-104, 40],
+            [-105, 40],
+        ])
+        test = poly.plusCode()
+        self.assertEqual(len(test), 5)
+
 
 if __name__ == '__main__':
     unittest.main()

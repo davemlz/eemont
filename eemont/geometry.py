@@ -1,7 +1,8 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
-from eemont.common import _convert_pluscode_to_lnglat
+import numpy as np
+from eemont.common import _convert_pluscode_to_lnglat, _convert_lnglat_to_pluscode
 
 
 def _extend_staticmethod_eeGeometry():
@@ -279,3 +280,40 @@ def RectangleFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
 @_extend_staticmethod_eeGeometry()
 def BBoxFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
     raise NotImplementedError
+
+@_extend_eeGeometry()
+def plusCode(self, codeLength=10):
+  """Convert the coordinates of an ee.Geometry to plus codes.
+
+  Parameters
+  ----------
+  self : ee.Geometry
+      The geometry to extract coordinates from.
+  codeLength : int, default = 10
+      The number of significant digits in the output codes, between 2 and 15. Shorter codes are less precise.
+
+  Returns
+  -------
+  str | list
+      The plus code coordinates of the geometry. If the geometry is a point, one plus code string will be returned. 
+      Otherwise, a list of plus codes will be returned.
+
+  Examples
+  --------
+  >>> import ee, eemont
+  >>> ee.Authenticate()
+  >>> ee.Initialize()
+  >>> pt = ee.Geometry.Point([-105, 40])
+  >>> pt.plusCode()
+  '85GQ2222+22'
+  """
+  coordinates = self.coordinates().getInfo()
+
+  coord_array = np.concatenate([coordinates]).reshape((-1, 2))
+
+  plus_codes = [_convert_lnglat_to_pluscode(coord[0], coord[1], codeLength) for coord in coord_array]
+  
+  if len(plus_codes) == 1:
+    plus_codes = plus_codes[0]
+
+  return plus_codes

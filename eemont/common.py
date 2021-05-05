@@ -986,11 +986,8 @@ def _load_openlocationcode():
     except ImportError:
         raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
 
-def _convert_lnglat_to_pluscode(lng, lat, codeLength=None):
+def _convert_lnglat_to_pluscode(lng, lat, codeLength):
     olc = _load_openlocationcode()
-
-    if codeLength is None:
-        codeLength = olc.PAIR_CODE_LENGTH_
 
     return olc.encode(lat, lng, codeLength)
 

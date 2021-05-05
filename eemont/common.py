@@ -1034,7 +1034,7 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
         if olc.isShort(pluscode):
             raise ValueError('Short plus codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").')
 
-        shortcode, reference = _split_short_pluscode(pluscode)
+        shortcode, reference = _parse_code_and_reference_from_pluscode(pluscode)
         ref_lng, ref_lat = _lnglat_from_query(reference, geocoder, **kwargs)
 
         pluscode = olc.recoverNearest(shortcode, ref_lat, ref_lng)
@@ -1043,34 +1043,34 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
     return [area.longitudeCenter, area.latitudeCenter]
 
 
-def _split_short_pluscode(pluscode):
+def _parse_code_and_reference_from_pluscode(pluscode):
     """Split a short plus code into a plus code and reference using regex. For example, "QXGV+XH Denver, CO, USA" will
     return ("QXGV+XH", "Denver, CO, USA").
 
     Parameters
     ----------
     pluscode : str
-        A short plus code with a queryable reference location appended to it.
+        A short plus code with a queryable reference location appended to it, delimited by whitespace.
 
     Returns
     -------
     tuple
         The short plus code and the reference.
     """
-    pattern = re.compile(
-        r"""
-        (?P<code>\w{1,8}\+\w*) # Alphanumeric prefix, +, and optional suffix
-        (?:\S*\s) # Optional character delimeters and required whitespace
-        (?P<reference>.*) # Accept anything as a reference
-        """,
-        re.VERBOSE,
-    )
-    match = re.match(pattern, pluscode)
+    pattern = r"\w{1,8}\+\w{,7}"
+    code = None
 
-    if not match:
+    for chunk in pluscode.split(' '):
+        match = re.search(pattern, chunk)
+        code = match.group(0) if match else code
+
+    if not code:
         raise ValueError("Plus code could not be decoded.")
 
-    return (match.group("code"), match.group("reference"))
+    reference = pluscode.replace(code, "")
+
+    return (code, reference)
+
 
 
 def _lnglat_from_query(query, geocoder, **kwargs):

@@ -980,13 +980,41 @@ def _getCitation(args):
 # --------------------------
 
 def _load_openlocationcode():
+    """Attempt to load the openlocationcode.openlocationcode module and return it. Because the package is not available 
+    through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed. 
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    module
+        The openlocationcode.openlocationcode module.
+
+    """
     try:
-        from openlocationcode import openlocationcode as olc
-        return olc
+        from openlocationcode import openlocationcode
+        return openlocationcode
     except ImportError:
         raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
 
 def _convert_lnglat_to_pluscode(lng, lat, codeLength):
+    """Take a longitude and latitude coordinate and convert it to a plus code.
+
+    Parameters
+    ----------
+    lng : float
+        Longitude.
+    lat : float
+        Latitude.  
+    codeLength : int
+        The number of significant digits in the output code, between 2 and 15. Shorter codes are less precise.
+    Returns
+    -------
+    str
+        The plus code represented by the coordinate
+
+    """
     olc = _load_openlocationcode()
 
     return olc.encode(lat, lng, codeLength)

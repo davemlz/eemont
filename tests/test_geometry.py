@@ -34,6 +34,16 @@ class Test(unittest.TestCase):
         test = ee.Geometry.PointFromPlusCode(code, user_agent = 'eemont-feature-test')
         self.assertIsInstance(test, ee.geometry.Geometry)
     
+    def test_MultiPointFromPlusCode(self):
+        """Test the MultiPointFromPlusCode constructor with a list of plus codes"""
+        codes = [
+            '85FQ2222+22', 
+            '85FR2222+22', 
+            '85GR2222+22', 
+        ]
+        test = ee.Geometry.MultiPointFromPlusCode(codes, user_agent = 'eemont-feature-test')
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
     def test_pluscode_from_point(self):
         """Test that an ee.Geometry.Point returns a plus code string"""
         pt = ee.Geometry.Point([-105, 40])

@@ -244,7 +244,8 @@ def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
 
 @_extend_staticmethod_eeGeometry()
 def MultiPointFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in pluscodes]
+    return ee.Geometry.MultiPoint(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()

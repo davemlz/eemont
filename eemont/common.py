@@ -979,6 +979,20 @@ def _getCitation(args):
 # Plus Codes
 # --------------------------
 
+def _load_openlocationcode():
+    try:
+        from openlocationcode import openlocationcode as olc
+        return olc
+    except ImportError:
+        raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
+
+def _convert_lnglat_to_pluscode(lng, lat, codeLength=None):
+    olc = _load_openlocationcode()
+
+    if codeLength is None:
+        codeLength = olc.PAIR_CODE_LENGTH_
+
+    return olc.encode(lat, lng, codeLength)
 
 def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
     """Take a complete or shortened plus code and convert it to a longitude and latitude.
@@ -994,10 +1008,7 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
         The longitude and latitude of the plus code centroid.
 
     """
-    try:
-        from openlocationcode import openlocationcode as olc
-    except ImportError:
-        raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
+    olc = _load_openlocationcode()
 
     if not olc.isFull(pluscode):
         if olc.isShort(pluscode):

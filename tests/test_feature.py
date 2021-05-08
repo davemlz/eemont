@@ -36,5 +36,6 @@ class Test(unittest.TestCase):
         test = poly.plusCode()
         self.assertEqual(len(test), len(coords))
 
+
 if __name__ == '__main__':
     unittest.main()

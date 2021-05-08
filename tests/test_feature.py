@@ -18,22 +18,23 @@ class Test(unittest.TestCase):
         self.assertIsInstance(test, ee.feature.Feature)
 
     def test_pluscode_from_point(self):
-        """Test that an point ee.Feature returns a plus code string"""
+        """Test that a point ee.Feature returns a plus code string"""
         pt = ee.Feature(ee.Geometry.Point([-105, 40]))
         test = pt.plusCode()
         self.assertIsInstance(test, str)
 
     def test_pluscode_from_polygon(self):
-        """Test that an polygon ee.Feature returns a plus code list of correct length"""
-        poly = ee.Feature(ee.Geometry.Polygon([
+        """Test that a polygon ee.Feature returns a plus code list of correct length"""
+        coords = [
             [-105, 40],
             [-105, 39],
             [-104, 39],
-            [-104, 40],
             [-105, 40],
-        ]))
+        ]
+
+        poly = ee.Feature(ee.Geometry.Polygon(coords))
         test = poly.plusCode()
-        self.assertEqual(len(test), 5)
-        
+        self.assertEqual(len(test), len(coords))
+
 if __name__ == '__main__':
     unittest.main()

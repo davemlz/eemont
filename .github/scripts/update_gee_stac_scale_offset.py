@@ -1,7 +1,7 @@
 import requests
 import json
 # Request ee scale offset catalog
-eeCatalogScaleOffset = requests.get('https://raw.githubusercontent.com/davemlz/ee-catalog-scale-offset-params/main/ee-catalog-scale-offset-parameters.json').json()
+eeCatalogScaleOffset = requests.get('https://raw.githubusercontent.com/davemlz/ee-catalog-scale-offset-params/main/list/ee-catalog-scale-offset-parameters.json').json()
 # Get the datasets
 eeScaleDict = dict()
 eeOffsetDict = dict()

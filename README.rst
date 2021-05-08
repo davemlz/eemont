@@ -4,6 +4,9 @@ eemont
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont
         
+.. image:: https://img.shields.io/conda/vn/conda-forge/eemont.svg
+        :target: https://anaconda.org/conda-forge/eemont
+        
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
         :target: https://opensource.org/licenses/MIT
         
@@ -12,15 +15,12 @@ eemont
         :alt: Documentation Status
 
 .. image:: https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg
-        :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml        
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-
+        :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml  
+        
 .. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
         :target: https://www.buymeacoffee.com/davemlz
         
-.. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=lightgrey&left_text=Downloads
+.. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=green&left_text=Downloads
         :target: https://pepy.tech/project/eemont
         
 .. image:: https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg
@@ -28,7 +28,13 @@ eemont
         
 .. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
         :target: https://twitter.com/dmlmont
-
+        
+.. image:: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a/status.svg
+    :target: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a
+        
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+    
 **A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
 
 **Table of Contents**
@@ -90,21 +96,27 @@ Installation
 
 Install the latest eemont version from PyPI by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install eemont
 
 Upgrade eemont by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install -U eemont
 
 Install the development version from GitHub by running:
 
-.. code-block:: python   
+.. code-block::   
       
    pip install git+https://github.com/davemlz/eemont
+   
+Install the latest eemont version from conda-forge by running:
+
+.. code-block::   
+      
+   conda install -c conda-forge eemont
 
 Features
 --------

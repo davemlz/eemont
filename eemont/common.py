@@ -981,8 +981,8 @@ def _getCitation(args):
 
 
 def _load_openlocationcode():
-    """Attempt to load the openlocationcode.openlocationcode module and return it. Because the package is not available 
-    through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed. 
+    """Attempt to load the openlocationcode.openlocationcode module and return it. Because the package is not available
+    through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed.
 
     Returns
     -------
@@ -991,9 +991,12 @@ def _load_openlocationcode():
     """
     try:
         from openlocationcode import openlocationcode
+
         return openlocationcode
     except ImportError:
-        raise ImportError('openlocationcode could not be loaded. Try installing with "pip install openlocationcode".')
+        raise ImportError(
+            'openlocationcode could not be loaded. Try installing with "pip install openlocationcode".'
+        )
 
 
 def _convert_lnglat_to_pluscode(lng, lat, codeLength):
@@ -1004,10 +1007,10 @@ def _convert_lnglat_to_pluscode(lng, lat, codeLength):
     lng : float
         Longitude.
     lat : float
-        Latitude.  
+        Latitude.
     codeLength : int
         The number of significant digits in the output code, between 2 and 15. Shorter codes are less precise.
-    
+
     Returns
     -------
     str
@@ -1035,7 +1038,9 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
 
     if not olc.isFull(pluscode):
         if olc.isShort(pluscode):
-            raise ValueError('Short plus codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").')
+            raise ValueError(
+                'Short plus codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").'
+            )
 
         shortcode, reference = _parse_code_and_reference_from_pluscode(pluscode)
         ref_lng, ref_lat = _lnglat_from_query(reference, geocoder, **kwargs)
@@ -1063,7 +1068,7 @@ def _parse_code_and_reference_from_pluscode(pluscode):
     pattern = r"\w{1,8}\+\w{,7}"
     code = None
 
-    for chunk in pluscode.split(' '):
+    for chunk in pluscode.split(" "):
         match = re.search(pattern, chunk)
         code = match.group(0) if match else code
 

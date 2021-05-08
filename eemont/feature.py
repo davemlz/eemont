@@ -172,7 +172,7 @@ def plusCode(self, codeLength=10):
     Returns
     -------
     str | list
-        The plus code coordinates of the feature's geometry. If the feature is a point, one plus code string will be 
+        The plus code coordinates of the feature's geometry. If the feature is a point, one plus code string will be
         returned. Otherwise, a list of plus codes will be returned.
 
     Examples

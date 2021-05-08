@@ -1,8 +1,7 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
-import numpy as np
-from eemont.common import _convert_pluscode_to_lnglat, _convert_lnglat_to_pluscode
+from eemont.common import _convert_pluscode_to_lnglat, _convert_lnglat_to_pluscode, _convert_nested_lnglat_to_pluscode
 
 
 def _extend_staticmethod_eeGeometry():
@@ -339,12 +338,7 @@ def plusCode(self, codeLength=10):
     """
     coordinates = self.coordinates().getInfo()
 
-    coord_array = np.concatenate([coordinates]).reshape((-1, 2))
-
-    plus_codes = [
-        _convert_lnglat_to_pluscode(coord[0], coord[1], codeLength)
-        for coord in coord_array
-    ]
+    plus_codes = _convert_nested_lnglat_to_pluscode(coordinates)
 
     if len(plus_codes) == 1:
         plus_codes = plus_codes[0]

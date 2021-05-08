@@ -7,6 +7,7 @@ import requests
 from box import Box
 from geopy.geocoders import get_geocoder_for_service
 import re
+import copy
 
 warnings.simplefilter("always", UserWarning)
 
@@ -1078,6 +1079,36 @@ def _parse_code_and_reference_from_pluscode(pluscode):
     reference = pluscode.replace(code, "")
 
     return (code, reference)
+
+
+def _is_coordinate_like(x):
+    """Test if an object appears to be a longitude, latitude coordinate. Doesn't test if the coordinate is
+    valid, only that it has the correct data structure.
+    """
+    if not isinstance(x, (list, tuple)) or len(x) != 2:
+        return False
+    for element in x:
+        if not isinstance(element, (int, float)):
+            return False
+    
+    return True
+
+
+def _convert_nested_lnglat_to_pluscode(arr):
+    """Take an arbitrarily nested array and recursively convert any element that looks like a coordinate into a
+    pluscode. Raise a ValueError if any non-coordinate elements are found.
+    """
+    converted = copy.deepcopy(arr)
+    
+    if not isinstance(arr, (list, tuple)):
+        raise ValueError("{} is not a coordinate or iterable of coordinates.".format(arr))
+    
+    if _is_coordinate_like(arr):
+        converted = _convert_lnglat_to_pluscode(arr[0], arr[1], 10)
+    else:
+        for i, element in enumerate(arr):
+            converted[i] = _convert_nested_lnglat_to_pluscode(element)
+    return converted
 
 
 def _lnglat_from_query(query, geocoder, **kwargs):

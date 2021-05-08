@@ -250,37 +250,38 @@ def MultiPointFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
 
 @_extend_staticmethod_eeGeometry()
 def PolygonFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in pluscodes]
+    return ee.Geometry.Polygon(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()
 def MultiPolygonFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [[_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in code_group] for code_group in pluscodes]
+    return ee.Geometry.MultiPolygon(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()
 def LineStringFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in pluscodes]
+    return ee.Geometry.LineString(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()
 def MultiLineStringFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [[_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in code_group] for code_group in pluscodes]
+    return ee.Geometry.MultiLineString(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()
 def LinearRingFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in pluscodes]
+    return ee.Geometry.LinearRing(coordinates)
 
 
 @_extend_staticmethod_eeGeometry()
 def RectangleFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
-
-
-@_extend_staticmethod_eeGeometry()
-def BBoxFromPlusCode(pluscodes, geocoder="nominatim", **kwargs):
-    raise NotImplementedError
+    coordinates = [_convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs) for pluscode in pluscodes]
+    return ee.Geometry.Rectangle(coordinates)
 
 @_extend_eeGeometry()
 def plusCode(self, codeLength=10):

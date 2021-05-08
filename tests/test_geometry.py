@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
     def test_PointFromFullPlusCode(self):
         """Test the PointFromPlusCode constructor with a full plus code"""
         code = "85FPQXGV+XH"
-        test = ee.Geometry.PointFromPlusCode(code, user_agent = 'eemont-feature-test')
+        test = ee.Geometry.PointFromPlusCode(code)
         self.assertIsInstance(test, ee.geometry.Geometry)
     
     def test_PointFromShortPlusCode(self):
@@ -41,7 +41,66 @@ class Test(unittest.TestCase):
             '85FR2222+22', 
             '85GR2222+22', 
         ]
-        test = ee.Geometry.MultiPointFromPlusCode(codes, user_agent = 'eemont-feature-test')
+        test = ee.Geometry.MultiPointFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+    
+    def test_PolygonFromPlusCode(self):
+        """Test the PolygonFromPlusCode constructor with a list of plus codes"""
+        codes = [
+            '85FQ2222+22', 
+            '85FR2222+22', 
+            '85GR2222+22', 
+        ]
+        test = ee.Geometry.PolygonFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
+    def test_MultiPolygonFromPlusCode(self):
+        """Test the MultiPolygonFromPlusCode constructor with a list of lists of plus codes"""
+        codes = [
+            ['85FQ2222+22', '85FR2222+22', '85GR2222+22'], 
+            ['85FP8PC2+G2', '85FPJF23+G4', '85FPMW2R+RP'],
+            ['85FPRJ5W+82', '85GP3M67+CP', '85GQ2R7C+38', '85FQC5X6+FJ', '85FPPXQJ+F3'],
+        ]
+        test = ee.Geometry.MultiPolygonFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
+    def test_LineStringFromPlusCode(self):
+        """Test the LineStringFromPlusCode constructor with a list of plus codes"""
+        codes = [
+            '85FQ2222+22', 
+            '85FR2222+22', 
+            '85GR2222+22', 
+        ]
+        test = ee.Geometry.LineStringFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
+    def test_MultiLineStringFromPlusCode(self):
+        """Test the MultiLineStringFromPlusCode constructor with a list of lists of plus codes"""
+        codes = [
+            ['85FQ2222+22', '85FR2222+22', '85GR2222+22'], 
+            ['85FP8PC2+G2', '85FPJF23+G4', '85FPMW2R+RP'],
+            ['85FPRJ5W+82', '85GP3M67+CP', '85GQ2R7C+38', '85FQC5X6+FJ', '85FPPXQJ+F3'],
+        ]
+        test = ee.Geometry.MultiLineStringFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
+    def test_LinearRingFromPlusCode(self):
+        """Test the LinearRingFromPlusCode constructor with a list of plus codes"""
+        codes = [
+            '85FQ2222+22', 
+            '85FR2222+22', 
+            '85GR2222+22', 
+        ]
+        test = ee.Geometry.LinearRingFromPlusCode(codes)
+        self.assertIsInstance(test, ee.geometry.Geometry)
+
+    def test_RectangleFromPlusCode(self):
+        """Test the RectangleFromPlusCode constructor with a list of plus codes"""
+        codes = [
+            '85FQ2222+22', 
+            '85GR2222+22', 
+        ]
+        test = ee.Geometry.RectangleFromPlusCode(codes)
         self.assertIsInstance(test, ee.geometry.Geometry)
 
     def test_pluscode_from_point(self):
@@ -52,15 +111,15 @@ class Test(unittest.TestCase):
 
     def test_pluscode_from_polygon(self):
         """Test that an ee.Geometry.Polygon returns a plus code list of correct length"""
-        poly = ee.Geometry.Polygon([
+        coords = [
             [-105, 40],
             [-105, 39],
             [-104, 39],
-            [-104, 40],
             [-105, 40],
-        ])
+        ]
+        poly = ee.Geometry.Polygon(coords)
         test = poly.plusCode()
-        self.assertEqual(len(test), 5)
+        self.assertEqual(len(test), len(coords))
 
 
 if __name__ == '__main__':

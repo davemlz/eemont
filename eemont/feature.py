@@ -159,7 +159,7 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 
 
 @_extend_eeFeature()
-def plusCode(self, codeLength=10):
+def plusCodes(self, codeLength=10):
     """Convert the coordinates of the geometry an ee.Feature to plus codes.
 
     Parameters
@@ -171,9 +171,8 @@ def plusCode(self, codeLength=10):
 
     Returns
     -------
-    str | list
-        The plus code coordinates of the feature's geometry. If the feature is a point, one plus code string will be
-        returned. Otherwise, a list of plus codes will be returned.
+    list
+        The coordinates of the geometry converted to plus codes.
 
     Examples
     --------
@@ -181,7 +180,7 @@ def plusCode(self, codeLength=10):
     >>> ee.Authenticate()
     >>> ee.Initialize()
     >>> pt = ee.Feature(ee.Geometry.Point([-105, 40]))
-    >>> pt.plusCode()
+    >>> pt.plusCodes()
     '85GQ2222+22'
     """
-    return self.geometry().plusCode()
+    return self.geometry().plusCodes()

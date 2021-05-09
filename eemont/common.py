@@ -1001,7 +1001,7 @@ def _load_openlocationcode():
 
 
 def _convert_lnglat_to_pluscode(lng, lat, codeLength):
-    """Take a longitude and latitude coordinate and convert it to a plus code.
+    """Take a single longitude and latitude coordinate and convert it to a plus code.
 
     Parameters
     ----------
@@ -1023,7 +1023,7 @@ def _convert_lnglat_to_pluscode(lng, lat, codeLength):
 
 
 def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
-    """Take a complete or shortened plus code and convert it to a longitude and latitude.
+    """Take a single complete or shortened plus code and convert it to a longitude and latitude.
 
     Parameters
     ----------
@@ -1094,7 +1094,7 @@ def _is_coordinate_like(x):
     return True
 
 
-def _convert_nested_lnglat_to_pluscode(arr):
+def _convert_lnglats_to_pluscodes(arr):
     """Take an arbitrarily nested array and recursively convert any element that looks like a coordinate into a
     pluscode. Raise a ValueError if any non-coordinate elements are found.
     """
@@ -1107,7 +1107,24 @@ def _convert_nested_lnglat_to_pluscode(arr):
         converted = _convert_lnglat_to_pluscode(arr[0], arr[1], 10)
     else:
         for i, element in enumerate(arr):
-            converted[i] = _convert_nested_lnglat_to_pluscode(element)
+            converted[i] = _convert_lnglats_to_pluscodes(element)
+    return converted
+
+
+def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
+    """Take an arbitrarily nested array and recursively convert any element that looks like a pluscode into a
+    lnglat tuple. Raise a ValueError if any non-coordinate elements are found.
+    """
+    converted = copy.deepcopy(arr)
+
+    if not isinstance(arr, (list, tuple, str)):
+        raise ValueError("{} is not a plus code or iterable of plus codes.".format(arr))
+    
+    if isinstance(arr, str):
+        converted = _convert_pluscode_to_lnglat(arr, geocoder, **kwargs)
+    else:
+        for i, element in enumerate(arr):
+            converted[i] = _convert_pluscodes_to_lnglats(element, geocoder, **kwargs)
     return converted
 
 

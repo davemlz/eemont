@@ -17,24 +17,18 @@ class Test(unittest.TestCase):
         test = ee.Feature.PointFromQuery('Colombia',user_agent = 'eemon-feature-test')
         self.assertIsInstance(test, ee.feature.Feature)
 
-    def test_pluscode_from_point(self):
-        """Test that a point ee.Feature returns a plus code string"""
-        pt = ee.Feature(ee.Geometry.Point([-105, 40]))
-        test = pt.plusCode()
-        self.assertIsInstance(test, str)
-
-    def test_pluscode_from_polygon(self):
-        """Test that a polygon ee.Feature returns a plus code list of correct length"""
+    def test_pluscodes_from_Polygon(self):
+        """Test that the plus codes returned by a Polygon feature can construct a new Polygon geometry"""
         coords = [
             [-105, 40],
             [-105, 39],
             [-104, 39],
             [-105, 40],
         ]
-
-        poly = ee.Feature(ee.Geometry.Polygon(coords))
-        test = poly.plusCode()
-        self.assertEqual(len(test), len(coords))
+        geom = ee.Geometry.Polygon(coords)
+        feature = ee.Feature(geom)
+        test = ee.Geometry.PolygonFromPlusCodes(feature.plusCodes())
+        self.assertIsInstance(test, ee.geometry.Geometry)
 
 
 if __name__ == '__main__':

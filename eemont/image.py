@@ -605,7 +605,7 @@ def index(
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
+    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------
@@ -752,7 +752,7 @@ def spectralIndices(
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices>`.
+    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------

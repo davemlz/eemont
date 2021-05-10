@@ -315,6 +315,13 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
         "kGG": _get_kernel_image(img, lookup, kernel, sigma, "G", "G"),
         "kGR": _get_kernel_image(img, lookup, kernel, sigma, "G", "R"),
         "kGB": _get_kernel_image(img, lookup, kernel, sigma, "G", "B"),
+        "kBB": _get_kernel_image(img, lookup, kernel, sigma, "B", "B"),
+        "kBR": _get_kernel_image(img, lookup, kernel, sigma, "B", "R"),
+        "kBL": _get_kernel_image(img, lookup, kernel, sigma, "B", "L"),
+        "kRR": _get_kernel_image(img, lookup, kernel, sigma, "R", "R"),
+        "kRB": _get_kernel_image(img, lookup, kernel, sigma, "R", "B"),
+        "kRL": _get_kernel_image(img, lookup, kernel, sigma, "R", "L"),
+        "kLL": _get_kernel_image(img, lookup, kernel, sigma, "L", "L"),
     }
 
     return kernelParameters

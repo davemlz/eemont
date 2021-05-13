@@ -111,7 +111,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "g * (N - R) / (N + C1 * R - C2 * B + L)",
             "long_name": "Enhanced Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=16",
+            "reference": "https://doi.org/10.1016/S0034-4257(96)00112-5",
             "short_name": "EVI",
             "type": "vegetation"
         },
@@ -386,6 +386,20 @@
             "short_name": "NLI",
             "type": "vegetation"
         },
+        "NMDI": {
+            "bands": [
+                "N",
+                "S1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(N - (S1 - S2))/(N + (S1 - S2))",
+            "long_name": "Normalized Multi\u2010band Drought Index",
+            "reference": "https://doi.org/10.1029/2007GL031021",
+            "short_name": "NMDI",
+            "type": "drought"
+        },
         "OSAVI": {
             "bands": [
                 "N",
@@ -479,7 +493,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(G - R) / (G + R - B)",
             "long_name": "Visible Atmospherically Resistant Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=356",
+            "reference": "https://doi.org/10.1016/S0034-4257(01)00289-9",
             "short_name": "VARI",
             "type": "vegetation"
         },

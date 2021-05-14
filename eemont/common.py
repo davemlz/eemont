@@ -327,7 +327,7 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
+def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -344,6 +344,8 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    cexp : float
+        c exponent for the OCVI.
     kernel : str
         Kernel used for kernel indices.
     sigma : str | float
@@ -374,6 +376,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
         "C1": float(C1),
         "C2": float(C2),
         "L": float(L),
+        "cexp": float(cexp),
         "p": float(p),
         "c": float(c),
     }

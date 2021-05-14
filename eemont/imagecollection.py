@@ -364,6 +364,7 @@ def index(
     C1=6.0,
     C2=7.5,
     L=1.0,
+    cexp=1.16,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -441,6 +442,8 @@ def index(
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    cexp : float
+        c exponent for the OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -504,7 +507,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()
@@ -515,6 +518,7 @@ def spectralIndices(
     C1=6.0,
     C2=7.5,
     L=1.0,
+    cexp=1.16,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -588,6 +592,8 @@ def spectralIndices(
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    cexp : float
+        c exponent for the OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -644,7 +650,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()

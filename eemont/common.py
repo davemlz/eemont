@@ -346,6 +346,8 @@ def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float
         Exponent used for OCVI.
+    nexp : float
+        Exponent used for GDVI.
     kernel : str
         Kernel used for kernel indices.
     sigma : str | float
@@ -377,6 +379,7 @@ def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
         "C2": float(C2),
         "L": float(L),
         "cexp": float(cexp),
+        "nexp": float(nexp),
         "p": float(p),
         "c": float(c),
     }

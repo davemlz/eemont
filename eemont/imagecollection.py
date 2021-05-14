@@ -365,6 +365,7 @@ def index(
     C2=7.5,
     L=1.0,
     cexp=1.16,
+    nexp=2.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -444,6 +445,8 @@ def index(
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float, default = 1.16
         Exponent used for OCVI.
+    nexp : float, default = 2.0
+        Exponent used for GDVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -507,7 +510,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, nexp, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()
@@ -519,6 +522,7 @@ def spectralIndices(
     C2=7.5,
     L=1.0,
     cexp=1.16,
+    nexp=2.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -594,6 +598,8 @@ def spectralIndices(
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float, default = 1.16
         Exponent used for OCVI.
+    nexp : float, default = 2.0
+        Exponent used for GDVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -650,7 +656,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, nexp, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()

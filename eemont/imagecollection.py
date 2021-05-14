@@ -442,7 +442,7 @@ def index(
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
-    cexp : float
+    cexp : float, default = 1.16
         c exponent for the OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
@@ -592,7 +592,7 @@ def spectralIndices(
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
-    cexp : float
+    cexp : float, default = 1.16
         c exponent for the OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n

@@ -345,7 +345,7 @@ def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
     L : float
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float
-        c exponent for the OCVI.
+        Exponent used for OCVI.
     kernel : str
         Kernel used for kernel indices.
     sigma : str | float

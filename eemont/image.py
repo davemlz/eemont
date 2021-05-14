@@ -670,7 +670,7 @@ def index(
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float, default = 1.16
-        c exponent for the OCVI.
+        Exponent used for OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -820,7 +820,7 @@ def spectralIndices(
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float, default = 1.16
-        c exponent for the OCVI.
+        Exponent used for OCVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:

@@ -367,6 +367,8 @@ def index(
     cexp=1.16,
     nexp=2.0,
     alpha=0.1,
+    slope=1.0,
+    intercept=0.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -450,6 +452,10 @@ def index(
         Exponent used for GDVI.
     alpha : float, default = 0.1
         Weighting coefficient  used for WDRVI.
+    slope : float, default = 1.0
+        Soil line slope.
+    intercept : float, default = 0.0
+        Soil line intercept.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -513,7 +519,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()
@@ -527,6 +533,8 @@ def spectralIndices(
     cexp=1.16,
     nexp=2.0,
     alpha=0.1,
+    slope=1.0,
+    intercept=0.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -606,6 +614,10 @@ def spectralIndices(
         Exponent used for GDVI.
     alpha : float, default = 0.1
         Weighting coefficient  used for WDRVI.
+    slope : float, default = 1.0
+        Soil line slope.
+    intercept : float, default = 0.0
+        Soil line intercept.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -662,7 +674,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, kernel, sigma, p, c, online)
+    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
 
 
 @_extend_eeImageCollection()

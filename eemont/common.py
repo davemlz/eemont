@@ -327,7 +327,7 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
+def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, kernel, sigma, p, c, online):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -348,6 +348,8 @@ def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
         Exponent used for OCVI.
     nexp : float
         Exponent used for GDVI.
+    alpha : float
+        Weighting coefficient  used for WDRVI.
     kernel : str
         Kernel used for kernel indices.
     sigma : str | float
@@ -380,6 +382,7 @@ def _index(self, index, G, C1, C2, L, cexp, kernel, sigma, p, c, online):
         "L": float(L),
         "cexp": float(cexp),
         "nexp": float(nexp),
+        "alpha": float(alpha),
         "p": float(p),
         "c": float(c),
     }

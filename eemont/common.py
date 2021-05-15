@@ -387,8 +387,8 @@ def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kerne
         "cexp": float(cexp),
         "nexp": float(nexp),
         "alpha": float(alpha),
-        "slope": float(slope),
-        "intercept": float(intercept),
+        "sla": float(slope),
+        "slb": float(intercept),
         "p": float(p),
         "c": float(c),
     }
@@ -399,7 +399,7 @@ def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kerne
     if not isinstance(index, list):
         if index == "all":
             index = list(spectralIndices.keys())
-        elif index in ["vegetation", "burn", "water", "snow", "drought", "kernel"]:
+        elif index in ["vegetation", "burn", "water", "snow", "drought", "urban","kernel"]:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]["type"] == index:

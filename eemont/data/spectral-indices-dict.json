@@ -14,6 +14,21 @@
             "short_name": "ARVI",
             "type": "vegetation"
         },
+        "ATSAVI": {
+            "bands": [
+                "sla",
+                "N",
+                "R",
+                "slb"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "sla * (N - sla * R - slb) / (sla * N + R - sla * slb + 0.08 * (1 + sla ** 2.0))",
+            "long_name": "Adjusted Transformed Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(91)90009-U",
+            "short_name": "ATSAVI",
+            "type": "vegetation"
+        },
         "BAI": {
             "bands": [
                 "R",
@@ -222,7 +237,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))",
             "long_name": "Global Environment Monitoring Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=25",
+            "reference": "http://dx.doi.org/10.1007/bf00031911",
             "short_name": "GEMI",
             "type": "vegetation"
         },
@@ -276,7 +291,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))",
             "long_name": "Global Vegetation Moisture Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=372",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00037-8",
             "short_name": "GVMI",
             "type": "vegetation"
         },
@@ -344,7 +359,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N - S2)/(N + S2)",
             "long_name": "Modified Normalized Difference Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=245",
+            "reference": "https://doi.org/10.1080/014311697216810",
             "short_name": "MNDVI",
             "type": "vegetation"
         },
@@ -686,6 +701,21 @@
             "short_name": "SAVI",
             "type": "vegetation"
         },
+        "SAVI2": {
+            "bands": [
+                "N",
+                "R",
+                "slb",
+                "sla"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "N / (R + (slb / sla))",
+            "long_name": "Soil-Adjusted Vegetation Index 2",
+            "reference": "https://doi.org/10.1080/01431169008955053",
+            "short_name": "SAVI2",
+            "type": "vegetation"
+        },
         "SAVIT": {
             "bands": [
                 "L",
@@ -726,6 +756,49 @@
             "long_name": "Transformed Chlorophyll Absorption in Reflectance Index",
             "reference": "https://doi.org/10.1016/S0034-4257(02)00018-4",
             "short_name": "TCARI",
+            "type": "vegetation"
+        },
+        "TCI": {
+            "bands": [
+                "RE1",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "1.2 * (RE1 - G) - 1.5 * (R - G) * (RE1 / R) ** 0.5",
+            "long_name": "Triangular Chlorophyll Index",
+            "reference": "http://dx.doi.org/10.1109/TGRS.2007.904836",
+            "short_name": "TCI",
+            "type": "vegetation"
+        },
+        "TGI": {
+            "bands": [
+                "R",
+                "G",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "- 0.5 * (190 * (R - G) - 120 * (R - B))",
+            "long_name": "Triangular Greenness Index",
+            "reference": "http://dx.doi.org/10.1016/j.jag.2012.07.020",
+            "short_name": "TGI",
+            "type": "vegetation"
+        },
+        "TSAVI": {
+            "bands": [
+                "sla",
+                "N",
+                "R",
+                "slb"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "sla * (N - sla * R - slb) / (sla * N + R - sla * slb)",
+            "long_name": "Transformed Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1109/IGARSS.1989.576128",
+            "short_name": "TSAVI",
             "type": "vegetation"
         },
         "TVI": {
@@ -773,12 +846,12 @@
         "WDVI": {
             "bands": [
                 "N",
-                "slope",
+                "sla",
                 "R"
             ],
             "contributor": "https://github.com/davemlz",
             "date_of_addition": "2021-05-14",
-            "formula": "N - slope * R",
+            "formula": "N - sla * R",
             "long_name": "Weighted Difference Vegetation Index",
             "reference": "https://doi.org/10.1016/0034-4257(89)90076-X",
             "short_name": "WDVI",

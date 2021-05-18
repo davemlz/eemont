@@ -318,12 +318,19 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
         "kGG": _get_kernel_image(img, lookup, kernel, sigma, "G", "G"),
         "kGR": _get_kernel_image(img, lookup, kernel, sigma, "G", "R"),
         "kGB": _get_kernel_image(img, lookup, kernel, sigma, "G", "B"),
+        "kBB": _get_kernel_image(img, lookup, kernel, sigma, "B", "B"),
+        "kBR": _get_kernel_image(img, lookup, kernel, sigma, "B", "R"),
+        "kBL": _get_kernel_image(img, lookup, kernel, sigma, "B", "L"),
+        "kRR": _get_kernel_image(img, lookup, kernel, sigma, "R", "R"),
+        "kRB": _get_kernel_image(img, lookup, kernel, sigma, "R", "B"),
+        "kRL": _get_kernel_image(img, lookup, kernel, sigma, "R", "L"),
+        "kLL": _get_kernel_image(img, lookup, kernel, sigma, "L", "L"),
     }
 
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
+def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -340,6 +347,16 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
         Coefficient 2 for the aerosol resistance term. Used just for index = 'EVI'.
     L : float
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
+    cexp : float
+        Exponent used for OCVI.
+    nexp : float
+        Exponent used for GDVI.
+    alpha : float
+        Weighting coefficient  used for WDRVI.
+    slope : float
+        Soil line slope.
+    intercept : float
+        Soil line intercept.
     kernel : str
         Kernel used for kernel indices.
     sigma : str | float
@@ -370,6 +387,11 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
         "C1": float(C1),
         "C2": float(C2),
         "L": float(L),
+        "cexp": float(cexp),
+        "nexp": float(nexp),
+        "alpha": float(alpha),
+        "sla": float(slope),
+        "slb": float(intercept),
         "p": float(p),
         "c": float(c),
     }
@@ -380,7 +402,7 @@ def _index(self, index, G, C1, C2, L, kernel, sigma, p, c, online):
     if not isinstance(index, list):
         if index == "all":
             index = list(spectralIndices.keys())
-        elif index in ["vegetation", "burn", "water", "snow", "drought", "kernel"]:
+        elif index in ["vegetation", "burn", "water", "snow", "drought", "urban","kernel"]:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]["type"] == index:

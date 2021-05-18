@@ -1,5 +1,34 @@
 {
     "SpectralIndices": {
+        "ARVI": {
+            "bands": [
+                "N",
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(N - (R - (R - B))) / (N + (R - (R - B)))",
+            "long_name": "Atmospherically Resistant Vegetation Index",
+            "reference": "https://doi.org/10.1109/36.134076",
+            "short_name": "ARVI",
+            "type": "vegetation"
+        },
+        "ATSAVI": {
+            "bands": [
+                "sla",
+                "N",
+                "R",
+                "slb"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "sla * (N - sla * R - slb) / (sla * N + R - sla * slb + 0.08 * (1 + sla ** 2.0))",
+            "long_name": "Adjusted Transformed Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(91)90009-U",
+            "short_name": "ATSAVI",
+            "type": "vegetation"
+        },
         "BAI": {
             "bands": [
                 "R",
@@ -51,8 +80,21 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N / G) - 1.0",
             "long_name": "Chlorophyll Index Green",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=391",
+            "reference": "https://doi.org/10.1078/0176-1617-00887",
             "short_name": "CIG",
+            "type": "vegetation"
+        },
+        "CIRE": {
+            "bands": [
+                "N",
+                "RE1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "(N / RE1) - 1",
+            "long_name": "Chlorophyll Index Red Edge",
+            "reference": "https://doi.org/10.1078/0176-1617-00887",
+            "short_name": "CIRE",
             "type": "vegetation"
         },
         "CSIT": {
@@ -79,8 +121,21 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N * R) / (G ** 2.0)",
             "long_name": "Chlorophyll Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=391",
+            "reference": "https://www.cabdirect.org/cabdirect/abstract/20073176046",
             "short_name": "CVI",
+            "type": "vegetation"
+        },
+        "DVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "N - R",
+            "long_name": "Difference Vegetation Index",
+            "reference": "https://doi.org/10.2307/1936256",
+            "short_name": "DVI",
             "type": "vegetation"
         },
         "EVI": {
@@ -97,7 +152,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "g * (N - R) / (N + C1 * R - C2 * B + L)",
             "long_name": "Enhanced Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=16",
+            "reference": "https://doi.org/10.1016/S0034-4257(96)00112-5",
             "short_name": "EVI",
             "type": "vegetation"
         },
@@ -114,6 +169,20 @@
             "long_name": "Two-Band Enhanced Vegetation Index",
             "reference": "https://doi.org/10.1016/j.rse.2008.06.006",
             "short_name": "EVI2",
+            "type": "vegetation"
+        },
+        "ExG": {
+            "bands": [
+                "G",
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "2 * G - R - B",
+            "long_name": "Excess Green Index",
+            "reference": "https://doi.org/10.13031/2013.27838",
+            "short_name": "ExG",
             "type": "vegetation"
         },
         "GARI": {
@@ -145,6 +214,20 @@
             "short_name": "GBNDVI",
             "type": "vegetation"
         },
+        "GDVI": {
+            "bands": [
+                "N",
+                "nexp",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "((N ** nexp) - (R ** nexp)) / ((N ** nexp) + (R ** nexp))",
+            "long_name": "Generalized Difference Vegetation Index",
+            "reference": "https://doi.org/10.3390/rs6021211",
+            "short_name": "GDVI",
+            "type": "vegetation"
+        },
         "GEMI": {
             "bands": [
                 "N",
@@ -154,7 +237,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "((2.0*((N ** 2.0)-(R ** 2.0)) + 1.5*N + 0.5*R)/(N + R + 0.5))*(1.0 - 0.25*((2.0 * ((N ** 2.0) - (R ** 2)) + 1.5 * N + 0.5 * R)/(N + R + 0.5)))-((R - 0.125)/(1 - R))",
             "long_name": "Global Environment Monitoring Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=25",
+            "reference": "http://dx.doi.org/10.1007/bf00031911",
             "short_name": "GEMI",
             "type": "vegetation"
         },
@@ -168,7 +251,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(2.0 * G - R - B) / (2.0 * G + R + B)",
             "long_name": "Green Leaf Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=375",
+            "reference": "http://dx.doi.org/10.1080/10106040108542184",
             "short_name": "GLI",
             "type": "vegetation"
         },
@@ -181,7 +264,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N - G)/(N + G)",
             "long_name": "Green Normalized Difference Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=401",
+            "reference": "https://doi.org/10.1016/S0034-4257(96)00072-7",
             "short_name": "GNDVI",
             "type": "vegetation"
         },
@@ -208,8 +291,63 @@
             "date_of_addition": "2021-04-07",
             "formula": "((N + 0.1) - (S2 + 0.02)) / ((N + 0.1) + (S2 + 0.02))",
             "long_name": "Global Vegetation Moisture Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=372",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00037-8",
             "short_name": "GVMI",
+            "type": "vegetation"
+        },
+        "MCARI": {
+            "bands": [
+                "RE1",
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "((RE1 - R) - 0.2 * (RE1 - G)) * (RE1 / R)",
+            "long_name": "Modified Chlorophyll Absorption in Reflectance Index",
+            "reference": "http://dx.doi.org/10.1016/S0034-4257(00)00113-9",
+            "short_name": "MCARI",
+            "type": "vegetation"
+        },
+        "MCARI1": {
+            "bands": [
+                "N",
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "1.2 * (2.5 * (N - R) - 1.3 * (N - G))",
+            "long_name": "Modified Chlorophyll Absorption in Reflectance Index 1",
+            "reference": "https://doi.org/10.1016/j.rse.2003.12.013",
+            "short_name": "MCARI1",
+            "type": "vegetation"
+        },
+        "MCARI2": {
+            "bands": [
+                "N",
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(1.5 * (2.5 * (N - R) - 1.3 * (N - G))) / ((((2.0 * N + 1) ** 2) - (6.0 * N - 5 * (R ** 0.5)) - 0.5) ** 0.5)",
+            "long_name": "Modified Chlorophyll Absorption in Reflectance Index 2",
+            "reference": "https://doi.org/10.1016/j.rse.2003.12.013",
+            "short_name": "MCARI2",
+            "type": "vegetation"
+        },
+        "MGRVI": {
+            "bands": [
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(G ** 2.0 - R ** 2.0) / (G ** 2.0 + R ** 2.0)",
+            "long_name": "Modified Green Red Vegetation Index",
+            "reference": "https://doi.org/10.1016/j.jag.2015.02.012",
+            "short_name": "MGRVI",
             "type": "vegetation"
         },
         "MNDVI": {
@@ -221,7 +359,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N - S2)/(N + S2)",
             "long_name": "Modified Normalized Difference Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=245",
+            "reference": "https://doi.org/10.1080/014311697216810",
             "short_name": "MNDVI",
             "type": "vegetation"
         },
@@ -237,6 +375,88 @@
             "reference": "https://doi.org/10.1080/01431160600589179",
             "short_name": "MNDWI",
             "type": "water"
+        },
+        "MNLI": {
+            "bands": [
+                "L",
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(1 + L)*((N ** 2) - R)/((N ** 2) + R + L)",
+            "long_name": "Modified Non-Linear Vegetation Index",
+            "reference": "https://doi.org/10.1109/TGRS.2003.812910",
+            "short_name": "MNLI",
+            "type": "vegetation"
+        },
+        "MSAVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "0.5 * (2.0 * N + 1 - (((2 * N + 1) ** 2) - 8 * (N - R)) ** 0.5)",
+            "long_name": "Modified Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(94)90134-1",
+            "short_name": "MSAVI",
+            "type": "vegetation"
+        },
+        "MSR": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(N / R - 1) / ((N / R + 1) ** 0.5)",
+            "long_name": "Modified Simple Ratio",
+            "reference": "https://doi.org/10.1080/07038992.1996.10855178",
+            "short_name": "MSR",
+            "type": "vegetation"
+        },
+        "MTCI": {
+            "bands": [
+                "RE2",
+                "RE1",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "(RE2 - RE1) / (RE1 - R)",
+            "long_name": "MERIS Terrestrial Chlorophyll Index",
+            "reference": "https://doi.org/10.1080/0143116042000274015",
+            "short_name": "MTCI",
+            "type": "vegetation"
+        },
+        "MTVI1": {
+            "bands": [
+                "N",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "1.2 * (1.2 * (N - G) - 2.5 * (R - G))",
+            "long_name": "Modified Triangular Vegetation Index 1",
+            "reference": "https://doi.org/10.1016/j.rse.2003.12.013",
+            "short_name": "MTVI1",
+            "type": "vegetation"
+        },
+        "MTVI2": {
+            "bands": [
+                "N",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(1.5 * (1.2 * (N - G) - 2.5 * (R - G))) / ((((2.0 * N + 1) ** 2) - (6.0 * N - 5 * (R ** 0.5)) - 0.5) ** 0.5)",
+            "long_name": "Modified Triangular Vegetation Index 2",
+            "reference": "https://doi.org/10.1016/j.rse.2003.12.013",
+            "short_name": "MTVI2",
+            "type": "vegetation"
         },
         "NBR": {
             "bands": [
@@ -265,6 +485,19 @@
             "short_name": "NBRT",
             "type": "burn"
         },
+        "NDBI": {
+            "bands": [
+                "S1",
+                "N"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(S1 - N) / (S1 + N)",
+            "long_name": "Normalized Difference Built-Up Index",
+            "reference": "http://dx.doi.org/10.1080/01431160304987",
+            "short_name": "NDBI",
+            "type": "urban"
+        },
         "NDDI": {
             "bands": [
                 "N",
@@ -278,6 +511,19 @@
             "reference": "https://doi.org/10.1029/2006GL029127",
             "short_name": "NDDI",
             "type": "drought"
+        },
+        "NDREI": {
+            "bands": [
+                "N",
+                "RE1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "(N - RE1) / (N + RE1)",
+            "long_name": "Normalized Difference Red Edge Index",
+            "reference": "https://doi.org/10.1016/1011-1344(93)06963-4",
+            "short_name": "NDREI",
+            "type": "vegetation"
         },
         "NDSI": {
             "bands": [
@@ -301,7 +547,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N - R)/(N + R)",
             "long_name": "Normalized Difference Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=58",
+            "reference": "https://doi.org/10.1016/0034-4257(79)90013-0",
             "short_name": "NDVI",
             "type": "vegetation"
         },
@@ -341,8 +587,76 @@
             "date_of_addition": "2021-04-07",
             "formula": "(G - R) / (G + R)",
             "long_name": "Normalized Green Red Difference Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=390",
+            "reference": "https://doi.org/10.1016/0034-4257(79)90013-0",
             "short_name": "NGRDI",
+            "type": "vegetation"
+        },
+        "NLI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "((N ** 2) - R)/((N ** 2) + R)",
+            "long_name": "Non-Linear Vegetation Index",
+            "reference": "https://doi.org/10.1080/02757259409532252",
+            "short_name": "NLI",
+            "type": "vegetation"
+        },
+        "NMDI": {
+            "bands": [
+                "N",
+                "S1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(N - (S1 - S2))/(N + (S1 - S2))",
+            "long_name": "Normalized Multi\u2010band Drought Index",
+            "reference": "https://doi.org/10.1029/2007GL031021",
+            "short_name": "NMDI",
+            "type": "drought"
+        },
+        "OCVI": {
+            "bands": [
+                "N",
+                "G",
+                "R",
+                "cexp"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "(N / G) * (R / G) ** cexp",
+            "long_name": "Optimized Chlorophyll Vegetation Index",
+            "reference": "http://dx.doi.org/10.1007/s11119-008-9075-z",
+            "short_name": "OCVI",
+            "type": "vegetation"
+        },
+        "OSAVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(N - R) / (N + R + 0.16)",
+            "long_name": "Optimized Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(95)00186-7",
+            "short_name": "OSAVI",
+            "type": "vegetation"
+        },
+        "RDVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(N - R) / ((N + R) ** 0.5)",
+            "long_name": "Renormalized Difference Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(94)00114-3",
+            "short_name": "RDVI",
             "type": "vegetation"
         },
         "RVI": {
@@ -354,8 +668,23 @@
             "date_of_addition": "2021-04-07",
             "formula": "N / R",
             "long_name": "Ratio Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=72",
+            "reference": "https://doi.org/10.2134/agronj1968.00021962006000060016x",
             "short_name": "RVI",
+            "type": "vegetation"
+        },
+        "SARVI": {
+            "bands": [
+                "L",
+                "N",
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-11",
+            "formula": "(1 + L)*(N - (R - (R - B))) / (N + (R - (R - B)) + L)",
+            "long_name": "Soil Adjusted and Atmospherically Resistant Vegetation Index",
+            "reference": "https://doi.org/10.1109/36.134076",
+            "short_name": "SARVI",
             "type": "vegetation"
         },
         "SAVI": {
@@ -368,8 +697,23 @@
             "date_of_addition": "2021-04-07",
             "formula": "(1.0 + L) * (N - R) / (N + R + L)",
             "long_name": "Soil-Adjusted Vegetation Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=87",
+            "reference": "https://doi.org/10.1016/0034-4257(88)90106-X",
             "short_name": "SAVI",
+            "type": "vegetation"
+        },
+        "SAVI2": {
+            "bands": [
+                "N",
+                "R",
+                "slb",
+                "sla"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "N / (R + (slb / sla))",
+            "long_name": "Soil-Adjusted Vegetation Index 2",
+            "reference": "https://doi.org/10.1080/01431169008955053",
+            "short_name": "SAVI2",
             "type": "vegetation"
         },
         "SAVIT": {
@@ -400,6 +744,77 @@
             "short_name": "SeLI",
             "type": "vegetation"
         },
+        "TCARI": {
+            "bands": [
+                "RE1",
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-13",
+            "formula": "3 * ((RE1 - R) - 0.2 * (RE1 - G) * (RE1 / R))",
+            "long_name": "Transformed Chlorophyll Absorption in Reflectance Index",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00018-4",
+            "short_name": "TCARI",
+            "type": "vegetation"
+        },
+        "TCI": {
+            "bands": [
+                "RE1",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "1.2 * (RE1 - G) - 1.5 * (R - G) * (RE1 / R) ** 0.5",
+            "long_name": "Triangular Chlorophyll Index",
+            "reference": "http://dx.doi.org/10.1109/TGRS.2007.904836",
+            "short_name": "TCI",
+            "type": "vegetation"
+        },
+        "TGI": {
+            "bands": [
+                "R",
+                "G",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "- 0.5 * (190 * (R - G) - 120 * (R - B))",
+            "long_name": "Triangular Greenness Index",
+            "reference": "http://dx.doi.org/10.1016/j.jag.2012.07.020",
+            "short_name": "TGI",
+            "type": "vegetation"
+        },
+        "TSAVI": {
+            "bands": [
+                "sla",
+                "N",
+                "R",
+                "slb"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "sla * (N - sla * R - slb) / (sla * N + R - sla * slb)",
+            "long_name": "Transformed Soil-Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.1109/IGARSS.1989.576128",
+            "short_name": "TSAVI",
+            "type": "vegetation"
+        },
+        "TVI": {
+            "bands": [
+                "N",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "0.5 * (120 * (N - G) - 200 * (R - G))",
+            "long_name": "Triangular Vegetation Index",
+            "reference": "http://dx.doi.org/10.1016/S0034-4257(00)00197-8",
+            "short_name": "TVI",
+            "type": "vegetation"
+        },
         "VARI": {
             "bands": [
                 "G",
@@ -410,8 +825,36 @@
             "date_of_addition": "2021-04-07",
             "formula": "(G - R) / (G + R - B)",
             "long_name": "Visible Atmospherically Resistant Index",
-            "reference": "https://www.indexdatabase.de/db/i-single.php?id=356",
+            "reference": "https://doi.org/10.1016/S0034-4257(01)00289-9",
             "short_name": "VARI",
+            "type": "vegetation"
+        },
+        "WDRVI": {
+            "bands": [
+                "alpha",
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "(alpha * N - R) / (alpha * N + R)",
+            "long_name": "Wide Dynamic Range Vegetation Index",
+            "reference": "https://doi.org/10.1078/0176-1617-01176",
+            "short_name": "WDRVI",
+            "type": "vegetation"
+        },
+        "WDVI": {
+            "bands": [
+                "N",
+                "sla",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-05-14",
+            "formula": "N - sla * R",
+            "long_name": "Weighted Difference Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(89)90076-X",
+            "short_name": "WDVI",
             "type": "vegetation"
         },
         "kEVI": {
@@ -419,14 +862,20 @@
                 "g",
                 "kNN",
                 "kNR",
-                "C1",
+                "kRR",
                 "C2",
+                "kBB",
+                "kBL",
                 "kNB",
-                "kNL"
+                "C1",
+                "kBR",
+                "kLL",
+                "kNL",
+                "kRL"
             ],
             "contributor": "https://github.com/davemlz",
-            "date_of_addition": "2021-04-07",
-            "formula": "g * (kNN - kNR) / (kNN + C1 * kNR - C2 * kNB + kNL)",
+            "date_of_addition": "2021-05-10",
+            "formula": "g * (kNN - 2*kNR + kRR) / ((C2 ** 2)*kBB - 2*C2*kBL - 2*C2*kNB - 2*C1*C2*kBR + kLL + 2*kNL + 2*C1*kRL + kNN + 2*C1*kNR + (C1 ** 2)*kRR)",
             "long_name": "Kernel Enhanced Vegetation Index",
             "reference": "https://doi.org/10.1126/sciadv.abc7447",
             "short_name": "kEVI",
@@ -462,11 +911,14 @@
             "bands": [
                 "kGG",
                 "kGR",
-                "kGB"
+                "kRR",
+                "kBB",
+                "kGB",
+                "kRB"
             ],
             "contributor": "https://github.com/davemlz",
-            "date_of_addition": "2021-04-07",
-            "formula": "(kGG - kGR) / (kGG + kGR - kGB)",
+            "date_of_addition": "2021-05-10",
+            "formula": "(kGG - 2*kGR + kRR) / (kBB - 2*kGB - 2*kRB + kGG + 2*kGR + kRR)",
             "long_name": "Kernel Visible Atmospherically Resistant Index",
             "reference": "https://doi.org/10.1126/sciadv.abc7447",
             "short_name": "kVARI",

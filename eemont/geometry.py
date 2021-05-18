@@ -310,5 +310,5 @@ def plusCodes(self, codeLength=10):
     '85GQ2222+22'
     """
     coordinates = self.coordinates().getInfo()
-    plus_codes = _convert_lnglats_to_pluscodes(coordinates)
+    plus_codes = _convert_lnglats_to_pluscodes(coordinates, codeLength)
     return plus_codes

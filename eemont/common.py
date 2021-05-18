@@ -1116,7 +1116,7 @@ def _is_coordinate_like(x):
     return True
 
 
-def _convert_lnglats_to_pluscodes(arr):
+def _convert_lnglats_to_pluscodes(arr, code_length):
     """Take an arbitrarily nested array and recursively convert any element that looks like a coordinate into a
     pluscode. Raise a ValueError if any non-coordinate elements are found.
     """
@@ -1126,10 +1126,10 @@ def _convert_lnglats_to_pluscodes(arr):
         raise ValueError("{} is not a coordinate or iterable of coordinates.".format(arr))
     
     if _is_coordinate_like(arr):
-        converted = _convert_lnglat_to_pluscode(arr[0], arr[1], 10)
+        converted = _convert_lnglat_to_pluscode(arr[0], arr[1], code_length)
     else:
         for i, element in enumerate(arr):
-            converted[i] = _convert_lnglats_to_pluscodes(element)
+            converted[i] = _convert_lnglats_to_pluscodes(element, code_length)
     return converted
 
 

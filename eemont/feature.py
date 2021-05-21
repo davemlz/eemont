@@ -3,6 +3,8 @@ import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
 from .extending import extend
+from .common import _retrieve_location
+from .common import _lnglat_from_location
 
 
 @extend(ee.feature.Feature, static=True)
@@ -56,13 +58,9 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
       'place_id': 17287419,
       'type': 'volcano'}}
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location == None:
-        raise Exception("No matches were found for your query!")
-    else:
-        geometry = ee.Geometry.Point([location.longitude, location.latitude])
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+    geometry = ee.Geometry.Point(_lnglat_from_location(location))
+
     return ee.Feature(geometry, location.raw)
 
 
@@ -124,26 +122,22 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
       'place_id': 259216862,
       'type': 'administrative'}}
     """
-    if geocoder in ["nominatim", "arcgis"]:
-        cls = get_geocoder_for_service(geocoder)
+    if geocoder not in ["nominatim", "arcgis"]:
+        raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
+
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+
+    if geocoder == "nominatim":
+        BBox = location.raw["boundingbox"]
+        geometry = ee.Geometry.BBox(
+            float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+        )
+        return ee.Feature(geometry, location.raw)
+    elif geocoder == "arcgis":
+        BBox = location.raw["extent"]
+        geometry = ee.Geometry.BBox(
+            BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
+        )
+        return ee.Feature(geometry, location.raw)
     else:
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        if geocoder == "nominatim":
-            BBox = location.raw["boundingbox"]
-            geometry = ee.Geometry.BBox(
-                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
-            )
-            return ee.Feature(geometry, location.raw)
-        elif geocoder == "arcgis":
-            BBox = location.raw["extent"]
-            geometry = ee.Geometry.BBox(
-                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
-            )
-            return ee.Feature(geometry, location.raw)
-        else:
-            raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')

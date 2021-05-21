@@ -3,6 +3,7 @@ import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
 from .extending import extend
+from .common import _retrieve_location
 
 
 @extend(ee.featurecollection.FeatureCollection, static=True)
@@ -85,15 +86,13 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
         'type': 'water'}},
       ...]}
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    locations = geolocator.geocode(query, exactly_one=False)
-    if locations is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        features = []
-        for location in locations:
-            geometry = ee.Geometry.Point([location.longitude, location.latitude])
-            feature = ee.Feature(geometry, location.raw)
-            features.append(feature)
-        return ee.FeatureCollection(features)
+    locations = _retrieve_location(query, geocoder, False, **kwargs)
+
+    features = []
+
+    for location in locations:
+        geometry = ee.Geometry.Point([location.longitude, location.latitude])
+        feature = ee.Feature(geometry, location.raw)
+        features.append(feature)
+
+    return ee.FeatureCollection(features)

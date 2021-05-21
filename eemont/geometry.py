@@ -2,6 +2,8 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .extending import extend
+from .common import _retrieve_location
+from .common import _lnglat_from_location
 
 
 @extend(ee.geometry.Geometry, static=True)
@@ -71,27 +73,21 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    if geocoder in ["nominatim", "arcgis"]:
-        cls = get_geocoder_for_service(geocoder)
+    if geocoder not in ["nominatim", "arcgis"]:
+        raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
+
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+
+    if geocoder == "nominatim":
+        BBox = location.raw["boundingbox"]
+        return ee.Geometry.BBox(
+            float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+        )
+    elif geocoder == "arcgis":
+        BBox = location.raw["extent"]
+        return ee.Geometry.BBox(BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"])
     else:
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        if geocoder == "nominatim":
-            BBox = location.raw["boundingbox"]
-            return ee.Geometry.BBox(
-                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
-            )
-        elif geocoder == "arcgis":
-            BBox = location.raw["extent"]
-            return ee.Geometry.BBox(
-                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
-            )
-        else:
-            raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
 
 @extend(ee.geometry.Geometry, static=True)
@@ -142,13 +138,8 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        return ee.Geometry.Point([location.longitude, location.latitude])
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+    return ee.Geometry.Point(_lnglat_from_location(location))
 
 
 @extend(ee.geometry.Geometry, static=True)
@@ -213,13 +204,8 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    locations = geolocator.geocode(query, exactly_one=False)
-    if locations is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        coords = []
-        for location in locations:
-            coords.append([location.longitude, location.latitude])
-        return ee.Geometry.MultiPoint(coords)
+    locations = _retrieve_location(query, geocoder, False, **kwargs)
+    coords = []
+    for location in locations:
+        coords.append([location.longitude, location.latitude])
+    return ee.Geometry.MultiPoint(coords)

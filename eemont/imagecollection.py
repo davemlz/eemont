@@ -11,14 +11,10 @@ from .common import _preprocess
 from .common import _getSTAC
 from .common import _getDOI
 from .common import _getCitation
+from .extending import extend
 
 
-def _extend_eeImageCollection():
-    """Decorator. Extends the ee.ImageCollection class."""
-    return lambda f: (setattr(ee.imagecollection.ImageCollection, f.__name__, f) or f)
-
-
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def closest(self, date, tolerance=1, unit="month"):
     """Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
 
@@ -76,7 +72,7 @@ def closest(self, date, tolerance=1, unit="month"):
     return self
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getTimeSeriesByRegion(
     self,
     reducer,
@@ -214,7 +210,7 @@ def getTimeSeriesByRegion(
     return flattenfc.map(setNA)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getTimeSeriesByRegions(
     self,
     reducer,
@@ -356,7 +352,7 @@ def getTimeSeriesByRegions(
     return flattenfc.map(setNA)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def index(
     self,
     index="NDVI",
@@ -519,10 +515,27 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
+    return _index(
+        self,
+        index,
+        G,
+        C1,
+        C2,
+        L,
+        cexp,
+        nexp,
+        alpha,
+        slope,
+        intercept,
+        kernel,
+        sigma,
+        p,
+        c,
+        online,
+    )
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def spectralIndices(
     self,
     index="NDVI",
@@ -674,10 +687,27 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
+    return _index(
+        self,
+        index,
+        G,
+        C1,
+        C2,
+        L,
+        cexp,
+        nexp,
+        alpha,
+        slope,
+        intercept,
+        kernel,
+        sigma,
+        p,
+        c,
+        online,
+    )
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def maskClouds(
     self,
     method="cloud_prob",
@@ -757,7 +787,7 @@ def maskClouds(
     )
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def scale(self):
     """Scales bands on an image collection.
 
@@ -794,7 +824,7 @@ def scale(self):
     return _scale_STAC(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getScaleParams(self):
     """Gets the scale parameters for each band of the image collection.
 
@@ -835,7 +865,7 @@ def getScaleParams(self):
     return _get_scale_params(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getOffsetParams(self):
     """Gets the offset parameters for each band of the image collection.
 
@@ -876,7 +906,7 @@ def getOffsetParams(self):
     return _get_offset_params(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def scaleAndOffset(self):
     """Scales bands on an image collection according to their scale and offset parameters.
 
@@ -909,7 +939,7 @@ def scaleAndOffset(self):
     return _scale_STAC(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def preprocess(self, **kwargs):
     """Pre-processes the image collection: masks clouds and shadows, and scales and offsets the image collection.
 
@@ -946,7 +976,7 @@ def preprocess(self, **kwargs):
     return _preprocess(self, **kwargs)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getSTAC(self):
     """Gets the STAC of the image collection.
 
@@ -977,7 +1007,7 @@ def getSTAC(self):
     return _getSTAC(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getDOI(self):
     """Gets the DOI of the image collection, if available.
 
@@ -1006,7 +1036,7 @@ def getDOI(self):
     return _getDOI(self)
 
 
-@_extend_eeImageCollection()
+@extend(ee.imagecollection.ImageCollection)
 def getCitation(self):
     """Gets the citation of the image collection, if available.
 

@@ -1,13 +1,9 @@
 import ee
 import warnings
+from .extending import extend
 
 
-def _extend_eeList():
-    """Decorator. Extends the ee.List class."""
-    return lambda f: (setattr(ee.ee_list.List, f.__name__, f) or f)
-
-
-@_extend_eeList()
+@extend(ee.ee_list.List)
 def __add__(self, other):
     """Concatenates the contents of other onto list.
 
@@ -26,7 +22,7 @@ def __add__(self, other):
     return self.cat(other)
 
 
-@_extend_eeList()
+@extend(ee.ee_list.List)
 def __radd__(self, other):
     """Concatenates the contents of other onto list.
 
@@ -45,7 +41,7 @@ def __radd__(self, other):
     return ee.List(other).cat(self)
 
 
-@_extend_eeList()
+@extend(ee.ee_list.List)
 def __mul__(self, other):
     """Returns a new list containing a list repeated n (other) times.
 
@@ -64,7 +60,7 @@ def __mul__(self, other):
     return ee.List.repeat(self, other).flatten()
 
 
-@_extend_eeList()
+@extend(ee.ee_list.List)
 def __rmul__(self, other):
     """Returns a new list containing a list repeated n (other) times.
 

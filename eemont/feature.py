@@ -2,19 +2,10 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
+from .extending import extend
 
 
-def _extend_staticmethod_eeFeature():
-    """Decorator. Extends the ee.Feature class with a static method."""
-    return lambda f: (setattr(ee.feature.Feature, f.__name__, staticmethod(f)) or f)
-
-
-def _extend_eeFeature():
-    """Decorator. Extends the ee.Feature class."""
-    return lambda f: (setattr(ee.feature.Feature, f.__name__, f) or f)
-
-
-@_extend_staticmethod_eeFeature()
+@extend(ee.feature.Feature, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
@@ -75,7 +66,7 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
     return ee.Feature(geometry, location.raw)
 
 
-@_extend_staticmethod_eeFeature()
+@extend(ee.feature.Feature, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.

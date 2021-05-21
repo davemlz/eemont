@@ -327,7 +327,24 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online):
+def _index(
+    self,
+    index,
+    G,
+    C1,
+    C2,
+    L,
+    cexp,
+    nexp,
+    alpha,
+    slope,
+    intercept,
+    kernel,
+    sigma,
+    p,
+    c,
+    online,
+):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -399,7 +416,15 @@ def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kerne
     if not isinstance(index, list):
         if index == "all":
             index = list(spectralIndices.keys())
-        elif index in ["vegetation", "burn", "water", "snow", "drought", "urban","kernel"]:
+        elif index in [
+            "vegetation",
+            "burn",
+            "water",
+            "snow",
+            "drought",
+            "urban",
+            "kernel",
+        ]:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]["type"] == index:

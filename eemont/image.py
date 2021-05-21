@@ -10,14 +10,10 @@ from .common import _preprocess
 from .common import _getSTAC
 from .common import _getDOI
 from .common import _getCitation
+from .extending import extend
 
 
-def _extend_eeImage():
-    """Decorator. Extends the ee.ImageCollection class."""
-    return lambda f: (setattr(ee.image.Image, f.__name__, f) or f)
-
-
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __add__(self, other):
     """Computes the addition between two images.
 
@@ -36,7 +32,7 @@ def __add__(self, other):
     return self.add(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __radd__(self, other):
     """Computes the addition between two images.
 
@@ -55,7 +51,7 @@ def __radd__(self, other):
     return self.add(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __sub__(self, other):
     """Computes the subtraction between two images.
 
@@ -74,7 +70,7 @@ def __sub__(self, other):
     return self.subtract(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rsub__(self, other):
     """Computes the subtraction between two images.
 
@@ -93,7 +89,7 @@ def __rsub__(self, other):
     return ee.Image(other).subtract(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __mul__(self, other):
     """Computes the multiplication between two images.
 
@@ -112,7 +108,7 @@ def __mul__(self, other):
     return self.multiply(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rmul__(self, other):
     """Computes the multiplication between two images.
 
@@ -131,7 +127,7 @@ def __rmul__(self, other):
     return self.multiply(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __truediv__(self, other):
     """Computes the division between two images.
 
@@ -150,7 +146,7 @@ def __truediv__(self, other):
     return self.divide(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rtruediv__(self, other):
     """Computes the division between two images.
 
@@ -169,7 +165,7 @@ def __rtruediv__(self, other):
     return ee.Image(other).divide(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __floordiv__(self, other):
     """Computes the floor division of two images.
 
@@ -188,7 +184,7 @@ def __floordiv__(self, other):
     return self.divide(other).floor()
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rfloordiv__(self, other):
     """Computes the floor division of two images.
 
@@ -207,7 +203,7 @@ def __rfloordiv__(self, other):
     return ee.Image(other).divide(self).floor()
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __mod__(self, other):
     """Computes the modulo of two images.
 
@@ -226,7 +222,7 @@ def __mod__(self, other):
     return self.mod(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rmod__(self, other):
     """Computes the modulo of two images.
 
@@ -245,7 +241,7 @@ def __rmod__(self, other):
     return ee.Image(other).mod(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __pow__(self, other):
     """Computes the base (left operand) to the power (right operand).
 
@@ -264,7 +260,7 @@ def __pow__(self, other):
     return self.pow(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rpow__(self, other):
     """Computes the base (left operand) to the power (right operand).
 
@@ -283,7 +279,7 @@ def __rpow__(self, other):
     return ee.Image(other).pow(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __lshift__(self, other):
     """Computes the left shift operation between two images.
 
@@ -302,7 +298,7 @@ def __lshift__(self, other):
     return self.leftShift(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rlshift__(self, other):
     """Computes the left shift operation between two images.
 
@@ -321,7 +317,7 @@ def __rlshift__(self, other):
     return ee.Image(other).leftShift(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rshift__(self, other):
     """Computes the right shift operation between two images.
 
@@ -340,7 +336,7 @@ def __rshift__(self, other):
     return self.rightShift(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rrshift__(self, other):
     """Computes the right shift operation between two images.
 
@@ -359,7 +355,7 @@ def __rrshift__(self, other):
     return ee.Image(other).rightShift(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __and__(self, other):
     """Computes the binary operator AND between two images.
 
@@ -378,7 +374,7 @@ def __and__(self, other):
     return self.And(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __rand__(self, other):
     """Computes the binary operator AND between two images.
 
@@ -397,7 +393,7 @@ def __rand__(self, other):
     return ee.Image(other).And(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __or__(self, other):
     """Computes the binary operator OR between two images.
 
@@ -416,7 +412,7 @@ def __or__(self, other):
     return self.Or(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __ror__(self, other):
     """Computes the binary operator OR between two images.
 
@@ -435,7 +431,7 @@ def __ror__(self, other):
     return ee.Image(other).Or(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __lt__(self, other):
     """Computes the rich comparison LOWER THAN between two images.
 
@@ -454,7 +450,7 @@ def __lt__(self, other):
     return self.lt(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __le__(self, other):
     """Computes the rich comparison LOWER THAN OR EQUAL between two images.
 
@@ -473,7 +469,7 @@ def __le__(self, other):
     return self.lte(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __eq__(self, other):
     """Computes the rich comparison EQUAL between two images.
 
@@ -492,7 +488,7 @@ def __eq__(self, other):
     return self.eq(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __ne__(self, other):
     """Computes the rich comparison NOT EQUAL THAN between two images.
 
@@ -511,7 +507,7 @@ def __ne__(self, other):
     return self.neq(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __gt__(self, other):
     """Computes the rich comparison GREATER THAN between two images.
 
@@ -530,7 +526,7 @@ def __gt__(self, other):
     return self.gt(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __ge__(self, other):
     """Computes the rich comparison GREATER THAN OR EQUAL between two images.
 
@@ -549,7 +545,7 @@ def __ge__(self, other):
     return self.gte(other)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __neg__(self):
     """Computes the unary operator NEGATIVE on an image.
 
@@ -566,7 +562,7 @@ def __neg__(self):
     return self.multiply(-1)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def __invert__(self):
     """Computes the unary operator NOT on an image.
 
@@ -583,7 +579,7 @@ def __invert__(self):
     return self.Not()
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def index(
     self,
     index="NDVI",
@@ -746,10 +742,27 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
+    return _index(
+        self,
+        index,
+        G,
+        C1,
+        C2,
+        L,
+        cexp,
+        nexp,
+        alpha,
+        slope,
+        intercept,
+        kernel,
+        sigma,
+        p,
+        c,
+        online,
+    )
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def spectralIndices(
     self,
     index="NDVI",
@@ -836,7 +849,7 @@ def spectralIndices(
     L : float, default = 1.0
         Canopy background adjustment. Used just for index = ['EVI','SAVI'].
     cexp : float, default = 1.16
-        Exponent used for OCVI.    
+        Exponent used for OCVI.
     nexp : float, default = 2.0
         Exponent used for GDVI.
     alpha : float, default = 0.1
@@ -901,10 +914,27 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online)
+    return _index(
+        self,
+        index,
+        G,
+        C1,
+        C2,
+        L,
+        cexp,
+        nexp,
+        alpha,
+        slope,
+        intercept,
+        kernel,
+        sigma,
+        p,
+        c,
+        online,
+    )
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def maskClouds(
     self,
     method="cloud_prob",
@@ -983,7 +1013,7 @@ def maskClouds(
     )
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def scale(self):
     """Scales bands on an image.
 
@@ -1020,7 +1050,7 @@ def scale(self):
     return _scale_STAC(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def getScaleParams(self):
     """Gets the scale parameters for each band of the image.
 
@@ -1061,7 +1091,7 @@ def getScaleParams(self):
     return _get_scale_params(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def getOffsetParams(self):
     """Gets the offset parameters for each band of the image.
 
@@ -1102,7 +1132,7 @@ def getOffsetParams(self):
     return _get_offset_params(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def scaleAndOffset(self):
     """Scales bands on an image according to their scale and offset parameters.
 
@@ -1135,7 +1165,7 @@ def scaleAndOffset(self):
     return _scale_STAC(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def preprocess(self, **kwargs):
     """Pre-processes the image: masks clouds and shadows, and scales and offsets the image.
 
@@ -1172,7 +1202,7 @@ def preprocess(self, **kwargs):
     return _preprocess(self, **kwargs)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def getSTAC(self):
     """Gets the STAC of the image.
 
@@ -1203,7 +1233,7 @@ def getSTAC(self):
     return _getSTAC(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def getDOI(self):
     """Gets the DOI of the image, if available.
 
@@ -1232,7 +1262,7 @@ def getDOI(self):
     return _getDOI(self)
 
 
-@_extend_eeImage()
+@extend(ee.image.Image)
 def getCitation(self):
     """Gets the citation of the image, if available.
 

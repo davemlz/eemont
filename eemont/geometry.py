@@ -1,19 +1,10 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
+from .extending import extend
 
 
-def _extend_staticmethod_eeGeometry():
-    """Decorator. Extends the ee.Geometry class with a static method."""
-    return lambda f: (setattr(ee.geometry.Geometry, f.__name__, staticmethod(f)) or f)
-
-
-def _extend_eeGeometry():
-    """Decorator. Extends the ee.Geometry class."""
-    return lambda f: (setattr(ee.geometry.Geometry, f.__name__, f) or f)
-
-
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
 
@@ -103,7 +94,7 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
             raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
 
@@ -160,7 +151,7 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
         return ee.Geometry.Point([location.longitude, location.latitude])
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
 

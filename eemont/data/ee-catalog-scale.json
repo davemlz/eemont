@@ -1726,6 +1726,30 @@
     "JRC/GSW1_2/YearlyHistory": {
         "waterClass": 1.0
     },
+    "JRC/GSW1_3/GlobalSurfaceWater": {
+        "change_abs": 1.0,
+        "change_norm": 1.0,
+        "max_extent": 1.0,
+        "occurrence": 1.0,
+        "recurrence": 1.0,
+        "seasonality": 1.0,
+        "transition": 1.0
+    },
+    "JRC/GSW1_3/Metadata": {
+        "detections": 1.0,
+        "total_obs": 1.0,
+        "valid_obs": 1.0
+    },
+    "JRC/GSW1_3/MonthlyHistory": {
+        "water": 1.0
+    },
+    "JRC/GSW1_3/MonthlyRecurrence": {
+        "has_observations": 1.0,
+        "monthly_recurrence": 1.0
+    },
+    "JRC/GSW1_3/YearlyHistory": {
+        "waterClass": 1.0
+    },
     "KNTU/LiDARLab/IranLandCover/V1": {
         "classification": 1.0
     },

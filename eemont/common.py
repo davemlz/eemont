@@ -6,8 +6,11 @@ import warnings
 import requests
 from box import Box
 from geopy.geocoders import get_geocoder_for_service
+<<<<<<< HEAD
 import re
 import copy
+=======
+>>>>>>> 3943133a34d7056221194f10c8ac36c38fae2e37
 
 warnings.simplefilter("always", UserWarning)
 
@@ -330,7 +333,24 @@ def _get_kernel_parameters(img, lookup, kernel, sigma):
     return kernelParameters
 
 
-def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kernel, sigma, p, c, online):
+def _index(
+    self,
+    index,
+    G,
+    C1,
+    C2,
+    L,
+    cexp,
+    nexp,
+    alpha,
+    slope,
+    intercept,
+    kernel,
+    sigma,
+    p,
+    c,
+    online,
+):
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
     Parameters
@@ -402,7 +422,15 @@ def _index(self, index, G, C1, C2, L, cexp, nexp, alpha, slope, intercept, kerne
     if not isinstance(index, list):
         if index == "all":
             index = list(spectralIndices.keys())
-        elif index in ["vegetation", "burn", "water", "snow", "drought", "urban","kernel"]:
+        elif index in [
+            "vegetation",
+            "burn",
+            "water",
+            "snow",
+            "drought",
+            "urban",
+            "kernel",
+        ]:
             temporalListOfIndices = []
             for idx in indicesNames:
                 if spectralIndices[idx]["type"] == index:
@@ -999,6 +1027,55 @@ def _getCitation(args):
     return eeDict[platformDict["platform"]]["sci:citation"]
 
 
+# Geocoding
+# --------------------------
+
+
+def _retrieve_location(query, geocoder, exactly_one, **kwargs):
+    """Retrieves a location from a query.
+
+    Parameters
+    ----------
+    query : str
+        Address, query or structured query to geocode.
+    geocoder : str
+        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
+    exactly_one : boolean
+        Whether to retrieve just one location.
+    **kwargs :
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
+        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+
+    Returns
+    -------
+    Location
+        Retrieved location.
+    """
+    cls = get_geocoder_for_service(geocoder)
+    geolocator = cls(**kwargs)
+    location = geolocator.geocode(query, exactly_one=exactly_one)
+    if location is None:
+        raise Exception("No matches were found for your query!")
+    else:
+        return location
+
+
+def _lnglat_from_location(location):
+    """Returns the longitude and latitude from a location.
+
+    Parameters
+    ----------
+    location : Location
+        Retrieved location. Must be only one location.
+
+    Returns
+    -------
+    tuple
+        The longitude and latitude geocoded from the query.
+    """
+    return [location.longitude, location.latitude]
+
+
 # Plus Codes
 # --------------------------
 
@@ -1148,30 +1225,3 @@ def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
         for i, element in enumerate(arr):
             converted[i] = _convert_pluscodes_to_lnglats(element, geocoder, **kwargs)
     return converted
-
-
-def _lnglat_from_query(query, geocoder, **kwargs):
-    """Returns a longitude and latitude describing a point from a query submitted to a geocoder using the geopy package.
-
-    Parameters
-    ----------
-    query : str
-        Address, query or structured query to geocode.
-    geocoder : str, default = 'nominatim'
-        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
-    **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
-
-    Returns
-    -------
-    tuple
-        The longitude and latitude geocoded from the query.
-    """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        return [location.longitude, location.latitude]

@@ -2,19 +2,12 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
+from .extending import extend
+from .common import _retrieve_location
+from .common import _lnglat_from_location
 
 
-def _extend_staticmethod_eeFeature():
-    """Decorator. Extends the ee.Feature class with a static method."""
-    return lambda f: (setattr(ee.feature.Feature, f.__name__, staticmethod(f)) or f)
-
-
-def _extend_eeFeature():
-    """Decorator. Extends the ee.Feature class."""
-    return lambda f: (setattr(ee.feature.Feature, f.__name__, f) or f)
-
-
-@_extend_staticmethod_eeFeature()
+@extend(ee.feature.Feature, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
@@ -65,17 +58,13 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
       'place_id': 17287419,
       'type': 'volcano'}}
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location == None:
-        raise Exception("No matches were found for your query!")
-    else:
-        geometry = ee.Geometry.Point([location.longitude, location.latitude])
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+    geometry = ee.Geometry.Point(_lnglat_from_location(location))
+
     return ee.Feature(geometry, location.raw)
 
 
-@_extend_staticmethod_eeFeature()
+@extend(ee.feature.Feature, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
     The properties of the feature correspond to the raw properties retrieved by the location of the query.
@@ -133,29 +122,25 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
       'place_id': 259216862,
       'type': 'administrative'}}
     """
-    if geocoder in ["nominatim", "arcgis"]:
-        cls = get_geocoder_for_service(geocoder)
+    if geocoder not in ["nominatim", "arcgis"]:
+        raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
+
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+
+    if geocoder == "nominatim":
+        BBox = location.raw["boundingbox"]
+        geometry = ee.Geometry.BBox(
+            float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+        )
+        return ee.Feature(geometry, location.raw)
+    elif geocoder == "arcgis":
+        BBox = location.raw["extent"]
+        geometry = ee.Geometry.BBox(
+            BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
+        )
+        return ee.Feature(geometry, location.raw)
     else:
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        if geocoder == "nominatim":
-            BBox = location.raw["boundingbox"]
-            geometry = ee.Geometry.BBox(
-                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
-            )
-            return ee.Feature(geometry, location.raw)
-        elif geocoder == "arcgis":
-            BBox = location.raw["extent"]
-            geometry = ee.Geometry.BBox(
-                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
-            )
-            return ee.Feature(geometry, location.raw)
-        else:
-            raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
 
 @_extend_eeFeature()

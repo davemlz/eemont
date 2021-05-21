@@ -1,20 +1,16 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
+<<<<<<< HEAD
 from eemont.common import _convert_lnglats_to_pluscodes, _convert_pluscodes_to_lnglats
+=======
+from .extending import extend
+from .common import _retrieve_location
+from .common import _lnglat_from_location
+>>>>>>> 3943133a34d7056221194f10c8ac36c38fae2e37
 
 
-def _extend_staticmethod_eeGeometry():
-    """Decorator. Extends the ee.Geometry class with a static method."""
-    return lambda f: (setattr(ee.geometry.Geometry, f.__name__, staticmethod(f)) or f)
-
-
-def _extend_eeGeometry():
-    """Decorator. Extends the ee.Geometry class."""
-    return lambda f: (setattr(ee.geometry.Geometry, f.__name__, f) or f)
-
-
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
 
@@ -81,30 +77,24 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    if geocoder in ["nominatim", "arcgis"]:
-        cls = get_geocoder_for_service(geocoder)
+    if geocoder not in ["nominatim", "arcgis"]:
+        raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
+
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+
+    if geocoder == "nominatim":
+        BBox = location.raw["boundingbox"]
+        return ee.Geometry.BBox(
+            float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
+        )
+    elif geocoder == "arcgis":
+        BBox = location.raw["extent"]
+        return ee.Geometry.BBox(BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"])
     else:
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        if geocoder == "nominatim":
-            BBox = location.raw["boundingbox"]
-            return ee.Geometry.BBox(
-                float(BBox[2]), float(BBox[0]), float(BBox[3]), float(BBox[1])
-            )
-        elif geocoder == "arcgis":
-            BBox = location.raw["extent"]
-            return ee.Geometry.BBox(
-                BBox["xmin"], BBox["ymin"], BBox["xmax"], BBox["ymax"]
-            )
-        else:
-            raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
 
@@ -152,16 +142,11 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    location = geolocator.geocode(query)
-    if location is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        return ee.Geometry.Point([location.longitude, location.latitude])
+    location = _retrieve_location(query, geocoder, True, **kwargs)
+    return ee.Geometry.Point(_lnglat_from_location(location))
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
 
@@ -223,16 +208,11 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
       }
     })
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    locations = geolocator.geocode(query, exactly_one=False)
-    if locations is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        coords = []
-        for location in locations:
-            coords.append([location.longitude, location.latitude])
-        return ee.Geometry.MultiPoint(coords)
+    locations = _retrieve_location(query, geocoder, False, **kwargs)
+    coords = []
+    for location in locations:
+        coords.append([location.longitude, location.latitude])
+    return ee.Geometry.MultiPoint(coords)
 
 
 @_extend_staticmethod_eeGeometry()

@@ -2,24 +2,11 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .geometry import *
+from .extending import extend
+from .common import _retrieve_location
 
 
-def _extend_staticmethod_eeFeatureCollection():
-    """Decorator. Extends the ee.FeatureCollection class with a static method."""
-    return lambda f: (
-        setattr(ee.featurecollection.FeatureCollection, f.__name__, staticmethod(f))
-        or f
-    )
-
-
-def _extend_eeFeatureCollection():
-    """Decorator. Extends the ee.FeatureCollection class."""
-    return lambda f: (
-        setattr(ee.featurecollection.FeatureCollection, f.__name__, f) or f
-    )
-
-
-@_extend_staticmethod_eeFeatureCollection()
+@extend(ee.featurecollection.FeatureCollection, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
     The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.
@@ -99,15 +86,13 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
         'type': 'water'}},
       ...]}
     """
-    cls = get_geocoder_for_service(geocoder)
-    geolocator = cls(**kwargs)
-    locations = geolocator.geocode(query, exactly_one=False)
-    if locations is None:
-        raise Exception("No matches were found for your query!")
-    else:
-        features = []
-        for location in locations:
-            geometry = ee.Geometry.Point([location.longitude, location.latitude])
-            feature = ee.Feature(geometry, location.raw)
-            features.append(feature)
-        return ee.FeatureCollection(features)
+    locations = _retrieve_location(query, geocoder, False, **kwargs)
+
+    features = []
+
+    for location in locations:
+        geometry = ee.Geometry.Point([location.longitude, location.latitude])
+        feature = ee.Feature(geometry, location.raw)
+        features.append(feature)
+
+    return ee.FeatureCollection(features)

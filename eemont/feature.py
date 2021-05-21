@@ -143,7 +143,7 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
         raise Exception('Invalid geocoder! Use one of "nominatim" or "arcgis".')
 
 
-@_extend_eeFeature()
+@extend(ee.feature.Feature, static=False)
 def plusCodes(self, codeLength=10):
     """Convert the coordinates of the geometry an ee.Feature to plus codes.
 

@@ -1,13 +1,11 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
-<<<<<<< HEAD
-from eemont.common import _convert_lnglats_to_pluscodes, _convert_pluscodes_to_lnglats
-=======
 from .extending import extend
 from .common import _retrieve_location
 from .common import _lnglat_from_location
->>>>>>> 3943133a34d7056221194f10c8ac36c38fae2e37
+from .common import _convert_lnglats_to_pluscodes
+from .common import _convert_pluscodes_to_lnglats
 
 
 @extend(ee.geometry.Geometry, static=True)
@@ -215,55 +213,55 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     return ee.Geometry.MultiPoint(coords)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscode, geocoder, **kwargs)
     return ee.Geometry.Point(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.MultiPoint(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def PolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.Polygon(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def MultiPolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.MultiPolygon(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def LineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.LineString(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def MultiLineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.MultiLineString(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def LinearRingFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.LinearRing(coordinates)
 
 
-@_extend_staticmethod_eeGeometry()
+@extend(ee.geometry.Geometry, static=True)
 def RectangleFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     coordinates = _convert_pluscodes_to_lnglats(pluscodes, geocoder, **kwargs)
     return ee.Geometry.Rectangle(coordinates)
 
 
-@_extend_eeGeometry()
+@extend(ee.geometry.Geometry, static=False)
 def plusCodes(self, codeLength=10):
     """Convert the coordinates of an ee.Geometry to plus codes.
 

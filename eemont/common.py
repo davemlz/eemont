@@ -6,11 +6,8 @@ import warnings
 import requests
 from box import Box
 from geopy.geocoders import get_geocoder_for_service
-<<<<<<< HEAD
 import re
 import copy
-=======
->>>>>>> 3943133a34d7056221194f10c8ac36c38fae2e37
 
 warnings.simplefilter("always", UserWarning)
 
@@ -1143,7 +1140,8 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
             )
 
         shortcode, reference = _parse_code_and_reference_from_pluscode(pluscode)
-        ref_lng, ref_lat = _lnglat_from_query(reference, geocoder, **kwargs)
+        location = _retrieve_location(reference, geocoder, exactly_one=True, **kwargs)
+        ref_lng, ref_lat = _lnglat_from_location(location)
 
         pluscode = olc.recoverNearest(shortcode, ref_lat, ref_lng)
 

@@ -1078,8 +1078,8 @@ def _lnglat_from_location(location):
 
 
 def _load_openlocationcode():
-    """Attempt to load the openlocationcode.openlocationcode module and return it. 
-    
+    """Attempt to load the openlocationcode.openlocationcode module and return it.
+
     Because the package is not available through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed.
 
     Returns

@@ -169,4 +169,4 @@ def plusCodes(self, codeLength=10):
     >>> pt.plusCodes()
     '85GQ2222+22'
     """
-    return self.geometry().plusCodes(codeLength)
+    return ee.Element.geometry(self).plusCodes(codeLength)

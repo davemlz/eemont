@@ -1078,8 +1078,9 @@ def _lnglat_from_location(location):
 
 
 def _load_openlocationcode():
-    """Attempt to load the openlocationcode.openlocationcode module and return it. Because the package is not available
-    through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed.
+    """Attempt to load the openlocationcode.openlocationcode module and return it. 
+    
+    Because the package is not available through conda-forge, it cannot be made an installation dependency of eemont, so it is only loaded if needed.
 
     Returns
     -------
@@ -1096,8 +1097,8 @@ def _load_openlocationcode():
         )
 
 
-def _convert_lnglat_to_pluscode(lng, lat, codeLength):
-    """Take a single longitude and latitude coordinate and convert it to a plus code.
+def _convert_lnglat_to_pluscode(lng, lat, code_length):
+    """Take a single longitude and latitude coordinate and convert it to a Plus Code.
 
     Parameters
     ----------
@@ -1105,38 +1106,43 @@ def _convert_lnglat_to_pluscode(lng, lat, codeLength):
         Longitude.
     lat : float
         Latitude.
-    codeLength : int
+    code_length : int
         The number of significant digits in the output code, between 2 and 15. Shorter codes are less precise.
 
     Returns
     -------
     str
-        The plus code represented by the coordinate
+        The Plus Code represented by the coordinate
     """
     olc = _load_openlocationcode()
 
-    return olc.encode(lat, lng, codeLength)
+    return olc.encode(lat, lng, code_length)
 
 
 def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
-    """Take a single complete or shortened plus code and convert it to a longitude and latitude.
+    """Take a single full or shortened Plus Code and convert it to a longitude and latitude.
 
     Parameters
     ----------
     pluscode : str
-        Either a full plus code or short plus code with a queryable reference location appended to it.
+        Either a full Plus Code or short Plus Code with a queryable reference location appended to it.
+    geocoder : str
+        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
+    **kwargs :
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
+        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
     tuple
-        The longitude and latitude of the plus code centroid.
+        The longitude and latitude of the Plus Code centroid.
     """
     olc = _load_openlocationcode()
 
     if not olc.isFull(pluscode):
         if olc.isShort(pluscode):
             raise ValueError(
-                'Short plus codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").'
+                'Short Plus Codes must include a reference location (e.g. "QXGV+XH Denver, CO, USA").'
             )
 
         shortcode, reference = _parse_code_and_reference_from_pluscode(pluscode)
@@ -1150,18 +1156,18 @@ def _convert_pluscode_to_lnglat(pluscode, geocoder, **kwargs):
 
 
 def _parse_code_and_reference_from_pluscode(pluscode):
-    """Split a short plus code into a plus code and reference using regex. For example, "QXGV+XH Denver, CO, USA" will
+    """Split a short Plus Code into a Plus Code and reference using regex. For example, "QXGV+XH Denver, CO, USA" will
     return ("QXGV+XH", "Denver, CO, USA").
 
     Parameters
     ----------
     pluscode : str
-        A short plus code with a queryable reference location appended to it, delimited by whitespace.
+        A short Plus Code with a queryable reference location appended to it, delimited by whitespace.
 
     Returns
     -------
     tuple
-        The short plus code and the reference.
+        The short Plus Code and the reference.
     """
     pattern = r"\w{1,8}\+\w{,7}"
     code = None
@@ -1179,8 +1185,20 @@ def _parse_code_and_reference_from_pluscode(pluscode):
 
 
 def _is_coordinate_like(x):
-    """Test if an object appears to be a longitude, latitude coordinate. Doesn't test if the coordinate is
-    valid, only that it has the correct data structure.
+    """Test if an object appears to be a longitude, latitude coordinate.
+
+    This doesn't test if the coordinate is valid, only that it has the correct data structure: an iterable containing two
+    numbers.
+
+    Parameters
+    ----------
+    x : Object
+        Any object that will be tested for coordinate-like structure.
+
+    Returns
+    -------
+    bool
+        True if the input object resembles a longitude, latitude coordinate.
     """
     if not isinstance(x, (list, tuple)) or len(x) != 2:
         return False
@@ -1192,8 +1210,20 @@ def _is_coordinate_like(x):
 
 
 def _convert_lnglats_to_pluscodes(arr, code_length):
-    """Take an arbitrarily nested array and recursively convert any element that looks like a coordinate into a
-    pluscode. Raise a ValueError if any non-coordinate elements are found.
+    """Take an arbitrarily nested array and recursively replace any element that looks like a coordinate with an equivalent
+    Plus Code. Raise a ValueError if any non-coordinate elements are found.
+
+    Parameters
+    ----------
+    arr : iterable
+        An arbitrarily nested array containing tuples of longitude, latitude coordinates.
+    code_length : int
+        The number of significant digits in the output code, between 2 and 15. Shorter codes are less precise.
+
+    Returns
+    -------
+    iterable
+        An array matching the structure of the input array, with coordinate tuples replaced with Plus Code strings.
     """
     converted = copy.deepcopy(arr)
 
@@ -1211,13 +1241,28 @@ def _convert_lnglats_to_pluscodes(arr, code_length):
 
 
 def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
-    """Take an arbitrarily nested array and recursively convert any element that looks like a pluscode into a
-    lnglat tuple. Raise a ValueError if any non-coordinate elements are found.
+    """Take an arbitrarily nested array and recursively replace any element that looks like a Plus Code with an equivalent
+    longitude, latitude tuple. Raise a ValueError if any non-Plus Code elements are found.
+
+    Parameters
+    ----------
+    arr : iterable
+        An arbitrarily nested array containing Plus Code strings.
+    geocoder : str
+        Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
+    **kwargs :
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
+        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+
+    Returns
+    -------
+    iterable
+        An array matching the structure of the input array, with Plus Code strings replaced with coordinate tuples.
     """
     converted = copy.deepcopy(arr)
 
     if not isinstance(arr, (list, tuple, str)):
-        raise ValueError("{} is not a plus code or iterable of plus codes.".format(arr))
+        raise ValueError("{} is not a Plus Code or iterable of Plus Codes.".format(arr))
 
     if isinstance(arr, str):
         converted = _convert_pluscode_to_lnglat(arr, geocoder, **kwargs)

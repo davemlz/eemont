@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
         self.assertIsInstance(test, ee.feature.Feature)
 
     def test_pluscodes_from_Polygon(self):
-        """Test that the plus codes returned by a Polygon feature can construct a new Polygon geometry"""
+        """Test that the Plus Codes returned by a Polygon feature can construct a new Polygon geometry"""
         coords = [
             [-105, 40],
             [-105, 39],

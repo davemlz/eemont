@@ -176,6 +176,11 @@ class Test(unittest.TestCase):
         self.assertIsInstance(test, ee.geometry.Geometry)
 
     def test_pluscodes_from_Rectangle(self):
+        """Test that the plus codes returned by a Rectangle are a list. 
+        
+        The Rectangle test does not follow the pattern of the other Geometry tests because unlike other Geometries,
+        a Rectangle cannot be constructed from the coordinates that it returns.
+        """
         coords = [
             [-105, 40],
             [-104, 39]

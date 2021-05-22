@@ -157,7 +157,7 @@ def plusCodes(self, codeLength=10):
     Returns
     -------
     list | str
-        The coordinates of the geometry converted to Plus Codes. The structure of the Plus Codes array will be 
+        The coordinates of the geometry converted to Plus Codes. The structure of the Plus Codes array will be
         identical to the structure returned by ee.Geometry.coordinates().
 
     Examples

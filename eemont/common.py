@@ -1187,7 +1187,7 @@ def _is_coordinate_like(x):
     for element in x:
         if not isinstance(element, (int, float)):
             return False
-    
+
     return True
 
 
@@ -1196,10 +1196,12 @@ def _convert_lnglats_to_pluscodes(arr, code_length):
     pluscode. Raise a ValueError if any non-coordinate elements are found.
     """
     converted = copy.deepcopy(arr)
-    
+
     if not isinstance(arr, (list, tuple)):
-        raise ValueError("{} is not a coordinate or iterable of coordinates.".format(arr))
-    
+        raise ValueError(
+            "{} is not a coordinate or iterable of coordinates.".format(arr)
+        )
+
     if _is_coordinate_like(arr):
         converted = _convert_lnglat_to_pluscode(arr[0], arr[1], code_length)
     else:
@@ -1216,7 +1218,7 @@ def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
 
     if not isinstance(arr, (list, tuple, str)):
         raise ValueError("{} is not a plus code or iterable of plus codes.".format(arr))
-    
+
     if isinstance(arr, str):
         converted = _convert_pluscode_to_lnglat(arr, geocoder, **kwargs)
     else:

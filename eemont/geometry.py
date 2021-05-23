@@ -291,7 +291,6 @@ def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
     PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
     MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
     LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.

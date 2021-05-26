@@ -31,6 +31,9 @@ can be used with [geemap](https://geemap.org/) [@Wu2020] for interactive visuali
 
 # Statement of need
 
+The typical pre-processing and processing steps of satellite imagery are long and complex, making it challenging for analysts to move from data curation
+to analysis. These steps have been simplified through eemont with simple and clearer pythonic methods by extending the main Earth Engine objects.
+
 The eemont python package extends the following Earth Engine classes:
 
 - [ee.Feature](https://developers.google.com/earth-engine/guides/features)
@@ -41,7 +44,8 @@ The eemont python package extends the following Earth Engine classes:
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining.
 The added methods are useful for pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, time series, etc.),
-and they are presented as simple functions that give researchers, students and analysts the chance to process a large number of geospatial datasets with a few lines of code, improving code-writing and producing analysis-ready geospatial datasets.
+and they are presented as simple functions that give researchers, students and analysts the chance to process a large number of geospatial datasets with a few lines of code, 
+improving code-writing and producing analysis-ready geospatial datasets.
 
 The following script shows an example of the required code to pre-process and process the Landsat-8
 Surface Reflectance Image Collection using the standard GEE Python API:

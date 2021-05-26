@@ -140,7 +140,23 @@ The following operators are overloaded: +, -, \*\, /, //, %, \**\ , <<, >>, &, \
           
           S2 = (ee.ImageCollection(ds)
             .first())
-            
+          
+          def scaleImage(img):
+              scaling = img.select('B.*')
+              x = scaling.multiply(0.0001)
+              scaling = img.select(['AOT','WVP'])
+              scaling = scaling.multiply(0.001)
+              x = x.addBands(scaling)
+              notScaling = img.select([
+                  'SCL',
+                  'TCI.*',
+                  'MSK.*',
+                  'QA.*'
+              ]))
+              return x.addBands(notScaling)
+              
+          S2 = scaleImage(S2)
+          
           exp = '2.5*(N-R)/(N+(6*R)-(7.5*B)+1)'
           
           imgDict = {
@@ -155,7 +171,8 @@ The following operators are overloaded: +, -, \*\, /, //, %, \**\ , <<, >>, &, \
           ds = 'COPERNICUS/S2_SR'
           
           S2 = (ee.ImageCollection(ds)
-            .first())
+            .first()
+            .scale())
 
           N = S2.select('B8')
           R = S2.select('B4')
@@ -303,6 +320,19 @@ Do you need to compute several spectral indices? Use the :code:`index()` method!
    
           ds = 'LANDSAT/LC08/C01/T1_SR'
           
+          def scaleImage(img):
+              scaling = img.select('B[1-7]')
+              x = scaling.multiply(0.0001)
+              scaling = img.select(['B10','B11'])
+              scaling = scaling.multiply(0.1)
+              x = x.addBands(scaling)
+              notScaling = img.select([
+                  'sr_aerosol',
+                  'pixel_qa',
+                  'radsat_qa'
+              ]))
+              return x.addBands(notScaling)
+          
           def addIndices(img):
               x = ['B5','B4']
               a = img.normalizedDifference(x)
@@ -316,6 +346,7 @@ Do you need to compute several spectral indices? Use the :code:`index()` method!
               return img.addBands([a,b,c])                    
           
           (ee.ImageCollection(ds)
+            .map(scaleImage)
             .map(addIndices))
           
      - .. code-block:: python                 
@@ -323,6 +354,7 @@ Do you need to compute several spectral indices? Use the :code:`index()` method!
           ds = 'LANDSAT/LC08/C01/T1_SR'
           
           (ee.ImageCollection(ds)
+            .scale()
             .index(['NDVI','GNDVI','NDSI']))
 
 The list of available indices can be retrieved by running:

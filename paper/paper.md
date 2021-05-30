@@ -22,9 +22,9 @@ bibliography: paper.bib
 
 [Google Earth Engine](https://earthengine.google.com/) (GEE) is a cloud-based service for geospatial processing of vector and raster data [@Gorelick2017].
 The GEE platform has [JavaScript and Python APIs](https://developers.google.com/earth-engine/guides) with different methods to process geospatial objects.
-GEE also provides a [multi-petabyte data catalog](https://developers.google.com/earth-engine/datasets/) of geospatial datasets and satellite imagery (e.g. Landsat, Sentinel, MODIS).
+GEE also provides a [multi-petabyte data catalog](https://developers.google.com/earth-engine/datasets/) of geospatial datasets and satellite imagery (e.g., Landsat, Sentinel, MODIS).
 The eemont package extends the [GEE Python API](https://developers.google.com/earth-engine/guides/python_install) with pre-processing and processing tools
-for the commonly used satellite imagery (e.g. Landsat, Sentinel, MODIS) by adding new methods for different
+for the commonly used satellite imagery (e.g., Landsat, Sentinel, MODIS) by adding new methods for different
 [Earth Engine Objects](https://developers.google.com/earth-engine/guides/objects_methods_overview) that are friendly with the Python method chaining. The package
 can be used with [geemap](https://geemap.org/) [@Wu2020] for interactive visualization in Jupyter Notebooks, with the
 [GEE Plugin for QGIS](https://gee-community.github.io/qgis-earthengine-plugin/) for processing and visualization inside [QGIS](https://www.qgis.org/es/site/) [@QGIS_software], and it can be used in R with [rgee](https://github.com/r-spatial/rgee) [@Aybar2020].
@@ -43,7 +43,7 @@ The eemont python package extends the following Earth Engine classes:
 - [ee.ImageCollection](https://developers.google.com/earth-engine/guides/ic_creating)
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining.
-The added methods are useful for pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, time series, etc.),
+The added methods are useful for pre-processing and processing tasks (e.g., clouds masking, shadows masking, image scaling, spectral indices computation, time series, etc.),
 and they are presented as simple functions that give researchers, students and analysts the chance to process a large number of geospatial datasets with a few lines of code, 
 improving code-writing and producing analysis-ready geospatial datasets.
 

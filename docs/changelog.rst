@@ -9,6 +9,7 @@ New Modules
 
 - The *ee.Number* module was created.
 - The *ee.List* module was created.
+- The *extending* module was created.
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~

@@ -74,6 +74,8 @@ The eemont python package extends the following Earth Engine classes:
 - `ee.Geometry <https://developers.google.com/earth-engine/guides/geometries>`_
 - `ee.Image <https://developers.google.com/earth-engine/guides/image_overview>`_
 - `ee.ImageCollection <https://developers.google.com/earth-engine/guides/ic_creating>`_
+- `ee.List <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_
+- `ee.Number <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining. These methods are mandatory for some pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, etc.), and they are presented as simple functions that give researchers, students and analysts the chance to analyze data with far fewer lines of code.
 

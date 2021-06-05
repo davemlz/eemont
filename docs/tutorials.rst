@@ -21,3 +21,4 @@ Here you can find a collection of eemont tutorials in Jupyter Notebooks and RMar
 16. Spectral Indices From the Awesome Spectral Indices for GEE (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/016-Spectral-Indices-From-Awesome-Spectral-Indices-List.ipynb>`_) 
 17. Masking Clouds and Shadows in VIIRS Products (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/017-VIIRS-Products-Clouds-Masking.ipynb>`_) 
 18. Complete Preprocessing (Clouds Masking, Shadows Masking, Scaling and Offsetting) With Just One Method (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/018-Complete-Preprocessing-One-Method.ipynb>`_) 
+19. Checking the STAC Info of ANY RASTER DATASET in the GEE STAC (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/019-Checking-STAC-Info.ipynb>`_) 

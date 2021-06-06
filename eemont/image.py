@@ -620,47 +620,11 @@ def index(
             - 'water' : Compute all water indices.
             - 'snow' : Compute all snow indices.
             - 'drought' : Compute all drought indices.
+            - 'urban' : Compute all urban (built-up) indices.
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
-        Vegetation indices:
-            - 'BNDVI' : Blue Normalized Difference Vegetation Index.
-            - 'CIG' : Chlorophyll Index - Green.
-            - 'CVI' : Chlorophyll Vegetation Index.
-            - 'EVI' : Enhanced Vegetation Index.
-            - 'EVI2' : Two-Band Enhanced Vegetation Index.
-            - 'GARI' : Green Atmospherically Resistant Vegetation Index.
-            - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
-            - 'GEMI' : Global Environment Monitoring Index.
-            - 'GLI' : Green Leaf Index.
-            - 'GNDVI' : Green Normalized Difference Vegetation Index.
-            - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
-            - 'GVMI' : Global Vegetation Moisture Index.
-            - 'MNDVI' : Modified Normalized Difference Vegetation Index.
-            - 'NDVI' : Normalized Difference Vegetation Index.
-            - 'NGRDI' : Normalized Green Red Difference Index.
-            - 'RVI' : Ratio Vegetation Index.
-            - 'SAVI' : Soil-Adjusted Vegetation Index.
-            - 'VARI' : Visible Atmospherically Resistant Index.
-        Burn and fire indices:
-            - 'BAI' : Burned Area Index.
-            - 'BAIS2' : Burned Area Index for Sentinel 2.
-            - 'CSIT' : Char Soil Index Thermal.
-            - 'NBR' : Normalized Burn Ratio.
-            - 'NBRT' : Normalized Burn Ratio Thermal.
-            - 'NDVIT' : Normalized Difference Vegetation Index Thermal
-            - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
-        Water indices:
-            - 'MNDWI' : Modified Normalized Difference Water Index.
-            - 'NDWI' : Normalized Difference Water Index.
-        Snow indices:
-            - 'NDSI' : Normalized Difference Snow Index.
-        Drought indices:
-            - 'NDDI' : Normalized Difference Drought Index.
-        Kernel indices:
-            - 'kEVI' : Kernel Enhanced Vegetation Index.
-            - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
-            - 'kRVI' : Kernel Ratio Vegetation Index.
-            - 'kVARI' : Kernel Visible Atmospherically Resistant Index.
+        Awesome Spectral Indices for GEE:
+            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -799,47 +763,11 @@ def spectralIndices(
             - 'water' : Compute all water indices.
             - 'snow' : Compute all snow indices.
             - 'drought' : Compute all drought indices.
+            - 'urban' : Compute all urban (built-up) indices.
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
-        Vegetation indices:
-            - 'BNDVI' : Blue Normalized Difference Vegetation Index.
-            - 'CIG' : Chlorophyll Index - Green.
-            - 'CVI' : Chlorophyll Vegetation Index.
-            - 'EVI' : Enhanced Vegetation Index.
-            - 'EVI2' : Two-Band Enhanced Vegetation Index.
-            - 'GARI' : Green Atmospherically Resistant Vegetation Index.
-            - 'GBNDVI' : Green-Blue Normalized Difference Vegetation Index.
-            - 'GEMI' : Global Environment Monitoring Index.
-            - 'GLI' : Green Leaf Index.
-            - 'GNDVI' : Green Normalized Difference Vegetation Index.
-            - 'GRNDVI' : Green-Red Normalized Difference Vegetation Index.
-            - 'GVMI' : Global Vegetation Moisture Index.
-            - 'MNDVI' : Modified Normalized Difference Vegetation Index.
-            - 'NDVI' : Normalized Difference Vegetation Index.
-            - 'NGRDI' : Normalized Green Red Difference Index.
-            - 'RVI' : Ratio Vegetation Index.
-            - 'SAVI' : Soil-Adjusted Vegetation Index.
-            - 'VARI' : Visible Atmospherically Resistant Index.
-        Burn and fire indices:
-            - 'BAI' : Burned Area Index.
-            - 'BAIS2' : Burned Area Index for Sentinel 2.
-            - 'CSIT' : Char Soil Index Thermal.
-            - 'NBR' : Normalized Burn Ratio.
-            - 'NBRT' : Normalized Burn Ratio Thermal.
-            - 'NDVIT' : Normalized Difference Vegetation Index Thermal
-            - 'SAVIT' : Soil-Adjusted Vegetation Index Thermal.
-        Water indices:
-            - 'MNDWI' : Modified Normalized Difference Water Index.
-            - 'NDWI' : Normalized Difference Water Index.
-        Snow indices:
-            - 'NDSI' : Normalized Difference Snow Index.
-        Drought indices:
-            - 'NDDI' : Normalized Difference Drought Index.
-        Kernel indices:
-            - 'kEVI' : Kernel Enhanced Vegetation Index.
-            - 'kNDVI' : Kernel Normalized Difference Vegetation Index.
-            - 'kRVI' : Kernel Ratio Vegetation Index.
-            - 'kVARI' : Kernel Visible Atmospherically Resistant Index.
+        Awesome Spectral Indices for GEE:
+            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0

@@ -23,3 +23,5 @@ Here you can find a collection of eemont tutorials in Jupyter Notebooks and RMar
 18. Complete Preprocessing (Clouds Masking, Shadows Masking, Scaling and Offsetting) With Just One Method (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/018-Complete-Preprocessing-One-Method.ipynb>`_) 
 19. Checking the STAC Info of ANY RASTER DATASET in the GEE STAC (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/019-Checking-STAC-Info.ipynb>`_) 
 20. Overloaded Operators for the ee.Number Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/020-Overloaded-Operators-Number.ipynb>`_) 
+21. Citation Tools for ANY RASTER DATASET in the GEE STAC (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/021-Citation-Tools.ipynb>`_) 
+22. Overloaded Operators for the ee.List Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/022-Overloaded-Operators-List.ipynb>`_) 

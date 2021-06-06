@@ -74,6 +74,8 @@ The eemont python package extends the following Earth Engine classes:
 - `ee.Geometry <https://developers.google.com/earth-engine/guides/geometries>`_
 - `ee.Image <https://developers.google.com/earth-engine/guides/image_overview>`_
 - `ee.ImageCollection <https://developers.google.com/earth-engine/guides/ic_creating>`_
+- `ee.List <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_
+- `ee.Number <https://developers.google.com/earth-engine/guides/objects_methods_overview>`_
 
 New utility methods and constructors are added to above-mentioned classes in order to create a more fluid code by being friendly with the Python method chaining. These methods are mandatory for some pre-processing and processing tasks (e.g. clouds masking, shadows masking, image scaling, spectral indices computation, etc.), and they are presented as simple functions that give researchers, students and analysts the chance to analyze data with far fewer lines of code.
 
@@ -515,11 +517,14 @@ eemont is divided according to Earth Engine classes, and you will find a module 
 
 The :code:`common.py` is used for methods that can be used for more than one Earth Engine class.
 
-When creating new features, please start with the :code:`self` argument and add the corresponding decorator (e.g. :code:`@_extend_eeImageCollection()`). Check this example:
+When creating new features, please start with the :code:`self` argument and add the corresponding decorator (
+:code:`@extend()` from the :code:`extending` module). Check this example:
 
 .. code-block:: python
 
-   @_extend_eeImage()
+   from .extending import extend
+   
+   @extend(ee.image.Image, static = False)
    def my_new_method(self,other):
         '''Returns the addition of and image and a float.
     
@@ -543,13 +548,15 @@ When creating new features, please start with the :code:`self` argument and add 
         '''
         return self.add(other)
         
-By using the :code:`@_extend_eeImage()` decorator, the :code:`my_new_method()` method is added to the :code:`ee.Image` class. Look for the required decorator as follows:
+By using the :code:`@extend()` decorator, the :code:`my_new_method()` method is added to the :code:`ee.Image` class. If you want to add a static method, please set the :code:`static` argument to :code:`False`. Look for the required class as follows:
 
-- ee.Feature: :code:`@_extend_eeFeature()`
-- ee.FeatureCollection: :code:`@_extend_eeFeatureCollection()`
-- ee.Geometry: :code:`@_extend_eeGeometry()`
-- ee.Image: :code:`@_extend_eeImage()`
-- ee.ImageCollection: :code:`@_extend_eeImageCollection()`
+- ee.Feature: :code:`ee.feature.Feature`
+- ee.FeatureCollection: :code:`ee.featurecollection.FeatureCollection`
+- ee.Geometry: :code:`ee.geometry.Geometry`
+- ee.Image: :code:`ee.image.Image`
+- ee.ImageCollection: :code:`ee.imagecollection.ImageCollection`
+- ee.List: :code:`ee.ee_list.List`
+- ee.Number: :code:`ee.ee_number.Number`
 
 Remember to use `Black <https://github.com/psf/black>`_!
 

@@ -145,7 +145,7 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 
 @extend(ee.feature.Feature, static=False)
 def plusCodes(self, codeLength=10):
-    """Convert the coordinates of the geometry of an ee.Feature to Plus Codes.
+    """Converts the coordinates of the geometry of an ee.Feature to Plus Codes.
 
     Parameters
     ----------

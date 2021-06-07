@@ -625,7 +625,7 @@ def RectangleFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=False)
 def plusCodes(self, codeLength=10):
-    """Convert the coordinates of an ee.Geometry to Plus Codes.
+    """Converts the coordinates of an ee.Geometry to Plus Codes.
 
     Parameters
     ----------

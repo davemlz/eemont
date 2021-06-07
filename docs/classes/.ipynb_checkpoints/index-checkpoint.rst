@@ -40,7 +40,8 @@ ee.Feature
 
    BBoxFromQuery
    PointFromQuery
-   
+   plusCodes
+
 ee.FeatureCollection
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -58,8 +59,17 @@ ee.Geometry
 .. autosummary::
 
    BBoxFromQuery
-   PointFromQuery
+   LinearRingFromPlusCodes
+   LineStringFromPlusCodes
+   MultiLineStringFromPlusCodes
+   MultiPointFromPlusCodes
    MultiPointFromQuery
+   MultiPolygonFromPlusCodes
+   PointFromPlusCode
+   PointFromQuery
+   PolygonFromPlusCodes
+   RectangleFromPlusCodes
+   plusCodes
 
 ee.Image
 ~~~~~~~~

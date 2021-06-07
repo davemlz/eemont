@@ -1,6 +1,22 @@
 Changelog
 ============
 
+v0.2.1 (dev)
+--------------
+
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`LinearRingFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`LineStringFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`MultiLineStringFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`MultiPointFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`MultiPolygonFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`PointFromPlusCode()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`PolygonFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`RectangleFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
+- The :code:`plusCodes()` extended method for ee.Gemoetry and ee.Feature classes was created.
+
 v0.2.0
 --------------
 

@@ -9,5 +9,14 @@ Extended methods for the ee.Geometry class:
    :toctree: stubs
 
    BBoxFromQuery
-   PointFromQuery
+   LinearRingFromPlusCodes
+   LineStringFromPlusCodes
+   MultiLineStringFromPlusCodes
+   MultiPointFromPlusCodes
    MultiPointFromQuery
+   MultiPolygonFromPlusCodes
+   PointFromPlusCode
+   PointFromQuery
+   PolygonFromPlusCodes
+   RectangleFromPlusCodes
+   plusCodes

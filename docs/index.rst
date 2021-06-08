@@ -89,6 +89,8 @@ Welcome to eemont!
 - `Supported Platforms`_
 - `License`_
 - `Contributing`_
+- `Artists`_
+- `Credits`_
 
 Overview
 -------------------
@@ -630,3 +632,15 @@ Now it's time to commit your changes and push your development branch::
    git push origin name-of-dev-branch
   
 And finally, submit a pull request.
+
+Artists
+-------
+
+- `David Montero Loaiza <https://github.com/davemlz>`_: Lead Developer.
+- `César Aybar <https://github.com/csaybar>`_: Awesome Spectral Indices for GEE and eeExtra Developer.
+- `Aaron Zuspan <https://github.com/aazuspan>`_: Plus Codes Constructors and Methods Developer.
+
+Credits
+-------
+
+Special thanks to `Justin Braaten <https://github.com/jdbcode>`_ for featuring eemont in tutorials and the GEE Community: Developer Resources Page, to `César Aybar <https://github.com/csaybar>`_ for the formidable help with Awesome Spectral Indices for GEE and to the JOSS Review Team (`Katy Barnhart <https://github.com/kbarnhart>`_, `Jayaram Hariharan <https://github.com/elbeejay>`_, `Qiusheng Wu <https://github.com/giswqs>`_ and `Patrick Gray <https://github.com/patrickcgray>`_) for the comments, suggestions and contributions!

@@ -27,8 +27,16 @@ ee.Geometry
 .. autosummary::
 
    BBoxFromQuery
-   PointFromQuery
+   LinearRingFromPlusCodes
+   LineStringFromPlusCodes
+   MultiLineStringFromPlusCodes
+   MultiPointFromPlusCodes
    MultiPointFromQuery
+   MultiPolygonFromPlusCodes
+   PointFromPlusCode
+   PointFromQuery
+   PolygonFromPlusCodes
+   RectangleFromPlusCodes   
 
 ee.Feature
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,3 +102,51 @@ The last geometry to construct is the Bounding Box, and can be constructed for e
    
 .. note::
    When using constructors for ee.Feature and ee.FeatureCollection classes, the raw properties of the location, or locations, are set for the feature or feature collection.
+   
+Constructors By Plus Codes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+   The awesome Plus Codes constructors and methods were created by `Aaron Zuspan <https://github.com/aazuspan>`_ (creator of `sankee <https://github.com/aazuspan/sankee>`_).
+
+`Plus Codes <https://maps.google.com/pluscodes/>`_ are street addresses that represent an area based on longitude and latitude coordinates (e.g. 
+"89MH+PW").
+
+.. warning::
+   In order to use Plus Codes constructors, it is required to install :code:`openlocationcode`. Please install it by running :code:`pip install openlocationcode`.
+   
+There are two ways to use the Plus Codes constructors.
+
+1. By using a full Plus Code (e.g. "85FPQXGV+XH").
+2. By using a short Plus Code (e.g. "QXGV+XH Denver, CO, USA").
+
+When using full Plus Codes, just use it as the principal argument in the constructor:
+
+.. code-block:: python
+
+   point = ee.Geometry.PointFromPlusCode("85FPQXGV+XH")
+   
+When using a short Plus Code, it is required to use a geocoder (just like the constructors by queries), and therefore, an user agent must be declared:
+
+.. code-block:: python
+
+   point = ee.Geometry.PointFromPlusCode("QXGV+XH Denver, CO, USA",user_agent = 'eemont-user-guide-constructors')
+   
+More complex geometries can be constructed using a list of Plus Codes or a nested list of Plus Codes:
+
+.. code-block:: python
+
+   codes = ['85FQ2222+22', '85FR2222+22', '85GR2222+22']
+   
+   multipoint = ee.Geometry.MultiPointFromPlusCodes(codes)
+   linestring = ee.Geometry.LineStringFromPlusCodes(codes)
+   polygon = ee.Geometry.PolygonFromPlusCodes(codes)
+   
+   nestedCodes = [
+        ['85FQ2222+22', '85FR2222+22', '85GR2222+22'], 
+        ['85FP8PC2+G2', '85FPJF23+G4', '85FPMW2R+RP'],
+        ['85FPRJ5W+82', '85GP3M67+CP', '85GQ2R7C+38'],
+    ]
+    
+    multilinestring = ee.Geometry.MultiLineStringFromPlusCodes(nestedCodes)
+    multipolygon = ee.Geometry.MultiPolygonFromPlusCodes(nestedCodes)

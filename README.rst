@@ -54,6 +54,7 @@ eemont
 - `Supported Platforms`_
 - `License`_
 - `Contributing`_
+- `How to cite`_
 - `Artists`_
 - `Credits`_
 
@@ -588,6 +589,28 @@ Now it's time to commit your changes and push your development branch::
    git push origin name-of-dev-branch
   
 And finally, submit a pull request.
+
+How to cite
+-----------
+
+Do you like using eemont and think it is useful? Share the love by citing it!::
+
+   Montero, D., (2021). eemont: A Python package that extends Google Earth Engine. Journal of Open Source Software, 6(62), 3168, https://doi.org/10.21105/joss.03168
+   
+If required, here is the BibTex!::
+
+   @article{Montero2021,
+     doi = {10.21105/joss.03168},
+     url = {https://doi.org/10.21105/joss.03168},
+     year = {2021},
+     publisher = {The Open Journal},
+     volume = {6},
+     number = {62},
+     pages = {3168},
+     author = {David Montero},
+     title = {eemont: A Python package that extends Google Earth Engine},
+     journal = {Journal of Open Source Software}
+   }
 
 Artists
 -------

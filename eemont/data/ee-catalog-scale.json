@@ -1804,6 +1804,14 @@
         "30": 1.0,
         "40": 1.0
     },
+    "LANDSAT/GLS2005": {
+        "10": 1.0,
+        "20": 1.0,
+        "30": 1.0,
+        "40": 1.0,
+        "50": 1.0,
+        "70": 1.0
+    },
     "LANDSAT/LC08/C01/T1": {
         "B1": 1.0,
         "B10": 1.0,
@@ -1965,6 +1973,60 @@
         "B9": 1.0,
         "BQA": 1.0
     },
+    "LANDSAT/LC8_L1T_32DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LC8_L1T_32DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_32DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LC8_L1T_32DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LC8_L1T_32DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_32DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_8DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LC8_L1T_ANNUAL_NDWI": {
+        "NDWI": 1.0
+    },
     "LANDSAT/LC8_L1T_TOA": {
         "B1": 1.0,
         "B10": 1.0,
@@ -2100,6 +2162,60 @@
         "B7": 1.0,
         "B8": 1.0,
         "BQA": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_32DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_8DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LE7_L1T_ANNUAL_NDWI": {
+        "NDWI": 1.0
     },
     "LANDSAT/LE7_L1T_TOA": {
         "B1": 1.0,
@@ -2446,6 +2562,60 @@
         "B7": 1.0,
         "BQA": 1.0
     },
+    "LANDSAT/LT4_L1T_32DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT4_L1T_32DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_32DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT4_L1T_32DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT4_L1T_32DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_32DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_8DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT4_L1T_ANNUAL_NDWI": {
+        "NDWI": 1.0
+    },
     "LANDSAT/LT4_L1T_TOA": {
         "B1": 1.0,
         "B2": 1.0,
@@ -2475,6 +2645,60 @@
         "B6": 1.0,
         "B7": 1.0,
         "BQA": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_32DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_8DAY_NDWI": {
+        "NDWI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_BAI": {
+        "BAI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_EVI": {
+        "EVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_NBRT": {
+        "NBRT": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_NDSI": {
+        "NDSI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_NDVI": {
+        "NDVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_NDWI": {
+        "NDWI": 1.0
     },
     "LANDSAT/LT5_L1T_TOA": {
         "B1": 1.0,

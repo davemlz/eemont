@@ -108,8 +108,8 @@ Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collec
        .filterBounds(point)
        .closest('2020-10-15') # Extended (pre-processing)
        .maskClouds(prob = 70) # Extended (pre-processing)
-       .scale() # Extended (pre-processing)
-       .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
+       .scaleAndOffset() # Extended (pre-processing)
+       .spectralIndices(['NDVI','NDWI','BAIS2'])) # Extended (processing)
 
 And just like that, the collection was pre-processed, processed and ready to be analyzed!
 

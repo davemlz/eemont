@@ -137,15 +137,14 @@ Look at this simple example where a `Sentinel-2 Surface Reflectance Image Collec
    ee.Authenticate()
    ee.Initialize()
    
-   point = ee.Geometry.PointFromQuery('Cali, Colombia',
-       user_agent = 'eemont-example') # Extended constructor
+   point = ee.Geometry.PointFromQuery('Cali, Colombia',user_agent = 'eemont-example') # Extended constructor
    
    S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
        .filterBounds(point)
        .closest('2020-10-15') # Extended (pre-processing)
        .maskClouds(prob = 70) # Extended (pre-processing)
-       .scale() # Extended (pre-processing)
-       .index(['NDVI','NDWI','BAIS2'])) # Extended (processing)
+       .scaleAndOffset() # Extended (pre-processing)
+       .spectralIndices(['NDVI','NDWI','BAIS2'])) # Extended (processing)
 
 And just like that, the collection was pre-processed, processed and ready to be analyzed!
 

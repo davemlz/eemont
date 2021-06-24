@@ -10,6 +10,7 @@ from .common import _preprocess
 from .common import _getSTAC
 from .common import _getDOI
 from .common import _getCitation
+from .common import _panSharpen
 from .extending import extend
 
 
@@ -1220,3 +1221,8 @@ def getCitation(self):
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
     return _getCitation(self)
+
+
+@extend(ee.image.Image)
+def panSharpen(self, method="SFIM"):
+    return _panSharpen(self, method)

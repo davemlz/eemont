@@ -1270,3 +1270,98 @@ def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
         for i, element in enumerate(arr):
             converted[i] = _convert_pluscodes_to_lnglats(element, geocoder, **kwargs)
     return converted
+
+
+def _filter_image_bands(img, keep_bands):
+    """Remove image bands that aren't in list of bands to keep."""
+    bands = img.bandNames().filter(ee.Filter.inList("item", keep_bands))
+    return img.select(bands)
+
+
+def _panSharpen(img, method):
+    """Apply pan-sharpening."""
+
+    def get_platform(img):
+        platform_methods = {
+            "LANDSAT/LC08/C01/T1_TOA": L8,
+            "LANDSAT/LC08/C01/T1_RT_TOA": L8,
+            "LANDSAT/LC08/C01/T2_TOA": L8,
+            "LANDSAT/LE07/C01/T1_TOA": L7,
+            "LANDSAT/LE07/C01/T1_RT_TOA": L7,
+            "LANDSAT/LE07/C01/T2_TOA": L7,
+        }
+
+        platformDict = _get_platform_STAC(img)
+        platforms = list(platform_methods.keys())
+        platform = platformDict["platform"]
+
+        if platform not in platforms:
+            raise Exception(
+                "Sharpening is not supported for the {} platform. Use one of the following platforms: {}".format(
+                    platform, platforms
+                )
+            )
+
+        return platform_methods[platform]
+
+    def L7(img):
+        sharpenable_bands = ee.List(["B1", "B2", "B3", "B4", "B5", "B7"])
+        sharpenable_img = _filter_image_bands(img, sharpenable_bands)
+        pan_img = img.select("B8")
+        return apply_sharpening(sharpenable_img, pan_img)
+
+    def L8(img):
+        sharpenable_bands = ee.List(["B2", "B3", "B4", "B5", "B6", "B7"])
+        sharpenable_img = _filter_image_bands(img, sharpenable_bands)
+        pan_img = img.select("B8")
+        return apply_sharpening(sharpenable_img, pan_img)
+
+    def apply_sharpening(img, pan):
+        sharpener = get_sharpener()
+        sharpened = sharpener(img, pan)
+
+        sharpened = ee.Image(sharpened.copyProperties(img, pan.propertyNames()))
+
+        return sharpened
+
+    def get_sharpener():
+        sharpeners = {"SFIM": SFIM, "simpleMean": simple_mean}
+
+        try:
+            sharpener = {k.lower(): v for (k, v) in sharpeners.items()}[method.lower()]
+        except KeyError:
+            raise AttributeError(
+                '"{}" is not a supported sharpening method. Supported methods: {}'.format(
+                    method, list(sharpeners.keys())
+                )
+            )
+        return sharpener
+
+    def SFIM(img, pan):
+        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening, Liu 2000."""
+        img_scale = img.projection().nominalScale()
+        pan_scale = pan.projection().nominalScale()
+        kernel_width = img_scale.divide(pan_scale)
+        kernel = ee.Kernel.square(radius=kernel_width.divide(2))
+        pan_smooth = pan.reduceNeighborhood(reducer=ee.Reducer.mean(), kernel=kernel)
+
+        img = img.resample("bicubic")
+        sharp = img.multiply(pan).divide(pan_smooth)
+        sharp = sharp.reproject(pan.projection())
+        return sharp
+
+    def simple_mean(img, pan):
+        """Simple mean sharpening"""
+        img = img.resample("bicubic")
+        sharp = img.add(pan).multiply(0.5)
+        sharp = sharp.reproject(pan.projection())
+        return sharp
+
+    platform = get_platform(img)
+
+    if isinstance(img, ee.image.Image):
+        sharpened = platform(img)
+    elif isinstance(img, ee.imagecollection.ImageCollection):
+        sharpened = img.map(platform)
+
+    return sharpened

@@ -1,6 +1,21 @@
 Changelog
 ============
 
+v0.2.2 (dev)
+--------------
+
+New Modules
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The *ee.Dictionary* module was created.
+
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`__contains__` container emulation method was overloaded for ee.Dictionary and ee.List objects.
+- The :code:`__len__` container emulation method was overloaded for ee.Dictionary, ee.List, ee.FeatureCollection and ee.ImageCollection objects.
+- The :code:`__getitem__` container emulation method was overloaded for ee.Dictionary, ee.List, ee.Feature, ee.FeatureCollection, ee.Image and ee.ImageCollection objects.
+
 v0.2.1
 --------------
 

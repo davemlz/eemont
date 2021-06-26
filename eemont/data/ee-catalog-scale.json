@@ -1935,7 +1935,7 @@
         "SR_B6": 1.0,
         "SR_B7": 1.0,
         "SR_QA_AEROSOL": 1.0,
-        "ST_ATRAN": 1e-05,
+        "ST_ATRAN": 0.0001,
         "ST_B10": 0.00341802,
         "ST_CDIST": 0.01,
         "ST_DRAD": 0.001,

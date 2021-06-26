@@ -10,6 +10,7 @@ Here you can find the user guide for the extended methods:
    closestImage
    constructors
    dataConversion
+   containers
    imageScaling
    maskingClouds
    overloadedOperators

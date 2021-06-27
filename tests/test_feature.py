@@ -7,6 +7,11 @@ ee.Initialize()
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
     
+    def test_Container(self):
+        """Test the Container Emulation Methods"""
+        test = ee.Feature(ee.Geometry.Point([-76.2,3.21]),{"property":1})["property"]
+        self.assertIsInstance(test, ee.element.Element)
+    
     def test_BBoxFromQuery(self):
         """Test the BBoxFromQuery constructor"""
         test = ee.Feature.BBoxFromQuery('Colombia',user_agent = 'eemon-feature-test')

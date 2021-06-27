@@ -1,7 +1,7 @@
 Changelog
 ============
 
-v0.2.2 (dev)
+v0.2.2
 --------------
 
 New Modules

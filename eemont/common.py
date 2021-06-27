@@ -1272,6 +1272,114 @@ def _convert_pluscodes_to_lnglats(arr, geocoder, **kwargs):
     return converted
 
 
+def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
+    """Adjust the image's histogram to match a target image.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to adjust.
+    target : ee.Image
+        Image to match.
+    bands : dict
+        A dictionary of band names to match, with source bands as keys and target bands as values.
+    geometry : ee.Geometry, default=None
+        The region to match histograms in that overlaps both images. If none is provided, the geometry of the source image will be used.
+    maxBuckets : int, default=256
+        The maximum number of buckets to use when building histograms. Will be rounded to the nearest power of 2.
+
+    Returns
+    -------
+    ee.Image
+        The adjusted image containing the matched source bands.
+    
+    """
+    def histogram_lookup(source_hist, target_hist):
+        """Build a list of target values with corresponding counts to source values from a source and target histogram.
+
+        Parameters
+        ----------
+        source_hist : ee.Array
+            A histogram for a source image returned by ee.Reducer.autoHistogram
+        target_hist : ee.Array
+            A histogram for a target image returned by ee.Reducer.autoHistogram
+
+        Returns
+        -------
+        tuple
+            Source histogram values and target histogram values with corresponding counts.
+        """
+        source_vals = source_hist.slice(1, 0, 1).project([0])
+        source_counts = source_hist.slice(1, 1, 2).project([0])
+        source_counts = source_counts.divide(source_counts.get([-1]))
+
+        target_vals = target_hist.slice(1, 0, 1).project([0])
+        target_counts = target_hist.slice(1, 1, 2).project([0])
+        target_counts = target_counts.divide(target_counts.get([-1]))
+
+        def lookup_value(n):
+            """Find the first target value with at least n counts.
+            """
+            index = target_counts.gte(n).argmax()
+            return target_vals.get(index)
+
+        target_lookup_vals = source_counts.toList().map(lookup_value)
+
+        return (source_vals.toList(), target_lookup_vals)
+
+    if not geometry:
+        geometry = source_img.geometry()
+
+    bands = ee.Dictionary(bands)
+    source_bands = bands.keys()
+    target_bands = bands.values()
+
+    source_img = source_img.select(source_bands)
+    target_img = target_img.select(target_bands)
+
+    source_histogram = source_img.reduceRegion(
+        reducer=ee.Reducer.autoHistogram(maxBuckets=maxBuckets, cumulative=True),
+        geometry=geometry,
+        scale=30,
+        maxPixels=1e13,
+        bestEffort=True
+    )
+
+    target_histogram = target_img.updateMask(source_img.mask()).reduceRegion(
+        reducer=ee.Reducer.autoHistogram(maxBuckets=maxBuckets, cumulative=True),
+        geometry=geometry,
+        scale=30,
+        maxPixels=1e13,
+        bestEffort=True            
+    )
+
+    def match_bands(source_band, target_band):
+        """Match the histogram of one source band to a target band.
+
+        Parameters
+        ----------
+        source_band : ee.String
+            The name of a band in the source image to adjust.
+        target_band : ee.String
+            The name of a corresponding band in the target image to match to.
+
+        Returns
+        -------
+        ee.Image
+            The source band histogram-matched to the target band.
+        """
+        x, y = histogram_lookup(source_histogram.getArray(source_band), target_histogram.getArray(target_band))
+        matched = source_img.select([source_band]).interpolate(x, y)
+        return matched
+
+    matched = ee.ImageCollection(bands.map(match_bands).values()).toBands().rename(source_bands)
+
+    matched = ee.Image(matched.copyProperties(source_img, source_img.propertyNames()))
+    matched = matched.set("eemont:HISTOGRAM_TARGET", target_img)
+
+    return matched
+
+
 def _filter_image_bands(img, keep_bands):
     """Remove image bands that aren't in list of bands to keep."""
     bands = img.bandNames().filter(ee.Filter.inList("item", keep_bands))

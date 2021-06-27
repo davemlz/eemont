@@ -11,6 +11,7 @@ from .common import _getSTAC
 from .common import _getDOI
 from .common import _getCitation
 from .common import _panSharpen
+from .common import _matchHistogram
 from .extending import extend
 
 
@@ -1226,3 +1227,42 @@ def getCitation(self):
 @extend(ee.image.Image)
 def panSharpen(self, method="SFIM"):
     return _panSharpen(self, method)
+
+
+@extend(ee.image.Image)
+def matchHistogram(self, target, bands, geometry=None, maxBuckets=256):
+    """Adjust the image's histogram to match a target image.
+
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to adjust.
+    target : ee.Image
+        Image to match.
+    bands : dict
+        A dictionary of band names to match, with source bands as keys and target bands as values.
+    geometry : ee.Geometry, default=None
+        The region to match histograms in that overlaps both images. If none is provided, the geometry of the source image will be used.
+    maxBuckets : int, default=256
+        The maximum number of buckets to use when building histograms. Will be rounded to the nearest power of 2.
+
+    Returns
+    -------
+    ee.Image
+        The adjusted image containing the matched source bands.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+    >>> target = ee.Image("LANDSAT/LE07/C01/T1_TOA/LE07_046027_20150701")
+    >>> bands = {
+    >>>    "B4": "B3", 
+    >>>    "B3": "B2", 
+    >>>    "B2": "B1"
+    >>> }
+    >>> matched = source.matchHistogram(target, bands)
+    """
+    return _matchHistogram(self, target, bands, geometry, maxBuckets)

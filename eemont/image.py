@@ -1225,8 +1225,8 @@ def getCitation(self):
 
 
 @extend(ee.image.Image)
-def panSharpen(self, method="SFIM"):
-    return _panSharpen(self, method)
+def panSharpen(self, method="SFIM", **kwargs):
+    return _panSharpen(self, method, **kwargs)
 
 
 @extend(ee.image.Image)

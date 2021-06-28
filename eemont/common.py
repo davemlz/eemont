@@ -1386,7 +1386,7 @@ def _filter_image_bands(img, keep_bands):
     return img.select(bands)
 
 
-def _panSharpen(img, method):
+def _panSharpen(img, method, **kwargs):
     """Apply pan-sharpening."""
 
     def get_platform(img):
@@ -1433,7 +1433,7 @@ def _panSharpen(img, method):
         return sharpened
 
     def get_sharpener():
-        sharpeners = {"SFIM": SFIM, "simpleMean": simple_mean}
+        sharpeners = {"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "simpleMean": simple_mean}
 
         try:
             sharpener = {k.lower(): v for (k, v) in sharpeners.items()}[method.lower()]
@@ -1456,6 +1456,70 @@ def _panSharpen(img, method):
         img = img.resample("bicubic")
         sharp = img.multiply(pan).divide(pan_smooth)
         sharp = sharp.reproject(pan.projection())
+        return sharp
+
+    def HPFA(img, pan):
+        """High-pass filter addition sharpening. Gangkofner et al., 2008.
+        """
+        img_scale = img.projection().nominalScale()
+        pan_scale = pan.projection().nominalScale()
+        kernel_width = img_scale.divide(pan_scale).multiply(2).add(1)
+
+        img = img.resample("bicubic")
+
+        center_val = kernel_width.pow(2).subtract(1)
+        center = kernel_width.divide(2).int()
+        kernel_row = ee.List.repeat(-1, kernel_width)
+        kernel = ee.List.repeat(kernel_row, kernel_width)
+        kernel = kernel.set(center, ee.List(kernel.get(center)).set(center, center_val))
+        kernel = ee.Kernel.fixed(weights=kernel, normalize=True)
+
+        pan_hpf = pan.convolve(kernel)
+        sharp = img.add(pan_hpf)
+        sharp = sharp.reproject(pan.projection())
+
+        return sharp
+
+    def PCS(img, pan):
+        """Principal Component Substitution sharpening.
+        """
+        img = img.resample("bicubic").reproject(pan.projection())
+        band_names = img.bandNames()
+
+        band_means = img.reduceRegion(ee.Reducer.mean(), **kwargs)
+        img_means = band_means.toImage(band_names)
+        img_centered = img.subtract(img_means)
+
+        img_arr = img_centered.toArray()
+        covar = img_arr.reduceRegion(ee.Reducer.centeredCovariance(), **kwargs)
+        covar_arr = ee.Array(covar.get("array"))
+        eigens = covar_arr.eigen()
+        eigenvectors = eigens.slice(1, 1)
+        img_arr_2d = img_arr.toArray(1)
+
+        principal_components = (ee.Image(eigenvectors)
+            .matrixMultiply(img_arr_2d)
+            .arrayProject([0])
+            .arrayFlatten([band_names])
+        )
+
+        pc1_name = principal_components.bandNames().get(0)
+
+        # A dictionary can't use an ee.ComputedObject as a key, so set temporary band names
+        pc1 = principal_components.select([pc1_name]).rename(["PC1"])
+        pan = pan.rename(["pan"])
+
+        pan_matched = pan.matchHistogram(pc1, {"pan": "PC1"}, kwargs.get("geometry")).rename([pc1_name])
+        
+        principal_components = principal_components.addBands(pan_matched, overwrite=True)
+
+        sharp_centered = (ee.Image(eigenvectors)
+            .matrixSolve(principal_components.toArray().toArray(1))
+            .arrayProject([0])
+            .arrayFlatten([band_names])
+        )
+        sharp = sharp_centered.add(img_means)
+        
         return sharp
 
     def simple_mean(img, pan):

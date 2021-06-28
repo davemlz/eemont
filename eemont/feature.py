@@ -7,6 +7,29 @@ from .common import _retrieve_location
 from .common import _lnglat_from_location
 
 
+@extend(ee.feature.Feature)
+def __getitem__(self, key):
+    '''Gets the column of the feature according to the specified key.
+
+    Parameters
+    ----------
+    self : ee.Feature
+        Feature to get the columns from.
+    key : string | list[string]
+        Key used to get the specified column. If string, it gets the column with that name
+        or that matches with regex. If list, it gets multiple columns.
+
+    Returns
+    -------
+    ee.Feature
+        Feature with the selected columns.
+    '''
+    if isinstance(key, str):
+        key = [key]
+    
+    return self.select(key)
+
+
 @extend(ee.feature.Feature, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.

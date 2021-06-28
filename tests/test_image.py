@@ -60,6 +60,23 @@ indices = 'all'
 
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
+
+    # CONTAINER EMULATION METHODS
+    
+    def test_Container_Get_Item_By_Key(self):
+        """Test the Container Emulation Methods"""
+        test = S2[['B.*']]['B1']
+        self.assertIsInstance(test, ee.image.Image)
+        
+    def test_Container_Get_Item_By_Index(self):
+        """Test the Container Emulation Methods"""
+        test = S2[1]
+        self.assertIsInstance(test, ee.image.Image)
+        
+    def test_Container_Get_Item_By_Slice(self):
+        """Test the Container Emulation Methods"""
+        test = S2[0:3]
+        self.assertIsInstance(test, ee.image.Image)
     
     # OVERLOADED OPERATIONS
     

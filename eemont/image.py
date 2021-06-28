@@ -16,6 +16,43 @@ from .extending import extend
 
 
 @extend(ee.image.Image)
+def __getitem__(self, key):
+    '''Gets the band of the image according to the specified key.
+
+    Parameters
+    ----------
+    self : ee.Image
+        Image to get the bands from.
+    key : numeric | string | list[numeric] | list[string] | slice
+        Key used to get the specified band. If numeric, it gets the band at that index. If string, it gets the band with that name
+        or that matches with regex. If list, it gets multiple bands. If slice, it calls the slice() method (the step parameter is ignored).
+
+    Returns
+    -------
+    ee.Image
+        Image with the selected bands.
+    '''
+    if isinstance(key,slice):
+
+        if key.start == None:
+            start = 0
+        else:
+            start = key.start
+
+        if key.stop == None:
+            stop = self.bandNames().size()
+        else:
+            stop = key.stop
+
+        selected = self.slice(start,stop)
+
+    else:
+        selected = self.select(key)
+
+    return selected
+
+
+@extend(ee.image.Image)
 def __add__(self, other):
     """Computes the addition between two images.
 

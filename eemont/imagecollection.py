@@ -16,6 +16,63 @@ from .extending import extend
 
 
 @extend(ee.imagecollection.ImageCollection)
+def __len__(self):
+    '''Returns the size of the image collection.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection
+        Image Collection to get the size from.
+
+    Returns
+    -------
+    int
+        Size of the image collection.
+    '''
+    return self.size().getInfo()
+
+
+@extend(ee.imagecollection.ImageCollection)
+def __getitem__(self, key):
+    '''Gets the band of each image in the image collection according to the specified key.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection
+        Image Collection to get the bands from.
+    key : numeric | string | list[numeric] | list[string] | slice
+        Key used to get the specified band. If numeric, it gets the band at that index. If string, it gets the band with that name
+        or that matches with regex. If list, it gets multiple bands. If slice, it calls the slice() method (the step parameter is ignored).
+
+    Returns
+    -------
+    ee.ImageCollection
+        Image Collection with the selected bands.
+    '''
+    if isinstance(key,slice):
+
+        if key.start == None:
+            start = 0
+        else:
+            start = key.start
+
+        if key.stop == None:
+            stop = self.first().bandNames().size()
+        else:
+            stop = key.stop
+
+        def sliceCollection(img):
+            return img.slice(start,stop)
+        
+        selected = self.map(sliceCollection)
+
+    else:
+        selected = self.select(key)
+
+    return selected
+
+
+@extend(ee.imagecollection.ImageCollection)
 def closest(self, date, tolerance=1, unit="month"):
     """Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
 

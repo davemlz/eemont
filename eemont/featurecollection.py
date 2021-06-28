@@ -6,6 +6,43 @@ from .extending import extend
 from .common import _retrieve_location
 
 
+@extend(ee.featurecollection.FeatureCollection)
+def __len__(self):
+    '''Returns the size of the feature collection.
+
+    Parameters
+    ----------
+    self : ee.FeatureCollection
+        Feature Collection to get the size from.
+
+    Returns
+    -------
+    int
+        Size of the feature collection.
+    '''
+    return self.size().getInfo()
+
+
+@extend(ee.featurecollection.FeatureCollection)
+def __getitem__(self, key):
+    '''Gets the column of each feature in the feature collection according to the specified key.
+
+    Parameters
+    ----------
+    self : ee.FeatureCollection
+        Feature Collection to get the columns from.
+    key : string | list[string]
+        Key used to get the specified column. If string, it gets the column with that name
+        or that matches with regex. If list, it gets multiple columns.
+
+    Returns
+    -------
+    ee.FeatureCollection
+        Feature Collection with the selected columns.
+    '''
+    return self.select(key)
+
+
 @extend(ee.featurecollection.FeatureCollection, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.

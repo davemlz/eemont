@@ -3698,19 +3698,19 @@
     "OREGONSTATE/PRISM/AN81d": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_AN81d.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](http://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/AN81m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_AN81m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](http://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/Norm81m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_Norm81m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](http://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OSU/GIMP/2000_ICE_OCEAN_MASK": {

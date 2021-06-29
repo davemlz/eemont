@@ -1,6 +1,14 @@
 Changelog
 ============
 
+v0.2.3
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Conflicts of the :code:`__len__` Container Emulation method of the *ee.Dictionary* module were solved.
+
 v0.2.2
 --------------
 

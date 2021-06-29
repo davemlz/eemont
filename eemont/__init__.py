@@ -10,5 +10,5 @@ from . import imagecollection
 from . import dataframe
 from . import number
 from . import eeList
-from . import dictionary
+from . import eeDictionary
 from .common import *

@@ -50,7 +50,7 @@
     "BIOPAMA/GlobalOilPalm/v1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/BIOPAMA_GlobalOilPalm_v1.json",
-        "sci:citation": "Adri\u00e0, Descals, Serge, Wich, Erik, Meijaard, David, Gaveau, Stephen, Peedell, & Zoltan, Szantoi. (2021, January 27). High resolution global industrial and smallholder oil palm map for 2019 (Version v1). *Zenodo.* [doi:10.5281/zenodo.4473715](http://doi.org/10.5281/zenodo.4473715)",
+        "sci:citation": "Adri\u00e0, Descals, Serge, Wich, Erik, Meijaard, David, Gaveau, Stephen, Peedell, & Zoltan, Szantoi. (2021, January 27). High resolution global industrial and smallholder oil palm map for 2019 (Version v1). *Zenodo.* [doi:10.5281/zenodo.4473715](https://doi.org/10.5281/zenodo.4473715)",
         "sci:doi": "10.5281/zenodo.4473715"
     },
     "CAS/IGSNRR/PML/V2": {
@@ -62,7 +62,7 @@
     "CGIAR/SRTM90_V4": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CGIAR_SRTM90_V4.json",
-        "sci:citation": "Jarvis, A., H.I. Reuter, A. Nelson, E. Guevara. 2008. Hole-filled SRTM for the globe Version 4, available from the CGIAR-CSI SRTM 90m Database: [http://srtm.csi.cgiar.org](http://srtm.csi.cgiar.org).",
+        "sci:citation": "Jarvis, A., H.I. Reuter, A. Nelson, E. Guevara. 2008. Hole-filled SRTM for the globe Version 4, available from the CGIAR-CSI SRTM 90m Database: https://srtm.csi.cgiar.org.",
         "sci:doi": "DOI not available"
     },
     "CIESIN/GPWv4/ancillary-data-grids": {
@@ -338,91 +338,91 @@
     "CSP/ERGo/1_0/Global/ALOS_CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/lithology": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_lithology.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/physioDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_physioDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/physiography": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_physiography.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/HM/GlobalHumanModification": {
@@ -482,7 +482,7 @@
     "ESA/GLOBCOVER_L4_200901_200912_V2_3": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ESA_GLOBCOVER_L4_200901_200912_V2_3.json",
-        "sci:citation": "ESA 2010 and UCLouvain. [http://due.esrin.esa.int/page_globcover.php](http://due.esrin.esa.int/page_globcover.php)",
+        "sci:citation": "ESA 2010 and UCLouvain. http://due.esrin.esa.int/page_globcover.php",
         "sci:doi": "DOI not available"
     },
     "FAO/GHG/1/DROSA_A": {
@@ -752,19 +752,19 @@
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1.json",
-        "sci:citation": "Pesaresi, Martino; Ehrilch, Daniele; Florczyk, Aneta J.; Freire, Sergio; Julea, Andreea; Kemper, Thomas; Soille, Pierre; Syrris, Vasileios (2015): GHS built-up grid, derived from Landsat, multitemporal (1975, 1990, 2000, 2014). European Commission, Joint Research Centre (JRC) [Dataset] PID: [http://data.europa.eu/89h/jrc-ghsl-ghs_built_ldsmt_globe_r2015b](http://data.europa.eu/89h/jrc-ghsl-ghs_built_ldsmt_globe_r2015b)",
+        "sci:citation": "Pesaresi, Martino; Ehrilch, Daniele; Florczyk, Aneta J.; Freire, Sergio; Julea, Andreea; Kemper, Thomas; Soille, Pierre; Syrris, Vasileios (2015): GHS built-up grid, derived from Landsat, multitemporal (1975, 1990, 2000, 2014). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_built_ldsmt_globe_r2015b",
         "sci:doi": "DOI not available"
     },
     "JRC/GHSL/P2016/POP_GPW_GLOBE_V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_POP_GPW_GLOBE_V1.json",
-        "sci:citation": "European Commission, Joint Research Centre (JRC); Columbia University, Center for International Earth Science Information Network - CIESIN (2015): GHS population grid, derived from GPW4, multitemporal (1975, 1990, 2000, 2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: [http://data.europa.eu/89h/jrc-ghsl-ghs_pop_gpw4_globe_r2015a](http://data.europa.eu/89h/jrc-ghsl-ghs_pop_gpw4_globe_r2015a)",
+        "sci:citation": "European Commission, Joint Research Centre (JRC); Columbia University, Center for International Earth Science Information Network - CIESIN (2015): GHS population grid, derived from GPW4, multitemporal (1975, 1990, 2000, 2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_pop_gpw4_globe_r2015a",
         "sci:doi": "DOI not available"
     },
     "JRC/GHSL/P2016/SMOD_POP_GLOBE_V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_SMOD_POP_GLOBE_V1.json",
-        "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the REGIO model 2014 in application to GHSL Landsat and CIESIN GPW v4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: [http://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a](http://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a)",
+        "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the REGIO model 2014 in application to GHSL Landsat and CIESIN GPW v4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/GlobalSurfaceWater": {
@@ -1580,6 +1580,12 @@
     "LANDSAT/LE07/C01/T2_TOA": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LE07_C01_T2_TOA.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LE07/C02/T1_L2": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LE07_C02_T1_L2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
@@ -3716,19 +3722,19 @@
     "OSU/GIMP/2000_ICE_OCEAN_MASK": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_2000_ICE_OCEAN_MASK.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](http://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/B8X58MQBFUPA"
     },
     "OSU/GIMP/2000_IMAGERY_MOSAIC": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_2000_IMAGERY_MOSAIC.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](http://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/4RNTRRE4JCYD"
     },
     "OSU/GIMP/DEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_DEM.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](http://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/NV34YUIXLP9W"
     },
     "OSU/GIMP/ICE_VELOCITY_OPT": {
@@ -3950,55 +3956,55 @@
     "UMD/hansen/global_forest_change_2013": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2013.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2014": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2014.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2015": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2015.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2015_v1_3": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2015_v1_3.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2016_v1_4": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2016_v1_4.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2017_v1_5": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2017_v1_5.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2018_v1_6": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2018_v1_6.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2019_v1_7": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2019_v1_7.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2020_v1_8": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMD_hansen_global_forest_change_2020_v1_8.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[http://earthenginepartners.appspot.com/science-2013-global-forest](http://earthenginepartners.appspot.com/science-2013-global-forest).",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\nhttps://earthenginepartners.appspot.com/science-2013-global-forest.",
         "sci:doi": "DOI not available"
     },
     "UMN/PGC/ArcticDEM/V2/2m": {
@@ -4118,7 +4124,7 @@
     "USGS/GAP/CONUS/2011": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GAP_CONUS_2011.json",
-        "sci:citation": "Homer, C.G., Dewitz, J.A., Yang, L., Jin, S., Danielson, P., Xian, G., Coulston, J., Herold, N.D., Wickham, J.D., and Megown, K., 2015,Completion of the 2011 National Land Cover Database for the conterminous United States-Representing a decade of land cover change information. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p. 345-354. http://www.asprs.org/a/publications/pers/2015journals/PERS_May_2015/HTML/index.html",
+        "sci:citation": "Homer, C.G., Dewitz, J.A., Yang, L., Jin, S., Danielson, P., Xian, G., Coulston, J., Herold, N.D., Wickham, J.D., and Megown, K., 2015,Completion of the 2011 National Land Cover Database for the conterminous United States-Representing a decade of land cover change information. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p. 345-354. https://www.asprs.org/a/publications/pers/2015journals/PERS_May_2015/HTML/index.html",
         "sci:doi": "DOI not available"
     },
     "USGS/GAP/HI/2001": {
@@ -4232,19 +4238,19 @@
     "WHBU/NBAR_1YEAR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WHBU_NBAR_1YEAR.json",
-        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](http://doi.org/10.1088/1748-9326/3/4/045011)",
+        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](https://doi.org/10.1088/1748-9326/3/4/045011)",
         "sci:doi": "10.1088/1748-9326/3/4/045011"
     },
     "WHBU/NBAR_2YEAR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WHBU_NBAR_2YEAR.json",
-        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](http://doi.org/10.1088/1748-9326/3/4/045011)",
+        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](https://doi.org/10.1088/1748-9326/3/4/045011)",
         "sci:doi": "10.1088/1748-9326/3/4/045011"
     },
     "WHBU/NBAR_3YEAR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WHBU_NBAR_3YEAR.json",
-        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](http://doi.org/10.1088/1748-9326/3/4/045011)",
+        "sci:citation": "Baccini, A., Laporte, N., Goetz, S. J., Sun, M., & Dong, H. (2008). A first map of tropical Africa's above-ground biomass derived from satellite imagery. Environmental Research Letters, 3(4), 045011. [doi:10.1088/1748-9326/3/4/045011](https://doi.org/10.1088/1748-9326/3/4/045011)",
         "sci:doi": "10.1088/1748-9326/3/4/045011"
     },
     "WHRC/biomass/tropical": {

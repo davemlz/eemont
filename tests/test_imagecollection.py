@@ -70,12 +70,12 @@ class Test(unittest.TestCase):
     def test_TS_Region(self):
         """Test the Container Emulation Methods"""
         test = S2.getTimeSeriesByRegion(ee.Reducer.mean(),"B2",point,100)
-        self.assertIsInstance(test, ee.featurecollection.FeatureColection)
+        self.assertIsInstance(test, ee.featurecollection.FeatureCollection)
         
     def test_TS_Regions(self):
         """Test the Container Emulation Methods"""
         test = S2.getTimeSeriesByRegions(ee.Reducer.mean(),points,"B2",100)
-        self.assertIsInstance(test, ee.featurecollection.FeatureColection)
+        self.assertIsInstance(test, ee.featurecollection.FeatureCollection)
     
     # CONTAINER EMULATION METHODS
     

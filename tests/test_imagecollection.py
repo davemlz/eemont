@@ -5,6 +5,8 @@ from eemont import imagecollection
 ee.Initialize()
 
 point = ee.Geometry.Point([-76.21,3.45])
+point2 = ee.Geometry.Point([-76.3,4])
+points = ee.FeatureCollection([ee.Feature(point,{"id":1}),ee.Feature(point2,{"id":2})])
 
 # SENTINEL MISSIONS
 S3 = ee.ImageCollection('COPERNICUS/S3/OLCI').filterBounds(point)
@@ -62,6 +64,18 @@ indices = 'all'
 
 class Test(unittest.TestCase):
     """Tests for `eemont` package."""
+    
+    # TIME SERIES BY REGION
+    
+    def test_TS_Region(self):
+        """Test the Container Emulation Methods"""
+        test = S2.getTimeSeriesByRegion(ee.Reducer.mean(),"B2",point,100)
+        self.assertIsInstance(test, ee.featurecollection.FeatureColection)
+        
+    def test_TS_Regions(self):
+        """Test the Container Emulation Methods"""
+        test = S2.getTimeSeriesByRegions(ee.Reducer.mean()points,"B2",100)
+        self.assertIsInstance(test, ee.featurecollection.FeatureColection)
     
     # CONTAINER EMULATION METHODS
     

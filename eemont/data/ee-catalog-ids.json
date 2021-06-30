@@ -575,6 +575,12 @@
         "sci:citation": "Data Citation: Global Inland Water, {Year, ...}, Global Land Cover Facility, [www.landcover.org](www.landcover.org).",
         "sci:doi": "DOI not available"
     },
+    "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1_0": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/GLOBAL_FLOOD_DB_MODIS_EVENTS_V1_0.json",
+        "sci:citation": "Tellman, B., J.A. Sullivan, C. Kuhn, A.J. Kettner, C.S. Doyle, G.R. Brakenridge, T. Erickson, D.A. Slayback. (In review.) Satellites observe increasing proportion of population exposed to floods. Nature. [doi:10.21203/rs.3.rs-65906/v1](https://doi.org/doi:10.21203/rs.3.rs-65906/v1)",
+        "sci:doi": "DOI not available"
+    },
     "GRIDMET/DROUGHT": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/GRIDMET_DROUGHT.json",

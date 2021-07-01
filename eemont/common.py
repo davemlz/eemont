@@ -1381,15 +1381,59 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
 
 
 def _filter_image_bands(img, keep_bands):
-    """Remove image bands that aren't in list of bands to keep."""
+    """Remove Image bands that aren't in list of bands to keep. Essentially a version of ee.Image.select() that doesn't
+    fail if bands are missing.
+
+    Parameters
+    ----------
+    img : ee.Image
+        An Image to select bands from.
+    keep_bands : list
+        A list of band names to keep in the Image. All other bands will be removed. Any specified bands that do not
+        exist will be ignored.
+    
+    Returns
+    -------
+    ee.Image
+        The image with specified bands selected.
+    """
     bands = img.bandNames().filter(ee.Filter.inList("item", keep_bands))
     return img.select(bands)
 
 
-def _panSharpen(img, method, **kwargs):
-    """Apply pan-sharpening."""
+def _panSharpen(source, method, **kwargs):
+    """Apply panchromatic sharpening to an Image or Image Collection.
+    
+    Parameters
+    ----------
+    source : ee.Image | ee.ImageCollection
+        Image or Image Collection to sharpen.
+    method : str, default="SFIM"
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation), 
+        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
+        sharpening methods will produce different quality sharpening results in different scenarios. 
+    **kwargs : 
+        Keyword arguments for ee.Image.reduceRegion(). These arguments are only used for PCS sharpening.
+    
+    Returns
+    -------
+    ee.Image | ee.ImageCollection
+        The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+    """
 
-    def get_platform(img):
+    def get_platform(source):
+        """Get the correct platform function for sharpening of supported platforms.
+
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            An Image or ImageCollection identify a platform function for.
+        
+        Returns
+        -------
+        function
+            A function that accepts Images and ImageCollections from the source platform.
+        """
         platform_methods = {
             "LANDSAT/LC08/C01/T1_TOA": L8,
             "LANDSAT/LC08/C01/T1_RT_TOA": L8,
@@ -1399,7 +1443,7 @@ def _panSharpen(img, method, **kwargs):
             "LANDSAT/LE07/C01/T2_TOA": L7,
         }
 
-        platformDict = _get_platform_STAC(img)
+        platformDict = _get_platform_STAC(source)
         platforms = list(platform_methods.keys())
         platform = platformDict["platform"]
 
@@ -1412,28 +1456,76 @@ def _panSharpen(img, method, **kwargs):
 
         return platform_methods[platform]
 
-    def L7(img):
+    def L7(source):
+        """Apply panchromatic sharpening to an Image or Image Collection from a Landsat 7 platform by passing the 
+        sharpenable bands and panchromatic band to a sharpening function.
+        
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen from Landsat 7.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        """
         sharpenable_bands = ee.List(["B1", "B2", "B3", "B4", "B5", "B7"])
-        sharpenable_img = _filter_image_bands(img, sharpenable_bands)
-        pan_img = img.select("B8")
+        sharpenable_img = _filter_image_bands(source, sharpenable_bands)
+        pan_img = source.select("B8")
         return apply_sharpening(sharpenable_img, pan_img)
 
-    def L8(img):
+    def L8(source):
+        """Apply panchromatic sharpening to an Image or Image Collection from a Landsat 8 platform by passing the 
+        sharpenable bands and panchromatic band to a sharpening function.
+        
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen from Landsat 8.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        """
         sharpenable_bands = ee.List(["B2", "B3", "B4", "B5", "B6", "B7"])
-        sharpenable_img = _filter_image_bands(img, sharpenable_bands)
-        pan_img = img.select("B8")
+        sharpenable_img = _filter_image_bands(source, sharpenable_bands)
+        pan_img = source.select("B8")
         return apply_sharpening(sharpenable_img, pan_img)
 
-    def apply_sharpening(img, pan):
-        sharpener = get_sharpener()
-        sharpened = sharpener(img, pan)
+    def apply_sharpening(source, pan):
+        """Identify and apply the correct sharpening algorithm to an Image or Image Collection.
 
-        sharpened = ee.Image(sharpened.copyProperties(img, pan.propertyNames()))
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen with only sharpenable bands selected.
+        pan : ee.Image | ee.ImageCollection
+            Image or Image Collection with only the panchromatic band selected.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        """
+        sharpener = get_sharpener()
+        sharpened = sharpener(source, pan)
+
+        sharpened = ee.Image(sharpened.copyProperties(source, pan.propertyNames()))
 
         return sharpened
 
     def get_sharpener():
-        sharpeners = {"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "simpleMean": simple_mean}
+        """Get the correct sharpening function.
+
+        Returns
+        -------
+        function
+            A function that implements a pan-sharpening algorithm that takes an Image or Image Collection of sharpenable
+            bands and an Image or Image Collection of panchromatic bands. 
+        """
+        sharpeners = {"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "SM": SM}
 
         try:
             sharpener = {k.lower(): v for (k, v) in sharpeners.items()}[method.lower()]
@@ -1446,7 +1538,21 @@ def _panSharpen(img, method, **kwargs):
         return sharpener
 
     def SFIM(img, pan):
-        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening, Liu 2000."""
+        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening following "Smoothing Filter-based 
+        Intensity Modulation: a spectral preserve image fusion technique for improving spatial details", J.G. Liu, 2000.
+        
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen with only sharpenable bands selected.
+        pan : ee.Image | ee.ImageCollection
+            Image or Image Collection with only the panchromatic band selected.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
         kernel_width = img_scale.divide(pan_scale)
@@ -1459,7 +1565,20 @@ def _panSharpen(img, method, **kwargs):
         return sharp
 
     def HPFA(img, pan):
-        """High-pass filter addition sharpening. Gangkofner et al., 2008.
+        """Apply High-Pass Filter Addition sharpening following "Optimizing the High-Pass Filter Addition Technique for 
+        Image Fusion", Gangkofner et al., 2008.
+
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen with only sharpenable bands selected.
+        pan : ee.Image | ee.ImageCollection
+            Image or Image Collection with only the panchromatic band selected.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
@@ -1481,7 +1600,19 @@ def _panSharpen(img, method, **kwargs):
         return sharp
 
     def PCS(img, pan):
-        """Principal Component Substitution sharpening.
+        """Apply Principal Component Substitution (PCS) sharpening.
+
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen with only sharpenable bands selected.
+        pan : ee.Image | ee.ImageCollection
+            Image or Image Collection with only the panchromatic band selected.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img = img.resample("bicubic").reproject(pan.projection())
         band_names = img.bandNames()
@@ -1522,18 +1653,31 @@ def _panSharpen(img, method, **kwargs):
         
         return sharp
 
-    def simple_mean(img, pan):
-        """Simple mean sharpening"""
+    def SM(img, pan):
+        """Apply Simple Mean (SM) sharpening.
+
+        Parameters
+        ----------
+        source : ee.Image | ee.ImageCollection
+            Image or Image Collection to sharpen with only sharpenable bands selected.
+        pan : ee.Image | ee.ImageCollection
+            Image or Image Collection with only the panchromatic band selected.
+        
+        Returns
+        -------
+        ee.Image | ee.ImageCollection
+            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        """
         img = img.resample("bicubic")
         sharp = img.add(pan).multiply(0.5)
         sharp = sharp.reproject(pan.projection())
         return sharp
 
-    platform = get_platform(img)
+    platform = get_platform(source)
 
-    if isinstance(img, ee.image.Image):
-        sharpened = platform(img)
-    elif isinstance(img, ee.imagecollection.ImageCollection):
-        sharpened = img.map(platform)
+    if isinstance(source, ee.image.Image):
+        sharpened = platform(source)
+    elif isinstance(source, ee.imagecollection.ImageCollection):
+        sharpened = source.map(platform)
 
     return sharpened

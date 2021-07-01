@@ -1263,6 +1263,23 @@ def getCitation(self):
 
 @extend(ee.image.Image)
 def panSharpen(self, method="SFIM", **kwargs):
+    """Apply panchromatic sharpening to the Image.
+    
+    Parameters
+    ----------
+    self : ee.Image [this]
+        Image to sharpen.
+    method : str, default="SFIM"
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation), 
+        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean).
+    **kwargs : 
+        Keyword arguments for ee.Image.reduceRegion(). These arguments are only used for PCS sharpening.
+
+    Returns
+    -------
+    ee.Image
+        The Image with all sharpenable bands sharpened to the panchromatic resolution.
+    """
     return _panSharpen(self, method, **kwargs)
 
 

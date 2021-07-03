@@ -24,4 +24,7 @@ Here you can find a collection of eemont tutorials in Jupyter Notebooks and RMar
 19. Checking the STAC Info of ANY RASTER DATASET in the GEE STAC (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/019-Checking-STAC-Info.ipynb>`_) 
 20. Overloaded Operators for the ee.Number Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/020-Overloaded-Operators-Number.ipynb>`_) 
 21. Citation Tools for ANY RASTER DATASET in the GEE STAC (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/021-Citation-Tools.ipynb>`_) 
-22. Overloaded Operators for the ee.List Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/022-Overloaded-Operators-List.ipynb>`_) 
+22. Overloaded Operators for the ee.List Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/022-Overloaded-Operators-List.ipynb>`_)
+23. Creating Geometries from Plus Codes (And Viceversa) (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/023-Creating-Geometries-From-Plus-Codes.ipynb>`_)
+24. Container Emulation Methods for ee.Image and ee.ImageCollection (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/024-Container-Image-ImageCollection.ipynb>`_)
+25. landsat 8 - Collection 2 (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/025-Landsat-8-Collection-2.ipynb>`_)

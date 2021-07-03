@@ -1401,7 +1401,7 @@ def _filter_image_bands(img, keep_bands):
     return img.select(bands)
 
 
-def _panSharpen(source, method, **kwargs):
+def _panSharpen(source, method, qa, **kwargs):
     """Apply panchromatic sharpening to an Image or Image Collection.
     
     Parameters
@@ -1413,14 +1413,14 @@ def _panSharpen(source, method, **kwargs):
         "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
         sharpening methods will produce different quality sharpening results in different scenarios. 
     **kwargs : 
-        Keyword arguments for ee.Image.reduceRegion(). These arguments are only used for PCS sharpening.
+        Keyword arguments for ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These 
+        arguments are only used for PCS sharpening and quality assessments.
     
     Returns
     -------
     ee.Image | ee.ImageCollection
         The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
     """
-
     def get_platform(source):
         """Get the correct platform function for sharpening of supported platforms.
 
@@ -1434,6 +1434,7 @@ def _panSharpen(source, method, **kwargs):
         function
             A function that accepts Images and ImageCollections from the source platform.
         """
+        # TODO: Test with other platforms and add if usable.
         platform_methods = {
             "LANDSAT/LC08/C01/T1_TOA": L8,
             "LANDSAT/LC08/C01/T1_RT_TOA": L8,
@@ -1457,62 +1458,67 @@ def _panSharpen(source, method, **kwargs):
         return platform_methods[platform]
 
     def L7(source):
-        """Apply panchromatic sharpening to an Image or Image Collection from a Landsat 7 platform by passing the 
-        sharpenable bands and panchromatic band to a sharpening function.
+        """Apply panchromatic sharpening to an Image from a Landsat 7 platform by passing the sharpenable bands and 
+        panchromatic band to a sharpening function.
         
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen from Landsat 7.
+        source : ee.Image
+            Image to sharpen from Landsat 7.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         sharpenable_bands = ee.List(["B1", "B2", "B3", "B4", "B5", "B7"])
         sharpenable_img = _filter_image_bands(source, sharpenable_bands)
         pan_img = source.select("B8")
+
         return apply_sharpening(sharpenable_img, pan_img)
 
     def L8(source):
-        """Apply panchromatic sharpening to an Image or Image Collection from a Landsat 8 platform by passing the 
-        sharpenable bands and panchromatic band to a sharpening function.
+        """Apply panchromatic sharpening to an Image from a Landsat 8 platform by passing the sharpenable bands and 
+        panchromatic band to a sharpening function.
         
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen from Landsat 8.
+        source : ee.Image
+            Image to sharpen from Landsat 8.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         sharpenable_bands = ee.List(["B2", "B3", "B4", "B5", "B6", "B7"])
         sharpenable_img = _filter_image_bands(source, sharpenable_bands)
         pan_img = source.select("B8")
+
         return apply_sharpening(sharpenable_img, pan_img)
 
     def apply_sharpening(source, pan):
-        """Identify and apply the correct sharpening algorithm to an Image or Image Collection.
+        """Identify and apply the correct sharpening algorithm to an Image.
 
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen with only sharpenable bands selected.
+        source : ee.Image
+            Image to sharpen with only sharpenable bands selected.
         pan : ee.Image | ee.ImageCollection
-            Image or Image Collection with only the panchromatic band selected.
+            Image with only the panchromatic band selected.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         sharpener = get_sharpener()
         sharpened = sharpener(source, pan)
 
         sharpened = ee.Image(sharpened.copyProperties(source, pan.propertyNames()))
+
+        if qa:
+            sharpened = run_and_set_qa(source, sharpened)
 
         return sharpened
 
@@ -1525,10 +1531,10 @@ def _panSharpen(source, method, **kwargs):
             A function that implements a pan-sharpening algorithm that takes an Image or Image Collection of sharpenable
             bands and an Image or Image Collection of panchromatic bands. 
         """
-        sharpeners = {"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "SM": SM}
+        sharpeners = requests.structures.CaseInsensitiveDict({"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "SM": SM})
 
         try:
-            sharpener = {k.lower(): v for (k, v) in sharpeners.items()}[method.lower()]
+            sharpener = sharpeners[method]
         except KeyError:
             raise AttributeError(
                 '"{}" is not a supported sharpening method. Supported methods: {}'.format(
@@ -1543,15 +1549,15 @@ def _panSharpen(source, method, **kwargs):
         
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen with only sharpenable bands selected.
-        pan : ee.Image | ee.ImageCollection
-            Image or Image Collection with only the panchromatic band selected.
+        source : ee.Image
+            Image to sharpen with only sharpenable bands selected.
+        pan : ee.Image
+            Image with only the panchromatic band selected.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
@@ -1570,15 +1576,15 @@ def _panSharpen(source, method, **kwargs):
 
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen with only sharpenable bands selected.
-        pan : ee.Image | ee.ImageCollection
-            Image or Image Collection with only the panchromatic band selected.
+        source : ee.Image
+            Image to sharpen with only sharpenable bands selected.
+        pan : ee.Image
+            Image with only the panchromatic band selected.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
@@ -1604,15 +1610,15 @@ def _panSharpen(source, method, **kwargs):
 
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen with only sharpenable bands selected.
-        pan : ee.Image | ee.ImageCollection
-            Image or Image Collection with only the panchromatic band selected.
+        source : ee.Image
+            Image to sharpen with only sharpenable bands selected.
+        pan : ee.Image
+            Image with only the panchromatic band selected.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img = img.resample("bicubic").reproject(pan.projection())
         band_names = img.bandNames()
@@ -1658,20 +1664,89 @@ def _panSharpen(source, method, **kwargs):
 
         Parameters
         ----------
-        source : ee.Image | ee.ImageCollection
-            Image or Image Collection to sharpen with only sharpenable bands selected.
-        pan : ee.Image | ee.ImageCollection
-            Image or Image Collection with only the panchromatic band selected.
+        source : ee.Image
+            Image to sharpen with only sharpenable bands selected.
+        pan : ee.Image
+            Image with only the panchromatic band selected.
         
         Returns
         -------
-        ee.Image | ee.ImageCollection
-            The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        ee.Image
+            The Image with all sharpenable bands sharpened to the panchromatic resolution.
         """
         img = img.resample("bicubic")
         sharp = img.add(pan).multiply(0.5)
         sharp = sharp.reproject(pan.projection())
         return sharp
+
+    def MSE(original, modified):
+        original = original.select(modified.bandNames())
+        mse = (original
+            .subtract(modified)
+            .pow(2)
+            .reduceRegion(reducer=ee.Reducer.mean(), **kwargs)
+        )
+
+        return mse
+
+    def RMSE(original, modified):
+        mse = MSE(original, modified)
+        sqrt_vals = ee.Array(mse.values()).sqrt().toList()
+        rmse = ee.Dictionary.fromLists(mse.keys(), sqrt_vals)
+
+        return rmse
+
+    def get_qa_functions_and_names():
+        """Get the correct quality assessment function(s) and name(s) as a dictionary.
+
+        Returns
+        -------
+        dict
+            A dictionary with one or more QA names as keys and corresponding functions as values.
+        """
+        qa_options = requests.structures.CaseInsensitiveDict({"MSE": MSE, "RMSE": RMSE})
+
+        qa_choices = [qa] if not isinstance(qa, (list, tuple)) else qa
+
+        selected_qa = {}
+        for qa_choice in qa_choices:
+            try:
+                selected_qa[qa_choice] = qa_options[qa_choice]
+            except KeyError:
+                raise AttributeError(
+                    '"{}" is not a supported quality assessment. Supported assessments: {}'.format(
+                        method, list(qa_options.keys())
+                    )
+                )
+        
+        return selected_qa
+
+    def run_and_set_qa(original, modified):
+        """Get any valid requested quality assessment functions and run each of them to assess the quality of the 
+        sharpened Image. Set the results of each quality assessment as a new property (e.g. "eemont:RMSE").
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original, pre-sharpened image.
+        modified : ee.Image
+            The sharpened image. Quality assessments will be run to quantify distortion between this image and the 
+            original.
+
+        Results
+        -------
+        ee.Image
+            The modified image with a new property set for each quality assessment.
+        """
+        selected_qa = get_qa_functions_and_names()
+
+        original = original.select(modified.bandNames())
+
+        for qa_name, qa_func in selected_qa.items():
+            qa_values = qa_func(original, modified)
+            modified = modified.set("eemont:{}".format(qa_name), qa_values)
+
+        return modified
 
     platform = get_platform(source)
 

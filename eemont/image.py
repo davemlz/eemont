@@ -1262,7 +1262,7 @@ def getCitation(self):
 
 
 @extend(ee.image.Image)
-def panSharpen(self, method="SFIM", **kwargs):
+def panSharpen(self, method="SFIM", qa=None, **kwargs):
     """Apply panchromatic sharpening to the Image.
     
     Parameters
@@ -1280,7 +1280,7 @@ def panSharpen(self, method="SFIM", **kwargs):
     ee.Image
         The Image with all sharpenable bands sharpened to the panchromatic resolution.
     """
-    return _panSharpen(self, method, **kwargs)
+    return _panSharpen(self, method, qa, **kwargs)
 
 
 @extend(ee.image.Image)

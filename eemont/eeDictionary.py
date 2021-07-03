@@ -23,23 +23,6 @@ def __contains__(self, key):
 
 
 @extend(ee.dictionary.Dictionary)
-def __len__(self):
-    '''Returns the length of the dictionary.
-
-    Parameters
-    ----------
-    self : ee.Dictionary
-        Dictionary to get the length from.
-
-    Returns
-    -------
-    int
-        Length of the dictionary.
-    '''
-    return self.size().getInfo()
-
-
-@extend(ee.dictionary.Dictionary)
 def __getitem__(self, key):
     '''Gets the item of the dictionary according to the specified key.
 

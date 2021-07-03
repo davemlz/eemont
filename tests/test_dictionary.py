@@ -1,6 +1,6 @@
 import ee
 import unittest
-from eemont import dictionary
+from eemont import eeDictionary
 
 ee.Initialize()
 
@@ -13,11 +13,6 @@ class Test(unittest.TestCase):
         """Test the Container Emulation Methods"""
         test = ee.Dictionary({"key1":1,"key2":2})["key1"]
         self.assertIsInstance(test, ee.computedobject.ComputedObject)
-        
-    def test_Container_Length(self):
-        """Test the Container Emulation Methods"""
-        test = len(ee.Dictionary({"key1":1,"key2":2}))
-        self.assertIsInstance(test, int)
         
     def test_Container_Contains(self):
         """Test the Container Emulation Methods"""

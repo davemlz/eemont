@@ -1140,6 +1140,13 @@
     "GLCF/GLS_WATER": {
         "water": 0.0
     },
+    "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1_0": {
+        "clear_perc": 0.0,
+        "clear_views": 0.0,
+        "flood_duration": 0.0,
+        "flooded": 0.0,
+        "jrc_perm_water": 0.0
+    },
     "GRIDMET/DROUGHT": {
         "eddi14d": 0.0,
         "eddi180d": 0.0,
@@ -1927,13 +1934,13 @@
     "LANDSAT/LC08/C02/T1_L2": {
         "QA_PIXEL": 0.0,
         "QA_RADSAT": 0.0,
-        "SR_B1": 0.0,
-        "SR_B2": 0.0,
-        "SR_B3": 0.0,
-        "SR_B4": 0.0,
-        "SR_B5": 0.0,
-        "SR_B6": 0.0,
-        "SR_B7": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B6": -0.2,
+        "SR_B7": -0.2,
         "SR_QA_AEROSOL": 0.0,
         "ST_ATRAN": 0.0,
         "ST_B10": 149.0,
@@ -2138,6 +2145,27 @@
         "B7": 0.0,
         "B8": 0.0,
         "BQA": 0.0
+    },
+    "LANDSAT/LE07/C02/T1_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_ATMOS_OPACITY": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B7": -0.2,
+        "SR_CLOUD_QA": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B6": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
     },
     "LANDSAT/LE7": {
         "B1": 0.0,

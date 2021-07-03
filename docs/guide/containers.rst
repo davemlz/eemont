@@ -141,9 +141,6 @@ The following table shows the list of container emulation methods that are overl
    * - Get Item By Key
      - Dictionary.get(key)
      - Dictionary[key]
-   * - Length
-     - Dictionary.size().getInfo()
-     - len(Dictionary)
    * - Contains
      - Dictionary.contains(key).getInfo()
      - key in Dictionary
@@ -284,9 +281,3 @@ We can also check if a key is in a dictionary:
 .. code-block:: python
 
    'Area' in d
-   
-And check the size of the dictionary:
-
-.. code-block:: python
-
-   len(d)

@@ -1,6 +1,6 @@
 """The eemont python package."""
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 from . import feature
 from . import featurecollection
@@ -10,5 +10,5 @@ from . import imagecollection
 from . import dataframe
 from . import number
 from . import eeList
-from . import dictionary
+from . import eeDictionary
 from .common import *

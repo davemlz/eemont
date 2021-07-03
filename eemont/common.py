@@ -140,6 +140,19 @@ def _get_expression_map(img, platformDict):
             "T1": img.select("B10"),
             "T2": img.select("B11"),
         }
+    
+    def lookupL8C2(img):
+        return {
+            "A": img.select("SR_B1"),
+            "B": img.select("SR_B2"),
+            "G": img.select("SR_B3"),
+            "R": img.select("SR_B4"),
+            "N": img.select("SR_B5"),
+            "S1": img.select("SR_B6"),
+            "S2": img.select("SR_B7"),
+            "T1": img.select("SR_B10"),
+            "T2": img.select("SR_B11"),
+        }
 
     def lookupL457(img):
         return {
@@ -150,6 +163,17 @@ def _get_expression_map(img, platformDict):
             "S1": img.select("B5"),
             "T1": img.select("B6"),
             "S2": img.select("B7"),
+        }
+    
+    def lookupL7C2(img):
+        return {
+            "B": img.select("SR_B1"),
+            "G": img.select("SR_B2"),
+            "R": img.select("SR_B3"),
+            "N": img.select("SR_B4"),
+            "S1": img.select("SR_B5"),
+            "T1": img.select("SR_B6"),
+            "S2": img.select("SR_B7"),
         }
 
     def lookupMOD09GQ(img):
@@ -180,8 +204,10 @@ def _get_expression_map(img, platformDict):
         "COPERNICUS/S2_SR": lookupS2,
         "LANDSAT/LC08/C01/T1_SR": lookupL8,
         "LANDSAT/LC08/C01/T2_SR": lookupL8,
+        "LANDSAT/LC08/C02/T1_L2": lookupL8C2,
         "LANDSAT/LE07/C01/T1_SR": lookupL457,
         "LANDSAT/LE07/C01/T2_SR": lookupL457,
+        "LANDSAT/LE07/C02/T1_L2": lookupL7C2,
         "LANDSAT/LT05/C01/T1_SR": lookupL457,
         "LANDSAT/LT05/C01/T2_SR": lookupL457,
         "LANDSAT/LT04/C01/T1_SR": lookupL457,

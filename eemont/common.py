@@ -1328,7 +1328,7 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
         return (source_vals.toList(), target_lookup_vals)
 
     if not geometry:
-        geometry = source_img.geometry()
+        geometry = ee.Element.geometry(source_img)
 
     bands = ee.Dictionary(bands)
     source_bands = bands.keys()

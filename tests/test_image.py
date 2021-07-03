@@ -587,6 +587,12 @@ class Test(unittest.TestCase):
         }
         matched = source.matchHistogram(target, bands)
         self.assertIsInstance(matched, ee.image.Image)
+
+    def test_panSharpen(self):
+        """Test that pan-sharpening returns an image"""
+        source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        sharp = source.panSharpen()
+        self.assertIsInstance(sharp, ee.image.Image)
         
 if __name__ == '__main__':
     unittest.main()

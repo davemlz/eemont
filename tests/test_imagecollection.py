@@ -14,7 +14,9 @@ S2 = ee.ImageCollection('COPERNICUS/S2_SR').filterBounds(point)
 
 # LANDSAT MISSIONS
 L8 = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR').filterBounds(point)
+L8C2 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2').filterBounds(point)
 L7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR').filterBounds(point)
+L7C2 = ee.ImageCollection('LANDSAT/LE07/C02/T1_L2').filterBounds(point)
 L5 = ee.ImageCollection('LANDSAT/LT05/C01/T1_SR').filterBounds(point)
 L4 = ee.ImageCollection('LANDSAT/LT04/C01/T1_SR').filterBounds(point)
 
@@ -143,9 +145,19 @@ class Test(unittest.TestCase):
         L8_tested = L8.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L8_tested, ee.imagecollection.ImageCollection)
         
+    def test_L8C2(self):
+        """Test the image collection module for Landsat 8"""
+        L8_tested = L8C2.closest('2020-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
+        self.assertIsInstance(L8_tested, ee.imagecollection.ImageCollection)
+        
     def test_L7(self):
         """Test the image collection module for Landsat 7"""
         L7_tested = L7.closest('2010-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
+        self.assertIsInstance(L7_tested, ee.imagecollection.ImageCollection)
+        
+    def test_L7C2(self):
+        """Test the image collection module for Landsat 7"""
+        L7_tested = L7C2.closest('2010-01-15').maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L7_tested, ee.imagecollection.ImageCollection)
         
     def test_L5(self):
@@ -373,9 +385,19 @@ class Test(unittest.TestCase):
         L8_tested = L8.closest('2020-01-15').preprocess().spectralIndices(indices)
         self.assertIsInstance(L8_tested, ee.imagecollection.ImageCollection)
         
+    def test_L8C2(self):
+        """Test the image collection module for Landsat 8"""
+        L8_tested = L8C2.closest('2020-01-15').preprocess().spectralIndices(indices)
+        self.assertIsInstance(L8_tested, ee.imagecollection.ImageCollection)
+        
     def test_L7(self):
         """Test the image collection module for Landsat 7"""
         L7_tested = L7.closest('2010-01-15').preprocess().spectralIndices(indices)
+        self.assertIsInstance(L7_tested, ee.imagecollection.ImageCollection)
+        
+    def test_L7C2(self):
+        """Test the image collection module for Landsat 7"""
+        L7_tested = L7C2.closest('2010-01-15').preprocess().spectralIndices(indices)
         self.assertIsInstance(L7_tested, ee.imagecollection.ImageCollection)
         
     def test_L5(self):

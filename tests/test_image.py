@@ -10,7 +10,9 @@ S2 = ee.ImageCollection('COPERNICUS/S2_SR').first()
 
 # LANDSAT MISSIONS
 L8 = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR').first()
+L8C2 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2').first()
 L7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR').first()
+L7C2 = ee.ImageCollection('LANDSAT/LE07/C02/T1_L2').first()
 L5 = ee.ImageCollection('LANDSAT/LT05/C01/T1_SR').first()
 L4 = ee.ImageCollection('LANDSAT/LT04/C01/T1_SR').first()
 
@@ -144,9 +146,19 @@ class Test(unittest.TestCase):
         L8_tested = L8.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L8_tested, ee.image.Image)
         
+    def test_L8C2(self):
+        """Test the image module for Landsat 8"""
+        L8_tested = L8C2.maskClouds().scaleAndOffset().spectralIndices(indices)
+        self.assertIsInstance(L8_tested, ee.image.Image)
+        
     def test_L7(self):
         """Test the image module for Landsat 7"""
         L7_tested = L7.maskClouds().scaleAndOffset().spectralIndices(indices)
+        self.assertIsInstance(L7_tested, ee.image.Image)
+        
+    def test_L7C2(self):
+        """Test the image module for Landsat 7"""
+        L7_tested = L7C2.maskClouds().scaleAndOffset().spectralIndices(indices)
         self.assertIsInstance(L7_tested, ee.image.Image)
         
     def test_L5(self):
@@ -374,9 +386,19 @@ class Test(unittest.TestCase):
         L8_tested = L8.preprocess().spectralIndices(indices)
         self.assertIsInstance(L8_tested, ee.image.Image)
         
+    def test_L8C2_preprocess(self):
+        """Test the image module for Landsat 8"""
+        L8_tested = L8C2.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L8_tested, ee.image.Image)
+        
     def test_L7_preprocess(self):
         """Test the image module for Landsat 7"""
         L7_tested = L7.preprocess().spectralIndices(indices)
+        self.assertIsInstance(L7_tested, ee.image.Image)
+        
+    def test_L7C2_preprocess(self):
+        """Test the image module for Landsat 7"""
+        L7_tested = L7C2.preprocess().spectralIndices(indices)
         self.assertIsInstance(L7_tested, ee.image.Image)
         
     def test_L5_preprocess(self):

@@ -1292,8 +1292,9 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
     -------
     ee.Image
         The adjusted image containing the matched source bands.
-    
+
     """
+
     def histogram_lookup(source_hist, target_hist):
         """Build a list of target values with corresponding counts to source values from a source and target histogram.
 
@@ -1318,8 +1319,7 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
         target_counts = target_counts.divide(target_counts.get([-1]))
 
         def lookup_value(n):
-            """Find the first target value with at least n counts.
-            """
+            """Find the first target value with at least n counts."""
             index = target_counts.gte(n).argmax()
             return target_vals.get(index)
 
@@ -1342,7 +1342,7 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
         geometry=geometry,
         scale=30,
         maxPixels=1e13,
-        bestEffort=True
+        bestEffort=True,
     )
 
     target_histogram = target_img.updateMask(source_img.mask()).reduceRegion(
@@ -1350,7 +1350,7 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
         geometry=geometry,
         scale=30,
         maxPixels=1e13,
-        bestEffort=True            
+        bestEffort=True,
     )
 
     def match_bands(source_band, target_band):
@@ -1368,11 +1368,18 @@ def _matchHistogram(source_img, target_img, bands, geometry, maxBuckets):
         ee.Image
             The source band histogram-matched to the target band.
         """
-        x, y = histogram_lookup(source_histogram.getArray(source_band), target_histogram.getArray(target_band))
+        x, y = histogram_lookup(
+            source_histogram.getArray(source_band),
+            target_histogram.getArray(target_band),
+        )
         matched = source_img.select([source_band]).interpolate(x, y)
         return matched
 
-    matched = ee.ImageCollection(bands.map(match_bands).values()).toBands().rename(source_bands)
+    matched = (
+        ee.ImageCollection(bands.map(match_bands).values())
+        .toBands()
+        .rename(source_bands)
+    )
 
     matched = ee.Image(matched.copyProperties(source_img, source_img.propertyNames()))
     matched = matched.set("eemont:HISTOGRAM_TARGET", target_img)
@@ -1391,7 +1398,7 @@ def _filter_image_bands(img, keep_bands):
     keep_bands : list
         A list of band names to keep in the Image. All other bands will be removed. Any specified bands that do not
         exist will be ignored.
-    
+
     Returns
     -------
     ee.Image
@@ -1402,25 +1409,32 @@ def _filter_image_bands(img, keep_bands):
 
 
 def _panSharpen(source, method, qa, **kwargs):
-    """Apply panchromatic sharpening to an Image or Image Collection.
-    
+    """Apply panchromatic sharpening to an Image or Image Collection. Optionally, run quality assessments between the
+    original and sharpened Image(s) to measure spectral distortion and set results as properties of the sharpened
+    Image(s).
+
     Parameters
     ----------
     source : ee.Image | ee.ImageCollection
         Image or Image Collection to sharpen.
     method : str, default="SFIM"
-        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation), 
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation),
         "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
-        sharpening methods will produce different quality sharpening results in different scenarios. 
-    **kwargs : 
-        Keyword arguments for ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These 
+        sharpening methods will produce different quality sharpening results in different scenarios.
+    qa : str | list, default=None
+        One or more optional quality assessment names to apply after sharpening. Current options are "MSE" (mean squared
+        error) or "RMSE" (root mean squared error).
+    **kwargs :
+        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
         arguments are only used for PCS sharpening and quality assessments.
-    
+
     Returns
     -------
     ee.Image | ee.ImageCollection
-        The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
+        The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution and quality
+        assessments run and set as properties.
     """
+
     def get_platform(source):
         """Get the correct platform function for sharpening of supported platforms.
 
@@ -1428,7 +1442,7 @@ def _panSharpen(source, method, qa, **kwargs):
         ----------
         source : ee.Image | ee.ImageCollection
             An Image or ImageCollection identify a platform function for.
-        
+
         Returns
         -------
         function
@@ -1458,14 +1472,14 @@ def _panSharpen(source, method, qa, **kwargs):
         return platform_methods[platform]
 
     def L7(source):
-        """Apply panchromatic sharpening to an Image from a Landsat 7 platform by passing the sharpenable bands and 
+        """Apply panchromatic sharpening to an Image from a Landsat 7 platform by passing the sharpenable bands and
         panchromatic band to a sharpening function.
-        
+
         Parameters
         ----------
         source : ee.Image
             Image to sharpen from Landsat 7.
-        
+
         Returns
         -------
         ee.Image
@@ -1478,14 +1492,14 @@ def _panSharpen(source, method, qa, **kwargs):
         return apply_sharpening(sharpenable_img, pan_img)
 
     def L8(source):
-        """Apply panchromatic sharpening to an Image from a Landsat 8 platform by passing the sharpenable bands and 
+        """Apply panchromatic sharpening to an Image from a Landsat 8 platform by passing the sharpenable bands and
         panchromatic band to a sharpening function.
-        
+
         Parameters
         ----------
         source : ee.Image
             Image to sharpen from Landsat 8.
-        
+
         Returns
         -------
         ee.Image
@@ -1506,7 +1520,7 @@ def _panSharpen(source, method, qa, **kwargs):
             Image to sharpen with only sharpenable bands selected.
         pan : ee.Image | ee.ImageCollection
             Image with only the panchromatic band selected.
-        
+
         Returns
         -------
         ee.Image
@@ -1529,9 +1543,11 @@ def _panSharpen(source, method, qa, **kwargs):
         -------
         function
             A function that implements a pan-sharpening algorithm that takes an Image or Image Collection of sharpenable
-            bands and an Image or Image Collection of panchromatic bands. 
+            bands and an Image or Image Collection of panchromatic bands.
         """
-        sharpeners = requests.structures.CaseInsensitiveDict({"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "SM": SM})
+        sharpeners = requests.structures.CaseInsensitiveDict(
+            {"SFIM": SFIM, "HPFA": HPFA, "PCS": PCS, "SM": SM}
+        )
 
         try:
             sharpener = sharpeners[method]
@@ -1544,16 +1560,16 @@ def _panSharpen(source, method, qa, **kwargs):
         return sharpener
 
     def SFIM(img, pan):
-        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening following "Smoothing Filter-based 
+        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening following "Smoothing Filter-based
         Intensity Modulation: a spectral preserve image fusion technique for improving spatial details", J.G. Liu, 2000.
-        
+
         Parameters
         ----------
         source : ee.Image
             Image to sharpen with only sharpenable bands selected.
         pan : ee.Image
             Image with only the panchromatic band selected.
-        
+
         Returns
         -------
         ee.Image
@@ -1571,7 +1587,7 @@ def _panSharpen(source, method, qa, **kwargs):
         return sharp
 
     def HPFA(img, pan):
-        """Apply High-Pass Filter Addition sharpening following "Optimizing the High-Pass Filter Addition Technique for 
+        """Apply High-Pass Filter Addition sharpening following "Optimizing the High-Pass Filter Addition Technique for
         Image Fusion", Gangkofner et al., 2008.
 
         Parameters
@@ -1580,7 +1596,7 @@ def _panSharpen(source, method, qa, **kwargs):
             Image to sharpen with only sharpenable bands selected.
         pan : ee.Image
             Image with only the panchromatic band selected.
-        
+
         Returns
         -------
         ee.Image
@@ -1614,7 +1630,7 @@ def _panSharpen(source, method, qa, **kwargs):
             Image to sharpen with only sharpenable bands selected.
         pan : ee.Image
             Image with only the panchromatic band selected.
-        
+
         Returns
         -------
         ee.Image
@@ -1634,7 +1650,8 @@ def _panSharpen(source, method, qa, **kwargs):
         eigenvectors = eigens.slice(1, 1)
         img_arr_2d = img_arr.toArray(1)
 
-        principal_components = (ee.Image(eigenvectors)
+        principal_components = (
+            ee.Image(eigenvectors)
             .matrixMultiply(img_arr_2d)
             .arrayProject([0])
             .arrayFlatten([band_names])
@@ -1646,17 +1663,22 @@ def _panSharpen(source, method, qa, **kwargs):
         pc1 = principal_components.select([pc1_name]).rename(["PC1"])
         pan = pan.rename(["pan"])
 
-        pan_matched = pan.matchHistogram(pc1, {"pan": "PC1"}, kwargs.get("geometry")).rename([pc1_name])
-        
-        principal_components = principal_components.addBands(pan_matched, overwrite=True)
+        pan_matched = pan.matchHistogram(
+            pc1, {"pan": "PC1"}, kwargs.get("geometry")
+        ).rename([pc1_name])
 
-        sharp_centered = (ee.Image(eigenvectors)
+        principal_components = principal_components.addBands(
+            pan_matched, overwrite=True
+        )
+
+        sharp_centered = (
+            ee.Image(eigenvectors)
             .matrixSolve(principal_components.toArray().toArray(1))
             .arrayProject([0])
             .arrayFlatten([band_names])
         )
         sharp = sharp_centered.add(img_means)
-        
+
         return sharp
 
     def SM(img, pan):
@@ -1668,7 +1690,7 @@ def _panSharpen(source, method, qa, **kwargs):
             Image to sharpen with only sharpenable bands selected.
         pan : ee.Image
             Image with only the panchromatic band selected.
-        
+
         Returns
         -------
         ee.Image
@@ -1681,8 +1703,8 @@ def _panSharpen(source, method, qa, **kwargs):
 
     def MSE(original, modified):
         original = original.select(modified.bandNames())
-        mse = (original
-            .subtract(modified)
+        mse = (
+            original.subtract(modified)
             .pow(2)
             .reduceRegion(reducer=ee.Reducer.mean(), **kwargs)
         )
@@ -1718,11 +1740,11 @@ def _panSharpen(source, method, qa, **kwargs):
                         method, list(qa_options.keys())
                     )
                 )
-        
+
         return selected_qa
 
     def run_and_set_qa(original, modified):
-        """Get any valid requested quality assessment functions and run each of them to assess the quality of the 
+        """Get any valid requested quality assessment functions and run each of them to assess the quality of the
         sharpened Image. Set the results of each quality assessment as a new property (e.g. "eemont:RMSE").
 
         Parameters
@@ -1730,7 +1752,7 @@ def _panSharpen(source, method, qa, **kwargs):
         original : ee.Image
             The original, pre-sharpened image.
         modified : ee.Image
-            The sharpened image. Quality assessments will be run to quantify distortion between this image and the 
+            The sharpened image. Quality assessments will be run to quantify distortion between this image and the
             original.
 
         Results

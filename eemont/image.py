@@ -1263,22 +1263,37 @@ def getCitation(self):
 
 @extend(ee.image.Image)
 def panSharpen(self, method="SFIM", qa=None, **kwargs):
-    """Apply panchromatic sharpening to the Image.
-    
+    """Apply panchromatic sharpening to the Image. Optionally, run quality assessments between the original and
+    sharpened Image to measure spectral distortion and set results as properties of the sharpened Image.
+
     Parameters
     ----------
     self : ee.Image [this]
         Image to sharpen.
     method : str, default="SFIM"
-        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation), 
-        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean).
-    **kwargs : 
-        Keyword arguments for ee.Image.reduceRegion(). These arguments are only used for PCS sharpening.
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation),
+        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
+        sharpening methods will produce different quality sharpening results in different scenarios.
+    qa : str | list, default=None
+        One or more optional quality assessment names to apply after sharpening. Current options are "MSE" (mean squared
+        error) or "RMSE" (root mean squared error).
+    **kwargs :
+        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
+        arguments are only used for PCS sharpening and quality assessments.
 
     Returns
     -------
     ee.Image
-        The Image with all sharpenable bands sharpened to the panchromatic resolution.
+        The Image with all sharpenable bands sharpened to the panchromatic resolution and quality assessments run and
+        set as properties.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+    >>> sharp = source.panSharpen(method="HPFA", qa=["MSE", "RMSE"], maxPixels=1e13)
     """
     return _panSharpen(self, method, qa, **kwargs)
 
@@ -1313,8 +1328,8 @@ def matchHistogram(self, target, bands, geometry=None, maxBuckets=256):
     >>> source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
     >>> target = ee.Image("LANDSAT/LE07/C01/T1_TOA/LE07_046027_20150701")
     >>> bands = {
-    >>>    "B4": "B3", 
-    >>>    "B3": "B2", 
+    >>>    "B4": "B3",
+    >>>    "B3": "B2",
     >>>    "B2": "B1"
     >>> }
     >>> matched = source.matchHistogram(target, bands)

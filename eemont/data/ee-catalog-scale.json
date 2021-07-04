@@ -2443,6 +2443,17 @@
         "B7": 1.0,
         "BQA": 1.0
     },
+    "LANDSAT/LT04/C01/T1_ANNUAL_GREENEST_TOA": {
+        "B1": 1.0,
+        "B2": 1.0,
+        "B3": 1.0,
+        "B4": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "B7": 1.0,
+        "BQA": 1.0,
+        "greenness": 1.0
+    },
     "LANDSAT/LT04/C01/T1_SR": {
         "B1": 0.0001,
         "B2": 0.0001,
@@ -2508,6 +2519,17 @@
         "B6": 1.0,
         "B7": 1.0,
         "BQA": 1.0
+    },
+    "LANDSAT/LT05/C01/T1_ANNUAL_GREENEST_TOA": {
+        "B1": 1.0,
+        "B2": 1.0,
+        "B3": 1.0,
+        "B4": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "B7": 1.0,
+        "BQA": 1.0,
+        "greenness": 1.0
     },
     "LANDSAT/LT05/C01/T1_SR": {
         "B1": 0.0001,
@@ -2632,6 +2654,17 @@
     "LANDSAT/LT4_L1T_ANNUAL_EVI": {
         "EVI": 1.0
     },
+    "LANDSAT/LT4_L1T_ANNUAL_GREENEST_TOA": {
+        "B1": 1.0,
+        "B2": 1.0,
+        "B3": 1.0,
+        "B4": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "B7": 1.0,
+        "BQA": 1.0,
+        "greenness": 1.0
+    },
     "LANDSAT/LT4_L1T_ANNUAL_NBRT": {
         "NBRT": 1.0
     },
@@ -2715,6 +2748,17 @@
     },
     "LANDSAT/LT5_L1T_ANNUAL_EVI": {
         "EVI": 1.0
+    },
+    "LANDSAT/LT5_L1T_ANNUAL_GREENEST_TOA": {
+        "B1": 1.0,
+        "B2": 1.0,
+        "B3": 1.0,
+        "B4": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "B7": 1.0,
+        "BQA": 1.0,
+        "greenness": 1.0
     },
     "LANDSAT/LT5_L1T_ANNUAL_NBRT": {
         "NBRT": 1.0

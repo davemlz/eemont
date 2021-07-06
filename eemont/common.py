@@ -1448,14 +1448,21 @@ def _panSharpen(source, method, qa, **kwargs):
         function
             A function that accepts Images and ImageCollections from the source platform.
         """
-        # TODO: Test with other platforms and add if usable.
         platform_methods = {
             "LANDSAT/LC08/C01/T1_TOA": L8,
             "LANDSAT/LC08/C01/T1_RT_TOA": L8,
             "LANDSAT/LC08/C01/T2_TOA": L8,
+            "LANDSAT/LC08/C01/T1_RT": L8,
+            "LANDSAT/LO08/C01/T1": L8,
+            "LANDSAT/LC08/C01/T1": L8,
+            "LANDSAT/LO08/C01/T2": L8,
+            "LANDSAT/LC08/C01/T2": L8,
             "LANDSAT/LE07/C01/T1_TOA": L7,
             "LANDSAT/LE07/C01/T1_RT_TOA": L7,
             "LANDSAT/LE07/C01/T2_TOA": L7,
+            "LANDSAT/LE07/C01/T1_RT": L7,
+            "LANDSAT/LE07/C01/T1": L7,
+            "LANDSAT/LE07/C01/T2": L7,
         }
 
         platformDict = _get_platform_STAC(source)
@@ -1530,6 +1537,7 @@ def _panSharpen(source, method, qa, **kwargs):
         sharpened = sharpener(source, pan)
 
         sharpened = ee.Image(sharpened.copyProperties(source, pan.propertyNames()))
+        sharpened = sharpened.updateMask(source.mask())
 
         if qa:
             sharpened = run_and_set_qa(source, sharpened)
@@ -1718,6 +1726,42 @@ def _panSharpen(source, method, qa, **kwargs):
 
         return rmse
 
+    def RASE(original, modified):
+        M = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        mse = ee.Array(MSE(original, modified).values())
+        rase = mse.sqrt().multiply(M.pow(-1).multiply(100))
+
+        return ee.Dictionary.fromLists(original.bandNames(), rase.toList())
+
+    def ERGAS(original, modified):
+        h = modified.projection().nominalScale()
+        l = original.projection().nominalScale()
+
+        M = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values()).pow(2)
+        mse = ee.Array(MSE(original, modified).values())
+
+        ergas = mse.divide(M).sqrt().multiply(h.divide(l).multiply(100))
+
+        return ee.Dictionary.fromLists(original.bandNames(), ergas.toList())
+
+    def DIV(original, modified):
+        var_orig = ee.Array(
+            original.reduceRegion(ee.Reducer.variance(), **kwargs).values()
+        )
+        var_mod = ee.Array(
+            modified.reduceRegion(ee.Reducer.variance(), **kwargs).values()
+        )
+
+        div = var_mod.divide(var_orig).multiply(-1).add(1)
+        return ee.Dictionary.fromLists(original.bandNames(), div.toList())
+
+    def bias(original, modified):
+        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        bias = ybar.divide(xbar).multiply(-1).add(1)
+        return ee.Dictionary.fromLists(original.bandNames(), bias.toList())
+
     def get_qa_functions_and_names():
         """Get the correct quality assessment function(s) and name(s) as a dictionary.
 
@@ -1726,7 +1770,16 @@ def _panSharpen(source, method, qa, **kwargs):
         dict
             A dictionary with one or more QA names as keys and corresponding functions as values.
         """
-        qa_options = requests.structures.CaseInsensitiveDict({"MSE": MSE, "RMSE": RMSE})
+        qa_options = requests.structures.CaseInsensitiveDict(
+            {
+                "MSE": MSE,
+                "RMSE": RMSE,
+                "RASE": RASE,
+                "ERGAS": ERGAS,
+                "DIV": DIV,
+                "bias": bias,
+            }
+        )
 
         qa_choices = [qa] if not isinstance(qa, (list, tuple)) else qa
 
@@ -1737,7 +1790,7 @@ def _panSharpen(source, method, qa, **kwargs):
             except KeyError:
                 raise AttributeError(
                     '"{}" is not a supported quality assessment. Supported assessments: {}'.format(
-                        method, list(qa_options.keys())
+                        qa_choice, list(qa_options.keys())
                     )
                 )
 

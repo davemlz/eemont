@@ -1710,7 +1710,8 @@ def _panSharpen(source, method, qa, **kwargs):
         return sharp
 
     def MSE(original, modified):
-        original = original.select(modified.bandNames())
+        """Calculate band-wise Mean Squared Error (MSE).
+        """
         mse = (
             original.subtract(modified)
             .pow(2)
@@ -1720,6 +1721,8 @@ def _panSharpen(source, method, qa, **kwargs):
         return mse
 
     def RMSE(original, modified):
+        """Calculate band-wise Root-Mean Squared Error (RMSE).
+        """
         mse = MSE(original, modified)
         sqrt_vals = ee.Array(mse.values()).sqrt().toList()
         rmse = ee.Dictionary.fromLists(mse.keys(), sqrt_vals)
@@ -1727,24 +1730,30 @@ def _panSharpen(source, method, qa, **kwargs):
         return rmse
 
     def RASE(original, modified):
-        M = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-        mse = ee.Array(MSE(original, modified).values())
-        rase = mse.sqrt().multiply(M.pow(-1).multiply(100))
-
-        return ee.Dictionary.fromLists(original.bandNames(), rase.toList())
+        """Calculate image-wise Relative Average Spectral Error (RASE) following Vaiopoulos 2011
+        """
+        mse = ee.Number(MSE(original, modified).values().reduce(ee.Reducer.mean()))
+        xbar = original.reduceRegion(ee.Reducer.mean(), **kwargs).values().reduce(ee.Reducer.mean())
+        rase = mse.sqrt().multiply(ee.Number(100).divide(xbar))
+        return rase
 
     def ERGAS(original, modified):
+        """Calculate image-wise Dimensionless Global Relative Error of Synthesis (ERGAS) following Vaiopoulos 2011
+        """
         h = modified.projection().nominalScale()
         l = original.projection().nominalScale()
 
-        M = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values()).pow(2)
-        mse = ee.Array(MSE(original, modified).values())
+        msek = ee.Array(MSE(original, modified).values())
+        xbark = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
 
-        ergas = mse.divide(M).sqrt().multiply(h.divide(l).multiply(100))
+        band_error = ee.Number(msek.divide(xbark).toList().reduce(ee.Reducer.mean())).sqrt()
+        ergas = band_error.multiply(h.divide(l).multiply(100))
 
-        return ee.Dictionary.fromLists(original.bandNames(), ergas.toList())
+        return ergas
 
     def DIV(original, modified):
+        """Calculate band-wise Difference in Variance (DIV) following Vaiopoulos 2011
+        """
         var_orig = ee.Array(
             original.reduceRegion(ee.Reducer.variance(), **kwargs).values()
         )
@@ -1756,11 +1765,33 @@ def _panSharpen(source, method, qa, **kwargs):
         return ee.Dictionary.fromLists(original.bandNames(), div.toList())
 
     def bias(original, modified):
+        """Calculate band-wise bias following Vaiopoulos 2011
+        """
         xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
         ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
 
         bias = ybar.divide(xbar).multiply(-1).add(1)
         return ee.Dictionary.fromLists(original.bandNames(), bias.toList())
+
+    def CC(original, modified):
+        """Calculate band-wise correlation coefficient (CC) following Gonzalez and Woods, 2018.
+        """
+        xbar = ee.Image.constant(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Image.constant(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        x_center = original.subtract(xbar)
+        y_center = modified.subtract(ybar)
+
+        numerator = ee.Array(x_center.multiply(y_center).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+
+        x_denom = ee.Array(x_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+        y_denom = ee.Array(y_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+
+        denom = x_denom.multiply(y_denom).sqrt()
+
+        cc = numerator.divide(denom)
+
+        return ee.Dictionary.fromLists(original.bandNames(), cc.toList())
 
     def get_qa_functions_and_names():
         """Get the correct quality assessment function(s) and name(s) as a dictionary.
@@ -1778,6 +1809,7 @@ def _panSharpen(source, method, qa, **kwargs):
                 "ERGAS": ERGAS,
                 "DIV": DIV,
                 "bias": bias,
+                "CC": CC
             }
         )
 
@@ -1816,6 +1848,9 @@ def _panSharpen(source, method, qa, **kwargs):
         selected_qa = get_qa_functions_and_names()
 
         original = original.select(modified.bandNames())
+
+        # Scale should match before calculating QA metrics
+        original.reproject(modified.projection())
 
         for qa_name, qa_func in selected_qa.items():
             qa_values = qa_func(original, modified)

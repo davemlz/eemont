@@ -1850,7 +1850,7 @@ def _panSharpen(source, method, qa, **kwargs):
         original = original.select(modified.bandNames())
 
         # Scale should match before calculating QA metrics
-        original.reproject(modified.projection())
+        original = original.reproject(modified.projection())
 
         for qa_name, qa_func in selected_qa.items():
             qa_values = qa_func(original, modified)

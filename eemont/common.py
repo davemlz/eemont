@@ -1793,6 +1793,41 @@ def _panSharpen(source, method, qa, **kwargs):
 
         return ee.Dictionary.fromLists(original.bandNames(), cc.toList())
 
+    def CML(original, modified):
+        """Calculate the change in mean luminance (CML) between two images, band-wise, following Wang & Bovik 2002.
+        """
+        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        l = xbar.multiply(ybar).multiply(2).divide(xbar.pow(2).add(ybar.pow(2)))
+
+        return ee.Dictionary.fromLists(original.bandNames(), l.toList())
+
+    def CMC(original, modified):
+        """Measure the change in mean contrast (CMC) between two images, band-wise, following Wang & Bovik 2002.
+        """
+        xvar = ee.Array(original.reduceRegion(ee.Reducer.variance(), **kwargs).values())
+        yvar = ee.Array(modified.reduceRegion(ee.Reducer.variance(), **kwargs).values())
+        xsd = ee.Array(original.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
+        ysd = ee.Array(modified.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
+
+        c = xsd.multiply(ysd).multiply(2).divide(xvar.add(yvar))
+
+        return ee.Dictionary.fromLists(original.bandNames(), c.toList())
+
+    def UIQ(original, modified):
+        """Universal Image Quality (UQI) index, following Wang & Bovik 2002.
+        """
+        cc = ee.Array(CC(original, modified).values())
+        l = ee.Array(CMC(original, modified).values())
+        c = ee.Array(CML(original, modified).values())
+
+        uiq = cc.multiply(l).multiply(c)
+
+        return ee.Dictionary.fromLists(original.bandNames(), uiq.toList())
+
+
+
     def get_qa_functions_and_names():
         """Get the correct quality assessment function(s) and name(s) as a dictionary.
 
@@ -1809,7 +1844,10 @@ def _panSharpen(source, method, qa, **kwargs):
                 "ERGAS": ERGAS,
                 "DIV": DIV,
                 "bias": bias,
-                "CC": CC
+                "CC": CC,
+                "UIQ": UIQ,
+                "CML": CML,
+                "CMC": CMC
             }
         )
 

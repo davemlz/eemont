@@ -1568,8 +1568,7 @@ def _panSharpen(source, method, qa, **kwargs):
         return sharpener
 
     def SFIM(img, pan):
-        """Apply Smoothing Filter-based Intensity Modulation (SFIM) pan-sharpening following "Smoothing Filter-based
-        Intensity Modulation: a spectral preserve image fusion technique for improving spatial details", J.G. Liu, 2000.
+        """Apply Smoothing Filter-based Intensity Modulation (SFIM) sharpening.
 
         Parameters
         ----------
@@ -1582,6 +1581,12 @@ def _panSharpen(source, method, qa, **kwargs):
         -------
         ee.Image
             The Image with all sharpenable bands sharpened to the panchromatic resolution.
+        
+        Reference
+        ---------
+        Liu, J. G. (2000). Smoothing Filter-based Intensity Modulation: A spectral preserve image fusion technique for 
+        improving spatial details. International Journal of Remote Sensing, 21(18), 3461–3472. 
+        https://doi.org/10.1080/014311600750037499 
         """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
@@ -1595,8 +1600,7 @@ def _panSharpen(source, method, qa, **kwargs):
         return sharp
 
     def HPFA(img, pan):
-        """Apply High-Pass Filter Addition sharpening following "Optimizing the High-Pass Filter Addition Technique for
-        Image Fusion", Gangkofner et al., 2008.
+        """Apply High-Pass Filter Addition sharpening.
 
         Parameters
         ----------
@@ -1609,6 +1613,12 @@ def _panSharpen(source, method, qa, **kwargs):
         -------
         ee.Image
             The Image with all sharpenable bands sharpened to the panchromatic resolution.
+
+        Reference
+        ---------
+        Gangkofner, U. G., Pradhan, P. S., & Holcomb, D. W. (2008). Optimizing the High-Pass Filter Addition Technique 
+        for Image Fusion. Photogrammetric Engineering & Remote Sensing, 74(9), 1107–1118. 
+        https://doi.org/10.14358/pers.74.9.1107 
         """
         img_scale = img.projection().nominalScale()
         pan_scale = pan.projection().nominalScale()
@@ -1709,163 +1719,6 @@ def _panSharpen(source, method, qa, **kwargs):
         sharp = sharp.reproject(pan.projection())
         return sharp
 
-    def MSE(original, modified):
-        """Calculate band-wise Mean Squared Error (MSE).
-        """
-        mse = (
-            original.subtract(modified)
-            .pow(2)
-            .reduceRegion(reducer=ee.Reducer.mean(), **kwargs)
-        )
-
-        return mse
-
-    def RMSE(original, modified):
-        """Calculate band-wise Root-Mean Squared Error (RMSE).
-        """
-        mse = MSE(original, modified)
-        sqrt_vals = ee.Array(mse.values()).sqrt().toList()
-        rmse = ee.Dictionary.fromLists(mse.keys(), sqrt_vals)
-
-        return rmse
-
-    def RASE(original, modified):
-        """Calculate image-wise Relative Average Spectral Error (RASE) following Vaiopoulos 2011
-        """
-        mse = ee.Number(MSE(original, modified).values().reduce(ee.Reducer.mean()))
-        xbar = original.reduceRegion(ee.Reducer.mean(), **kwargs).values().reduce(ee.Reducer.mean())
-        rase = mse.sqrt().multiply(ee.Number(100).divide(xbar))
-        return rase
-
-    def ERGAS(original, modified):
-        """Calculate image-wise Dimensionless Global Relative Error of Synthesis (ERGAS) following Vaiopoulos 2011
-        """
-        h = modified.projection().nominalScale()
-        l = original.projection().nominalScale()
-
-        msek = ee.Array(MSE(original, modified).values())
-        xbark = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-
-        band_error = ee.Number(msek.divide(xbark).toList().reduce(ee.Reducer.mean())).sqrt()
-        ergas = band_error.multiply(h.divide(l).multiply(100))
-
-        return ergas
-
-    def DIV(original, modified):
-        """Calculate band-wise Difference in Variance (DIV) following Vaiopoulos 2011
-        """
-        var_orig = ee.Array(
-            original.reduceRegion(ee.Reducer.variance(), **kwargs).values()
-        )
-        var_mod = ee.Array(
-            modified.reduceRegion(ee.Reducer.variance(), **kwargs).values()
-        )
-
-        div = var_mod.divide(var_orig).multiply(-1).add(1)
-        return ee.Dictionary.fromLists(original.bandNames(), div.toList())
-
-    def bias(original, modified):
-        """Calculate band-wise bias following Vaiopoulos 2011
-        """
-        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-
-        bias = ybar.divide(xbar).multiply(-1).add(1)
-        return ee.Dictionary.fromLists(original.bandNames(), bias.toList())
-
-    def CC(original, modified):
-        """Calculate band-wise correlation coefficient (CC) following Gonzalez and Woods, 2018.
-        """
-        xbar = ee.Image.constant(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-        ybar = ee.Image.constant(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-
-        x_center = original.subtract(xbar)
-        y_center = modified.subtract(ybar)
-
-        numerator = ee.Array(x_center.multiply(y_center).reduceRegion(ee.Reducer.sum(), **kwargs).values())
-
-        x_denom = ee.Array(x_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
-        y_denom = ee.Array(y_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
-
-        denom = x_denom.multiply(y_denom).sqrt()
-
-        cc = numerator.divide(denom)
-
-        return ee.Dictionary.fromLists(original.bandNames(), cc.toList())
-
-    def CML(original, modified):
-        """Calculate the change in mean luminance (CML) between two images, band-wise, following Wang & Bovik 2002.
-        """
-        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
-
-        l = xbar.multiply(ybar).multiply(2).divide(xbar.pow(2).add(ybar.pow(2)))
-
-        return ee.Dictionary.fromLists(original.bandNames(), l.toList())
-
-    def CMC(original, modified):
-        """Measure the change in mean contrast (CMC) between two images, band-wise, following Wang & Bovik 2002.
-        """
-        xvar = ee.Array(original.reduceRegion(ee.Reducer.variance(), **kwargs).values())
-        yvar = ee.Array(modified.reduceRegion(ee.Reducer.variance(), **kwargs).values())
-        xsd = ee.Array(original.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
-        ysd = ee.Array(modified.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
-
-        c = xsd.multiply(ysd).multiply(2).divide(xvar.add(yvar))
-
-        return ee.Dictionary.fromLists(original.bandNames(), c.toList())
-
-    def UIQ(original, modified):
-        """Universal Image Quality (UQI) index, following Wang & Bovik 2002.
-        """
-        cc = ee.Array(CC(original, modified).values())
-        l = ee.Array(CMC(original, modified).values())
-        c = ee.Array(CML(original, modified).values())
-
-        uiq = cc.multiply(l).multiply(c)
-
-        return ee.Dictionary.fromLists(original.bandNames(), uiq.toList())
-
-
-
-    def get_qa_functions_and_names():
-        """Get the correct quality assessment function(s) and name(s) as a dictionary.
-
-        Returns
-        -------
-        dict
-            A dictionary with one or more QA names as keys and corresponding functions as values.
-        """
-        qa_options = requests.structures.CaseInsensitiveDict(
-            {
-                "MSE": MSE,
-                "RMSE": RMSE,
-                "RASE": RASE,
-                "ERGAS": ERGAS,
-                "DIV": DIV,
-                "bias": bias,
-                "CC": CC,
-                "UIQ": UIQ,
-                "CML": CML,
-                "CMC": CMC
-            }
-        )
-
-        qa_choices = [qa] if not isinstance(qa, (list, tuple)) else qa
-
-        selected_qa = {}
-        for qa_choice in qa_choices:
-            try:
-                selected_qa[qa_choice] = qa_options[qa_choice]
-            except KeyError:
-                raise AttributeError(
-                    '"{}" is not a supported quality assessment. Supported assessments: {}'.format(
-                        qa_choice, list(qa_options.keys())
-                    )
-                )
-
-        return selected_qa
-
     def run_and_set_qa(original, modified):
         """Get any valid requested quality assessment functions and run each of them to assess the quality of the
         sharpened Image. Set the results of each quality assessment as a new property (e.g. "eemont:RMSE").
@@ -1895,6 +1748,330 @@ def _panSharpen(source, method, qa, **kwargs):
             modified = modified.set("eemont:{}".format(qa_name), qa_values)
 
         return modified
+
+    def get_qa_functions_and_names():
+        """Get the correct quality assessment function(s) and name(s) as a dictionary.
+
+        Returns
+        -------
+        dict
+            A dictionary with one or more QA names as keys and corresponding functions as values.
+        """
+        qa_options = requests.structures.CaseInsensitiveDict(
+            {
+                "MSE": MSE,
+                "RMSE": RMSE,
+                "RASE": RASE,
+                "ERGAS": ERGAS,
+                "DIV": DIV,
+                "bias": bias,
+                "CC": CC,
+                "UIQI": UIQI,
+                "CML": CML,
+                "CMC": CMC
+            }
+        )
+
+        qa_choices = [qa] if not isinstance(qa, (list, tuple)) else qa
+
+        selected_qa = {}
+        for qa_choice in qa_choices:
+            try:
+                selected_qa[qa_choice] = qa_options[qa_choice]
+            except KeyError:
+                raise AttributeError(
+                    '"{}" is not a supported quality assessment. Supported assessments: {}'.format(
+                        qa_choice, list(qa_options.keys())
+                    )
+                )
+
+        return selected_qa
+
+    def MSE(original, modified):
+        """Calculate band-wise Mean Squared Error (MSE) between an original and modified image of the same spatial
+        resolution. A value of 0 represents no error.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and MSE values as values.
+        """
+        mse = (
+            original.subtract(modified)
+            .pow(2)
+            .reduceRegion(reducer=ee.Reducer.mean(), **kwargs)
+        )
+
+        return mse
+
+    def RMSE(original, modified):
+        """Calculate band-wise Root-Mean Squared Error (RMSE) between an original and modified image of the same spatial
+        resolution. A value of 0 represents no error.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and RMSE values as values.
+        """
+        mse = MSE(original, modified)
+        sqrt_vals = ee.Array(mse.values()).sqrt().toList()
+        rmse = ee.Dictionary.fromLists(mse.keys(), sqrt_vals)
+
+        return rmse
+
+    def RASE(original, modified):
+        """Calculate image-wise Relative Average Spectral Error (RASE) between an original and modified image of the 
+        same spatial resolution. A value of 0 represents no error.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Number
+            The RASE value of the modified image.
+
+        Reference
+        ---------
+        Vaiopoulos, A. D. (2011). Developing Matlab scripts for image analysis and quality assessment. Earth Resources 
+        and Environmental Remote Sensing/GIS Applications II. https://doi.org/10.1117/12.897806 
+        """
+        mse = ee.Number(MSE(original, modified).values().reduce(ee.Reducer.mean()))
+        xbar = original.reduceRegion(ee.Reducer.mean(), **kwargs).values().reduce(ee.Reducer.mean())
+        rase = mse.sqrt().multiply(ee.Number(100).divide(xbar))
+        return rase
+
+    def ERGAS(original, modified):
+        """Calculate image-wise Dimensionless Global Relative Error of Synthesis (ERGAS) between an original and
+        modified image of the same spatial resolution. A value of 0 represents no error.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Number
+            The ERGAS value of the modified image.
+
+        Reference
+        ---------
+        Vaiopoulos, A. D. (2011). Developing Matlab scripts for image analysis and quality assessment. Earth Resources 
+        and Environmental Remote Sensing/GIS Applications II. https://doi.org/10.1117/12.897806 
+        """
+        h = modified.projection().nominalScale()
+        l = original.projection().nominalScale()
+
+        msek = ee.Array(MSE(original, modified).values())
+        xbark = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        band_error = ee.Number(msek.divide(xbark).toList().reduce(ee.Reducer.mean())).sqrt()
+        ergas = band_error.multiply(h.divide(l).multiply(100))
+
+        return ergas
+
+    def DIV(original, modified):
+        """Calculate band-wise Difference in Variance (DIV) between an original and modified image of the same spatial
+        resolution. A value of 0 represents no change in variance.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and DIV values as values.
+
+        Reference
+        ---------
+        Vaiopoulos, A. D. (2011). Developing Matlab scripts for image analysis and quality assessment. Earth Resources 
+        and Environmental Remote Sensing/GIS Applications II. https://doi.org/10.1117/12.897806 
+        """
+        var_orig = ee.Array(
+            original.reduceRegion(ee.Reducer.variance(), **kwargs).values()
+        )
+        var_mod = ee.Array(
+            modified.reduceRegion(ee.Reducer.variance(), **kwargs).values()
+        )
+
+        div = var_mod.divide(var_orig).multiply(-1).add(1)
+        return ee.Dictionary.fromLists(original.bandNames(), div.toList())
+
+    def bias(original, modified):
+        """Calculate band-wise bias between an original and modified image of the same spatial resolution. A value of 0
+        represents no bias.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and bias values as values.
+
+        Reference
+        ---------
+        Vaiopoulos, A. D. (2011). Developing Matlab scripts for image analysis and quality assessment. Earth Resources 
+        and Environmental Remote Sensing/GIS Applications II. https://doi.org/10.1117/12.897806 
+        """
+        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        bias = ybar.divide(xbar).multiply(-1).add(1)
+        return ee.Dictionary.fromLists(original.bandNames(), bias.toList())
+
+    def CC(original, modified):
+        """Calculate band-wise correlation coefficient (CC) between an original and modified image of the same spatial 
+        resolution. A value of 1 represents perfect correlation.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and CC values as values.
+
+        Reference
+        ---------
+        Gonzalez, R. C., & Woods, R. E. (2018). Digital Image Processing. Pearson. 
+        """
+        xbar = ee.Image.constant(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Image.constant(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        x_center = original.subtract(xbar)
+        y_center = modified.subtract(ybar)
+
+        numerator = ee.Array(x_center.multiply(y_center).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+
+        x_denom = ee.Array(x_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+        y_denom = ee.Array(y_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+
+        denom = x_denom.multiply(y_denom).sqrt()
+
+        cc = numerator.divide(denom)
+
+        return ee.Dictionary.fromLists(original.bandNames(), cc.toList())
+
+    def CML(original, modified):
+        """Calculate band-wise change in mean luminance (CML) between an original and modified image of the same spatial 
+        resolution. A value of 1 represents no change in luminance.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and CML values as values.
+
+        Reference
+        ---------
+        Wang, Z., & Bovik, A. C. (2002). A universal image quality index. IEEE Signal Processing Letters, 9(3), 81–84. 
+        https://doi.org/10.1109/97.995823 
+        """
+        xbar = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+        ybar = ee.Array(modified.reduceRegion(ee.Reducer.mean(), **kwargs).values())
+
+        l = xbar.multiply(ybar).multiply(2).divide(xbar.pow(2).add(ybar.pow(2)))
+
+        return ee.Dictionary.fromLists(original.bandNames(), l.toList())
+
+    def CMC(original, modified):
+        """Calculate band-wise change in mean contrast (CMC) between an original and modified image of the same spatial 
+        resolution. A value of 1 presents no change in contrast.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and CMC values as values.
+
+        Reference
+        ---------
+        Wang, Z., & Bovik, A. C. (2002). A universal image quality index. IEEE Signal Processing Letters, 9(3), 81–84. 
+        https://doi.org/10.1109/97.995823 
+        """
+        xvar = ee.Array(original.reduceRegion(ee.Reducer.variance(), **kwargs).values())
+        yvar = ee.Array(modified.reduceRegion(ee.Reducer.variance(), **kwargs).values())
+        xsd = ee.Array(original.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
+        ysd = ee.Array(modified.reduceRegion(ee.Reducer.stdDev(), **kwargs).values())
+
+        c = xsd.multiply(ysd).multiply(2).divide(xvar.add(yvar))
+
+        return ee.Dictionary.fromLists(original.bandNames(), c.toList())
+
+    def UIQI(original, modified):
+        """Calculate band-wise Universal Image Quality Index (UIQI) between an original and modified image of the same 
+        spatial resolution. A value of 1 represents perfect quality.
+
+        Parameters
+        ----------
+        original : ee.Image
+            The original image to use as a reference.
+        modified : ee.Image
+            The modified image to compare to the original.
+
+        Returns
+        -------
+        ee.Dictionary
+            A dictionary with band names as keys and UQI values as values.
+
+        Reference
+        ---------
+        Wang, Z., & Bovik, A. C. (2002). A universal image quality index. IEEE Signal Processing Letters, 9(3), 81–84. 
+        https://doi.org/10.1109/97.995823 
+        """
+        cc = ee.Array(CC(original, modified).values())
+        l = ee.Array(CMC(original, modified).values())
+        c = ee.Array(CML(original, modified).values())
+
+        uiq = cc.multiply(l).multiply(c)
+
+        return ee.Dictionary.fromLists(original.bandNames(), uiq.toList())
 
     platform = get_platform(source)
 

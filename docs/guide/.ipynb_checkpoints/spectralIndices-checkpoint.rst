@@ -52,7 +52,9 @@ Landsat Missions
 ~~~~~~~~~~~~~~~~~~~
 
 - `USGS Landsat 8 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR>`_
+- `USGS Landsat 8 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2>`_
 - `USGS Landsat 7 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR>`_
+- `USGS Landsat 7 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C02_T1_L2>`_
 - `USGS Landsat 5 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C01_T1_SR>`_
 - `USGS Landsat 4 Surface Reflectance Tier 1 and 2 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C01_T1_SR>`_
 

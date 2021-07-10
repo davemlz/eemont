@@ -140,6 +140,19 @@ def _get_expression_map(img, platformDict):
             "T1": img.select("B10"),
             "T2": img.select("B11"),
         }
+    
+    def lookupL8C2(img):
+        return {
+            "A": img.select("SR_B1"),
+            "B": img.select("SR_B2"),
+            "G": img.select("SR_B3"),
+            "R": img.select("SR_B4"),
+            "N": img.select("SR_B5"),
+            "S1": img.select("SR_B6"),
+            "S2": img.select("SR_B7"),
+            "T1": img.select("SR_B10"),
+            "T2": img.select("SR_B11"),
+        }
 
     def lookupL457(img):
         return {
@@ -150,6 +163,17 @@ def _get_expression_map(img, platformDict):
             "S1": img.select("B5"),
             "T1": img.select("B6"),
             "S2": img.select("B7"),
+        }
+    
+    def lookupL7C2(img):
+        return {
+            "B": img.select("SR_B1"),
+            "G": img.select("SR_B2"),
+            "R": img.select("SR_B3"),
+            "N": img.select("SR_B4"),
+            "S1": img.select("SR_B5"),
+            "T1": img.select("SR_B6"),
+            "S2": img.select("SR_B7"),
         }
 
     def lookupMOD09GQ(img):
@@ -180,8 +204,10 @@ def _get_expression_map(img, platformDict):
         "COPERNICUS/S2_SR": lookupS2,
         "LANDSAT/LC08/C01/T1_SR": lookupL8,
         "LANDSAT/LC08/C01/T2_SR": lookupL8,
+        "LANDSAT/LC08/C02/T1_L2": lookupL8C2,
         "LANDSAT/LE07/C01/T1_SR": lookupL457,
         "LANDSAT/LE07/C01/T2_SR": lookupL457,
+        "LANDSAT/LE07/C02/T1_L2": lookupL7C2,
         "LANDSAT/LT05/C01/T1_SR": lookupL457,
         "LANDSAT/LT05/C01/T2_SR": lookupL457,
         "LANDSAT/LT04/C01/T1_SR": lookupL457,
@@ -800,6 +826,15 @@ def _maskClouds(
             cloudShadowBitMask = 1 << 3
             mask = mask.And(qa.bitwiseAnd(cloudShadowBitMask).eq(0))
         return args.updateMask(mask)
+    
+    def L8C2(args):
+        qa = args.select("QA_PIXEL")
+        notCloud = qa.bitwiseAnd(1 << 3).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 4).eq(0))
+        if maskCirrus:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 2).eq(0))
+        return args.updateMask(notCloud)
 
     def L457(args):
         qa = args.select("pixel_qa")
@@ -808,6 +843,13 @@ def _maskClouds(
             cloud = cloud.Or(qa.bitwiseAnd(1 << 3))
         mask2 = args.mask().reduce(ee.Reducer.min())
         return args.updateMask(cloud.Not()).updateMask(mask2)
+    
+    def L7C2(args):
+        qa = args.select("QA_PIXEL")
+        notCloud = qa.bitwiseAnd(1 << 3).eq(0)
+        if maskShadows:
+            notCloud = notCloud.And(qa.bitwiseAnd(1 << 4).eq(0))
+        return args.updateMask(notCloud)
 
     def MOD09GA(args):
         qa = args.select("state_1km")
@@ -888,8 +930,10 @@ def _maskClouds(
         "COPERNICUS/S2_SR": S2,
         "LANDSAT/LC08/C01/T1_SR": L8,
         "LANDSAT/LC08/C01/T2_SR": L8,
+        "LANDSAT/LC08/C02/T1_L2": L8C2,
         "LANDSAT/LE07/C01/T1_SR": L457,
         "LANDSAT/LE07/C01/T2_SR": L457,
+        "LANDSAT/LE07/C02/T1_L2": L7C2,
         "LANDSAT/LT05/C01/T1_SR": L457,
         "LANDSAT/LT05/C01/T2_SR": L457,
         "LANDSAT/LT04/C01/T1_SR": L457,

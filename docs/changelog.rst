@@ -1,6 +1,17 @@
 Changelog
 ============
 
+v0.2.4
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`maskClouds()`, :code:`spectralIndices()`, :code:`scaleAndOffset()` and :code:`preprocess()` extended methods for ee.Image and ee.ImageCollection classes now support the following platforms:
+   
+   - `USGS Landsat 8 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2>`_
+   - `USGS Landsat 7 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C02_T1_L2>`_
+
 v0.2.3
 --------------
 

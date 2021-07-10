@@ -600,7 +600,7 @@ class Test(unittest.TestCase):
     def test_panSharpen(self):
         """Test that pan-sharpening returns an Image Collection"""
         source = ee.ImageCollection("LANDSAT/LC08/C01/T1_TOA")
-        sharp = source.panSharpen()
+        sharp = source.panSharpen(qa=["DIV"])
         self.assertIsInstance(sharp, ee.imagecollection.ImageCollection)
         
 if __name__ == '__main__':

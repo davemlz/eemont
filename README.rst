@@ -34,7 +34,8 @@ eemont
         
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
-    
+
+
 **A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
 
 - GitHub: `https://github.com/davemlz/eemont <https://github.com/davemlz/eemont>`_

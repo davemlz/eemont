@@ -35,6 +35,10 @@ Welcome to eemont!
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
+.. raw:: html
+
+   <a href="https://www.buymeacoffee.com/davemlz"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=davemlz&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff"></a>
+
 **A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
 
 .. toctree::   

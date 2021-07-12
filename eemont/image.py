@@ -1275,8 +1275,7 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
         "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
         sharpening methods will produce different quality sharpening results in different scenarios.
     qa : str | list, default=None
-        One or more optional quality assessment names to apply after sharpening. Current options are "MSE" (mean squared
-        error) or "RMSE" (root mean squared error).
+        One or more optional quality assessment names to apply after sharpening, e.g. "MSE", "RASE", "UIQI", etc.
     **kwargs :
         Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
         arguments are only used for PCS sharpening and quality assessments.

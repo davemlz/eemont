@@ -1140,7 +1140,7 @@
     "GLCF/GLS_WATER": {
         "water": 0.0
     },
-    "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1_0": {
+    "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1": {
         "clear_perc": 0.0,
         "clear_views": 0.0,
         "flood_duration": 0.0,

@@ -1,6 +1,15 @@
 Changelog
 ============
 
+v0.2.5 (dev)
+--------------
+
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`panSharpen()` extended method for ee.Image and ee.ImageCollection classes was created.
+- The :code:`matchHistogram()` extended method for ee.Image classes was created.
+
 v0.2.4
 --------------
 

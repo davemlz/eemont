@@ -151,7 +151,7 @@ def _get_expression_map(img, platformDict):
             "N": img.select("SR_B5"),
             "S1": img.select("SR_B6"),
             "S2": img.select("SR_B7"),
-            "T1": img.select("ST_B10")
+            "T1": img.select("ST_B10"),
         }
 
     def lookupL457(img):
@@ -713,11 +713,13 @@ def _maskClouds(
         Cloud-shadow masked image or image collection.
     """
 
-    validMethods = ["cloud_prob","qa"]
-    
+    validMethods = ["cloud_prob", "qa"]
+
     if method not in validMethods:
-        raise Exception(f"'{method}' is not a valid method. Please use one of {validMethods}.")
-        
+        raise Exception(
+            f"'{method}' is not a valid method. Please use one of {validMethods}."
+        )
+
     def S3(args):
         qa = args.select("quality_flags")
         notCloud = qa.bitwiseAnd(1 << 27).eq(0)

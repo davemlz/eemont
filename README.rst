@@ -17,8 +17,11 @@ eemont
 .. image:: https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg
         :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml  
         
-.. image:: https://img.shields.io/badge/Donate-buy%20me%20a%20coffee-yellow.svg
+.. image:: https://img.shields.io/badge/Buy%20me%20a%20coffee-davemlz-ff69b4.svg
         :target: https://www.buymeacoffee.com/davemlz
+        
+.. image:: https://img.shields.io/badge/kofi-davemlz-ff69b4.svg
+        :target: https://ko-fi.com/davemlz
         
 .. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=green&left_text=Downloads
         :target: https://pepy.tech/project/eemont

@@ -85,6 +85,8 @@ ee.Image
    getSTAC
    index
    maskClouds
+   matchHistogram
+   panSharpen
    preprocess
    scale
    scaleAndOffset
@@ -106,6 +108,7 @@ ee.ImageCollection
    getTimeSeriesByRegions
    index
    maskClouds
+   panSharpen
    preprocess
    scale
    scaleAndOffset

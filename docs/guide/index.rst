@@ -11,10 +11,10 @@ Here you can find the user guide for the extended methods:
    constructors
    dataConversion
    containers
+   histogramMatching
    imageScaling
    maskingClouds
    overloadedOperators
+   panSharpening
    spectralIndices   
    timeSeries
-   histogramMatching
-   panSharpening

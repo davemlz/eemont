@@ -15,6 +15,8 @@ Extended methods for the ee.Image class:
    getSTAC
    index
    maskClouds
+   matchHistogram
+   panSharpen
    preprocess
    scale
    scaleAndOffset

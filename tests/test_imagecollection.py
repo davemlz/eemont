@@ -596,6 +596,12 @@ class Test(unittest.TestCase):
         """Test the image collection module for MYD17A3HGF"""
         MYD17A3HGF_tested = MYD17A3HGF.closest('2019-01-15').preprocess()
         self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
+
+    def test_panSharpen(self):
+        """Test that pan-sharpening returns an Image Collection"""
+        source = ee.ImageCollection("LANDSAT/LC08/C01/T1_TOA")
+        sharp = source.panSharpen(qa=["DIV"])
+        self.assertIsInstance(sharp, ee.imagecollection.ImageCollection)
         
 if __name__ == '__main__':
     unittest.main()

@@ -597,6 +597,24 @@ class Test(unittest.TestCase):
         """Test the image module for MYD17A3HGF"""
         MYD17A3HGF_tested = MYD17A3HGF.preprocess()
         self.assertIsInstance(MYD17A3HGF_tested, ee.image.Image)
+    
+    def test_matchHistogram(self):
+        """Test that histogram matching returns an image"""
+        source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        target = ee.Image("LANDSAT/LE07/C01/T1_TOA/LE07_046027_20150701")
+        bands = {
+           "B4": "B3", 
+           "B3": "B2", 
+           "B2": "B1"
+        }
+        matched = source.matchHistogram(target, bands)
+        self.assertIsInstance(matched, ee.image.Image)
+
+    def test_panSharpen(self):
+        """Test that pan-sharpening returns an image"""
+        source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        sharp = source.panSharpen(qa=["DIV"])
+        self.assertIsInstance(sharp, ee.image.Image)
         
 if __name__ == '__main__':
     unittest.main()

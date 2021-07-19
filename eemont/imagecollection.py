@@ -11,6 +11,7 @@ from .common import _preprocess
 from .common import _getSTAC
 from .common import _getDOI
 from .common import _getCitation
+from .common import _panSharpen
 from .extending import extend
 
 
@@ -1051,3 +1052,40 @@ def getCitation(self):
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
     return _getCitation(self)
+
+
+@extend(ee.imagecollection.ImageCollection)
+def panSharpen(self, method="SFIM", qa=None, **kwargs):
+    """Apply panchromatic sharpening to each Image in the Image Collection. Optionally, run quality assessments between
+    the original and sharpened Images to measure spectral distortion and set results as properties of each sharpened
+    Image.
+
+    Parameters
+    ----------
+    self : ee.ImageCollection [this]
+        Image Collection to sharpen.
+    method : str, default="SFIM"
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation),
+        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
+        sharpening methods will produce different quality sharpening results in different scenarios.
+    qa : str | list, default=None
+        One or more optional quality assessment names to apply after sharpening, e.g. "MSE", "RASE", "UIQI", etc.
+    **kwargs :
+        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
+        arguments are only used for PCS sharpening and quality assessments.
+
+    Returns
+    -------
+    ee.ImageCollection
+        The Image Collection with all sharpenable bands sharpened to the panchromatic resolution and quality assessments
+        run and set as properties.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> source = ee.ImageCollection("LANDSAT/LC08/C01/T1_TOA")
+    >>> sharp = source.panSharpen(method="HPFA", qa=["MSE", "RMSE"], maxPixels=1e13)
+    """
+    return _panSharpen(self, method, qa, **kwargs)

@@ -689,7 +689,7 @@ def _maskClouds(
             - 'qa' : Use Quality Assessment band.
         This parameter is ignored for Landsat products.
     prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'prob'. This parameter is ignored for Landsat products.
+        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter is ignored for Landsat products.
     maskCirrus : boolean, default = True
         Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
     maskShadows : boolean, default = True
@@ -713,6 +713,13 @@ def _maskClouds(
     ee.Image | ee.ImageCollection
         Cloud-shadow masked image or image collection.
     """
+
+    validMethods = ["cloud_prob", "qa"]
+
+    if method not in validMethods:
+        raise Exception(
+            f"'{method}' is not a valid method. Please use one of {validMethods}."
+        )
 
     def S3(args):
         qa = args.select("quality_flags")

@@ -931,7 +931,7 @@ def maskClouds(
             - 'qa' : Use Quality Assessment band.
         This parameter is ignored for Landsat products.
     prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'prob'. This parameter is ignored for Landsat products.
+        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter is ignored for Landsat products.
     maskCirrus : boolean, default = True
         Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
     maskShadows : boolean, default = True

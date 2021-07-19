@@ -8,7 +8,7 @@ from .common import _retrieve_location
 
 @extend(ee.featurecollection.FeatureCollection)
 def __len__(self):
-    '''Returns the size of the feature collection.
+    """Returns the size of the feature collection.
 
     Parameters
     ----------
@@ -19,13 +19,13 @@ def __len__(self):
     -------
     int
         Size of the feature collection.
-    '''
+    """
     return self.size().getInfo()
 
 
 @extend(ee.featurecollection.FeatureCollection)
 def __getitem__(self, key):
-    '''Gets the column of each feature in the feature collection according to the specified key.
+    """Gets the column of each feature in the feature collection according to the specified key.
 
     Parameters
     ----------
@@ -39,7 +39,7 @@ def __getitem__(self, key):
     -------
     ee.FeatureCollection
         Feature Collection with the selected columns.
-    '''
+    """
     return self.select(key)
 
 

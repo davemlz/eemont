@@ -5,7 +5,7 @@ from .extending import extend
 
 @extend(ee.ee_list.List)
 def __contains__(self, key):
-    '''Returns True if the key is in the list.
+    """Returns True if the key is in the list.
 
     Parameters
     ----------
@@ -18,13 +18,13 @@ def __contains__(self, key):
     -------
     boolean
         Whether the key is contained in the list.
-    '''
+    """
     return self.contains(key).getInfo()
 
 
 @extend(ee.ee_list.List)
 def __len__(self):
-    '''Returns the length of the list.
+    """Returns the length of the list.
 
     Parameters
     ----------
@@ -35,28 +35,28 @@ def __len__(self):
     -------
     int
         Length of the list.
-    '''
+    """
     return self.length().getInfo()
 
 
 @extend(ee.ee_list.List)
 def __getitem__(self, key):
-    '''Gets the item of the list according to the specified key.
+    """Gets the item of the list according to the specified key.
 
     Parameters
     ----------
     self : ee.List
         List to get the items from.
     key : numeric | list[numeric] | slice
-        Key used to get the specified item. If numeric, it gets the item at that index. 
+        Key used to get the specified item. If numeric, it gets the item at that index.
         If list, it gets multiple items. If slice, it calls the slice() method (the step parameter is ignored).
 
     Returns
     -------
     ee.List | ee.Number
         List or number with the selected items.
-    '''
-    if isinstance(key,slice):
+    """
+    if isinstance(key, slice):
 
         if key.start == None:
             start = 0
@@ -68,12 +68,12 @@ def __getitem__(self, key):
         else:
             stop = key.stop
 
-        selected = self.slice(start,stop)
-        
+        selected = self.slice(start, stop)
+
     elif isinstance(key, list):
-        
+
         selected = ee.List([])
-        
+
         for k in key:
             selected = selected.add(self.get(k))
 

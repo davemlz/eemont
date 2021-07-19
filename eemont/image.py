@@ -17,7 +17,7 @@ from .extending import extend
 
 @extend(ee.image.Image)
 def __getitem__(self, key):
-    '''Gets the band of the image according to the specified key.
+    """Gets the band of the image according to the specified key.
 
     Parameters
     ----------
@@ -31,8 +31,8 @@ def __getitem__(self, key):
     -------
     ee.Image
         Image with the selected bands.
-    '''
-    if isinstance(key,slice):
+    """
+    if isinstance(key, slice):
 
         if key.start == None:
             start = 0
@@ -44,7 +44,7 @@ def __getitem__(self, key):
         else:
             stop = key.stop
 
-        selected = self.slice(start,stop)
+        selected = self.slice(start, stop)
 
     else:
         selected = self.select(key)

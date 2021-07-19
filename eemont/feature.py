@@ -9,7 +9,7 @@ from .common import _lnglat_from_location
 
 @extend(ee.feature.Feature)
 def __getitem__(self, key):
-    '''Gets the column of the feature according to the specified key.
+    """Gets the column of the feature according to the specified key.
 
     Parameters
     ----------
@@ -23,10 +23,10 @@ def __getitem__(self, key):
     -------
     ee.Feature
         Feature with the selected columns.
-    '''
+    """
     if isinstance(key, str):
         key = [key]
-    
+
     return self.select(key)
 
 

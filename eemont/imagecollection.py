@@ -17,7 +17,7 @@ from .extending import extend
 
 @extend(ee.imagecollection.ImageCollection)
 def __len__(self):
-    '''Returns the size of the image collection.
+    """Returns the size of the image collection.
 
     Parameters
     ----------
@@ -28,13 +28,13 @@ def __len__(self):
     -------
     int
         Size of the image collection.
-    '''
+    """
     return self.size().getInfo()
 
 
 @extend(ee.imagecollection.ImageCollection)
 def __getitem__(self, key):
-    '''Gets the band of each image in the image collection according to the specified key.
+    """Gets the band of each image in the image collection according to the specified key.
 
     Parameters
     ----------
@@ -48,8 +48,8 @@ def __getitem__(self, key):
     -------
     ee.ImageCollection
         Image Collection with the selected bands.
-    '''
-    if isinstance(key,slice):
+    """
+    if isinstance(key, slice):
 
         if key.start == None:
             start = 0
@@ -62,8 +62,8 @@ def __getitem__(self, key):
             stop = key.stop
 
         def sliceCollection(img):
-            return img.slice(start,stop)
-        
+            return img.slice(start, stop)
+
         selected = self.map(sliceCollection)
 
     else:

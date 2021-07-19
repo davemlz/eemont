@@ -141,7 +141,7 @@ def _get_expression_map(img, platformDict):
             "T1": img.select("B10"),
             "T2": img.select("B11"),
         }
-    
+
     def lookupL8C2(img):
         return {
             "A": img.select("SR_B1"),
@@ -165,7 +165,7 @@ def _get_expression_map(img, platformDict):
             "T1": img.select("B6"),
             "S2": img.select("B7"),
         }
-    
+
     def lookupL7C2(img):
         return {
             "B": img.select("SR_B1"),
@@ -827,7 +827,7 @@ def _maskClouds(
             cloudShadowBitMask = 1 << 3
             mask = mask.And(qa.bitwiseAnd(cloudShadowBitMask).eq(0))
         return args.updateMask(mask)
-    
+
     def L8C2(args):
         qa = args.select("QA_PIXEL")
         notCloud = qa.bitwiseAnd(1 << 3).eq(0)
@@ -844,7 +844,7 @@ def _maskClouds(
             cloud = cloud.Or(qa.bitwiseAnd(1 << 3))
         mask2 = args.mask().reduce(ee.Reducer.min())
         return args.updateMask(cloud.Not()).updateMask(mask2)
-    
+
     def L7C2(args):
         qa = args.select("QA_PIXEL")
         notCloud = qa.bitwiseAnd(1 << 3).eq(0)

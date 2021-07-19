@@ -5,7 +5,7 @@ from .extending import extend
 
 @extend(ee.dictionary.Dictionary)
 def __contains__(self, key):
-    '''Returns True if the key is in the dictionary.
+    """Returns True if the key is in the dictionary.
 
     Parameters
     ----------
@@ -18,13 +18,13 @@ def __contains__(self, key):
     -------
     boolean
         Whether the key is contained in the dictionary.
-    '''
+    """
     return self.contains(key).getInfo()
 
 
 @extend(ee.dictionary.Dictionary)
 def __getitem__(self, key):
-    '''Gets the item of the dictionary according to the specified key.
+    """Gets the item of the dictionary according to the specified key.
 
     Parameters
     ----------
@@ -37,5 +37,5 @@ def __getitem__(self, key):
     -------
     ee.Element
         Selected value.
-    '''
+    """
     return self.get(key)

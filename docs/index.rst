@@ -665,9 +665,9 @@ If required, here is the BibTex!::
 Artists
 -------
 
-- `David Montero Loaiza <https://github.com/davemlz>`_: Lead Developer.
-- `César Aybar <https://github.com/csaybar>`_: Awesome Spectral Indices for GEE and eeExtra Developer.
-- `Aaron Zuspan <https://github.com/aazuspan>`_: Plus Codes Constructors and Methods Developer.
+- `David Montero Loaiza <https://github.com/davemlz>`_: Lead Developer of eemont and eeExtra.
+- `César Aybar <https://github.com/csaybar>`_: Lead Developer of rgee and eeExtra.
+- `Aaron Zuspan <https://github.com/aazuspan>`_: Plus Codes Constructors and Methods, Panchromatic Sharpening and Histogram Matching Developer.
 
 Credits
 -------

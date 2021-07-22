@@ -78,6 +78,13 @@ Welcome to eemont!
    :hidden:
       
    tutorials
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Contributors 
+   :hidden:
+      
+   contributors
 
 - GitHub: `https://github.com/davemlz/eemont <https://github.com/davemlz/eemont>`_
 - Documentation: `https://eemont.readthedocs.io/ <https://eemont.readthedocs.io/>`_

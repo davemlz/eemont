@@ -3,6 +3,8 @@
   <embed>
     <p align="center">
       <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="200px"/></a>
+      <br>
+      <b>A Python package that extends <a href="https://earthengine.google.com/">Google Earth Engine</a></b>
     </p>
   </embed>
 

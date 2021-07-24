@@ -2,12 +2,9 @@
 
   <embed>
     <p align="center">
-      <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="150px"/></a>
+      <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="200px"/></a>
     </p>
-  <\embed>
-
-eemont
-========
+  </embed>
 
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont

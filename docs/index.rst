@@ -1,6 +1,14 @@
 Welcome to eemont!
 ==================
 
+.. raw:: html
+
+   <embed>
+     <p align="center">
+       <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="150px"/></a>
+     </p>
+   <\embed>
+
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont
         

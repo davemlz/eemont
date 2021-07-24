@@ -1,3 +1,11 @@
+.. raw:: html
+
+  <embed>
+    <p align="center">
+      <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="150px"/></a>
+    </p>
+  <\embed>
+
 eemont
 ========
 

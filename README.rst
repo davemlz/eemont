@@ -49,8 +49,6 @@
     :target: https://github.com/psf/black
 
 
-**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
-
 - GitHub: `https://github.com/davemlz/eemont <https://github.com/davemlz/eemont>`_
 - Documentation: `https://eemont.readthedocs.io/ <https://eemont.readthedocs.io/>`_
 - PyPI: `https://pypi.org/project/eemont/ <https://pypi.org/project/eemont/>`_

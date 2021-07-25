@@ -52,8 +52,6 @@ Welcome to eemont!
     :target: https://github.com/psf/black
 
 
-**A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_
-
 .. toctree::   
    :maxdepth: 2
    :caption: Extended Classes 

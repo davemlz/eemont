@@ -27,4 +27,6 @@ Here you can find a collection of eemont tutorials in Jupyter Notebooks and RMar
 22. Overloaded Operators for the ee.List Object Class (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/022-Overloaded-Operators-List.ipynb>`_)
 23. Creating Geometries from Plus Codes (And Viceversa) (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/023-Creating-Geometries-From-Plus-Codes.ipynb>`_)
 24. Container Emulation Methods for ee.Image and ee.ImageCollection (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/024-Container-Image-ImageCollection.ipynb>`_)
-25. landsat 8 - Collection 2 (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/025-Landsat-8-Collection-2.ipynb>`_)
+25. Landsat 8 - Collection 2 (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/025-Landsat-8-Collection-2.ipynb>`_)
+26. Histogram Matching (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/026-Histogram-Matching.ipynb>`_)
+27. Panchromatic Sharpening (`Jupyter Notebook <https://github.com/davemlz/eemont/blob/master/tutorials/027-Panchromatic-Sharpening.ipynb>`_)

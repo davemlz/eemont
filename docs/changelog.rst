@@ -10,6 +10,11 @@ New Features
 - The :code:`panSharpen()` extended method for ee.Image and ee.ImageCollection classes was created.
 - The :code:`matchHistogram()` extended method for ee.Image classes was created.
 
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Aaron Zuspan <https://github.com/aazuspan>`_
+
 v0.2.4
 --------------
 
@@ -59,6 +64,11 @@ New Features
 - The :code:`PolygonFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
 - The :code:`RectangleFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
 - The :code:`plusCodes()` extended method for ee.Gemoetry and ee.Feature classes was created.
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Aaron Zuspan <https://github.com/aazuspan>`_
 
 v0.2.0
 --------------

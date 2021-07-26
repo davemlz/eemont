@@ -1,5 +1,5 @@
 .. image:: https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png
-        :height: 200px
+        :height: 200 px
         :target: https://github.com/davemlz/eemont
 
 **A Python package that extends** `Google Earth Engine <https://earthengine.google.com/>`_

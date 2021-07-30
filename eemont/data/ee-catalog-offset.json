@@ -3673,6 +3673,66 @@
         "Cloud_Optical_Thickness_Liquid_Log_Std_Deviation_Mean": 0.0,
         "Cloud_Optical_Thickness_Liquid_Mean_Uncertainty": 0.0
     },
+    "MODIS/MCD43A4_006_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MCD43A4_006_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MCD43A4_006_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MCD43A4_006_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MCD43A4_006_NDWI": {
+        "NDWI": 0.0
+    },
+    "MODIS/MCD43A4_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MCD43A4_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MCD43A4_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MCD43A4_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MCD43A4_NDWI": {
+        "NDWI": 0.0
+    },
+    "MODIS/MOD09GA_006_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MOD09GA_006_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MOD09GA_006_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MOD09GA_006_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MOD09GA_006_NDWI": {
+        "NDWI": 0.0
+    },
+    "MODIS/MOD09GA_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MOD09GA_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MOD09GA_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MOD09GA_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MOD09GA_NDWI": {
+        "NDWI": 0.0
+    },
     "MODIS/MOD10A1": {
         "Fractional_Snow_Cover": 0.0,
         "Snow_Albedo_Daily_Tile": 0.0,
@@ -3682,6 +3742,36 @@
     "MODIS/MOD44W/MOD44W_005_2000_02_24": {
         "water_mask": 0.0,
         "water_mask_qa": 0.0
+    },
+    "MODIS/MYD09GA_006_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MYD09GA_006_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MYD09GA_006_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MYD09GA_006_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MYD09GA_006_NDWI": {
+        "NDWI": 0.0
+    },
+    "MODIS/MYD09GA_BAI": {
+        "BAI": 0.0
+    },
+    "MODIS/MYD09GA_EVI": {
+        "EVI": 0.0
+    },
+    "MODIS/MYD09GA_NDSI": {
+        "NDSI": 0.0
+    },
+    "MODIS/MYD09GA_NDVI": {
+        "NDVI": 0.0
+    },
+    "MODIS/MYD09GA_NDWI": {
+        "NDWI": 0.0
     },
     "MODIS/MYD10A1": {
         "Fractional_Snow_Cover": 0.0,

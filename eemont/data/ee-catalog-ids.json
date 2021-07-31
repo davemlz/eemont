@@ -653,6 +653,12 @@
         "sci:citation": "Abatzoglou, J.T., S.Z. Dobrowski, S.A. Parks, K.C. Hegewisch, 2018, Terraclimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958-2015, Scientific Data 5:170191, [doi:10.1038/sdata.2017.191](https://doi.org/10.1038/sdata.2017.191)",
         "sci:doi": "DOI not available"
     },
+    "ISDASOIL/Africa/aluminium_extractable": {
+        "gee:type": "image",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_aluminium_extractable.json",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:doi": "DOI not available"
+    },
     "JAXA/ALOS/AVNIR-2/ORI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_AVNIR-2_ORI.json",

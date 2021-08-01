@@ -1,0 +1,21 @@
+cff-version: 1.1.0
+message: "Please cite the following works when using this software."
+authors:
+  - family-names: Montero Loaiza
+    given-names: David
+title: "eemont: A Python package that extends Google Earth Engine."
+version: 0.2.5
+date-released: 2021-07-26
+repository: https://github.com/davemlz/eemont
+url: https://eemont.readthedocs.io/
+references:
+  - type: article
+    authors:
+      - family-names: Montero Loaiza
+        given-names: David
+    title: "eemont: A Python package that extends Google Earth Engine."
+    journal: "The Jounal of Open Source Software"
+    doi: https://doi.org/10.21105/joss.03168
+    year: 2021
+    volume: 6
+    number-volumes: 62

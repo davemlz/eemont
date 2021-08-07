@@ -2297,6 +2297,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LT05/C02/T1_L2": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LT05_C02_T1_L2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LT08/C01/T2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LT08_C01_T2.json",

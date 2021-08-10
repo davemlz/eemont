@@ -19,6 +19,9 @@ eemont
 .. image:: https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg
         :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml  
 
+.. image:: https://codecov.io/github/davemlz/eemont/coverage.svg?branch=master
+        :target: https://codecov.io/gh/davemlz/eemont 
+
 .. image:: https://img.shields.io/badge/GitHub%20Sponsors-Donate-ff69b4.svg
         :target: https://github.com/sponsors/davemlz
 

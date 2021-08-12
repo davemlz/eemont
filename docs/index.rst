@@ -13,46 +13,59 @@ Welcome to eemont!
 
 .. image:: https://img.shields.io/pypi/v/eemont.svg
         :target: https://pypi.python.org/pypi/eemont
+        :alt: PyPI Version
         
 .. image:: https://img.shields.io/conda/vn/conda-forge/eemont.svg
         :target: https://anaconda.org/conda-forge/eemont
+        :alt: conda-forge Version
         
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
         :target: https://opensource.org/licenses/MIT
+        :alt: License
         
 .. image:: https://readthedocs.org/projects/eemont/badge/?version=latest
         :target: https://eemont.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 .. image:: https://github.com/davemlz/eemont/actions/workflows/tests.yml/badge.svg
-        :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml  
+        :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml
+        :alt: Tests Status  
 
 .. image:: https://codecov.io/github/davemlz/eemont/coverage.svg?branch=master
-        :target: https://codecov.io/gh/davemlz/eemont 
+        :target: https://codecov.io/gh/davemlz/eemont
+        :alt: Coverage Status
 
 .. image:: https://img.shields.io/badge/GitHub%20Sponsors-Donate-ff69b4.svg
         :target: https://github.com/sponsors/davemlz
+        :alt: Donation GitHub Sponsors
 
 .. image:: https://img.shields.io/badge/Buy%20me%20a%20coffee-Donate-ff69b4.svg
         :target: https://www.buymeacoffee.com/davemlz
+        :alt: Donation Buy me a coffee
         
 .. image:: https://img.shields.io/badge/kofi-Donate-ff69b4.svg
         :target: https://ko-fi.com/davemlz
+        :alt: Donation kofi
         
 .. image:: https://static.pepy.tech/personalized-badge/eemont?period=total&units=international_system&left_color=grey&right_color=green&left_text=Downloads
         :target: https://pepy.tech/project/eemont
+        :alt: Downloads
         
 .. image:: https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg
         :target: https://developers.google.com/earth-engine/tutorials/community/developer-resources
+        :alt: GEE Community
         
 .. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
         :target: https://twitter.com/dmlmont
+        :alt: Twitter
         
 .. image:: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a/status.svg
-    :target: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a
+        :target: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a
+        :alt: JOSS Paper
         
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
+        :target: https://github.com/psf/black
+        :alt: Black
 
 
 .. toctree::   

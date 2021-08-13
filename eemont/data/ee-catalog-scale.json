@@ -147,6 +147,13 @@
         "water-permanent-coverfraction": 1.0,
         "water-seasonal-coverfraction": 1.0
     },
+    "COPERNICUS/S1_GRD": {
+        "HH": 1.0,
+        "HV": 1.0,
+        "VH": 1.0,
+        "VV": 1.0,
+        "angle": 1.0
+    },
     "COPERNICUS/S2": {
         "B1": 0.0001,
         "B10": 0.0001,

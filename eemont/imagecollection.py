@@ -43,8 +43,10 @@ def __getitem__(self, key):
     self : ee.ImageCollection
         Image Collection to get the bands from.
     key : numeric | string | list[numeric] | list[string] | slice
-        Key used to get the specified band. If numeric, it gets the band at that index. If string, it gets the band with that name
-        or that matches with regex. If list, it gets multiple bands. If slice, it calls the slice() method (the step parameter is ignored).
+        Key used to get the specified band. If numeric, it gets the band at that index.
+        If string, it gets the band with that name or that matches with regex. If list,
+        it gets multiple bands. If slice, it calls the slice() method (the step parameter
+        is ignored).
 
     Returns
     -------
@@ -452,7 +454,7 @@ def index(
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Awesome Spectral Indices for GEE:
-            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
+            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_ [1]_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -528,6 +530,10 @@ def index(
     - Computing all indices:
 
     >>> S2.index('all')
+
+    References
+    ----------
+    .. [1] https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html
     """
     warnings.warn(
         "index() will be deprecated in future versions, please use spectralIndices() instead",

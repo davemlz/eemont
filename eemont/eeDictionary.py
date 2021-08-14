@@ -18,6 +18,17 @@ def __contains__(self, key):
     -------
     boolean
         Whether the key is contained in the dictionary.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> eeDict = ee.Dictionary({"a":1,"b":2,"h":4})
+    >>> "a" in eeDict
+    True
+    >>> "c" in eeDict
+    False
     """
     return self.contains(key).getInfo()
 
@@ -37,5 +48,16 @@ def __getitem__(self, key):
     -------
     ee.Element
         Selected value.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> eeDict = ee.Dictionary({"a":1,"b":2,"h":4})
+    >>> eeDict["a"].getInfo()
+    1
+    >>> eeDict["h"].getInfo()
+    4
     """
     return self.get(key)

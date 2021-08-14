@@ -6,6 +6,7 @@ API Reference
    :maxdepth: 2
    :hidden:
    
+   eedictionary
    eefeature
    eefeaturecollection
    eegeometry
@@ -30,6 +31,19 @@ Extended Earth Engine Object Classes
 ------------------------------------------
 
 Here you can find the reference of the new methods for each one of the Earth Engine classes:
+
+ee.Dictionary
+~~~~~~~~~~~~~
+
+Extended methods for the ee.Dictionary class:
+
+.. currentmodule:: eemont.eeDictionary
+
+.. autosummary::
+   :toctree: stubs
+
+   __contains__
+   __getitem__
 
 ee.Feature
 ~~~~~~~~~~~~~

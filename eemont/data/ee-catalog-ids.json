@@ -3923,6 +3923,12 @@
         "sci:citation": "\u00a9 \\<year\\> Planet Labs Inc.",
         "sci:doi": "DOI not available"
     },
+    "TERN/AET/CMRSET_LANDSAT_V2_1": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/TERN_AET_CMRSET_LANDSAT_V2_1.json",
+        "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L., and Chen, Y. (2021) Estimating actual evapotranspiration continentally at field-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS, Landsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)",
+        "sci:doi": "DOI not available"
+    },
     "TOMS/MERGED": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TOMS_MERGED.json",

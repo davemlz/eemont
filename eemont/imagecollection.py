@@ -363,22 +363,14 @@ def getTimeSeriesByRegions(
 
         reducerName = red.getOutputs().get(0)
 
-        def reduceImageCollectionByRegions(img):
+        def reduceImageCollectionByRegions(img):            
 
             img = ee.Image(img)
 
-            fc = img.reduceRegions(collection, red, scale, crs, crsTransform, tileScale)
+            if len(bands) == 1:
+                img = img.addBands(ee.Image(naValue).rename("eemontTemporal"))
 
-            if isinstance(bands, list):
-                if len(bands) == 1:
-                    fc = ee.Algorithms.If(
-                        condition=fc.first().propertyNames().size().eq(props.size()),
-                        trueCase=fc,
-                        falseCase=fc.select(
-                            props.add(reducerName), props.add(bands[0])
-                        ),
-                    )
-                    fc = ee.FeatureCollection(fc)
+            fc = img.reduceRegions(collection, red, scale, crs, crsTransform, tileScale)
 
             if dateFormat == "ms":
                 date = ee.Date(img.get("system:time_start")).millis()
@@ -407,7 +399,10 @@ def getTimeSeriesByRegions(
         feature = ee.Feature(feature)
         return feature
 
-    return flattenfc.map(setNA)
+    flattenfc = flattenfc.map(setNA)
+    flattenfc = flattenfc.select(props.cat(["reducer",dateColumn]).cat(bands))
+
+    return flattenfc
 
 
 @extend(ee.imagecollection.ImageCollection)

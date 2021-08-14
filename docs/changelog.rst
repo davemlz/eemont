@@ -1,6 +1,14 @@
 Changelog
 ============
 
+v0.2.6
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Errors of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+
 v0.2.5
 --------------
 

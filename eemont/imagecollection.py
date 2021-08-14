@@ -2,16 +2,18 @@ import ee
 import numpy as np
 import warnings
 import requests
-from .common import _index
-from .common import _maskClouds
-from .common import _get_scale_params
-from .common import _get_offset_params
-from .common import _scale_STAC
-from .common import _preprocess
-from .common import _getSTAC
-from .common import _getDOI
-from .common import _getCitation
-from .common import _panSharpen
+from .common import (
+    _index,
+    _maskClouds,
+    _get_scale_params,
+    _get_offset_params,
+    _scale_STAC,
+    _preprocess,
+    _getSTAC,
+    _getDOI,
+    _getCitation,
+    _panSharpen,
+)
 from .extending import extend
 
 
@@ -363,7 +365,7 @@ def getTimeSeriesByRegions(
 
         reducerName = red.getOutputs().get(0)
 
-        def reduceImageCollectionByRegions(img):            
+        def reduceImageCollectionByRegions(img):
 
             img = ee.Image(img)
 
@@ -400,7 +402,7 @@ def getTimeSeriesByRegions(
         return feature
 
     flattenfc = flattenfc.map(setNA)
-    flattenfc = flattenfc.select(props.cat(["reducer",dateColumn]).cat(bands))
+    flattenfc = flattenfc.select(props.cat(["reducer", dateColumn]).cat(bands))
 
     return flattenfc
 

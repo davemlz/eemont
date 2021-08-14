@@ -2,10 +2,12 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 from .extending import extend
-from .common import _retrieve_location
-from .common import _lnglat_from_location
-from .common import _convert_lnglats_to_pluscodes
-from .common import _convert_pluscodes_to_lnglats
+from .common import (
+    _retrieve_location,
+    _lnglat_from_location,
+    _convert_lnglats_to_pluscodes,
+    _convert_pluscodes_to_lnglats,
+)
 
 
 @extend(ee.geometry.Geometry, static=True)

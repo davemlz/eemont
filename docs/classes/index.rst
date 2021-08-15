@@ -12,6 +12,7 @@ API Reference
    eegeometry
    eeimage
    eeimagecollection
+   eelist
    
 .. toctree::
    :caption: Non-Earth Engine Classes
@@ -34,8 +35,6 @@ Here you can find the reference of the new methods for each one of the Earth Eng
 
 ee.Dictionary
 ~~~~~~~~~~~~~
-
-Extended methods for the ee.Dictionary class:
 
 .. currentmodule:: eemont.eeDictionary
 
@@ -126,6 +125,21 @@ ee.ImageCollection
    scale
    scaleAndOffset
    spectralIndices
+
+ee.List
+~~~~~~~
+   
+.. currentmodule:: eemont.eeList
+
+.. autosummary::
+
+   __add__
+   __contains__
+   __getitem__
+   __len__
+   __mul__
+   __radd__
+   __rmul__
 
 Extended Non-Earth Engine Object Classes
 ------------------------------------------

@@ -5628,6 +5628,10 @@
         "G": 0.0,
         "R": 0.0
     },
+    "TERN/AET/CMRSET_LANDSAT_V2_1": {
+        "ETa": 0.0,
+        "pixel_qa": 0.0
+    },
     "TOMS/MERGED": {
         "ozone": 0.0
     },

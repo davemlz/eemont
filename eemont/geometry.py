@@ -12,7 +12,8 @@ from .common import (
 
 @extend(ee.geometry.Geometry, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
+    """Constructs an ee.Geometry describing a bounding box from a query submitted to a
+    geodocer using the geopy package.
 
     Tip
     ----------
@@ -23,10 +24,12 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     query : str
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
-        Geocoder to use. One of 'nominatim' or 'arcgis'. Please visit https://geopy.readthedocs.io/ for more info.
+        Geocoder to use. One of 'nominatim' or 'arcgis'. Please visit
+        https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -35,8 +38,10 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
-    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
+    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted
+        to a geodocer using the geopy package.
+    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query
+        submitted to a geodocer using the geopy package.
 
     Examples
     --------
@@ -96,7 +101,10 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
+    """Constructs an ee.Geometry describing a point from a query submitted to a geodocer
+    using the geopy package.
+
+    This returns exactly one pair of coordinates.
 
     Tip
     ----------
@@ -109,8 +117,9 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -119,8 +128,10 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
-    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package.
+    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query
+        submitted to a geodocer using the geopy package.
+    MultiPointFromQuery : Constructs an ee.Geometry describing a multi-point from a query
+        submitted to a geodocer using the geopy package.
 
     Examples
     --------
@@ -148,7 +159,10 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing a multi-point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
+    """Constructs an ee.Geometry describing a multi-point from a query submitted to a
+    geodocer using the geopy package.
+
+    This returns all pairs of coordinates retrieved by the query.
 
     Tip
     ----------
@@ -161,8 +175,9 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -171,8 +186,10 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query submitted to a geodocer using the geopy package.
-    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted to a geodocer using the geopy package.
+    BBoxFromQuery : Constructs an ee.Geometry describing a bounding box from a query
+        submitted to a geodocer using the geopy package.
+    PointFromQuery : Constructs an ee.Geometry describing a point from a query submitted
+        to a geodocer using the geopy package.
 
     Examples
     --------
@@ -219,8 +236,9 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
 def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a point from a Plus Code.
 
-    If the Plus Code is full, it will be decoded directly using the openlocationcode package. If it is a short Code with
-    a reference location, the reference will be geocoded using the geopy package.
+    If the Plus Code is full, it will be decoded directly using the openlocationcode
+    package. If it is a short Code with a reference location, the reference will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -233,8 +251,9 @@ def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -243,20 +262,28 @@ def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> geom = ee.Geometry.PointFromPlusCode('QXGV+XH Denver, CO, USA',user_agent = 'my-gee-eemont-query')
+    >>> geom = ee.Geometry.PointFromPlusCode('QXGV+XH Denver, CO, USA',
+    ...                                      user_agent = 'my-gee-eemont-query')
     >>> geom.coordinates().getInfo()
     [-105.0060625, 39.777437500000005]
     """
@@ -268,8 +295,9 @@ def PointFromPlusCode(pluscode, geocoder="nominatim", **kwargs):
 def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -278,12 +306,14 @@ def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of full Plus Codes or short Plus Codes with geocodable reference locations
+        appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -293,12 +323,18 @@ def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
@@ -317,8 +353,9 @@ def MultiPointFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 def PolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -327,12 +364,14 @@ def PolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of full Plus Codes or short Plus Codes with geocodable reference locations
+        appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -342,12 +381,18 @@ def PolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
@@ -367,10 +412,12 @@ def PolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=True)
 def MultiPolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
+    """Constructs an ee.Geometry describing multiple polygons from a list of lists of
+    Plus Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -379,12 +426,14 @@ def MultiPolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of lists of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of lists of full Plus Codes or short Plus Codes with geocodable reference
+        locations appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -394,19 +443,28 @@ def MultiPolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> geom = ee.Geometry.MultiPolygonFromPlusCodes([['85FQ2222+22', '85FR2222+22', '85GR2222+22'],['85FP8PC2+G2', '85FPJF23+G4', '85FPMW2R+RP']])
+    >>> geom = ee.Geometry.MultiPolygonFromPlusCodes([
+    ...    ['85FQ2222+22', '85FR2222+22', '85GR2222+22'],
+    ...    ['85FP8PC2+G2', '85FPJF23+G4', '85FPMW2R+RP']
+    ...  ])
     >>> geom.coordinates().getInfo()
     [[[[-104.9999375, 39.0000625],
       [-103.9999375, 39.0000625],
@@ -425,8 +483,9 @@ def MultiPolygonFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 def LineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a line from a list of Plus Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -435,12 +494,14 @@ def LineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of full Plus Codes or short Plus Codes with geocodable reference locations
+        appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -450,12 +511,18 @@ def LineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
@@ -472,10 +539,12 @@ def LineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=True)
 def MultiLineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
+    """Constructs an ee.Geometry describing multiple lines from a list of lists of Plus
+    Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -484,12 +553,14 @@ def MultiLineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of lists of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of lists of full Plus Codes or short Plus Codes with geocodable reference
+        locations appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -499,19 +570,28 @@ def MultiLineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> geom = ee.Geometry.MultiLineStringFromPlusCodes([['85FQ2222+22', '85FR2222+22'],['85FP8PC2+G2', '85FPJF23+G4']])
+    >>> geom = ee.Geometry.MultiLineStringFromPlusCodes([
+    ...    ['85FQ2222+22', '85FR2222+22'],
+    ...    ['85FP8PC2+G2', '85FPJF23+G4']
+    ... ])
     >>> geom.coordinates().getInfo()
     [[[-104.9999375, 39.0000625], [-103.9999375, 39.0000625]],
     [[-105.2999375, 39.321312500000005], [-105.5471875, 39.6013125]]]
@@ -524,8 +604,9 @@ def MultiLineStringFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 def LinearRingFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     """Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -534,12 +615,14 @@ def LinearRingFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of full Plus Codes or short Plus Codes with geocodable reference locations appended to them.
+        A list of full Plus Codes or short Plus Codes with geocodable reference locations
+        appended to them.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -549,19 +632,26 @@ def LinearRingFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    RectangleFromPlusCodes : Constructs an ee.Geometry describing a rectangle from a list
+        of two Plus Code corners.
 
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> geom = ee.Geometry.LinearRingFromPlusCodes(['85FQ2222+22', '85FR2222+22', '85GR2222+22'])
+    >>> geom = ee.Geometry.LinearRingFromPlusCodes(['85FQ2222+22',
+    ...                                             '85FR2222+22', '85GR2222+22'])
     >>> geom.coordinates().getInfo()
     [[-104.9999375, 39.0000625],
     [-103.9999375, 39.0000625],
@@ -574,10 +664,12 @@ def LinearRingFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
 
 @extend(ee.geometry.Geometry, static=True)
 def RectangleFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Geometry describing a rectangle from a list of two Plus Code corners.
+    """Constructs an ee.Geometry describing a rectangle from a list of two Plus Code
+    corners.
 
-    If the Plus Codes are full, they will be decoded directly using the openlocationcode package. If they are short Codes with
-    reference locations, the references will be geocoded using the geopy package.
+    If the Plus Codes are full, they will be decoded directly using the openlocationcode
+    package. If they are short Codes with reference locations, the references will be
+    geocoded using the geopy package.
 
     Tip
     ----------
@@ -586,12 +678,14 @@ def RectangleFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     Parameters
     ----------
     pluscodes : str
-        A list of two full Plus Codes or short Plus Codes with geocodable reference locations appended to them describing the corners of the rectangle.
+        A list of two full Plus Codes or short Plus Codes with geocodable reference
+        locations appended to them describing the corners of the rectangle.
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -601,12 +695,18 @@ def RectangleFromPlusCodes(pluscodes, geocoder="nominatim", **kwargs):
     See Also
     --------
     PointFromPlusCode : Constructs an ee.Geometry describing a point from a Plus Code.
-    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a list of Plus Codes.
-    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of Plus Codes.
-    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons from a list of lists of Plus Codes.
-    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of Plus Codes.
-    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines from a list of lists of Plus Codes.
-    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a list of Plus Codes.
+    MultiPointFromPlusCodes : Constructs an ee.Geometry describing multiple points from a
+        list of Plus Codes.
+    PolygonFromPlusCodes : Constructs an ee.Geometry describing a polygon from a list of
+        Plus Codes.
+    MultiPolygonFromPlusCodes : Constructs an ee.Geometry describing multiple polygons
+        from a list of lists of Plus Codes.
+    LineStringFromPlusCodes : Constructs an ee.Geometry describing a line from a list of
+        Plus Codes.
+    MultiLineStringFromPlusCodes : Constructs an ee.Geometry describing multiple lines
+        from a list of lists of Plus Codes.
+    LinearRingFromPlusCodes : Constructs an ee.Geometry describing a linear ring from a
+        list of Plus Codes.
 
     Examples
     --------
@@ -634,13 +734,15 @@ def plusCodes(self, codeLength=10):
     self : ee.Geometry
         The geometry to extract coordinates from.
     codeLength : int, default = 10
-        The number of significant digits in the output codes, between 2 and 15. Shorter codes are less precise.
+        The number of significant digits in the output codes, between 2 and 15. Shorter
+        codes are less precise.
 
     Returns
     -------
     list | str
-        The coordinates of the geometry converted to Plus Codes. The structure of the Plus Codes array will be
-        identical to the structure returned by ee.Geometry.coordinates().
+        The coordinates of the geometry converted to Plus Codes. The structure of the Plus
+        Codes array will be identical to the structure returned by
+        ee.Geometry.coordinates().
 
     Examples
     --------

@@ -10,8 +10,10 @@ def _extend_pdDataFrame():
 
 @_extend_pdDataFrame()
 def toEEFeatureCollection(self, latitude=None, longitude=None):
-    """Converts a pd.DataFrame object into an ee.FeatureCollection object. If lat/lon coordinates are available, the Data Frame can be converted into a Feature Collection
-    with an associated geometry.
+    """Converts a pd.DataFrame object into an ee.FeatureCollection object.
+
+    If lat/lon coordinates are available, the Data Frame can be converted into
+    a Feature Collection with an associated geometry.
 
     Tip
     ----------
@@ -22,9 +24,11 @@ def toEEFeatureCollection(self, latitude=None, longitude=None):
     self : pd.DataFrame [this]
         Data Frame to convert into a Feature Collection.
     latitude : string
-        Name of a latitude column, if available. Coupled with a longitude column, an ee.Geometry.Point is created and associated to each Feature.
+        Name of a latitude column, if available. Coupled with a longitude column,
+        an ee.Geometry.Point is created and associated to each Feature.
     longitude : string
-        Name of a longitude column, if available. Coupled with a latitude column, an ee.Geometry.Point is created and associated to each Feature.
+        Name of a longitude column, if available. Coupled with a latitude column,
+        an ee.Geometry.Point is created and associated to each Feature.
 
     Returns
     -------

@@ -78,11 +78,13 @@ def __getitem__(self, key):
 
 @extend(ee.imagecollection.ImageCollection)
 def closest(self, date, tolerance=1, unit="month"):
-    """Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
+    """Gets the closest image (or set of images if the collection intersects a region that
+    requires multiple scenes) to the specified date.
 
     Tip
     ----------
-    Check more info about getting the closest image to a specific date in the :ref:`User Guide<Closest Image to a Specific Date>`.
+    Check more info about getting the closest image to a specific date in the
+    :ref:`User Guide<Closest Image to a Specific Date>`.
 
     Parameters
     ----------
@@ -91,10 +93,12 @@ def closest(self, date, tolerance=1, unit="month"):
     date : ee.Date | string
         Date of interest. The method will look for images closest to this date.
     tolerance : float, default = 1
-        Filter the collection to [date - tolerance, date + tolerance) before searching the closest image. This speeds up the searching process for collections
+        Filter the collection to [date - tolerance, date + tolerance) before searching the
+        closest image. This speeds up the searching process for collections
         with a high temporal resolution.
     unit : string, default = 'month'
-        Units for tolerance. Available units: 'year', 'month', 'week', 'day', 'hour', 'minute' or 'second'.
+        Units for tolerance. Available units: 'year', 'month', 'week', 'day', 'hour',
+        'minute' or 'second'.
 
     Returns
     -------
@@ -150,7 +154,9 @@ def getTimeSeriesByRegion(
     dateFormat="ISO",
     naValue=-9999,
 ):
-    """Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported) according to the specified reducer (or reducers).
+    """Gets the time series by region for the given image collection and geometry (feature
+    or feature collection are also supported) according to the specified reducer (or
+    reducers).
 
     Tip
     ----------
@@ -163,29 +169,38 @@ def getTimeSeriesByRegion(
     reducer : ee.Reducer | list[ee.Reducer]
         Reducer or list of reducers to use for region reduction.
     bands : str | list[str], default = None
-        Selection of bands to get the time series from. Defaults to all bands in the image collection.
+        Selection of bands to get the time series from. Defaults to all bands in the image
+        collection.
     geometry : ee.Geometry | ee.Feature | ee.FeatureCollection, default = None
-        Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection, the geometry() method is called. In order to get reductions by each feature please see
-        the getTimeSeriesByRegions() method. Defaults to the footprint of the first band for each image in the collection.
+        Geometry to perform the region reduction. If ee.Feature or ee.FeatureCollection,
+        the geometry() method is called. In order to get reductions by each feature please
+        see the getTimeSeriesByRegions() method. Defaults to the footprint of the first
+        band for each image in the collection.
     scale : numeric, default = None
         Nomical scale in meters.
     crs : Projection, default = None
-        The projection to work in. If unspecified, the projection of the image's first band is used. If specified in addition to scale, rescaled to the specified scale.
+        The projection to work in. If unspecified, the projection of the image's first
+        band is used. If specified in addition to scale, rescaled to the specified scale.
     crsTransform : list, default = None
-        The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
-        This option is mutually exclusive with 'scale', and replaces any transform already set on the projection.
+        The list of CRS transform values. This is a row-major ordering of the 3x2
+        transform matrix. This option is mutually exclusive with 'scale', and replaces any
+        transform already set on the projection.
     bestEffort : boolean, default = False
-        If the polygon would contain too many pixels at the given scale, compute and use a larger scale which would allow the operation to succeed.
+        If the polygon would contain too many pixels at the given scale, compute and use a
+        larger scale which would allow the operation to succeed.
     maxPixels : numeric, default = 1e12
         The maximum number of pixels to reduce.
     tileScale : numeric, default = 1
-        A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.
+        A scaling factor used to reduce aggregation tile size; using a larger tileScale
+        (e.g. 2 or 4) may enable computations that run out of memory with the default.
     dateColumn : str, default = 'date'
         Output name of the date column.
     dateFormat : str, default = 'ISO'
-        Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
+        Output format of the date column. Defaults to ISO. Available options: 'ms' (for
+        milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
     naValue : numeric, default = -9999
-        Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
+        Value to use as NA when the region reduction doesn't retrieve a value due to
+        masked pixels.
 
     Returns
     -------
@@ -194,7 +209,8 @@ def getTimeSeriesByRegion(
 
     See Also
     --------
-    getTimeSeriesByRegions : Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
+    getTimeSeriesByRegions : Gets the time series by regions for the given image
+        collection and feature collection according to the specified reducer (or reducers).
 
     Examples
     --------
@@ -286,7 +302,8 @@ def getTimeSeriesByRegions(
     dateFormat="ISO",
     naValue=-9999,
 ):
-    """Gets the time series by regions for the given image collection and feature collection according to the specified reducer (or reducers).
+    """Gets the time series by regions for the given image collection and feature
+    collection according to the specified reducer (or reducers).
 
     Tip
     ----------
@@ -299,24 +316,31 @@ def getTimeSeriesByRegions(
     reducer : ee.Reducer | list[ee.Reducer]
         Reducer or list of reducers to use for region reduction.
     collection : ee.FeatureCollection
-        Feature Collection to perform the reductions on. Image reductions are applied to each feature in the collection.
+        Feature Collection to perform the reductions on. Image reductions are applied to
+        each feature in the collection.
     bands : str | list[str], default = None
-        Selection of bands to get the time series from. Defaults to all bands in the image collection.
+        Selection of bands to get the time series from. Defaults to all bands in the image
+        collection.
     scale : numeric, default = None
         Nomical scale in meters.
     crs : Projection, default = None
-        The projection to work in. If unspecified, the projection of the image's first band is used. If specified in addition to scale, rescaled to the specified scale.
+        The projection to work in. If unspecified, the projection of the image's first
+        band is used. If specified in addition to scale, rescaled to the specified scale.
     crsTransform : list, default = None
-        The list of CRS transform values. This is a row-major ordering of the 3x2 transform matrix.
-        This option is mutually exclusive with 'scale', and replaces any transform already set on the projection.
+        The list of CRS transform values. This is a row-major ordering of the 3x2
+        transform matrix. This option is mutually exclusive with 'scale', and replaces
+        any transform already set on the projection.
     tileScale : numeric, default = 1
-        A scaling factor used to reduce aggregation tile size; using a larger tileScale (e.g. 2 or 4) may enable computations that run out of memory with the default.
+        A scaling factor used to reduce aggregation tile size; using a larger tileScale
+        (e.g. 2 or 4) may enable computations that run out of memory with the default.
     dateColumn : str, default = 'date'
         Output name of the date column.
     dateFormat : str, default = 'ISO'
-        Output format of the date column. Defaults to ISO. Available options: 'ms' (for milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
+        Output format of the date column. Defaults to ISO. Available options: 'ms' (for
+        milliseconds), 'ISO' (for ISO Standard Format) or a custom format pattern.
     naValue : numeric, default = -9999
-        Value to use as NA when the region reduction doesn't retrieve a value due to masked pixels.
+        Value to use as NA when the region reduction doesn't retrieve a value due to
+        masked pixels.
 
     Returns
     -------
@@ -325,7 +349,8 @@ def getTimeSeriesByRegions(
 
     See Also
     --------
-    getTimeSeriesByRegion : Gets the time series by region for the given image collection and geometry (feature or feature collection are also supported)
+    getTimeSeriesByRegion : Gets the time series by region for the given image collection
+        and geometry (feature or feature collection are also supported)
         according to the specified reducer (or reducers).
 
     Examples
@@ -428,15 +453,18 @@ def index(
     c=1.0,
     online=False,
 ):
-    """Computes one or more spectral indices (indices are added as bands) for an image collection.
+    """Computes one or more spectral indices (indices are added as bands) for an image
+    collection.
 
     Warning
     -------------
-    **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
+    **Pending Deprecation:** The :code:`index()` method will no longer be available for
+    future versions. Please use :code:`spectralIndices()` instead.
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
+    Check more info about the supported platforms and spectral indices in the
+    :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------
@@ -454,7 +482,8 @@ def index(
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Awesome Spectral Indices for GEE:
-            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_ [1]_.
+            Check the complete list of indices
+            `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -480,14 +509,17 @@ def index(
             - 'RBF' : Radial Basis Function (RBF) Kernel.
             - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
-        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
+        expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
-        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.
+        Free parameter that trades off the influence of higher-order versus lower-order
+        terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
+        than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Wheter to retrieve the most recent list of indices directly from the GitHub
+        repository and not from the local copy.
 
         .. versionadded:: 0.2.0
 
@@ -579,11 +611,13 @@ def spectralIndices(
     c=1.0,
     online=False,
 ):
-    """Computes one or more spectral indices (indices are added as bands) for an image collection from the Awesome List of Spectral Indices.
+    """Computes one or more spectral indices (indices are added as bands) for an image
+    collection from the Awesome List of Spectral Indices.
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
+    Check more info about the supported platforms and spectral indices in the
+    :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------
@@ -601,7 +635,8 @@ def spectralIndices(
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Awesome Spectral Indices for GEE:
-            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
+            Check the complete list of indices
+            `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -627,14 +662,17 @@ def spectralIndices(
             - 'RBF' : Radial Basis Function (RBF) Kernel.
             - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
-        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
+        expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
-        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.
+        Free parameter that trades off the influence of higher-order versus lower-order
+        terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
+        than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Wheter to retrieve the most recent list of indices directly from the GitHub
+        repository and not from the local copy.
 
     Returns
     -------
@@ -709,11 +747,13 @@ def maskClouds(
     buffer=250,
     cdi=None,
 ):
-    """Masks clouds and shadows in an image collection (valid just for Surface Reflectance products).
+    """Masks clouds and shadows in an image collection (valid just for Surface
+    Reflectance products).
 
     Tip
     ----------
-    Check more info about the supported platforms and clouds masking in the :ref:`User Guide<Masking Clouds and Shadows>`.
+    Check more info about the supported platforms and clouds masking in the
+    :ref:`User Guide<Masking Clouds and Shadows>`.
 
     Parameters
     ----------
@@ -726,24 +766,32 @@ def maskClouds(
             - 'qa' : Use Quality Assessment band.
         This parameter is ignored for Landsat products.
     prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter is ignored for Landsat products.
+        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter
+        is ignored for Landsat products.
     maskCirrus : boolean, default = True
-        Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
+        Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is
+        ignored for Landsat products.
     maskShadows : boolean, default = True
-        Whether to mask cloud shadows. For more info see 'Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
+        Whether to mask cloud shadows. For more info see 'Braaten, J. 2020. Sentinel-2
+        Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
     scaledImage : boolean, default = False
-        Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.
+        Whether the pixel values are scaled to the range [0,1] (reflectance values). This
+        parameter is ignored for Landsat products.
     dark : float [0,1], default = 0.15
-        NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.
+        NIR threshold. NIR values below this threshold are potential cloud shadows. This
+        parameter is ignored for Landsat products.
     cloudDist : int, default = 1000
-        Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.
+        Maximum distance in meters (m) to look for cloud shadows from cloud edges. This
+        parameter is ignored for Landsat products.
     buffer : int, default = 250
-        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.
+        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter
+        is ignored for Landsat products.
     cdi : float [-1,1], default = None
-        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
-        A cdi = None means that the index is not used. For more info see
-        'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
-        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
+        Cloud Displacement Index threshold. Values below this threshold are considered
+        potential clouds. A cdi = None means that the index is not used. For more info see
+        'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the
+        Fmask algorithm for Sentinel-2 images: Separating clouds from bright surfaces
+        based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
         This parameter is ignored for Landsat products.
 
     Returns
@@ -760,7 +808,8 @@ def maskClouds(
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').maskClouds(prob = 75,buffer = 300,cdi = -0.5)
+    >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+    ...     .maskClouds(prob = 75,buffer = 300,cdi = -0.5))
     """
     return _maskClouds(
         self,
@@ -782,11 +831,13 @@ def scale(self):
 
     Warning
     -------------
-    **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
+    **Pending Deprecation:** The :code:`scale()` method will no longer be available for
+    future versions. Please use :code:`scaleAndOffset()` instead.
 
     Tip
     ----------
-    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    Check more info about the supported platforms and image scaling the
+    :ref:`User Guide<Image Scaling>`.
 
     Parameters
     ----------
@@ -830,7 +881,8 @@ def getScaleParams(self):
     See Also
     --------
     getOffsetParams : Gets the offset parameters for each band of the image collection.
-    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
+    scaleAndOffset : Scales bands on an image collection according to their scale and
+        offset parameters.
 
     Examples
     --------
@@ -871,7 +923,8 @@ def getOffsetParams(self):
     See Also
     --------
     getScaleParams : Gets the scale parameters for each band of the image collection.
-    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
+    scaleAndOffset : Scales bands on an image collection according to their scale and
+        offset parameters.
 
     Examples
     --------
@@ -901,7 +954,8 @@ def scaleAndOffset(self):
 
     Tip
     ----------
-    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    Check more info about the supported platforms and image scaling the
+    :ref:`User Guide<Image Scaling>`.
 
     Parameters
     ----------
@@ -930,11 +984,13 @@ def scaleAndOffset(self):
 
 @extend(ee.imagecollection.ImageCollection)
 def preprocess(self, **kwargs):
-    """Pre-processes the image collection: masks clouds and shadows, and scales and offsets the image collection.
+    """Pre-processes the image collection: masks clouds and shadows, and scales and
+    offsets the image collection.
 
     Tip
     ----------
-    Check more info here about the supported platforms, :ref:`Image Scaling<Image Scaling>` and :ref:`Masking Clouds and Shadows<Masking Clouds and Shadows>`.
+    Check more info here about the supported platforms, :ref:`Image Scaling<Image Scaling>`
+    and :ref:`Masking Clouds and Shadows<Masking Clouds and Shadows>`.
 
     Parameters
     ----------
@@ -952,7 +1008,8 @@ def preprocess(self, **kwargs):
     --------
     getScaleParams : Gets the scale parameters for each band of the image collection.
     getOffsetParams : Gets the offset parameters for each band of the image collection.
-    scaleAndOffset : Scales bands on an image collection according to their scale and offset parameters.
+    scaleAndOffset : Scales bands on an image collection according to their scale and
+        offset parameters.
     maskClouds : Masks clouds and shadows in an image collection.
 
     Examples
@@ -1051,7 +1108,8 @@ def getCitation(self):
     >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').getCitation()
     'Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
     GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt,
-    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date],
+    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC),
+    Accessed: [Data Access Date],
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
     return _getCitation(self)
@@ -1059,29 +1117,34 @@ def getCitation(self):
 
 @extend(ee.imagecollection.ImageCollection)
 def panSharpen(self, method="SFIM", qa=None, **kwargs):
-    """Apply panchromatic sharpening to each Image in the Image Collection. Optionally, run quality assessments between
-    the original and sharpened Images to measure spectral distortion and set results as properties of each sharpened
-    Image.
+    """Apply panchromatic sharpening to each Image in the Image Collection.
+
+    Optionally, run quality assessments between the original and sharpened Images to
+    measure spectral distortion and set results as properties of each sharpened Image.
 
     Parameters
     ----------
     self : ee.ImageCollection [this]
         Image Collection to sharpen.
     method : str, default="SFIM"
-        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation),
-        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
-        sharpening methods will produce different quality sharpening results in different scenarios.
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing
+        Filter-based Intensity Modulation), "HPFA" (High Pass Filter Addition), "PCS"
+        (Principal Component Substitution), and "SM" (simple mean). Different
+        sharpening methods will produce different quality sharpening results in different
+        scenarios.
     qa : str | list, default=None
-        One or more optional quality assessment names to apply after sharpening, e.g. "MSE", "RASE", "UIQI", etc.
+        One or more optional quality assessment names to apply after sharpening, e.g.
+        "MSE", "RASE", "UIQI", etc.
     **kwargs :
-        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
-        arguments are only used for PCS sharpening and quality assessments.
+        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry",
+        "maxPixels", "bestEffort", etc. These arguments are only used for PCS sharpening
+        and quality assessments.
 
     Returns
     -------
     ee.ImageCollection
-        The Image Collection with all sharpenable bands sharpened to the panchromatic resolution and quality assessments
-        run and set as properties.
+        The Image Collection with all sharpenable bands sharpened to the panchromatic
+        resolution and quality assessments run and set as properties.
 
     Examples
     --------

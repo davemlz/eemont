@@ -31,8 +31,11 @@ def __getitem__(self, key):
 
 @extend(ee.feature.Feature, static=True)
 def PointFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns exactly one pair of coordinates.
-    The properties of the feature correspond to the raw properties retrieved by the location of the query.
+    """Constructs an ee.Feature describing a point from a query submitted to a geodocer
+    using the geopy package.
+
+    This returns exactly one pair of coordinates. The properties of the feature correspond
+    to the raw properties retrieved by the location of the query.
 
     Tip
     ----------
@@ -45,8 +48,9 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -55,14 +59,16 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
+    BBoxFromQuery : Constructs an ee.Feature describing a bounding box from a query
+        submitted to a geodocer using the geopy package.
 
     Examples
     --------
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> ee.Feature.PointFromQuery('Mt. Rainier, USA',user_agent = 'my-gee-eemont-query').getInfo()
+    >>> ee.Feature.PointFromQuery('Mt. Rainier, USA',
+    ...                           user_agent = 'my-gee-eemont-query').getInfo()
     {'type': 'Feature',
      'geometry': {'type': 'Point', 'coordinates': [-121.757682, 46.8521484]},
      'properties': {'boundingbox': ['46.8520984',
@@ -88,8 +94,11 @@ def PointFromQuery(query, geocoder="nominatim", **kwargs):
 
 @extend(ee.feature.Feature, static=True)
 def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Feature describing a bounding box from a query submitted to a geodocer using the geopy package.
-    The properties of the feature correspond to the raw properties retrieved by the location of the query.
+    """Constructs an ee.Feature describing a bounding box from a query submitted to a
+    geodocer using the geopy package.
+
+    The properties of the feature correspond to the raw properties retrieved by the
+    location of the query.
 
     Tip
     ----------
@@ -100,10 +109,12 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
     query : str
         Address, query or structured query to geocode.
     geocoder : str, default = 'nominatim'
-        Geocoder to use. One of 'nominatim' or 'arcgis'. Please visit https://geopy.readthedocs.io/ for more info.
+        Geocoder to use. One of 'nominatim' or 'arcgis'. Please visit
+        https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -112,7 +123,8 @@ def BBoxFromQuery(query, geocoder="nominatim", **kwargs):
 
     See Also
     --------
-    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package.
+    PointFromQuery : Constructs an ee.Feature describing a point from a query submitted to
+        a geodocer using the geopy package.
 
     Examples
     --------
@@ -174,13 +186,14 @@ def plusCodes(self, codeLength=10):
     self : ee.Feature
         The feature to extract coordinates from.
     codeLength : int, default = 10
-        The number of significant digits in the output codes, between 2 and 15. Shorter codes are less precise.
+        The number of significant digits in the output codes, between 2 and 15. Shorter
+        codes are less precise.
 
     Returns
     -------
     list | str
-        The coordinates of the geometry converted to Plus Codes. The structure of the Plus Codes array will be
-        identical to the structure returned by ee.Geometry.coordinates().
+        The coordinates of the geometry converted to Plus Codes. The structure of the Plus
+        Codes array will be identical to the structure returned by ee.Geometry.coordinates().
 
     Examples
     --------

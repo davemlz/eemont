@@ -26,8 +26,10 @@ def __getitem__(self, key):
     self : ee.Image
         Image to get the bands from.
     key : numeric | string | list[numeric] | list[string] | slice
-        Key used to get the specified band. If numeric, it gets the band at that index. If string, it gets the band with that name
-        or that matches with regex. If list, it gets multiple bands. If slice, it calls the slice() method (the step parameter is ignored).
+        Key used to get the specified band. If numeric, it gets the band at that index.
+        If string, it gets the band with that name or that matches with regex. If list, it
+        gets multiple bands. If slice, it calls the slice() method (the step parameter is
+        ignored).
 
     Returns
     -------
@@ -63,7 +65,8 @@ def __add__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -82,7 +85,8 @@ def __radd__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -101,7 +105,8 @@ def __sub__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -120,7 +125,8 @@ def __rsub__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -139,7 +145,8 @@ def __mul__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -158,7 +165,8 @@ def __rmul__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -177,7 +185,8 @@ def __truediv__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -196,7 +205,8 @@ def __rtruediv__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -215,7 +225,8 @@ def __floordiv__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -234,7 +245,8 @@ def __rfloordiv__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -253,7 +265,8 @@ def __mod__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -272,7 +285,8 @@ def __rmod__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -291,7 +305,8 @@ def __pow__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -310,7 +325,8 @@ def __rpow__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -329,7 +345,8 @@ def __lshift__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -348,7 +365,8 @@ def __rlshift__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -367,7 +385,8 @@ def __rshift__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -386,7 +405,8 @@ def __rrshift__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -405,7 +425,8 @@ def __and__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -424,7 +445,8 @@ def __rand__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -443,7 +465,8 @@ def __or__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -462,7 +485,8 @@ def __ror__(self, other):
     self : ee.Image
         Right operand.
     other : ee.Image | numeric | list[numeric]
-        Left operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Left operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -481,7 +505,8 @@ def __lt__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -500,7 +525,8 @@ def __le__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -519,7 +545,8 @@ def __eq__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -538,7 +565,8 @@ def __ne__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -557,7 +585,8 @@ def __gt__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -576,7 +605,8 @@ def __ge__(self, other):
     self : ee.Image
         Left operand.
     other : ee.Image | numeric | list[numeric]
-        Right operand. If numeric, an ee.Image is created from its value. If list, an ee.Image with n bands (n = len(list)) is created from its values.
+        Right operand. If numeric, an ee.Image is created from its value. If list, an
+        ee.Image with n bands (n = len(list)) is created from its values.
 
     Returns
     -------
@@ -643,11 +673,13 @@ def index(
 
     Warning
     -------------
-    **Pending Deprecation:** The :code:`index()` method will no longer be available for future versions. Please use :code:`spectralIndices()` instead.
+    **Pending Deprecation:** The :code:`index()` method will no longer be available for
+    future versions. Please use :code:`spectralIndices()` instead.
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
+    Check more info about the supported platforms and spectral indices in the
+    :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------
@@ -665,7 +697,8 @@ def index(
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Awesome Spectral Indices for GEE:
-            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
+            Check the complete list of indices
+            `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -691,14 +724,17 @@ def index(
             - 'RBF' : Radial Basis Function (RBF) Kernel.
             - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
-        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
+        expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
-        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.
+        Free parameter that trades off the influence of higher-order versus lower-order
+        terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
+        than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Wheter to retrieve the most recent list of indices directly from the GitHub
+        repository and not from the local copy.
 
         .. versionadded:: 0.2.0
 
@@ -786,11 +822,13 @@ def spectralIndices(
     c=1.0,
     online=False,
 ):
-    """Computes one or more spectral indices (indices are added as bands) for an image from the Awesome List of Spectral Indices.
+    """Computes one or more spectral indices (indices are added as bands) for an image
+    from the Awesome List of Spectral Indices.
 
     Tip
     ----------
-    Check more info about the supported platforms and spectral indices in the :ref:`User Guide<Spectral Indices Computation>`.
+    Check more info about the supported platforms and spectral indices in the
+    :ref:`User Guide<Spectral Indices Computation>`.
 
     Parameters
     ----------
@@ -808,7 +846,8 @@ def spectralIndices(
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
         Awesome Spectral Indices for GEE:
-            Check the complete list of indices `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
+            Check the complete list of indices
+            `here <https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html>`_.
     G : float, default = 2.5
         Gain factor. Used just for index = 'EVI'.
     C1 : float, default = 6.0
@@ -834,14 +873,17 @@ def spectralIndices(
             - 'RBF' : Radial Basis Function (RBF) Kernel.
             - 'poly' : Polynomial Kernel.
     sigma : str | float, default = '0.5 * (a + b)'
-        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+        Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
+        expression including 'a' and 'b'. If numeric, this must be positive.
     p : float, default = 2.0
         Kernel degree. Used for kernel = 'poly'.
     c : float, default = 1.0
-        Free parameter that trades off the influence of higher-order versus lower-order terms in the polynomial kernel.
-        Used for kernel = 'poly'. This must be greater than or equal to 0.
+        Free parameter that trades off the influence of higher-order versus lower-order
+        terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
+        than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Wheter to retrieve the most recent list of indices directly from the GitHub
+        repository and not from the local copy.
 
     Returns
     -------
@@ -920,7 +962,8 @@ def maskClouds(
 
     Tip
     ----------
-    Check more info about the supported platforms and clouds masking in the :ref:`User Guide<Masking Clouds and Shadows>`.
+    Check more info about the supported platforms and clouds masking in the
+    :ref:`User Guide<Masking Clouds and Shadows>`.
 
     Parameters
     ----------
@@ -933,23 +976,32 @@ def maskClouds(
             - 'qa' : Use Quality Assessment band.
         This parameter is ignored for Landsat products.
     prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter is ignored for Landsat products.
+        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter
+        is ignored for Landsat products.
     maskCirrus : boolean, default = True
-        Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
+        Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is
+        ignored for Landsat products.
     maskShadows : boolean, default = True
-        Whether to mask cloud shadows. For more info see 'Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
+        Whether to mask cloud shadows. For more info see 'Braaten, J. 2020. Sentinel-2
+        Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
     scaledImage : boolean, default = False
-        Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.
+        Whether the pixel values are scaled to the range [0,1] (reflectance values).
+        This parameter is ignored for Landsat products.
     dark : float [0,1], default = 0.15
-        NIR threshold. NIR values below this threshold are potential cloud shadows. This parameter is ignored for Landsat products.
+        NIR threshold. NIR values below this threshold are potential cloud shadows.
+        This parameter is ignored for Landsat products.
     cloudDist : int, default = 1000
-        Maximum distance in meters (m) to look for cloud shadows from cloud edges. This parameter is ignored for Landsat products.
+        Maximum distance in meters (m) to look for cloud shadows from cloud edges.
+        This parameter is ignored for Landsat products.
     buffer : int, default = 250
-        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter is ignored for Landsat products.
+        Distance in meters (m) to dilate cloud and cloud shadows objects. This parameter
+        is ignored for Landsat products.
     cdi : float [-1,1], default = None
-        Cloud Displacement Index threshold. Values below this threshold are considered potential clouds.
-        A cdi = None means that the index is not used. For more info see 'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
-        Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
+        Cloud Displacement Index threshold. Values below this threshold are considered
+        potential clouds. A cdi = None means that the index is not used. For more info see
+        'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the
+        Fmask algorithm for Sentinel-2 images: Separating clouds from bright surfaces
+        based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
         This parameter is ignored for Landsat products.
 
     Returns
@@ -966,7 +1018,9 @@ def maskClouds(
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().maskClouds(prob = 75,buffer = 300,cdi = -0.5)
+    >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
+    ...     .first()
+    ...     .maskClouds(prob = 75,buffer = 300,cdi = -0.5))
     """
     return _maskClouds(
         self,
@@ -988,11 +1042,13 @@ def scale(self):
 
     Warning
     -------------
-    **Pending Deprecation:** The :code:`scale()` method will no longer be available for future versions. Please use :code:`scaleAndOffset()` instead.
+    **Pending Deprecation:** The :code:`scale()` method will no longer be available for
+    future versions. Please use :code:`scaleAndOffset()` instead.
 
     Tip
     ----------
-    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    Check more info about the supported platforms and image scaling the
+    :ref:`User Guide<Image Scaling>`.
 
     Parameters
     ----------
@@ -1107,7 +1163,8 @@ def scaleAndOffset(self):
 
     Tip
     ----------
-    Check more info about the supported platforms and image scaling the :ref:`User Guide<Image Scaling>`.
+    Check more info about the supported platforms and image scaling the
+    :ref:`User Guide<Image Scaling>`.
 
     Parameters
     ----------
@@ -1140,7 +1197,8 @@ def preprocess(self, **kwargs):
 
     Tip
     ----------
-    Check more info here about the supported platforms, :ref:`Image Scaling<Image Scaling>` and :ref:`Masking Clouds and Shadows<Masking Clouds and Shadows>`.
+    Check more info here about the supported platforms, :ref:`Image Scaling<Image Scaling>`
+    and :ref:`Masking Clouds and Shadows<Masking Clouds and Shadows>`.
 
     Parameters
     ----------
@@ -1257,7 +1315,8 @@ def getCitation(self):
     >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').first().getCitation()
     'Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
     GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt,
-    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date],
+    MD, Goddard Earth Sciences Data and Information Services Center (GES DISC),
+    Accessed: [Data Access Date],
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
     return _getCitation(self)
@@ -1265,28 +1324,33 @@ def getCitation(self):
 
 @extend(ee.image.Image)
 def panSharpen(self, method="SFIM", qa=None, **kwargs):
-    """Apply panchromatic sharpening to the Image. Optionally, run quality assessments between the original and
-    sharpened Image to measure spectral distortion and set results as properties of the sharpened Image.
+    """Apply panchromatic sharpening to the Image.
+
+    Optionally, run quality assessments between the original and sharpened Image to
+    measure spectral distortion and set results as properties of the sharpened Image.
 
     Parameters
     ----------
     self : ee.Image [this]
         Image to sharpen.
     method : str, default="SFIM"
-        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing Filter-based Intensity Modulation),
-        "HPFA" (High Pass Filter Addition), "PCS" (Principal Component Substitution), and "SM" (simple mean). Different
-        sharpening methods will produce different quality sharpening results in different scenarios.
+        The sharpening algorithm to apply. Current options are "SFIM" (Smoothing
+        Filter-based Intensity Modulation), "HPFA" (High Pass Filter Addition), "PCS"
+        (Principal Component Substitution), and "SM" (simple mean). Different sharpening
+        methods will produce different quality sharpening results in different scenarios.
     qa : str | list, default=None
-        One or more optional quality assessment names to apply after sharpening, e.g. "MSE", "RASE", "UIQI", etc.
+        One or more optional quality assessment names to apply after sharpening,
+        e.g. "MSE", "RASE", "UIQI", etc.
     **kwargs :
-        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry", "maxPixels", "bestEffort", etc. These
-        arguments are only used for PCS sharpening and quality assessments.
+        Keyword arguments passed to ee.Image.reduceRegion() such as "geometry",
+        "maxPixels", "bestEffort", etc. These arguments are only used for PCS sharpening
+        and quality assessments.
 
     Returns
     -------
     ee.Image
-        The Image with all sharpenable bands sharpened to the panchromatic resolution and quality assessments run and
-        set as properties.
+        The Image with all sharpenable bands sharpened to the panchromatic resolution and
+        quality assessments run and set as properties.
 
     Examples
     --------
@@ -1310,11 +1374,14 @@ def matchHistogram(self, target, bands, geometry=None, maxBuckets=256):
     target : ee.Image
         Image to match.
     bands : dict
-        A dictionary of band names to match, with source bands as keys and target bands as values.
+        A dictionary of band names to match, with source bands as keys and target bands as
+        values.
     geometry : ee.Geometry, default=None
-        The region to match histograms in that overlaps both images. If none is provided, the geometry of the source image will be used.
+        The region to match histograms in that overlaps both images. If none is provided,
+        the geometry of the source image will be used.
     maxBuckets : int, default=256
-        The maximum number of buckets to use when building histograms. Will be rounded to the nearest power of 2.
+        The maximum number of buckets to use when building histograms. Will be rounded to
+        the nearest power of 2.
 
     Returns
     -------

@@ -69,7 +69,8 @@ def __getitem__(self, key):
         List to get the items from.
     key : numeric | list[numeric] | slice
         Key used to get the specified item. If numeric, it gets the item at that index.
-        If list, it gets multiple items. If slice, it calls the slice() method (the step parameter is ignored).
+        If list, it gets multiple items. If slice, it calls the slice() method (the step
+        parameter is ignored).
 
     Returns
     -------

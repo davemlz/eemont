@@ -25,7 +25,8 @@ def __len__(self):
 
 @extend(ee.featurecollection.FeatureCollection)
 def __getitem__(self, key):
-    """Gets the column of each feature in the feature collection according to the specified key.
+    """Gets the column of each feature in the feature collection according to the
+    specified key.
 
     Parameters
     ----------
@@ -45,8 +46,12 @@ def __getitem__(self, key):
 
 @extend(ee.featurecollection.FeatureCollection, static=True)
 def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
-    """Constructs an ee.Feature describing a point from a query submitted to a geodocer using the geopy package. This returns all pairs of coordinates retrieved by the query.
-    The properties of the feature collection correspond to the raw properties retrieved by the locations of the query.
+    """Constructs an ee.Feature describing a point from a query submitted to a geodocer
+    using the geopy package.
+
+    This returns all pairs of coordinates retrieved by the query. The properties of the
+    feature collection correspond to the raw properties retrieved by the locations of
+    the query.
 
     Tip
     ----------
@@ -59,8 +64,9 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     geocoder : str, default = 'nominatim'
         Geocoder to use. Please visit https://geopy.readthedocs.io/ for more info.
     **kwargs :
-        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory (this argument can be set as user_agent = 'my-gee-username' or
-        user_agent = 'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
+        Keywords arguments for geolocator.geocode(). The user_agent argument is mandatory
+        (this argument can be set as user_agent = 'my-gee-username' or user_agent =
+        'my-gee-app-name'). Please visit https://geopy.readthedocs.io/ for more info.
 
     Returns
     -------
@@ -72,7 +78,8 @@ def MultiPointFromQuery(query, geocoder="nominatim", **kwargs):
     >>> import ee, eemont
     >>> ee.Authenticate()
     >>> ee.Initialize()
-    >>> ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',user_agent = 'my-gee-eemont-query').getInfo()
+    >>> ee.FeatureCollection.MultiPointFromQuery('Río Amazonas',
+    ...                                     user_agent = 'my-gee-eemont-query').getInfo()
     {'type': 'FeatureCollection',
      'columns': {'boundingbox': 'List<String>',
       'class': 'String',

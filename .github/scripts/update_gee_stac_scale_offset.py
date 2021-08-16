@@ -1,5 +1,6 @@
-import requests
 import json
+
+import requests
 
 # Request ee scale offset catalog
 eeCatalogScaleOffset = requests.get(

@@ -1,6 +1,8 @@
+import unittest
+
 import ee
 import pandas as pd
-import unittest
+
 from eemont import dataframe
 
 ee.Initialize()

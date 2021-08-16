@@ -1,5 +1,7 @@
-import ee
 import warnings
+
+import ee
+
 from .extending import extend
 
 

@@ -1,7 +1,9 @@
-import ee
 import unittest
-import eemont
+
 import box
+import ee
+
+import eemont
 
 ee.Initialize()
 

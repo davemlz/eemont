@@ -1,6 +1,7 @@
+import warnings
+
 import ee
 import pandas as pd
-import warnings
 
 
 def _extend_pdDataFrame():

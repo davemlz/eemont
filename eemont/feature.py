@@ -1,9 +1,10 @@
 import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
-from .geometry import *
+
+from .common import _lnglat_from_location, _retrieve_location
 from .extending import extend
-from .common import _retrieve_location, _lnglat_from_location
+from .geometry import *
 
 
 @extend(ee.feature.Feature)

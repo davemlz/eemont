@@ -1,5 +1,7 @@
-import ee
 import unittest
+
+import ee
+
 from eemont import geometry
 
 ee.Initialize()

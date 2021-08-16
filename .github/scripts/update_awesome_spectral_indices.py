@@ -1,5 +1,6 @@
-import requests
 import json
+
+import requests
 
 # Request Awesome List of Spectral Indices
 awesomeSpectralIndices = requests.get(

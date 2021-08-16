@@ -1,5 +1,6 @@
-import requests
 import json
+
+import requests
 
 # Request ee catalog
 eeCatalog = requests.get(

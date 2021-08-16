@@ -2,13 +2,15 @@
 
 __version__ = "0.2.5"
 
-from . import feature
-from . import featurecollection
-from . import geometry
-from . import image
-from . import imagecollection
-from . import dataframe
-from . import number
-from . import eeList
-from . import eeDictionary
+from . import (
+    dataframe,
+    eeDictionary,
+    eeList,
+    feature,
+    featurecollection,
+    geometry,
+    image,
+    imagecollection,
+    number,
+)
 from .common import *

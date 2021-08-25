@@ -3136,6 +3136,27 @@
         "B7": 1.0,
         "BQA": 1.0
     },
+    "LANDSAT/LT04/C02/T1_L2": {
+        "QA_PIXEL": 1.0,
+        "QA_RADSAT": 1.0,
+        "SR_ATMOS_OPACITY": 0.001,
+        "SR_B1": 2.75e-05,
+        "SR_B2": 2.75e-05,
+        "SR_B3": 2.75e-05,
+        "SR_B4": 2.75e-05,
+        "SR_B5": 2.75e-05,
+        "SR_B7": 2.75e-05,
+        "SR_CLOUD_QA": 1.0,
+        "ST_ATRAN": 0.0001,
+        "ST_B6": 0.00341802,
+        "ST_CDIST": 0.01,
+        "ST_DRAD": 0.001,
+        "ST_EMIS": 0.0001,
+        "ST_EMSD": 0.0001,
+        "ST_QA": 0.01,
+        "ST_TRAD": 0.001,
+        "ST_URAD": 0.001
+    },
     "LANDSAT/LT05/C01/T1": {
         "B1": 1.0,
         "B2": 1.0,

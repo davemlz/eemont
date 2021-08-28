@@ -1682,8 +1682,8 @@
         "stdev_20_50": 0.0
     },
     "ISDASOIL/Africa/v1/texture_class": {
-        "mean_0_20": 0.0,
-        "mean_20_50": 0.0
+        "texture_0_20": 0.0,
+        "texture_20_50": 0.0
     },
     "ISDASOIL/Africa/v1/zinc_extractable": {
         "mean_0_20": 0.0,

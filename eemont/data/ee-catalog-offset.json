@@ -1572,7 +1572,120 @@
         "vpd": 0.0,
         "vs": 0.0
     },
-    "ISDASOIL/Africa/aluminium_extractable": {
+    "ISDASOIL/Africa/v1/aluminium_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/bedrock_depth": {
+        "mean_0_200": 0.0,
+        "stdev_0_200": 0.0
+    },
+    "ISDASOIL/Africa/v1/bulk_density": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/calcium_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/carbon_organic": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/carbon_total": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/cation_exchange_capacity": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/clay_content": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/fcc": {
+        "fcc": 0.0
+    },
+    "ISDASOIL/Africa/v1/iron_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/magnesium_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/nitrogen_total": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/ph": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/phosphorus_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/potassium_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/sand_content": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/silt_content": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/stone_content": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/sulphur_extractable": {
+        "mean_0_20": 0.0,
+        "mean_20_50": 0.0,
+        "stdev_0_20": 0.0,
+        "stdev_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/texture_class": {
+        "texture_0_20": 0.0,
+        "texture_20_50": 0.0
+    },
+    "ISDASOIL/Africa/v1/zinc_extractable": {
         "mean_0_20": 0.0,
         "mean_20_50": 0.0,
         "stdev_0_20": 0.0,
@@ -3135,6 +3248,27 @@
         "B6": 0.0,
         "B7": 0.0,
         "BQA": 0.0
+    },
+    "LANDSAT/LT04/C02/T1_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_ATMOS_OPACITY": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B7": -0.2,
+        "SR_CLOUD_QA": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B6": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
     },
     "LANDSAT/LT05/C01/T1": {
         "B1": 0.0,

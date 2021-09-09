@@ -2255,6 +2255,27 @@
         "ST_TRAD": 0.0,
         "ST_URAD": 0.0
     },
+    "LANDSAT/LC08/C02/T2_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B6": -0.2,
+        "SR_B7": -0.2,
+        "SR_QA_AEROSOL": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B10": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
+    },
     "LANDSAT/LC8": {
         "B1": 0.0,
         "B10": 0.0,
@@ -2673,6 +2694,27 @@
         "BQA": 0.0
     },
     "LANDSAT/LE07/C02/T1_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_ATMOS_OPACITY": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B7": -0.2,
+        "SR_CLOUD_QA": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B6": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
+    },
+    "LANDSAT/LE07/C02/T2_L2": {
         "QA_PIXEL": 0.0,
         "QA_RADSAT": 0.0,
         "SR_ATMOS_OPACITY": 0.0,
@@ -3270,6 +3312,27 @@
         "ST_TRAD": 0.0,
         "ST_URAD": 0.0
     },
+    "LANDSAT/LT04/C02/T2_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_ATMOS_OPACITY": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B7": -0.2,
+        "SR_CLOUD_QA": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B6": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
+    },
     "LANDSAT/LT05/C01/T1": {
         "B1": 0.0,
         "B2": 0.0,
@@ -3462,6 +3525,27 @@
         "BQA": 0.0
     },
     "LANDSAT/LT05/C02/T1_L2": {
+        "QA_PIXEL": 0.0,
+        "QA_RADSAT": 0.0,
+        "SR_ATMOS_OPACITY": 0.0,
+        "SR_B1": -0.2,
+        "SR_B2": -0.2,
+        "SR_B3": -0.2,
+        "SR_B4": -0.2,
+        "SR_B5": -0.2,
+        "SR_B7": -0.2,
+        "SR_CLOUD_QA": 0.0,
+        "ST_ATRAN": 0.0,
+        "ST_B6": 149.0,
+        "ST_CDIST": 0.0,
+        "ST_DRAD": 0.0,
+        "ST_EMIS": 0.0,
+        "ST_EMSD": 0.0,
+        "ST_QA": 0.0,
+        "ST_TRAD": 0.0,
+        "ST_URAD": 0.0
+    },
+    "LANDSAT/LT05/C02/T2_L2": {
         "QA_PIXEL": 0.0,
         "QA_RADSAT": 0.0,
         "SR_ATMOS_OPACITY": 0.0,
@@ -6418,5 +6502,23 @@
     "YALE/YCEO/UHI/Winter_UHI_yearly_pixel/v4": {
         "Daytime": 0.0,
         "Nighttime": 0.0
+    },
+    "projects/planet-nicfi/assets/basemaps/africa": {
+        "B": 0.0,
+        "G": 0.0,
+        "NIR": 0.0,
+        "R": 0.0
+    },
+    "projects/planet-nicfi/assets/basemaps/americas": {
+        "B": 0.0,
+        "G": 0.0,
+        "NIR": 0.0,
+        "R": 0.0
+    },
+    "projects/planet-nicfi/assets/basemaps/asia": {
+        "B": 0.0,
+        "G": 0.0,
+        "NIR": 0.0,
+        "R": 0.0
     }
 }

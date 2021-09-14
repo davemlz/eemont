@@ -100,7 +100,7 @@ Additional Resources
 
 If you like eemont, you might be interested in...
 
-- `Awesome Spectral Indices for GEE <https://github.com/davemlz/awesome-ee-spectral-indices>`_: A ready-to-use curated list of spectral indices for Google Earth Engine.
+- `Awesome Spectral Indices <https://github.com/davemlz/awesome-spectral-indices>`_: A ready-to-use curated list of spectral indices for remote sensing applications.
 - `spectral <https://github.com/davemlz/spectral>`_: Awesome Spectral Indices for the Google Earth Engine JavaScript API (Code Editor).
 - `eeExtra <https://github.com/r-earthengine/ee_extra>`_: A ninja Python package behind rgee, rgeeExtra and eemont.
 - `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_: High-level functions to process spatial and simple Earth Engine objects.

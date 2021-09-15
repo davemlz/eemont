@@ -25,6 +25,7 @@ setup(
     package_data={"eemont": ["data/*.json"]},
     install_requires=[
         "earthengine-api",
+        "ee_extra",
         "numpy",
         "pandas",
         "python-box",

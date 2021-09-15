@@ -1,4 +1,5 @@
 earthengine-api
+ee_extra
 geopy
 numpy
 pandas

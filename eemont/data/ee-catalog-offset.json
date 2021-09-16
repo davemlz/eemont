@@ -5881,6 +5881,9 @@
         "B8A": 0.0,
         "B9": 0.0
     },
+    "Tsinghua/DESS/ChinaTerraceMap/v1": {
+        "terrace": 0.0
+    },
     "Tsinghua/FROM-GLC/GAIA/v10": {
         "change_year_index": 0.0
     },

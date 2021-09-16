@@ -2,6 +2,13 @@ API Reference
 ================
 
 .. toctree::
+   :caption: Earth Engine Module
+   :maxdepth: 2
+   :hidden:
+   
+   ee
+
+.. toctree::
    :caption: Earth Engine Classes
    :maxdepth: 2
    :hidden:
@@ -27,6 +34,20 @@ API Reference
    :hidden:
    
    common
+
+Extended Methods for the Earth Engine Module
+--------------------------------------------
+
+ee
+~~
+
+.. currentmodule:: eemont.extra
+
+.. autosummary::
+
+   install
+   require
+   uninstall
 
 Extended Earth Engine Object Classes
 ------------------------------------------

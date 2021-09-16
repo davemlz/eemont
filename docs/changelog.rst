@@ -4,6 +4,13 @@ Changelog
 v0.2.6 (dev)
 --------------
 
+New Features
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`require()` extended method for ee was created.
+- The :code:`install()` extended method for ee was created.
+- The :code:`uninstall()` extended method for ee was created.
+
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 

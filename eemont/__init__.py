@@ -6,6 +6,7 @@ from . import (
     dataframe,
     eeDictionary,
     eeList,
+    extra,
     feature,
     featurecollection,
     geometry,

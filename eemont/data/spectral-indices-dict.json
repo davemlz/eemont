@@ -138,6 +138,20 @@
             "short_name": "DVI",
             "type": "vegetation"
         },
+        "EBBI": {
+            "bands": [
+                "S1",
+                "N",
+                "T1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "(S1 - N) / (10.0 * ((S1 + T1) ** 0.5))",
+            "long_name": "Enhanced Built-Up and Bareness Index",
+            "reference": "https://doi.org/10.3390/rs4102957",
+            "short_name": "EBBI",
+            "type": "urban"
+        },
         "EVI": {
             "bands": [
                 "g",
@@ -293,6 +307,21 @@
             "long_name": "Global Vegetation Moisture Index",
             "reference": "https://doi.org/10.1016/S0034-4257(02)00037-8",
             "short_name": "GVMI",
+            "type": "vegetation"
+        },
+        "IRECI": {
+            "bands": [
+                "RE3",
+                "R",
+                "RE1",
+                "RE2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "(RE3 - R) / (RE1 / RE2)",
+            "long_name": "Inverted Red-Edge Chlorophyll Index",
+            "reference": "https://doi.org/10.1016/j.isprsjprs.2013.04.007",
+            "short_name": "IRECI",
             "type": "vegetation"
         },
         "MCARI": {
@@ -498,6 +527,19 @@
             "short_name": "NDBI",
             "type": "urban"
         },
+        "NDBaI": {
+            "bands": [
+                "S1",
+                "T1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "(S1 - T1) / (S1 + T1)",
+            "long_name": "Normalized Difference Bareness Index",
+            "reference": "https://doi.org/10.1109/IGARSS.2005.1526319",
+            "short_name": "NDBaI",
+            "type": "urban"
+        },
         "NDDI": {
             "bands": [
                 "N",
@@ -578,6 +620,19 @@
             "short_name": "NDWI",
             "type": "water"
         },
+        "NDYI": {
+            "bands": [
+                "G",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(G - B) / (G + B)",
+            "long_name": "Normalized Difference Yellowness Index",
+            "reference": "https://doi.org/10.1016/j.rse.2016.06.016",
+            "short_name": "NDYI",
+            "type": "vegetation"
+        },
         "NGRDI": {
             "bands": [
                 "G",
@@ -590,6 +645,19 @@
             "reference": "https://doi.org/10.1016/0034-4257(79)90013-0",
             "short_name": "NGRDI",
             "type": "vegetation"
+        },
+        "NHFD": {
+            "bands": [
+                "RE1",
+                "A"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "(RE1 - A) / (RE1 + A)",
+            "long_name": "Non-Homogeneous Feature Difference",
+            "reference": "https://www.semanticscholar.org/paper/Using-WorldView-2-Vis-NIR-MSI-Imagery-to-Support-Wolf/5e5063ccc4ee76b56b721c866e871d47a77f9fb4",
+            "short_name": "NHFD",
+            "type": "urban"
         },
         "NLI": {
             "bands": [
@@ -617,6 +685,32 @@
             "reference": "https://doi.org/10.1029/2007GL031021",
             "short_name": "NMDI",
             "type": "drought"
+        },
+        "NRFIg": {
+            "bands": [
+                "G",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(G - S2) / (G + S2)",
+            "long_name": "Normalized Rapeseed Flowering Index Green",
+            "reference": "https://doi.org/10.3390/rs13010105",
+            "short_name": "NRFIg",
+            "type": "vegetation"
+        },
+        "NRFIr": {
+            "bands": [
+                "R",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(R - S2) / (R + S2)",
+            "long_name": "Normalized Rapeseed Flowering Index Red",
+            "reference": "https://doi.org/10.3390/rs13010105",
+            "short_name": "NRFIr",
+            "type": "vegetation"
         },
         "OCVI": {
             "bands": [
@@ -670,6 +764,21 @@
             "long_name": "Ratio Vegetation Index",
             "reference": "https://doi.org/10.2134/agronj1968.00021962006000060016x",
             "short_name": "RVI",
+            "type": "vegetation"
+        },
+        "S2REP": {
+            "bands": [
+                "RE3",
+                "R",
+                "RE1",
+                "RE2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "705.0 + 35.0 * ((((RE3 + R) / 2.0) - RE1) / (RE2 - RE1))",
+            "long_name": "Sentinel-2 Red-Edge Position",
+            "reference": "https://doi.org/10.1016/j.isprsjprs.2013.04.007",
+            "short_name": "S2REP",
             "type": "vegetation"
         },
         "SARVI": {
@@ -730,6 +839,20 @@
             "reference": "https://doi.org/10.1080/01431160600954704",
             "short_name": "SAVIT",
             "type": "burn"
+        },
+        "SIPI": {
+            "bands": [
+                "N",
+                "A",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-17",
+            "formula": "(N - A) / (N - R)",
+            "long_name": "Structure Insensitive Pigment Index",
+            "reference": "https://eurekamag.com/research/009/395/009395053.php",
+            "short_name": "SIPI",
+            "type": "vegetation"
         },
         "SeLI": {
             "bands": [

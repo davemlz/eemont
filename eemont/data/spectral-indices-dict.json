@@ -29,6 +29,37 @@
             "short_name": "ATSAVI",
             "type": "vegetation"
         },
+        "AWEInsh": {
+            "bands": [
+                "G",
+                "S1",
+                "N",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "4.0 * (G - S1) - 0.25 * N + 2.75 * S2",
+            "long_name": "Automated Water Extraction Index",
+            "reference": "https://doi.org/10.1016/j.rse.2013.08.029",
+            "short_name": "AWEInsh",
+            "type": "water"
+        },
+        "AWEIsh": {
+            "bands": [
+                "B",
+                "G",
+                "N",
+                "S1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "B + 2.5 * G - 1.5 * (N + S1) - 0.25 * S2",
+            "long_name": "Automated Water Extraction Index with Shadows Elimination",
+            "reference": "https://doi.org/10.1016/j.rse.2013.08.029",
+            "short_name": "AWEIsh",
+            "type": "water"
+        },
         "BAI": {
             "bands": [
                 "R",
@@ -580,6 +611,19 @@
             "short_name": "NDSI",
             "type": "snow"
         },
+        "NDSII": {
+            "bands": [
+                "R",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(R - S1) / (R + S1)",
+            "long_name": "Normalized Difference Snow Ice Index",
+            "reference": "https://doi.org/10.1080/01431160119766",
+            "short_name": "NDSII",
+            "type": "snow"
+        },
         "NDVI": {
             "bands": [
                 "N",
@@ -781,6 +825,20 @@
             "short_name": "S2REP",
             "type": "vegetation"
         },
+        "S3": {
+            "bands": [
+                "N",
+                "R",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(N * (R - S1)) / ((N + R) * (N + S1))",
+            "long_name": "S3 Snow Index",
+            "reference": "https://doi.org/10.3178/jjshwr.12.28",
+            "short_name": "S3",
+            "type": "snow"
+        },
         "SARVI": {
             "bands": [
                 "L",
@@ -854,6 +912,20 @@
             "short_name": "SIPI",
             "type": "vegetation"
         },
+        "SWI": {
+            "bands": [
+                "G",
+                "N",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(G * (N - S1)) / ((G + N) * (N + S1))",
+            "long_name": "Snow Water Index",
+            "reference": "https://doi.org/10.3390/rs11232774",
+            "short_name": "SWI",
+            "type": "snow"
+        },
         "SeLI": {
             "bands": [
                 "RE4",
@@ -909,6 +981,20 @@
             "short_name": "TGI",
             "type": "vegetation"
         },
+        "TRRVI": {
+            "bands": [
+                "RE2",
+                "R",
+                "N"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "((RE2 - R) / (RE2 + R)) / (((N - R) / (N + R)) + 1.0)",
+            "long_name": "Transformed Red Range Vegetation Index",
+            "reference": "https://doi.org/10.3390/rs12152359",
+            "short_name": "TRRVI",
+            "type": "vegetation"
+        },
         "TSAVI": {
             "bands": [
                 "sla",
@@ -922,6 +1008,20 @@
             "long_name": "Transformed Soil-Adjusted Vegetation Index",
             "reference": "https://doi.org/10.1109/IGARSS.1989.576128",
             "short_name": "TSAVI",
+            "type": "vegetation"
+        },
+        "TTVI": {
+            "bands": [
+                "RE3",
+                "RE2",
+                "RE4"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "0.5 * ((865.0 - 740.0) * (RE3 - RE2) - (RE4 - RE2) * (783.0 - 740))",
+            "long_name": "Transformed Triangular Vegetation Index",
+            "reference": "https://doi.org/10.3390/rs12010016",
+            "short_name": "TTVI",
             "type": "vegetation"
         },
         "TVI": {
@@ -979,6 +1079,32 @@
             "reference": "https://doi.org/10.1016/0034-4257(89)90076-X",
             "short_name": "WDVI",
             "type": "vegetation"
+        },
+        "WI1": {
+            "bands": [
+                "G",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(G - S2) / (G + S2)",
+            "long_name": "Water Index 1",
+            "reference": "https://doi.org/10.3390/rs11182186",
+            "short_name": "WI1",
+            "type": "water"
+        },
+        "WI2": {
+            "bands": [
+                "B",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2021-09-18",
+            "formula": "(B - S2) / (B + S2)",
+            "long_name": "Water Index 2",
+            "reference": "https://doi.org/10.3390/rs11182186",
+            "short_name": "WI2",
+            "type": "water"
         },
         "kEVI": {
             "bands": [

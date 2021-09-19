@@ -3005,114 +3005,6 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
         "sci:doi": "10.5067/MODIS/MODOCGA.006"
     },
-    "MODIS/006/MYD08_M3": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD08_M3.json",
-        "sci:citation": "Platnick, S., M. King, P. Hubanks, 2015. MODIS Atmosphere L3 Monthly Product. NASA MODIS Adaptive Processing System, Goddard Space Flight Center, [doi:10.5067/MODIS/MOD08_M3.006](https://doi.org/10.5067/MODIS/MOD08_M3.006)",
-        "sci:doi": "10.5067/MODIS/MYD08_M3.006"
-    },
-    "MODIS/006/MYD09A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD09A1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD09A1.006"
-    },
-    "MODIS/006/MYD09GA": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD09GA.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD09GA.006"
-    },
-    "MODIS/006/MYD09GQ": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD09GQ.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD09GQ.006"
-    },
-    "MODIS/006/MYD09Q1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD09Q1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD09Q1.006"
-    },
-    "MODIS/006/MYD10A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD10A1.json",
-        "sci:citation": "Hall, D. K., V. V. Salomonson, and G. A. Riggs. 2016. MODIS/Terra Snow Cover Daily L3 Global 500m Grid. Version 6. Boulder, Colorado USA: NASA National Snow and Ice Data Center Distributed Active Archive Center.",
-        "sci:doi": "10.5067/MODIS/MYD10A1.006"
-    },
-    "MODIS/006/MYD11A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD11A1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD11A1.006"
-    },
-    "MODIS/006/MYD11A2": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD11A2.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD11A2.006"
-    },
-    "MODIS/006/MYD13A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD13A1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD13A1.006"
-    },
-    "MODIS/006/MYD13A2": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD13A2.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD13A2.006"
-    },
-    "MODIS/006/MYD13Q1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD13Q1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD13Q1.006"
-    },
-    "MODIS/006/MYD14A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD14A1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD14A1.006"
-    },
-    "MODIS/006/MYD14A2": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD14A2.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD14A2.006"
-    },
-    "MODIS/006/MYD15A2H": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD15A2H.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD15A2H.006"
-    },
-    "MODIS/006/MYD17A2H": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD17A2H.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD17A2H.006"
-    },
-    "MODIS/006/MYD17A3H": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD17A3H.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD17A3H.006"
-    },
-    "MODIS/006/MYD17A3HGF": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYD17A3HGF.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYD17A3HGF.006"
-    },
-    "MODIS/006/MYDOCGA": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_006_MYDOCGA.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
-        "sci:doi": "10.5067/MODIS/MYDOCGA.006"
-    },
     "MODIS/055/MOD17A3": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_055_MOD17A3.json",
@@ -3124,12 +3016,6 @@
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_061_MOD08_M3.json",
         "sci:citation": "Platnick, S., M. King, P. Hubanks, 2015. MODIS Atmosphere L3 Monthly Product. NASA MODIS Adaptive Processing System, Goddard Space Flight Center, [doi:10.5067/MODIS/MOD08_M3.061](https://doi.org/10.5067/MODIS/MOD08_M3.061)",
         "sci:doi": "10.5067/MODIS/MOD08_M3.061"
-    },
-    "MODIS/061/MYD08_M3": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_061_MYD08_M3.json",
-        "sci:citation": "Platnick, S., M. King, P. Hubanks, 2015. MODIS Atmosphere L3 Monthly Product. NASA MODIS Adaptive Processing System, Goddard Space Flight Center, [doi:10.5067/MODIS/MOD08_M3.061](https://doi.org/10.5067/MODIS/MOD08_M3.061)",
-        "sci:doi": "10.5067/MODIS/MYD08_M3.061"
     },
     "MODIS/MCD43A1": {
         "gee:type": "image_collection",
@@ -3412,12 +3298,6 @@
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_MYD09Q1.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
-    },
-    "MODIS/MYD10A1": {
-        "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/MODIS_MYD10A1.json",
-        "sci:citation": "Hall, D. K., V. V. Salomonson, and G. A. Riggs. 2006. MODIS/Terra Snow Cover Daily L3 Global 500m Grid. Version 5. Boulder, Colorado USA: NASA National Snow and Ice Data Center Distributed Active Archive Center.",
-        "sci:doi": "10.5067/63NQASRDPDB0"
     },
     "MODIS/MYD11A1": {
         "gee:type": "image_collection",

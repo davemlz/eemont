@@ -177,7 +177,7 @@
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_Landcover_100m_Proba-V-C3_Global.json",
         "sci:citation": "Buchhorn, M. ; Lesiv, M. ; Tsendbazar, N. - E. ; Herold, M. ; Bertels, L. ; Smets, B.\nCopernicus Global Land Cover Layers\u2014Collection 2. Remote Sensing 2020, 12Volume 108, 1044.\n[doi:10.3390/rs12061044](https://doi.org/10.3390/rs12061044)",
-        "sci:doi": "10.5281/zenodo.3939038"
+        "sci:doi": "10.5281/zenodo.3518026"
     },
     "COPERNICUS/Landcover/100m/Proba-V/Global": {
         "gee:type": "image_collection",
@@ -333,7 +333,7 @@
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSIRO_SLGA.json",
         "sci:citation": "Viscarra Rossel, Raphael; Chen, Charlie; Grundy, Mike; Searle, Ross; Clifford, David; Odgers, Nathan; Holmes, Karen; Griffin, Ted; Liddicoat, Craig; Kidd, Darren (2014): Soil and Landscape Grid National Soil Attribute Maps - SOIL ATTRIBUTE Release 1. v2. CSIRO. Data Collection [doi:10.1071/SR14366](https://doi.org/10.1071/SR14366).",
-        "sci:doi": "10.4225/08/546EE212B0048"
+        "sci:doi": "10.4225/08/546ED604ADD8A"
     },
     "CSP/ERGo/1_0/Global/ALOS_CHILI": {
         "gee:type": "image",
@@ -3369,7 +3369,7 @@
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GPM_L3_IMERG_V06.json",
         "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019), GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date], [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)",
-        "sci:doi": "10.5067/GPM/IMERG/3B-HH/06"
+        "sci:doi": "10.5067/GPM/IMERG/3B-HH-L/06"
     },
     "NASA/GRACE/MASS_GRIDS/LAND": {
         "gee:type": "image_collection",
@@ -3453,7 +3453,7 @@
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_OCEANDATA_MODIS-Terra_L3SMI.json",
         "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology Processing Group. Moderate-resolution Imaging Spectroradiometer (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.",
-        "sci:doi": "10.5067/TERRA/MODIS/L3M/CHL/2018"
+        "sci:doi": "10.5067/GHMDT-2PJ19"
     },
     "NASA/OCEANDATA/SeaWiFS/L3SMI": {
         "gee:type": "image_collection",

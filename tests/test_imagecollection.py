@@ -341,104 +341,104 @@ class Test(unittest.TestCase):
         self.assertIsInstance(MOD17A3HGF_tested, ee.imagecollection.ImageCollection)
 
     # MODIS (AQUA)
-
-    def test_MYD09GQ(self):
-        """Test the image collection module for MYD09GQ"""
-        MYD09GQ_tested = (
-            MYD09GQ.closest("2020-01-15").scaleAndOffset().spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD10A1(self):
-        """Test the image collection module for MYD10A1"""
-        MYD10A1_tested = MYD10A1.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD10A1_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD11A1(self):
-        """Test the image collection module for MYD11A1"""
-        MYD11A1_tested = MYD11A1.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD11A1_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD09GA(self):
-        """Test the image collection module for MYD09GA"""
-        MYD09GA_tested = (
-            MYD09GA.closest("2020-01-15")
-            .maskClouds()
-            .scaleAndOffset()
-            .spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYDOCGA(self):
-        """Test the image collection module for MYDOCGA"""
-        MYDOCGA_tested = MYDOCGA.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYDOCGA_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD14A1(self):
-        """Test the image collection module for MYD14A1"""
-        MYD14A1_tested = MYD14A1.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD14A1_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD09Q1(self):
-        """Test the image collection module for MYD09Q1"""
-        MYD09Q1_tested = (
-            MYD09Q1.closest("2020-01-15")
-            .maskClouds()
-            .scaleAndOffset()
-            .spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD09A1(self):
-        """Test the image collection module for MYD09A1"""
-        MYD09A1_tested = (
-            MYD09A1.closest("2020-01-15")
-            .maskClouds()
-            .scaleAndOffset()
-            .spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD11A2(self):
-        """Test the image collection module for MYD11A2"""
-        MYD11A2_tested = MYD11A2.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD11A2_tested, ee.imagecollection.ImageCollection)
-
-    def test_MYD17A2H(self):
-        """Test the image collection module for MYD17A2H"""
-        MYD17A2H_tested = MYD17A2H.closest("2020-01-15").maskClouds().scaleAndOffset()
-        self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
-
     # CURRENTLY UNAVAILABLE
+
+    # def test_MYD09GQ(self):
+    #     """Test the image collection module for MYD09GQ"""
+    #     MYD09GQ_tested = (
+    #         MYD09GQ.closest("2020-01-15").scaleAndOffset().spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD10A1(self):
+    #     """Test the image collection module for MYD10A1"""
+    #     MYD10A1_tested = MYD10A1.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD10A1_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD11A1(self):
+    #     """Test the image collection module for MYD11A1"""
+    #     MYD11A1_tested = MYD11A1.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD11A1_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD09GA(self):
+    #     """Test the image collection module for MYD09GA"""
+    #     MYD09GA_tested = (
+    #         MYD09GA.closest("2020-01-15")
+    #         .maskClouds()
+    #         .scaleAndOffset()
+    #         .spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYDOCGA(self):
+    #     """Test the image collection module for MYDOCGA"""
+    #     MYDOCGA_tested = MYDOCGA.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYDOCGA_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD14A1(self):
+    #     """Test the image collection module for MYD14A1"""
+    #     MYD14A1_tested = MYD14A1.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD14A1_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD09Q1(self):
+    #     """Test the image collection module for MYD09Q1"""
+    #     MYD09Q1_tested = (
+    #         MYD09Q1.closest("2020-01-15")
+    #         .maskClouds()
+    #         .scaleAndOffset()
+    #         .spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD09A1(self):
+    #     """Test the image collection module for MYD09A1"""
+    #     MYD09A1_tested = (
+    #         MYD09A1.closest("2020-01-15")
+    #         .maskClouds()
+    #         .scaleAndOffset()
+    #         .spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD11A2(self):
+    #     """Test the image collection module for MYD11A2"""
+    #     MYD11A2_tested = MYD11A2.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD11A2_tested, ee.imagecollection.ImageCollection)
+
+    # def test_MYD17A2H(self):
+    #     """Test the image collection module for MYD17A2H"""
+    #     MYD17A2H_tested = MYD17A2H.closest("2020-01-15").maskClouds().scaleAndOffset()
+    #     self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
+    
     # def test_MYD16A2(self):
     #    """Test the image collection module for MYD16A2"""
     #    MYD16A2_tested = MYD16A2.closest('2020-01-15').maskClouds().scaleAndOffset()
     #    self.assertIsInstance(MYD16A2_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13Q1(self):
-        """Test the image collection module for MYD13Q1"""
-        MYD13Q1_tested = MYD13Q1.closest("2020-01-15").maskClouds().scaleAndOffset()
-        self.assertIsInstance(MYD13Q1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13Q1(self):
+    #     """Test the image collection module for MYD13Q1"""
+    #     MYD13Q1_tested = MYD13Q1.closest("2020-01-15").maskClouds().scaleAndOffset()
+    #     self.assertIsInstance(MYD13Q1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13A1(self):
-        """Test the image collection module for MYD13A1"""
-        MYD13A1_tested = MYD13A1.closest("2020-01-15").maskClouds().scaleAndOffset()
-        self.assertIsInstance(MYD13A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13A1(self):
+    #     """Test the image collection module for MYD13A1"""
+    #     MYD13A1_tested = MYD13A1.closest("2020-01-15").maskClouds().scaleAndOffset()
+    #     self.assertIsInstance(MYD13A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13A2(self):
-        """Test the image collection module for MYD13A2"""
-        MYD13A2_tested = MYD13A2.closest("2020-01-15").maskClouds().scaleAndOffset()
-        self.assertIsInstance(MYD13A2_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13A2(self):
+    #     """Test the image collection module for MYD13A2"""
+    #     MYD13A2_tested = MYD13A2.closest("2020-01-15").maskClouds().scaleAndOffset()
+    #     self.assertIsInstance(MYD13A2_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD08_M3(self):
-        """Test the image collection module for MYD08_M3"""
-        MYD08_M3_tested = MYD08_M3.closest("2020-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD08_M3_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD08_M3(self):
+    #     """Test the image collection module for MYD08_M3"""
+    #     MYD08_M3_tested = MYD08_M3.closest("2020-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD08_M3_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD17A3HGF(self):
-        """Test the image collection module for MYD17A3HGF"""
-        MYD17A3HGF_tested = MYD17A3HGF.closest("2019-01-15").scaleAndOffset()
-        self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD17A3HGF(self):
+    #     """Test the image collection module for MYD17A3HGF"""
+    #     MYD17A3HGF_tested = MYD17A3HGF.closest("2019-01-15").scaleAndOffset()
+    #     self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
 
     # ----------------------
     # CHECKING PREPROCESS
@@ -613,94 +613,94 @@ class Test(unittest.TestCase):
 
     # MODIS (AQUA)
 
-    def test_MYD09GQ(self):
-        """Test the image collection module for MYD09GQ"""
-        MYD09GQ_tested = (
-            MYD09GQ.closest("2020-01-15").preprocess().spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD09GQ(self):
+    #     """Test the image collection module for MYD09GQ"""
+    #     MYD09GQ_tested = (
+    #         MYD09GQ.closest("2020-01-15").preprocess().spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09GQ_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD10A1(self):
-        """Test the image collection module for MYD10A1"""
-        MYD10A1_tested = MYD10A1.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD10A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD10A1(self):
+    #     """Test the image collection module for MYD10A1"""
+    #     MYD10A1_tested = MYD10A1.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD10A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD11A1(self):
-        """Test the image collection module for MYD11A1"""
-        MYD11A1_tested = MYD11A1.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD11A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD11A1(self):
+    #     """Test the image collection module for MYD11A1"""
+    #     MYD11A1_tested = MYD11A1.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD11A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD09GA(self):
-        """Test the image collection module for MYD09GA"""
-        MYD09GA_tested = (
-            MYD09GA.closest("2020-01-15").preprocess().spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD09GA(self):
+    #     """Test the image collection module for MYD09GA"""
+    #     MYD09GA_tested = (
+    #         MYD09GA.closest("2020-01-15").preprocess().spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09GA_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYDOCGA(self):
-        """Test the image collection module for MYDOCGA"""
-        MYDOCGA_tested = MYDOCGA.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYDOCGA_tested, ee.imagecollection.ImageCollection)
+    # def test_MYDOCGA(self):
+    #     """Test the image collection module for MYDOCGA"""
+    #     MYDOCGA_tested = MYDOCGA.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYDOCGA_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD14A1(self):
-        """Test the image collection module for MYD14A1"""
-        MYD14A1_tested = MYD14A1.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD14A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD14A1(self):
+    #     """Test the image collection module for MYD14A1"""
+    #     MYD14A1_tested = MYD14A1.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD14A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD09Q1(self):
-        """Test the image collection module for MYD09Q1"""
-        MYD09Q1_tested = (
-            MYD09Q1.closest("2020-01-15").preprocess().spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD09Q1(self):
+    #     """Test the image collection module for MYD09Q1"""
+    #     MYD09Q1_tested = (
+    #         MYD09Q1.closest("2020-01-15").preprocess().spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09Q1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD09A1(self):
-        """Test the image collection module for MYD09A1"""
-        MYD09A1_tested = (
-            MYD09A1.closest("2020-01-15").preprocess().spectralIndices(indices)
-        )
-        self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD09A1(self):
+    #     """Test the image collection module for MYD09A1"""
+    #     MYD09A1_tested = (
+    #         MYD09A1.closest("2020-01-15").preprocess().spectralIndices(indices)
+    #     )
+    #     self.assertIsInstance(MYD09A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD11A2(self):
-        """Test the image collection module for MYD11A2"""
-        MYD11A2_tested = MYD11A2.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD11A2_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD11A2(self):
+    #     """Test the image collection module for MYD11A2"""
+    #     MYD11A2_tested = MYD11A2.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD11A2_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD17A2H(self):
-        """Test the image collection module for MYD17A2H"""
-        MYD17A2H_tested = MYD17A2H.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD17A2H(self):
+    #     """Test the image collection module for MYD17A2H"""
+    #     MYD17A2H_tested = MYD17A2H.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
 
-    # CURRENTLY UNAVAILABLE
-    # def test_MYD16A2(self):
-    #    """Test the image collection module for MYD16A2"""
-    #    MYD16A2_tested = MYD16A2.closest('2020-01-15').preprocess()
-    #    self.assertIsInstance(MYD16A2_tested, ee.imagecollection.ImageCollection)
+    # # CURRENTLY UNAVAILABLE
+    # # def test_MYD16A2(self):
+    # #    """Test the image collection module for MYD16A2"""
+    # #    MYD16A2_tested = MYD16A2.closest('2020-01-15').preprocess()
+    # #    self.assertIsInstance(MYD16A2_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13Q1(self):
-        """Test the image collection module for MYD13Q1"""
-        MYD13Q1_tested = MYD13Q1.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD13Q1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13Q1(self):
+    #     """Test the image collection module for MYD13Q1"""
+    #     MYD13Q1_tested = MYD13Q1.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD13Q1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13A1(self):
-        """Test the image collection module for MYD13A1"""
-        MYD13A1_tested = MYD13A1.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD13A1_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13A1(self):
+    #     """Test the image collection module for MYD13A1"""
+    #     MYD13A1_tested = MYD13A1.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD13A1_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD13A2(self):
-        """Test the image collection module for MYD13A2"""
-        MYD13A2_tested = MYD13A2.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD13A2_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD13A2(self):
+    #     """Test the image collection module for MYD13A2"""
+    #     MYD13A2_tested = MYD13A2.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD13A2_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD08_M3(self):
-        """Test the image collection module for MYD08_M3"""
-        MYD08_M3_tested = MYD08_M3.closest("2020-01-15").preprocess()
-        self.assertIsInstance(MYD08_M3_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD08_M3(self):
+    #     """Test the image collection module for MYD08_M3"""
+    #     MYD08_M3_tested = MYD08_M3.closest("2020-01-15").preprocess()
+    #     self.assertIsInstance(MYD08_M3_tested, ee.imagecollection.ImageCollection)
 
-    def test_MYD17A3HGF(self):
-        """Test the image collection module for MYD17A3HGF"""
-        MYD17A3HGF_tested = MYD17A3HGF.closest("2019-01-15").preprocess()
-        self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
+    # def test_MYD17A3HGF(self):
+    #     """Test the image collection module for MYD17A3HGF"""
+    #     MYD17A3HGF_tested = MYD17A3HGF.closest("2019-01-15").preprocess()
+    #     self.assertIsInstance(MYD17A3HGF_tested, ee.imagecollection.ImageCollection)
 
     def test_panSharpen(self):
         """Test that pan-sharpening returns an Image Collection"""

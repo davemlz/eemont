@@ -23,10 +23,6 @@ eemont
         :target: https://github.com/davemlz/eemont/actions/workflows/tests.yml
         :alt: Tests Status  
 
-.. image:: https://codecov.io/github/davemlz/eemont/coverage.svg?branch=master
-        :target: https://codecov.io/gh/davemlz/eemont
-        :alt: Coverage Status
-
 .. image:: https://img.shields.io/badge/GitHub%20Sponsors-Donate-ff69b4.svg
         :target: https://github.com/sponsors/davemlz
         :alt: Donation GitHub Sponsors

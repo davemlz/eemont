@@ -18,3 +18,4 @@ Here you can find the user guide for the extended methods:
    panSharpening
    spectralIndices   
    timeSeries
+   tasseledCap

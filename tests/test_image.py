@@ -617,6 +617,12 @@ class Test(unittest.TestCase):
         sharp = source.panSharpen(qa=["DIV"])
         self.assertIsInstance(sharp, ee.image.Image)
 
+    def test_tasseledCap(self):
+        """Test that tasseledCap returns an image"""
+        img = ee.Image("COPERNICUS/S2/20160111T112432_20160111T113311_T28PDT")
+        img = img.tasseledCap()
+        self.assertIsInstance(img, ee.image.Image)
+
 
 if __name__ == "__main__":
     unittest.main()

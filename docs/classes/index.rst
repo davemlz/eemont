@@ -124,6 +124,7 @@ ee.Image
    scale
    scaleAndOffset
    spectralIndices
+   tasseledCap
    
 ee.ImageCollection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,6 +147,7 @@ ee.ImageCollection
    scale
    scaleAndOffset
    spectralIndices
+   tasseledCap
 
 ee.List
 ~~~~~~~

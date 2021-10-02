@@ -1166,7 +1166,7 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
 
 @extend(ee.imagecollection.ImageCollection)
 def tasseledCap(self):
-    """Calculates tasseled cap brightness, wetness, and greenness components for all images 
+    """Calculates tasseled cap brightness, wetness, and greenness components for all images
     in the collection.
 
     Tasseled cap transformations are applied using coefficients published for these

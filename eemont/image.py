@@ -2,6 +2,7 @@ import warnings
 
 import ee
 import requests
+import ee_extra
 import ee_extra.Spectral.core
 
 from .common import (_get_offset_params, _get_scale_params, _getCitation,
@@ -776,7 +777,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -918,7 +919,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -1015,7 +1016,7 @@ def maskClouds(
     ...     .first()
     ...     .maskClouds(prob = 75,buffer = 300,cdi = -0.5))
     """
-    return _maskClouds(
+    return ee_extra.QA.clouds.maskClouds(
         self,
         method,
         prob,
@@ -1065,7 +1066,7 @@ def scale(self):
         PendingDeprecationWarning,
     )
 
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.image.Image)
@@ -1106,7 +1107,7 @@ def getScaleParams(self):
      'QC_Day': 1.0,
      'QC_Night': 1.0}
     """
-    return _get_scale_params(self)
+    return ee_extra.STAC.core.getScaleParams(self)
 
 
 @extend(ee.image.Image)
@@ -1147,7 +1148,7 @@ def getOffsetParams(self):
      'QC_Day': 0.0,
      'QC_Night': 0.0}
     """
-    return _get_offset_params(self)
+    return ee_extra.STAC.core.getOffsetParams(self)
 
 
 @extend(ee.image.Image)
@@ -1181,7 +1182,7 @@ def scaleAndOffset(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().scaleAndOffset()
     """
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.image.Image)
@@ -1219,7 +1220,7 @@ def preprocess(self, **kwargs):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').first().preprocess()
     """
-    return _preprocess(self, **kwargs)
+    return ee_extra.QA.pipelines.preprocess(self, **kwargs)
 
 
 @extend(ee.image.Image)
@@ -1250,7 +1251,7 @@ def getSTAC(self):
      'gee:type': 'image_collection',
      ...}
     """
-    return _getSTAC(self)
+    return ee_extra.STAC.core.getSTAC(self)
 
 
 @extend(ee.image.Image)
@@ -1279,7 +1280,7 @@ def getDOI(self):
     >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').first().getDOI()
     '10.5067/GPM/IMERG/3B-HH/06'
     """
-    return _getDOI(self)
+    return ee_extra.STAC.core.getDOI(self)
 
 
 @extend(ee.image.Image)
@@ -1312,7 +1313,7 @@ def getCitation(self):
     Accessed: [Data Access Date],
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
-    return _getCitation(self)
+    return ee_extra.STAC.core.getCitation(self)
 
 
 @extend(ee.image.Image)

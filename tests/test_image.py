@@ -572,7 +572,7 @@ class Test(unittest.TestCase):
     #     """Test the image module for MYD17A2H"""
     #     MYD17A2H_tested = MYD17A2H.preprocess()
     #     self.assertIsInstance(MYD17A2H_tested, ee.image.Image)
-    
+
     # def test_MYD16A2_preprocess(self):
     #    """Test the image module for MYD16A2"""
     #    MYD16A2_tested = MYD16A2.preprocess()

@@ -1,21 +1,13 @@
 import warnings
 
 import ee
+import ee_extra
 import numpy as np
 import requests
 
-from .common import (
-    _get_offset_params,
-    _get_scale_params,
-    _getCitation,
-    _getDOI,
-    _getSTAC,
-    _index,
-    _maskClouds,
-    _panSharpen,
-    _preprocess,
-    _scale_STAC,
-)
+from .common import (_get_offset_params, _get_scale_params, _getCitation,
+                     _getDOI, _getSTAC, _index, _maskClouds, _panSharpen,
+                     _preprocess, _scale_STAC)
 from .extending import extend
 
 
@@ -113,31 +105,7 @@ def closest(self, date, tolerance=1, unit="month"):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
     """
-    if not isinstance(date, ee.ee_date.Date):
-        date = ee.Date(date)
-
-    startDate = date.advance(-tolerance, unit)
-    endDate = date.advance(tolerance, unit)
-    self = self.filterDate(startDate, endDate)
-
-    def setProperties(img):
-        img = img.set(
-            "dateDist",
-            ee.Number(img.get("system:time_start")).subtract(date.millis()).abs(),
-        )
-        img = img.set("day", ee.Date(img.get("system:time_start")).get("day"))
-        img = img.set("month", ee.Date(img.get("system:time_start")).get("month"))
-        img = img.set("year", ee.Date(img.get("system:time_start")).get("year"))
-        return img
-
-    self = self.map(setProperties).sort("dateDist")
-    closestImageTime = self.limit(1).first().get("system:time_start")
-    dayToFilter = ee.Filter.eq("day", ee.Date(closestImageTime).get("day"))
-    monthToFilter = ee.Filter.eq("month", ee.Date(closestImageTime).get("month"))
-    yearToFilter = ee.Filter.eq("year", ee.Date(closestImageTime).get("year"))
-    self = self.filter(ee.Filter.And(dayToFilter, monthToFilter, yearToFilter))
-
-    return self
+    return ee_extra.ImageCollection.core.closest(self, date, tolerance, unit)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -232,64 +200,21 @@ def getTimeSeriesByRegion(
     ...                               bands = ['EVI','NDVI'],
     ...                               scale = 10)
     """
-    if bands != None:
-        if not isinstance(bands, list):
-            bands = [bands]
-        self = self.select(bands)
-    else:
-        bands = self.first().bandNames().getInfo()
-
-    if not isinstance(reducer, list):
-        reducer = [reducer]
-
-    if not isinstance(geometry, ee.geometry.Geometry):
-        geometry = geometry.geometry()
-
-    collections = []
-
-    for red in reducer:
-
-        reducerName = red.getOutputs().get(0)
-
-        def reduceImageCollectionByRegion(img):
-            dictionary = img.reduceRegion(
-                red,
-                geometry,
-                scale,
-                crs,
-                crsTransform,
-                bestEffort,
-                maxPixels,
-                tileScale,
-            )
-            if dateFormat == "ms":
-                date = ee.Date(img.get("system:time_start")).millis()
-            elif dateFormat == "ISO":
-                date = ee.Date(img.get("system:time_start")).format()
-            else:
-                date = ee.Date(img.get("system:time_start")).format(dateFormat)
-            return ee.Feature(None, dictionary).set(
-                {dateColumn: date, "reducer": reducerName}
-            )
-
-        collections.append(
-            ee.FeatureCollection(self.map(reduceImageCollectionByRegion))
-        )
-
-    flattenfc = ee.FeatureCollection(collections).flatten()
-
-    def setNA(feature):
-        feature = ee.Algorithms.If(
-            condition=feature.propertyNames().size().eq(3),
-            trueCase=feature.set(
-                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
-            ),
-            falseCase=feature,
-        )
-        feature = ee.Feature(feature)
-        return feature
-
-    return flattenfc.map(setNA)
+    return ee_extra.TimeSeries.core.getTimeSeriesByRegion(
+        self,
+        reducer,
+        bands,
+        geometry,
+        scale,
+        crs,
+        crsTransform,
+        bestEffort,
+        maxPixels,
+        tileScale,
+        dateColumn,
+        dateFormat,
+        naValue,
+    )
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -375,69 +300,19 @@ def getTimeSeriesByRegions(
     ...                                bands = ['EVI','NDVI'],
     ...                                scale = 10)
     """
-    if bands != None:
-        if not isinstance(bands, list):
-            bands = [bands]
-        self = self.select(bands)
-    else:
-        bands = self.first().bandNames().getInfo()
-
-    if not isinstance(reducer, list):
-        reducer = [reducer]
-
-    if not isinstance(collection, ee.featurecollection.FeatureCollection):
-        raise Exception("Parameter collection must be an ee.FeatureCollection!")
-
-    props = collection.first().propertyNames()
-
-    collections = []
-
-    imgList = self.toList(self.size())
-
-    for red in reducer:
-
-        reducerName = red.getOutputs().get(0)
-
-        def reduceImageCollectionByRegions(img):
-
-            img = ee.Image(img)
-
-            if len(bands) == 1:
-                img = img.addBands(ee.Image(naValue).rename("eemontTemporal"))
-
-            fc = img.reduceRegions(collection, red, scale, crs, crsTransform, tileScale)
-
-            if dateFormat == "ms":
-                date = ee.Date(img.get("system:time_start")).millis()
-            elif dateFormat == "ISO":
-                date = ee.Date(img.get("system:time_start")).format()
-            else:
-                date = ee.Date(img.get("system:time_start")).format(dateFormat)
-
-            def setProperties(feature):
-                return feature.set({dateColumn: date, "reducer": reducerName})
-
-            return fc.map(setProperties)
-
-        collections.append(self.map(reduceImageCollectionByRegions).flatten())
-
-    flattenfc = ee.FeatureCollection(collections).flatten()
-
-    def setNA(feature):
-        feature = ee.Algorithms.If(
-            condition=feature.propertyNames().size().eq(props.size().add(2)),
-            trueCase=feature.set(
-                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
-            ),
-            falseCase=feature,
-        )
-        feature = ee.Feature(feature)
-        return feature
-
-    flattenfc = flattenfc.map(setNA)
-    flattenfc = flattenfc.select(props.cat(["reducer", dateColumn]).cat(bands))
-
-    return flattenfc
+    return ee_extra.TimeSeries.core.getTimeSeriesByRegions(
+        self,
+        reducer,
+        collection,
+        bands,
+        scale,
+        crs,
+        crsTransform,
+        tileScale,
+        dateColumn,
+        dateFormat,
+        naValue,
+    )
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -578,7 +453,7 @@ def index(
         PendingDeprecationWarning,
     )
 
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -720,7 +595,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -817,7 +692,7 @@ def maskClouds(
     >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
     ...     .maskClouds(prob = 75,buffer = 300,cdi = -0.5))
     """
-    return _maskClouds(
+    return ee_extra.QA.clouds.maskClouds(
         self,
         method,
         prob,
@@ -867,7 +742,7 @@ def scale(self):
         PendingDeprecationWarning,
     )
 
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -909,7 +784,7 @@ def getScaleParams(self):
      'QC_Day': 1.0,
      'QC_Night': 1.0}
     """
-    return _get_scale_params(self)
+    return ee_extra.STAC.core.getScaleParams(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -951,7 +826,7 @@ def getOffsetParams(self):
      'QC_Day': 0.0,
      'QC_Night': 0.0}
     """
-    return _get_offset_params(self)
+    return ee_extra.STAC.core.getOffsetParams(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -985,7 +860,7 @@ def scaleAndOffset(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
     """
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1025,7 +900,7 @@ def preprocess(self, **kwargs):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess()
     """
-    return _preprocess(self, **kwargs)
+    return ee_extra.QA.pipelines.preprocess(self, **kwargs)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1056,7 +931,7 @@ def getSTAC(self):
      'gee:type': 'image_collection',
      ...}
     """
-    return _getSTAC(self)
+    return ee_extra.STAC.core.getSTAC(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1085,7 +960,7 @@ def getDOI(self):
     >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').getDOI()
     '10.5067/GPM/IMERG/3B-HH/06'
     """
-    return _getDOI(self)
+    return ee_extra.STAC.core.getDOI(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1118,7 +993,7 @@ def getCitation(self):
     Accessed: [Data Access Date],
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
-    return _getCitation(self)
+    return ee_extra.STAC.core.getCitation(self)
 
 
 @extend(ee.imagecollection.ImageCollection)

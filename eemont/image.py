@@ -1,13 +1,23 @@
 import warnings
 
 import ee
-import requests
 import ee_extra
 import ee_extra.Spectral.core
+import requests
 
-from .common import (_get_offset_params, _get_scale_params, _getCitation,
-                     _getDOI, _getSTAC, _index, _maskClouds, _matchHistogram,
-                     _panSharpen, _preprocess, _scale_STAC)
+from .common import (
+    _get_offset_params,
+    _get_scale_params,
+    _getCitation,
+    _getDOI,
+    _getSTAC,
+    _index,
+    _maskClouds,
+    _matchHistogram,
+    _panSharpen,
+    _preprocess,
+    _scale_STAC,
+)
 from .extending import extend
 
 
@@ -1417,7 +1427,7 @@ def tasseledCap(self):
     Parameters
     ----------
     self : ee.Image
-        Image to calculate tasseled cap components for. Must belong to a supported 
+        Image to calculate tasseled cap components for. Must belong to a supported
         platform.
 
     Returns

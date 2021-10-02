@@ -2,9 +2,12 @@ import ee
 import geopy
 from geopy.geocoders import get_geocoder_for_service
 
-from .common import (_convert_lnglats_to_pluscodes,
-                     _convert_pluscodes_to_lnglats, _lnglat_from_location,
-                     _retrieve_location)
+from .common import (
+    _convert_lnglats_to_pluscodes,
+    _convert_pluscodes_to_lnglats,
+    _lnglat_from_location,
+    _retrieve_location,
+)
 from .extending import extend
 
 

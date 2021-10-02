@@ -1041,8 +1041,8 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
 
 @extend(ee.imagecollection.ImageCollection)
 def tasseledCap(self):
-    """Calculates tasseled cap brightness, wetness, and greenness components for all images
-    in the collection.
+    """Calculates tasseled cap brightness, wetness, and greenness components for all
+    images in the collection.
 
     Tasseled cap transformations are applied using coefficients published for these
     supported platforms:
@@ -1058,43 +1058,45 @@ def tasseledCap(self):
     Parameters
     ----------
     self : ee.ImageCollection
-        Image Collection to calculate tasseled cap components for. Must belong to a supported platform.
+        Image Collection to calculate tasseled cap components for. Must belong to a 
+        supported platform.
 
     Returns
     -------
     ee.ImageCollection
         Image Collection with the tasseled cap components as new bands in each image.
 
-    References:
-        .. [1] Shi, T., & Xu, H. (2019). Derivation of Tasseled Cap Transformation
-           Coefficients for Sentinel-2 MSI At-Sensor Reflectance Data. IEEE Journal
-           of Selected Topics in Applied Earth Observations and Remote Sensing, 1–11.
-           doi:10.1109/jstars.2019.2938388
-        .. [2] Baig, M.H.A., Zhang, L., Shuai, T. and Tong, Q., 2014. Derivation of a
-           tasselled cap transformation based on Landsat 8 at-satellite reflectance.
-           Remote Sensing Letters, 5(5), pp.423-431.
-        .. [3] Huang, C., Wylie, B., Yang, L., Homer, C. and Zylstra, G., 2002.
-           Derivation of a tasselled cap transformation based on Landsat 7 at-satellite
-           reflectance. International journal of remote sensing, 23(8), pp.1741-1748.
-        .. [4] Crist, E.P., Laurin, R. and Cicone, R.C., 1986, September. Vegetation and
-           soils information contained in transformed Thematic Mapper data. In
-           Proceedings of IGARSS’86 symposium (pp. 1465-1470). Paris: European Space
-           Agency Publications Division.
-        .. [5] Crist, E.P. and Cicone, R.C., 1984. A physically-based transformation of
-           Thematic Mapper data---The TM Tasseled Cap. IEEE Transactions on Geoscience
-           and Remote sensing, (3), pp.256-263.
-        .. [6] Crist, E.P., 1985. A TM tasseled cap equivalent transformation for
-           reflectance factor data. Remote sensing of Environment, 17(3), pp.301-306.
-        .. [7] Lobser, S.E. and Cohen, W.B., 2007. MODIS tasselled cap: land cover
-           characteristics expressed through transformed MODIS data. International
-           Journal of Remote Sensing, 28(22), pp.5079-5101.
+    References
+    ----------
+    .. [1] Shi, T., & Xu, H. (2019). Derivation of Tasseled Cap Transformation
+        Coefficients for Sentinel-2 MSI At-Sensor Reflectance Data. IEEE Journal
+        of Selected Topics in Applied Earth Observations and Remote Sensing, 1–11.
+        doi:10.1109/jstars.2019.2938388
+    .. [2] Baig, M.H.A., Zhang, L., Shuai, T. and Tong, Q., 2014. Derivation of a
+        tasselled cap transformation based on Landsat 8 at-satellite reflectance.
+        Remote Sensing Letters, 5(5), pp.423-431.
+    .. [3] Huang, C., Wylie, B., Yang, L., Homer, C. and Zylstra, G., 2002.
+        Derivation of a tasselled cap transformation based on Landsat 7 at-satellite
+        reflectance. International journal of remote sensing, 23(8), pp.1741-1748.
+    .. [4] Crist, E.P., Laurin, R. and Cicone, R.C., 1986, September. Vegetation and
+        soils information contained in transformed Thematic Mapper data. In
+        Proceedings of IGARSS’86 symposium (pp. 1465-1470). Paris: European Space
+        Agency Publications Division.
+    .. [5] Crist, E.P. and Cicone, R.C., 1984. A physically-based transformation of
+        Thematic Mapper data---The TM Tasseled Cap. IEEE Transactions on Geoscience
+        and Remote sensing, (3), pp.256-263.
+    .. [6] Crist, E.P., 1985. A TM tasseled cap equivalent transformation for
+        reflectance factor data. Remote sensing of Environment, 17(3), pp.301-306.
+    .. [7] Lobser, S.E. and Cohen, W.B., 2007. MODIS tasselled cap: land cover
+        characteristics expressed through transformed MODIS data. International
+        Journal of Remote Sensing, 28(22), pp.5079-5101.
 
     Examples
     --------
-        >>> import ee, eemont
-        >>> ee.Authenticate()
-        >>> ee.Initialize()
-        >>> col = ee.ImageCollection("LANDSAT/LT05/C01/T1")
-        >>> col = col.tasseledCap()
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> col = ee.ImageCollection("LANDSAT/LT05/C01/T1")
+    >>> col = col.tasseledCap()
     """
     return ee_extra.Spectral.core.tasseledCap(self)

@@ -23,3 +23,4 @@ Extended methods for the ee.ImageCollection class:
    scale
    scaleAndOffset
    spectralIndices
+   tasseledCap

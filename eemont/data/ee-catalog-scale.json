@@ -6124,6 +6124,9 @@
         "Land_Use_Raw_Probability_Other": 1.0,
         "Land_Use_Raw_Probability_Rangeland-or-Pasture": 1.0
     },
+    "USGS/3DEP/10m": {
+        "elevation": 1.0
+    },
     "USGS/GAP/AK/2001": {
         "landcover": 1.0
     },

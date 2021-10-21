@@ -485,6 +485,12 @@
         "sci:citation": "ESA 2010 and UCLouvain. http://due.esrin.esa.int/page_globcover.php",
         "sci:doi": "DOI not available"
     },
+    "ESA/WorldCover/v100": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/ESA_WorldCover_v100.json",
+        "sci:citation": "A publication is under preparation.",
+        "sci:doi": "DOI not available"
+    },
     "FAO/GHG/1/DROSA_A": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_GHG_1_DROSA_A.json",

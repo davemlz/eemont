@@ -20,7 +20,8 @@ setup(
     author="David Montero Loaiza",
     author_email="dml.mont@gmail.com",
     description="A Python package that extends Google Earth Engine",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",), include=["eemont", "eemont.*"]),
     package_data={"eemont": ["data/*.json"]},
     install_requires=[

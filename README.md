@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/eemont/master/docs/_static/header.png" alt="header"></a>
+  <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/eemont/master/docs/_static/header2.png" alt="header"></a>
 </p>
 <p align="center">
     <em>A python package that extends Google Earth Engine</em>
@@ -35,19 +35,14 @@
 <a href="https://twitter.com/dmlmont" target="_blank">
     <img src="https://img.shields.io/twitter/follow/dmlmont?style=social" alt="Twitter">
 </a>
+<a href='https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a'>
+    <img src='https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a/status.svg' alt='JOSS' />
+</a>
 <a href="https://github.com/psf/black" target="_blank">
     <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black">
 </a>
 <a href="https://pycqa.github.io/isort/" target="_blank">
     <img src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336" alt="isort">
-</a>
-</p>
-<p align="center">
-    <em>Paper:</em>
-</p>
-<p align="center">
-<a href='https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a'>
-    <img src='https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a/status.svg' alt='JOSS' />
 </a>
 </p>
 

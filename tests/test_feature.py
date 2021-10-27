@@ -17,12 +17,12 @@ class Test(unittest.TestCase):
 
     def test_BBoxFromQuery(self):
         """Test the BBoxFromQuery constructor"""
-        test = ee.Feature.BBoxFromQuery("Colombia", user_agent="eemon-feature-test")
+        test = ee.Feature.BBoxFromQuery("Colombia", user_agent="eemon-feature-test-BBoxFromQuery")
         self.assertIsInstance(test, ee.feature.Feature)
 
     def test_PointFromQuery(self):
         """Test the BBoxFromQuery constructor"""
-        test = ee.Feature.PointFromQuery("Colombia", user_agent="eemon-feature-test")
+        test = ee.Feature.PointFromQuery("Colombia", user_agent="eemon-feature-test-PointFromQuery")
         self.assertIsInstance(test, ee.feature.Feature)
 
     def test_pluscodes_from_Point_feature(self):

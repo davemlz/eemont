@@ -58,6 +58,8 @@
 
 **Tutorials**: [https://github.com/davemlz/eemont/tree/master/tutorials](https://github.com/davemlz/eemont/tree/master/tutorials)
 
+**Paper**: [https://joss.theoj.org/papers/10.21105/joss.03168](https://joss.theoj.org/papers/10.21105/joss.03168)
+
 ---
 
 ## Overview

@@ -26,7 +26,7 @@ setup(
     package_data={"eemont": ["data/*.json"]},
     install_requires=[
         "earthengine-api",
-        "ee_extra",
+        "ee_extra>=0.0.5",
         "numpy",
         "pandas",
         "python-box",
@@ -37,12 +37,9 @@ setup(
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
 )

@@ -338,6 +338,7 @@ def index(
     alpha=0.1,
     slope=1.0,
     intercept=0.0,
+    gamma=1.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -393,6 +394,8 @@ def index(
         Soil line slope.
     intercept : float, default = 0.0
         Soil line intercept.
+    gamma : float, default = 1.0
+        Weighting coefficient  used for ARVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -475,6 +478,7 @@ def index(
         alpha,
         slope,
         intercept,
+        gamma,
         kernel,
         sigma,
         p,
@@ -496,6 +500,7 @@ def spectralIndices(
     alpha=0.1,
     slope=1.0,
     intercept=0.0,
+    gamma=1.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -546,6 +551,8 @@ def spectralIndices(
         Soil line slope.
     intercept : float, default = 0.0
         Soil line intercept.
+    gamma : float, default = 1.0
+        Weighting coefficient  used for ARVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -617,6 +624,7 @@ def spectralIndices(
         alpha,
         slope,
         intercept,
+        gamma,
         kernel,
         sigma,
         p,

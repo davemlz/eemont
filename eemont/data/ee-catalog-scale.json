@@ -2,6 +2,11 @@
     "AAFC/ACI": {
         "landcover": 1.0
     },
+    "ACA/reef_habitat/v1_0": {
+        "benthic": 1.0,
+        "geomorphic": 1.0,
+        "reef_mask": 1.0
+    },
     "AHN/AHN2_05M_INT": {
         "elevation": 1.0
     },

@@ -6518,21 +6518,21 @@
         "Nighttime": 1.0
     },
     "projects/planet-nicfi/assets/basemaps/africa": {
-        "B": 1.0,
-        "G": 1.0,
-        "NIR": 1.0,
-        "R": 1.0
+        "B": 10000.0,
+        "G": 10000.0,
+        "NIR": 10000.0,
+        "R": 10000.0
     },
     "projects/planet-nicfi/assets/basemaps/americas": {
-        "B": 1.0,
-        "G": 1.0,
-        "NIR": 1.0,
-        "R": 1.0
+        "B": 10000.0,
+        "G": 10000.0,
+        "NIR": 10000.0,
+        "R": 10000.0
     },
     "projects/planet-nicfi/assets/basemaps/asia": {
-        "B": 1.0,
-        "G": 1.0,
-        "NIR": 1.0,
-        "R": 1.0
+        "B": 10000.0,
+        "G": 10000.0,
+        "NIR": 10000.0,
+        "R": 10000.0
     }
 }

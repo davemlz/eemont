@@ -4085,6 +4085,12 @@
         "sci:citation": "\u00a9 \\<year\\> Planet Labs Inc.",
         "sci:doi": "DOI not available"
     },
+    "SNU/ESL/BESS/Rad/v1": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/SNU_ESL_BESS_Rad_v1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "TERN/AET/CMRSET_LANDSAT_V2_1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TERN_AET_CMRSET_LANDSAT_V2_1.json",

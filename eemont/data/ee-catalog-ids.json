@@ -437,6 +437,12 @@
         "sci:citation": "Kennedy, C.M., J.R. Oakleaf, D.M. Theobald, S. Baurch-Murdo, and J. Kiesecker. 2019. Managing the middle: A shift in conservation priorities based on the global human modification gradient. Global Change Biology 00:1-16. https://doi.org/10.1111/gcb.14549",
         "sci:doi": "DOI not available"
     },
+    "DLR/WSF/WSF2015/v1": {
+        "gee:type": "image",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/DLR_WSF_WSF2015_v1.json",
+        "sci:citation": "Marconcini, M., Metz-Marconcini, A., \u00dcreyen, S., Palacios-Lopez, D., Hanke, W., Bachofer, F., Zeidler, J., Esch, T., Gorelick, N., Kakarla, A., Paganini, M., Strano, E. (2020). Outlining where humans live, the World Settlement Footprint 2015. Scientific Data, 7(1), 1-14. [doi:10.1038/s41597-020-00580-5](https://doi.org/10.1038/s41597-020-00580-5)",
+        "sci:doi": "10.1038/s41597-020-00580-5"
+    },
     "ECMWF/CAMS/NRT": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ECMWF_CAMS_NRT.json",

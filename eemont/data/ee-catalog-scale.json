@@ -659,6 +659,9 @@
     "CSP/HM/GlobalHumanModification": {
         "gHM": 1.0
     },
+    "DLR/WSF/WSF2015/v1": {
+        "settlement": 1.0
+    },
     "ECMWF/CAMS/NRT": {
         "particulate_matter_d_less_than_25_um_surface": 1.0,
         "total_aerosol_optical_depth_at_550nm_surface": 1.0

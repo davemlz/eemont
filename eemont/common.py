@@ -6,6 +6,8 @@ import warnings
 from abc import ABC, abstractmethod
 
 import ee
+import ee_extra
+import ee_extra.Spectral.core
 import pkg_resources
 import requests
 from box import Box
@@ -529,7 +531,7 @@ def indices(online=False):
     >>> indices.BAIS2.reference
     'https://doi.org/10.3390/ecrs-2-05177'
     """
-    return Box(_get_indices(online), frozen_box=True)
+    return Box(ee_extra.Spectral.core.indices(online), frozen_box=True)
 
 
 def listIndices(online=False):
@@ -555,7 +557,7 @@ def listIndices(online=False):
     >>> eemont.listIndices()
     ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]
     """
-    return list(_get_indices(online).keys())
+    return ee_extra.Spectral.core.listIndices()
 
 
 # Image Scaling

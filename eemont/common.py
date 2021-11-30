@@ -9,6 +9,8 @@ import ee
 import ee_extra
 import ee_extra.Spectral.core
 import ee_extra.STAC.core
+import ee_extra.STAC.utils
+from ee_extra.STAC.utils import _get_platform_STAC
 import pkg_resources
 import requests
 from box import Box

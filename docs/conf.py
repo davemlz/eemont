@@ -39,6 +39,7 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx.ext.autosummary",
     "sphinx.ext.autosectionlabel",
+    "sphinx_copybutton",
 ]
 
 autodoc_default_flags = ["members"]

@@ -1,6 +1,7 @@
 sphinx>=1.4, !=1.5.4
 recommonmark
 sphinxcontrib-autoprogram
+sphinx-copybutton
 pydata-sphinx-theme
 google-auth<2.0dev
 protobuf<3.18.0,>=3.12.0

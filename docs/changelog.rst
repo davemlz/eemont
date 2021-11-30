@@ -1,7 +1,7 @@
 Changelog
 ============
 
-v0.2.6 (dev)
+v0.3.0 (dev)
 --------------
 
 New Features
@@ -10,12 +10,24 @@ New Features
 - The :code:`require()` extended method for ee was created.
 - The :code:`install()` extended method for ee was created.
 - The :code:`uninstall()` extended method for ee was created.
+- The :code:`tasseledCap()` extended method for ee.Image and ee.ImageCollection was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - Errors of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
 - Errors of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+
+Deprecation
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`index` method was deprecated for ee.Image and ee.ImageCollection.
+- The :code:`scale` method was deprecated for ee.Image and ee.ImageCollection.
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Aaron Zuspan <https://github.com/aazuspan>`_
 
 v0.2.5
 --------------

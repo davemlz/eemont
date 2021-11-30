@@ -189,4 +189,5 @@ Common
 .. autosummary::
 
    indices
+   listDatasets
    listIndices

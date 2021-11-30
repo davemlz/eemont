@@ -8,6 +8,7 @@ from abc import ABC, abstractmethod
 import ee
 import ee_extra
 import ee_extra.Spectral.core
+import ee_extra.STAC.core
 import pkg_resources
 import requests
 from box import Box
@@ -558,6 +559,22 @@ def listIndices(online=False):
     ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]
     """
     return ee_extra.Spectral.core.listIndices(online)
+
+
+def listDatasets():
+    """Returns all datasets from the GEE STAC as a list.
+
+    Returns
+    -------
+    list
+        List of all datasets from the GEE STAC.
+
+    Examples
+    --------
+    >>> import eemont
+    >>> eemont.listDatasets()
+    """
+    return ee_extra.STAC.core.listDatasets()
 
 
 # Image Scaling

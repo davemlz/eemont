@@ -11,6 +11,7 @@ New Features
 - The :code:`install()` extended method for ee was created.
 - The :code:`uninstall()` extended method for ee was created.
 - The :code:`tasseledCap()` extended method for ee.Image and ee.ImageCollection was created.
+- The :code:`listDatasets()` method was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

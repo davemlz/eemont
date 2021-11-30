@@ -344,6 +344,7 @@ def index(
     p=2.0,
     c=1.0,
     online=False,
+    drop=True,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image
     collection.
@@ -414,8 +415,8 @@ def index(
     online : boolean, default = False
         Wheter to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
-
-        .. versionadded:: 0.2.0
+    drop : boolean, default = True
+        Whether to drop all bands except the new spectral indices.
 
     Returns
     -------
@@ -484,6 +485,7 @@ def index(
         p,
         c,
         online,
+        drop,
     )
 
 
@@ -506,6 +508,7 @@ def spectralIndices(
     p=2.0,
     c=1.0,
     online=False,
+    drop=True,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image
     collection from the Awesome List of Spectral Indices.
@@ -569,8 +572,10 @@ def spectralIndices(
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub
+        Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
+    drop : boolean, default = True
+        Whether to drop all bands except the new spectral indices.
 
     Returns
     -------
@@ -630,6 +635,7 @@ def spectralIndices(
         p,
         c,
         online,
+        drop,
     )
 
 

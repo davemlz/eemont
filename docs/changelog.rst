@@ -15,8 +15,8 @@ New Features
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- Errors of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
-- Errors of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+- Errors (`#43 <https://github.com/davemlz/eemont/issues/43>`_) of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
+- Errors (`#41 <https://github.com/davemlz/eemont/issues/41>`_) of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
 
 Deprecation
 ~~~~~~~~~~~~~~~~~~~~~~

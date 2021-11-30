@@ -349,10 +349,8 @@ def index(
     """Computes one or more spectral indices (indices are added as bands) for an image
     collection.
 
-    Warning
-    -------------
-    **Pending Deprecation:** The :code:`index()` method will no longer be available for
-    future versions. Please use :code:`spectralIndices()` instead.
+    .. deprecated:: 0.3.0
+       Use :func:`spectralIndices()` instead.
 
     Tip
     ----------
@@ -463,8 +461,8 @@ def index(
     .. [1] https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html
     """
     warnings.warn(
-        "index() will be deprecated in future versions, please use spectralIndices() instead",
-        PendingDeprecationWarning,
+        "index() is deprecated, please use spectralIndices() instead",
+        DeprecationWarning,
     )
 
     return ee_extra.Spectral.core.spectralIndices(
@@ -734,10 +732,8 @@ def maskClouds(
 def scale(self):
     """Scales bands on an image collection.
 
-    Warning
-    -------------
-    **Pending Deprecation:** The :code:`scale()` method will no longer be available for
-    future versions. Please use :code:`scaleAndOffset()` instead.
+    .. deprecated:: 0.3.0
+       Use :func:`scaleAndOffset()` instead.
 
     Tip
     ----------
@@ -762,8 +758,8 @@ def scale(self):
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     """
     warnings.warn(
-        "scale() will be deprecated in future versions, please use scaleAndOffset() instead",
-        PendingDeprecationWarning,
+        "scale() is deprecated, please use scaleAndOffset() instead",
+        DeprecationWarning,
     )
 
     return ee_extra.STAC.core.scaleAndOffset(self)

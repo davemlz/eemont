@@ -557,7 +557,7 @@ def listIndices(online=False):
     >>> eemont.listIndices()
     ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]
     """
-    return ee_extra.Spectral.core.listIndices()
+    return ee_extra.Spectral.core.listIndices(online)
 
 
 # Image Scaling

@@ -1,6 +1,6 @@
 name: eemont
 type: sphinx
 python:
-  version: 3.7
+  version: 3.8
   setup_py_install: true
 requirements_file: docs/docs-requirements.txt

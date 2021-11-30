@@ -8,7 +8,6 @@ import requests
 
 from .common import (
     _panSharpen,
-    _preprocess,
 )
 from .extending import extend
 

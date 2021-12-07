@@ -19,6 +19,10 @@ Improvements
 - The Awesome Spectral Indices list was updated to v0.0.3.
 - Errors (`#43 <https://github.com/davemlz/eemont/issues/43>`_) of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
 - Errors (`#41 <https://github.com/davemlz/eemont/issues/41>`_) of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+- The :code:`maskClouds()`, :code:`spectralIndices()`, :code:`scaleAndOffset()` and :code:`preprocess()` extended methods for ee.Image and ee.ImageCollection classes now support the following platforms:
+   
+   - `USGS Landsat 5 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C02_T1_L2>`_
+   - `USGS Landsat 4 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C02_T1_L2>`_
 
 Deprecation
 ~~~~~~~~~~~~~~~~~~~~~~

@@ -38,25 +38,25 @@
     "AU/GA/AUSTRALIA_5M_DEM": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/AU_GA_AUSTRALIA_5M_DEM.json",
-        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia derived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
+        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia\nderived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
         "sci:doi": "10.4225/25/5652419862E23"
     },
     "AU/GA/DEM_1SEC/v10/DEM-H": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/AU_GA_DEM_1SEC_v10_DEM-H.json",
-        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia derived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
+        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia\nderived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
         "sci:doi": "DOI not available"
     },
     "AU/GA/DEM_1SEC/v10/DEM-S": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/AU_GA_DEM_1SEC_v10_DEM-S.json",
-        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia derived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
+        "sci:citation": "Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia\nderived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.",
         "sci:doi": "DOI not available"
     },
     "BIOPAMA/GlobalOilPalm/v1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/BIOPAMA_GlobalOilPalm_v1.json",
-        "sci:citation": "Adri\u00e0, Descals, Serge, Wich, Erik, Meijaard, David, Gaveau, Stephen, Peedell, & Zoltan, Szantoi. (2021, January 27). High resolution global industrial and smallholder oil palm map for 2019 (Version v1). *Zenodo.* [doi:10.5281/zenodo.4473715](https://doi.org/10.5281/zenodo.4473715)",
+        "sci:citation": "Adri\u00e0, Descals, Serge, Wich, Erik, Meijaard, David, Gaveau, Stephen, Peedell, & Zoltan, Szantoi. (2021, January 27).\nHigh resolution global industrial and smallholder oil palm map for 2019 (Version v1). *Zenodo.*\n[doi:10.5281/zenodo.4473715](https://doi.org/10.5281/zenodo.4473715)",
         "sci:doi": "10.5281/zenodo.4473715"
     },
     "CAS/IGSNRR/PML/V2": {
@@ -68,7 +68,7 @@
     "CGIAR/SRTM90_V4": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CGIAR_SRTM90_V4.json",
-        "sci:citation": "Jarvis, A., H.I. Reuter, A. Nelson, E. Guevara. 2008. Hole-filled SRTM for the globe Version 4, available from the CGIAR-CSI SRTM 90m Database: https://srtm.csi.cgiar.org.",
+        "sci:citation": "Jarvis, A., H.I. Reuter, A. Nelson, E. Guevara. 2008. Hole-filled\nSRTM for the globe Version 4, available from the CGIAR-CSI SRTM\n90m Database: https://srtm.csi.cgiar.org.'",
         "sci:doi": "DOI not available"
     },
     "CIESIN/GPWv4/ancillary-data-grids": {
@@ -86,7 +86,7 @@
     "CIESIN/GPWv4/population-density": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CIESIN_GPWv4_population-density.json",
-        "sci:citation": "Center for International Earth Science Information Network - CIESIN - Columbia University. 2016. Gridded Population of the World, Version 4 (GPWv4): Population Density. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). [https://doi.org/10.7927/H4NP22DQ](https://doi.org/10.7927/H4NP22DQ). Accessed DAY MONTH YEAR.",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2016. Gridded Population of the World, Version 4\n(GPWv4): Population Density. Palisades, NY: NASA Socioeconomic Data and\nApplications Center (SEDAC). [https://doi.org/10.7927/H4NP22DQ](https://doi.org/10.7927/H4NP22DQ).\nAccessed DAY MONTH YEAR.",
         "sci:doi": "10.7927/H4NP22DQ"
     },
     "CIESIN/GPWv4/unwpp-adjusted-population-count": {
@@ -140,7 +140,7 @@
     "CIESIN/GPWv411/GPW_Population_Density": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CIESIN_GPWv411_GPW_Population_Density.json",
-        "sci:citation": "Center for International Earth Science Information Network - CIESIN - Columbia University. 2018. Gridded Population of the World, Version 4 (GPWv4): Population Density, Revision 11. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). [https://doi.org/10.7927/H49C6VHW](https://doi.org/10.7927/H49C6VHW). Accessed DAY MONTH YEAR.",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Population Density, Revision 11. Palisades, NY: NASA Socioeconomic Data and\nApplications Center (SEDAC). [https://doi.org/10.7927/H49C6VHW](https://doi.org/10.7927/H49C6VHW).\nAccessed DAY MONTH YEAR.",
         "sci:doi": "10.7927/H49C6VHW"
     },
     "CIESIN/GPWv411/GPW_UNWPP-Adjusted_Population_Count": {
@@ -596,7 +596,7 @@
     "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/GLOBAL_FLOOD_DB_MODIS_EVENTS_V1.json",
-        "sci:citation": "Tellman, B., J.A. Sullivan, C. Kuhn, A.J. Kettner, C.S. Doyle, G.R. Brakenridge, T. Erickson, D.A. Slayback. (Accepted.) Satellites observe increasing proportion of population exposed to floods. Nature. [doi:10.1038/s41586-021-03695-w](https://doi.org/10.1038/s41586-021-03695-w)",
+        "sci:citation": "Tellman, B., J.A. Sullivan, C. Kuhn, A.J. Kettner, C.S. Doyle, G.R.\nBrakenridge, T. Erickson, D.A. Slayback. (Accepted.)\nSatellites observe increasing proportion of population exposed\nto floods. Nature.\n[doi:10.1038/s41586-021-03695-w](https://doi.org/10.1038/s41586-021-03695-w)",
         "sci:doi": "DOI not available"
     },
     "GRIDMET/DROUGHT": {
@@ -830,13 +830,13 @@
     "JAXA/ALOS/PALSAR/YEARLY/FNF": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_PALSAR_YEARLY_FNF.json",
-        "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe, Shiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global Forest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing of Environment, 155, pp. 13-31, December 2014. [doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)",
+        "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe,\nShiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global\nForest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing\nof Environment, 155, pp. 13-31, December 2014.\n[doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/PALSAR/YEARLY/SAR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_PALSAR_YEARLY_SAR.json",
-        "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe, Shiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global Forest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing of Environment, 155, pp. 13-31, December 2014. [doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)",
+        "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe,\nShiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global\nForest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing\nof Environment, 155, pp. 13-31, December 2014.\n[doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LAI/V1": {
@@ -3770,7 +3770,7 @@
     "NOAA/CDR/OISST/V2_1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_OISST_V2_1.json",
-        "sci:citation": "Richard W. Reynolds, Viva F. Banzon, and NOAA CDR Program (2008): NOAA Optimum Interpolation 1/4 Degree Daily Sea Surface Temperature (OISST) Analysis, Version 2. [indicate subset used]. NOAA National Centers for Environmental Information. [doi:10.7289/V5SQ8XB5](https://doi.org/10.7289/V5SQ8XB5) [access date].",
+        "sci:citation": "Richard W. Reynolds, Viva F. Banzon, and NOAA CDR Program (2008): NOAA\nOptimum Interpolation 1/4 Degree Daily Sea Surface Temperature (OISST)\nAnalysis, Version 2. [indicate subset used]. NOAA National Centers for\nEnvironmental Information. [doi:10.7289/V5SQ8XB5](https://doi.org/10.7289/V5SQ8XB5)\n[access date].",
         "sci:doi": "10.7289/V5SQ8XB5"
     },
     "NOAA/CDR/PATMOSX/V53": {

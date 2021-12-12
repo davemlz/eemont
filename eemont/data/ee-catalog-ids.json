@@ -332,121 +332,121 @@
     "CPOM/CryoSat2/ANTARCTICA_DEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CPOM_CryoSat2_ANTARCTICA_DEM.json",
-        "sci:citation": "Slater, T., Shepherd, A., McMillan, M., Muir, A., Gilbert, L., Hogg, A. E., Konrad, H. and Parrinello, T.: A new Digital Elevation Model of Antarctica derived from CryoSat-2 altimetry, The Cryosphere, [doi:10.5194/tc-2017-223](https://doi.org/10.5194/tc-2017-223), 2018",
+        "sci:citation": "Slater, T., Shepherd, A., McMillan, M., Muir, A., Gilbert, L.,\nHogg, A. E., Konrad, H. and Parrinello, T.: A new Digital Elevation\nModel of Antarctica derived from CryoSat-2 altimetry, The Cryosphere,\n[doi:10.5194/tc-2017-223](https://doi.org/10.5194/tc-2017-223), 2018",
         "sci:doi": "10.5194/tc-2017-223"
     },
     "CSIRO/SLGA": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSIRO_SLGA.json",
-        "sci:citation": "Viscarra Rossel, Raphael; Chen, Charlie; Grundy, Mike; Searle, Ross; Clifford, David; Odgers, Nathan; Holmes, Karen; Griffin, Ted; Liddicoat, Craig; Kidd, Darren (2014): Soil and Landscape Grid National Soil Attribute Maps - SOIL ATTRIBUTE Release 1. v2. CSIRO. Data Collection [doi:10.1071/SR14366](https://doi.org/10.1071/SR14366).",
+        "sci:citation": "Viscarra Rossel, Raphael; Chen, Charlie; Grundy, Mike; Searle, Ross;\nClifford, David; Odgers, Nathan; Holmes, Karen; Griffin, Ted; Liddicoat,\nCraig; Kidd, Darren (2014): Soil and Landscape Grid National Soil Attribute\nMaps - SOIL ATTRIBUTE Release 1. v2. CSIRO. Data Collection\n[doi:10.1071/SR14366](https://doi.org/10.1071/SR14366).",
         "sci:doi": "10.4225/08/546ED604ADD8A"
     },
     "CSP/ERGo/1_0/Global/ALOS_CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/ALOS_topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_ALOS_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/Global/SRTM_topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_Global_SRTM_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/CHILI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_CHILI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/landforms": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_landforms.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/lithology": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_lithology.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/mTPI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_mTPI.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/physioDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_physioDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/physiography": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_physiography.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/ERGo/1_0/US/topoDiversity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_ERGo_1_0_US_topoDiversity.json",
-        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M. (2015). Ecologically-relevant maps of landforms and physiographic diversity for climate adaptation planning. PloS one, 10(12), [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
+        "sci:citation": "Theobald, D. M., Harrison-Atlas, D., Monahan, W. B., & Albano, C. M.\n(2015). Ecologically-relevant maps of landforms and physiographic diversity\nfor climate adaptation planning. PloS one, 10(12),\n[e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)",
         "sci:doi": "DOI not available"
     },
     "CSP/HM/GlobalHumanModification": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/CSP_HM_GlobalHumanModification.json",
-        "sci:citation": "Kennedy, C.M., J.R. Oakleaf, D.M. Theobald, S. Baurch-Murdo, and J. Kiesecker. 2019. Managing the middle: A shift in conservation priorities based on the global human modification gradient. Global Change Biology 00:1-16. https://doi.org/10.1111/gcb.14549",
+        "sci:citation": "Kennedy, C.M., J.R. Oakleaf, D.M. Theobald, S. Baurch-Murdo, and J. Kiesecker. 2019. Managing\nthe middle: A shift in conservation priorities based on the global human modification gradient.\nGlobal Change Biology 00:1-16. https://doi.org/10.1111/gcb.14549",
         "sci:doi": "DOI not available"
     },
     "DLR/WSF/WSF2015/v1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/DLR_WSF_WSF2015_v1.json",
-        "sci:citation": "Marconcini, M., Metz-Marconcini, A., \u00dcreyen, S., Palacios-Lopez, D., Hanke, W., Bachofer, F., Zeidler, J., Esch, T., Gorelick, N., Kakarla, A., Paganini, M., Strano, E. (2020). Outlining where humans live, the World Settlement Footprint 2015. Scientific Data, 7(1), 1-14. [doi:10.1038/s41597-020-00580-5](https://doi.org/10.1038/s41597-020-00580-5)",
+        "sci:citation": "Marconcini, M., Metz-Marconcini, A., \u00dcreyen, S., Palacios-Lopez, D., Hanke, W., Bachofer, F.,\nZeidler, J., Esch, T., Gorelick, N., Kakarla, A., Paganini, M., Strano, E. (2020).\nOutlining where humans live, the World Settlement Footprint 2015. Scientific Data, 7(1), 1-14.\n[doi:10.1038/s41597-020-00580-5](https://doi.org/10.1038/s41597-020-00580-5)",
         "sci:doi": "10.1038/s41597-020-00580-5"
     },
     "ECMWF/CAMS/NRT": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ECMWF_CAMS_NRT.json",
-        "sci:citation": "Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the ECMWF Integrated Forecast System. Part II : Data assimilation, J. Geophys. Res., 114, D13205 [doi:10.1029/2008JD011115](https://doi.org/10.1029/2008JD011115).",
+        "sci:citation": "Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the ECMWF Integrated\nForecast System. Part II : Data assimilation, J. Geophys. Res., 114, D13205\n[doi:10.1029/2008JD011115](https://doi.org/10.1029/2008JD011115).",
         "sci:doi": "DOI not available"
     },
     "ECMWF/ERA5/DAILY": {
@@ -464,19 +464,19 @@
     "ECMWF/ERA5_LAND/HOURLY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ECMWF_ERA5_LAND_HOURLY.json",
-        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land hourly data from 1981 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;), [doi:10.24381/cds.e2161bac](https://doi.org/10.24381/cds.e2161bac)",
+        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land hourly data from 1981 to present. Copernicus Climate\nChange Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.e2161bac](https://doi.org/10.24381/cds.e2161bac)",
         "sci:doi": "DOI not available"
     },
     "ECMWF/ERA5_LAND/MONTHLY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ECMWF_ERA5_LAND_MONTHLY.json",
-        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;), [doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)",
+        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus\nClimate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)",
         "sci:doi": "DOI not available"
     },
     "ECMWF/ERA5_LAND/MONTHLY_BY_HOUR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ECMWF_ERA5_LAND_MONTHLY_BY_HOUR.json",
-        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;), [doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)",
+        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus\nClimate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)",
         "sci:doi": "DOI not available"
     },
     "EO1/HYPERION": {
@@ -488,7 +488,7 @@
     "ESA/CCI/FireCCI/5_1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ESA_CCI_FireCCI_5_1.json",
-        "sci:citation": "Product: Chuvieco, E.; Pettinari, M.L.; Lizundia-Loiola, J.; Storm, T.; Padilla Parellada, M. (2018): ESA Fire Climate Change Initiative (Fire_cci): MODIS Fire_cci Burned Area Pixel product, version 5.1. Centre for Environmental Data Analysis, 01 November 2018. [https://doi.org/10.5285/58f00d8814064b79a0c49662ad3af537](https://doi.org/10.5285/58f00d8814064b79a0c49662ad3af537).",
+        "sci:citation": "Product: Chuvieco, E.; Pettinari, M.L.; Lizundia-Loiola, J.; Storm, T.;\nPadilla Parellada, M. (2018): ESA Fire Climate Change Initiative\n(Fire_cci): MODIS Fire_cci Burned Area Pixel product, version 5.1. Centre for\nEnvironmental Data Analysis, 01 November 2018.\n[https://doi.org/10.5285/58f00d8814064b79a0c49662ad3af537](https://doi.org/10.5285/58f00d8814064b79a0c49662ad3af537).",
         "sci:doi": "10.5285/58f00d8814064b79a0c49662ad3af537"
     },
     "ESA/GLOBCOVER_L4_200901_200912_V2_3": {
@@ -506,67 +506,67 @@
     "FAO/GHG/1/DROSA_A": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_GHG_1_DROSA_A.json",
-        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends. FAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)",
+        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends.\nFAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)",
         "sci:doi": "DOI not available"
     },
     "FAO/GHG/1/DROSE_A": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_GHG_1_DROSE_A.json",
-        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends. FAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)",
+        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends.\nFAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_AETI_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_AETI_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_E_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_E_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_I_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_I_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_NPP_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_NPP_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_RET_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_RET_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_RET_E": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_RET_E.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_T_D": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FAO_WAPOR_2_L1_T_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity Technical Report: Methodology Series. Rome, FAO. 72 pages.",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.",
         "sci:doi": "DOI not available"
     },
     "FIRMS": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FIRMS.json",
-        "sci:citation": "MODIS Collection 6 NRT Hotspot / Active Fire Detections MCD14DL. Available on-line [https://earthdata.nasa.gov/firms](https://earthdata.nasa.gov/firms). [doi:10.5067/FIRMS/MODIS/MCD14DL.NRT.006](https://doi.org/10.5067/FIRMS/MODIS/MCD14DL.NRT.006)",
+        "sci:citation": "MODIS Collection 6 NRT Hotspot / Active Fire Detections MCD14DL.\nAvailable on-line [https://earthdata.nasa.gov/firms](https://earthdata.nasa.gov/firms).\n[doi:10.5067/FIRMS/MODIS/MCD14DL.NRT.006](https://doi.org/10.5067/FIRMS/MODIS/MCD14DL.NRT.006)",
         "sci:doi": "DOI not available"
     },
     "FORMA/FORMA_500m": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/FORMA_FORMA_500m.json",
-        "sci:citation": "Hammer, Dan, Robin Kraft, and David Wheeler. 2013. FORMA Alerts. World Resources Institute and Center for Global Development. [www.globalforestwatch.org](www.globalforestwatch.org).",
+        "sci:citation": "Hammer, Dan, Robin Kraft, and David Wheeler. 2013. FORMA Alerts. World\nResources Institute and Center for Global Development.\n[www.globalforestwatch.org](www.globalforestwatch.org).",
         "sci:doi": "DOI not available"
     },
     "GFW/GFF/V1/fishing_hours": {
@@ -584,13 +584,13 @@
     "GLCF/GLS_TCC": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/GLCF_GLS_TCC.json",
-        "sci:citation": "Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility, [www.landcover.org](www.landcover.org).",
+        "sci:citation": "Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility,\n[www.landcover.org](www.landcover.org).'",
         "sci:doi": "DOI not available"
     },
     "GLCF/GLS_WATER": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/GLCF_GLS_WATER.json",
-        "sci:citation": "Data Citation: Global Inland Water, {Year, ...}, Global Land Cover Facility, [www.landcover.org](www.landcover.org).",
+        "sci:citation": "Data Citation: Global Inland Water, {Year, ...}, Global Land Cover\nFacility, [www.landcover.org](www.landcover.org).",
         "sci:doi": "DOI not available"
     },
     "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1": {
@@ -602,199 +602,199 @@
     "GRIDMET/DROUGHT": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/GRIDMET_DROUGHT.json",
-        "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological data for ecological applications and modelling, International Journal of Climatology. (2012) [doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)",
+        "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological data for\necological applications and modelling, International Journal of\nClimatology. (2012)\n[doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)",
         "sci:doi": "DOI not available"
     },
     "HYCOM/GLBu0_08/sea_surface_elevation": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_GLBu0_08_sea_surface_elevation.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "HYCOM/GLBu0_08/sea_temp_salinity": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_GLBu0_08_sea_temp_salinity.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "HYCOM/GLBu0_08/sea_water_velocity": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_GLBu0_08_sea_water_velocity.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "HYCOM/sea_surface_elevation": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_sea_surface_elevation.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "HYCOM/sea_temp_salinity": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_sea_temp_salinity.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "HYCOM/sea_water_velocity": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/HYCOM_sea_water_velocity.json",
-        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for the Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic Applications vol II, chapter 13, 303-343.",
+        "sci:citation": "J. A. Cummings and O. M. Smedstad. 2013: Variational Data Assimilation for\nthe Global Ocean. Data Assimilation for Atmospheric, Oceanic and Hydrologic\nApplications vol II, chapter 13, 303-343.",
         "sci:doi": "DOI not available"
     },
     "IDAHO_EPSCOR/GRIDMET": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/IDAHO_EPSCOR_GRIDMET.json",
-        "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological data for ecological applications and modelling, International Journal of Climatology. (2012) [doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)",
+        "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological\ndata for ecological applications and modelling, International Journal\nof Climatology. (2012) [doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)",
         "sci:doi": "DOI not available"
     },
     "IDAHO_EPSCOR/MACAv2_METDATA": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/IDAHO_EPSCOR_MACAv2_METDATA.json",
-        "sci:citation": "Abatzoglou J.T. and Brown T.J., A comparison of statistical downscaling methods suited for wildfire applications, International Journal of Climatology(2012) [doi:10.1002/joc.2312](https://doi.org/10.1002/joc.2312).",
+        "sci:citation": "Abatzoglou J.T. and Brown T.J., A comparison of statistical downscaling\nmethods suited for wildfire applications, International Journal\nof Climatology(2012) [doi:10.1002/joc.2312](https://doi.org/10.1002/joc.2312).",
         "sci:doi": "DOI not available"
     },
     "IDAHO_EPSCOR/MACAv2_METDATA_MONTHLY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/IDAHO_EPSCOR_MACAv2_METDATA_MONTHLY.json",
-        "sci:citation": "Abatzoglou J.T. and Brown T.J., A comparison of statistical downscaling methods suited for wildfire applications, International Journal of Climatology(2012) [doi:10.1002/joc.2312](https://doi.org/10.1002/joc.2312).",
+        "sci:citation": "Abatzoglou J.T. and Brown T.J., A comparison of statistical downscaling\nmethods suited for wildfire applications, International Journal\nof Climatology(2012) [doi:10.1002/joc.2312](https://doi.org/10.1002/joc.2312).",
         "sci:doi": "DOI not available"
     },
     "IDAHO_EPSCOR/PDSI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/IDAHO_EPSCOR_PDSI.json",
-        "sci:citation": "Abatzoglou J.T., R. Barbero, J.W. Wolf, Z. Holden (2014), Tracking interannual streamflow variability with drought indices in the Pacific Northwest, US, Journal of Hydrometeorology, 15, 1900-1912.",
+        "sci:citation": "Abatzoglou J.T., R. Barbero, J.W. Wolf, Z. Holden (2014), Tracking\ninterannual streamflow variability with drought indices in the\nPacific Northwest, US, Journal of Hydrometeorology, 15, 1900-1912.",
         "sci:doi": "DOI not available"
     },
     "IDAHO_EPSCOR/TERRACLIMATE": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/IDAHO_EPSCOR_TERRACLIMATE.json",
-        "sci:citation": "Abatzoglou, J.T., S.Z. Dobrowski, S.A. Parks, K.C. Hegewisch, 2018, Terraclimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958-2015, Scientific Data 5:170191, [doi:10.1038/sdata.2017.191](https://doi.org/10.1038/sdata.2017.191)",
+        "sci:citation": "Abatzoglou, J.T., S.Z. Dobrowski, S.A. Parks, K.C. Hegewisch, 2018,\nTerraclimate, a high-resolution global dataset of monthly climate and\nclimatic water balance from 1958-2015, Scientific Data 5:170191,\n[doi:10.1038/sdata.2017.191](https://doi.org/10.1038/sdata.2017.191)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/aluminium_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_aluminium_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/bedrock_depth": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_bedrock_depth.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/bulk_density": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_bulk_density.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/calcium_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_calcium_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/carbon_organic": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_carbon_organic.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/carbon_total": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_carbon_total.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/cation_exchange_capacity": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_cation_exchange_capacity.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/clay_content": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_clay_content.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/fcc": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_fcc.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/iron_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_iron_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/magnesium_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_magnesium_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/nitrogen_total": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_nitrogen_total.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/ph": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_ph.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/phosphorus_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_phosphorus_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/potassium_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_potassium_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/sand_content": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_sand_content.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/silt_content": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_silt_content.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/stone_content": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_stone_content.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/sulphur_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_sulphur_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/texture_class": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_texture_class.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/zinc_extractable": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/ISDASOIL_Africa_v1_zinc_extractable.json",
-        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients mapped at 30 m spatial resolution using two-scale ensemble machine learning. Sci Rep 11, 6130 (2021). [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
+        "sci:citation": "Hengl, T., Miller, M.A.E., Kri\u017ean, J., et al. African soil properties and nutrients\nmapped at 30 m spatial resolution using two-scale ensemble machine learning.\nSci Rep 11, 6130 (2021).\n[doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/AVNIR-2/ORI": {
@@ -806,25 +806,25 @@
     "JAXA/ALOS/AW3D30/V1_1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_AW3D30_V1_1.json",
-        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto : Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
+        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto\n: Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of\nthe Photogrammetry, Remote Sensing and Spatial Information Sciences,\nVol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/AW3D30/V2_1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_AW3D30_V2_1.json",
-        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto : Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
+        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto\n: Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of\nthe Photogrammetry, Remote Sensing and Spatial Information Sciences,\nVol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/AW3D30/V2_2": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_AW3D30_V2_2.json",
-        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto : Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
+        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto\n: Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of\nthe Photogrammetry, Remote Sensing and Spatial Information Sciences,\nVol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/AW3D30/V3_2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_ALOS_AW3D30_V3_2.json",
-        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto : Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
+        "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto\n: Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of\nthe Photogrammetry, Remote Sensing and Spatial Information Sciences,\nVol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)",
         "sci:doi": "DOI not available"
     },
     "JAXA/ALOS/PALSAR/YEARLY/FNF": {
@@ -842,301 +842,301 @@
     "JAXA/GCOM-C/L3/LAND/LAI/V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_LAND_LAI_V1.json",
-        "sci:citation": "Ono, Y. (Nov. 2011). GCOM-C1 / SGLI LAI Product Algorithm Theoretical Basis Document (Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/Ono_Y_ATBD.pdf",
+        "sci:citation": "Ono, Y. (Nov. 2011). GCOM-C1 / SGLI LAI Product Algorithm Theoretical Basis Document\n(Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/Ono_Y_ATBD.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LAI/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_LAND_LAI_V2.json",
-        "sci:citation": "Kobayashi, T., Ono, Y., Kobayashi, H., Yang, W. (June. 2020). GCOM-C/SGLI Leaf Area Index (LAI)/ fraction of Absorbed Photosynthetically Active Radiation (fAPAR) Product Algorithm Theoretical Basis Document (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T2B_LAI_Kobayashi_r1.pdf",
+        "sci:citation": "Kobayashi, T., Ono, Y., Kobayashi, H., Yang, W. (June. 2020). GCOM-C/SGLI\nLeaf Area Index (LAI)/ fraction of Absorbed Photosynthetically Active Radiation (fAPAR) Product\nAlgorithm Theoretical Basis Document (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T2B_LAI_Kobayashi_r1.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LST/V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_LAND_LST_V1.json",
-        "sci:citation": "Moriyama, M. (Sep. 2014). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical Basis Document (Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf",
+        "sci:citation": "Moriyama, M. (Sep. 2014). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LST/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_LAND_LST_V2.json",
-        "sci:citation": "Moriyama, M. (May. 2020). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical Basis Document (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf",
+        "sci:citation": "Moriyama, M. (May. 2020). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/OCEAN/CHLA/V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_OCEAN_CHLA_V1.json",
-        "sci:citation": "Murakami, H. (Oct. 2018). ATBD of GCOM-C chlorophyll-a concentration algorithm (Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/SGLI_Chla_algorithm_v10.pdf",
+        "sci:citation": "Murakami, H. (Oct. 2018). ATBD of GCOM-C chlorophyll-a concentration algorithm (Version 1).\nRetrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/SGLI_Chla_algorithm_v10.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/OCEAN/CHLA/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_OCEAN_CHLA_V2.json",
-        "sci:citation": "Murakami, H. (Jan. 2020). ATBD of GCOM-C chlorophyll-a concentration algorithm (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_O3AB_Chla_Murakami.pdf",
+        "sci:citation": "Murakami, H. (Jan. 2020). ATBD of GCOM-C chlorophyll-a concentration algorithm (Version 2).\nRetrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_O3AB_Chla_Murakami.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/OCEAN/SST/V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_OCEAN_SST_V1.json",
-        "sci:citation": "Kurihara, Y. (Oct. 2018). ATBD for GCOM-C/SGLI Sea Surface Temperature (SST) (Version 1). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/sgli_sst_atbd.pdf",
+        "sci:citation": "Kurihara, Y. (Oct. 2018). ATBD for GCOM-C/SGLI Sea Surface Temperature (SST) (Version 1).\nRetrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/sgli_sst_atbd.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/OCEAN/SST/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GCOM-C_L3_OCEAN_SST_V2.json",
-        "sci:citation": "Kurihara, Y. (Jun. 2020). GCOM-C/SGLI Sea Surface Temperature (SST) ATBD (Version 2). Retrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_O1AB_SST_Kurihara_r1.pdf",
+        "sci:citation": "Kurihara, Y. (Jun. 2020). GCOM-C/SGLI Sea Surface Temperature (SST) ATBD (Version 2).\nRetrieved from https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_O1AB_SST_Kurihara_r1.pdf",
         "sci:doi": "DOI not available"
     },
     "JAXA/GPM_L3/GSMaP/v6/operational": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GPM_L3_GSMaP_v6_operational.json",
-        "sci:citation": "K. Okamoto, T. Iguchi, N. Takahashi, K. Iwanami and T. Ushio, 2005: The global satellite mapping of precipitation (GSMaP) project, 25th IGARSS Proceedings, pp. 3414-3416.",
+        "sci:citation": "K. Okamoto, T. Iguchi, N. Takahashi, K. Iwanami and T. Ushio,\n2005: The global satellite mapping of precipitation (GSMaP) project,\n25th IGARSS Proceedings, pp. 3414-3416.",
         "sci:doi": "DOI not available"
     },
     "JAXA/GPM_L3/GSMaP/v6/reanalysis": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JAXA_GPM_L3_GSMaP_v6_reanalysis.json",
-        "sci:citation": "K. Okamoto, T. Iguchi, N. Takahashi, K. Iwanami and T. Ushio, 2005: The global satellite mapping of precipitation (GSMaP) project, 25th IGARSS Proceedings, pp. 3414-3416.",
+        "sci:citation": "K. Okamoto, T. Iguchi, N. Takahashi, K. Iwanami and T. Ushio,\n2005: The global satellite mapping of precipitation (GSMaP) project,\n25th IGARSS Proceedings, pp. 3414-3416.",
         "sci:doi": "DOI not available"
     },
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1.json",
-        "sci:citation": "Pesaresi, Martino; Ehrilch, Daniele; Florczyk, Aneta J.; Freire, Sergio; Julea, Andreea; Kemper, Thomas; Soille, Pierre; Syrris, Vasileios (2015): GHS built-up grid, derived from Landsat, multitemporal (1975, 1990, 2000, 2014). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_built_ldsmt_globe_r2015b",
+        "sci:citation": "Pesaresi, Martino; Ehrilch, Daniele; Florczyk, Aneta J.; Freire,\nSergio; Julea, Andreea; Kemper, Thomas; Soille, Pierre; Syrris, Vasileios\n(2015): GHS built-up grid, derived from Landsat, multitemporal (1975, 1990,\n2000, 2014). European Commission, Joint Research Centre (JRC) [Dataset]\nPID: https://data.europa.eu/89h/jrc-ghsl-ghs_built_ldsmt_globe_r2015b",
         "sci:doi": "DOI not available"
     },
     "JRC/GHSL/P2016/POP_GPW_GLOBE_V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_POP_GPW_GLOBE_V1.json",
-        "sci:citation": "European Commission, Joint Research Centre (JRC); Columbia University, Center for International Earth Science Information Network - CIESIN (2015): GHS population grid, derived from GPW4, multitemporal (1975, 1990, 2000, 2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_pop_gpw4_globe_r2015a",
+        "sci:citation": "European Commission, Joint Research Centre (JRC); Columbia University,\nCenter for International Earth Science Information Network - CIESIN (2015):\nGHS population grid, derived from GPW4, multitemporal (1975, 1990, 2000,\n2015). European Commission, Joint Research Centre (JRC) [Dataset]\nPID: https://data.europa.eu/89h/jrc-ghsl-ghs_pop_gpw4_globe_r2015a",
         "sci:doi": "DOI not available"
     },
     "JRC/GHSL/P2016/SMOD_POP_GLOBE_V1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GHSL_P2016_SMOD_POP_GLOBE_V1.json",
-        "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the REGIO model 2014 in application to GHSL Landsat and CIESIN GPW v4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research Centre (JRC) [Dataset] PID: https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a",
+        "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the\nREGIO model 2014 in application to GHSL Landsat and CIESIN GPW\nv4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research\nCentre (JRC) [Dataset]\nPID: https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_0_GlobalSurfaceWater.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/Metadata": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_0_Metadata.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/MonthlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_0_MonthlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/MonthlyRecurrence": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_0_MonthlyRecurrence.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_0/YearlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_0_YearlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_1/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_1_GlobalSurfaceWater.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_1/Metadata": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_1_Metadata.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_1/MonthlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_1_MonthlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_1/MonthlyRecurrence": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_1_MonthlyRecurrence.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_1/YearlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_1_YearlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_2/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_2_GlobalSurfaceWater.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_2/Metadata": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_2_Metadata.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_2/MonthlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_2_MonthlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_2/MonthlyRecurrence": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_2_MonthlyRecurrence.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_2/YearlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_2_YearlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_3/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_3_GlobalSurfaceWater.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_3/Metadata": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_3_Metadata.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_3/MonthlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_3_MonthlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_3/MonthlyRecurrence": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_3_MonthlyRecurrence.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "JRC/GSW1_3/YearlyHistory": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/JRC_GSW1_3_YearlyHistory.json",
-        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global surface water and its long-term changes. Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))",
         "sci:doi": "DOI not available"
     },
     "KNTU/LiDARLab/IranLandCover/V1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/KNTU_LiDARLab_IranLandCover_V1.json",
-        "sci:citation": "Ghorbanian, A., Kakooei, M., Amani, M., Mahdavi, S., Mohammadzadeh, A., & Hasanlou, M. (2020). Improved land cover map of Iran using Sentinel imagery within Google Earth Engine and a novel automatic workflow for land cover classification using migrated training samples. ISPRS Journal of Photogrammetry and Remote Sensing, 167, 276-288. [doi:10.1016/j.isprsjprs.2020.07.013](https://doi.org/10.1016/j.isprsjprs.2020.07.013)",
+        "sci:citation": "Ghorbanian, A., Kakooei, M., Amani, M., Mahdavi, S., Mohammadzadeh, A., &\nHasanlou, M. (2020). Improved land cover map of Iran using Sentinel imagery\nwithin Google Earth Engine and a novel automatic workflow for land cover\nclassification using migrated training samples. ISPRS Journal of\nPhotogrammetry and Remote Sensing, 167, 276-288.\n[doi:10.1016/j.isprsjprs.2020.07.013](https://doi.org/10.1016/j.isprsjprs.2020.07.013)'",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/FRG/v1_2_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_FRG_v1_2_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/MFRI/v1_2_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_MFRI_v1_2_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/PLS/v1_2_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_PLS_v1_2_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/PMS/v1_2_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_PMS_v1_2_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/PRS/v1_2_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_PRS_v1_2_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/SClass/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_SClass_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/VCC/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_VCC_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Fire/VDep/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Fire_VDep_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/BPS/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_BPS_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/ESP/v1_2_0/AK": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_ESP_v1_2_0_AK.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/ESP/v1_2_0/CONUS": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_ESP_v1_2_0_CONUS.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/ESP/v1_2_0/HI": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_ESP_v1_2_0_HI.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/EVC/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_EVC_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/EVH/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_EVH_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDFIRE/Vegetation/EVT/v1_4_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDFIRE_Vegetation_EVT_v1_4_0.json",
-        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product, so the model for citation is provided, with an example for a particular product. Producer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420: South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36, [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC: U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers). Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27]. Additional guidance on citation of LANDFIRE products can be found [here](https://www.landfire.gov/landfire_citation.php)",
+        "sci:citation": "The suggested way to cite LANDFIRE products is specific to each product,\nso the model for citation is provided, with an example for a particular product.\nProducer. Year released. Product xxxxx:\n\n- Individual model name.\n- BpS Models and Descriptions, Online. LANDFIRE. Washington, DC. U.S. Department of\n  Agriculture, Forest Service\n- U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA\n- The Nature Conservancy (Producers). Available- URL. Access date.\n\nExample Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:\nSouth Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,\n[Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:\nU.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;\nU.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).\nAvailable: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].\nAdditional guidance on citation of LANDFIRE products can be found\n[here](https://www.landfire.gov/landfire_citation.php)",
         "sci:doi": "DOI not available"
     },
     "LANDSAT/GLS1975": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_GLS1975.json",
-        "sci:citation": "\"GLS 1975 image courtesy of the U.S. Geological Survey\"",
+        "sci:citation": "GLS 1975 image courtesy of the U.S. Geological Survey",
         "sci:doi": "DOI not available"
     },
     "LANDSAT/GLS1975_MOSAIC": {
@@ -2876,13 +2876,13 @@
     "MERIT/Hydro/v1_0_1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/MERIT_Hydro_v1_0_1.json",
-        "sci:citation": "Yamazaki D., D. Ikeshima, J. Sosa, P.D. Bates, G.H. Allen, T.M. Pavelsky. MERIT Hydro: A high-resolution global hydrography map based on latest topography datasets Water Resources Research, vol.55, pp.5053-5073, 2019, [doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873]",
+        "sci:citation": "Yamazaki D., D. Ikeshima, J. Sosa, P.D. Bates, G.H. Allen, T.M. Pavelsky.\nMERIT Hydro: A high-resolution global hydrography map based on latest\ntopography datasets\nWater Resources Research, vol.55, pp.5053-5073, 2019,\n[doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873]",
         "sci:doi": "DOI not available"
     },
     "MERIT/Hydro_reduced/v1_0_1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/MERIT_Hydro_reduced_v1_0_1.json",
-        "sci:citation": "Yamazaki D., D. Ikeshima, J. Sosa, P.D. Bates, G.H. Allen, T.M. Pavelsky. MERIT Hydro: A high-resolution global hydrography map based on latest topography datasets Water Resources Research, vol.55, pp.5053-5073, 2019, [doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873]",
+        "sci:citation": "Yamazaki D., D. Ikeshima, J. Sosa, P.D. Bates, G.H. Allen, T.M. Pavelsky.\nMERIT Hydro: A high-resolution global hydrography map based on latest\ntopography datasets\nWater Resources Research, vol.55, pp.5053-5073, 2019,\n[doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873]",
         "sci:doi": "DOI not available"
     },
     "MODIS/006/MCD12Q1": {
@@ -3602,7 +3602,7 @@
     "NASA/NASADEM_HGT/001": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_NASADEM_HGT_001.json",
-        "sci:citation": "NASA JPL (2020). NASADEM Merged DEM Global 1 arc second V001 [Data set]. NASA EOSDIS Land Processes DAAC. Accessed 2020-12-30 from https://doi.org/10.5067/MEaSUREs/NASADEM/NASADEM_HGT.001",
+        "sci:citation": "NASA JPL (2020). NASADEM Merged DEM Global 1 arc second V001 [Data set]. NASA EOSDIS Land\nProcesses DAAC. Accessed 2020-12-30 from https://doi.org/10.5067/MEaSUREs/NASADEM/NASADEM_HGT.001",
         "sci:doi": "DOI not available"
     },
     "NASA/NEX-DCP30": {

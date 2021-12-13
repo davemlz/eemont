@@ -3524,7 +3524,7 @@
     "NASA/FLDAS/NOAH01/C/GL/M/V001": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_FLDAS_NOAH01_C_GL_M_V001.json",
-        "sci:citation": "If you use these data in your research or applications, please include a reference in your publication(s) similar to the following example: Amy McNally NASA/GSFC/HSL (2018), FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS), Greenbelt, MD, USA, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date], [doi:10.5067/5NHC22T9375G](https://doi.org/10.5067/5NHC22T9375G)",
+        "sci:citation": "If you use these data in your research or applications, please include a\nreference in your publication(s) similar to the following example:\nAmy McNally NASA/GSFC/HSL (2018), FLDAS Noah Land Surface Model L4 Global\nMonthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS), Greenbelt, MD, USA, Goddard\nEarth Sciences Data and Information Services Center (GES DISC), Accessed:\n[Data Access Date], [doi:10.5067/5NHC22T9375G](https://doi.org/10.5067/5NHC22T9375G)",
         "sci:doi": "DOI not available"
     },
     "NASA/GIMMS/3GV0": {
@@ -3536,67 +3536,67 @@
     "NASA/GLDAS/V021/NOAH/G025/T3H": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GLDAS_V021_NOAH_G025_T3H.json",
-        "sci:citation": "Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell, C.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich, J.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data Assimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.",
+        "sci:citation": "Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell,\nC.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich,\nJ.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data\nAssimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.",
         "sci:doi": "DOI not available"
     },
     "NASA/GLDAS/V20/NOAH/G025/T3H": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GLDAS_V20_NOAH_G025_T3H.json",
-        "sci:citation": "Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell, C.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich, J.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data Assimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.",
+        "sci:citation": "Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell,\nC.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich,\nJ.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data\nAssimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.",
         "sci:doi": "DOI not available"
     },
     "NASA/GPM_L3/IMERG_MONTHLY_V06": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GPM_L3_IMERG_MONTHLY_V06.json",
-        "sci:citation": "'Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019), GPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V06, Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/06'",
+        "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V06,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/06",
         "sci:doi": "10.5067/GPM/IMERG/3B-MONTH/06"
     },
     "NASA/GPM_L3/IMERG_V06": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GPM_L3_IMERG_V06.json",
-        "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019), GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: [Data Access Date], [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)",
+        "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date],\n[doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)",
         "sci:doi": "10.5067/GPM/IMERG/3B-HH-L/06"
     },
     "NASA/GRACE/MASS_GRIDS/LAND": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GRACE_MASS_GRIDS_LAND.json",
-        "sci:citation": "S.C. Swenson. 2012. GRACE monthly land water mass grids NETCDF RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed [YYYY-MM-DD] at [https://doi.org/10.5067/TELND-NC005](https://doi.org/10.5067/TELND-NC005).",
+        "sci:citation": "S.C. Swenson. 2012. GRACE monthly land water mass grids NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed\n[YYYY-MM-DD] at\n[https://doi.org/10.5067/TELND-NC005](https://doi.org/10.5067/TELND-NC005).",
         "sci:doi": "DOI not available"
     },
     "NASA/GRACE/MASS_GRIDS/MASCON": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GRACE_MASS_GRIDS_MASCON.json",
-        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at [https://doi.org/10.5067/TEMSC-OCL05](https://doi.org/10.5067/TEMSC-OCL05).",
+        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at\n[https://doi.org/10.5067/TEMSC-OCL05](https://doi.org/10.5067/TEMSC-OCL05).",
         "sci:doi": "DOI not available"
     },
     "NASA/GRACE/MASS_GRIDS/MASCON_CRI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GRACE_MASS_GRIDS_MASCON_CRI.json",
-        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at [https://doi.org/10.5067/TEMSC-OCL05](https://doi.org/10.5067/TEMSC-OCL05).",
+        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at\n[https://doi.org/10.5067/TEMSC-OCL05](https://doi.org/10.5067/TEMSC-OCL05).",
         "sci:doi": "DOI not available"
     },
     "NASA/GRACE/MASS_GRIDS/OCEAN": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GRACE_MASS_GRIDS_OCEAN.json",
-        "sci:citation": "D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed [YYYY-MM-DD] at [https://doi.org/10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).",
+        "sci:citation": "D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed\n[YYYY-MM-DD] at [https://doi.org/10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).",
         "sci:doi": "DOI not available"
     },
     "NASA/GRACE/MASS_GRIDS/OCEAN_EOFR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_GRACE_MASS_GRIDS_OCEAN_EOFR.json",
-        "sci:citation": "D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed [YYYY-MM-DD] at [doi:10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).",
+        "sci:citation": "D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed\n[YYYY-MM-DD] at [doi:10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).",
         "sci:doi": "DOI not available"
     },
     "NASA/JPL/global_forest_canopy_height_2005": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_JPL_global_forest_canopy_height_2005.json",
-        "sci:citation": "Simard, M., Pinto, N., Fisher, J., Baccini, A. 2011. Mapping forest canopy height globally with spaceborne lidar. Journal of Geophysical Research. 116: G04021. [doi:10.1029/2011JG001708] (https://doi.org/10.1029/2011JG001708)",
+        "sci:citation": "Simard, M., Pinto, N., Fisher, J., Baccini, A. 2011. Mapping forest\ncanopy height globally with spaceborne lidar. Journal of Geophysical\nResearch. 116: G04021. [doi:10.1029/2011JG001708]\n(https://doi.org/10.1029/2011JG001708)",
         "sci:doi": "DOI not available"
     },
     "NASA/MEASURES/GFCC/TC/v3": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_MEASURES_GFCC_TC_v3.json",
-        "sci:citation": "Paper/Methods Citation: Sexton, J. O., Song, X.-P., Feng, M., Noojipady, P., Anand, A., Huang, C., Kim, D.-H., Collins, K.M., Channan, S., DiMiceli, C., Townshend, J.R.G. (2013). Global, 30-m resolution continuous fields of tree cover: Landsat-based rescaling of MODIS Vegetation Continuous Fields with lidar-based estimates of error. International Journal of Digital Earth, 130321031236007. [doi:10.1080/17538947.2013.786146](https://doi.org/10.1080/17538947.2013.786146).",
+        "sci:citation": "Paper/Methods Citation: Sexton, J. O., Song, X.-P., Feng, M., Noojipady,\nP., Anand, A., Huang, C., Kim, D.-H., Collins, K.M., Channan, S.,\nDiMiceli, C., Townshend, J.R.G. (2013). Global, 30-m resolution\ncontinuous fields of tree cover: Landsat-based rescaling of MODIS\nVegetation Continuous Fields with lidar-based estimates of error.\nInternational Journal of Digital Earth, 130321031236007.\n[doi:10.1080/17538947.2013.786146](https://doi.org/10.1080/17538947.2013.786146).",
         "sci:doi": "10.5067/MEaSUREs/GFCC/GFCC30TC.003"
     },
     "NASA/NASADEM_HGT/001": {
@@ -3608,79 +3608,79 @@
     "NASA/NEX-DCP30": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_NEX-DCP30.json",
-        "sci:citation": "Thrasher, B., J. Xiong, W. Wang, F. Melton, A. Michaelis and R. Nemani (2013), Downscaled Climate Projections Suitable for Resource Management, Eos Trans. AGU, 94(37), 321. [doi:10.1002/2013EO370002](https://doi.org/10.1002/2013EO370002)",
+        "sci:citation": "Thrasher, B., J. Xiong, W. Wang, F. Melton, A. Michaelis and R. Nemani\n(2013), Downscaled Climate Projections Suitable for Resource Management,\nEos Trans. AGU, 94(37), 321.\n[doi:10.1002/2013EO370002](https://doi.org/10.1002/2013EO370002)",
         "sci:doi": "DOI not available"
     },
     "NASA/NEX-DCP30_ENSEMBLE_STATS": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_NEX-DCP30_ENSEMBLE_STATS.json",
-        "sci:citation": "Thrasher, B., J. Xiong, W. Wang, F. Melton, A. Michaelis and R. Nemani (2013), Downscaled Climate Projections Suitable for Resource Management, Eos Trans. AGU, 94(37), 321. [doi:10.1002/2013EO370002](https://doi.org/10.1002/2013EO370002)",
+        "sci:citation": "Thrasher, B., J. Xiong, W. Wang, F. Melton, A. Michaelis and R. Nemani\n(2013), Downscaled Climate Projections Suitable for Resource Management,\nEos Trans. AGU, 94(37), 321.\n[doi:10.1002/2013EO370002](https://doi.org/10.1002/2013EO370002)",
         "sci:doi": "DOI not available"
     },
     "NASA/NEX-GDDP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_NEX-GDDP.json",
-        "sci:citation": "Thrasher, B., Maurer, E. P., McKellar, C., & Duffy, P. B., 2012: Technical Note: Bias correcting climate model simulated daily temperature extremes with quantile mapping. Hydrology and Earth System Sciences, 16(9), 3309-3314. [doi:10.5194/hess-16-3309-2012](https://doi.org/10.5194/hess-16-3309-2012)",
+        "sci:citation": "Thrasher, B., Maurer, E. P., McKellar, C., & Duffy, P. B., 2012:\nTechnical Note: Bias correcting climate model simulated daily temperature\nextremes with quantile mapping. Hydrology and Earth System Sciences,\n16(9), 3309-3314.\n[doi:10.5194/hess-16-3309-2012](https://doi.org/10.5194/hess-16-3309-2012)",
         "sci:doi": "DOI not available"
     },
     "NASA/NLDAS/FORA0125_H002": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_NLDAS_FORA0125_H002.json",
-        "sci:citation": "The data set source should be properly cited when the data are used. A formal reference of the form: \\<authors\\>, 2012, last updated 2013: \\<dataset name\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard Earth Sciences Data and Information Services Center (GES DISC). Accessed \\<enter user data access date\\> at \\<DOI\\> is suggested following Parsons et al. (2010), [doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001).",
+        "sci:citation": "The data set source should be properly cited when the data are\nused. A formal reference of the form: \\<authors\\>, 2012, last updated\n2013: \\<dataset name\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard\nEarth Sciences Data and Information Services Center (GES DISC).\nAccessed \\<enter user data access date\\> at \\<DOI\\> is suggested following\nParsons et al. (2010), [doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001).",
         "sci:doi": "DOI not available"
     },
     "NASA/OCEANDATA/MODIS-Aqua/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_OCEANDATA_MODIS-Aqua_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology Processing Group. Moderate-resolution Imaging Spectroradiometer (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.",
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Moderate-resolution Imaging Spectroradiometer\n(MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.",
         "sci:doi": "10.5067/AQUA/MODIS/L3M/CHL/2018"
     },
     "NASA/OCEANDATA/MODIS-Terra/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_OCEANDATA_MODIS-Terra_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology Processing Group. Moderate-resolution Imaging Spectroradiometer (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.",
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Moderate-resolution Imaging Spectroradiometer\n(MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.",
         "sci:doi": "10.5067/GHMDT-2PJ19"
     },
     "NASA/OCEANDATA/SeaWiFS/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_OCEANDATA_SeaWiFS_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology Processing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data, NASA OB.DAAC, Greenbelt, MD, USA. [doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)",
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,\nNASA OB.DAAC, Greenbelt, MD, USA.\n[doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)",
         "sci:doi": "10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018"
     },
     "NASA/ORNL/DAYMET_V3": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_ORNL_DAYMET_V3.json",
-        "sci:citation": "Thornton, P.E., M.M. Thornton, B.W. Mayer, Y. Wei, R. Devarakonda, R.S.Vose, and R.B. Cook. {YEAR}. Daymet: Daily Surface Weather Data on a 1-km Grid for North America, Version3. ORNL DAAC, Oak Ridge, Tennessee, USA",
+        "sci:citation": "Thornton, P.E., M.M. Thornton, B.W. Mayer, Y. Wei, R. Devarakonda,\nR.S.Vose, and R.B. Cook. {YEAR}. Daymet: Daily Surface Weather Data on a\n1-km Grid for North America, Version3. ORNL DAAC, Oak Ridge, Tennessee, USA",
         "sci:doi": "10.3334/ORNLDAAC/1328"
     },
     "NASA/ORNL/DAYMET_V4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_ORNL_DAYMET_V4.json",
-        "sci:citation": "Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S. Kao, and B.E. Wilson. {YEAR}. Daymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4. ORNL DAAC, Oak Ridge, Tennessee, USA",
+        "sci:citation": "Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S. Kao, and B.E. Wilson. {YEAR}.\nDaymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4. ORNL DAAC, Oak\nRidge, Tennessee, USA",
         "sci:doi": "10.3334/ORNLDAAC/1840"
     },
     "NASA/ORNL/biomass_carbon_density/v1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_ORNL_biomass_carbon_density_v1.json",
-        "sci:citation": "[Spawn, S.A., Sullivan, C.C., Lark, T.J. et al. Harmonized global maps of above and belowground biomass carbon density in the year 2010. Sci Data 7, 112 (2020). https://doi.org/10.1038/s41597-020-0444-4](https://doi.org/10.1038/s41597-020-0444-4)",
+        "sci:citation": "[Spawn, S.A., Sullivan, C.C., Lark, T.J. et al. Harmonized global maps of above and\nbelowground biomass carbon density in the year 2010. Sci Data 7, 112 (2020).\nhttps://doi.org/10.1038/s41597-020-0444-4](https://doi.org/10.1038/s41597-020-0444-4)",
         "sci:doi": "10.3334/ORNLDAAC/1763"
     },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_USDA_HSL_SMAP10KM_soil_moisture.json",
-        "sci:citation": "**Mladenova, I.E., Bolten, J.D., Crow, W., Sazib, N. and Reynolds, C., 2020.** Agricultural drought monitoring via the assimilation of SMAP soil moisture retrievals into a global soil water balance model. *Front. Big Data*, 3(10). [doi:10.3389/fdata.2020.00010](https://doi.org/10.3389/fdata.2020.00010) [Article](https://www.frontiersin.org/article/10.3389/fdata.2020.00010)",
+        "sci:citation": "**Mladenova, I.E., Bolten, J.D., Crow, W., Sazib, N. and Reynolds, C., 2020.**\nAgricultural drought monitoring via the assimilation of SMAP soil moisture retrievals into a\nglobal soil water balance model. *Front. Big Data*,\n3(10).\n[doi:10.3389/fdata.2020.00010](https://doi.org/10.3389/fdata.2020.00010)\n[Article](https://www.frontiersin.org/article/10.3389/fdata.2020.00010)",
         "sci:doi": "DOI not available"
     },
     "NASA_USDA/HSL/SMAP_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_USDA_HSL_SMAP_soil_moisture.json",
-        "sci:citation": "**Bolten, J., W.T. Crow, X. Zhan, T.J. Jackson, and C.A. Reynolds (2010).** Evaluating the Utility of Remotely Sensed Soil Moisture Retrievals for Operational Agricultural Drought Monitoring, *IEEE Transactions on Geoscience and Remote Sensing*, 3(1): 57-66. [doi:10.1109/JSTARS.2009.2037163](https://doi.org/10.1109/JSTARS.2009.2037163) [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)",
+        "sci:citation": "**Bolten, J., W.T. Crow, X. Zhan, T.J. Jackson, and C.A. Reynolds (2010).**\nEvaluating the Utility of Remotely Sensed Soil Moisture Retrievals for\nOperational Agricultural Drought Monitoring, *IEEE Transactions on\nGeoscience and Remote Sensing*, 3(1): 57-66.\n[doi:10.1109/JSTARS.2009.2037163](https://doi.org/10.1109/JSTARS.2009.2037163)\n[Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)",
         "sci:doi": "DOI not available"
     },
     "NASA_USDA/HSL/soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NASA_USDA_HSL_soil_moisture.json",
-        "sci:citation": "**Bolten, J., W.T. Crow, X. Zhan, T.J. Jackson, and C.A. Reynolds (2010).** Evaluating the Utility of Remotely Sensed Soil Moisture Retrievals for Operational Agricultural Drought Monitoring, *IEEE Transactions on Geoscience and Remote Sensing*, 3(1): 57-66. [doi:10.1109/JSTARS.2009.2037163](https://doi.org/10.1109/JSTARS.2009.2037163) [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)",
+        "sci:citation": "**Bolten, J., W.T. Crow, X. Zhan, T.J. Jackson, and C.A. Reynolds (2010).**\nEvaluating the Utility of Remotely Sensed Soil Moisture Retrievals for\nOperational Agricultural Drought Monitoring, *IEEE Transactions on\nGeoscience and Remote Sensing*, 3(1): 57-66.\n[doi:10.1109/JSTARS.2009.2037163](https://doi.org/10.1109/JSTARS.2009.2037163)\n[Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)",
         "sci:doi": "DOI not available"
     },
     "NCEP_RE/sea_level_pressure": {
@@ -3704,67 +3704,67 @@
     "NOAA/CDR/ATMOS_NEAR_SURFACE/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_ATMOS_NEAR_SURFACE_V2.json",
-        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA Climate Data Record Ocean Surface Bundle (OSB) Climate Data Record (CDR) of Near-surface Atmospheric Properties, Version 2. [indicate subset used]. NOAA National ClimaticData Center. [doi:10.7289/V55T3HH0](https://doi.org/10.7289/V55T3HH0).",
+        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA\nClimate Data Record Ocean Surface Bundle (OSB) Climate Data Record\n(CDR) of Near-surface Atmospheric Properties, Version 2. [indicate subset\nused]. NOAA National ClimaticData Center. [doi:10.7289/V55T3HH0](https://doi.org/10.7289/V55T3HH0).",
         "sci:doi": "10.7289/V55T3HH0"
     },
     "NOAA/CDR/AVHRR/AOT/V3": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_AOT_V3.json",
-        "sci:citation": "Zhao, Xuepeng; and NOAA CDR Program (2017): NOAA Climate Data Record (CDR) of AVHRR Daily and Monthly Aerosol Optical Thickness (AOT) over Global Oceans, Version 3.0. [indicate subset used]. NOAA National Centers for Environmental Information. [doi:10.7289/V5BZ642P](https://doi.org/10.7289/V5BZ642P) [date accessed].",
+        "sci:citation": "Zhao, Xuepeng; and NOAA CDR Program (2017): NOAA Climate Data Record (CDR)\nof AVHRR Daily and Monthly Aerosol Optical Thickness (AOT) over Global\nOceans, Version 3.0. [indicate subset used]. NOAA National Centers for\nEnvironmental Information. [doi:10.7289/V5BZ642P](https://doi.org/10.7289/V5BZ642P)\n[date accessed].",
         "sci:doi": "10.7289/V5BZ642P"
     },
     "NOAA/CDR/AVHRR/LAI_FAPAR/V4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_LAI_FAPAR_V4.json",
-        "sci:citation": "Martin Claverie, Eric Vermote, and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Leaf Area Index (LAI) and Fraction of Absorbed Photosynthetically Active Radiation (FAPAR), Version 4. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V5M043BX](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00898)",
+        "sci:citation": "Martin Claverie, Eric Vermote, and NOAA CDR Program (2014): NOAA Climate\nData Record (CDR) of Leaf Area Index (LAI) and Fraction of Absorbed\nPhotosynthetically Active Radiation (FAPAR), Version 4. [indicate subset\nused]. NOAA National Climatic Data Center.\n[doi:10.7289/V5M043BX](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00898)",
         "sci:doi": "10.7289/V5M043BX"
     },
     "NOAA/CDR/AVHRR/LAI_FAPAR/V5": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_LAI_FAPAR_V5.json",
-        "sci:citation": "Martin Claverie, Eric Vermote, and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Leaf Area Index (LAI) and Fraction of Absorbed Photosynthetically Active Radiation (FAPAR), Version 4. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V5M043BX](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00898)",
+        "sci:citation": "Martin Claverie, Eric Vermote, and NOAA CDR Program (2014): NOAA Climate\nData Record (CDR) of Leaf Area Index (LAI) and Fraction of Absorbed\nPhotosynthetically Active Radiation (FAPAR), Version 4. [indicate subset\nused]. NOAA National Climatic Data Center.\n[doi:10.7289/V5M043BX](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00898)",
         "sci:doi": "10.7289/V5M043BX"
     },
     "NOAA/CDR/AVHRR/NDVI/V4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_NDVI_V4.json",
-        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni, Frederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Normalized Difference Vegetation Index (NDVI), Version 4. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V5PZ56R6](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00813)",
+        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni,\nFrederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR\nProgram (2014): NOAA Climate Data Record (CDR) of Normalized Difference\nVegetation Index (NDVI), Version 4. [indicate subset used]. NOAA National\nClimatic Data Center.\n[doi:10.7289/V5PZ56R6](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00813)",
         "sci:doi": "10.7289/V5PZ56R6"
     },
     "NOAA/CDR/AVHRR/NDVI/V5": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_NDVI_V5.json",
-        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni, Frederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Normalized Difference Vegetation Index (NDVI), Version 4. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V5PZ56R6](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00813)",
+        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni,\nFrederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR\nProgram (2014): NOAA Climate Data Record (CDR) of Normalized Difference\nVegetation Index (NDVI), Version 4. [indicate subset used]. NOAA National\nClimatic Data Center.\n[doi:10.7289/V5PZ56R6](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00813)",
         "sci:doi": "10.7289/V5PZ56R6"
     },
     "NOAA/CDR/AVHRR/SR/V4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_SR_V4.json",
-        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni, Frederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of AVHRR Surface Reflectance, Version 4. [indicate subset used]. NOAA National Climatic Data Center.",
+        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni,\nFrederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR\nProgram (2014): NOAA Climate Data Record (CDR) of AVHRR Surface Reflectance,\nVersion 4. [indicate subset used]. NOAA National Climatic Data Center.",
         "sci:doi": "10.7289/V5TM782M"
     },
     "NOAA/CDR/AVHRR/SR/V5": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_AVHRR_SR_V5.json",
-        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni, Frederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of AVHRR Surface Reflectance, Version 4. [indicate subset used]. NOAA National Climatic Data Center.",
+        "sci:citation": "Eric Vermote, Chris Justice, Ivan Csiszar, Jeff Eidenshink, Ranga Myneni,\nFrederic Baret, Ed Masuoka, Robert Wolfe, Martin Claverie and NOAA CDR\nProgram (2014): NOAA Climate Data Record (CDR) of AVHRR Surface Reflectance,\nVersion 4. [indicate subset used]. NOAA National Climatic Data Center.",
         "sci:doi": "10.7289/V53776Z4"
     },
     "NOAA/CDR/GRIDSAT-B1/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_GRIDSAT-B1_V2.json",
-        "sci:citation": "Kenneth R. Knapp, and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Gridded Satellite Data from ISCCP B1 (GridSat-B1) 11 micron Brightness Temperature, Version 2. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V59P2ZKR](https://doi.org/10.7289/V59P2ZKR) [access date].",
+        "sci:citation": "Kenneth R. Knapp, and NOAA CDR Program (2014): NOAA Climate Data Record\n(CDR) of Gridded Satellite Data from ISCCP B1 (GridSat-B1) 11 micron\nBrightness Temperature, Version 2. [indicate subset used]. NOAA National\nClimatic Data Center. [doi:10.7289/V59P2ZKR](https://doi.org/10.7289/V59P2ZKR)\n[access date].",
         "sci:doi": "10.7289/V59P2ZKR"
     },
     "NOAA/CDR/HEAT_FLUXES/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_HEAT_FLUXES_V2.json",
-        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA Climate Data Record Ocean Surface Bundle (OSB) Climate Data Record (CDR) of Ocean Heat Fluxes, Version 2. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V59K4885](https://doi.org/10.7289/V59K4885 ).",
+        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA\nClimate Data Record Ocean Surface Bundle (OSB) Climate Data Record (CDR) of\nOcean Heat Fluxes, Version 2. [indicate subset used]. NOAA National Climatic\nData Center. [doi:10.7289/V59K4885](https://doi.org/10.7289/V59K4885).",
         "sci:doi": "10.7289/V59K4885"
     },
     "NOAA/CDR/OISST/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_OISST_V2.json",
-        "sci:citation": "Richard W. Reynolds, Viva F. Banzon, and NOAA CDR Program (2008): NOAA Optimum Interpolation 1/4 Degree Daily Sea Surface Temperature (OISST) Analysis, Version 2. [indicate subset used]. NOAA National Centers for Environmental Information. [doi:10.7289/V5SQ8XB5](https://doi.org/10.7289/V5SQ8XB5) [access date].",
+        "sci:citation": "Richard W. Reynolds, Viva F. Banzon, and NOAA CDR Program (2008): NOAA\nOptimum Interpolation 1/4 Degree Daily Sea Surface Temperature (OISST)\nAnalysis, Version 2. [indicate subset used]. NOAA National Centers for\nEnvironmental Information. [doi:10.7289/V5SQ8XB5](https://doi.org/10.7289/V5SQ8XB5)\n[access date].",
         "sci:doi": "10.7289/V5SQ8XB5"
     },
     "NOAA/CDR/OISST/V2_1": {
@@ -3776,7 +3776,7 @@
     "NOAA/CDR/PATMOSX/V53": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_PATMOSX_V53.json",
-        "sci:citation": "For the TOA Reflectances and Brightness Temperatures users must cite: Andrew K. Heidinger, Michael J. Foster, Andi Walther, Xuepeng Zhao, and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Reflectance and Brightness Temperatures from AVHRR Pathfinder Atmospheres - Extended (PATMOS-x), Version 5.3. [indicate subset used]. NOAA National Centers for Environmental Information. [doi:10.7289/V56W982J](https://doi.org/10.7289/V56W982J) [access date].",
+        "sci:citation": "For the TOA Reflectances and Brightness Temperatures users must cite:\nAndrew K. Heidinger, Michael J. Foster, Andi Walther, Xuepeng Zhao, and\nNOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Reflectance\nand Brightness Temperatures from AVHRR Pathfinder Atmospheres - Extended\n(PATMOS-x), Version 5.3. [indicate subset used]. NOAA National Centers for\nEnvironmental Information.\n[doi:10.7289/V56W982J](https://doi.org/10.7289/V56W982J)\n[access date].",
         "sci:doi": "10.7289/V5348HCK"
     },
     "NOAA/CDR/SST_PATHFINDER/V53": {
@@ -3788,19 +3788,19 @@
     "NOAA/CDR/SST_WHOI/V2": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CDR_SST_WHOI_V2.json",
-        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA Climate Data Record Ocean Surface Bundle (OSB) Climate Data Record (CDR) of Sea Surface Temperature - WHOI, Version 2. [indicate subset used]. NOAA National Climatic Data Center. [doi:10.7289/V5FB510W](https://doi.org/10.7289/V5FB510W).",
+        "sci:citation": "Clayson, Carol Anne, Brown, Jeremiah, and NOAA CDR Program (2016). NOAA\nClimate Data Record Ocean Surface Bundle (OSB) Climate Data Record (CDR) of\nSea Surface Temperature - WHOI, Version 2. [indicate subset used]. NOAA\nNational Climatic Data Center. [doi:10.7289/V5FB510W](https://doi.org/10.7289/V5FB510W).",
         "sci:doi": "10.7289/V5FB510W"
     },
     "NOAA/CFSR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CFSR.json",
-        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015\u20131057. [doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)",
+        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate\nForecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015\u20131057.\n[doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)",
         "sci:doi": "10.5065/D6513W89"
     },
     "NOAA/CFSV2/FOR6H": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_CFSV2_FOR6H.json",
-        "sci:citation": "Saha, S., et al. 2011, updated daily. NCEP Climate Forecast System Version 2 (CFSv2) 6-hourly Products. Research Data Archive at the National Center for Atmospheric Research, Computational and Information Systems Laboratory. [https://doi.org/10.5065/D61C1TXF](https://doi.org/10.5065/D61C1TXF). Accessed dd mmm yyyy.",
+        "sci:citation": "Saha, S., et al. 2011, updated daily. NCEP Climate Forecast System\nVersion 2 (CFSv2) 6-hourly Products. Research Data Archive at the National\nCenter for Atmospheric Research, Computational and Information Systems\nLaboratory. [https://doi.org/10.5065/D61C1TXF](https://doi.org/10.5065/D61C1TXF).\nAccessed dd mmm yyyy.",
         "sci:doi": "10.5065/D61C1TXF"
     },
     "NOAA/DMSP-OLS/CALIBRATED_LIGHTS_V4": {
@@ -3818,67 +3818,67 @@
     "NOAA/GFS0P25": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GFS0P25.json",
-        "sci:citation": "Alpert, J., 2006 Sub-Grid Scale Mountain Blocking at NCEP, 20th Conf. WAF/16 Conf. NWP P2.4.",
+        "sci:citation": "Alpert, J., 2006 Sub-Grid Scale Mountain Blocking at NCEP, 20th Conf.\nWAF/16 Conf. NWP P2.4.",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/16/FDCC": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_16_FDCC.json",
-        "sci:citation": "Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Honolulu, HI. [doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/16/FDCF": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_16_FDCF.json",
-        "sci:citation": "Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Honolulu, HI. [doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/16/MCMIPC": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_16_MCMIPC.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/16/MCMIPF": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_16_MCMIPF.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/16/MCMIPM": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_16_MCMIPM.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/17/FDCC": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_17_FDCC.json",
-        "sci:citation": "Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Honolulu, HI. [doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/17/FDCF": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_17_FDCF.json",
-        "sci:citation": "Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early characterization of the active fire detection products derived from the next generation NPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Honolulu, HI. [doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/17/MCMIPC": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_17_MCMIPC.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/17/MCMIPF": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_17_MCMIPF.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/GOES/17/MCMIPM": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_GOES_17_MCMIPM.json",
-        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a Green Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)",
         "sci:doi": "DOI not available"
     },
     "NOAA/NCEP_DOE_RE2/total_cloud_coverage": {
@@ -3890,7 +3890,7 @@
     "NOAA/NGDC/ETOPO1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_NGDC_ETOPO1.json",
-        "sci:citation": "Amante, C. and B. W. Eakins, ETOPO1 1 Arc-Minute Global Relief Model: Procedures, Data Sources and Analysis. NOAA Technical Memorandum NESDIS NGDC-24, 19 pp, March 2009.",
+        "sci:citation": "Amante, C. and B. W. Eakins, ETOPO1 1 Arc-Minute Global Relief\nModel: Procedures, Data Sources and Analysis. NOAA Technical Memorandum\nNESDIS NGDC-24, 19 pp, March 2009.",
         "sci:doi": "10.7289/V5C8276M"
     },
     "NOAA/NWS/RTMA": {
@@ -3902,7 +3902,7 @@
     "NOAA/PERSIANN-CDR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_PERSIANN-CDR.json",
-        "sci:citation": "Cite this dataset when used as a source: Sorooshian, Soroosh; Hsu, Kuolin; Braithwaite, Dan; Ashouri, Hamed; and NOAA CDR Program (2014): NOAA Climate Data Record (CDR) of Precipitation Estimation from Remotely Sensed Information using Artificial Neural Networks (PERSIANN-CDR), Version 1 Revision 1. [indicate subset used]. NOAA National Centers for Environmental Information. doi: [doi:10.7289/V51V5BWQ](https://doi.org/10.7289/V51V5BWQ) [access date].",
+        "sci:citation": "Cite this dataset when used as a source: Sorooshian, Soroosh;\nHsu, Kuolin; Braithwaite, Dan; Ashouri, Hamed; and NOAA CDR Program\n(2014): NOAA Climate Data Record (CDR) of Precipitation Estimation\nfrom Remotely Sensed Information using Artificial Neural Networks\n(PERSIANN-CDR), Version 1 Revision 1. [indicate subset used]. NOAA\nNational Centers for Environmental Information. doi:\n[doi:10.7289/V51V5BWQ](https://doi.org/10.7289/V51V5BWQ)\n[access date].",
         "sci:doi": "10.7289/V51V5BWQ"
     },
     "NOAA/VIIRS/001/VNP09GA": {
@@ -3914,7 +3914,7 @@
     "NOAA/VIIRS/001/VNP13A1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/NOAA_VIIRS_001_VNP13A1.json",
-        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data) for information on citing LP DAAC datasets.",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.",
         "sci:doi": "10.5067/VIIRS/VNP13A1.001"
     },
     "NOAA/VIIRS/DNB/MONTHLY_V1/VCMCFG": {
@@ -3938,61 +3938,61 @@
     "OREGONSTATE/PRISM/AN81d": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_AN81d.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/AN81m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_AN81m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/Norm81m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OREGONSTATE_PRISM_Norm81m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K., Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive mapping of temperature and precipitation across the conterminous United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
+        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)",
         "sci:doi": "DOI not available"
     },
     "OSU/GIMP/2000_ICE_OCEAN_MASK": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_2000_ICE_OCEAN_MASK.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice\nMapping Project (GIMP) land classification and surface elevation\ndatasets, The Cryosphere, 8, 1509-1518,\n[doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014)\n[article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/B8X58MQBFUPA"
     },
     "OSU/GIMP/2000_IMAGERY_MOSAIC": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_2000_IMAGERY_MOSAIC.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice\nMapping Project (GIMP) land classification and surface elevation\ndatasets, The Cryosphere, 8, 1509-1518,\n[doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014)\n[article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/4RNTRRE4JCYD"
     },
     "OSU/GIMP/DEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_DEM.json",
-        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice Mapping Project (GIMP) land classification and surface elevation datasets, The Cryosphere, 8, 1509-1518, [doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014) [article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
+        "sci:citation": "Howat, I.M., A. Negrete, B.E. Smith, 2014, The Greenland Ice\nMapping Project (GIMP) land classification and surface elevation\ndatasets, The Cryosphere, 8, 1509-1518,\n[doi:10.5194/tc-8-1509-2014](https://doi.org/10.5194/tc-8-1509-2014)\n[article pdf](https://www.the-cryosphere.net/8/1509/2014/tc-8-1509-2014.pdf)",
         "sci:doi": "10.5067/NV34YUIXLP9W"
     },
     "OSU/GIMP/ICE_VELOCITY_OPT": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OSU_GIMP_ICE_VELOCITY_OPT.json",
-        "sci:citation": "Howat, I. 2017. MEaSUREs Greenland Ice Velocity: Selected Glacier Site Velocity Maps from Optical Images, Version 2. [Indicate subset used]. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center. [doi:10.5067/VM5DZ20MYF5C](https://doi.org/10.5067/VM5DZ20MYF5C). [Date Accessed].",
+        "sci:citation": "Howat, I. 2017. MEaSUREs Greenland Ice Velocity: Selected\nGlacier Site Velocity Maps from Optical Images, Version 2.\n[Indicate subset used]. Boulder, Colorado USA. NASA National\nSnow and Ice Data Center Distributed Active Archive Center.\n[doi:10.5067/VM5DZ20MYF5C](https://doi.org/10.5067/VM5DZ20MYF5C).\n[Date Accessed].",
         "sci:doi": "10.5067/VM5DZ20MYF5C"
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAYNIGHT_M/v01": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OpenLandMap_CLM_CLM_LST_MOD11A2-DAYNIGHT_M_v01.json",
-        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000-2017 time series [10.5281/zenodo.1420116](https://doi.org/10.5281/zenodo.1420114)",
+        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences\nat 1 km based on the 2000-2017 time series\n[10.5281/zenodo.1420116](https://doi.org/10.5281/zenodo.1420114)\"",
         "sci:doi": "10.5281/zenodo.1420114"
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAY_M/v01": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OpenLandMap_CLM_CLM_LST_MOD11A2-DAY_M_v01.json",
-        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000-2017 time series [10.5281/zenodo.1420114](https://doi.org/10.5281/zenodo.1420114)",
+        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences\nat 1 km based on the 2000-2017 time series\n[10.5281/zenodo.1420114](https://doi.org/10.5281/zenodo.1420114)",
         "sci:doi": "10.5281/zenodo.1420114"
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAY_SD/v01": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OpenLandMap_CLM_CLM_LST_MOD11A2-DAY_SD_v01.json",
-        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000-2017 time series [10.5281/zenodo.1420115](https://doi.org/10.5281/zenodo.1420114)",
+        "sci:citation": "Long-term MODIS LST day-time and night-time temperatures, sd and differences\nat 1 km based on the 2000-2017 time series\n[10.5281/zenodo.1420115](https://doi.org/10.5281/zenodo.1420114)",
         "sci:doi": "10.5281/zenodo.1420114"
     },
     "OpenLandMap/CLM/CLM_PRECIPITATION_SM2RAIN_M/v01": {
@@ -4034,7 +4034,7 @@
     "OpenLandMap/SOL/SOL_GRTGROUP_USDA-SOILTAX_C/v01": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/OpenLandMap_SOL_SOL_GRTGROUP_USDA-SOILTAX_C_v01.json",
-        "sci:citation": "Tomislav Hengl, & Travis Nauman. (2018). Predicted USDA soil great groups at 250 m (probabilities) (Version v01) [Data set]. Zenodo. [10.5281/zenodo.1476844](https://doi.org/10.5281/zenodo.1476844)",
+        "sci:citation": "Tomislav Hengl, & Travis Nauman. (2018). Predicted USDA soil great groups at\n250 m (probabilities) (Version v01) [Data set]. Zenodo.\n[10.5281/zenodo.1476844](https://doi.org/10.5281/zenodo.1476844)",
         "sci:doi": "10.5281/zenodo.1476844"
     },
     "OpenLandMap/SOL/SOL_ORGANIC-CARBON_USDA-6A1C_M/v02": {
@@ -4106,25 +4106,25 @@
     "Oxford/MAP/accessibility_to_cities_2015_v1_0": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Oxford_MAP_accessibility_to_cities_2015_v1_0.json",
-        "sci:citation": "D.J. Weiss, A. Nelson, H.S. Gibson, W. Temperley, S. Peedell, A. Lieber, M. Hancher, E. Poyart, S. Belchior, N. Fullman, B. Mappin, U. Dalrymple, J. Rozier, T.C.D. Lucas, R.E. Howes, L.S. Tusting, S.Y. Kang, E. Cameron, D. Bisanzio, K.E. Battle, S. Bhatt, and P.W. Gething. A global map of travel time to cities to assess inequalities in accessibility in 2015. Nature (2018). (doi:10.1038/nature25181)[https://doi.org/10.1038/nature25181]",
+        "sci:citation": "D.J. Weiss, A. Nelson, H.S. Gibson, W. Temperley, S. Peedell, A.\nLieber, M. Hancher, E. Poyart, S. Belchior, N. Fullman, B. Mappin,\nU. Dalrymple, J. Rozier, T.C.D. Lucas, R.E. Howes, L.S. Tusting,\nS.Y. Kang, E. Cameron, D. Bisanzio, K.E. Battle, S. Bhatt, and\nP.W. Gething. A global map of travel time to cities to assess inequalities\nin accessibility in 2015. Nature (2018).\n(doi:10.1038/nature25181)[https://doi.org/10.1038/nature25181]",
         "sci:doi": "DOI not available"
     },
     "Oxford/MAP/accessibility_to_healthcare_2019": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Oxford_MAP_accessibility_to_healthcare_2019.json",
-        "sci:citation": "D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori\u0107, S. Bavadekar, E. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel, C. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi, S.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething. Global maps of travel time to healthcare facilities. Nature Medicine (2020).",
+        "sci:citation": "D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori\u0107, S. Bavadekar,\nE. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel,\nC. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi,\nS.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething.\nGlobal maps of travel time to healthcare facilities. Nature Medicine (2020).",
         "sci:doi": "DOI not available"
     },
     "Oxford/MAP/friction_surface_2015_v1_0": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Oxford_MAP_friction_surface_2015_v1_0.json",
-        "sci:citation": "D.J. Weiss, A. Nelson, H.S. Gibson, W. Temperley, S. Peedell, A. Lieber, M. Hancher, E. Poyart, S. Belchior, N. Fullman, B. Mappin, U. Dalrymple, J. Rozier, T.C.D. Lucas, R.E. Howes, L.S. Tusting, S.Y. Kang, E. Cameron, D. Bisanzio, K.E. Battle, S. Bhatt, and P.W. Gething. A global map of travel time to cities to assess inequalities in accessibility in 2015. Nature (2018). [doi:10.1038/nature25181](https://doi.org/10.1038/nature25181)",
+        "sci:citation": "D.J. Weiss, A. Nelson, H.S. Gibson, W. Temperley, S. Peedell, A.\nLieber, M. Hancher, E. Poyart, S. Belchior, N. Fullman, B. Mappin,\nU. Dalrymple, J. Rozier, T.C.D. Lucas, R.E. Howes, L.S. Tusting,\nS.Y. Kang, E. Cameron, D. Bisanzio, K.E. Battle, S. Bhatt, and\nP.W. Gething. A global map of travel time to cities to assess inequalities\nin accessibility in 2015. Nature (2018).\n[doi:10.1038/nature25181](https://doi.org/10.1038/nature25181)",
         "sci:doi": "DOI not available"
     },
     "Oxford/MAP/friction_surface_2019": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Oxford_MAP_friction_surface_2019.json",
-        "sci:citation": "D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori\u0107, S. Bavadekar, E. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel, C. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi, S.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething. Global maps of travel time to healthcare facilities. Nature Medicine (2020).",
+        "sci:citation": "D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori\u0107, S. Bavadekar,\nE. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel,\nC. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi,\nS.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething.\nGlobal maps of travel time to healthcare facilities. Nature Medicine (2020).",
         "sci:doi": "DOI not available"
     },
     "SKYSAT/GEN-A/PUBLIC/ORTHO/MULTISPECTRAL": {
@@ -4148,55 +4148,55 @@
     "TERN/AET/CMRSET_LANDSAT_V2_1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TERN_AET_CMRSET_LANDSAT_V2_1.json",
-        "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L., and Chen, Y. (2021) Estimating actual evapotranspiration continentally at field-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS, Landsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)",
+        "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L.,\nand Chen, Y. (2021) Estimating actual evapotranspiration continentally at\nfield-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,\nLandsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)",
         "sci:doi": "DOI not available"
     },
     "TOMS/MERGED": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TOMS_MERGED.json",
-        "sci:citation": "The data set source should be properly cited when the data are used. A formal reference of the form: \\<authors\\>, 2012, last updated 2013: \\<dataset name\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard Earth Sciences Data and Information Services Center (GES DISC). Accessed \\<enter user data access date\\> at \\<DOI\\> is suggested following Parsons et al. (2010), [doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001)",
+        "sci:citation": "The data set source should be properly cited when the data are used.\nA formal reference of the form: \\<authors\\>, 2012, last updated 2013:\n\\<dataset name\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard Earth Sciences\nData and Information Services Center (GES DISC). Accessed\n\\<enter user data access date\\> at \\<DOI\\> is suggested following\nParsons et al. (2010),\n[doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001)",
         "sci:doi": "DOI not available"
     },
     "TRMM/3B42": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TRMM_3B42.json",
-        "sci:citation": "Adler, R.F., G.J. Huffman, A. Chang, R. Ferraro, P. Xie, J. Janowiak, B. Rudolf, U. Schneider, S. Curtis, D. Bolvin, A. Gruber, J. Susskind, P. Arkin, E.J. Nelkin, 2003: The Version 2 Global Precipitation Climatology Project (GPCP) Monthly Precipitation Analysis (1979-Present). J. Hydrometeor., 4(6), 1147-1167.",
+        "sci:citation": "Adler, R.F., G.J. Huffman, A. Chang, R. Ferraro, P. Xie, J. Janowiak,\nB. Rudolf, U. Schneider, S. Curtis, D. Bolvin, A. Gruber, J. Susskind,\nP. Arkin, E.J. Nelkin, 2003: The Version 2 Global Precipitation\nClimatology Project (GPCP) Monthly Precipitation Analysis (1979-Present).\nJ. Hydrometeor., 4(6), 1147-1167.",
         "sci:doi": "DOI not available"
     },
     "TRMM/3B43V7": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TRMM_3B43V7.json",
-        "sci:citation": "Adler, R.F., G.J. Huffman, A. Chang, R. Ferraro, P. Xie, J. Janowiak, B. Rudolf, U. Schneider, S. Curtis, D. Bolvin, A. Gruber, J. Susskind, P. Arkin, E.J. Nelkin, 2003: The Version 2 Global Precipitation Climatology Project (GPCP) Monthly Precipitation Analysis (1979-Present). J. Hydrometeor., 4(6), 1147-1167.",
+        "sci:citation": "Adler, R.F., G.J. Huffman, A. Chang, R. Ferraro, P. Xie, J. Janowiak,\nB. Rudolf, U. Schneider, S. Curtis, D. Bolvin, A. Gruber, J. Susskind,\nP. Arkin, E.J. Nelkin, 2003: The Version 2 Global Precipitation\nClimatology Project (GPCP) Monthly Precipitation Analysis (1979-Present).\nJ. Hydrometeor., 4(6), 1147-1167.",
         "sci:doi": "DOI not available"
     },
     "TUBerlin/BigEarthNet/v1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TUBerlin_BigEarthNet_v1.json",
-        "sci:citation": "G. Sumbul, M. Charfuelan, B. Demir, V. Markl, BigEarthNet: A Large-Scale Benchmark Archive for Remote Sensing Image Understanding, IEEE International Conference on Geoscience and Remote Sensing Symposium, pp. 5901-5904, Yokohama, Japan, 2019.",
+        "sci:citation": "G. Sumbul, M. Charfuelan, B. Demir, V. Markl, BigEarthNet: A Large-Scale\nBenchmark Archive for Remote Sensing Image Understanding, IEEE International\nConference on Geoscience and Remote Sensing Symposium, pp. 5901-5904,\nYokohama, Japan, 2019.",
         "sci:doi": "DOI not available"
     },
     "Tsinghua/DESS/ChinaTerraceMap/v1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Tsinghua_DESS_ChinaTerraceMap_v1.json",
-        "sci:citation": "Cao, B., Yu, L., Naipal, V., Ciais, P., Li, W., Zhao, Y., Wei, W., Chen, D., Liu, Z., and Gong, P.: A 30\u2009m terrace mapping in China using Landsat 8 imagery and digital elevation model based on the Google Earth Engine, Earth Syst. Sci. Data, 13, 2437\u20132456, https://doi.org/10.5194/essd-13-2437-2021, 2021.",
+        "sci:citation": "Cao, B., Yu, L., Naipal, V., Ciais, P., Li, W., Zhao, Y., Wei, W.,\nChen, D., Liu, Z., and Gong, P.: A 30\u2009m terrace mapping in China using\nLandsat 8 imagery and digital elevation model based on the Google Earth\nEngine, Earth Syst. Sci. Data, 13, 2437\u20132456,\nhttps://doi.org/10.5194/essd-13-2437-2021, 2021.'",
         "sci:doi": "10.5194/essd-13-2437-2021"
     },
     "Tsinghua/FROM-GLC/GAIA/v10": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/Tsinghua_FROM-GLC_GAIA_v10.json",
-        "sci:citation": "Gong, P., Li, X., Wang, J., Bai, Y., Chen, B., Hu, T., ... & Zhou, Y. (2020). Annual maps of global artificial impervious area (GAIA) between 1985 and 2018. Remote Sensing of Environment, 236, 111510.",
+        "sci:citation": "Gong, P., Li, X., Wang, J., Bai, Y., Chen, B., Hu, T., ... & Zhou, Y. (2020).\nAnnual maps of global artificial impervious area (GAIA) between 1985 and 2018.\nRemote Sensing of Environment, 236, 111510.",
         "sci:doi": "DOI not available"
     },
     "UCSB-CHG/CHIRPS/DAILY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UCSB-CHG_CHIRPS_DAILY.json",
-        "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James Verdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison, Andrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation with stations\u2014a new environmental record for monitoring extremes\". Scientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66) 2015.",
+        "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James\nVerdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,\nAndrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation\nwith stations\u2014a new environmental record for monitoring extremes\".\nScientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)\n2015.'",
         "sci:doi": "DOI not available"
     },
     "UCSB-CHG/CHIRPS/PENTAD": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UCSB-CHG_CHIRPS_PENTAD.json",
-        "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James Verdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison, Andrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation with stations\u2014a new environmental record for monitoring extremes\". Scientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66) 2015.",
+        "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James\nVerdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,\nAndrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation\nwith stations\u2014a new environmental record for monitoring extremes\".\nScientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)\n2015.'",
         "sci:doi": "DOI not available"
     },
     "UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1": {
@@ -4274,79 +4274,79 @@
     "UMN/PGC/ArcticDEM/V3/2m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMN_PGC_ArcticDEM_V3_2m.json",
-        "sci:citation": "DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery. Porter, Claire; Morin, Paul; Howat, Ian; Noh, Myoung-Jon; Bates, Brian; Peterman, Kenneth; Keesey, Scott; Schlenk, Matthew; Gardiner, Judith; Tomko, Karen; Willis, Michael; Kelleher, Cole; Cloutier, Michael; Husby, Eric; Foga, Steven; Nakamura, Hitomi; Platson, Melisa; Wethington, Michael, Jr.; Williamson, Cathleen; Bauer, Gregory; Enos, Jeremy; Arnold, Galen; Kramer, William; Becker, Peter; Doshi, Abhijit; D\u2019Souza, Cristelle; Cummens, Pat; Laurier, Fabien; Bojesen, Mikkel, 2018, ArcticDEM, Harvard Dataverse, V1, [Date Accessed].",
+        "sci:citation": "DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery.\nPorter, Claire; Morin, Paul; Howat, Ian; Noh, Myoung-Jon; Bates, Brian;\nPeterman, Kenneth; Keesey, Scott; Schlenk, Matthew; Gardiner, Judith;\nTomko, Karen; Willis, Michael; Kelleher, Cole; Cloutier, Michael; Husby, Eric;\nFoga, Steven; Nakamura, Hitomi; Platson, Melisa; Wethington, Michael, Jr.;\nWilliamson, Cathleen; Bauer, Gregory; Enos, Jeremy; Arnold, Galen; Kramer, William;\nBecker, Peter; Doshi, Abhijit; D\u2019Souza, Cristelle; Cummens, Pat; Laurier, Fabien;\nBojesen, Mikkel, 2018, ArcticDEM, Harvard Dataverse, V1, [Date Accessed].",
         "sci:doi": "10.7910/DVN/OHHUKH"
     },
     "UMN/PGC/ArcticDEM/V3/2m_mosaic": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMN_PGC_ArcticDEM_V3_2m_mosaic.json",
-        "sci:citation": "DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery. Porter, Claire; Morin, Paul; Howat, Ian; Noh, Myoung-Jon; Bates, Brian; Peterman, Kenneth; Keesey, Scott; Schlenk, Matthew; Gardiner, Judith; Tomko, Karen; Willis, Michael; Kelleher, Cole; Cloutier, Michael; Husby, Eric; Foga, Steven; Nakamura, Hitomi; Platson, Melisa; Wethington, Michael, Jr.; Williamson, Cathleen; Bauer, Gregory; Enos, Jeremy; Arnold, Galen; Kramer, William; Becker, Peter; Doshi, Abhijit; D\u2019Souza, Cristelle; Cummens, Pat; Laurier, Fabien; Bojesen, Mikkel, 2018, ArcticDEM, Harvard Dataverse, V1, [Date Accessed].",
+        "sci:citation": "DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery.\nPorter, Claire; Morin, Paul; Howat, Ian; Noh, Myoung-Jon; Bates, Brian;\nPeterman, Kenneth; Keesey, Scott; Schlenk, Matthew; Gardiner, Judith;\nTomko, Karen; Willis, Michael; Kelleher, Cole; Cloutier, Michael; Husby, Eric;\nFoga, Steven; Nakamura, Hitomi; Platson, Melisa; Wethington, Michael, Jr.;\nWilliamson, Cathleen; Bauer, Gregory; Enos, Jeremy; Arnold, Galen; Kramer, William;\nBecker, Peter; Doshi, Abhijit; D\u2019Souza, Cristelle; Cummens, Pat; Laurier, Fabien;\nBojesen, Mikkel, 2018, ArcticDEM, Harvard Dataverse, V1, [Date Accessed].",
         "sci:doi": "10.7910/DVN/OHHUKH"
     },
     "UMN/PGC/REMA/V1/2m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMN_PGC_REMA_V1_2m.json",
-        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.: The Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
+        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.:\nThe Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
         "sci:doi": "10.5194/tc-13-665-2019"
     },
     "UMN/PGC/REMA/V1/8m": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMN_PGC_REMA_V1_8m.json",
-        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.: The Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
+        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.:\nThe Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
         "sci:doi": "10.5194/tc-13-665-2019"
     },
     "UMN/PGC/REMA/V1_1/8m": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMN_PGC_REMA_V1_1_8m.json",
-        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.: The Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
+        "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.:\nThe Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.",
         "sci:doi": "10.5194/tc-13-665-2019"
     },
     "UMT/Climate/IrrMapper_RF/v1_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMT_Climate_IrrMapper_RF_v1_0.json",
-        "sci:citation": "Ketchum, D.; Jencso, K.; Maneta, M.P.; Melton, F.; Jones, M.O.; Huntington, J. IrrMapper: A Machine Learning Approach for High Resolution Mapping of Irrigated Agriculture Across the Western U.S.. Remote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)",
+        "sci:citation": "Ketchum, D.; Jencso, K.; Maneta, M.P.; Melton, F.; Jones, M.O.; Huntington, J.\nIrrMapper: A Machine Learning Approach for High Resolution Mapping of\nIrrigated Agriculture Across the Western U.S.,\nRemote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)",
         "sci:doi": "DOI not available"
     },
     "UMT/NTSG/v2/LANDSAT/GPP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMT_NTSG_v2_LANDSAT_GPP.json",
-        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A. Erickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary production for the conterminous United States derived from Landsat 30 m and MODIS 250 m. Remote Sensing in Ecology and Conservation. [doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
+        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A.\nErickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary\nproduction for the conterminous United States derived from Landsat 30 m and\nMODIS 250 m. Remote Sensing in Ecology and Conservation.\n[doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
         "sci:doi": "DOI not available"
     },
     "UMT/NTSG/v2/LANDSAT/NPP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMT_NTSG_v2_LANDSAT_NPP.json",
-        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A. Erickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary production for the conterminous United States derived from Landsat 30 m and MODIS 250 m. Remote Sensing in Ecology and Conservation. [doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
+        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A.\nErickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary\nproduction for the conterminous United States derived from Landsat 30 m and\nMODIS 250 m. Remote Sensing in Ecology and Conservation.\n[doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
         "sci:doi": "DOI not available"
     },
     "UMT/NTSG/v2/MODIS/GPP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMT_NTSG_v2_MODIS_GPP.json",
-        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A. Erickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary production for the conterminous United States derived from Landsat 30 m and MODIS 250 m. Remote Sensing in Ecology and Conservation. [doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
+        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A.\nErickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary\nproduction for the conterminous United States derived from Landsat 30 m and\nMODIS 250 m. Remote Sensing in Ecology and Conservation.\n[doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
         "sci:doi": "DOI not available"
     },
     "UMT/NTSG/v2/MODIS/NPP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UMT_NTSG_v2_MODIS_NPP.json",
-        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A. Erickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary production for the conterminous United States derived from Landsat 30 m and MODIS 250 m. Remote Sensing in Ecology and Conservation. [doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
+        "sci:citation": "Robinson, N.P., B.W. Allred, W.K. Smith, M.O. Jones, A. Moreno, T.A.\nErickson, D.E. Naugle, and S.W. Running. 2018. Terrestrial primary\nproduction for the conterminous United States derived from Landsat 30 m and\nMODIS 250 m. Remote Sensing in Ecology and Conservation.\n[doi:10.1002/rse2.74](https://doi.org/10.1002/rse2.74)",
         "sci:doi": "DOI not available"
     },
     "UQ/murray/Intertidal/v1_1/data_mask": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UQ_murray_Intertidal_v1_1_data_mask.json",
-        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B., Clinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and trajectory of tidal flats. Nature, 565, 222-225.",
+        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B.,\nClinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and\ntrajectory of tidal flats. Nature, 565, 222-225.",
         "sci:doi": "10.1038/s41586-018-0805-8"
     },
     "UQ/murray/Intertidal/v1_1/global_intertidal": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UQ_murray_Intertidal_v1_1_global_intertidal.json",
-        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B., Clinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and trajectory of tidal flats. Nature, 565, 222-225.",
+        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B.,\nClinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and\ntrajectory of tidal flats. Nature, 565, 222-225.",
         "sci:doi": "10.1038/s41586-018-0805-8"
     },
     "UQ/murray/Intertidal/v1_1/qa_pixel_count": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UQ_murray_Intertidal_v1_1_qa_pixel_count.json",
-        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B., Clinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and trajectory of tidal flats. Nature, 565, 222-225.",
+        "sci:citation": "Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B.,\nClinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and\ntrajectory of tidal flats. Nature, 565, 222-225.",
         "sci:doi": "10.1038/s41586-018-0805-8"
     },
     "USDA/NAIP/DOQQ": {
@@ -4358,13 +4358,13 @@
     "USDA/NASS/CDL": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USDA_NASS_CDL.json",
-        "sci:citation": "USDA National Agricultural Statistics Service Cropland Data Layer. {YEAR}. Published crop-specific data layer [Online]. Available at [https://nassgeodata.gmu.edu/CropScape/](https://nassgeodata.gmu.edu/CropScape/) (accessed {DATE}; verified {DATE}). USDA-NASS, Washington, DC.",
+        "sci:citation": "USDA National Agricultural Statistics Service Cropland Data Layer. {YEAR}.\nPublished crop-specific data layer [Online]. Available at\n[https://nassgeodata.gmu.edu/CropScape/](https://nassgeodata.gmu.edu/CropScape/)\n(accessed {DATE}; verified {DATE}). USDA-NASS, Washington, DC.",
         "sci:doi": "DOI not available"
     },
     "USFS/GTAC/LCMS/v2020-5": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USFS_GTAC_LCMS_v2020-5.json",
-        "sci:citation": "USDA Forest Service. 2021. USFS Landscape Change Monitoring System version 2020.5. Salt Lake City, Utah.",
+        "sci:citation": "USDA Forest Service. 2021. USFS Landscape Change Monitoring System\nversion 2020.5. Salt Lake City, Utah.",
         "sci:doi": "DOI not available"
     },
     "USGS/3DEP/10m": {
@@ -4382,37 +4382,37 @@
     "USGS/GAP/CONUS/2011": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GAP_CONUS_2011.json",
-        "sci:citation": "Homer, C.G., Dewitz, J.A., Yang, L., Jin, S., Danielson, P., Xian, G., Coulston, J., Herold, N.D., Wickham, J.D., and Megown, K., 2015,Completion of the 2011 National Land Cover Database for the conterminous United States-Representing a decade of land cover change information. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p. 345-354. https://www.asprs.org/a/publications/pers/2015journals/PERS_May_2015/HTML/index.html",
+        "sci:citation": "Homer, C.G., Dewitz, J.A., Yang, L., Jin, S., Danielson, P., Xian, G., Coulston, J.,\nHerold, N.D., Wickham, J.D., and Megown, K., 2015,Completion of the 2011 National Land Cover\nDatabase for the conterminous United States-Representing a decade of land cover change\ninformation. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p. 345-354.\nhttps://www.asprs.org/a/publications/pers/2015journals/PERS_May_2015/HTML/index.html",
         "sci:doi": "DOI not available"
     },
     "USGS/GAP/HI/2001": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GAP_HI_2001.json",
-        "sci:citation": "Gon, S.M., A. Allison, R. J. Cannarella, J. D. Jacobi, K. Y. Kaneshiro, M. H. Kido, M. Lane-Kamehele, S. E. Miller.  2006.  The Hawaii Gap Analysis Project Final Report.  487 pp.",
+        "sci:citation": "Gon, S.M., A. Allison, R. J. Cannarella, J. D. Jacobi, K. Y. Kaneshiro,\nM. H. Kido, M. Lane-Kamehele, S. E. Miller.  2006.  The Hawaii Gap Analysis\nProject Final Report. 487 pp.",
         "sci:doi": "DOI not available"
     },
     "USGS/GAP/PR/2001": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GAP_PR_2001.json",
-        "sci:citation": "Gould, W. A. C. Alarcon, B. Fevold, M.E. Jimenez, S. Martinuzzi, G. Potts, M. Quinones, M. Solorzona, E. Ventosa.  2008.  The Puerto Rico Gap Analysis Project. Volume 1: Land cover, vertebrate species distribution, and land stewardship.  Gen. Tech. Rep. IITF-GRT-39. Rio Piedras, Pr.  USDA, Forest Service, International Institute of Tropical Forestery.  165. p.",
+        "sci:citation": "Gould, W. A. C. Alarcon, B. Fevold, M.E. Jimenez, S. Martinuzzi, G. Potts, M. Quinones,\nM. Solorzona, E. Ventosa.  2008.  The Puerto Rico Gap Analysis Project. Volume 1: Land cover,\nvertebrate species distribution, and land stewardship.  Gen. Tech. Rep. IITF-GRT-39. Rio\nPiedras, Pr.  USDA, Forest Service, International Institute of Tropical Forestery.  165. p.",
         "sci:doi": "DOI not available"
     },
     "USGS/GFSAD1000_V0": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GFSAD1000_V0.json",
-        "sci:citation": "Thenkabail P.S., Knox J.W., Ozdogan, M., Gumma, M.K., Congalton, R.G., Wu, Z., Milesi, C., Finkral, A., Marshall, M., Mariotto, I., You, S. Giri, C. and Nagler, P. 2012. Assessing future risks to agricultural productivity, water resources and food security: how can remote sensing help?. Photogrammetric Engineering and Remote Sensing, August 2012 Special Issue on Global Croplands: Highlight Article. 78(8): 773-782.",
+        "sci:citation": "Thenkabail P.S., Knox J.W., Ozdogan, M., Gumma, M.K., Congalton, R.G., Wu,\nZ., Milesi, C., Finkral, A., Marshall, M., Mariotto, I., You, S. Giri, C.\nand Nagler, P. 2012. Assessing future risks to agricultural productivity,\nwater resources and food security: how can remote sensing help?.\nPhotogrammetric Engineering and Remote Sensing, August 2012 Special Issue\non Global Croplands: Highlight Article. 78(8): 773-782.",
         "sci:doi": "DOI not available"
     },
     "USGS/GFSAD1000_V1": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GFSAD1000_V1.json",
-        "sci:citation": "[Teluguntla, P., Thenkabail, P.S., Xiong, J., Gumma, M.K., Giri, C., Milesi, C., Ozdogan, M., Congalton, R., Tilton, J., Sankey, T.R., Massey, R., Phalke, A., and Yadav, K. 2014. Global Cropland Area Database (GCAD) derived from Remote Sensing in Support of Food Security in the Twenty-first Century: Current Achievements and Future Possibilities. Chapter 7, Vol. II. Land Resources: Monitoring, Modelling, and Mapping, Remote Sensing Handbook edited by Prasad S. Thenkabail. In Press.] (https://lpdaac.usgs.gov/documents/173/GFSAD1K_ATBD.pdf)",
+        "sci:citation": "[Teluguntla, P., Thenkabail, P.S., Xiong, J., Gumma, M.K., Giri, C., Milesi,\nC., Ozdogan, M., Congalton, R., Tilton, J., Sankey, T.R., Massey, R.,\nPhalke, A., and Yadav, K. 2014. Global Cropland Area Database (GCAD)\nderived from Remote Sensing in Support of Food Security in the Twenty-first\nCentury: Current Achievements and Future Possibilities. Chapter 7, Vol. II.\nLand Resources: Monitoring, Modelling, and Mapping, Remote Sensing Handbook\nedited by Prasad S. Thenkabail. In Press.]\n(https://lpdaac.usgs.gov/documents/173/GFSAD1K_ATBD.pdf)",
         "sci:doi": "DOI not available"
     },
     "USGS/GMTED2010": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_GMTED2010.json",
-        "sci:citation": "Global Multi-resolution Terrain Elevation Data 2010 courtesy of the U.S. Geological Survey",
+        "sci:citation": "Global Multi-resolution Terrain Elevation Data 2010 courtesy of\nthe U.S. Geological Survey",
         "sci:doi": "DOI not available"
     },
     "USGS/GTOPO30": {
@@ -4424,13 +4424,13 @@
     "USGS/LIMA/MOSAIC": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_LIMA_MOSAIC.json",
-        "sci:citation": "Bindschadler, R., Vornberger, P., Fleming, A., Fox, A., Mullins, J., Binnie, D., Paulson, S., Granneman, B., and Gorodetzky, D., 2008, The Landsat Image Mosaic of Antarctica, Remote Sensing of Environment, 112, pp. 4214-4226. [PDF](https://lima.usgs.gov/LIMA_paper.pdf)",
+        "sci:citation": "Bindschadler, R., Vornberger, P., Fleming, A., Fox, A., Mullins, J.,\nBinnie, D., Paulson, S., Granneman, B., and Gorodetzky, D., 2008,\nThe Landsat Image Mosaic of Antarctica, Remote Sensing of\nEnvironment, 112, pp. 4214-4226.\n[PDF](https://lima.usgs.gov/LIMA_paper.pdf)",
         "sci:doi": "DOI not available"
     },
     "USGS/LIMA/SR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_LIMA_SR.json",
-        "sci:citation": "Bindschadler, R., Vornberger, P., Fleming, A., Fox, A., Mullins, J., Binnie, D., Paulson, S., Granneman, B., and Gorodetzky, D., 2008, The Landsat Image Mosaic of Antarctica, Remote Sensing of Environment, 112, pp. 4214-4226. [PDF](https://lima.usgs.gov/LIMA_paper.pdf)",
+        "sci:citation": "Bindschadler, R., Vornberger, P., Fleming, A., Fox, A., Mullins, J.,\nBinnie, D., Paulson, S., Granneman, B., and Gorodetzky, D., 2008,\nThe Landsat Image Mosaic of Antarctica, Remote Sensing of\nEnvironment, 112, pp. 4214-4226.\n[PDF](https://lima.usgs.gov/LIMA_paper.pdf)",
         "sci:doi": "DOI not available"
     },
     "USGS/NED": {
@@ -4442,25 +4442,25 @@
     "USGS/NLCD": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_NLCD.json",
-        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A., Costello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge, M. and G. Xian. 2018, [A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies] (https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.",
+        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.",
         "sci:doi": "DOI not available"
     },
     "USGS/NLCD_RELEASES/2016_REL": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_NLCD_RELEASES_2016_REL.json",
-        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A., Costello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge, M. and G. Xian. 2018, [A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies] (https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.",
+        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.",
         "sci:doi": "DOI not available"
     },
     "USGS/SRTMGL1_003": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS_SRTMGL1_003.json",
-        "sci:citation": "Farr, T.G., Rosen, P.A., Caro, E., Crippen, R., Duren, R., Hensley, S., Kobrick, M., Paller, M., Rodriguez, E., Roth, L., Seal, D., Shaffer, S., Shimada, J., Umland, J., Werner, M., Oskin, M., Burbank, D., and Alsdorf, D.E., 2007, The shuttle radar topography mission: Reviews of Geophysics, v. 45, no. 2, RG2004, at [https://doi.org/10.1029/2005RG000183](https://doi.org/10.1029/2005RG000183).",
+        "sci:citation": "Farr, T.G., Rosen, P.A., Caro, E., Crippen, R., Duren, R., Hensley,\nS., Kobrick, M., Paller, M., Rodriguez, E., Roth, L., Seal, D.,\nShaffer, S., Shimada, J., Umland, J., Werner, M., Oskin, M., Burbank,\nD., and Alsdorf, D.E., 2007, The shuttle radar topography mission:\nReviews of Geophysics, v. 45, no. 2, RG2004, at\n[https://doi.org/10.1029/2005RG000183](https://doi.org/10.1029/2005RG000183).",
         "sci:doi": "DOI not available"
     },
     "UTOKYO/WTLAB/KBDI/v1": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/UTOKYO_WTLAB_KBDI_v1.json",
-        "sci:citation": "Wataru Takeuchi, Soni Darmawan, Rizatus Shofiyati, Mai Van Khiem, Kyaw San Oo, Uday Pimple and Suthy Heng, 2015. Near-real time meteorological drought monitoring and early warning system for croplands in Asia. 36th Asian conference on remote sensing (ACRS): Manila, Philippines, Oct. 20, 2015.",
+        "sci:citation": "Wataru Takeuchi, Soni Darmawan, Rizatus Shofiyati, Mai Van Khiem, Kyaw San Oo, Uday Pimple\nand Suthy Heng, 2015. Near-real time meteorological drought monitoring and early warning\nsystem for croplands in Asia.\n36th Asian conference on remote sensing (ACRS): Manila, Philippines, Oct. 20, 2015.",
         "sci:doi": "DOI not available"
     },
     "VITO/PROBAV/C1/S1_TOC_100M": {
@@ -4490,7 +4490,7 @@
     "WCMC/biomass_carbon_density/v1_0": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WCMC_biomass_carbon_density_v1_0.json",
-        "sci:citation": "Soto-Navarro C., Ravilious C., Arnell A., de Lamo X., Harfoot M., Hill S. L. L., Wearn O. R., Santoro M., Bouvet A., Mermoz S., Le Toan T., Xia J., Liu S., Yuan W., Spawn S. A., Gibbs H. K., Ferrier S., Harwood T., Alkemade R., Schipper A. M., Schmidt-Traub G., Strassburg B., Miles L., Burgess N. D. and Kapos V. (2020) Mapping co-benefits for carbon storage and biodiversity to inform conservation policy and action. Philosophical Transactions of the Royal Society B. 375 [Link](https://doi.org/10.1098/rstb.2019.0128)",
+        "sci:citation": "Soto-Navarro C., Ravilious C., Arnell A., de Lamo X., Harfoot M., Hill S. L. L.,\nWearn O. R., Santoro M., Bouvet A., Mermoz S., Le Toan T., Xia J., Liu S.,\nYuan W., Spawn S. A., Gibbs H. K., Ferrier S., Harwood T., Alkemade R.,\nSchipper A. M., Schmidt-Traub G., Strassburg B., Miles L., Burgess N. D.\nand Kapos V. (2020) Mapping co-benefits for carbon storage and biodiversity to\ninform conservation policy and action. Philosophical Transactions of the Royal\nSociety B. 375 [Link](https://doi.org/10.1098/rstb.2019.0128)",
         "sci:doi": "10.34892/rh7v-hg80"
     },
     "WHBU/NBAR_1YEAR": {
@@ -4514,19 +4514,19 @@
     "WHRC/biomass/tropical": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WHRC_biomass_tropical.json",
-        "sci:citation": "A. Baccini, S J. Goetz, W.S. Walker, N. T. Laporte, M. Sun, D. Sulla-Menashe, J. Hackler, P.S.A. Beck, R. Dubayah, M.A. Friedl, S. Samanta and R. A. Houghton. Estimated carbon dioxide emissions from tropical deforestation improved by carbon-density maps. 2012 Nature Climate Change, [https://doi.org/10.1038/NCLIMATE1354] (https://doi.org/10.1038/NCLIMATE1354)",
+        "sci:citation": "A. Baccini, S J. Goetz, W.S. Walker, N. T. Laporte, M. Sun, D.\nSulla-Menashe, J. Hackler, P.S.A. Beck, R. Dubayah, M.A. Friedl,\nS. Samanta and R. A. Houghton. Estimated carbon dioxide emissions\nfrom tropical deforestation improved by carbon-density maps. 2012\nNature Climate Change, [https://doi.org/10.1038/NCLIMATE1354]\n(https://doi.org/10.1038/NCLIMATE1354)",
         "sci:doi": "DOI not available"
     },
     "WORLDCLIM/V1/BIO": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WORLDCLIM_V1_BIO.json",
-        "sci:citation": "Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis, 2005. Very High Resolution Interpolated Climate Surfaces for Global Land Areas. International Journal of Climatology 25: 1965-1978. [doi:10.1002/joc.1276](https://doi.org/10.1002/joc.1276).",
+        "sci:citation": "Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis,\n2005. Very High Resolution Interpolated Climate Surfaces for Global Land\nAreas. International Journal of Climatology 25: 1965-1978.\n[doi:10.1002/joc.1276](https://doi.org/10.1002/joc.1276).",
         "sci:doi": "DOI not available"
     },
     "WORLDCLIM/V1/MONTHLY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WORLDCLIM_V1_MONTHLY.json",
-        "sci:citation": "Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis, 2005. Very High Resolution Interpolated Climate Surfaces for Global Land Areas. International Journal of Climatology 25: 1965-1978. [doi:10.1002/joc.1276](https://doi.org/10.1002/joc.1276).",
+        "sci:citation": "Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis,\n2005. Very High Resolution Interpolated Climate Surfaces for Global Land\nAreas. International Journal of Climatology 25: 1965-1978.\n[doi:10.1002/joc.1276](https://doi.org/10.1002/joc.1276).",
         "sci:doi": "DOI not available"
     },
     "WRI/GFW/FORMA/alerts": {
@@ -4562,133 +4562,133 @@
     "WWF/HydroSHEDS/03CONDEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_03CONDEM.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/03DIR": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_03DIR.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/03VFDEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_03VFDEM.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/15ACC": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_15ACC.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/15CONDEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_15CONDEM.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/15DIR": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_15DIR.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/30ACC": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_30ACC.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/30CONDEM": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_30CONDEM.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WWF/HydroSHEDS/30DIR": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WWF_HydroSHEDS_30DIR.json",
-        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography derived from spaceborne elevation data. Eos, Transactions, AGU, 89(10): 93-94.",
+        "sci:citation": "Lehner, B., Verdin, K., Jarvis, A. (2008): New global hydrography\nderived from spaceborne elevation data. Eos, Transactions, AGU,\n89(10): 93-94.",
         "sci:doi": "DOI not available"
     },
     "WorldPop/GP/100m/pop": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WorldPop_GP_100m_pop.json",
-        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org] (https://www.worldpop.org).",
+        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org]\n(https://www.worldpop.org).",
         "sci:doi": "DOI not available"
     },
     "WorldPop/GP/100m/pop_age_sex": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WorldPop_GP_100m_pop_age_sex.json",
-        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org] (https://www.worldpop.org).",
+        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org]\n(https://www.worldpop.org).",
         "sci:doi": "DOI not available"
     },
     "WorldPop/GP/100m/pop_age_sex_cons_unadj": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WorldPop_GP_100m_pop_age_sex_cons_unadj.json",
-        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org] (https://www.worldpop.org).",
+        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org]\n(https://www.worldpop.org).",
         "sci:doi": "DOI not available"
     },
     "WorldPop/POP": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/WorldPop_POP.json",
-        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org] (www.worldpop.org).",
+        "sci:citation": "Please cite the WorldPop website as the source: [www.worldpop.org]\n(www.worldpop.org).",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/Summer_UHI_yearly_pixel/v4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_Summer_UHI_yearly_pixel_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/UHI_all_averaged/v4": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_UHI_all_averaged_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/UHI_monthly_averaged/v4": {
         "gee:type": "image",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_UHI_monthly_averaged_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/UHI_yearly_averaged/v4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_UHI_yearly_averaged_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/UHI_yearly_pixel/v4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_UHI_yearly_pixel_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "YALE/YCEO/UHI/Winter_UHI_yearly_pixel/v4": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/YALE_YCEO_UHI_Winter_UHI_yearly_pixel_v4.json",
-        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm to characterize surface urban heat islands on a global scale and examine vegetation control on their spatiotemporal variability. International Journal of Applied Earth Observation and Geoinformation, 74, 269-280. [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
+        "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)",
         "sci:doi": "DOI not available"
     },
     "projects/planet-nicfi/assets/basemaps/africa": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/projects_planet-nicfi_assets_basemaps_africa.json",
-        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life on Earth. San Francisco, CA. https://api.planet.com",
+        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life\non Earth. San Francisco, CA. https://api.planet.com",
         "sci:doi": "DOI not available"
     },
     "projects/planet-nicfi/assets/basemaps/americas": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/projects_planet-nicfi_assets_basemaps_americas.json",
-        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life on Earth. San Francisco, CA. https://api.planet.com",
+        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life\non Earth. San Francisco, CA. https://api.planet.com",
         "sci:doi": "DOI not available"
     },
     "projects/planet-nicfi/assets/basemaps/asia": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/projects_planet-nicfi_assets_basemaps_asia.json",
-        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life on Earth. San Francisco, CA. https://api.planet.com",
+        "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life\non Earth. San Francisco, CA. https://api.planet.com",
         "sci:doi": "DOI not available"
     }
 }

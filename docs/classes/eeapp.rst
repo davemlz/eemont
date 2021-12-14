@@ -5,4 +5,3 @@ ee.App object:
 
 .. autoclass:: eemont.app.App
    :members:
-   :toctree: stubs

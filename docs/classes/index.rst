@@ -56,6 +56,12 @@ ee
    require
    uninstall
 
+.. currentmodule:: eemont.app
+
+.. autosummary::
+
+   apps
+
 Extended Earth Engine Object Classes
 ------------------------------------------
 

@@ -5,7 +5,6 @@ ee.App object:
 
 .. currentmodule:: eemont.app
 
-.. autosummary::
+.. autoclass:: App
+   :members:
    :toctree: stubs
-
-   App

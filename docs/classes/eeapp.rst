@@ -3,8 +3,6 @@ ee.App
 
 ee.App object:
 
-.. currentmodule:: eemont.app
-
-.. autoclass:: App
+.. autoclass:: eemont.app.App
    :members:
    :toctree: stubs

@@ -1,8 +1,9 @@
 """The eemont python package."""
 
-__version__ = "0.2.6"
+__version__ = "0.3.0"
 
 from . import (
+    app,
     dataframe,
     eeDictionary,
     eeList,

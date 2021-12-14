@@ -14,7 +14,7 @@ def read(filename):
 
 setup(
     name="eemont",
-    version="0.2.6",
+    version="0.3.0",
     url="https://github.com/davemlz/eemont",
     license="MIT",
     author="David Montero Loaiza",
@@ -25,6 +25,7 @@ setup(
     packages=find_packages(exclude=("tests",), include=["eemont", "eemont.*"]),
     package_data={"eemont": ["data/*.json"]},
     install_requires=[
+        "beautifulsoup4",
         "earthengine-api",
         "ee_extra>=0.0.8",
         "numpy",

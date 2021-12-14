@@ -11,3 +11,10 @@ Extended methods for the ee module:
    install
    require
    uninstall
+
+.. currentmodule:: eemont.app
+
+.. autosummary::
+   :toctree: stubs
+
+   apps

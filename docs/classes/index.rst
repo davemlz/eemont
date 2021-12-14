@@ -20,6 +20,13 @@ API Reference
    eeimage
    eeimagecollection
    eelist
+
+.. toctree::
+   :caption: New Classes
+   :maxdepth: 2
+   :hidden:
+   
+   eeapp
    
 .. toctree::
    :caption: Non-Earth Engine Classes

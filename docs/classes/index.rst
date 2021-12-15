@@ -48,13 +48,14 @@ Extended Methods for the Earth Engine Module
 ee
 ~~
 
-.. currentmodule:: eemont.extra
+..
+   .. currentmodule:: eemont.extra
 
-.. autosummary::
+   .. autosummary::
 
-   install
-   require
-   uninstall
+      install
+      require
+      uninstall
 
 .. currentmodule:: eemont.app
 

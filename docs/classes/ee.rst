@@ -3,14 +3,15 @@ ee
 
 Extended methods for the ee module:
 
-.. currentmodule:: eemont.extra
+..
+   .. currentmodule:: eemont.extra
 
-.. autosummary::
-   :toctree: stubs
+   .. autosummary::
+      :toctree: stubs
 
-   install
-   require
-   uninstall
+      install
+      require
+      uninstall
 
 .. currentmodule:: eemont.app
 

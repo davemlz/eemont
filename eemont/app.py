@@ -101,7 +101,7 @@ class App():
 
 @extend(ee)
 def apps(online = False):
-    """Gets the dictionary of available Google Earth Engine Apps from ee-appshot.
+    """Gets the dictionary of available Google Earth Engine Apps from ee-appshot [1]_.
 
     Parameters
     ----------
@@ -124,6 +124,11 @@ def apps(online = False):
     'conus-cover-vis'
     >>> apps.jstnbraaten.conus_cover_vis.open()
     >>> apps.jstnbraaten.conus_cover_vis.download()
+
+    References
+    ----------
+    .. [1] Roy, Samapriya. 2021. ee-appshot: Create Snapshot of Earth Engine Apps.
+        https://github.com/samapriya/ee-appshot
     """
 
     class GoogleEarthEngineApps(Box):

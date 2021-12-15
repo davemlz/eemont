@@ -7,11 +7,14 @@ v0.3.0 (dev)
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- The :code:`require()` extended method for ee was created.
-- The :code:`install()` extended method for ee was created.
-- The :code:`uninstall()` extended method for ee was created.
+..
+   - The :code:`require()` extended method for ee was created.
+   - The :code:`install()` extended method for ee was created.
+   - The :code:`uninstall()` extended method for ee was created.
 - The :code:`tasseledCap()` extended method for ee.Image and ee.ImageCollection was created.
 - The :code:`listDatasets()` method was created.
+- The :code:`ee.App` class was created.
+- The :code:`apps()` extended method for ee was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~

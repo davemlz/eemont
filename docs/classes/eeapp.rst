@@ -5,3 +5,5 @@ ee.App object:
 
 .. autoclass:: eemont.app.App
    :members:
+
+   .. autoattribute:: 

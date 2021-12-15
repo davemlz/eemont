@@ -37,10 +37,18 @@ class App():
             raise Exception("Not a valid Earth Engine App! Check the url again!")
         if "users.earthengine.app/view/" not in url:
             raise Exception("This seems to be an Earth Engine App Collection! Please use the url of an app!")
+
         self.url = url
+        """URL of the App."""
+
         self.name = url.split("/")[4]
+        """Name of the App."""
+
         self.creator = url.split("/")[2].split(".")[0]
+        """Username of the App creator."""
+
         self.username = self.creator
+        """Instance of creator."""
 
     def __repr__(self):
         return f"Google Earth Engine App (name: {self.name}, creator: {self.creator})"

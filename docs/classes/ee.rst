@@ -18,4 +18,4 @@ Extended methods for the ee module:
 .. autosummary::
    :toctree: stubs
 
-   apps
+   listApps

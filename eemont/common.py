@@ -16,6 +16,8 @@ import requests
 from box import Box
 from geopy.geocoders import get_geocoder_for_service
 
+from .extending import extend
+
 warnings.simplefilter("always", UserWarning)
 
 
@@ -76,6 +78,7 @@ def listIndices(online=False):
     return ee_extra.Spectral.core.listIndices(online)
 
 
+@extend(ee)
 def listDatasets():
     """Returns all datasets from the GEE STAC as a list.
 

@@ -100,7 +100,7 @@ class App():
 
 
 @extend(ee)
-def apps(online = False):
+def listApps(online = False):
     """Gets the dictionary of available Google Earth Engine Apps from ee-appshot [1]_.
 
     Parameters
@@ -117,7 +117,7 @@ def apps(online = False):
     Examples
     --------
     >>> import ee, eemont
-    >>> apps = ee.apps()
+    >>> apps = ee.listApps()
     >>> apps.jstnbraaten.conus_cover_vis
     Google Earth Engine App (name: conus-cover-vis, creator: jstnbraaten)
     >>> apps.jstnbraaten.conus_cover_vis.name

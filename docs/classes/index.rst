@@ -61,7 +61,13 @@ ee
 
 .. autosummary::
 
-   apps
+   listApps
+
+.. currentmodule:: eemont.common
+
+.. autosummary::
+
+   listDatasets
 
 Extended Earth Engine Object Classes
 ------------------------------------------

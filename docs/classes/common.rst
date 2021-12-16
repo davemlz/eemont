@@ -9,5 +9,4 @@ Functions of the common module:
    :toctree: stubs
 
    indices
-   listDatasets
    listIndices

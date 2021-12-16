@@ -114,7 +114,7 @@ Welcome to eemont!
 - Documentation: `https://eemont.readthedocs.io/ <https://eemont.readthedocs.io/>`_
 - PyPI: `https://pypi.org/project/eemont/ <https://pypi.org/project/eemont/>`_
 - Conda-Forge: `https://anaconda.org/conda-forge/eemont <https://anaconda.org/conda-forge/eemont>`_
-- Tutorials: `https://github.com/davemlz/eemont/tree/master/tutorials <https://github.com/davemlz/eemont/tree/master/tutorials>`_
+- Tutorials: `https://github.com/davemlz/eemont/tree/master/docs/tutorials <https://github.com/davemlz/eemont/tree/master/docs/tutorials>`_
 
 **Table of Contents**
 

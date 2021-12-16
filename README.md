@@ -56,7 +56,7 @@
 
 **Conda-forge**: [https://anaconda.org/conda-forge/eemont](https://anaconda.org/conda-forge/eemont)
 
-**Tutorials**: [https://github.com/davemlz/eemont/tree/master/tutorials](https://github.com/davemlz/eemont/tree/master/tutorials)
+**Tutorials**: [https://github.com/davemlz/eemont/tree/master/docs/tutorials](https://github.com/davemlz/eemont/tree/master/docs/tutorials)
 
 **Paper**: [https://joss.theoj.org/papers/10.21105/joss.03168](https://joss.theoj.org/papers/10.21105/joss.03168)
 

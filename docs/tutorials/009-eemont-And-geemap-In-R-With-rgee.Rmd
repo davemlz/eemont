@@ -5,9 +5,13 @@ output: html_notebook
 
 # Using eemont and geemap in R with rgee
 
+_Tutorial created by *David Montero Loaiza*_: [GitHub](https://github.com/davemlz) | [Twitter](https://twitter.com/dmlmont)
+
 - GitHub Repo: [https://github.com/davemlz/eemont](https://github.com/davemlz/eemont)
 - PyPI link: [https://pypi.org/project/eemont/](https://pypi.org/project/eemont/)
-- Documentation: [https://eemont.readthedocs.io/en/0.1.7/index.html](https://eemont.readthedocs.io/en/0.1.7/index.html)
+- Conda-forge: [https://anaconda.org/conda-forge/eemont](https://anaconda.org/conda-forge/eemont)
+- Documentation: [https://eemont.readthedocs.io/](https://eemont.readthedocs.io/)
+- More tutorials: [https://github.com/davemlz/eemont/tree/master/docs/tutorials](https://github.com/davemlz/eemont/tree/master/docs/tutorials)
 
 ## Let's start!
 
@@ -55,7 +59,7 @@ L8 <- ee$ImageCollection('LANDSAT/LC08/C01/T1_SR')$filterBounds(point)
 The same Python methods can be used here. Remember to change "." for "$":
 
 ```{r}
-L8 <- L8$maskClouds()$scale()$index("NDWI")
+L8 <- L8$maskClouds()$scaleAndOffset()$spectralIndices("NDWI")
 ```
 
 ## Visualization (let's use the colormaps from *geemap*)

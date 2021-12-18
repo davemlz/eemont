@@ -29,6 +29,7 @@ Tutorials
     tutorials/016-Spectral-Indices-From-Awesome-Spectral-Indices-List.ipynb
     tutorials/028-Tasseled-Cap.ipynb
     tutorials/030-Awesome-Spectral-Indices-v003.ipynb
+    tutorials/032-Combining-eemont-wxee.ipynb
 
 .. toctree::
     :caption: Time Series

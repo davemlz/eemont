@@ -69,6 +69,7 @@ Tutorials
     :maxdepth: 3
 
     tutorials/031-App-Manager.ipynb
+    tutorials/033-Earth-Engine-Apps.ipynb
 
 .. toctree::
     :caption: Other STAC Methods

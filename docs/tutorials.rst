@@ -18,6 +18,7 @@ Tutorials
     tutorials/002-Sentinel-2-Image-Collection-Scaling.ipynb
     tutorials/015-Scaling-ANY-Raster-From-GEE-STAC.ipynb
     tutorials/025-Landsat-8-Collection-2.ipynb
+    tutorials/029-Landsat457-Collection-2.ipynb
 
 .. toctree::
     :caption: Spectral Transformations
@@ -27,6 +28,7 @@ Tutorials
     tutorials/012-Spectral-Indices-MODIS-MOD09GA.ipynb
     tutorials/016-Spectral-Indices-From-Awesome-Spectral-Indices-List.ipynb
     tutorials/028-Tasseled-Cap.ipynb
+    tutorials/030-Awesome-Spectral-Indices-v003.ipynb
 
 .. toctree::
     :caption: Time Series
@@ -60,6 +62,12 @@ Tutorials
     tutorials/010-Creating-Points-From-Queries.ipynb
     tutorials/011-Creating-A-Bounding-Box-From-Query.ipynb
     tutorials/023-Creating-Geometries-From-Plus-Codes.ipynb
+
+.. toctree::
+    :caption: Earth Engine Apps
+    :maxdepth: 3
+
+    tutorials/031-App-Manager.ipynb
 
 .. toctree::
     :caption: Other STAC Methods

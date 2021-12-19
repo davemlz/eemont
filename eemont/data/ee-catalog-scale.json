@@ -2010,6 +2010,9 @@
         "B9": 1.0,
         "BQA": 1.0
     },
+    "LANDSAT/LC08/C01/T1_32DAY_BAI": {
+        "BAI": 1.0
+    },
     "LANDSAT/LC08/C01/T1_32DAY_EVI": {
         "EVI": 1.0
     },

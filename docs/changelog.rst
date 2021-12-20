@@ -36,6 +36,7 @@ Deprecation
 Contributors
 ~~~~~~~~~~~~~~~~~~~~~~
 
+- `César Aybar <https://github.com/csaybar>`_
 - `Aaron Zuspan <https://github.com/aazuspan>`_
 
 v0.2.5

@@ -1,16 +1,17 @@
-import webbrowser
-import requests
 import json
-import ee
+import webbrowser
 
+import ee
+import requests
 from box import Box
 from bs4 import BeautifulSoup
 from ee_extra.Apps.core import apps as extra_apps
 
 from .extending import extend
 
+
 @extend(ee)
-class App():
+class App:
     """Google Earth Engine App Manager and Descriptor.
 
     Inspect, open and download Google Earth Engine apps.
@@ -36,7 +37,9 @@ class App():
         if "users.earthengine.app" not in url:
             raise Exception("Not a valid Earth Engine App! Check the url again!")
         if "users.earthengine.app/view/" not in url:
-            raise Exception("This seems to be an Earth Engine App Collection! Please use the url of an app!")
+            raise Exception(
+                "This seems to be an Earth Engine App Collection! Please use the url of an app!"
+            )
 
         self.url = url
         """URL of the App."""
@@ -68,7 +71,7 @@ class App():
         """
         webbrowser.open(self.url)
 
-    def download(self, file = None):
+    def download(self, file=None):
         """Downloads the current app to a JS file.
 
         Parameters
@@ -89,7 +92,7 @@ class App():
         r = requests.get(self.url)
         r = BeautifulSoup(r.text)
         r = r.find_all("main")[0].find("script").string
-        app_url = re.findall(r'init\((.*?)\)',r)[0].replace('"','').replace("'","")
+        app_url = re.findall(r"init\((.*?)\)", r)[0].replace('"', "").replace("'", "")
         r = requests.get(app_url).json()
         path = r["path"]
         r = r["dependencies"][path]
@@ -100,13 +103,13 @@ class App():
 
 
 @extend(ee)
-def listApps(online = False):
+def listApps(online=False):
     """Gets the dictionary of available Google Earth Engine Apps from ee-appshot [1]_.
 
     Parameters
     ----------
     online : boolean
-        Whether to retrieve the most recent list of apps directly from the GitHub 
+        Whether to retrieve the most recent list of apps directly from the GitHub
         repository and not from the local copy.
 
     Returns
@@ -144,5 +147,5 @@ def listApps(online = False):
             if "users.earthengine.app/view/" in app:
                 the_app = App(app)
             apps_extra[user][the_app.name] = the_app
-    
-    return GoogleEarthEngineApps(apps_extra,frozen_box = True)
+
+    return GoogleEarthEngineApps(apps_extra, frozen_box=True)

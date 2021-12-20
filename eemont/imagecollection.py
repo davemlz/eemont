@@ -6,9 +6,7 @@ import ee_extra.Spectral.core
 import numpy as np
 import requests
 
-from .common import (
-    _panSharpen,
-)
+from .common import _panSharpen
 from .extending import extend
 
 

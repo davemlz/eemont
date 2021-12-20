@@ -5,10 +5,7 @@ import ee_extra
 import ee_extra.Spectral.core
 import requests
 
-from .common import (
-    _matchHistogram,
-    _panSharpen,
-)
+from .common import _matchHistogram, _panSharpen
 from .extending import extend
 
 

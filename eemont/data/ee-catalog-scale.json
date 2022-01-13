@@ -4265,7 +4265,7 @@
     },
     "MODIS/006/MOD09GA": {
         "QC_500m": 1.0,
-        "Range": 25.0,
+        "Range": 25,
         "SensorAzimuth": 0.01,
         "SensorZenith": 0.01,
         "SolarAzimuth": 0.01,
@@ -4331,13 +4331,13 @@
     "MODIS/006/MOD11A2": {
         "Clear_sky_days": 1.0,
         "Clear_sky_nights": 1.0,
-        "Day_view_angl": 1.0,
+        "Day_view_angl": 1,
         "Day_view_time": 0.1,
         "Emis_31": 0.002,
         "Emis_32": 0.002,
         "LST_Day_1km": 0.02,
         "LST_Night_1km": 0.02,
-        "Night_view_angl": 1.0,
+        "Night_view_angl": 1,
         "Night_view_time": 0.1,
         "QC_Day": 1.0,
         "QC_Night": 1.0
@@ -4405,9 +4405,9 @@
     "MODIS/006/MOD16A2": {
         "ET": 0.1,
         "ET_QC": 1.0,
-        "LE": 10000.0,
+        "LE": 10000,
         "PET": 0.1,
-        "PLE": 10000.0
+        "PLE": 10000
     },
     "MODIS/006/MOD17A2H": {
         "Gpp": 0.0001,
@@ -4480,7 +4480,7 @@
     },
     "MODIS/006/MYD09GA": {
         "QC_500m": 1.0,
-        "Range": 25.0,
+        "Range": 25,
         "SensorAzimuth": 0.01,
         "SensorZenith": 0.01,
         "SolarAzimuth": 0.01,
@@ -4546,13 +4546,13 @@
     "MODIS/006/MYD11A2": {
         "Clear_sky_days": 1.0,
         "Clear_sky_nights": 1.0,
-        "Day_view_angl": 1.0,
+        "Day_view_angl": 1,
         "Day_view_time": 0.1,
         "Emis_31": 0.002,
         "Emis_32": 0.002,
         "LST_Day_1km": 0.02,
         "LST_Night_1km": 0.02,
-        "Night_view_angl": 1.0,
+        "Night_view_angl": 1,
         "Night_view_time": 0.1,
         "QC_Day": 1.0,
         "QC_Night": 1.0
@@ -5842,12 +5842,12 @@
         "sep": 1.0
     },
     "OpenLandMap/SOL/SOL_BULKDENS-FINEEARTH_USDA-4A1H_M/v02": {
-        "b0": 10.0,
-        "b10": 10.0,
-        "b100": 10.0,
-        "b200": 10.0,
-        "b30": 10.0,
-        "b60": 10.0
+        "b0": 10,
+        "b10": 10,
+        "b100": 10,
+        "b200": 10,
+        "b30": 10,
+        "b60": 10
     },
     "OpenLandMap/SOL/SOL_CLAY-WFRACTION_USDA-3A1A1A_M/v02": {
         "b0": 1.0,
@@ -5864,20 +5864,20 @@
         "grtgroup": 1.0
     },
     "OpenLandMap/SOL/SOL_ORGANIC-CARBON_USDA-6A1C_M/v02": {
-        "b0": 5.0,
-        "b10": 5.0,
-        "b100": 5.0,
-        "b200": 5.0,
-        "b30": 5.0,
-        "b60": 5.0
+        "b0": 5,
+        "b10": 5,
+        "b100": 5,
+        "b200": 5,
+        "b30": 5,
+        "b60": 5
     },
     "OpenLandMap/SOL/SOL_PH-H2O_USDA-4C1A2A_M/v02": {
-        "b0": 10.0,
-        "b10": 10.0,
-        "b100": 10.0,
-        "b200": 10.0,
-        "b30": 10.0,
-        "b60": 10.0
+        "b0": 10,
+        "b10": 10,
+        "b100": 10,
+        "b200": 10,
+        "b30": 10,
+        "b60": 10
     },
     "OpenLandMap/SOL/SOL_SAND-WFRACTION_USDA-3A1A1A_M/v02": {
         "b0": 1.0,

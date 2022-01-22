@@ -4193,6 +4193,12 @@
         "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L.,\nand Chen, Y. (2021) Estimating actual evapotranspiration continentally at\nfield-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,\nLandsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)\n",
         "sci:doi": "DOI not available"
     },
+    "TERN/AET/CMRSET_LANDSAT_V2_2": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/TERN_AET_CMRSET_LANDSAT_V2_2.json",
+        "sci:citation": "Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,\nJorge L. Pe\u00f1a-Arancibia, Yun Chen. Estimating actual evapotranspiration at\nfield-to-continent scales by calibrating the CMRSET algorithm with MODIS,\nVIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,\n127318,\n[doi:10.1016/j.jhydrol.2021.127318](https://doi.org/10.1016/j.jhydrol.2021.127318).\n",
+        "sci:doi": "DOI not available"
+    },
     "TOMS/MERGED": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/TOMS_MERGED.json",

@@ -5715,6 +5715,7 @@
         "ice_surface": 0.0
     },
     "NOAA/NWS/RTMA": {
+        "ACPC01": 0.0,
         "DPT": 0.0,
         "GUST": 0.0,
         "HGT": 0.0,
@@ -6054,6 +6055,10 @@
         "RSDN_Daily": 0.0
     },
     "TERN/AET/CMRSET_LANDSAT_V2_1": {
+        "ETa": 0.0,
+        "pixel_qa": 0.0
+    },
+    "TERN/AET/CMRSET_LANDSAT_V2_2": {
         "ETa": 0.0,
         "pixel_qa": 0.0
     },

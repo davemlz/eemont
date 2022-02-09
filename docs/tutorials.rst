@@ -77,3 +77,9 @@ Tutorials
 
     tutorials/019-Checking-STAC-Info.ipynb    
     tutorials/021-Citation-Tools.ipynb
+
+.. toctree::
+    :caption: Extensions
+    :maxdepth: 3
+
+    tutorials/034-eemont-and-julia.ipynb

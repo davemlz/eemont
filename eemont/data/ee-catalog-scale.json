@@ -159,7 +159,10 @@
         "VV": 1.0,
         "angle": 1.0
     },
-    "COPERNICUS/S2": {
+    "COPERNICUS/S2_CLOUD_PROBABILITY": {
+        "probability": 1.0
+    },
+    "COPERNICUS/S2_HARMONIZED": {
         "B1": 0.0001,
         "B10": 0.0001,
         "B11": 0.0001,
@@ -176,9 +179,6 @@
         "QA10": 1.0,
         "QA20": 1.0,
         "QA60": 1.0
-    },
-    "COPERNICUS/S2_CLOUD_PROBABILITY": {
-        "probability": 1.0
     },
     "COPERNICUS/S2_SR": {
         "AOT": 0.001,

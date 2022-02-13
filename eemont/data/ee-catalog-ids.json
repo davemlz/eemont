@@ -197,15 +197,15 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
-    "COPERNICUS/S2_CLOUD_PROBABILITY": {
+    "COPERNICUS/S2": {
         "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_CLOUD_PROBABILITY.json",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
-    "COPERNICUS/S2_HARMONIZED": {
+    "COPERNICUS/S2_CLOUD_PROBABILITY": {
         "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2.json",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_CLOUD_PROBABILITY.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },

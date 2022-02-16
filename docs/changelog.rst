@@ -1,6 +1,20 @@
 Changelog
 ============
 
+v0.3.1
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Bugs (`#55 <https://github.com/davemlz/eemont/pull/55>`_) of the :code:`app` module were solved.
+- Typos (`#56 <https://github.com/davemlz/eemont/pull/56>`_) were corrected.
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Qiusheng Wu <https://github.com/giswqs>`_
+
 v0.3.0
 --------------
 

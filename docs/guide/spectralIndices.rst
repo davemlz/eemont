@@ -495,7 +495,7 @@ If you want to compute all available indices, you can set :code:`index = all`:
 Generalized Kernel Indices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generalized kernel indices are availabe through eemont (e.g. kNDVI):
+Generalized kernel indices are available through eemont (e.g. kNDVI):
 
 .. code-block:: python
 

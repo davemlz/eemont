@@ -100,7 +100,7 @@ VIIRS Products
 QA Method
 ----------------------
 
-By default, the :code:`maskClouds()` uses the QA band of each paltform to compute the clouds and shadows masks (except for Sentinel-2, where the default method is Cloud Probability). The following table shows the band and the bits used for each platform (The value in parentheses is the valid value of the bitmask):
+By default, the :code:`maskClouds()` uses the QA band of each platform to compute the clouds and shadows masks (except for Sentinel-2, where the default method is Cloud Probability). The following table shows the band and the bits used for each platform (The value in parentheses is the valid value of the bitmask):
 
 .. list-table:: QA bits used for clouds/shadows masking
    :widths: 20 20 20 20 20

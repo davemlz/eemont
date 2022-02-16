@@ -27,7 +27,7 @@ def indices(online=False):
     Parameters
     ----------
     online : boolean
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Whether to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------
@@ -58,7 +58,7 @@ def listIndices(online=False):
     Parameters
     ----------
     online : boolean
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        Whether to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns
     -------

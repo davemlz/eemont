@@ -75,7 +75,7 @@ In order to test additions, you can use :code:`pytest` over the :code:`tests` fo
 
    pytest tests
    
-This will autmatically test all modules for the available satellite platforms through eemont. If you have added a new feature, please include it in the tests.
+This will automatically test all modules for the available satellite platforms through eemont. If you have added a new feature, please include it in the tests.
 
 To test across different Python versions, please use :code:`tox`.
 

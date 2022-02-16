@@ -6,7 +6,7 @@ def extend(cls, static=False):
     cls : class
         Class to extend.
     static : boolean, default = False
-        Wheter extend as a static method.
+        Whether extend as a static method.
 
     Returns
     -------

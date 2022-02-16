@@ -727,7 +727,7 @@ def index(
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub
+        Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
     drop : boolean, default = True
         Whether to drop all bands except the new spectral indices.
@@ -882,7 +882,7 @@ def spectralIndices(
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub
+        Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
     drop : boolean, default = True
         Whether to drop all bands except the new spectral indices.

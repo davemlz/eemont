@@ -197,6 +197,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "COPERNICUS/S2": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "COPERNICUS/S2_CLOUD_PROBABILITY": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_CLOUD_PROBABILITY.json",
@@ -205,13 +211,19 @@
     },
     "COPERNICUS/S2_HARMONIZED": {
         "gee:type": "image_collection",
-        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2.json",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_HARMONIZED.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
     "COPERNICUS/S2_SR": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_SR.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "COPERNICUS/S2_SR_HARMONIZED": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/COPERNICUS_S2_SR_HARMONIZED.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },

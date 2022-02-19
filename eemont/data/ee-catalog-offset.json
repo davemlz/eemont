@@ -6581,6 +6581,11 @@
         "rangeland_shrub_height": 0.0,
         "urban_descriptor": 0.0
     },
+    "USGS/NLCD_RELEASES/2019_REL/NLCD": {
+        "impervious": 0.0,
+        "impervious_descriptor": 0.0,
+        "landcover": 0.0
+    },
     "USGS/SRTMGL1_003": {
         "elevation": 0.0
     },

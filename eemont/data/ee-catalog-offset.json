@@ -705,6 +705,9 @@
     "DLR/WSF/WSF2015/v1": {
         "settlement": 0.0
     },
+    "DOE/ORNL/LandScan_HD/Ukraine_202201": {
+        "population": 0.0
+    },
     "ECMWF/CAMS/NRT": {
         "particulate_matter_d_less_than_25_um_surface": 0.0,
         "total_aerosol_optical_depth_at_550nm_surface": 0.0

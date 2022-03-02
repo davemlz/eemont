@@ -112,7 +112,7 @@ def closest(self, date, tolerance=1, unit="month"):
             ee.Initialize()
             S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
 
-        .. code-tab:: r
+        .. code-tab:: r R
 
             library(rgee)
             library(reticulate)

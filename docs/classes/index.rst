@@ -20,6 +20,13 @@ API Reference
    eeimage
    eeimagecollection
    eelist
+
+.. toctree::
+   :caption: New Classes
+   :maxdepth: 2
+   :hidden:
+   
+   eeapp
    
 .. toctree::
    :caption: Non-Earth Engine Classes
@@ -41,13 +48,26 @@ Extended Methods for the Earth Engine Module
 ee
 ~~
 
-.. currentmodule:: eemont.extra
+..
+   .. currentmodule:: eemont.extra
+
+   .. autosummary::
+
+      install
+      require
+      uninstall
+
+.. currentmodule:: eemont.app
 
 .. autosummary::
 
-   install
-   require
-   uninstall
+   listApps
+
+.. currentmodule:: eemont.common
+
+.. autosummary::
+
+   listDatasets
 
 Extended Earth Engine Object Classes
 ------------------------------------------
@@ -124,6 +144,7 @@ ee.Image
    scale
    scaleAndOffset
    spectralIndices
+   tasseledCap
    
 ee.ImageCollection
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,6 +167,7 @@ ee.ImageCollection
    scale
    scaleAndOffset
    spectralIndices
+   tasseledCap
 
 ee.List
 ~~~~~~~
@@ -187,4 +209,5 @@ Common
 .. autosummary::
 
    indices
+   listDatasets
    listIndices

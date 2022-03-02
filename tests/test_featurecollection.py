@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
     def test_MultiPointFromQuery(self):
         """Test the MultiPointFromQuery constructor"""
         test = ee.FeatureCollection.MultiPointFromQuery(
-            "Colombia", user_agent="eemon-feature-test"
+            "Colombia", user_agent="eemon-featurecollection-test-MultiPointFromQuery"
         )
         self.assertIsInstance(test, ee.featurecollection.FeatureCollection)
 

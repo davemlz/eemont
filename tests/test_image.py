@@ -572,7 +572,7 @@ class Test(unittest.TestCase):
     #     """Test the image module for MYD17A2H"""
     #     MYD17A2H_tested = MYD17A2H.preprocess()
     #     self.assertIsInstance(MYD17A2H_tested, ee.image.Image)
-    
+
     # def test_MYD16A2_preprocess(self):
     #    """Test the image module for MYD16A2"""
     #    MYD16A2_tested = MYD16A2.preprocess()
@@ -616,6 +616,12 @@ class Test(unittest.TestCase):
         source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
         sharp = source.panSharpen(qa=["DIV"])
         self.assertIsInstance(sharp, ee.image.Image)
+
+    def test_tasseledCap(self):
+        """Test that tasseledCap returns an image"""
+        img = ee.Image("COPERNICUS/S2/20160111T112432_20160111T113311_T28PDT")
+        img = img.tasseledCap()
+        self.assertIsInstance(img, ee.image.Image)
 
 
 if __name__ == "__main__":

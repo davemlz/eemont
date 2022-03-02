@@ -12,18 +12,22 @@ class Test(unittest.TestCase):
 
     def test_BBoxFromQuery(self):
         """Test the BBoxFromQuery constructor"""
-        test = ee.Geometry.BBoxFromQuery("Colombia", user_agent="eemon-feature-test")
+        test = ee.Geometry.BBoxFromQuery(
+            "Colombia", user_agent="eemon-geometry-test-BBoxFromQuery"
+        )
         self.assertIsInstance(test, ee.geometry.Geometry)
 
     def test_PointFromQuery(self):
         """Test the PointFromQuery constructor"""
-        test = ee.Geometry.PointFromQuery("Colombia", user_agent="eemon-feature-test")
+        test = ee.Geometry.PointFromQuery(
+            "Colombia", user_agent="eemon-geometry-test-PointFromQuery"
+        )
         self.assertIsInstance(test, ee.geometry.Geometry)
 
     def test_MultiPointFromQuery(self):
         """Test the MultiPointFromQuery constructor"""
         test = ee.Geometry.MultiPointFromQuery(
-            "Colombia", user_agent="eemon-feature-test"
+            "Colombia", user_agent="eemon-geometry-test-MultiPointFromQuery"
         )
         self.assertIsInstance(test, ee.geometry.Geometry)
 
@@ -36,7 +40,9 @@ class Test(unittest.TestCase):
     def test_PointFromShortPlusCode(self):
         """Test the PointFromPlusCode constructor with a short plus code"""
         code = "QXGV+XH Denver, CO, USA"
-        test = ee.Geometry.PointFromPlusCode(code, user_agent="eemont-feature-test")
+        test = ee.Geometry.PointFromPlusCode(
+            code, user_agent="eemont-geometry-test-PointFromShortPlusCode"
+        )
         self.assertIsInstance(test, ee.geometry.Geometry)
 
     def test_MultiPointFromPlusCodes(self):

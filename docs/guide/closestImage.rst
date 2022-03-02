@@ -33,7 +33,7 @@ This method automatically filters any image collection to get the closest image 
 Usage
 ------------------
 
-The :code:`closest()` method works on any image colection that has a :code:`system:time_start` property.
+The :code:`closest()` method works on any image collection that has a :code:`system:time_start` property.
 
 First, let's take the Sentinel-2 image collection as example:
 

@@ -1,0 +1,83 @@
+---
+title: "Using eemont and geemap in R with rgee"
+output: html_notebook
+---
+
+# Using eemont and geemap in R with rgee
+
+_Tutorial created by *David Montero Loaiza*_: [GitHub](https://github.com/davemlz) | [Twitter](https://twitter.com/dmlmont)
+
+- GitHub Repo: [https://github.com/davemlz/eemont](https://github.com/davemlz/eemont)
+- PyPI link: [https://pypi.org/project/eemont/](https://pypi.org/project/eemont/)
+- Conda-forge: [https://anaconda.org/conda-forge/eemont](https://anaconda.org/conda-forge/eemont)
+- Documentation: [https://eemont.readthedocs.io/](https://eemont.readthedocs.io/)
+- More tutorials: [https://github.com/davemlz/eemont/tree/master/docs/tutorials](https://github.com/davemlz/eemont/tree/master/docs/tutorials)
+
+## Let's start!
+
+Import the required packages:
+
+```{r}
+library(rgee)
+library(reticulate)
+```
+
+Initialize GEE:
+
+```{r}
+ee_Initialize()
+```
+
+If required, please uncomment:
+
+```{r}
+#py_install("eemont")
+#py_install("geemap")
+```
+
+Import *eemont* and *geemap.colormaps*:
+
+```{r}
+eemont <- import("eemont")
+cm <- import("geemap.colormaps")
+```
+
+Point of interest:
+
+```{r}
+point <- ee$Geometry$Point(c(-74.0592,11.3172))
+```
+
+Get and filter the Landsat 8 SR collection:
+
+```{r}
+L8 <- ee$ImageCollection('LANDSAT/LC08/C01/T1_SR')$filterBounds(point)
+```
+
+## Using *eemont*:
+
+The same Python methods can be used here. Remember to change "." for "$":
+
+```{r}
+L8 <- L8$maskClouds()$scaleAndOffset()$spectralIndices("NDWI")
+```
+
+## Visualization (let's use the colormaps from *geemap*)
+
+Let's define the visualization:
+
+```{r}
+visParamsNDWI <- list(
+  min = 0,
+  max = 1,
+  bands = "NDWI",
+  palette = cm$get_palette("Spectral_r") # Matplotlib colormap from geemap
+)
+```
+
+Display results:
+
+```{r}
+Map$centerObject(point,8)
+Map$addLayer(L8$first(),visParamsNDWI,"L8 NDWI")
+```

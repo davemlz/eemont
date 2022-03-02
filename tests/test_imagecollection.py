@@ -409,7 +409,7 @@ class Test(unittest.TestCase):
     #     """Test the image collection module for MYD17A2H"""
     #     MYD17A2H_tested = MYD17A2H.closest("2020-01-15").maskClouds().scaleAndOffset()
     #     self.assertIsInstance(MYD17A2H_tested, ee.imagecollection.ImageCollection)
-    
+
     # def test_MYD16A2(self):
     #    """Test the image collection module for MYD16A2"""
     #    MYD16A2_tested = MYD16A2.closest('2020-01-15').maskClouds().scaleAndOffset()
@@ -707,6 +707,12 @@ class Test(unittest.TestCase):
         source = ee.ImageCollection("LANDSAT/LC08/C01/T1_TOA")
         sharp = source.panSharpen(qa=["DIV"])
         self.assertIsInstance(sharp, ee.imagecollection.ImageCollection)
+
+    def test_tasseledCap(self):
+        """Test that tasseledCap returns an image collection"""
+        col = ee.ImageCollection("COPERNICUS/S2")
+        col = col.tasseledCap()
+        self.assertIsInstance(col, ee.imagecollection.ImageCollection)
 
 
 if __name__ == "__main__":

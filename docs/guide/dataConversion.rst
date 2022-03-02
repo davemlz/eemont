@@ -32,7 +32,7 @@ pd.DataFrame
 Methods
 -----------
 
-A table of availabe conversion options is shown below:
+A table of available conversion options is shown below:
 
 .. list-table:: Available options
    :widths: 30 30 40

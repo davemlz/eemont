@@ -100,7 +100,7 @@ By default, the output date column is named :code:`reducer`, but it can be modif
                                  scale = 10,
                                  dateColumn = 'my_date_column')
                                  
-The date value is by defult retrieved in the Standard ISO format, but it can be changed by :code:`ms` (milliseconds) or any other format:
+The date value is by default retrieved in the Standard ISO format, but it can be changed by :code:`ms` (milliseconds) or any other format:
 
 .. code-block:: python
 

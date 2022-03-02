@@ -114,7 +114,7 @@ Welcome to eemont!
 - Documentation: `https://eemont.readthedocs.io/ <https://eemont.readthedocs.io/>`_
 - PyPI: `https://pypi.org/project/eemont/ <https://pypi.org/project/eemont/>`_
 - Conda-Forge: `https://anaconda.org/conda-forge/eemont <https://anaconda.org/conda-forge/eemont>`_
-- Tutorials: `https://github.com/davemlz/eemont/tree/master/tutorials <https://github.com/davemlz/eemont/tree/master/tutorials>`_
+- Tutorials: `https://github.com/davemlz/eemont/tree/master/docs/tutorials <https://github.com/davemlz/eemont/tree/master/docs/tutorials>`_
 
 **Table of Contents**
 
@@ -659,7 +659,7 @@ In order to test additions, you can use :code:`pytest` over the :code:`tests` fo
 
    pytest tests
    
-This will autmatically test all modules for the available satellite platforms through eemont. If you have added a new feature, please include it in the tests.
+This will automatically test all modules for the available satellite platforms through eemont. If you have added a new feature, please include it in the tests.
 
 To test across different Python versions, please use :code:`tox`.
 

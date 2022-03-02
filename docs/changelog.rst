@@ -1,21 +1,57 @@
 Changelog
 ============
 
-v0.2.6 (dev)
+v0.3.1
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Bugs (`#55 <https://github.com/davemlz/eemont/pull/55>`_) of the :code:`app` module were solved.
+- Typos (`#56 <https://github.com/davemlz/eemont/pull/56>`_) were corrected.
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Qiusheng Wu <https://github.com/giswqs>`_
+
+v0.3.0
 --------------
 
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- The :code:`require()` extended method for ee was created.
-- The :code:`install()` extended method for ee was created.
-- The :code:`uninstall()` extended method for ee was created.
+..
+   - The :code:`require()` extended method for ee was created.
+   - The :code:`install()` extended method for ee was created.
+   - The :code:`uninstall()` extended method for ee was created.
+- The :code:`tasseledCap()` extended method for ee.Image and ee.ImageCollection was created.
+- The :code:`ee.App` class was created.
+- The :code:`listApps()` extended method for ee was created.
+- The :code:`listDatasets()` extended method for ee was created.
 
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- Errors of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
-- Errors of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+- The Awesome Spectral Indices list was updated to v0.0.3.
+- Errors (`#43 <https://github.com/davemlz/eemont/issues/43>`_) of the :code:`getTimeSeriesByRegion` method of the *ee.ImageCollection* module were solved.
+- Errors (`#41 <https://github.com/davemlz/eemont/issues/41>`_) of the :code:`getTimeSeriesByRegions` method of the *ee.ImageCollection* module were solved.
+- The :code:`maskClouds()`, :code:`spectralIndices()`, :code:`scaleAndOffset()` and :code:`preprocess()` extended methods for ee.Image and ee.ImageCollection classes now support the following platforms:
+   
+   - `USGS Landsat 5 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT05_C02_T1_L2>`_
+   - `USGS Landsat 4 Level 2, Collection 2, Tier 1 <https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LT04_C02_T1_L2>`_
+
+Deprecation
+~~~~~~~~~~~~~~~~~~~~~~
+
+- The :code:`index` method was deprecated for ee.Image and ee.ImageCollection.
+- The :code:`scale` method was deprecated for ee.Image and ee.ImageCollection.
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `César Aybar <https://github.com/csaybar>`_
+- `Aaron Zuspan <https://github.com/aazuspan>`_
 
 v0.2.5
 --------------
@@ -71,15 +107,15 @@ v0.2.1
 New Features
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- The :code:`LinearRingFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`LineStringFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`MultiLineStringFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`MultiPointFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`MultiPolygonFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`PointFromPlusCode()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`PolygonFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`RectangleFromPlusCodes()` extended constructor for ee.Gemoetry classes was created.
-- The :code:`plusCodes()` extended method for ee.Gemoetry and ee.Feature classes was created.
+- The :code:`LinearRingFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`LineStringFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`MultiLineStringFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`MultiPointFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`MultiPolygonFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`PointFromPlusCode()` extended constructor for ee.Geometry classes was created.
+- The :code:`PolygonFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`RectangleFromPlusCodes()` extended constructor for ee.Geometry classes was created.
+- The :code:`plusCodes()` extended method for ee.Geometry and ee.Feature classes was created.
 
 Contributors
 ~~~~~~~~~~~~~~~~~~~~~~

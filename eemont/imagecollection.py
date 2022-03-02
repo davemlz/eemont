@@ -1,21 +1,12 @@
 import warnings
 
 import ee
+import ee_extra
+import ee_extra.Spectral.core
 import numpy as np
 import requests
 
-from .common import (
-    _get_offset_params,
-    _get_scale_params,
-    _getCitation,
-    _getDOI,
-    _getSTAC,
-    _index,
-    _maskClouds,
-    _panSharpen,
-    _preprocess,
-    _scale_STAC,
-)
+from .common import _panSharpen
 from .extending import extend
 
 
@@ -113,31 +104,7 @@ def closest(self, date, tolerance=1, unit="month"):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
     """
-    if not isinstance(date, ee.ee_date.Date):
-        date = ee.Date(date)
-
-    startDate = date.advance(-tolerance, unit)
-    endDate = date.advance(tolerance, unit)
-    self = self.filterDate(startDate, endDate)
-
-    def setProperties(img):
-        img = img.set(
-            "dateDist",
-            ee.Number(img.get("system:time_start")).subtract(date.millis()).abs(),
-        )
-        img = img.set("day", ee.Date(img.get("system:time_start")).get("day"))
-        img = img.set("month", ee.Date(img.get("system:time_start")).get("month"))
-        img = img.set("year", ee.Date(img.get("system:time_start")).get("year"))
-        return img
-
-    self = self.map(setProperties).sort("dateDist")
-    closestImageTime = self.limit(1).first().get("system:time_start")
-    dayToFilter = ee.Filter.eq("day", ee.Date(closestImageTime).get("day"))
-    monthToFilter = ee.Filter.eq("month", ee.Date(closestImageTime).get("month"))
-    yearToFilter = ee.Filter.eq("year", ee.Date(closestImageTime).get("year"))
-    self = self.filter(ee.Filter.And(dayToFilter, monthToFilter, yearToFilter))
-
-    return self
+    return ee_extra.ImageCollection.core.closest(self, date, tolerance, unit)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -232,64 +199,21 @@ def getTimeSeriesByRegion(
     ...                               bands = ['EVI','NDVI'],
     ...                               scale = 10)
     """
-    if bands != None:
-        if not isinstance(bands, list):
-            bands = [bands]
-        self = self.select(bands)
-    else:
-        bands = self.first().bandNames().getInfo()
-
-    if not isinstance(reducer, list):
-        reducer = [reducer]
-
-    if not isinstance(geometry, ee.geometry.Geometry):
-        geometry = geometry.geometry()
-
-    collections = []
-
-    for red in reducer:
-
-        reducerName = red.getOutputs().get(0)
-
-        def reduceImageCollectionByRegion(img):
-            dictionary = img.reduceRegion(
-                red,
-                geometry,
-                scale,
-                crs,
-                crsTransform,
-                bestEffort,
-                maxPixels,
-                tileScale,
-            )
-            if dateFormat == "ms":
-                date = ee.Date(img.get("system:time_start")).millis()
-            elif dateFormat == "ISO":
-                date = ee.Date(img.get("system:time_start")).format()
-            else:
-                date = ee.Date(img.get("system:time_start")).format(dateFormat)
-            return ee.Feature(None, dictionary).set(
-                {dateColumn: date, "reducer": reducerName}
-            )
-
-        collections.append(
-            ee.FeatureCollection(self.map(reduceImageCollectionByRegion))
-        )
-
-    flattenfc = ee.FeatureCollection(collections).flatten()
-
-    def setNA(feature):
-        feature = ee.Algorithms.If(
-            condition=feature.propertyNames().size().eq(3),
-            trueCase=feature.set(
-                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
-            ),
-            falseCase=feature,
-        )
-        feature = ee.Feature(feature)
-        return feature
-
-    return flattenfc.map(setNA)
+    return ee_extra.TimeSeries.core.getTimeSeriesByRegion(
+        self,
+        reducer,
+        bands,
+        geometry,
+        scale,
+        crs,
+        crsTransform,
+        bestEffort,
+        maxPixels,
+        tileScale,
+        dateColumn,
+        dateFormat,
+        naValue,
+    )
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -375,69 +299,19 @@ def getTimeSeriesByRegions(
     ...                                bands = ['EVI','NDVI'],
     ...                                scale = 10)
     """
-    if bands != None:
-        if not isinstance(bands, list):
-            bands = [bands]
-        self = self.select(bands)
-    else:
-        bands = self.first().bandNames().getInfo()
-
-    if not isinstance(reducer, list):
-        reducer = [reducer]
-
-    if not isinstance(collection, ee.featurecollection.FeatureCollection):
-        raise Exception("Parameter collection must be an ee.FeatureCollection!")
-
-    props = collection.first().propertyNames()
-
-    collections = []
-
-    imgList = self.toList(self.size())
-
-    for red in reducer:
-
-        reducerName = red.getOutputs().get(0)
-
-        def reduceImageCollectionByRegions(img):
-
-            img = ee.Image(img)
-
-            if len(bands) == 1:
-                img = img.addBands(ee.Image(naValue).rename("eemontTemporal"))
-
-            fc = img.reduceRegions(collection, red, scale, crs, crsTransform, tileScale)
-
-            if dateFormat == "ms":
-                date = ee.Date(img.get("system:time_start")).millis()
-            elif dateFormat == "ISO":
-                date = ee.Date(img.get("system:time_start")).format()
-            else:
-                date = ee.Date(img.get("system:time_start")).format(dateFormat)
-
-            def setProperties(feature):
-                return feature.set({dateColumn: date, "reducer": reducerName})
-
-            return fc.map(setProperties)
-
-        collections.append(self.map(reduceImageCollectionByRegions).flatten())
-
-    flattenfc = ee.FeatureCollection(collections).flatten()
-
-    def setNA(feature):
-        feature = ee.Algorithms.If(
-            condition=feature.propertyNames().size().eq(props.size().add(2)),
-            trueCase=feature.set(
-                ee.Dictionary.fromLists(bands, [naValue] * len(bands))
-            ),
-            falseCase=feature,
-        )
-        feature = ee.Feature(feature)
-        return feature
-
-    flattenfc = flattenfc.map(setNA)
-    flattenfc = flattenfc.select(props.cat(["reducer", dateColumn]).cat(bands))
-
-    return flattenfc
+    return ee_extra.TimeSeries.core.getTimeSeriesByRegions(
+        self,
+        reducer,
+        collection,
+        bands,
+        scale,
+        crs,
+        crsTransform,
+        tileScale,
+        dateColumn,
+        dateFormat,
+        naValue,
+    )
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -453,19 +327,19 @@ def index(
     alpha=0.1,
     slope=1.0,
     intercept=0.0,
+    gamma=1.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
     online=False,
+    drop=False,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image
     collection.
 
-    Warning
-    -------------
-    **Pending Deprecation:** The :code:`index()` method will no longer be available for
-    future versions. Please use :code:`spectralIndices()` instead.
+    .. deprecated:: 0.3.0
+       Use :func:`spectralIndices()` instead.
 
     Tip
     ----------
@@ -508,6 +382,8 @@ def index(
         Soil line slope.
     intercept : float, default = 0.0
         Soil line intercept.
+    gamma : float, default = 1.0
+        Weighting coefficient  used for ARVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -524,10 +400,10 @@ def index(
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub
+        Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
-
-        .. versionadded:: 0.2.0
+    drop : boolean, default = True
+        Whether to drop all bands except the new spectral indices.
 
     Returns
     -------
@@ -574,11 +450,11 @@ def index(
     .. [1] https://awesome-ee-spectral-indices.readthedocs.io/en/latest/list.html
     """
     warnings.warn(
-        "index() will be deprecated in future versions, please use spectralIndices() instead",
-        PendingDeprecationWarning,
+        "index() is deprecated, please use spectralIndices() instead",
+        DeprecationWarning,
     )
 
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -590,11 +466,13 @@ def index(
         alpha,
         slope,
         intercept,
+        gamma,
         kernel,
         sigma,
         p,
         c,
         online,
+        drop,
     )
 
 
@@ -611,11 +489,13 @@ def spectralIndices(
     alpha=0.1,
     slope=1.0,
     intercept=0.0,
+    gamma=1.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
     online=False,
+    drop=False,
 ):
     """Computes one or more spectral indices (indices are added as bands) for an image
     collection from the Awesome List of Spectral Indices.
@@ -661,6 +541,8 @@ def spectralIndices(
         Soil line slope.
     intercept : float, default = 0.0
         Soil line intercept.
+    gamma : float, default = 1.0
+        Weighting coefficient  used for ARVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -677,8 +559,10 @@ def spectralIndices(
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
     online : boolean, default = False
-        Wheter to retrieve the most recent list of indices directly from the GitHub
+        Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
+    drop : boolean, default = True
+        Whether to drop all bands except the new spectral indices.
 
     Returns
     -------
@@ -720,7 +604,7 @@ def spectralIndices(
 
     >>> S2.spectralIndices('all')
     """
-    return _index(
+    return ee_extra.Spectral.core.spectralIndices(
         self,
         index,
         G,
@@ -732,11 +616,13 @@ def spectralIndices(
         alpha,
         slope,
         intercept,
+        gamma,
         kernel,
         sigma,
         p,
         c,
         online,
+        drop,
     )
 
 
@@ -817,7 +703,7 @@ def maskClouds(
     >>> S2 = (ee.ImageCollection('COPERNICUS/S2_SR')
     ...     .maskClouds(prob = 75,buffer = 300,cdi = -0.5))
     """
-    return _maskClouds(
+    return ee_extra.QA.clouds.maskClouds(
         self,
         method,
         prob,
@@ -835,10 +721,8 @@ def maskClouds(
 def scale(self):
     """Scales bands on an image collection.
 
-    Warning
-    -------------
-    **Pending Deprecation:** The :code:`scale()` method will no longer be available for
-    future versions. Please use :code:`scaleAndOffset()` instead.
+    .. deprecated:: 0.3.0
+       Use :func:`scaleAndOffset()` instead.
 
     Tip
     ----------
@@ -863,11 +747,11 @@ def scale(self):
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scale()
     """
     warnings.warn(
-        "scale() will be deprecated in future versions, please use scaleAndOffset() instead",
-        PendingDeprecationWarning,
+        "scale() is deprecated, please use scaleAndOffset() instead",
+        DeprecationWarning,
     )
 
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -909,7 +793,7 @@ def getScaleParams(self):
      'QC_Day': 1.0,
      'QC_Night': 1.0}
     """
-    return _get_scale_params(self)
+    return ee_extra.STAC.core.getScaleParams(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -951,7 +835,7 @@ def getOffsetParams(self):
      'QC_Day': 0.0,
      'QC_Night': 0.0}
     """
-    return _get_offset_params(self)
+    return ee_extra.STAC.core.getOffsetParams(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -985,7 +869,7 @@ def scaleAndOffset(self):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').scaleAndOffset()
     """
-    return _scale_STAC(self)
+    return ee_extra.STAC.core.scaleAndOffset(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1025,7 +909,7 @@ def preprocess(self, **kwargs):
     >>> ee.Initialize()
     >>> S2 = ee.ImageCollection('COPERNICUS/S2_SR').preprocess()
     """
-    return _preprocess(self, **kwargs)
+    return ee_extra.QA.pipelines.preprocess(self, **kwargs)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1056,7 +940,7 @@ def getSTAC(self):
      'gee:type': 'image_collection',
      ...}
     """
-    return _getSTAC(self)
+    return ee_extra.STAC.core.getSTAC(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1085,7 +969,7 @@ def getDOI(self):
     >>> ee.ImageCollection('NASA/GPM_L3/IMERG_V06').getDOI()
     '10.5067/GPM/IMERG/3B-HH/06'
     """
-    return _getDOI(self)
+    return ee_extra.STAC.core.getDOI(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1118,7 +1002,7 @@ def getCitation(self):
     Accessed: [Data Access Date],
     [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)'
     """
-    return _getCitation(self)
+    return ee_extra.STAC.core.getCitation(self)
 
 
 @extend(ee.imagecollection.ImageCollection)
@@ -1161,3 +1045,66 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
     >>> sharp = source.panSharpen(method="HPFA", qa=["MSE", "RMSE"], maxPixels=1e13)
     """
     return _panSharpen(self, method, qa, **kwargs)
+
+
+@extend(ee.imagecollection.ImageCollection)
+def tasseledCap(self):
+    """Calculates tasseled cap brightness, wetness, and greenness components for all
+    images in the collection.
+
+    Tasseled cap transformations are applied using coefficients published for these
+    supported platforms:
+
+    * Sentinel-2 MSI Level 1C [1]_
+    * Landsat 8 OLI TOA [2]_
+    * Landsat 7 ETM+ TOA [3]_
+    * Landsat 5 TM Raw DN [4]_
+    * Landsat 4 TM Raw DN [5]_
+    * Landsat 4 TM Surface Reflectance [6]_
+    * MODIS NBAR [7]_
+
+    Parameters
+    ----------
+    self : ee.ImageCollection
+        Image Collection to calculate tasseled cap components for. Must belong to a
+        supported platform.
+
+    Returns
+    -------
+    ee.ImageCollection
+        Image Collection with the tasseled cap components as new bands in each image.
+
+    References
+    ----------
+    .. [1] Shi, T., & Xu, H. (2019). Derivation of Tasseled Cap Transformation
+        Coefficients for Sentinel-2 MSI At-Sensor Reflectance Data. IEEE Journal
+        of Selected Topics in Applied Earth Observations and Remote Sensing, 1–11.
+        doi:10.1109/jstars.2019.2938388
+    .. [2] Baig, M.H.A., Zhang, L., Shuai, T. and Tong, Q., 2014. Derivation of a
+        tasselled cap transformation based on Landsat 8 at-satellite reflectance.
+        Remote Sensing Letters, 5(5), pp.423-431.
+    .. [3] Huang, C., Wylie, B., Yang, L., Homer, C. and Zylstra, G., 2002.
+        Derivation of a tasselled cap transformation based on Landsat 7 at-satellite
+        reflectance. International journal of remote sensing, 23(8), pp.1741-1748.
+    .. [4] Crist, E.P., Laurin, R. and Cicone, R.C., 1986, September. Vegetation and
+        soils information contained in transformed Thematic Mapper data. In
+        Proceedings of IGARSS’86 symposium (pp. 1465-1470). Paris: European Space
+        Agency Publications Division.
+    .. [5] Crist, E.P. and Cicone, R.C., 1984. A physically-based transformation of
+        Thematic Mapper data---The TM Tasseled Cap. IEEE Transactions on Geoscience
+        and Remote sensing, (3), pp.256-263.
+    .. [6] Crist, E.P., 1985. A TM tasseled cap equivalent transformation for
+        reflectance factor data. Remote sensing of Environment, 17(3), pp.301-306.
+    .. [7] Lobser, S.E. and Cohen, W.B., 2007. MODIS tasselled cap: land cover
+        characteristics expressed through transformed MODIS data. International
+        Journal of Remote Sensing, 28(22), pp.5079-5101.
+
+    Examples
+    --------
+    >>> import ee, eemont
+    >>> ee.Authenticate()
+    >>> ee.Initialize()
+    >>> col = ee.ImageCollection("LANDSAT/LT05/C01/T1")
+    >>> col = col.tasseledCap()
+    """
+    return ee_extra.Spectral.core.tasseledCap(self)

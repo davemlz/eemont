@@ -46,7 +46,7 @@ ee.ImageCollection
 Supported Platforms
 ----------------------
 
-This method automatically scales ALL images from the `Google Earth Engine STAC Catalog <https://developers.google.com/earth-engine/datasets>`_ by using the `List of Scale and Offset Paramaters from the GEE STAC Catalog Repository <https://github.com/davemlz/ee-catalog-scale-offset-params>`_.
+This method automatically scales ALL images from the `Google Earth Engine STAC Catalog <https://developers.google.com/earth-engine/datasets>`_ by using the `List of Scale and Offset Parameters from the GEE STAC Catalog Repository <https://github.com/davemlz/ee-catalog-scale-offset-params>`_.
 
 Usage
 ------------------

@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx_copybutton",
     "nbsphinx",
+    "sphinx_tabs.tabs",
 ]
 
 autodoc_default_flags = ["members"]

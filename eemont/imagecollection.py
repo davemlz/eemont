@@ -126,6 +126,35 @@ def closest(self, date, tolerance=1, unit="month"):
             Initialize()
             eemont = pyimport("eemont");
             S2 = EE.ImageCollection('COPERNICUS/S2_SR') |> x -> closest(x,'2020-10-15');
+
+    .. tabs::
+
+        .. tab:: Python
+
+            .. code-block:: python
+
+                import ee, eemont
+                ee.Initialize()
+                S2 = ee.ImageCollection('COPERNICUS/S2_SR').closest('2020-10-15')
+
+        .. tab:: R
+
+            .. code-block:: r
+
+                library(rgee)
+                library(reticulate)
+                ee_Initialize()
+                eemont <- import("eemont")
+                S2 <- ee$ImageCollection('COPERNICUS/S2_SR')$closest('2020-10-15')
+
+        .. tab:: Julia
+
+            .. code-block:: julia
+
+                using EarthEngine, PyCall
+                Initialize()
+                eemont = pyimport("eemont");
+                S2 = EE.ImageCollection('COPERNICUS/S2_SR') |> x -> closest(x,'2020-10-15');
     """
     return ee_extra.ImageCollection.core.closest(self, date, tolerance, unit)
 

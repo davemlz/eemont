@@ -3,9 +3,9 @@ import warnings
 import ee
 import ee_extra
 import ee_extra.Spectral.core
+import ee_extra.Algorithms.core
 import requests
 
-from .common import _matchHistogram, _panSharpen
 from .extending import extend
 
 
@@ -1341,8 +1341,8 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
         (Principal Component Substitution), and "SM" (simple mean). Different sharpening
         methods will produce different quality sharpening results in different scenarios.
     qa : str | list, default=None
-        One or more optional quality assessment names to apply after sharpening,
-        e.g. "MSE", "RASE", "UIQI", etc.
+        One or more optional quality assessment names to apply after sharpening. Results 
+        will be stored as image properties with the pattern `eemont:metric`, e.g. `eemont:RMSE`.
     **kwargs :
         Keyword arguments passed to ee.Image.reduceRegion() such as "geometry",
         "maxPixels", "bestEffort", etc. These arguments are only used for PCS sharpening
@@ -1362,7 +1362,7 @@ def panSharpen(self, method="SFIM", qa=None, **kwargs):
     >>> source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
     >>> sharp = source.panSharpen(method="HPFA", qa=["MSE", "RMSE"], maxPixels=1e13)
     """
-    return _panSharpen(self, method, qa, **kwargs)
+    return ee_extra.Algorithms.core.panSharpen(img=self, method=method, qa=qa, prefix="eemont", **kwargs)
 
 
 @extend(ee.image.Image)
@@ -1404,7 +1404,13 @@ def matchHistogram(self, target, bands, geometry=None, maxBuckets=256):
     >>> }
     >>> matched = source.matchHistogram(target, bands)
     """
-    return _matchHistogram(self, target, bands, geometry, maxBuckets)
+    return ee_extra.Spectral.core.matchHistogram(
+        source=self, 
+        target=target, 
+        bands=bands, 
+        geometry=geometry, 
+        maxBuckets=maxBuckets
+    )
 
 
 @extend(ee.image.Image)

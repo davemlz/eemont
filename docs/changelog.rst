@@ -8,6 +8,7 @@ Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
 - :code:`PanSharpen` and :code:`matchHistogram` are linked to ee_extra (`#60 <https://github.com/davemlz/eemont/pull/60>`_).
+- Added :code:`omega` argument to :code:`spectralIndices` (`#54 <https://github.com/davemlz/eemont/issues/54>`_).
 
 Contributors
 ~~~~~~~~~~~~~~~~~~~~~~

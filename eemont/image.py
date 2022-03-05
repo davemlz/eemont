@@ -943,6 +943,7 @@ def spectralIndices(
         slope,
         intercept,
         gamma,
+        omega,
         kernel,
         sigma,
         p,

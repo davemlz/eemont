@@ -148,13 +148,6 @@ class Test(unittest.TestCase):
         )
         self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
 
-    def test_S2_previous(self):
-        """Test the image collection module for Sentinel-2"""
-        S2_tested = (
-            S2.closest("2020-01-15").maskClouds().scale().index(indices, online=True)
-        )
-        self.assertIsInstance(S2_tested, ee.imagecollection.ImageCollection)
-
     # LANDSAT MISSIONS
 
     def test_L8(self):

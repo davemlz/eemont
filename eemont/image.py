@@ -777,26 +777,7 @@ def index(
         DeprecationWarning,
     )
 
-    return ee_extra.Spectral.core.spectralIndices(
-        self,
-        index,
-        G,
-        C1,
-        C2,
-        L,
-        cexp,
-        nexp,
-        alpha,
-        slope,
-        intercept,
-        gamma,
-        kernel,
-        sigma,
-        p,
-        c,
-        online,
-        drop,
-    )
+    return self
 
 
 @extend(ee.image.Image)

@@ -1463,6 +1463,18 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LC09/C02/T1_RT": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LC09_C02_T1_RT.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LC09/C02/T1_RT_TOA": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LC09_C02_T1_RT_TOA.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LC09/C02/T1_TOA": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_LC09_C02_T1_TOA.json",
@@ -2980,6 +2992,12 @@
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/LANDSAT_MANGROVE_FORESTS.json",
         "sci:citation": "Giri, C., E. Ochieng, L.L.Tieszen, Z. Zhu, A. Singh, T. Loveland, J. Masek, and N. Duke. 2013. Global Mangrove Forests Distribution, 2000. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). [https://doi.org/10.7927/H4J67DW8](https://doi.org/10.7927/H4J67DW8). Accessed DAY MONTH YEAR\n",
         "sci:doi": "10.7927/H4J67DW8"
+    },
+    "LARSE/GEDI/GEDI02_A_002_MONTHLY": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/LARSE_GEDI_GEDI02_A_002_MONTHLY.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
     },
     "MERIT/DEM/v1_0_3": {
         "gee:type": "image",

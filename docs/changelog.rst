@@ -1,6 +1,19 @@
 Changelog
 ============
 
+v0.3.2
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- :code:`PanSharpen` and :code:`matchHistogram` are linked to ee_extra (`#60 <https://github.com/davemlz/eemont/pull/60>`_).
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Aaron Zuspan <https://github.com/aazuspan>`_
+
 v0.3.1
 --------------
 

@@ -1,6 +1,15 @@
 Changelog
 ============
 
+v0.3.3
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Added :code:`k` argument to :code:`spectralIndices` (`#61 <https://github.com/davemlz/eemont/issues/61>`_).
+- The Awesome Spectral Indices list was updated to v0.0.6.
+
 v0.3.2
 --------------
 

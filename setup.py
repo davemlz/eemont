@@ -27,7 +27,7 @@ setup(
     install_requires=[
         "beautifulsoup4",
         "earthengine-api",
-        "ee_extra>=0.0.11",
+        "ee_extra>=0.0.12",
         "numpy",
         "pandas",
         "python-box",

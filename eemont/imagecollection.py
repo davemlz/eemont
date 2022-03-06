@@ -492,6 +492,7 @@ def spectralIndices(
     intercept=0.0,
     gamma=1.0,
     omega=2.0,
+    k=0.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -547,6 +548,8 @@ def spectralIndices(
         Weighting coefficient  used for ARVI.
     omega : float, default = 2.0
         Weighting coefficient  used for MBWI.
+    k : float, default = 0.0
+        Slope parameter by soil used for NIRvH2.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -622,6 +625,7 @@ def spectralIndices(
         intercept,
         gamma,
         omega,
+        k,
         kernel,
         sigma,
         p,

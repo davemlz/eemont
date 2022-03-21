@@ -4,11 +4,11 @@ import requests
 
 # Request ee catalog
 eeCatalog = requests.get(
-    "https://earthengine-stac.storage.googleapis.com/catalog/catalog.json"
+    "https://raw.githubusercontent.com/davemlz/ee-flatten/main/list/ee-catalog-flatten.json"
 ).json()
 # Get the datasets
 eeDict = dict()
-for dataset in eeCatalog["links"]:
+for dataset in eeCatalog:
     if dataset["rel"] == "child":
         response = requests.get(dataset["href"])
         if response.status_code == 200:

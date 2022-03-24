@@ -4496,8 +4496,14 @@
     "USGS/NLCD_RELEASES/2019_REL/NLCD": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2019_REL_NLCD.json",
-        "sci:citation": "Dewitz, J., and U.S. Geological Survey, 2021, National Land Cover Database (NLCD)\n2019 Products (ver. 2.0, June 2021): U.S. Geological Survey data release,\nhttps://doi.org/10.5066/P9KZCM54\n",
+        "sci:citation": "Dewitz, J., and U.S. Geological Survey, 2021, National Land Cover Database (NLCD)\n2019 Products (ver. 2.0, June 2021): U.S. Geological Survey data release,\n[doi:10.5066/P9KZCM54](https://doi.org/10.5066/P9KZCM54)\n",
         "sci:doi": "10.5066/P9KZCM54"
+    },
+    "USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER": {
+        "gee:type": "image_collection",
+        "href": "https://earthengine-stac.storage.googleapis.com/catalog/USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER.json",
+        "sci:citation": "Rigge, M.B., Bunde, B., Shi, H., Postma, K., 2021, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2020 (ver. 2.0, October 2021): U.S. Geological Survey data release.\n[doi:10.5066/P95IQ4BT](https://doi.org/10.5066/P95IQ4BT)\n",
+        "sci:doi": "DOI not available"
     },
     "USGS/SRTMGL1_003": {
         "gee:type": "image",

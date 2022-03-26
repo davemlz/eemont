@@ -6444,6 +6444,16 @@
         "impervious_descriptor": 1.0,
         "landcover": 1.0
     },
+    "USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER": {
+        "rangeland_annual_herbaceous": 1.0,
+        "rangeland_bare_ground": 1.0,
+        "rangeland_herbaceous": 1.0,
+        "rangeland_litter": 1.0,
+        "rangeland_non_sagebrush_shrub": 1.0,
+        "rangeland_perennial_herbaceous": 1.0,
+        "rangeland_sagebrush": 1.0,
+        "rangeland_shrub": 1.0
+    },
     "USGS/SRTMGL1_003": {
         "elevation": 1.0
     },

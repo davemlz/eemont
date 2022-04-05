@@ -30,6 +30,7 @@ Tutorials
     tutorials/028-Tasseled-Cap.ipynb
     tutorials/030-Awesome-Spectral-Indices-v003.ipynb
     tutorials/032-Combining-eemont-wxee.ipynb
+    tutorials/035-Landsat-9.ipynb
 
 .. toctree::
     :caption: Time Series

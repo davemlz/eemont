@@ -1,6 +1,21 @@
 Changelog
 ============
 
+v0.3.4
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Added Landsat-9 to :code:`tasseledCap` (`ee-extra #43 <https://github.com/r-earthengine/ee_extra/pull/43>`_).
+- Added Landsat-9 to :code:`spectralIndices` (`ee-extra #41 <https://github.com/r-earthengine/ee_extra/issues/41>`_).
+- Added Landsat-9 to :code:`panSharpen` (`ee-extra #40 <https://github.com/r-earthengine/ee_extra/pull/40>`_).
+
+Contributors
+~~~~~~~~~~~~~~~~~~~~~~
+
+- `Aaron Zuspan <https://github.com/aazuspan>`_
+
 v0.3.3
 --------------
 
@@ -16,7 +31,7 @@ v0.3.2
 Improvements
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- :code:`PanSharpen` and :code:`matchHistogram` are linked to ee_extra (`#60 <https://github.com/davemlz/eemont/pull/60>`_).
+- :code:`panSharpen` and :code:`matchHistogram` are linked to ee_extra (`#60 <https://github.com/davemlz/eemont/pull/60>`_).
 - Added :code:`omega` argument to :code:`spectralIndices` (`#54 <https://github.com/davemlz/eemont/issues/54>`_).
 
 Contributors

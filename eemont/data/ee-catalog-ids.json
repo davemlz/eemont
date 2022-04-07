@@ -4472,7 +4472,7 @@
     "USFS/GTAC/LCMS/v2020-6": {
         "gee:type": "image_collection",
         "href": "https://earthengine-stac.storage.googleapis.com/catalog/USFS/USFS_GTAC_LCMS_v2020-6.json",
-        "sci:citation": "USDA Forest Service. 2021. USFS Landscape Change Monitoring System\nversion 2020.6. Salt Lake City, Utah.\n",
+        "sci:citation": "USDA Forest Service. 2021. USFS Landscape Change Monitoring System\nv2020.6 (Puerto Rico - US Virgin Islands only). Salt Lake City, Utah.\n",
         "sci:doi": "DOI not available"
     },
     "USGS/3DEP/10m": {

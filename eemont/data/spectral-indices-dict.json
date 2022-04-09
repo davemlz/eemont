@@ -39,6 +39,20 @@
             "short_name": "ARI",
             "type": "vegetation"
         },
+        "ARI2": {
+            "bands": [
+                "N",
+                "G",
+                "RE1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "N * ((1 / G) - (1 / RE1))",
+            "long_name": "Anthocyanin Reflectance Index 2",
+            "reference": "https://doi.org/10.1562/0031-8655(2001)074%3C0038:OPANEO%3E2.0.CO;2",
+            "short_name": "ARI2",
+            "type": "vegetation"
+        },
         "ARVI": {
             "bands": [
                 "N",
@@ -67,6 +81,19 @@
             "long_name": "Adjusted Transformed Soil-Adjusted Vegetation Index",
             "reference": "https://doi.org/10.1016/0034-4257(91)90009-U",
             "short_name": "ATSAVI",
+            "type": "vegetation"
+        },
+        "AVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(N * (1.0 - R) * (N - R)) ** (1/3)",
+            "long_name": "Advanced Vegetation Index",
+            "reference": "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf",
+            "short_name": "AVI",
             "type": "vegetation"
         },
         "AWEInsh": {
@@ -142,6 +169,21 @@
             "reference": "https://doi.org/10.1016/0034-4257(87)90088-5",
             "short_name": "BCC",
             "type": "vegetation"
+        },
+        "BI": {
+            "bands": [
+                "S1",
+                "R",
+                "N",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "((S1 + R) - (N + B))/((S1 + R) + (N + B))",
+            "long_name": "Bare Soil Index",
+            "reference": "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf",
+            "short_name": "BI",
+            "type": "urban"
         },
         "BLFEI": {
             "bands": [
@@ -248,7 +290,7 @@
             "date_of_addition": "2021-05-14",
             "formula": "N - R",
             "long_name": "Difference Vegetation Index",
-            "reference": "https://doi.org/10.2307/1936256",
+            "reference": "https://doi.org/10.1016/0034-4257(94)00114-3",
             "short_name": "DVI",
             "type": "vegetation"
         },
@@ -356,6 +398,33 @@
             "short_name": "ExG",
             "type": "vegetation"
         },
+        "ExGR": {
+            "bands": [
+                "G",
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(2.0 * G - R - B) - (1.3 * R - G)",
+            "long_name": "ExG - ExR Vegetation Index",
+            "reference": "https://doi.org/10.1016/j.compag.2008.03.009",
+            "short_name": "ExGR",
+            "type": "vegetation"
+        },
+        "ExR": {
+            "bands": [
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "1.3 * R - G",
+            "long_name": "Excess Red Index",
+            "reference": "https://doi.org/10.1117/12.336896",
+            "short_name": "ExR",
+            "type": "vegetation"
+        },
         "FCVI": {
             "bands": [
                 "N",
@@ -455,6 +524,32 @@
             "short_name": "GLI",
             "type": "vegetation"
         },
+        "GM1": {
+            "bands": [
+                "RE2",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "RE2/G",
+            "long_name": "Gitelson and Merzlyak Index 1",
+            "reference": "https://doi.org/10.1016/S0176-1617(96)80284-7",
+            "short_name": "GM1",
+            "type": "vegetation"
+        },
+        "GM2": {
+            "bands": [
+                "RE2",
+                "RE1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "RE2/RE1",
+            "long_name": "Gitelson and Merzlyak Index 2",
+            "reference": "https://doi.org/10.1016/S0176-1617(96)80284-7",
+            "short_name": "GM2",
+            "type": "vegetation"
+        },
         "GNDVI": {
             "bands": [
                 "N",
@@ -466,6 +561,19 @@
             "long_name": "Green Normalized Difference Vegetation Index",
             "reference": "https://doi.org/10.1016/S0034-4257(96)00072-7",
             "short_name": "GNDVI",
+            "type": "vegetation"
+        },
+        "GOSAVI": {
+            "bands": [
+                "N",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(N - G) / (N + G + 0.16)",
+            "long_name": "Green Optimized Soil Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "GOSAVI",
             "type": "vegetation"
         },
         "GRNDVI": {
@@ -482,6 +590,33 @@
             "short_name": "GRNDVI",
             "type": "vegetation"
         },
+        "GRVI": {
+            "bands": [
+                "N",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "N/G",
+            "long_name": "Green Ratio Vegetation Index",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "GRVI",
+            "type": "vegetation"
+        },
+        "GSAVI": {
+            "bands": [
+                "L",
+                "N",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(1.0 + L) * (N - G) / (N + G + L)",
+            "long_name": "Green Soil Adjusted Vegetation Index",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "GSAVI",
+            "type": "vegetation"
+        },
         "GVMI": {
             "bands": [
                 "N",
@@ -493,6 +628,21 @@
             "long_name": "Global Vegetation Moisture Index",
             "reference": "https://doi.org/10.1016/S0034-4257(02)00037-8",
             "short_name": "GVMI",
+            "type": "vegetation"
+        },
+        "IAVI": {
+            "bands": [
+                "N",
+                "R",
+                "gamma",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(N - (R - gamma * (B - R)))/(N + (R - gamma * (B - R)))",
+            "long_name": "New Atmospherically Resistant Vegetation Index",
+            "reference": "https://www.jipb.net/EN/abstract/abstract23925.shtml",
+            "short_name": "IAVI",
             "type": "vegetation"
         },
         "IBI": {
@@ -510,6 +660,32 @@
             "reference": "https://doi.org/10.1080/01431160802039957",
             "short_name": "IBI",
             "type": "urban"
+        },
+        "IKAW": {
+            "bands": [
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(R - B)/(R + B)",
+            "long_name": "Kawashima Index",
+            "reference": "https://doi.org/10.1006/anbo.1997.0544",
+            "short_name": "IKAW",
+            "type": "vegetation"
+        },
+        "IPVI": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "N/(N + R)",
+            "long_name": "Infrared Percentage Vegetation Index",
+            "reference": "https://doi.org/10.1016/0034-4257(90)90085-Z",
+            "short_name": "IPVI",
+            "type": "vegetation"
         },
         "IRECI": {
             "bands": [
@@ -681,6 +857,19 @@
             "short_name": "MNLI",
             "type": "vegetation"
         },
+        "MRBVI": {
+            "bands": [
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(R ** 2.0 - B ** 2.0)/(R ** 2.0 + B ** 2.0)",
+            "long_name": "Modified Red Blue Vegetation Index",
+            "reference": "https://doi.org/10.3390/s20185055",
+            "short_name": "MRBVI",
+            "type": "vegetation"
+        },
         "MSAVI": {
             "bands": [
                 "N",
@@ -692,6 +881,19 @@
             "long_name": "Modified Soil-Adjusted Vegetation Index",
             "reference": "https://doi.org/10.1016/0034-4257(94)90134-1",
             "short_name": "MSAVI",
+            "type": "vegetation"
+        },
+        "MSI": {
+            "bands": [
+                "S1",
+                "N"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "S1/N",
+            "long_name": "Moisture Stress Index",
+            "reference": "https://doi.org/10.1016/0034-4257(89)90046-1",
+            "short_name": "MSI",
             "type": "vegetation"
         },
         "MSR": {
@@ -802,6 +1004,19 @@
             "short_name": "NBRT",
             "type": "burn"
         },
+        "ND705": {
+            "bands": [
+                "RE2",
+                "RE1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(RE2 - RE1)/(RE2 + RE1)",
+            "long_name": "Normalized Difference (705 and 750 nm)",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00010-X",
+            "short_name": "ND705",
+            "type": "vegetation"
+        },
         "NDBI": {
             "bands": [
                 "S1",
@@ -858,6 +1073,19 @@
             "reference": "https://doi.org/10.1016/j.rse.2019.03.028",
             "short_name": "NDGI",
             "type": "vegetation"
+        },
+        "NDGlaI": {
+            "bands": [
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(G - R)/(G + R)",
+            "long_name": "Normalized Difference Glacier Index",
+            "reference": "https://doi.org/10.1080/01431160802385459",
+            "short_name": "NDGlaI",
+            "type": "snow"
         },
         "NDII": {
             "bands": [
@@ -928,15 +1156,42 @@
         },
         "NDSII": {
             "bands": [
+                "G",
+                "N"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(G - N)/(G + N)",
+            "long_name": "Normalized Difference Snow Ice Index",
+            "reference": "https://doi.org/10.1080/01431160802385459",
+            "short_name": "NDSII",
+            "type": "snow"
+        },
+        "NDSInw": {
+            "bands": [
+                "N",
+                "S1",
+                "beta"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(N - S1 - beta)/(N + S1)",
+            "long_name": "Normalized Difference Snow Index with no Water",
+            "reference": "https://doi.org/10.3390/w12051339",
+            "short_name": "NDSInw",
+            "type": "snow"
+        },
+        "NDSaII": {
+            "bands": [
                 "R",
                 "S1"
             ],
             "contributor": "https://github.com/davemlz",
             "date_of_addition": "2021-09-18",
             "formula": "(R - S1) / (R + S1)",
-            "long_name": "Normalized Difference Snow Ice Index",
+            "long_name": "Normalized Difference Snow and Ice Index",
             "reference": "https://doi.org/10.1080/01431160119766",
-            "short_name": "NDSII",
+            "short_name": "NDSaII",
             "type": "snow"
         },
         "NDVI": {
@@ -1005,6 +1260,20 @@
             "long_name": "Normalized Difference Water Index",
             "reference": "https://doi.org/10.1080/01431169608948714",
             "short_name": "NDWI",
+            "type": "water"
+        },
+        "NDWIns": {
+            "bands": [
+                "G",
+                "alpha",
+                "N"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(G - alpha * N)/(G + N)",
+            "long_name": "Normalized Difference Water Index with no Snow Cover and Glaciers",
+            "reference": "https://doi.org/10.3390/w12051339",
+            "short_name": "NDWIns",
             "type": "water"
         },
         "NDYI": {
@@ -1157,6 +1426,48 @@
             "short_name": "NWI",
             "type": "water"
         },
+        "NormG": {
+            "bands": [
+                "G",
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "G/(N + G + R)",
+            "long_name": "Normalized Green",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "NormG",
+            "type": "vegetation"
+        },
+        "NormNIR": {
+            "bands": [
+                "N",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "N/(N + G + R)",
+            "long_name": "Normalized NIR",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "NormNIR",
+            "type": "vegetation"
+        },
+        "NormR": {
+            "bands": [
+                "R",
+                "N",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "R/(N + G + R)",
+            "long_name": "Normalized Red",
+            "reference": "https://doi.org/10.2134/agronj2004.0314",
+            "short_name": "NormR",
+            "type": "vegetation"
+        },
         "OCVI": {
             "bands": [
                 "N",
@@ -1183,6 +1494,20 @@
             "long_name": "Optimized Soil-Adjusted Vegetation Index",
             "reference": "https://doi.org/10.1016/0034-4257(95)00186-7",
             "short_name": "OSAVI",
+            "type": "vegetation"
+        },
+        "PSRI": {
+            "bands": [
+                "R",
+                "B",
+                "RE2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(R - B)/RE2",
+            "long_name": "Plant Senescing Reflectance Index",
+            "reference": "https://doi.org/10.1034/j.1399-3054.1999.106119.x",
+            "short_name": "PSRI",
             "type": "vegetation"
         },
         "QpRVI": {
@@ -1252,6 +1577,33 @@
             "reference": "https://doi.org/10.5194/bg-9-179-2012",
             "short_name": "RFDI",
             "type": "radar"
+        },
+        "RGBVI": {
+            "bands": [
+                "G",
+                "B",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(G ** 2.0 - B * R)/(G ** 2.0 + B * R)",
+            "long_name": "Red Green Blue Vegetation Index",
+            "reference": "https://doi.org/10.1016/j.jag.2015.02.012",
+            "short_name": "RGBVI",
+            "type": "vegetation"
+        },
+        "RGRI": {
+            "bands": [
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "R/G",
+            "long_name": "Red-Green Ratio Index",
+            "reference": "https://doi.org/10.1016/j.jag.2014.03.018",
+            "short_name": "RGRI",
+            "type": "vegetation"
         },
         "RVI": {
             "bands": [
@@ -1367,6 +1719,20 @@
             "short_name": "SAVIT",
             "type": "burn"
         },
+        "SI": {
+            "bands": [
+                "B",
+                "G",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "((1.0 - B) * (1.0 - G) * (1.0 - R)) ** (1/3)",
+            "long_name": "Shadow Index",
+            "reference": "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf",
+            "short_name": "SI",
+            "type": "vegetation"
+        },
         "SIPI": {
             "bands": [
                 "N",
@@ -1379,6 +1745,19 @@
             "long_name": "Structure Insensitive Pigment Index",
             "reference": "https://eurekamag.com/research/009/395/009395053.php",
             "short_name": "SIPI",
+            "type": "vegetation"
+        },
+        "SR": {
+            "bands": [
+                "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "N/R",
+            "long_name": "Simple Ratio",
+            "reference": "https://doi.org/10.2307/1936256",
+            "short_name": "SR",
             "type": "vegetation"
         },
         "SR555": {
@@ -1551,6 +1930,19 @@
         "TVI": {
             "bands": [
                 "N",
+                "R"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(((N - R)/(N + R)) + 0.5) ** 0.5",
+            "long_name": "Transformed Vegetation Index",
+            "reference": "https://ntrs.nasa.gov/citations/19740022614",
+            "short_name": "TVI",
+            "type": "vegetation"
+        },
+        "TriVI": {
+            "bands": [
+                "N",
                 "G",
                 "R"
             ],
@@ -1559,7 +1951,7 @@
             "formula": "0.5 * (120 * (N - G) - 200 * (R - G))",
             "long_name": "Triangular Vegetation Index",
             "reference": "http://dx.doi.org/10.1016/S0034-4257(00)00197-8",
-            "short_name": "TVI",
+            "short_name": "TriVI",
             "type": "vegetation"
         },
         "UI": {
@@ -1742,6 +2134,19 @@
             "short_name": "kEVI",
             "type": "kernel"
         },
+        "kIPVI": {
+            "bands": [
+                "kNN",
+                "kNR"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "kNN/(kNN + kNR)",
+            "long_name": "Kernel Infrared Percentage Vegetation Index",
+            "reference": "https://doi.org/10.1126/sciadv.abc7447",
+            "short_name": "kIPVI",
+            "type": "vegetation"
+        },
         "kNDVI": {
             "bands": [
                 "kNN",
@@ -1781,6 +2186,33 @@
             "reference": "https://doi.org/10.1126/sciadv.abc7447",
             "short_name": "kVARI",
             "type": "kernel"
+        },
+        "mND705": {
+            "bands": [
+                "RE2",
+                "RE1",
+                "A"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(RE2 - RE1)/(RE2 + RE1 - A)",
+            "long_name": "Modified Normalized Difference (705, 750 and 445 nm)",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00010-X",
+            "short_name": "mND705",
+            "type": "vegetation"
+        },
+        "mSR705": {
+            "bands": [
+                "RE2",
+                "A"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-08",
+            "formula": "(RE2 - A)/(RE2 + A)",
+            "long_name": "Modified Simple Ratio (705 and 445 nm)",
+            "reference": "https://doi.org/10.1016/S0034-4257(02)00010-X",
+            "short_name": "mSR705",
+            "type": "vegetation"
         }
     }
 }

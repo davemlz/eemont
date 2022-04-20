@@ -267,6 +267,19 @@
             "short_name": "CIRE",
             "type": "vegetation"
         },
+        "CSI": {
+            "bands": [
+                "N",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "N/S2",
+            "long_name": "Char Soil Index",
+            "reference": "https://doi.org/10.1016/j.rse.2005.04.014",
+            "short_name": "CSI",
+            "type": "burn"
+        },
         "CSIT": {
             "bands": [
                 "N",
@@ -324,6 +337,19 @@
             "reference": "https://doi.org/10.3390/land7030081",
             "short_name": "DBSI",
             "type": "urban"
+        },
+        "DPDD": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "(VV + VH)/2.0 ** 0.5",
+            "long_name": "Dual-Pol Diagonal Distance",
+            "reference": "https://doi.org/10.1016/j.rse.2018.09.003",
+            "short_name": "DPDD",
+            "type": "radar"
         },
         "DVI": {
             "bands": [
@@ -890,6 +916,19 @@
             "short_name": "MGRVI",
             "type": "vegetation"
         },
+        "MIRBI": {
+            "bands": [
+                "S2",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "10.0 * S2 - 9.8 * S1 + 2.0",
+            "long_name": "Mid-Infrared Burn Index",
+            "reference": "https://doi.org/10.1080/01431160110053185",
+            "short_name": "MIRBI",
+            "type": "burn"
+        },
         "MNDVI": {
             "bands": [
                 "N",
@@ -1075,7 +1114,7 @@
             "date_of_addition": "2021-04-07",
             "formula": "(N - S2) / (N + S2)",
             "long_name": "Normalized Burn Ratio",
-            "reference": "https://www.usgs.gov/core-science-systems/nli/landsat/landsat-normalized-burn-ratio",
+            "reference": "https://doi.org/10.3133/ofr0211",
             "short_name": "NBR",
             "type": "burn"
         },
@@ -1092,7 +1131,7 @@
             "short_name": "NBR2",
             "type": "burn"
         },
-        "NBRT": {
+        "NBRT1": {
             "bands": [
                 "N",
                 "S2",
@@ -1101,9 +1140,37 @@
             "contributor": "https://github.com/davemlz",
             "date_of_addition": "2021-04-07",
             "formula": "(N - (S2 * T1 / 10000.0)) / (N + (S2 * T1 / 10000.0))",
-            "long_name": "Normalized Burn Ratio Thermal",
+            "long_name": "Normalized Burn Ratio Thermal 1",
             "reference": "https://doi.org/10.1080/01431160500239008",
-            "short_name": "NBRT",
+            "short_name": "NBRT1",
+            "type": "burn"
+        },
+        "NBRT2": {
+            "bands": [
+                "N",
+                "T1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "((N / (T1 / 10000.0)) - S2) / ((N / (T1 / 10000.0)) + S2)",
+            "long_name": "Normalized Burn Ratio Thermal 2",
+            "reference": "https://doi.org/10.1080/01431160500239008",
+            "short_name": "NBRT2",
+            "type": "burn"
+        },
+        "NBRT3": {
+            "bands": [
+                "N",
+                "T1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "((N - (T1 / 10000.0)) - S2) / ((N - (T1 / 10000.0)) + S2)",
+            "long_name": "Normalized Burn Ratio Thermal 3",
+            "reference": "https://doi.org/10.1080/01431160500239008",
+            "short_name": "NBRT3",
             "type": "burn"
         },
         "NBSIMS": {
@@ -1338,6 +1405,19 @@
             "reference": "https://doi.org/10.1016/j.rse.2017.04.031",
             "short_name": "NDPI",
             "type": "vegetation"
+        },
+        "NDPolI": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "(VV - VH)/(VV + VH)",
+            "long_name": "Normalized Difference Polarization Index",
+            "reference": "https://www.isprs.org/proceedings/XXXVII/congress/4_pdf/267.pdf",
+            "short_name": "NDPolI",
+            "type": "radar"
         },
         "NDREI": {
             "bands": [
@@ -2311,6 +2391,71 @@
             "short_name": "VARI700",
             "type": "vegetation"
         },
+        "VDDPI": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "(VV + VH)/VV",
+            "long_name": "Vertical Dual De-Polarization Index",
+            "reference": "https://doi.org/10.1016/j.rse.2018.09.003",
+            "short_name": "VDDPI",
+            "type": "radar"
+        },
+        "VHVVD": {
+            "bands": [
+                "VH",
+                "VV"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VH - VV",
+            "long_name": "VH-VV Difference",
+            "reference": "https://doi.org/10.3390/app9040655",
+            "short_name": "VHVVD",
+            "type": "radar"
+        },
+        "VHVVP": {
+            "bands": [
+                "VH",
+                "VV"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VH * VV",
+            "long_name": "VH-VV Product",
+            "reference": "https://doi.org/10.1109/IGARSS47720.2021.9554099",
+            "short_name": "VHVVP",
+            "type": "radar"
+        },
+        "VHVVR": {
+            "bands": [
+                "VH",
+                "VV"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VH/VV",
+            "long_name": "VH-VV Ratio",
+            "reference": "https://doi.org/10.1109/IGARSS47720.2021.9554099",
+            "short_name": "VHVVR",
+            "type": "radar"
+        },
+        "VI6T": {
+            "bands": [
+                "N",
+                "T1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "(N - T1/10000.0)/(N + T1/10000.0)",
+            "long_name": "VI6T Index",
+            "reference": "https://doi.org/10.1080/01431160500239008",
+            "short_name": "VI6T",
+            "type": "burn"
+        },
         "VI700": {
             "bands": [
                 "RE1",
@@ -2336,6 +2481,45 @@
             "reference": "https://doi.org/10.1016/S0034-4257(01)00289-9",
             "short_name": "VIG",
             "type": "vegetation"
+        },
+        "VVVHD": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VV - VH",
+            "long_name": "VV-VH Difference",
+            "reference": "https://doi.org/10.1109/IGARSS47720.2021.9554099",
+            "short_name": "VVVHD",
+            "type": "radar"
+        },
+        "VVVHR": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VV/VH",
+            "long_name": "VV-VH Ratio",
+            "reference": "https://doi.org/10.3390/app9040655",
+            "short_name": "VVVHR",
+            "type": "radar"
+        },
+        "VVVHS": {
+            "bands": [
+                "VV",
+                "VH"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-04-19",
+            "formula": "VV + VH",
+            "long_name": "VV-VH Sum",
+            "reference": "https://doi.org/10.1109/IGARSS47720.2021.9554099",
+            "short_name": "VVVHS",
+            "type": "radar"
         },
         "VgNIRBI": {
             "bands": [

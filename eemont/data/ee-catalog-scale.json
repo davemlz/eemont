@@ -1232,7 +1232,7 @@
     "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1": {
         "clear_perc": 1.0,
         "clear_views": 1.0,
-        "flood_duration": 1.0,
+        "duration": 1.0,
         "flooded": 1.0,
         "jrc_perm_water": 1.0
     },

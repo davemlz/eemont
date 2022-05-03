@@ -6465,6 +6465,21 @@
         "lossyear": 1.0,
         "treecover2000": 1.0
     },
+    "UMD/hansen/global_forest_change_2021_v1_9": {
+        "datamask": 1.0,
+        "first_b30": 1.0,
+        "first_b40": 1.0,
+        "first_b50": 1.0,
+        "first_b70": 1.0,
+        "gain": 1.0,
+        "last_b30": 1.0,
+        "last_b40": 1.0,
+        "last_b50": 1.0,
+        "last_b70": 1.0,
+        "loss": 1.0,
+        "lossyear": 1.0,
+        "treecover2000": 1.0
+    },
     "UMN/PGC/ArcticDEM/V2/2m": {
         "elevation": 1.0,
         "matchtag": 1.0
@@ -6559,6 +6574,35 @@
         "Land_Use_Raw_Probability_Rangeland-or-Pasture": 1.0
     },
     "USFS/GTAC/LCMS/v2020-6": {
+        "Change": 1.0,
+        "Change_Raw_Probability_Fast-Loss": 1.0,
+        "Change_Raw_Probability_Gain": 1.0,
+        "Change_Raw_Probability_Slow-Loss": 1.0,
+        "Land_Cover": 1.0,
+        "Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Barren-and-Trees-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Barren-or-Impervious": 1.0,
+        "Land_Cover_Raw_Probability_Grass-Forb-Herb": 1.0,
+        "Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Shrubs-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Trees-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Shrubs": 1.0,
+        "Land_Cover_Raw_Probability_Shrubs-and-Trees-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Snow-or-Ice": 1.0,
+        "Land_Cover_Raw_Probability_Tall-Shrubs": 1.0,
+        "Land_Cover_Raw_Probability_Tall-Shrubs-and-Trees-Mix": 1.0,
+        "Land_Cover_Raw_Probability_Trees": 1.0,
+        "Land_Cover_Raw_Probability_Water": 1.0,
+        "Land_Use": 1.0,
+        "Land_Use_Raw_Probability_Agriculture": 1.0,
+        "Land_Use_Raw_Probability_Developed": 1.0,
+        "Land_Use_Raw_Probability_Forest": 1.0,
+        "Land_Use_Raw_Probability_Non-Forest-Wetland": 1.0,
+        "Land_Use_Raw_Probability_Other": 1.0,
+        "Land_Use_Raw_Probability_Rangeland-or-Pasture": 1.0,
+        "QA_Bits": 1.0
+    },
+    "USFS/GTAC/LCMS/v2021-7": {
         "Change": 1.0,
         "Change_Raw_Probability_Fast-Loss": 1.0,
         "Change_Raw_Probability_Gain": 1.0,

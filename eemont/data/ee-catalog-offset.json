@@ -5140,6 +5140,20 @@
         "Tair_f_tavg": 0.0,
         "Wind_f_tavg": 0.0
     },
+    "NASA/GEOS-CF/v1/rpl/htf": {
+        "CO": 0.0,
+        "NO2": 0.0,
+        "O3": 0.0,
+        "PM25_RH35_GCC": 0.0,
+        "PM25_RH35_GOCART": 0.0,
+        "Q": 0.0,
+        "RH": 0.0,
+        "SLP": 0.0,
+        "SO2": 0.0,
+        "T": 0.0,
+        "U": 0.0,
+        "V": 0.0
+    },
     "NASA/GIMMS/3GV0": {
         "ndvi": 0.0,
         "qa": 0.0

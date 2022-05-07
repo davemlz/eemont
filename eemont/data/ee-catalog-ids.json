@@ -1463,6 +1463,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LC09/C02/T2_TOA": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LC09_C02_T2_TOA.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LC8": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LC8.json",

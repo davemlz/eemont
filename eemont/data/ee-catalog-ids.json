@@ -4376,8 +4376,8 @@
     "UMD/hansen/global_forest_change_2021_v1_9": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2021_v1_9.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353.\n[10.1126/science.1244693](https://doi.org/10.1126/science.1244693)\nData available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:doi": "10.1126/science.1244693"
     },
     "UMN/PGC/ArcticDEM/V2/2m": {
         "gee:type": "image_collection",

@@ -62,7 +62,7 @@
     "CAS/IGSNRR/PML/V2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/CAS/CAS_IGSNRR_PML_V2.json",
-        "sci:citation": "Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,\nand Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global\nevapotranspiration and gross primary production in 2002-2017.\nRemote Sens. Environ. 222, 165-182, [doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)\n",
+        "sci:citation": "Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,\nand Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global\nevapotranspiration and gross primary production in 2002-2017.\nRemote Sens. Environ. 222, 165-182,\n[doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)\n",
         "sci:doi": "DOI not available"
     },
     "CGIAR/SRTM90_V4": {

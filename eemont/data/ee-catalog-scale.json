@@ -51,6 +51,13 @@
         "Es": 1.0,
         "GPP": 1.0
     },
+    "CAS/IGSNRR/PML/V2_v017": {
+        "ET_water": 1.0,
+        "Ec": 1.0,
+        "Ei": 1.0,
+        "Es": 1.0,
+        "GPP": 1.0
+    },
     "CGIAR/SRTM90_V4": {
         "elevation": 1.0
     },

@@ -623,6 +623,12 @@
         "sci:citation": "Tellman, B., J.A. Sullivan, C. Kuhn, A.J. Kettner, C.S. Doyle, G.R.\nBrakenridge, T. Erickson, D.A. Slayback. (Accepted.)\nSatellites observe increasing proportion of population exposed\nto floods. Nature.\n[doi:10.1038/s41586-021-03695-w](https://doi.org/10.1038/s41586-021-03695-w)\n",
         "sci:doi": "DOI not available"
     },
+    "GOOGLE/DYNAMICWORLD/V1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/GOOGLE/GOOGLE_DYNAMICWORLD_V1.json",
+        "sci:citation": "In press at Nature Scientific Data",
+        "sci:doi": "DOI not available"
+    },
     "GRIDMET/DROUGHT": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GRIDMET/GRIDMET_DROUGHT.json",

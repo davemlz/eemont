@@ -1246,6 +1246,18 @@
         "flooded": 1.0,
         "jrc_perm_water": 1.0
     },
+    "GOOGLE/DYNAMICWORLD/V1": {
+        "bare": 1.0,
+        "built": 1.0,
+        "crops": 1.0,
+        "flooded_vegetation": 1.0,
+        "grass": 1.0,
+        "label": 1.0,
+        "shrub_and_scrub": 1.0,
+        "snow_and_ice": 1.0,
+        "trees": 1.0,
+        "water": 1.0
+    },
     "GRIDMET/DROUGHT": {
         "eddi14d": 1.0,
         "eddi180d": 1.0,

@@ -2105,6 +2105,18 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LM01/C02/T1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM01_C02_T1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM01/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM01_C02_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LM02/C01/T1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM02_C01_T1.json",
@@ -2114,6 +2126,18 @@
     "LANDSAT/LM02/C01/T2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM02_C01_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM02/C02/T1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM02_C02_T1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM02/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM02_C02_T2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
@@ -2129,6 +2153,18 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LM03/C02/T1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM03_C02_T1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM03/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM03_C02_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LM04/C01/T1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM04_C01_T1.json",
@@ -2141,6 +2177,18 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "LANDSAT/LM04/C02/T1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM04_C02_T1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM04/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM04_C02_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "LANDSAT/LM05/C01/T1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM05_C01_T1.json",
@@ -2150,6 +2198,12 @@
     "LANDSAT/LM05/C01/T2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM05_C01_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM05/C02/T1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM05_C02_T1.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },

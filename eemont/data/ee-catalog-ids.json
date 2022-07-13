@@ -890,19 +890,19 @@
     "JAXA/GCOM-C/L3/LAND/LST/V1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_GCOM-C_L3_LAND_LST_V1.json",
-        "sci:citation": "Moriyama, M. (Sep. 2014). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 1). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf)\n",
+        "sci:citation": "Moriyama, M. (Sep. 2014). GCOM-C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 1). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf)\n",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LST/V2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_GCOM-C_L3_LAND_LST_V2.json",
-        "sci:citation": "Moriyama, M. (May. 2020). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 2). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf)\n",
+        "sci:citation": "Moriyama, M. (May. 2020). GCOM-C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 2). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf)\n",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/LAND/LST/V3": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_GCOM-C_L3_LAND_LST_V3.json",
-        "sci:citation": "Moriyama, M. (May. 2020). GCOM\u2013C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 2). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf)\n",
+        "sci:citation": "Moriyama, M. (May. 2020). GCOM-C1/SGLI Land Surface Temperature Product Algorithm Theoretical\nBasis Document (Version 2). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver2/V2ATBD_T4A_LST_Moriyama_r1.pdf)\n",
         "sci:doi": "DOI not available"
     },
     "JAXA/GCOM-C/L3/OCEAN/CHLA/V1": {
@@ -2204,6 +2204,12 @@
     "LANDSAT/LM05/C02/T1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM05_C02_T1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LM05/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LM05_C02_T2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
@@ -4010,7 +4016,7 @@
     "NOAA/CFSR": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CFSR.json",
-        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate\nForecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015\u20131057.\n[doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)\n",
+        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate\nForecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015-1057.\n[doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)\n",
         "sci:doi": "10.5065/D6513W89"
     },
     "NOAA/CFSV2/FOR6H": {
@@ -4394,7 +4400,7 @@
     "Tsinghua/DESS/ChinaTerraceMap/v1": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Tsinghua/Tsinghua_DESS_ChinaTerraceMap_v1.json",
-        "sci:citation": "Cao, B., Yu, L., Naipal, V., Ciais, P., Li, W., Zhao, Y., Wei, W.,\nChen, D., Liu, Z., and Gong, P.: A 30\u2009m terrace mapping in China using\nLandsat 8 imagery and digital elevation model based on the Google Earth\nEngine, Earth Syst. Sci. Data, 13, 2437\u20132456,\n[doi:10.5194/essd-13-2437-2021](https://doi.org/10.5194/essd-13-2437-2021), 2021.\n",
+        "sci:citation": "Cao, B., Yu, L., Naipal, V., Ciais, P., Li, W., Zhao, Y., Wei, W.,\nChen, D., Liu, Z., and Gong, P.: A 30\u2009m terrace mapping in China using\nLandsat 8 imagery and digital elevation model based on the Google Earth\nEngine, Earth Syst. Sci. Data, 13, 2437-2456,\n[doi:10.5194/essd-13-2437-2021](https://doi.org/10.5194/essd-13-2437-2021), 2021.\n",
         "sci:doi": "10.5194/essd-13-2437-2021"
     },
     "Tsinghua/FROM-GLC/GAIA/v10": {
@@ -4424,61 +4430,61 @@
     "UMD/hansen/global_forest_change_2013": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2013.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2014": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2014.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2015": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2015.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2015_v1_3": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2015_v1_3.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2016_v1_4": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2016_v1_4.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2017_v1_5": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2017_v1_5.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2018_v1_6": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2018_v1_6.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2019_v1_7": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2019_v1_7.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2020_v1_8": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2020_v1_8.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53. Data available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "DOI not available"
     },
     "UMD/hansen/global_forest_change_2021_v1_9": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_hansen_global_forest_change_2021_v1_9.json",
-        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850\u201353.\n[10.1126/science.1244693](https://doi.org/10.1126/science.1244693)\nData available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
+        "sci:citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.\nTyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.\nKommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.\n2013. \u201cHigh-Resolution Global Maps of 21st-Century Forest Cover Change.\u201d\nScience 342 (15 November): 850-53.\n[10.1126/science.1244693](https://doi.org/10.1126/science.1244693)\nData available on-line at:\n[https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).\n",
         "sci:doi": "10.1126/science.1244693"
     },
     "UMN/PGC/ArcticDEM/V2/2m": {
@@ -4607,6 +4613,12 @@
         "sci:citation": "U.S. Geological Survey, 3D Elevation Program 10-Meter Resolution Digital Elevation Model.",
         "sci:doi": "DOI not available"
     },
+    "USGS/3DEP/1m": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/3DEP/USGS_3DEP_1m.json",
+        "sci:citation": "U.S. Geological Survey, 3D Elevation Program 1-Meter Resolution Digital\nElevation Model.\n",
+        "sci:doi": "DOI not available"
+    },
     "USGS/GAP/AK/2001": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/GAP/USGS_GAP_AK_2001.json",
@@ -4676,13 +4688,13 @@
     "USGS/NLCD": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/USGS_NLCD.json",
-        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.\n",
+        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108-123.\n",
         "sci:doi": "DOI not available"
     },
     "USGS/NLCD_RELEASES/2016_REL": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2016_REL.json",
-        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108\u2013123.\n",
+        "sci:citation": "Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,\nCostello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,\nM. and G. Xian. 2018,\n[A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]\n(https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108-123.\n",
         "sci:doi": "DOI not available"
     },
     "USGS/NLCD_RELEASES/2019_REL/NLCD": {

@@ -4620,7 +4620,7 @@
         "sci:doi": "DOI not available"
     },
     "USGS/3DEP/1m": {
-        "gee:type": "image",
+        "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/3DEP/USGS_3DEP_1m.json",
         "sci:citation": "U.S. Geological Survey, 3D Elevation Program 1-Meter Resolution Digital\nElevation Model.\n",
         "sci:doi": "DOI not available"

@@ -959,6 +959,12 @@
         "sci:citation": "Murray, N.J., Worthington, T.A., Bunting, P., Duce, S., Hagger, V.,\nLovelock, C.E., Lucas, R., Saunders, M.I., Sheaves, M., Spalding, M.,\nWaltham, N.J., Lyons, M.B., 2022. High-resolution mapping of losses and\ngains of Earth's tidal wetlands. *Science*.\n[doi:10.1126/science.abm9583](https://doi.org/10.1126/science.abm9583)\n",
         "sci:doi": "10.1126/science.abm9583"
     },
+    "JRC/D5/EUCROPMAP/V1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_D5_EUCROPMAP_V1.json",
+        "sci:citation": "d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,\n& Van der Velde, M. (2021). From parcel to continental scale\u2013A first\nEuropean crop type map based on Sentinel-1 and LUCAS Copernicus in-situ\nobservations. Remote sensing of environment, 266, 112708.\n",
+        "sci:doi": "DOI not available"
+    },
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1.json",
@@ -1484,6 +1490,18 @@
     "LANDSAT/LC09/C02/T1_TOA": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LC09_C02_T1_TOA.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LC09/C02/T2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LC09_C02_T2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LANDSAT/LC09/C02/T2_L2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LANDSAT/LANDSAT_LC09_C02_T2_L2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
@@ -3083,6 +3101,18 @@
         "sci:citation": "Giri, C., E. Ochieng, L.L.Tieszen, Z. Zhu, A. Singh, T. Loveland, J. Masek, and N. Duke. 2013. Global Mangrove Forests Distribution, 2000. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). [https://doi.org/10.7927/H4J67DW8](https://doi.org/10.7927/H4J67DW8). Accessed DAY MONTH YEAR\n",
         "sci:doi": "10.7927/H4J67DW8"
     },
+    "LARSE/GEDI/GEDI02_A_002_MONTHLY": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GEDI02_A_002_MONTHLY.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "LARSE/GEDI/GEDI04_B_002": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GEDI04_B_002.json",
+        "sci:citation": "Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,\nG. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground\nBiomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.\n[doi:10.3334/ORNLDAAC/2017](https://doi.org/10.3334/ORNLDAAC/2017)\n",
+        "sci:doi": "10.3334/ORNLDAAC/2017"
+    },
     "MERIT/DEM/v1_0_3": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MERIT/MERIT_DEM_v1_0_3.json",
@@ -3401,17 +3431,167 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "DOI not available"
     },
+    "MODIS/061/MCD15A3H": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MCD15A3H.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MCD15A3H.061"
+    },
+    "MODIS/061/MCD43A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MCD43A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MCD43A1.061"
+    },
+    "MODIS/061/MCD64A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MCD64A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MCD64A1.061"
+    },
     "MODIS/061/MOD08_M3": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD08_M3.json",
         "sci:citation": "Platnick, S., M. King, P. Hubanks, 2015. MODIS Atmosphere L3 Monthly\nProduct. NASA MODIS Adaptive Processing System, Goddard Space Flight\nCenter, [doi:10.5067/MODIS/MOD08_M3.061](https://doi.org/10.5067/MODIS/MOD08_M3.061)\n",
         "sci:doi": "10.5067/MODIS/MOD08_M3.061"
     },
+    "MODIS/061/MOD09A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD09A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD09A1.061"
+    },
+    "MODIS/061/MOD09GA": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD09GA.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD09GA.061"
+    },
+    "MODIS/061/MOD09GQ": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD09GQ.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD09GQ.061"
+    },
+    "MODIS/061/MOD09Q1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD09Q1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD09Q1.061"
+    },
+    "MODIS/061/MOD11A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD11A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD11A1.061"
+    },
+    "MODIS/061/MOD11A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD11A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD11A2.061"
+    },
+    "MODIS/061/MOD13A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD13A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD13A1.061"
+    },
+    "MODIS/061/MOD13A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD13A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD13A2.061"
+    },
+    "MODIS/061/MOD13Q1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD13Q1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD13Q1.061"
+    },
+    "MODIS/061/MOD14A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD14A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD14A2.061"
+    },
+    "MODIS/061/MOD15A2H": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD15A2H.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD15A2H.061"
+    },
     "MODIS/061/MYD08_M3": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD08_M3.json",
         "sci:citation": "Platnick, S., M. King, P. Hubanks, 2015. MODIS Atmosphere L3 Monthly\nProduct. NASA MODIS Adaptive Processing System, Goddard Space Flight\nCenter, [doi:10.5067/MODIS/MYD08_M3.061](https://doi.org/10.5067/MODIS/MYD08_M3.061)\n",
         "sci:doi": "10.5067/MODIS/MYD08_M3.061"
+    },
+    "MODIS/061/MYD09A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD09A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD09A1.061"
+    },
+    "MODIS/061/MYD09GA": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD09GA.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD09GA.061"
+    },
+    "MODIS/061/MYD09GQ": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD09GQ.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD09GQ.061"
+    },
+    "MODIS/061/MYD09Q1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD09Q1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD09Q1.061"
+    },
+    "MODIS/061/MYD11A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD11A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD11A1.061"
+    },
+    "MODIS/061/MYD11A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD11A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD11A2.061"
+    },
+    "MODIS/061/MYD13A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD13A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD13A1.061"
+    },
+    "MODIS/061/MYD13A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD13A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD13A2.061"
+    },
+    "MODIS/061/MYD13Q1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD13Q1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD13Q1.061"
+    },
+    "MODIS/061/MYD14A2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD14A2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD14A2.061"
+    },
+    "MODIS/061/MYD15A2H": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD15A2H.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD15A2H.061"
     },
     "MODIS/MCD43A1": {
         "gee:type": "image_collection",
@@ -3812,6 +3992,12 @@
     "NASA/GSFC/MERRA/aer/2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/MERRA/NASA_GSFC_MERRA_aer_2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "NASA/GSFC/MERRA/slv/2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/MERRA/NASA_GSFC_MERRA_slv_2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
@@ -4377,6 +4563,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/TERN/TERN_AET_CMRSET_LANDSAT_V2_1.json",
         "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L.,\nand Chen, Y. (2021) Estimating actual evapotranspiration continentally at\nfield-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,\nLandsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)\n",
+        "sci:doi": "DOI not available"
+    },
+    "TERN/AET/CMRSET_LANDSAT_V2_2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/TERN/TERN_AET_CMRSET_LANDSAT_V2_2.json",
+        "sci:citation": "Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,\nJorge L. Pe\u00f1a-Arancibia, Yun Chen. Estimating actual evapotranspiration at\nfield-to-continent scales by calibrating the CMRSET algorithm with MODIS,\nVIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,\n127318,\n[doi:10.1016/j.jhydrol.2021.127318](https://doi.org/10.1016/j.jhydrol.2021.127318).\n",
         "sci:doi": "DOI not available"
     },
     "TOMS/MERGED": {

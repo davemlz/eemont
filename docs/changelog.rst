@@ -12,6 +12,35 @@ Improvements
 - Added :code:`lambdaR` argument to :code:`spectralIndices`.
 - Added :code:`lambdaG` argument to :code:`spectralIndices`.
 - The Awesome Spectral Indices list was updated to v0.1.0.
+- The :code:`maskClouds()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
+   
+   - `Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED?hl=en>`_
+   - `MOD09GA.061 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09GA?hl=en>`_
+   - `MCD15A3H.061 MODIS Leaf Area Index/FPAR 4-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD15A3H?hl=en>`_
+   - `MOD09Q1.061 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09Q1?hl=en>`_
+   - `MOD09A1.061 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09A1?hl=en>`_
+   - `MOD13Q1.061 Terra Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13Q1?hl=en>`_
+   - `MOD13A1.061 Terra Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1?hl=en>`_
+   - `MOD13A2.061 Terra Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2?hl=en>`_
+   - `MYD09GA.061 Aqua Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09GA?hl=en>`_
+   - `MYD09Q1.061 Aqua Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09Q1?hl=en>`_
+   - `MYD09A1.061 Aqua Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09A1?hl=en>`_
+   - `MYD13Q1.061 Aqua Vegetation Indices 16-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD13Q1?hl=en>`_
+   - `MYD13A1.061 Aqua Vegetation Indices 16-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD13A1?hl=en>`_
+   - `MYD13A2.061 Aqua Vegetation Indices 16-Day Global 1km <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD13A2?hl=en>`_
+- The :code:`scaleAndOffset()` extended method for ee.Image and ee.ImageCollection classes was updated and now supports all datasets included the GEE STAC (as of 2022-07-27).
+- The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
+   
+   - `Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED?hl=en>`_
+   - `Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-1C <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED?hl=en>`_
+   - `MOD09GA.061 Terra Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09GA?hl=en>`_
+   - `MOD09GQ.061 Terra Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09GQ?hl=en>`_
+   - `MOD09Q1.061 Terra Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09Q1?hl=en>`_
+   - `MOD09A1.061 Terra Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD09A1?hl=en>`_
+   - `MYD09GA.061 Aqua Surface Reflectance Daily Global 1km and 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09GA?hl=en>`_
+   - `MYD09GQ.061 Aqua Surface Reflectance Daily Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09GQ?hl=en>`_
+   - `MYD09Q1.061 Aqua Surface Reflectance 8-Day Global 250m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09Q1?hl=en>`_
+   - `MYD09A1.061 Aqua Surface Reflectance 8-Day Global 500m <https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MYD09A1?hl=en>`_
 
 v0.3.4
 --------------

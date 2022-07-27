@@ -1,7 +1,7 @@
 Changelog
 ============
 
-v0.3.5 (dev)
+v0.3.5
 --------------
 
 Improvements

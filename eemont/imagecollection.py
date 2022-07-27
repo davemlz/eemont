@@ -492,11 +492,15 @@ def spectralIndices(
     intercept=0.0,
     gamma=1.0,
     omega=2.0,
+    beta=0.05,
     k=0.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
+    lambdaN=858.5,
+    lambdaR=645.0,
+    lambdaG=555.0,
     online=False,
     drop=False,
 ):
@@ -519,7 +523,6 @@ def spectralIndices(
             - 'burn' : Compute all burn indices.
             - 'water' : Compute all water indices.
             - 'snow' : Compute all snow indices.
-            - 'drought' : Compute all drought indices.
             - 'urban' : Compute all urban (built-up) indices.
             - 'kernel' : Compute all kernel indices.
             - 'all' : Compute all indices listed below.
@@ -548,6 +551,8 @@ def spectralIndices(
         Weighting coefficient  used for ARVI.
     omega : float, default = 2.0
         Weighting coefficient  used for MBWI.
+    beta : float, default = 0.05
+        Calibration parameter used for NDSIns.
     k : float, default = 0.0
         Slope parameter by soil used for NIRvH2.
     kernel : str, default = 'RBF'
@@ -565,6 +570,12 @@ def spectralIndices(
         Free parameter that trades off the influence of higher-order versus lower-order
         terms in the polynomial kernel. Used for kernel = 'poly'. This must be greater
         than or equal to 0.
+    lambdaN : float, default = 858.5
+        NIR wavelength used for NIRvH2 and NDGI.
+    lambdaR : float, default = 645.0
+        Red wavelength used for NIRvH2 and NDGI.
+    lambdaG : float, default = 555.0
+        Green wavelength used for NDGI.
     online : boolean, default = False
         Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
@@ -625,11 +636,15 @@ def spectralIndices(
         intercept,
         gamma,
         omega,
+        beta,
         k,
         kernel,
         sigma,
         p,
         c,
+        lambdaN,
+        lambdaR,
+        lambdaG,
         online,
         drop,
     )

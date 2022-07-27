@@ -1,6 +1,18 @@
 Changelog
 ============
 
+v0.3.5
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Added :code:`beta` argument to :code:`spectralIndices`.
+- Added :code:`lambdaN` argument to :code:`spectralIndices`.
+- Added :code:`lambdaR` argument to :code:`spectralIndices`.
+- Added :code:`lambdaG` argument to :code:`spectralIndices`.
+- The Awesome Spectral Indices list was updated to v0.1.0.
+
 v0.3.4
 --------------
 

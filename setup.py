@@ -30,7 +30,7 @@ setup(
         "ee_extra>=0.0.14",
         "numpy",
         "pandas",
-        "python-box",
+        "python-box>=6.0.0",
         "geopy",
         "requests",
     ],

@@ -4295,6 +4295,24 @@
         "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)\n",
         "sci:doi": "DOI not available"
     },
+    "NOAA/GOES/18/MCMIPC": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_MCMIPC.json",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)\n",
+        "sci:doi": "DOI not available"
+    },
+    "NOAA/GOES/18/MCMIPF": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_MCMIPF.json",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)\n",
+        "sci:doi": "DOI not available"
+    },
+    "NOAA/GOES/18/MCMIPM": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_MCMIPM.json",
+        "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)\n",
+        "sci:doi": "DOI not available"
+    },
     "NOAA/NCEP_DOE_RE2/total_cloud_coverage": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NCEP_DOE_RE2/NOAA_NCEP_DOE_RE2_total_cloud_coverage.json",

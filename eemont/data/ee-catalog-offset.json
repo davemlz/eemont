@@ -5534,6 +5534,12 @@
         "sur_refl_b03": 0.0,
         "sur_refl_b07": 0.0
     },
+    "MODIS/061/MOD14A1": {
+        "FireMask": 0.0,
+        "MaxFRP": 0.0,
+        "QA": 0.0,
+        "sample": 0.0
+    },
     "MODIS/061/MOD14A2": {
         "FireMask": 0.0,
         "QA": 0.0
@@ -5682,6 +5688,12 @@
         "sur_refl_b02": 0.0,
         "sur_refl_b03": 0.0,
         "sur_refl_b07": 0.0
+    },
+    "MODIS/061/MYD14A1": {
+        "FireMask": 0.0,
+        "MaxFRP": 0.0,
+        "QA": 0.0,
+        "sample": 0.0
     },
     "MODIS/061/MYD14A2": {
         "FireMask": 0.0,

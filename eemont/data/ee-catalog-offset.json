@@ -6953,6 +6953,27 @@
         "sun_zenith_angle": 0.0,
         "view_zenith_angle": 0.0
     },
+    "NOAA/VIIRS/001/VNP22Q2": {
+        "Date_Mid_Greenup_Phase": 0.0,
+        "Date_Mid_Senescence_Phase": 0.0,
+        "EVI2_Growing_Season_Area": 0.0,
+        "EVI2_Onset_Greenness_Increase": 0.0,
+        "EVI2_Onset_Greenness_Maximum": 0.0,
+        "GLSP_QC": 0.0,
+        "Greenness_Agreement_Growing_Season": 0.0,
+        "Growing_Season_Length": 0.0,
+        "Onset_Greenness_Decrease": 0.0,
+        "Onset_Greenness_Increase": 0.0,
+        "Onset_Greenness_Maximum": 0.0,
+        "Onset_Greenness_Minimum": 0.0,
+        "PGQ_Growing_Season": 0.0,
+        "PGQ_Onset_Greenness_Decrease": 0.0,
+        "PGQ_Onset_Greenness_Increase": 0.0,
+        "PGQ_Onset_Greenness_Maximum": 0.0,
+        "PGQ_Onset_Greenness_Minimum": 0.0,
+        "Rate_Greenness_Decrease": 0.0,
+        "Rate_Greenness_Increase": 0.0
+    },
     "NOAA/VIIRS/DNB/MONTHLY_V1/VCMCFG": {
         "avg_rad": 0.0,
         "cf_cvg": 0.0

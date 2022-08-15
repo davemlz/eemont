@@ -44,6 +44,9 @@
     "BIOPAMA/GlobalOilPalm/v1": {
         "classification": 0.0
     },
+    "BNU/FGS/CCNL/v1": {
+        "b1": 0.0
+    },
     "CAS/IGSNRR/PML/V2": {
         "ET_water": 0.0,
         "Ec": 0.0,

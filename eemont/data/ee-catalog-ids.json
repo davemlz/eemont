@@ -4100,7 +4100,7 @@
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA_USDA/NASA_USDA_HSL_SMAP10KM_soil_moisture.json",
-        "sci:citation": "**Mladenova, I.E., Bolten, J.D., Crow, W., Sazib, N. and Reynolds, C., 2020.**\nAgricultural drought monitoring via the assimilation of SMAP soil moisture retrievals into a\nglobal soil water balance model. *Front. Big Data*,\n3(10).\n[doi:10.3389/fdata.2020.00010](https://doi.org/10.3389/fdata.2020.00010)\n[Article](https://www.frontiersin.org/article/10.3389/fdata.2020.00010)\n",
+        "sci:citation": "\n**Sazib, N., J. D. Bolten, and I. E. Mladenova. 2021.**\nLeveraging NASA Soil Moisture Active Passive for Assessing Fire\nSusceptibility and Potential Impacts Over Australia and California.\n*IEEE Journal of Selected Topics in Applied Earth Observations and\nRemote Sensing*, 15: 779-787.\n[doi:10.1109/jstars.2021.3136756](https://doi.org/10.1109/jstars.2021.3136756)\n\n**Mladenova, I.E., Bolten, J.D., Crow, W., Sazib, N. and Reynolds, C., 2020.**\nAgricultural drought monitoring via the assimilation of SMAP soil moisture retrievals into a\nglobal soil water balance model. *Front. Big Data*,\n3(10).\n[doi:10.3389/fdata.2020.00010](https://doi.org/10.3389/fdata.2020.00010)\n",
         "sci:doi": "DOI not available"
     },
     "NASA_USDA/HSL/SMAP_soil_moisture": {

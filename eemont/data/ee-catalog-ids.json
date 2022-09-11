@@ -3947,6 +3947,12 @@
         "sci:citation": "Keller, C. A., Knowland, K. E., Duncan, B. N., Liu, J., Anderson, D. C.,\nDas, S., ... & Pawson, S. (2021). Description of the NASA GEOS composition\nforecast modeling system GEOS-CF v1. 0. Journal of Advances in Modeling\nEarth Systems, 13(4), e2020MS002413.\n[doi:10.1029/2020MS002413](https://doi.org/10.1029/2020MS002413)\n",
         "sci:doi": "10.1029/2020MS002413"
     },
+    "NASA/GEOS-CF/v1/rpl/tavg1hr": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GEOS-CF/NASA_GEOS-CF_v1_rpl_tavg1hr.json",
+        "sci:citation": "Keller, C. A., Knowland, K. E., Duncan, B. N., Liu, J., Anderson, D. C.,\nDas, S., ... & Pawson, S. (2021). Description of the NASA GEOS composition\nforecast modeling system GEOS-CF v1. 0. Journal of Advances in Modeling\nEarth Systems, 13(4), e2020MS002413.\n[doi:10.1029/2020MS002413](https://doi.org/10.1029/2020MS002413)\n",
+        "sci:doi": "10.1029/2020MS002413"
+    },
     "NASA/GIMMS/3GV0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GIMMS/NASA_GIMMS_3GV0.json",

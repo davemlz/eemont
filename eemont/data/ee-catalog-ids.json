@@ -4021,13 +4021,13 @@
     },
     "NASA/GSFC/MERRA/aer/2": {
         "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/MERRA/NASA_GSFC_MERRA_aer_2.json",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GSFC/NASA_GSFC_MERRA_aer_2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
     "NASA/GSFC/MERRA/slv/2": {
         "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/MERRA/NASA_GSFC_MERRA_slv_2.json",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GSFC/NASA_GSFC_MERRA_slv_2.json",
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },

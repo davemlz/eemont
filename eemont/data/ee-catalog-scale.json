@@ -1681,6 +1681,11 @@
         "vpd": 0.01,
         "vs": 0.01
     },
+    "IGN/RGE_ALTI/1M/2_0": {
+        "DST": 1.0,
+        "MNT": 1.0,
+        "SRC": 1.0
+    },
     "ISDASOIL/Africa/v1/aluminium_extractable": {
         "mean_0_20": 1.0,
         "mean_20_50": 1.0,

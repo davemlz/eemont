@@ -710,7 +710,7 @@
     "IGN/RGE_ALTI/1M/2_0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/IGN/IGN_RGE_ALTI_1M_2_0.json",
-        "sci:citation": "IGN (2021). RGE ALTI 1m [Data set]. NASA EOSDIS Land\nProcesses DAAC. Accessed 2022-07-01 from [IGN website](https://geoservices.ign.fr/rgealti#telechargement1m)\n",
+        "sci:citation": "IGN (2021). RGE ALTI 1m [Data set]. Accessed 2022-07-01 from\n[IGN website](https://geoservices.ign.fr/rgealti#telechargement1m)\n",
         "sci:doi": "DOI not available"
     },
     "ISDASOIL/Africa/v1/aluminium_extractable": {

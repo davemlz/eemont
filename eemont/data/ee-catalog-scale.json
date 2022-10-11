@@ -1844,6 +1844,13 @@
         "date": 1.0,
         "qa": 1.0
     },
+    "JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH": {
+        "HH": 1.0,
+        "HV": 1.0,
+        "angle": 1.0,
+        "epoch": 1.0,
+        "qa": 1.0
+    },
     "JAXA/GCOM-C/L3/LAND/LAI/V1": {
         "LAI_AVE": 1.0,
         "LAI_QA_flag": 1.0

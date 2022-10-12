@@ -545,6 +545,18 @@
         "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends.\nFAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)\n",
         "sci:doi": "DOI not available"
     },
+    "FAO/SOFO/1/FPP": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_SOFO_1_FPP.json",
+        "sci:citation": "[FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)\n",
+        "sci:doi": "DOI not available"
+    },
+    "FAO/SOFO/1/TPP": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_SOFO_1_TPP.json",
+        "sci:citation": "[FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)\n",
+        "sci:doi": "DOI not available"
+    },
     "FAO/WAPOR/2/L1_AETI_D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_AETI_D.json",

@@ -1133,6 +1133,36 @@
         "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
         "sci:doi": "DOI not available"
     },
+    "JRC/GSW1_4/GlobalSurfaceWater": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_4_GlobalSurfaceWater.json",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
+        "sci:doi": "DOI not available"
+    },
+    "JRC/GSW1_4/Metadata": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_4_Metadata.json",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
+        "sci:doi": "DOI not available"
+    },
+    "JRC/GSW1_4/MonthlyHistory": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_4_MonthlyHistory.json",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
+        "sci:doi": "DOI not available"
+    },
+    "JRC/GSW1_4/MonthlyRecurrence": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_4_MonthlyRecurrence.json",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
+        "sci:doi": "DOI not available"
+    },
+    "JRC/GSW1_4/YearlyHistory": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_4_YearlyHistory.json",
+        "sci:citation": "Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,\nHigh-resolution mapping of global surface water and its long-term changes.\nNature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))\n",
+        "sci:doi": "DOI not available"
+    },
     "KNTU/LiDARLab/IranLandCover/V1": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/KNTU/KNTU_LiDARLab_IranLandCover_V1.json",
@@ -4443,6 +4473,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/OREGONSTATE/OREGONSTATE_PRISM_Norm81m.json",
         "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)\n",
+        "sci:doi": "DOI not available"
+    },
+    "ORTHO/Switzerland/SWISSIMAGE/10cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ORTHO/ORTHO_Switzerland_SWISSIMAGE_10cm.json",
+        "sci:citation": "Copyright Federal Office of Topography swisstopo",
         "sci:doi": "DOI not available"
     },
     "OSU/GIMP/2000_ICE_OCEAN_MASK": {

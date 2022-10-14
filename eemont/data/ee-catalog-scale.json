@@ -1191,6 +1191,16 @@
         "grasslandc": 1.0,
         "grasslandn2o": 1.0
     },
+    "FAO/SOFO/1/FPP": {
+        "FPP_1km": 1.0,
+        "FPP_5km": 1.0
+    },
+    "FAO/SOFO/1/TPP": {
+        "TPP_1km": 1.0,
+        "TPP_1km_cropland": 1.0,
+        "TPP_500m": 1.0,
+        "TPP_500m_cropland": 1.0
+    },
     "FAO/WAPOR/2/L1_AETI_D": {
         "L1_AETI_D": 0.1
     },

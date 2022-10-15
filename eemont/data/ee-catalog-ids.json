@@ -887,6 +887,12 @@
         "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe,\nShiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global\nForest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing\nof Environment, 155, pp. 13-31, December 2014.\n[doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)\n",
         "sci:doi": "DOI not available"
     },
+    "JAXA/ALOS/PALSAR/YEARLY/FNF4": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_ALOS_PALSAR_YEARLY_FNF4.json",
+        "sci:citation": "Masanobu Shimada, Takuya Itoh, Takeshi Motooka, Manabu Watanabe,\nShiraishi Tomohiro, Rajesh Thapa, and Richard Lucas, \"New Global\nForest/Non-forest Maps from ALOS PALSAR Data (2007-2010)\", Remote Sensing\nof Environment, 155, pp. 13-31, December 2014.\n[doi:10.1016/j.rse.2014.04.014.](https://doi.org/10.1016/j.rse.2014.04.014)\n",
+        "sci:doi": "DOI not available"
+    },
     "JAXA/ALOS/PALSAR/YEARLY/SAR": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_ALOS_PALSAR_YEARLY_SAR.json",

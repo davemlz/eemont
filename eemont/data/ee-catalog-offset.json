@@ -2043,6 +2043,30 @@
     "JRC/GSW1_3/YearlyHistory": {
         "waterClass": 0.0
     },
+    "JRC/GSW1_4/GlobalSurfaceWater": {
+        "change_abs": 0.0,
+        "change_norm": 0.0,
+        "max_extent": 0.0,
+        "occurrence": 0.0,
+        "recurrence": 0.0,
+        "seasonality": 0.0,
+        "transition": 0.0
+    },
+    "JRC/GSW1_4/Metadata": {
+        "detections": 0.0,
+        "total_obs": 0.0,
+        "valid_obs": 0.0
+    },
+    "JRC/GSW1_4/MonthlyHistory": {
+        "water": 0.0
+    },
+    "JRC/GSW1_4/MonthlyRecurrence": {
+        "has_observations": 0.0,
+        "monthly_recurrence": 0.0
+    },
+    "JRC/GSW1_4/YearlyHistory": {
+        "waterClass": 0.0
+    },
     "KNTU/LiDARLab/IranLandCover/V1": {
         "classification": 0.0
     },
@@ -7287,6 +7311,11 @@
         "tmin": 0.0,
         "vpdmax": 0.0,
         "vpdmin": 0.0
+    },
+    "ORTHO/Switzerland/SWISSIMAGE/10cm": {
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
     },
     "OSU/GIMP/2000_ICE_OCEAN_MASK": {
         "ice_mask": 0.0,

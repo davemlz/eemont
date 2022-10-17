@@ -1847,6 +1847,9 @@
     "JAXA/ALOS/PALSAR/YEARLY/FNF": {
         "fnf": 1.0
     },
+    "JAXA/ALOS/PALSAR/YEARLY/FNF4": {
+        "fnf": 1.0
+    },
     "JAXA/ALOS/PALSAR/YEARLY/SAR": {
         "HH": 1.0,
         "HV": 1.0,

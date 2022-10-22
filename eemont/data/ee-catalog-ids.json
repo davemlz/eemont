@@ -4031,6 +4031,12 @@
         "sci:citation": "Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell,\nC.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich,\nJ.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data\nAssimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.\n",
         "sci:doi": "DOI not available"
     },
+    "NASA/GLDAS/V022/CLSM/G025/DA1D": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GLDAS/NASA_GLDAS_V022_CLSM_G025_DA1D.json",
+        "sci:citation": "Li, B., M. Rodell, S. Kumar, H. Beaudoing, A. Getirana, B. F. Zaitchik, et\nal. (2019) Global GRACE data assimilation for groundwater and drought\nmonitoring: Advances and challenges. Water Resources Research, 55,\n7564-7586.\n",
+        "sci:doi": "DOI not available"
+    },
     "NASA/GLDAS/V20/NOAH/G025/T3H": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GLDAS/NASA_GLDAS_V20_NOAH_G025_T3H.json",
@@ -4660,6 +4666,12 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Oxford/Oxford_MAP_friction_surface_2019.json",
         "sci:citation": "D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori\u0107, S. Bavadekar,\nE. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel,\nC. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi,\nS.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething.\nGlobal maps of travel time to healthcare facilities. Nature Medicine (2020).\n",
         "sci:doi": "DOI not available"
+    },
+    "RUB/RUBCLIM/LCZ/global_lcz_map/v1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/RUB/RUB_RUBCLIM_LCZ_global_lcz_map_v1.json",
+        "sci:citation": "Demuzere M.; Kittner J.; Martilli A.; Mills, G.; Moede, C.; Stewart, I.D.; van Vliet, J.; Bechtel, B.\nA global map of local climate zones to support earth system modelling and urban-scale environmental science.\nEarth System Science Data 2022, 14 Volume 8: 3835-3873.\n[doi:10.5194/essd-14-3835-2022](https://doi.org/10.5194/essd-14-3835-2022)\n",
+        "sci:doi": "10.5281/zenodo.6364594"
     },
     "SKYSAT/GEN-A/PUBLIC/ORTHO/MULTISPECTRAL": {
         "gee:type": "image_collection",

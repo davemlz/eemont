@@ -881,6 +881,12 @@
         "sci:citation": "T. Tadono, H. Ishida, F. Oda, S. Naito, K. Minakawa, H. Iwamoto\n: Precise Global DEM Generation By ALOS PRISM, ISPRS Annals of\nthe Photogrammetry, Remote Sensing and Spatial Information Sciences,\nVol.II-4, pp.71-76, 2014. [PDF file](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-4/71/2014/isprsannals-II-4-71-2014.pdf)\n",
         "sci:doi": "DOI not available"
     },
+    "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_ALOS_PALSAR-2_Level2_2_ScanSAR.json",
+        "sci:citation": "The data used for this paper have been provided by Earth Observation\nResearch Center (EORC) of Japan Aerospace Exploration Agency (JAXA).\n",
+        "sci:doi": "DOI not available"
+    },
     "JAXA/ALOS/PALSAR/YEARLY/FNF": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_ALOS_PALSAR_YEARLY_FNF.json",

@@ -6228,6 +6228,32 @@
         "Tveg_tavg": 0.0,
         "Wind_f_inst": 0.0
     },
+    "NASA/GLDAS/V022/CLSM/G025/DA1D": {
+        "ACond_tavg": 0.0,
+        "AvgSurfT_tavg": 0.0,
+        "CanopInt_tavg": 0.0,
+        "ECanop_tavg": 0.0,
+        "ESoil_tavg": 0.0,
+        "EvapSnow_tavg": 0.0,
+        "Evap_tavg": 0.0,
+        "GWS_tavg": 0.0,
+        "Lwnet_tavg": 0.0,
+        "Qg_tavg": 0.0,
+        "Qh_tavg": 0.0,
+        "Qle_tavg": 0.0,
+        "Qs_tavg": 0.0,
+        "Qsb_tavg": 0.0,
+        "Qsm_tavg": 0.0,
+        "SWE_tavg": 0.0,
+        "SnowDepth_tavg": 0.0,
+        "SnowT_tavg": 0.0,
+        "SoilMoist_P_tavg": 0.0,
+        "SoilMoist_RZ_tavg": 0.0,
+        "SoilMoist_S_tavg": 0.0,
+        "Swnet_tavg": 0.0,
+        "TVeg_tavg": 0.0,
+        "TWS_tavg": 0.0
+    },
     "NASA/GLDAS/V20/NOAH/G025/T3H": {
         "Albedo_inst": 0.0,
         "AvgSurfT_inst": 0.0,
@@ -7537,6 +7563,11 @@
     "Oxford/MAP/friction_surface_2019": {
         "friction": 0.0,
         "friction_walking_only": 0.0
+    },
+    "RUB/RUBCLIM/LCZ/global_lcz_map/v1": {
+        "LCZ": 0.0,
+        "LCZ_Filter": 0.0,
+        "LCZ_Probability": 0.0
     },
     "SKYSAT/GEN-A/PUBLIC/ORTHO/MULTISPECTRAL": {
         "B": 0.0,

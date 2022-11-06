@@ -7347,6 +7347,19 @@
         "vpdmax": 0.0,
         "vpdmin": 0.0
     },
+    "OREGONSTATE/PRISM/Norm91m": {
+        "ppt": 0.0,
+        "solclear": 0.0,
+        "solslope": 0.0,
+        "soltotal": 0.0,
+        "soltrans": 0.0,
+        "tdmean": 0.0,
+        "tmax": 0.0,
+        "tmean": 0.0,
+        "tmin": 0.0,
+        "vpdmax": 0.0,
+        "vpdmin": 0.0
+    },
     "ORTHO/Switzerland/SWISSIMAGE/10cm": {
         "B": 0.0,
         "G": 0.0,

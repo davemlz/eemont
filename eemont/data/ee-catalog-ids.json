@@ -530,7 +530,13 @@
     "ESA/WorldCover/v100": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ESA/ESA_WorldCover_v100.json",
-        "sci:citation": "A publication is under preparation.",
+        "sci:citation": "Zanaga, D., Van De Kerchove, R., De Keersmaecker, W., Souverijns, N.,\nBrockmann, C., Quast, R., Wevers, J., Grosu, A., Paccini, A., Vergnaud, S.,\nCartus, O., Santoro, M., Fritz, S., Georgieva, I., Lesiv, M., Carter, S.,\nHerold, M., Li, Linlin, Tsendbazar, N.E., Ramoino, F., Arino, O., 2021.\nESA WorldCover 10 m 2020 v100.\n([doi:10.5281/zenodo.5571936](https://doi.org/10.5281/zenodo.5571936))\n",
+        "sci:doi": "DOI not available"
+    },
+    "ESA/WorldCover/v200": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ESA/ESA_WorldCover_v200.json",
+        "sci:citation": "Zanaga, D., Van De Kerchove, R., Daems, D., De Keersmaecker, W., Brockmann,\nC., Kirches, G., Wevers, J., Cartus, O., Santoro, M., Fritz, S., Lesiv, M.,\nHerold, M., Tsendbazar, N.E., Xu, P., Ramoino, F., Arino, O., 2022. ESA\nWorldCover 10 m 2021 v200.\n([doi:10.5281/zenodo.7254221](https://doi.org/10.5281/zenodo.7254221))\n",
         "sci:doi": "DOI not available"
     },
     "FAO/GHG/1/DROSA_A": {
@@ -4508,13 +4514,13 @@
     "OREGONSTATE/PRISM/Norm81m": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/OREGONSTATE/OREGONSTATE_PRISM_Norm81m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)\n",
+        "sci:citation": "Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064\n[doi:10.1002/joc.1688](https://doi.org/10.1002/joc.1688)\n[pdf](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)\n",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/Norm91m": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/OREGONSTATE/OREGONSTATE_PRISM_Norm91m.json",
-        "sci:citation": "[Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)\n",
+        "sci:citation": "Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,\nTaylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive\nmapping of temperature and precipitation across the conterminous\nUnited States. International Journal of Climatology, 28: 2031-2064\n[doi:10.1002/joc.1688](https://doi.org/10.1002/joc.1688)\n[pdf](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf).\n",
         "sci:doi": "DOI not available"
     },
     "ORTHO/Switzerland/SWISSIMAGE/10cm": {

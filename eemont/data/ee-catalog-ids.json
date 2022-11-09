@@ -632,13 +632,13 @@
     "GLCF/GLS_TCC": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GLCF/GLCF_GLS_TCC.json",
-        "sci:citation": "Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility,\n[www.landcover.org](www.landcover.org).\n",
+        "sci:citation": "Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility.\n",
         "sci:doi": "DOI not available"
     },
     "GLCF/GLS_WATER": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GLCF/GLCF_GLS_WATER.json",
-        "sci:citation": "Data Citation: Global Inland Water, {Year, ...}, Global Land Cover\nFacility, [www.landcover.org](www.landcover.org).\n",
+        "sci:citation": "Data Citation: Global Inland Water, {Year, ...}, Global Land Cover\nFacility.\n",
         "sci:doi": "DOI not available"
     },
     "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1": {

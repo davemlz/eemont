@@ -4707,7 +4707,7 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/RUB/RUB_RUBCLIM_LCZ_global_lcz_map_v1.json",
         "sci:citation": "Demuzere M.; Kittner J.; Martilli A.; Mills, G.; Moede, C.; Stewart, I.D.; van Vliet, J.; Bechtel, B.\nA global map of local climate zones to support earth system modelling and urban-scale environmental science.\nEarth System Science Data 2022, 14 Volume 8: 3835-3873.\n[doi:10.5194/essd-14-3835-2022](https://doi.org/10.5194/essd-14-3835-2022)\n",
-        "sci:doi": "10.5281/zenodo.6364594"
+        "sci:doi": "10.5281/zenodo.6364593"
     },
     "SKYSAT/GEN-A/PUBLIC/ORTHO/MULTISPECTRAL": {
         "gee:type": "image_collection",

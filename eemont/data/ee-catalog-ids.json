@@ -4421,6 +4421,18 @@
         "sci:citation": "Bah, Gunshor, Schmit, Generation of GOES-16 True Color Imagery without a\nGreen Band, 2018. [doi:10.1029/2018EA000379](https://doi.org/10.1029/2018EA000379)\n",
         "sci:doi": "DOI not available"
     },
+    "NOAA/GOES/18/FDCC": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_FDCC.json",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)\n",
+        "sci:doi": "DOI not available"
+    },
+    "NOAA/GOES/18/FDCF": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_FDCF.json",
+        "sci:citation": "Early characterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments.  Schroeder, W., Csiszar, I., et al, (2010), Early\ncharacterization of the active fire detection products derived from the next generation\nNPOESS/VIIRS and GOES-R/ABI instruments, paper presented at 2010 IEEE International Geoscience\nand Remote Sensing Symposium (IGARSS), Honolulu, HI.\n[doi:10.1109/IGARSS.2010.5650863](https://doi.org/10.1109/IGARSS.2010.5650863)\n",
+        "sci:doi": "DOI not available"
+    },
     "NOAA/GOES/18/MCMIPC": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/GOES/NOAA_GOES_18_MCMIPC.json",

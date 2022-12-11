@@ -7253,6 +7253,20 @@
         "DQF_C15": 1.0,
         "DQF_C16": 1.0
     },
+    "NOAA/GOES/18/FDCC": {
+        "Area": 60.98,
+        "DQF": 1.0,
+        "Mask": 1.0,
+        "Power": 1.0,
+        "Temp": 0.05493667
+    },
+    "NOAA/GOES/18/FDCF": {
+        "Area": 60.98,
+        "DQF": 1.0,
+        "Mask": 1.0,
+        "Power": 1.0,
+        "Temp": 0.05493667
+    },
     "NOAA/GOES/18/MCMIPC": {
         "CMI_C01": 1.0,
         "CMI_C02": 1.0,

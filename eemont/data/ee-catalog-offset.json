@@ -7253,6 +7253,20 @@
         "DQF_C15": 0.0,
         "DQF_C16": 0.0
     },
+    "NOAA/GOES/18/FDCC": {
+        "Area": 4000,
+        "DQF": 0.0,
+        "Mask": 0.0,
+        "Power": 0.0,
+        "Temp": 400
+    },
+    "NOAA/GOES/18/FDCF": {
+        "Area": 4000,
+        "DQF": 0.0,
+        "Mask": 0.0,
+        "Power": 0.0,
+        "Temp": 400
+    },
     "NOAA/GOES/18/MCMIPC": {
         "CMI_C01": 0.0,
         "CMI_C02": 0.0,

@@ -3194,8 +3194,8 @@
     "LARSE/GEDI/GEDI04_B_002": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GEDI04_B_002.json",
-        "sci:citation": "Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,\nG. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground\nBiomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.\n[doi:10.3334/ORNLDAAC/2017](https://doi.org/10.3334/ORNLDAAC/2017)\n",
-        "sci:doi": "10.3334/ORNLDAAC/2017"
+        "sci:citation": "Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,\nG. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground\nBiomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.\n[doi:10.3334/ORNLDAAC/2056](https://doi.org/10.3334/ORNLDAAC/2056)\n",
+        "sci:doi": "10.3334/ORNLDAAC/2056"
     },
     "MERIT/DEM/v1_0_3": {
         "gee:type": "image",

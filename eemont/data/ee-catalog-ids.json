@@ -3683,6 +3683,24 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/MODIS/MOD21A1N.061"
     },
+    "MODIS/061/MOD21C1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD21C1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD21C1.061"
+    },
+    "MODIS/061/MOD21C2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD21C2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD21C2.061"
+    },
+    "MODIS/061/MOD21C3": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD21C3.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD21C3.061"
+    },
     "MODIS/061/MYD08_M3": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD08_M3.json",
@@ -3772,6 +3790,24 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD21A1N.json",
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/MODIS/MYD21A1N.061"
+    },
+    "MODIS/061/MYD21C1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD21C1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD21C1.061"
+    },
+    "MODIS/061/MYD21C2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD21C2.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD21C2.061"
+    },
+    "MODIS/061/MYD21C3": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD21C3.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD21C3.061"
     },
     "MODIS/MCD43A1": {
         "gee:type": "image_collection",

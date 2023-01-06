@@ -617,6 +617,24 @@
         "sci:citation": "Hammer, Dan, Robin Kraft, and David Wheeler. 2013. FORMA Alerts. World\nResources Institute and Center for Global Development.\n[www.globalforestwatch.org](www.globalforestwatch.org).\n",
         "sci:doi": "DOI not available"
     },
+    "Finland/MAVI/VV/50cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Finland/Finland_MAVI_VV_50cm.json",
+        "sci:citation": "the National Land Survey of Finland",
+        "sci:doi": "DOI not available"
+    },
+    "Finland/SMK/V/50cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Finland/Finland_SMK_V_50cm.json",
+        "sci:citation": "the National Land Survey of Finland",
+        "sci:doi": "DOI not available"
+    },
+    "Finland/SMK/VV/50cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Finland/Finland_SMK_VV_50cm.json",
+        "sci:citation": "the National Land Survey of Finland",
+        "sci:doi": "DOI not available"
+    },
     "GFW/GFF/V1/fishing_hours": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GFW/GFW_GFF_V1_fishing_hours.json",
@@ -3779,6 +3797,12 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/MODIS/MYD15A2H.061"
     },
+    "MODIS/061/MYD17A3HGF": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD17A3HGF.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MYD17A3HGF.061"
+    },
     "MODIS/061/MYD21A1D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MYD21A1D.json",
@@ -4690,6 +4714,12 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/OSU/OSU_GIMP_ICE_VELOCITY_OPT.json",
         "sci:citation": "Howat, I. 2017. MEaSUREs Greenland Ice Velocity: Selected\nGlacier Site Velocity Maps from Optical Images, Version 2.\n[Indicate subset used]. Boulder, Colorado USA. NASA National\nSnow and Ice Data Center Distributed Active Archive Center.\n[doi:10.5067/VM5DZ20MYF5C](https://doi.org/10.5067/VM5DZ20MYF5C).\n[Date Accessed].\n",
         "sci:doi": "10.5067/VM5DZ20MYF5C"
+    },
+    "OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,\nErickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,\nvolk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,\nCarrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,\nA., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,\nB., Morton, C., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,\nT., Yang, Y., Anderson, R., 2021.  OpenET: Filling a Critical Data Gap in\nWater Management for the Western United States.  Journal of the American\nWater Resources Association, 2021 Nov 2.\n[doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)\n",
+        "sci:doi": "10.1111/1752-1688.12956"
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAYNIGHT_M/v01": {
         "gee:type": "image",

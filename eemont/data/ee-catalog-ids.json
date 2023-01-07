@@ -620,13 +620,13 @@
     "Finland/MAVI/VV/50cm": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Finland/Finland_MAVI_VV_50cm.json",
-        "sci:citation": "the National Land Survey of Finland",
+        "sci:citation": "The National Land Survey of Finland",
         "sci:doi": "DOI not available"
     },
     "Finland/SMK/V/50cm": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Finland/Finland_SMK_V_50cm.json",
-        "sci:citation": "the National Land Survey of Finland",
+        "sci:citation": "The National Land Survey of Finland",
         "sci:doi": "DOI not available"
     },
     "Finland/SMK/VV/50cm": {

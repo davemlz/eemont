@@ -1233,6 +1233,21 @@
     "FORMA/FORMA_500m": {
         "constant": 1.0
     },
+    "Finland/MAVI/VV/50cm": {
+        "G": 1.0,
+        "N": 1.0,
+        "R": 1.0
+    },
+    "Finland/SMK/V/50cm": {
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "Finland/SMK/VV/50cm": {
+        "G": 1.0,
+        "N": 1.0,
+        "R": 1.0
+    },
     "GFW/GFF/V1/fishing_hours": {
         "drifting_longlines": 1.0,
         "fixed_gear": 1.0,
@@ -6228,6 +6243,11 @@
         "LaiStdDev_500m": 0.1,
         "Lai_500m": 0.1
     },
+    "MODIS/061/MYD17A3HGF": {
+        "Gpp": 0.0001,
+        "Npp": 0.0001,
+        "Npp_QC": 1.0
+    },
     "MODIS/061/MYD21A1D": {
         "Emis_29": 0.002,
         "Emis_31": 0.002,
@@ -8003,6 +8023,14 @@
         "error_y": 1.0,
         "velocity_x": 1.0,
         "velocity_y": 1.0
+    },
+    "OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "et_ensemble_mad": 1.0,
+        "et_ensemble_mad_count": 1.0,
+        "et_ensemble_mad_index": 1.0,
+        "et_ensemble_mad_max": 1.0,
+        "et_ensemble_mad_min": 1.0,
+        "et_ensemble_sam": 1.0
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAYNIGHT_M/v01": {
         "apr": 0.02,

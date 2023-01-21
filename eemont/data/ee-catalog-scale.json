@@ -7170,6 +7170,22 @@
         "bgb": 1.0,
         "bgb_uncertainty": 1.0
     },
+    "NASA/SMAP/SPL3SMP_E/005": {
+        "retrieval_qual_flag_am": 1.0,
+        "retrieval_qual_flag_pm": 1.0,
+        "soil_moisture_am": 1.0,
+        "soil_moisture_pm": 1.0,
+        "tb_h_corrected_am": 1.0,
+        "tb_h_corrected_pm": 1.0,
+        "tb_qual_flag_h_am": 1.0,
+        "tb_qual_flag_h_pm": 1.0,
+        "tb_qual_flag_v_am": 1.0,
+        "tb_qual_flag_v_pm": 1.0,
+        "tb_v_corrected_am": 1.0,
+        "tb_v_corrected_pm": 1.0,
+        "vegetation_water_content_am": 1.0,
+        "vegetation_water_content_pm": 1.0
+    },
     "NASA/SMAP/SPL4SMGP/007": {
         "baseflow_flux": 1.0,
         "depth_to_water_table_from_surface_in_peat": 1.0,

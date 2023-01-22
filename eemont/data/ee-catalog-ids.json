@@ -677,6 +677,12 @@
         "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological data for\necological applications and modelling, International Journal of\nClimatology. (2012)\n[doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)\n",
         "sci:doi": "DOI not available"
     },
+    "Germany/Brandenburg/20cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Germany/Germany_Brandenburg_20cm.json",
+        "sci:citation": "Data License Germany - Attribution - Version 2.0",
+        "sci:doi": "DOI not available"
+    },
     "HYCOM/GLBu0_08/sea_surface_elevation": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/HYCOM/HYCOM_GLBu0_08_sea_surface_elevation.json",

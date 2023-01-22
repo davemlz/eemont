@@ -7985,6 +7985,15 @@
         "QA": 1.0,
         "sample": 1.0
     },
+    "NOAA/VIIRS/001/VNP21A1N": {
+        "Emis_14": 0.002,
+        "Emis_15": 0.002,
+        "Emis_16": 0.002,
+        "LST_1KM": 0.02,
+        "QC": 1.0,
+        "View_Angle": 1.0,
+        "View_Time": 0.1
+    },
     "NOAA/VIIRS/001/VNP22Q2": {
         "Date_Mid_Greenup_Phase_1": 1.0,
         "Date_Mid_Greenup_Phase_2": 1.0,

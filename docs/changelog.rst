@@ -1,6 +1,19 @@
 Changelog
 ============
 
+v0.3.6
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Added :code:`fdelta` argument to :code:`spectralIndices`.
+- The Awesome Spectral Indices list was updated to v0.3.0.
+- The :code:`spectralIndices()` extended method for ee.Image and ee.ImageCollection classes now supports the following platforms:
+   
+   - `Sentinel-1 SAR GRD: C-band Synthetic Aperture Radar Ground Range Detected, log scaling <https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD>`_
+   - `PALSAR-2 ScanSAR Level 2.2 <https://developers.google.com/earth-engine/datasets/catalog/JAXA_ALOS_PALSAR-2_Level2_2_ScanSAR?hl=en>`_
+
 v0.3.5
 --------------
 

@@ -797,6 +797,7 @@ def spectralIndices(
     omega=2.0,
     beta=0.05,
     k=0.0,
+    fdelta=0.581,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
@@ -858,6 +859,8 @@ def spectralIndices(
         Calibration parameter used for NDSIns.
     k : float, default = 0.0
         Slope parameter by soil used for NIRvH2.
+    fdelta : float, default = 0.581
+        Adjustment factor used for SEVI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -941,6 +944,7 @@ def spectralIndices(
         omega,
         beta,
         k,
+        fdelta,
         kernel,
         sigma,
         p,

@@ -7985,6 +7985,15 @@
         "QA": 0.0,
         "sample": 0.0
     },
+    "NOAA/VIIRS/001/VNP21A1D": {
+        "Emis_14": 0.49,
+        "Emis_15": 0.49,
+        "Emis_16": 0.49,
+        "LST_1KM": 0.0,
+        "QC": 0.0,
+        "View_Angle": -65,
+        "View_Time": 0.0
+    },
     "NOAA/VIIRS/001/VNP21A1N": {
         "Emis_14": 0.49,
         "Emis_15": 0.49,

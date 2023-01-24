@@ -82,12 +82,16 @@ html_theme_options = {
             "icon": "fab fa-twitter-square",
         },
     ],
+    "logo": {
+      "image_light": "logo.png",
+      "image_dark": "logo.png",
+   } 
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-html_logo = "logo.png"
+# html_logo = "logo.png"
 
 # html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }

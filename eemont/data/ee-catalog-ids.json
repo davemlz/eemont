@@ -500,7 +500,13 @@
     "ECMWF/ERA5_LAND/MONTHLY": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_ERA5_LAND_MONTHLY.json",
-        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus\nClimate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)\n",
+        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981\nto present. Copernicus Climate Change Service (C3S) Climate Data Store\n(CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)\n",
+        "sci:doi": "DOI not available"
+    },
+    "ECMWF/ERA5_LAND/MONTHLY_AGGR": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_ERA5_LAND_MONTHLY_AGGR.json",
+        "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981\nto present. Copernicus Climate Change Service (C3S) Climate Data Store\n(CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)\n",
         "sci:doi": "DOI not available"
     },
     "ECMWF/ERA5_LAND/MONTHLY_BY_HOUR": {

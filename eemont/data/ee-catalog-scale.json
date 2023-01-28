@@ -8101,6 +8101,13 @@
         "Rate_Greenness_Increase_1": 1.0,
         "Rate_Greenness_Increase_2": 1.0
     },
+    "NOAA/VIIRS/001/VNP64A1": {
+        "Burn_Date": 1.0,
+        "Burn_Date_Uncertainty": 1.0,
+        "First_Day": 1.0,
+        "Last_Day": 1.0,
+        "QA": 1.0
+    },
     "NOAA/VIIRS/DNB/MONTHLY_V1/VCMCFG": {
         "avg_rad": 1.0,
         "cf_cvg": 1.0

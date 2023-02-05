@@ -695,6 +695,12 @@
         "sci:citation": "Abatzoglou J. T., Development of gridded surface meteorological data for\necological applications and modelling, International Journal of\nClimatology. (2012)\n[doi:10.1002/joc.3413](https://doi.org/10.1002/joc.3413)\n",
         "sci:doi": "DOI not available"
     },
+    "Germany/Brandenburg/orthos/20cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Germany/Germany_Brandenburg_orthos_20cm.json",
+        "sci:citation": "Data License Germany - Attribution - Version 2.0",
+        "sci:doi": "DOI not available"
+    },
     "HYCOM/GLBu0_08/sea_surface_elevation": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/HYCOM/HYCOM_GLBu0_08_sea_surface_elevation.json",
@@ -4180,6 +4186,12 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/FLDAS/NASA_FLDAS_NOAH01_C_GL_M_V001.json",
         "sci:citation": "If you use these data in your research or applications, please include a\nreference in your publication(s) similar to the following example:\nAmy McNally NASA/GSFC/HSL (2018), FLDAS Noah Land Surface Model L4 Global\nMonthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS), Greenbelt, MD, USA, Goddard\nEarth Sciences Data and Information Services Center (GES DISC), Accessed:\n[Data Access Date], [doi:10.5067/5NHC22T9375G](https://doi.org/10.5067/5NHC22T9375G)\n",
         "sci:doi": "DOI not available"
+    },
+    "NASA/GEOS-CF/v1/fcst/htf": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/GEOS-CF/NASA_GEOS-CF_v1_fcst_htf.json",
+        "sci:citation": "Keller, C. A., Knowland, K. E., Duncan, B. N., Liu, J., Anderson, D. C.,\nDas, S., ... & Pawson, S. (2021). Description of the NASA GEOS composition\nforecast modeling system GEOS-CF v1. 0. Journal of Advances in Modeling\nEarth Systems, 13(4), e2020MS002413.\n[doi:10.1029/2020MS002413](https://doi.org/10.1029/2020MS002413)\n",
+        "sci:doi": "10.1029/2020MS002413"
     },
     "NASA/GEOS-CF/v1/rpl/htf": {
         "gee:type": "image_collection",

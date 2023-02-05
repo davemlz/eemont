@@ -7,6 +7,11 @@
         "geomorphic": 1.0,
         "reef_mask": 1.0
     },
+    "ACA/reef_habitat/v2_0": {
+        "benthic": 1.0,
+        "geomorphic": 1.0,
+        "reef_mask": 1.0
+    },
     "AHN/AHN2_05M_INT": {
         "elevation": 1.0
     },
@@ -774,6 +779,58 @@
         "u_component_of_wind_10m": 1.0,
         "v_component_of_wind_10m": 1.0
     },
+    "ECMWF/ERA5_LAND/DAILY_RAW": {
+        "dewpoint_temperature_2m": 1.0,
+        "evaporation_from_bare_soil_sum": 1.0,
+        "evaporation_from_open_water_surfaces_excluding_oceans_sum": 1.0,
+        "evaporation_from_the_top_of_canopy_sum": 1.0,
+        "evaporation_from_vegetation_transpiration_sum": 1.0,
+        "forecast_albedo": 1.0,
+        "lake_bottom_temperature": 1.0,
+        "lake_ice_depth": 1.0,
+        "lake_ice_temperature": 1.0,
+        "lake_mix_layer_depth": 1.0,
+        "lake_mix_layer_temperature": 1.0,
+        "lake_shape_factor": 1.0,
+        "lake_total_layer_temperature": 1.0,
+        "leaf_area_index_high_vegetation": 1.0,
+        "leaf_area_index_low_vegetation": 1.0,
+        "potential_evaporation_sum": 1.0,
+        "runoff_sum": 1.0,
+        "skin_reservoir_content": 1.0,
+        "skin_temperature": 1.0,
+        "snow_albedo": 1.0,
+        "snow_cover": 1.0,
+        "snow_density": 1.0,
+        "snow_depth": 1.0,
+        "snow_depth_water_equivalent": 1.0,
+        "snow_evaporation_sum": 1.0,
+        "snowfall_sum": 1.0,
+        "snowmelt_sum": 1.0,
+        "soil_temperature_level_1": 1.0,
+        "soil_temperature_level_2": 1.0,
+        "soil_temperature_level_3": 1.0,
+        "soil_temperature_level_4": 1.0,
+        "sub_surface_runoff_sum": 1.0,
+        "surface_latent_heat_flux_sum": 1.0,
+        "surface_net_solar_radiation_sum": 1.0,
+        "surface_net_thermal_radiation_sum": 1.0,
+        "surface_pressure": 1.0,
+        "surface_runoff_sum": 1.0,
+        "surface_sensible_heat_flux_sum": 1.0,
+        "surface_solar_radiation_downwards_sum": 1.0,
+        "surface_thermal_radiation_downwards_sum": 1.0,
+        "temperature_2m": 1.0,
+        "temperature_of_snow_layer": 1.0,
+        "total_evaporation_sum": 1.0,
+        "total_precipitation_sum": 1.0,
+        "u_component_of_wind_10m": 1.0,
+        "v_component_of_wind_10m": 1.0,
+        "volumetric_soil_water_layer_1": 1.0,
+        "volumetric_soil_water_layer_2": 1.0,
+        "volumetric_soil_water_layer_3": 1.0,
+        "volumetric_soil_water_layer_4": 1.0
+    },
     "ECMWF/ERA5_LAND/HOURLY": {
         "dewpoint_temperature_2m": 1.0,
         "evaporation_from_bare_soil": 1.0,
@@ -1351,12 +1408,6 @@
         "spi5y": 1.0,
         "spi90d": 1.0,
         "z": 1.0
-    },
-    "Germany/Brandenburg/20cm": {
-        "B": 1.0,
-        "G": 1.0,
-        "N": 1.0,
-        "R": 1.0
     },
     "HYCOM/GLBu0_08/sea_surface_elevation": {
         "surface_elevation": 0.001

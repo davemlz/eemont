@@ -1409,6 +1409,12 @@
         "spi90d": 1.0,
         "z": 1.0
     },
+    "Germany/Brandenburg/orthos/20cm": {
+        "B": 1.0,
+        "G": 1.0,
+        "N": 1.0,
+        "R": 1.0
+    },
     "HYCOM/GLBu0_08/sea_surface_elevation": {
         "surface_elevation": 0.001
     },
@@ -6605,6 +6611,20 @@
         "Swnet_tavg": 1.0,
         "Tair_f_tavg": 1.0,
         "Wind_f_tavg": 1.0
+    },
+    "NASA/GEOS-CF/v1/fcst/htf": {
+        "CO": 1.0,
+        "NO2": 1.0,
+        "O3": 1.0,
+        "PM25_RH35_GCC": 1.0,
+        "PM25_RH35_GOCART": 1.0,
+        "Q": 1.0,
+        "RH": 1.0,
+        "SLP": 1.0,
+        "SO2": 1.0,
+        "T": 1.0,
+        "U": 1.0,
+        "V": 1.0
     },
     "NASA/GEOS-CF/v1/rpl/htf": {
         "CO": 1.0,

@@ -197,6 +197,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "COPERNICUS/DEM/GLO30": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/COPERNICUS/COPERNICUS_DEM_GLO30.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "COPERNICUS/Landcover/100m/Proba-V-C3/Global": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/COPERNICUS/COPERNICUS_Landcover_100m_Proba-V-C3_Global.json",

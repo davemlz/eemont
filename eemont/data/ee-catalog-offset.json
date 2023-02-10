@@ -128,6 +128,13 @@
     "COPERNICUS/CORINE/V20/100m": {
         "landcover": 0.0
     },
+    "COPERNICUS/DEM/GLO30": {
+        "DEM": 0.0,
+        "EDM": 0.0,
+        "FLM": 0.0,
+        "HEM": 0.0,
+        "WBM": 0.0
+    },
     "COPERNICUS/Landcover/100m/Proba-V-C3/Global": {
         "bare-coverfraction": 0.0,
         "change-confidence": 0.0,

@@ -5318,7 +5318,7 @@
     "USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/COVER": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER.json",
-        "sci:citation": "Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data release, [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)\n",
+        "sci:citation": "\nRigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition\nMonitoring Assessment and Projection (RCMAP) Fractional Component\nTime-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data\nrelease.\n[doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)\n",
         "sci:doi": "DOI not available"
     },
     "USGS/SRTMGL1_003": {

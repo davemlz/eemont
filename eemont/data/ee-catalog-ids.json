@@ -4673,6 +4673,12 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
         "sci:doi": "10.5067/VIIRS/VNP09GA.001"
     },
+    "NOAA/VIIRS/001/VNP09H1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/VIIRS/NOAA_VIIRS_001_VNP09H1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
+        "sci:doi": "10.5067/VIIRS/VNP09H1.001"
+    },
     "NOAA/VIIRS/001/VNP13A1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/VIIRS/NOAA_VIIRS_001_VNP13A1.json",

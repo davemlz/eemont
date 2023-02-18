@@ -8100,6 +8100,13 @@
         "obscov_500m": 1.0,
         "orbit_pnt": 1.0
     },
+    "NOAA/VIIRS/001/VNP09H1": {
+        "SurfReflect_I1": 1.0,
+        "SurfReflect_I2": 1.0,
+        "SurfReflect_I3": 1.0,
+        "SurfReflect_QC_500m": 1.0,
+        "SurfReflect_State_500m": 1.0
+    },
     "NOAA/VIIRS/001/VNP13A1": {
         "EVI": 0.0001,
         "EVI2": 0.0001,

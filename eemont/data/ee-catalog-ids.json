@@ -4967,6 +4967,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "Spain/PNOA/PNOA10": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Spain/Spain_PNOA_PNOA10.json",
+        "sci:citation": "National Geographic Institute Spain",
+        "sci:doi": "DOI not available"
+    },
     "TERN/AET/CMRSET_LANDSAT_V2_1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/TERN/TERN_AET_CMRSET_LANDSAT_V2_1.json",

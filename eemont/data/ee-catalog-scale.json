@@ -8189,6 +8189,15 @@
         "Rate_Greenness_Increase_1": 1.0,
         "Rate_Greenness_Increase_2": 1.0
     },
+    "NOAA/VIIRS/001/VNP46A2": {
+        "DNB_BRDF_Corrected_NTL": 1.0,
+        "DNB_Lunar_Irradiance": 1.0,
+        "Gap_Filled_DNB_BRDFCorrected_NTL": 1.0,
+        "Latest_High_Quality_Retrieval": 1.0,
+        "Mandatory_Quality_Flag": 1.0,
+        "QF_Cloud_Mask": 1.0,
+        "Snow_Flag": 1.0
+    },
     "NOAA/VIIRS/001/VNP64A1": {
         "Burn_Date": 1.0,
         "Burn_Date_Uncertainty": 1.0,

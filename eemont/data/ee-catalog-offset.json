@@ -6638,6 +6638,17 @@
         "Tair_f_tavg": 0.0,
         "Wind_f_tavg": 0.0
     },
+    "NASA/GDDP-CMIP6": {
+        "hurs": 0.0,
+        "huss": 0.0,
+        "pr": 0.0,
+        "rlds": 0.0,
+        "rsds": 0.0,
+        "sfcWind": 0.0,
+        "tas": 0.0,
+        "tasmax": 0.0,
+        "tasmin": 0.0
+    },
     "NASA/GEOS-CF/v1/fcst/htf": {
         "CO": 0.0,
         "NO2": 0.0,

@@ -8142,6 +8142,14 @@
         "QA": 1.0,
         "sample": 1.0
     },
+    "NOAA/VIIRS/001/VNP15A2H": {
+        "Fpar": 1.0,
+        "FparExtra_QC": 1.0,
+        "FparLai_QC": 1.0,
+        "FparStdDev": 1.0,
+        "Lai": 1.0,
+        "LaiStdDev": 1.0
+    },
     "NOAA/VIIRS/001/VNP21A1D": {
         "Emis_14": 0.002,
         "Emis_15": 0.002,

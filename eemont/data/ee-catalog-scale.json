@@ -8208,6 +8208,19 @@
         "Rate_Greenness_Increase_1": 1.0,
         "Rate_Greenness_Increase_2": 1.0
     },
+    "NOAA/VIIRS/001/VNP43IA2": {
+        "BRDF_Albedo_Band_Quality_I1": 1.0,
+        "BRDF_Albedo_Band_Quality_I2": 1.0,
+        "BRDF_Albedo_Band_Quality_I3": 1.0,
+        "BRDF_Albedo_LandWaterType": 1.0,
+        "BRDF_Albedo_LocalSolarNoon": 1.0,
+        "BRDF_Albedo_Platform": 1.0,
+        "BRDF_Albedo_Uncertainty": 1.0,
+        "BRDF_Albedo_ValidObs_I1": 1.0,
+        "BRDF_Albedo_ValidObs_I2": 1.0,
+        "BRDF_Albedo_ValidObs_I3": 1.0,
+        "Snow_BRDF_Albedo": 1.0
+    },
     "NOAA/VIIRS/001/VNP46A2": {
         "DNB_BRDF_Corrected_NTL": 1.0,
         "DNB_Lunar_Irradiance": 1.0,

@@ -6585,9 +6585,9 @@
     "MODIS/NTSG/MOD16A2/105": {
         "ET": 0.1,
         "ET_QC": 1.0,
-        "LE": 0.0001,
+        "LE": 10000,
         "PET": 0.1,
-        "PLE": 0.0001
+        "PLE": 10000
     },
     "NASA/ASTER_GED/AG100_003": {
         "elevation": 1.0,

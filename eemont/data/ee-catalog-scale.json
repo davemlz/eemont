@@ -5772,6 +5772,21 @@
         "GMT_1800_PAR": 1.0,
         "GMT_2100_PAR": 1.0
     },
+    "MODIS/061/MCD19A2_GRANULES": {
+        "AOD_QA": 1.0,
+        "AOD_Uncertainty": 0.0001,
+        "AngstromExp_470-780": 0.0001,
+        "Column_WV": 0.001,
+        "FineModeFraction": 1.0,
+        "Glint_Angle": 0.01,
+        "Injection_Height": 1.0,
+        "Optical_Depth_047": 0.001,
+        "Optical_Depth_055": 0.001,
+        "RelAZ": 0.01,
+        "Scattering_Angle": 0.01,
+        "cosSZA": 0.0001,
+        "cosVZA": 0.0001
+    },
     "MODIS/061/MCD43A1": {
         "BRDF_Albedo_Band_Mandatory_Quality_Band1": 1.0,
         "BRDF_Albedo_Band_Mandatory_Quality_Band2": 1.0,

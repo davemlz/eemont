@@ -503,9 +503,9 @@
         "sci:citation": "Copernicus Climate Change Service (C3S) (2017): ERA5: Fifth generation of ECMWF atmospheric reanalyses of the global climate.\nCopernicus Climate Change Service Climate Data Store (CDS), (date of access), [https://cds.climate.copernicus.eu/cdsapp#!/home](https://cds.climate.copernicus.eu/cdsapp#!/home)\n",
         "sci:doi": "DOI not available"
     },
-    "ECMWF/ERA5_LAND/DAILY_RAW": {
+    "ECMWF/ERA5_LAND/DAILY_AGGR": {
         "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_ERA5_LAND_DAILY_RAW.json",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_ERA5_LAND_DAILY_AGGR.json",
         "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981\nto present. Copernicus Climate Change Service (C3S) Climate Data Store\n(CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)\n",
         "sci:doi": "DOI not available"
     },

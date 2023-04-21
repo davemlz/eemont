@@ -786,7 +786,7 @@
         "u_component_of_wind_10m": 1.0,
         "v_component_of_wind_10m": 1.0
     },
-    "ECMWF/ERA5_LAND/DAILY_RAW": {
+    "ECMWF/ERA5_LAND/DAILY_AGGR": {
         "dewpoint_temperature_2m": 1.0,
         "evaporation_from_bare_soil_sum": 1.0,
         "evaporation_from_open_water_surfaces_excluding_oceans_sum": 1.0,

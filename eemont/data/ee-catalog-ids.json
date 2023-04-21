@@ -563,6 +563,18 @@
         "sci:citation": "Zanaga, D., Van De Kerchove, R., Daems, D., De Keersmaecker, W., Brockmann,\nC., Kirches, G., Wevers, J., Cartus, O., Santoro, M., Fritz, S., Lesiv, M.,\nHerold, M., Tsendbazar, N.E., Xu, P., Ramoino, F., Arino, O., 2022. ESA\nWorldCover 10 m 2021 v200.\n([doi:10.5281/zenodo.7254221](https://doi.org/10.5281/zenodo.7254221))\n",
         "sci:doi": "DOI not available"
     },
+    "Estonia/Maamet/orthos/mono": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Estonia/Estonia_Maamet_orthos_mono.json",
+        "sci:citation": "Map data: Estonian Land Board",
+        "sci:doi": "DOI not available"
+    },
+    "Estonia/Maamet/orthos/rgb": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Estonia/Estonia_Maamet_orthos_rgb.json",
+        "sci:citation": "Map data: Estonian Land Board",
+        "sci:doi": "DOI not available"
+    },
     "FAO/GHG/1/DROSA_A": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_GHG_1_DROSA_A.json",

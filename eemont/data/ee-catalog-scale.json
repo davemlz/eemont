@@ -1300,6 +1300,14 @@
     "ESA/WorldCover/v200": {
         "Map": 1.0
     },
+    "Estonia/Maamet/orthos/mono": {
+        "mono": 1.0
+    },
+    "Estonia/Maamet/orthos/rgb": {
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
     "FAO/GHG/1/DROSA_A": {
         "cropland": 1.0,
         "grassland": 1.0

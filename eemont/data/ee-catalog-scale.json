@@ -8161,7 +8161,7 @@
     },
     "NOAA/VIIRS/001/VNP14A1": {
         "FireMask": 1.0,
-        "MaxFRP": 0.1,
+        "MaxFRP": 1.0,
         "QA": 1.0,
         "sample": 1.0
     },

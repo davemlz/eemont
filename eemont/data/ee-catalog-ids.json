@@ -4829,11 +4829,47 @@
         "sci:citation": "Howat, I. 2017. MEaSUREs Greenland Ice Velocity: Selected\nGlacier Site Velocity Maps from Optical Images, Version 2.\n[Indicate subset used]. Boulder, Colorado USA. NASA National\nSnow and Ice Data Center Distributed Active Archive Center.\n[doi:10.5067/VM5DZ20MYF5C](https://doi.org/10.5067/VM5DZ20MYF5C).\n[Date Accessed].\n",
         "sci:doi": "10.5067/VM5DZ20MYF5C"
     },
+    "OpenET/DISALEXI/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_DISALEXI_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D .,\nEichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas, W.,\n2018. Field-scale assessment of land and water use change over the\nCalifornia Delta using remote sensing. Remote Sensing, 10(6), p.889.\n[doi:10.3390/rs10060889](https://doi.org/10.3390/rs10060889)\n",
+        "sci:doi": "10.3390/rs10060889"
+    },
+    "OpenET/EEMETRIC/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_EEMETRIC_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Kilic, A., Allen, R.G., Blankenau, P., ReVelle, P., Ozturk, D. and\nHuntington, J., 2021. Global production and free access to Landsat-scale\nEvapotranspiration with EEFlux and eeMETRIC. In 6th Decennial National\nIrrigation Symposium, 6-8, December 2021, San Diego, California\n(p. 1). American Society of Agricultural and Biological Engineers.\n[doi:10.13031/irrig.2020-038](https://doi.org/10.13031/irrig.2020-038)\n",
+        "sci:doi": "10.13031/irrig.2020-038"
+    },
     "OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0.json",
-        "sci:citation": "Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison,\nD., Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A.,\nSenay, G., volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P.,\nBromley, M., Carrara, W., Daudert, B., Doherty, C., Dunkerly, C.,\nFriedrichs, M., Guzman, A., Halverson, G., Hansen, J., Harding, J.,\nKang, Y., Ketchum, D., Minor, B., Morton, C., Revelle, P.,\nOrtega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang, T., Yang, Y\n., Anderson, R., 2021. OpenET: Filling a Critical Data Gap in Water\nManagement for the Western United States. Journal of the American Water\nResources Association, 2021 Nov 2.\n[doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)\n",
+        "sci:citation": "Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,\nErickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,\nvolk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P., Bromley, M.,\nCarrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,\nA., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,\nB., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M.,\nSchull, M., Wang, T., Yang, Y., Anderson, R., 2021. OpenET: Filling a\nCritical Data Gap in Water Management for the Western United States.\nJournal of the American Water Resources Association, 2021 Nov 2.\n[doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)\n",
         "sci:doi": "10.1111/1752-1688.12956"
+    },
+    "OpenET/GEESEBAL/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_GEESEBAL_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen,\nW., Erickson, T.A. and Melton, F., 2021. Long-term monitoring of\nevapotranspiration using the SEBAL algorithm and Google Earth Engine cloud\ncomputing. ISPRS Journal of Photogrammetry and Remote Sensing, 178,\npp.81-96.\n[doi:10.1016/j.isprsjprs.2021.05.018](https://doi.org/10.1016/j.isprsjprs.2021.05.018)\n",
+        "sci:doi": "10.1016/j.isprsjprs.2021.05.018"
+    },
+    "OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_PTJPL_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Fisher, J.B., Tu, K.P. and Baldocchi, D.D., 2008. Global estimates of the\nland\u2013atmosphere water flux based on monthly AVHRR and ISLSCP-II data,\nvalidated at 16 FLUXNET sites. Remote Sensing of Environment, 112(3),\npp.901-919.\n[doi:10.1016/j.rse.2007.06.025](https://doi.org/10.1016/j.rse.2007.06.025)\n",
+        "sci:doi": "10.1016/j.rse.2007.06.025"
+    },
+    "OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_SIMS_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,\nErickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,\nvolk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,\nCarrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,\nA., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,\nB., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M.,\nSchull, M., Wang, T., Yang, Y., Anderson, R., 2021. \"OpenET: Filling a\nCritical Data Gap in Water Management for the Western United\nStates. \"Journal of the American Water Resources Association, 58(6),\npp.971-994.\n[doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)\n",
+        "sci:doi": "10.1111/1752-1688.12956"
+    },
+    "OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/OpenET/OpenET_SSEBOP_CONUS_GRIDMET_MONTHLY_v2_0.json",
+        "sci:citation": "Senay, G.B., Parrish, G.E., Schauer, M., Friedrichs, M., Khand, K., Boiko,\nO., Kagone, S., Dittmeier, R., Arab, S. and Ji, L., 2023. Improving the\nOperational Simplified Surface Energy Balance Evapotranspiration Model Using\nthe Forcing and Normalizing Operation. Remote Sensing, 15(1), p.260.\n[doi:10.3390/rs15010260](https://doi.org/10.3390/rs15010260)\n",
+        "sci:doi": "10.3390/rs15010260"
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAYNIGHT_M/v01": {
         "gee:type": "image",

@@ -8341,6 +8341,14 @@
         "velocity_x": 0.0,
         "velocity_y": 0.0
     },
+    "OpenET/DISALEXI/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
+    },
+    "OpenET/EEMETRIC/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
+    },
     "OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0": {
         "et_ensemble_mad": 0.0,
         "et_ensemble_mad_count": 0.0,
@@ -8348,6 +8356,22 @@
         "et_ensemble_mad_max": 0.0,
         "et_ensemble_mad_min": 0.0,
         "et_ensemble_sam": 0.0
+    },
+    "OpenET/GEESEBAL/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
+    },
+    "OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
+    },
+    "OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
+    },
+    "OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0": {
+        "count": 0.0,
+        "et": 0.0
     },
     "OpenLandMap/CLM/CLM_LST_MOD11A2-DAYNIGHT_M/v01": {
         "apr": 0.0,

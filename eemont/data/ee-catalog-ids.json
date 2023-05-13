@@ -3263,6 +3263,18 @@
         "sci:citation": "Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,\nG. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground\nBiomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.\n[doi:10.3334/ORNLDAAC/2056](https://doi.org/10.3334/ORNLDAAC/2056)\n",
         "sci:doi": "10.3334/ORNLDAAC/2056"
     },
+    "Latvia/Maamet/orthos/cir": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Latvia/Latvia_Maamet_orthos_cir.json",
+        "sci:citation": "Latvijas Geospatial Information Agency",
+        "sci:doi": "DOI not available"
+    },
+    "Latvia/Maamet/orthos/rgb": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Latvia/Latvia_Maamet_orthos_rgb.json",
+        "sci:citation": "Latvijas Geospatial Information Agency",
+        "sci:doi": "DOI not available"
+    },
     "MERIT/DEM/v1_0_3": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MERIT/MERIT_DEM_v1_0_3.json",

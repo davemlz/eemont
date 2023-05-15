@@ -5078,6 +5078,16 @@
         "V1": 0.0,
         "V2": 0.0
     },
+    "Latvia/Maamet/orthos/cir": {
+        "G": 0.0,
+        "N": 0.0,
+        "R": 0.0
+    },
+    "Latvia/Maamet/orthos/rgb": {
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
     "MERIT/DEM/v1_0_3": {
         "dem": 0.0
     },

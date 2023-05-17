@@ -4562,7 +4562,7 @@
     "NOAA/CFSR": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CFSR.json",
-        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate\nForecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015-1057.\n[doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)\n",
+        "sci:citation": "Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP\nClimate Forecast System Reanalysis. Bulletin of the American Meteorological\nSociety, 91, 1015-1057.\n[doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)\n",
         "sci:doi": "10.5065/D6513W89"
     },
     "NOAA/CFSV2/FOR6H": {
@@ -5313,6 +5313,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USFS/USFS_GTAC_LCMS_v2021-7.json",
         "sci:citation": "USDA Forest Service. 2022. USFS Landscape Change Monitoring System\nv2021.7 (Conterminous United States and Southeastern Alaska).\nSalt Lake City, Utah.\n",
+        "sci:doi": "DOI not available"
+    },
+    "USFS/GTAC/LCMS/v2022-8": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/USFS/USFS_GTAC_LCMS_v2022-8.json",
+        "sci:citation": "USDA Forest Service. 2023. USFS Landscape Change Monitoring System\nv2022.8 (Conterminous United States and Southeastern Alaska).\nSalt Lake City, Utah.\n",
         "sci:doi": "DOI not available"
     },
     "USFS/GTAC/MTBS/annual_burn_severity_mosaics/v1": {

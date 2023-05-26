@@ -8441,6 +8441,20 @@
         "Rate_Greenness_Increase_1": 1.0,
         "Rate_Greenness_Increase_2": 1.0
     },
+    "NOAA/VIIRS/001/VNP43IA1": {
+        "BRDF_Albedo_Band_Mandatory_Quality_I1": 1.0,
+        "BRDF_Albedo_Band_Mandatory_Quality_I2": 1.0,
+        "BRDF_Albedo_Band_Mandatory_Quality_I3": 1.0,
+        "BRDF_Albedo_Parameters_fgeo_I1": 1.0,
+        "BRDF_Albedo_Parameters_fgeo_I2": 1.0,
+        "BRDF_Albedo_Parameters_fgeo_I3": 1.0,
+        "BRDF_Albedo_Parameters_fiso_I1": 1.0,
+        "BRDF_Albedo_Parameters_fiso_I2": 1.0,
+        "BRDF_Albedo_Parameters_fiso_I3": 1.0,
+        "BRDF_Albedo_Parameters_fvol_I1": 1.0,
+        "BRDF_Albedo_Parameters_fvol_I2": 1.0,
+        "BRDF_Albedo_Parameters_fvol_I3": 1.0
+    },
     "NOAA/VIIRS/001/VNP43IA2": {
         "BRDF_Albedo_Band_Quality_I1": 1.0,
         "BRDF_Albedo_Band_Quality_I2": 1.0,

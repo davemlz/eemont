@@ -9661,6 +9661,12 @@
         "Daytime": 0.0,
         "Nighttime": 0.0
     },
+    "projects/ngis-cat/assets/DEA/NIDEM": {
+        "nidem": 0.0,
+        "nidem_mask": 0.0,
+        "nidem_uncertainty": 0.0,
+        "nidem_unfiltered": 0.0
+    },
     "projects/planet-nicfi/assets/basemaps/africa": {
         "B": 0.0,
         "G": 0.0,

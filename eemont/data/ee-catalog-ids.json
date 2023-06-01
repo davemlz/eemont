@@ -705,7 +705,7 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GOOGLE/GOOGLE_DYNAMICWORLD_V1.json",
         "sci:citation": "Brown, C.F., Brumby, S.P., Guzder-Williams, B. et al. Dynamic World, Near\nreal-time global 10 m land use land cover mapping. Sci Data 9, 251 (2022).\n[doi:10.1038/s41597-022-01307-4](https://doi.org/10.1038/s41597-022-01307-4)\n",
-        "sci:doi": "DOI not available"
+        "sci:doi": "10.1038/s41597-022-01307-4"
     },
     "GRIDMET/DROUGHT": {
         "gee:type": "image_collection",
@@ -4400,7 +4400,7 @@
     "NASA/OCEANDATA/SeaWiFS/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_OCEANDATA_SeaWiFS_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,\nNASA OB.DAAC, Greenbelt, MD, USA.\n[doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)\n",
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,\nNASA OB.DAAC, Greenbelt, MD, USA.\n[doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](\n  https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)\n",
         "sci:doi": "10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018"
     },
     "NASA/ORNL/DAYMET_V3": {
@@ -5078,14 +5078,14 @@
     "TERN/AET/CMRSET_LANDSAT_V2_1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/TERN/TERN_AET_CMRSET_LANDSAT_V2_1.json",
-        "sci:citation": "Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Pe\u00f1a-Arancibia, J.L.,\nand Chen, Y. (2021) Estimating actual evapotranspiration continentally at\nfield-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,\nLandsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,\nJorge L. Pe\u00f1a-Arancibia, Yun Chen. Estimating actual evapotranspiration at\nfield-to-continent scales by calibrating the CMRSET algorithm with MODIS,\nVIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,\n127318,\n[doi:10.1016/j.jhydrol.2021.127318](\n  https://doi.org/10.1016/j.jhydrol.2021.127318).\n",
+        "sci:doi": "10.1016/j.jhydrol.2021.127318"
     },
     "TERN/AET/CMRSET_LANDSAT_V2_2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/TERN/TERN_AET_CMRSET_LANDSAT_V2_2.json",
-        "sci:citation": "Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,\nJorge L. Pe\u00f1a-Arancibia, Yun Chen. Estimating actual evapotranspiration at\nfield-to-continent scales by calibrating the CMRSET algorithm with MODIS,\nVIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,\n127318,\n[doi:10.1016/j.jhydrol.2021.127318](https://doi.org/10.1016/j.jhydrol.2021.127318).\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,\nJorge L. Pe\u00f1a-Arancibia, Yun Chen. Estimating actual evapotranspiration at\nfield-to-continent scales by calibrating the CMRSET algorithm with MODIS,\nVIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,\n127318,\n[doi:10.1016/j.jhydrol.2021.127318](\n  https://doi.org/10.1016/j.jhydrol.2021.127318).\n",
+        "sci:doi": "10.1016/j.jhydrol.2021.127318"
     },
     "TOMS/MERGED": {
         "gee:type": "image_collection",

@@ -488,8 +488,8 @@
     "ECMWF/CAMS/NRT": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_CAMS_NRT.json",
-        "sci:citation": "Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the ECMWF Integrated\nForecast System. Part II : Data assimilation, J. Geophys. Res., 114, D13205\n[doi:10.1029/2008JD011115](https://doi.org/10.1029/2008JD011115).\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the\nECMWF Integrated Forecast System. Part II : Data assimilation,\nJ. Geophys. Res., 114, D13205\n[doi:10.1029/2008JD011115](https://doi.org/10.1029/2008JD011115).\n",
+        "sci:doi": "10.1029/2008JD011115"
     },
     "ECMWF/ERA5/DAILY": {
         "gee:type": "image_collection",

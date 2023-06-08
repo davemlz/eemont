@@ -371,6 +371,12 @@
         "sci:citation": "Slater, T., Shepherd, A., McMillan, M., Muir, A., Gilbert, L.,\nHogg, A. E., Konrad, H. and Parrinello, T.: A new Digital Elevation\nModel of Antarctica derived from CryoSat-2 altimetry, The Cryosphere,\n[doi:10.5194/tc-2017-223](https://doi.org/10.5194/tc-2017-223), 2018\n",
         "sci:doi": "10.5194/tc-2017-223"
     },
+    "CSIC/SPEI/2_8": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CSIC/CSIC_SPEI_2_8.json",
+        "sci:citation": "Product: Beguer\u00eda, Santiago; Vicente Serrano, Sergio M.;\nReig-Gracia, Fergus; Latorre Garc\u00e9s, Borja; 2023;\nSPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.\n[doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)\n",
+        "sci:doi": "10.20350/digitalCSIC/15121"
+    },
     "CSIRO/SLGA": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/CSIRO/CSIRO_SLGA.json",

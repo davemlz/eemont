@@ -6294,6 +6294,17 @@
         "sur_refl_b01": 0.0001,
         "sur_refl_b02": 0.0001
     },
+    "MODIS/061/MOD10A1": {
+        "NDSI": 0.0001,
+        "NDSI_Snow_Cover": 1.0,
+        "NDSI_Snow_Cover_Algorithm_Flags_QA": 1.0,
+        "NDSI_Snow_Cover_Basic_QA": 1.0,
+        "NDSI_Snow_Cover_Class": 1.0,
+        "Snow_Albedo_Daily_Tile": 1.0,
+        "Snow_Albedo_Daily_Tile_Class": 1.0,
+        "granule_pnt": 1.0,
+        "orbit_pnt": 1.0
+    },
     "MODIS/061/MOD11A1": {
         "Clear_day_cov": 0.0005,
         "Clear_night_cov": 0.0005,
@@ -6566,6 +6577,17 @@
         "State": 1.0,
         "sur_refl_b01": 0.0001,
         "sur_refl_b02": 0.0001
+    },
+    "MODIS/061/MYD10A1": {
+        "NDSI": 0.0001,
+        "NDSI_Snow_Cover": 1.0,
+        "NDSI_Snow_Cover_Algorithm_Flags_QA": 1.0,
+        "NDSI_Snow_Cover_Basic_QA": 1.0,
+        "NDSI_Snow_Cover_Class": 1.0,
+        "Snow_Albedo_Daily_Tile": 1.0,
+        "Snow_Albedo_Daily_Tile_Class": 1.0,
+        "granule_pnt": 1.0,
+        "orbit_pnt": 1.0
     },
     "MODIS/061/MYD11A1": {
         "Clear_day_cov": 0.0005,

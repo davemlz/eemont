@@ -584,37 +584,37 @@
     "FAO/GHG/1/DROSA_A": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_GHG_1_DROSA_A.json",
-        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends.\nFAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country\ntrends.  FAOSTAT Analytical Brief Series No 4, FAO, Rome.\n[http://www.fao.org/3/cb0489en/cb0489en.pdf](\n  http://www.fao.org/3/cb0489en/cb0489en.pdf)\n",
+        "sci:doi": "10.5194/essd-12-3113-2020"
     },
     "FAO/GHG/1/DROSE_A": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_GHG_1_DROSE_A.json",
-        "sci:citation": "[FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country trends.\nFAOSTAT Analytical Brief Series No 4, FAO, Rome.](http://www.fao.org/3/cb0489en/cb0489en.pdf)\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "FAO 2020. Drained organic soils 1990 - 2019. Global, regional and country\ntrends.  FAOSTAT Analytical Brief Series No 4, FAO, Rome.\n[http://www.fao.org/3/cb0489en/cb0489en.pdf](\n  http://www.fao.org/3/cb0489en/cb0489en.pdf)\n",
+        "sci:doi": "10.5194/essd-12-3113-2020"
     },
     "FAO/SOFO/1/FPP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_SOFO_1_FPP.json",
-        "sci:citation": "[FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for\ngreen recovery and building inclusive, resilient and sustainable\neconomies. FAO, Rome.\n[https://www.fao.org/documents/card/en/c/cb9360en](\n  https://www.fao.org/documents/card/en/c/cb9360en)\n",
+        "sci:doi": "10.1016/j.oneear.2020.08.016"
     },
     "FAO/SOFO/1/TPP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_SOFO_1_TPP.json",
-        "sci:citation": "[FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)\n",
-        "sci:doi": "DOI not available"
+        "sci:citation": "FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for\ngreen recovery and building inclusive, resilient and sustainable\neconomies. FAO, Rome.\n[https://www.fao.org/documents/card/en/c/cb9360en](\n  https://www.fao.org/documents/card/en/c/cb9360en)\n",
+        "sci:doi": "10.1016/j.oneear.2020.08.016"
     },
     "FAO/WAPOR/2/L1_AETI_D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_AETI_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.\n",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water\nProductivity Technical Report: Methodology Series. Rome, FAO. 72 pages.\n",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_E_D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_E_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.\n",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water\nProductivity Technical Report: Methodology Series. Rome, FAO. 72 pages.\n",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_I_D": {
@@ -632,19 +632,19 @@
     "FAO/WAPOR/2/L1_RET_D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_RET_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.\n",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water\nProductivity Technical Report: Methodology Series. Rome, FAO. 72 pages.\n",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_RET_E": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_RET_E.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.\n",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water\nProductivity Technical Report: Methodology Series. Rome, FAO. 72 pages.\n",
         "sci:doi": "DOI not available"
     },
     "FAO/WAPOR/2/L1_T_D": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/FAO/FAO_WAPOR_2_L1_T_D.json",
-        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water Productivity\nTechnical Report: Methodology Series. Rome, FAO. 72 pages.\n",
+        "sci:citation": "FAO 2018. WaPOR Database Methodology: Level 1. Remote Sensing for Water\nProductivity Technical Report: Methodology Series. Rome, FAO. 72 pages.\n",
         "sci:doi": "DOI not available"
     },
     "FIRMS": {

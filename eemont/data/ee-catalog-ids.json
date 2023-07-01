@@ -5093,6 +5093,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "Slovakia/orthos/25cm": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Slovakia/Slovakia_orthos_25cm.json",
+        "sci:citation": "GKU Bratislava, NLC",
+        "sci:doi": "DOI not available"
+    },
     "Spain/PNOA/PNOA10": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Spain/Spain_PNOA_PNOA10.json",

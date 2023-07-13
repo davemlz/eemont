@@ -6682,6 +6682,11 @@
         "LaiStdDev_500m": 0.1,
         "Lai_500m": 0.1
     },
+    "MODIS/061/MYD17A2H": {
+        "Gpp": 0.0001,
+        "PsnNet": 0.0001,
+        "Psn_QC": 1.0
+    },
     "MODIS/061/MYD17A3HGF": {
         "Gpp": 0.0001,
         "Npp": 0.0001,

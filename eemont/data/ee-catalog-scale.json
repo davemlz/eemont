@@ -2354,9 +2354,6 @@
     "JRC/GHSL/P2016/SMOD_POP_GLOBE_V1": {
         "smod_code": 1.0
     },
-    "JRC/GHSL/P2023A/GHS_POP": {
-        "population_count": 1.0
-    },
     "JRC/GSW1_0/GlobalSurfaceWater": {
         "change_abs": 1.0,
         "change_norm": 1.0,

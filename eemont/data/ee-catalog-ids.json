@@ -557,6 +557,18 @@
         "sci:citation": "ESA 2010 and UCLouvain. [http://due.esrin.esa.int/page_globcover.php](http://due.esrin.esa.int/page_globcover.php)",
         "sci:doi": "DOI not available"
     },
+    "ESA/WorldCereal/2021/MARKERS/v100": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ESA/ESA_WorldCereal_2021_MARKERS_v100.json",
+        "sci:citation": "Van Tricht, K., Degerickx, J., Gilliams, S., Zanaga, D., Battude, M., Grosu,\nA., Brombacher, J., Lesiv, M., Bayas, J. C. L., Karanam, S., Fritz, S.,\nBecker-Reshef, I., Franch, B., Moll\u00e0-Bononad, B., Boogaard, H., Pratihast,\nA. K., and Szantoi, Z.: WorldCereal: a dynamic open-source system for\nglobal-scale, seasonal, and reproducible crop and irrigation mapping, Earth\nSyst. Sci. Data Discuss. [preprint],\n[doi:10.5194/essd-2023-184](https://doi.org/10.5194/essd-2023-184), in\nreview, 2023.,\n",
+        "sci:doi": "10.5194/essd-2023-184"
+    },
+    "ESA/WorldCereal/2021/MODELS/v100": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/ESA/ESA_WorldCereal_2021_MODELS_v100.json",
+        "sci:citation": "Van Tricht, K., Degerickx, J., Gilliams, S., Zanaga, D., Battude, M., Grosu,\nA., Brombacher, J., Lesiv, M., Bayas, J. C. L., Karanam, S., Fritz, S.,\nBecker-Reshef, I., Franch, B., Moll\u00e0-Bononad, B., Boogaard, H., Pratihast,\nA. K., and Szantoi, Z.: WorldCereal: a dynamic open-source system for\nglobal-scale, seasonal, and reproducible crop and irrigation mapping, Earth\nSyst. Sci. Data Discuss. [preprint],\n[doi:10.5194/essd-2023-184](https://doi.org/10.5194/essd-2023-184), in\nreview, 2023.,\n",
+        "sci:doi": "10.5194/essd-2023-184"
+    },
     "ESA/WorldCover/v100": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ESA/ESA_WorldCover_v100.json",

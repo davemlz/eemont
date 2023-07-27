@@ -4466,8 +4466,8 @@
     "NASA/ORNL/DAYMET_V4": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_ORNL_DAYMET_V4.json",
-        "sci:citation": "Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S. Kao, and B.E. Wilson. {YEAR}.\nDaymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4. ORNL DAAC, Oak\nRidge, Tennessee, USA\n",
-        "sci:doi": "10.3334/ORNLDAAC/1840"
+        "sci:citation": "Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S-C. Kao, and B.E. Wilson. 2022.\nDaymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4 R1.\nORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/2129\n",
+        "sci:doi": "10.3334/ORNLDAAC/2129"
     },
     "NASA/ORNL/biomass_carbon_density/v1": {
         "gee:type": "image_collection",

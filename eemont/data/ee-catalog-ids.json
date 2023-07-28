@@ -1115,6 +1115,12 @@
         "sci:citation": "Schiavina M., Freire S., Carioli A., MacManus K. (2023):\nGHS-POP R2023A - GHS population grid multitemporal (1975-2030).\nEuropean Commission, Joint Research Centre (JRC)\nPID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe,\n[doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)\n",
         "sci:doi": "10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE"
     },
+    "JRC/GHSL/P2023A/GHS_SMOD": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_SMOD.json",
+        "sci:citation": "Schiavina M., Melchiorri M., Pesaresi M. (2023):\nGHS-SMOD R2023A - GHS settlement layers, application of the Degree of\nUrbanisation methodology (stage I) to GHS-POP R2023A and GHS-BUILT-S R2023A,\nmultitemporal (1975-2030)European Commission, Joint Research Centre (JRC)\nPID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba,\n[doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)\n",
+        "sci:doi": "10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA"
+    },
     "JRC/GSW1_0/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_0_GlobalSurfaceWater.json",

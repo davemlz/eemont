@@ -5321,12 +5321,6 @@
         "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.:\nThe Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.\n",
         "sci:doi": "10.5194/tc-13-665-2019"
     },
-    "UMT/Climate/IrrMapper_RF/v1_0": {
-        "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMT/UMT_Climate_IrrMapper_RF_v1_0.json",
-        "sci:citation": "Ketchum, D.; Jencso, K.; Maneta, M.P.; Melton, F.; Jones, M.O.; Huntington, J.\nIrrMapper: A Machine Learning Approach for High Resolution Mapping of\nIrrigated Agriculture Across the Western U.S.,\nRemote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)\n",
-        "sci:doi": "DOI not available"
-    },
     "UMT/NTSG/v2/LANDSAT/GPP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMT/UMT_NTSG_v2_LANDSAT_GPP.json",

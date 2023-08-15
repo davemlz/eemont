@@ -1109,6 +1109,12 @@
         "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the\nREGIO model 2014 in application to GHSL Landsat and CIESIN GPW\nv4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research\nCentre (JRC) [Dataset]\nPID: [https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a](https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a)\n",
         "sci:doi": "DOI not available"
     },
+    "JRC/GHSL/P2023A/GHS_BUILT_S": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_S.json",
+        "sci:citation": "Pesaresi M., Politis P. (2023):\nGHS-BUILT-S R2023A - GHS built-up surface grid, derived from Sentinel2\ncomposite and Landsat, multitemporal (1975-2030)European Commission,\nJoint Research Centre (JRC)\nPID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea\n[doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)\n",
+        "sci:doi": "10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA"
+    },
     "JRC/GHSL/P2023A/GHS_POP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_POP.json",
@@ -5326,6 +5332,12 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMN/UMN_PGC_REMA_V1_1_8m.json",
         "sci:citation": "Howat, I. M., Porter, C., Smith, B. E., Noh, M.-J., and Morin, P.:\nThe Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.\n",
         "sci:doi": "10.5194/tc-13-665-2019"
+    },
+    "UMT/Climate/IrrMapper_RF/v1_1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMT/UMT_Climate_IrrMapper_RF_v1_1.json",
+        "sci:citation": "Ketchum, D.; Jencso, K.; Maneta, M.P.; Melton, F.; Jones, M.O.; Huntington, J.\nIrrMapper: A Machine Learning Approach for High Resolution Mapping of\nIrrigated Agriculture Across the Western U.S.,\nRemote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)\n",
+        "sci:doi": "DOI not available"
     },
     "UMT/NTSG/v2/LANDSAT/GPP": {
         "gee:type": "image_collection",

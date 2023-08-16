@@ -1109,6 +1109,12 @@
         "sci:citation": "Pesaresi, Martino; Freire, Sergio (2016): GHS Settlement grid following the\nREGIO model 2014 in application to GHSL Landsat and CIESIN GPW\nv4-multitemporal (1975-1990-2000-2015). European Commission, Joint Research\nCentre (JRC) [Dataset]\nPID: [https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a](https://data.europa.eu/89h/jrc-ghsl-ghs_smod_pop_globe_r2016a)\n",
         "sci:doi": "DOI not available"
     },
+    "JRC/GHSL/P2023A/GHS_BUILT_H": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_H.json",
+        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023):\nGHS-BUILT-H R2023A - GHS building height, derived from AW3D30, SRTM30, and\nSentinel2 composite (2018). European Commission, Joint Research Centre (JRC)\nPID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe\n[doi:10.2905/85005901-3A49-48DD-9D19-6261354F56FE](https://doi.org/10.2905/85005901-3A49-48DD-9D19-6261354F56FE)\n",
+        "sci:doi": "10.2905/85005901-3A49-48DD-9D19-6261354F56FE"
+    },
     "JRC/GHSL/P2023A/GHS_BUILT_S": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_S.json",
@@ -4875,6 +4881,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NRCan/NRCan_CDEM.json",
         "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "Netherlands/Beeldmateriaal/LUCHTFOTO_RGB": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Netherlands/Netherlands_Beeldmateriaal_LUCHTFOTO_RGB.json",
+        "sci:citation": "opendata.beeldmaterial.nl",
         "sci:doi": "DOI not available"
     },
     "OREGONSTATE/PRISM/AN81d": {

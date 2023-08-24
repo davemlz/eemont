@@ -1061,6 +1061,12 @@
         "sci:citation": "Pesaresi M., Politis P. (2023):\nGHS-BUILT-S R2023A - GHS built-up surface grid, derived from Sentinel2\ncomposite and Landsat, multitemporal (1975-2030)European Commission,\nJoint Research Centre (JRC)\nPID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea\n[doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)\n",
         "sci:doi": "10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA"
     },
+    "JRC/GHSL/P2023A/GHS_BUILT_V": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_V.json",
+        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023):\nGHS-BUILT-V R2023A - GHS built-up volume grids derived from joint assessment\nof Sentinel2, Landsat, and global DEM data, multitemporal (1975-2030).\nEuropean Commission, Joint Research Centre (JRC) [Dataset]\nPID: http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283\n[doi:10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283](https://doi.org/10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283)\n",
+        "sci:doi": "10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283"
+    },
     "JRC/GHSL/P2023A/GHS_POP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_POP.json",

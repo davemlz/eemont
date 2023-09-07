@@ -3605,6 +3605,12 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/MODIS/MCD18C2.061"
     },
+    "MODIS/061/MCD19A1_GRANULES": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MCD19A1_GRANULES.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "DOI not available"
+    },
     "MODIS/061/MCD19A2_GRANULES": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MCD19A2_GRANULES.json",

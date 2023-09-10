@@ -6380,6 +6380,19 @@
         "sur_refl_b03": 0.0001,
         "sur_refl_b07": 0.0001
     },
+    "MODIS/061/MOD13A3": {
+        "DetailedQA": 1.0,
+        "EVI": 0.0001,
+        "NDVI": 0.0001,
+        "RelativeAzimuth": 0.01,
+        "SolarZenith": 0.01,
+        "SummaryQA": 1.0,
+        "ViewZenith": 0.01,
+        "sur_refl_b01": 0.0001,
+        "sur_refl_b02": 0.0001,
+        "sur_refl_b03": 0.0001,
+        "sur_refl_b07": 0.0001
+    },
     "MODIS/061/MOD13Q1": {
         "DayOfYear": 1.0,
         "DetailedQA": 1.0,

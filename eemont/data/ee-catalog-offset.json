@@ -9703,6 +9703,16 @@
     "USGS/NLCD_RELEASES/2020_REL/NALCMS": {
         "landcover": 0.0
     },
+    "USGS/NLCD_RELEASES/2021_REL/NLCD": {
+        "impervious": 0.0,
+        "impervious_descriptor": 0.0,
+        "landcover": 0.0,
+        "science_products_forest_disturbance_date": 0.0,
+        "science_products_land_cover_change_count": 0.0,
+        "science_products_land_cover_change_first_disturbance_date": 0.0,
+        "science_products_land_cover_change_index": 0.0,
+        "science_products_land_cover_science_product": 0.0
+    },
     "USGS/SRTMGL1_003": {
         "elevation": 0.0
     },

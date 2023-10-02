@@ -89,6 +89,9 @@
     "CIESIN/GPWv4/unwpp-adjusted-population-density": {
         "population-density": 0.0
     },
+    "CIESIN/GPWv411/GPW_Basic_Demographic_Characteristics": {
+        "basic_demographic_characteristics": 0.0
+    },
     "CIESIN/GPWv411/GPW_Population_Count": {
         "population_count": 0.0
     },

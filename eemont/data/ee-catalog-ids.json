@@ -125,6 +125,30 @@
         "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Basic Characteristics, Revision 11. Palisades, NY: NASA Socioeconomic Data and\nApplications Center (SEDAC). [doi:10.7927/H46M34XX](https://doi.org/10.7927/H46M34XX).\nAccessed DAY MONTH YEAR.\n",
         "sci:doi": "10.7927/H46M34XX"
     },
+    "CIESIN/GPWv411/GPW_Data_Context": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Data_Context.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Data Context, Revision 11. Palisades, NY: NASA Socioeconomic Data\nand Applications Center (SEDAC). [doi:10.7927/H46M34XX](https://doi.org/10.7927/H46M34XX).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H42Z13KG"
+    },
+    "CIESIN/GPWv411/GPW_Land_Area": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Land_Area.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Land Area, Revision 11. Palisades, NY: NASA Socioeconomic Data\nand Applications Center (SEDAC). [https://doi.org/10.7927/H4Z60M4Z](https://doi.org/10.7927/H4Z60M4Z).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H4Z60M4Z"
+    },
+    "CIESIN/GPWv411/GPW_Mean_Administrative_Unit_Area": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Mean_Administrative_Unit_Area.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2016. Gridded Population of the World, Version 4\n(GPWv4): Mean Administrative Unit Area, Revision 11.\nPalisades, NY: NASA Socioeconomic Data and Applications Center\n(SEDAC). [https://doi.org/10.7927/H42Z13KG](https://doi.org/10.7927/H42Z13KG).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H42Z13KG"
+    },
+    "CIESIN/GPWv411/GPW_National_Identifier_Grid": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_National_Identifier_Grid.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): National Identifier Grid, Revision 11. Palisades, NY: NASA Socioeconomic Data\nand Applications Center (SEDAC). [https://doi.org/10.7927/H4F47M2C](https://doi.org/10.7927/H4F47M2C).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H4TD9VDP"
+    },
     "CIESIN/GPWv411/GPW_Population_Count": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Population_Count.json",
@@ -148,6 +172,18 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_UNWPP-Adjusted_Population_Density.json",
         "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4.11): Population Density Adjusted to Match 2015 Revision of UN WPP\nCountry Totals, Revision 11. Palisades, NY: NASA Socioeconomic Data and Applications\nCenter (SEDAC). [https://doi.org/10.7927/H4F47M65](https://doi.org/10.7927/H4F47M65).\nAccessed DAY MONTH YEAR.\n",
         "sci:doi": "10.7927/H4F47M65"
+    },
+    "CIESIN/GPWv411/GPW_Water_Area": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Water_Area.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Water Area, Revision 11.\nPalisades, NY: NASA Socioeconomic Data and Applications Center\n(SEDAC). [https://doi.org/10.7927/H4Z60M4Z](https://doi.org/10.7927/H4Z60M4Z).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H4Z60M4Z"
+    },
+    "CIESIN/GPWv411/GPW_Water_Mask": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/CIESIN/CIESIN_GPWv411_GPW_Water_Mask.json",
+        "sci:citation": "Center for International Earth Science Information Network - CIESIN -\nColumbia University. 2018. Gridded Population of the World, Version 4\n(GPWv4): Water Mask, Revision 11. Palisades, NY: NASA Socioeconomic Data\nand Applications Center (SEDAC). [https://doi.org/10.7927/H42Z13KG](https://doi.org/10.7927/H42Z13KG).\nAccessed DAY MONTH YEAR.\n",
+        "sci:doi": "10.7927/H42Z13KG"
     },
     "COPERNICUS/CORINE/V18_5_1/100m": {
         "gee:type": "image_collection",
@@ -681,6 +717,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GLOBAL_FLOOD_DB/GLOBAL_FLOOD_DB_MODIS_EVENTS_V1.json",
         "sci:citation": "Tellman, B., J.A. Sullivan, C. Kuhn, A.J. Kettner, C.S. Doyle, G.R.\nBrakenridge, T. Erickson, D.A. Slayback. (Accepted.)\nSatellites observe increasing proportion of population exposed\nto floods. Nature.\n[doi:10.1038/s41586-021-03695-w](https://doi.org/10.1038/s41586-021-03695-w)\n",
+        "sci:doi": "DOI not available"
+    },
+    "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/GOOGLE/GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED.json",
+        "sci:citation": "Pasquarella, V. J., Brown, C. F., Czerwinski, W., & Rucklidge, W. J. (2023)\nComprehensive Quality Assessment of Optical Satellite Imagery Using Weakly\nSupervised Video Learning. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (pp. 2124-2134).\n[PDF](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Pasquarella_Comprehensive_Quality_Assessment_of_Optical_Satellite_Imagery_Using_Weakly_Supervised_CVPRW_2023_paper.html)\n",
         "sci:doi": "DOI not available"
     },
     "GOOGLE/DYNAMICWORLD/V1": {
@@ -5805,6 +5847,24 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/planet-nicfi/projects_planet-nicfi_assets_basemaps_asia.json",
         "sci:citation": "Planet Team (2017). Planet Application Program Interface: In Space for Life\non Earth. San Francisco, CA. [https://api.planet.com](https://api.planet.com)\n",
+        "sci:doi": "DOI not available"
+    },
+    "projects/sat-io/open-datasets/GLOBathy/GLOBathy_bathymetry": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/sat-io/projects_sat-io_open-datasets_GLOBathy_GLOBathy_bathymetry.json",
+        "sci:citation": "Khazaei, Bahram; Read, Laura K; Casali, Matthew; Sampson, Kevin M; Yates, David N (2022): GLOBathy Bathymetry Rasters. figshare. Dataset. https://doi.org/10.6084/10.6084/m9.figshare.c.5243309.v1\n",
+        "sci:doi": "10.6084/m9.figshare.c.5243309.v1"
+    },
+    "projects/sat-io/open-datasets/ORNL/LANDSCAN_GLOBAL": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/sat-io/projects_sat-io_open-datasets_ORNL_LANDSCAN_GLOBAL.json",
+        "sci:citation": "Sims, K., Reith, A., Bright, E., Kaufman, J., Pyle, J., Epting, J., Gonzales, J., Adams, D., Powell, E., Urban, M., & Rose, A. (2023). LandScan Global 2022 [Data set]. Oak Ridge National Laboratory. https://doi.org/10.48690/1529167\n",
+        "sci:doi": "10.48690/1529167"
+    },
+    "projects/sat-io/open-datasets/us-drought-monitor": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/sat-io/projects_sat-io_open-datasets_us-drought-monitor.json",
+        "sci:citation": "National Drought Mitigation Center; U.S. Department of Agriculture; National Oceanic and Atmospheric Administration (2023). United States Drought Monitor. University of Nebraska-Lincoln. https://droughtmonitor.unl.edu/. Accessed 2023-09-17\n",
         "sci:doi": "DOI not available"
     }
 }

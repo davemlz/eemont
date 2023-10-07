@@ -92,6 +92,18 @@
     "CIESIN/GPWv411/GPW_Basic_Demographic_Characteristics": {
         "basic_demographic_characteristics": 0.0
     },
+    "CIESIN/GPWv411/GPW_Data_Context": {
+        "data_context": 0.0
+    },
+    "CIESIN/GPWv411/GPW_Land_Area": {
+        "land_area": 0.0
+    },
+    "CIESIN/GPWv411/GPW_Mean_Administrative_Unit_Area": {
+        "mean_administrative_unit_area": 0.0
+    },
+    "CIESIN/GPWv411/GPW_National_Identifier_Grid": {
+        "national_identifier_grid": 0.0
+    },
     "CIESIN/GPWv411/GPW_Population_Count": {
         "population_count": 0.0
     },
@@ -103,6 +115,12 @@
     },
     "CIESIN/GPWv411/GPW_UNWPP-Adjusted_Population_Density": {
         "unwpp-adjusted_population_density": 0.0
+    },
+    "CIESIN/GPWv411/GPW_Water_Area": {
+        "water_area": 0.0
+    },
+    "CIESIN/GPWv411/GPW_Water_Mask": {
+        "water_mask": 0.0
     },
     "COPERNICUS/CORINE/V18_5_1/100m": {
         "landcover": 0.0
@@ -1641,6 +1659,10 @@
         "duration": 0.0,
         "flooded": 0.0,
         "jrc_perm_water": 0.0
+    },
+    "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED": {
+        "cs": 0.0,
+        "cs_cdf": 0.0
     },
     "GOOGLE/DYNAMICWORLD/V1": {
         "bare": 0.0,
@@ -10072,5 +10094,14 @@
         "G": 0.0,
         "N": 0.0,
         "R": 0.0
+    },
+    "projects/sat-io/open-datasets/GLOBathy/GLOBathy_bathymetry": {
+        "b1": 0.0
+    },
+    "projects/sat-io/open-datasets/ORNL/LANDSCAN_GLOBAL": {
+        "b1": 0.0
+    },
+    "projects/sat-io/open-datasets/us-drought-monitor": {
+        "b1": 0.0
     }
 }

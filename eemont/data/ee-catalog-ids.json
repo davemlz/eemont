@@ -1085,6 +1085,12 @@
         "sci:citation": "Kubota, T., K. Aonashi, T. Ushio, S. Shige, Y. N. Takayabu, M. Kachi,\nY. Arai, T. Tashima, T. Masaki, N. Kawamoto, T. Mega, M. K. Yamamoto,\nA. Hamada, M. Yamaji, G. Liu and R. Oki 2020: Global Satellite Mapping of\nPrecipitation (GSMaP) products in the GPM era, Satellite precipitation\nmeasurement, Springer, https://doi.org/10.1007/978-3-030-24568-9_20.\n",
         "sci:doi": "10.57746/EO.01gs73bkt358gfpy92y2qns5e9"
     },
+    "JAXA/GPM_L3/GSMaP/v7/operational": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_GPM_L3_GSMaP_v7_operational.json",
+        "sci:citation": "Kubota, T., K. Aonashi, T. Ushio, S. Shige, Y. N. Takayabu, M. Kachi,\nY. Arai, T. Tashima, T. Masaki, N. Kawamoto, T. Mega, M. K. Yamamoto,\nA. Hamada, M. Yamaji, G. Liu and R. Oki 2020: Global Satellite Mapping of\nPrecipitation (GSMaP) products in the GPM era, Satellite precipitation\nmeasurement, Springer, https://doi.org/10.1007/978-3-030-24568-9_20.\n",
+        "sci:doi": "10.57746/EO.01gs73bkt358gfpy92y2qns5e9"
+    },
     "JCU/Murray/GIC/global_tidal_wetland_change/2019": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JCU/JCU_Murray_GIC_global_tidal_wetland_change_2019.json",
@@ -5830,6 +5836,30 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_NIDEM.json",
         "sci:citation": "Bishop-Taylor, R., Sagar, S., Lymburner, L., & Beaman, R. J. (2019).\nBetween the tides: Modelling the elevation of Australia's exposed intertidal\nzone at continental scale.  Estuarine, Coastal and Shelf Science, 223,\n115-128.\n[doi:10.1016/j.ecss.2019.03.006](https://doi.org/10.1016/j.ecss.2019.03.006)\n",
         "sci:doi": "10.1016/j.ecss.2019.03.006"
+    },
+    "projects/geoscience-aus-cat/assets/ga_landcover": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_ga_landcover.json",
+        "sci:citation": "Lucas R, Mueller N, Siggins A, Owers C, Clewley D, Bunting P, Kooymans C, Tissott B, Lewis B, Lymburner L, Metternicht G. Land Cover Mapping using Digital Earth Australia. Data. 2019; 4(4):143.\n[doi:10.3390/data4040143](https://doi.org/10.3390/data4040143).\nChristopher J. Owers, Richard M. Lucas, Daniel Clewley, Carole Planque, Suvarna Punalekar, Belle Tissott, Sean M. T. Chua, Pete Bunting, Norman Mueller & Graciela Metternicht (2021) Living Earth: Implementing national standardised land cover classification systems for Earth Observation in support of sustainable development, Big Earth Data, 5:3, 368-390.\n[doi:10.1080/20964471.2021.1948179](https://doi.org/10.1080/20964471.2021.1948179).\n",
+        "sci:doi": "10.3390/data4040143"
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS5": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS5.json",
+        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
+        "sci:doi": "10.1109/TGRS.2017.2723896"
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS7": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS7.json",
+        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
+        "sci:doi": "10.1109/TGRS.2017.2723896"
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS8": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS8.json",
+        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
+        "sci:doi": "10.1109/TGRS.2017.2723896"
     },
     "projects/ngis-cat/assets/DEA/NIDEM": {
         "gee:type": "image",

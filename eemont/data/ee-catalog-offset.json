@@ -2341,6 +2341,13 @@
         "observationTimeFlag": 0.0,
         "satelliteInfoFlag": 0.0
     },
+    "JAXA/GPM_L3/GSMaP/v7/operational": {
+        "gaugeQualityInfo": 0.0,
+        "hourlyPrecipRate": 0.0,
+        "hourlyPrecipRateGC": 0.0,
+        "observationTimeFlag": 0.0,
+        "satelliteInfoFlag": 0.0
+    },
     "JCU/Murray/GIC/global_tidal_wetland_change/2019": {
         "gain": 0.0,
         "gainType": 0.0,
@@ -10076,6 +10083,59 @@
         "nidem_mask": 0.0,
         "nidem_uncertainty": 0.0,
         "nidem_unfiltered": 0.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_landcover": {
+        "baregrad_phy_cat_l4d": 0.0,
+        "canopyco_veg_cat_l4d": 0.0,
+        "inttidal_wat_cat_l4a": 0.0,
+        "level3": 0.0,
+        "level3_B": 0.0,
+        "level3_G": 0.0,
+        "level3_R": 0.0,
+        "level4": 0.0,
+        "level4_B": 0.0,
+        "level4_G": 0.0,
+        "level4_R": 0.0,
+        "lifeform_veg_cat_l4a": 0.0,
+        "waterper_wat_cat_l4d": 0.0,
+        "watersea_veg_cat_l4a": 0.0,
+        "waterstt_wat_cat_l4a": 0.0
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS5": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 0.0,
+        "Euclidean_distance_median_absolute_deviation": 0.0,
+        "blue": 0.0,
+        "count": 0.0,
+        "green": 0.0,
+        "near_infrared": 0.0,
+        "red": 0.0,
+        "shortwave_infrared_1": 0.0,
+        "shortwave_infrared_2": 0.0,
+        "spectral_distance_median_absolute_deviation": 0.0
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS7": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 0.0,
+        "Euclidean_distance_median_absolute_deviation": 0.0,
+        "blue": 0.0,
+        "count": 0.0,
+        "green": 0.0,
+        "near_infrared": 0.0,
+        "red": 0.0,
+        "shortwave_infrared_1": 0.0,
+        "shortwave_infrared_2": 0.0,
+        "spectral_distance_median_absolute_deviation": 0.0
+    },
+    "projects/geoscience-aus-cat/assets/geomedians_LS8": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 0.0,
+        "Euclidean_distance_median_absolute_deviation": 0.0,
+        "blue": 0.0,
+        "count": 0.0,
+        "green": 0.0,
+        "near_infrared": 0.0,
+        "red": 0.0,
+        "shortwave_infrared_1": 0.0,
+        "shortwave_infrared_2": 0.0,
+        "spectral_distance_median_absolute_deviation": 0.0
     },
     "projects/ngis-cat/assets/DEA/NIDEM": {
         "nidem": 0.0,

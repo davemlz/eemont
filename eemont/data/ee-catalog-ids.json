@@ -1091,6 +1091,12 @@
         "sci:citation": "Kubota, T., K. Aonashi, T. Ushio, S. Shige, Y. N. Takayabu, M. Kachi,\nY. Arai, T. Tashima, T. Masaki, N. Kawamoto, T. Mega, M. K. Yamamoto,\nA. Hamada, M. Yamaji, G. Liu and R. Oki 2020: Global Satellite Mapping of\nPrecipitation (GSMaP) products in the GPM era, Satellite precipitation\nmeasurement, Springer, https://doi.org/10.1007/978-3-030-24568-9_20.\n",
         "sci:doi": "10.57746/EO.01gs73bkt358gfpy92y2qns5e9"
     },
+    "JAXA/GPM_L3/GSMaP/v8/operational": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JAXA/JAXA_GPM_L3_GSMaP_v8_operational.json",
+        "sci:citation": "Kubota, T., K. Aonashi, T. Ushio, S. Shige, Y. N. Takayabu, M. Kachi,\nY. Arai, T. Tashima, T. Masaki, N. Kawamoto, T. Mega, M. K. Yamamoto,\nA. Hamada, M. Yamaji, G. Liu and R. Oki 2020: Global Satellite Mapping of\nPrecipitation (GSMaP) products in the GPM era, Satellite precipitation\nmeasurement, Springer, https://doi.org/10.1007/978-3-030-24568-9_20.\n",
+        "sci:doi": "10.57746/EO.01gs73bkt358gfpy92y2qns5e9"
+    },
     "JCU/Murray/GIC/global_tidal_wetland_change/2019": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JCU/JCU_Murray_GIC_global_tidal_wetland_change_2019.json",

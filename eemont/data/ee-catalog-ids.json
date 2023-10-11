@@ -5843,30 +5843,6 @@
         "sci:citation": "Bishop-Taylor, R., Sagar, S., Lymburner, L., & Beaman, R. J. (2019).\nBetween the tides: Modelling the elevation of Australia's exposed intertidal\nzone at continental scale.  Estuarine, Coastal and Shelf Science, 223,\n115-128.\n[doi:10.1016/j.ecss.2019.03.006](https://doi.org/10.1016/j.ecss.2019.03.006)\n",
         "sci:doi": "10.1016/j.ecss.2019.03.006"
     },
-    "projects/geoscience-aus-cat/assets/ga_landcover": {
-        "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_ga_landcover.json",
-        "sci:citation": "Lucas R, Mueller N, Siggins A, Owers C, Clewley D, Bunting P, Kooymans C, Tissott B, Lewis B, Lymburner L, Metternicht G. Land Cover Mapping using Digital Earth Australia. Data. 2019; 4(4):143.\n[doi:10.3390/data4040143](https://doi.org/10.3390/data4040143).\nChristopher J. Owers, Richard M. Lucas, Daniel Clewley, Carole Planque, Suvarna Punalekar, Belle Tissott, Sean M. T. Chua, Pete Bunting, Norman Mueller & Graciela Metternicht (2021) Living Earth: Implementing national standardised land cover classification systems for Earth Observation in support of sustainable development, Big Earth Data, 5:3, 368-390.\n[doi:10.1080/20964471.2021.1948179](https://doi.org/10.1080/20964471.2021.1948179).\n",
-        "sci:doi": "10.3390/data4040143"
-    },
-    "projects/geoscience-aus-cat/assets/geomedians_LS5": {
-        "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS5.json",
-        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
-        "sci:doi": "10.1109/TGRS.2017.2723896"
-    },
-    "projects/geoscience-aus-cat/assets/geomedians_LS7": {
-        "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS7.json",
-        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
-        "sci:doi": "10.1109/TGRS.2017.2723896"
-    },
-    "projects/geoscience-aus-cat/assets/geomedians_LS8": {
-        "gee:type": "image_collection",
-        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_geomedians_LS8.json",
-        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
-        "sci:doi": "10.1109/TGRS.2017.2723896"
-    },
     "projects/ngis-cat/assets/DEA/NIDEM": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ngis-cat/projects_ngis-cat_assets_DEA_NIDEM.json",

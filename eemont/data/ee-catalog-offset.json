@@ -2348,6 +2348,13 @@
         "observationTimeFlag": 0.0,
         "satelliteInfoFlag": 0.0
     },
+    "JAXA/GPM_L3/GSMaP/v8/operational": {
+        "gaugeQualityInfo": 0.0,
+        "hourlyPrecipRate": 0.0,
+        "hourlyPrecipRateGC": 0.0,
+        "observationTimeFlag": 0.0,
+        "satelliteInfoFlag": 0.0
+    },
     "JCU/Murray/GIC/global_tidal_wetland_change/2019": {
         "gain": 0.0,
         "gainType": 0.0,

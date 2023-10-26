@@ -8839,7 +8839,7 @@
     "NOAA/VIIRS/001/VNP46A2": {
         "DNB_BRDF_Corrected_NTL": 1.0,
         "DNB_Lunar_Irradiance": 1.0,
-        "Gap_Filled_DNB_BRDFCorrected_NTL": 1.0,
+        "Gap_Filled_DNB_BRDF_Corrected_NTL": 1.0,
         "Latest_High_Quality_Retrieval": 1.0,
         "Mandatory_Quality_Flag": 1.0,
         "QF_Cloud_Mask": 1.0,

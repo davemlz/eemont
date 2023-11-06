@@ -10108,6 +10108,64 @@
         "nidem_uncertainty": 1.0,
         "nidem_unfiltered": 1.0
     },
+    "projects/geoscience-aus-cat/assets/ga_ls5t_nbart_gm_cyear_3": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 1.0,
+        "Euclidean_distance_median_absolute_deviation": 1.0,
+        "blue": 1.0,
+        "count": 1.0,
+        "green": 1.0,
+        "near_infrared": 1.0,
+        "red": 1.0,
+        "shortwave_infrared_1": 1.0,
+        "shortwave_infrared_2": 1.0,
+        "spectral_distance_median_absolute_deviation": 1.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls7e_nbart_gm_cyear_3": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 1.0,
+        "Euclidean_distance_median_absolute_deviation": 1.0,
+        "blue": 1.0,
+        "count": 1.0,
+        "green": 1.0,
+        "near_infrared": 1.0,
+        "red": 1.0,
+        "shortwave_infrared_1": 1.0,
+        "shortwave_infrared_2": 1.0,
+        "spectral_distance_median_absolute_deviation": 1.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls8c_nbart_gm_cyear_3": {
+        "Bray_Curtis_dissimilarity_median_absolute_deviation": 1.0,
+        "Euclidean_distance_median_absolute_deviation": 1.0,
+        "blue": 1.0,
+        "count": 1.0,
+        "green": 1.0,
+        "near_infrared": 1.0,
+        "red": 1.0,
+        "shortwave_infrared_1": 1.0,
+        "shortwave_infrared_2": 1.0,
+        "spectral_distance_median_absolute_deviation": 1.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls_landcover_class_cyear_2": {
+        "baregrad_phy_cat_l4d": 1.0,
+        "canopyco_veg_cat_l4d": 1.0,
+        "inttidal_wat_cat_l4a": 1.0,
+        "level3": 1.0,
+        "level3_B": 1.0,
+        "level3_G": 1.0,
+        "level3_R": 1.0,
+        "level4": 1.0,
+        "level4_B": 1.0,
+        "level4_G": 1.0,
+        "level4_R": 1.0,
+        "lifeform_veg_cat_l4a": 1.0,
+        "waterper_wat_cat_l4d": 1.0,
+        "watersea_veg_cat_l4a": 1.0,
+        "waterstt_wat_cat_l4a": 1.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls_wo_fq_cyear_3": {
+        "count_clear": 1.0,
+        "count_wet": 1.0,
+        "frequency": 1.0
+    },
     "projects/ngis-cat/assets/DEA/NIDEM": {
         "nidem": 1.0,
         "nidem_mask": 1.0,

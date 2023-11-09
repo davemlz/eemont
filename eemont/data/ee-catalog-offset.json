@@ -6074,6 +6074,20 @@
         "Lai": 0.0,
         "LaiStdDev": 0.0
     },
+    "MODIS/061/MCD18A1": {
+        "DSR": 0.0,
+        "DSR_Quality": 0.0,
+        "Diffuse": 0.0,
+        "Direct": 0.0,
+        "GMT_0000_DSR": 0.0,
+        "GMT_0300_DSR": 0.0,
+        "GMT_0600_DSR": 0.0,
+        "GMT_0900_DSR": 0.0,
+        "GMT_1200_DSR": 0.0,
+        "GMT_1500_DSR": 0.0,
+        "GMT_1800_DSR": 0.0,
+        "GMT_2100_DSR": 0.0
+    },
     "MODIS/061/MCD18C2": {
         "GMT_0000_PAR": 0.0,
         "GMT_0300_PAR": 0.0,

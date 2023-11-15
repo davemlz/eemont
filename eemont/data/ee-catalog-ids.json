@@ -3845,6 +3845,12 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page]\n(https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/MODIS/MOD16A2.061"
     },
+    "MODIS/061/MOD16A2GF": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD16A2GF.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page]\n(https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/MODIS/MOD16A2GF.061"
+    },
     "MODIS/061/MOD17A2H": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/MODIS/MODIS_061_MOD17A2H.json",

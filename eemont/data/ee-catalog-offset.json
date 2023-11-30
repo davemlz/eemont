@@ -9189,6 +9189,11 @@
         "friction": 0.0,
         "friction_walking_only": 0.0
     },
+    "RUB/RUBCLIM/LCZ/global_lcz_map/latest": {
+        "LCZ": 0.0,
+        "LCZ_Filter": 0.0,
+        "LCZ_Probability": 0.0
+    },
     "RUB/RUBCLIM/LCZ/global_lcz_map/v1": {
         "LCZ": 0.0,
         "LCZ_Filter": 0.0,

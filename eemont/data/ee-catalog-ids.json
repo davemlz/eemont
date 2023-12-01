@@ -4463,6 +4463,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "NASA/GSFC/MERRA/aer_nv/2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GSFC_MERRA_aer_nv_2.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "NASA/GSFC/MERRA/flx/2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GSFC_MERRA_flx_2.json",

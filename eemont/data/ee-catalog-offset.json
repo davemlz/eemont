@@ -6024,6 +6024,17 @@
         "Gpp_Npp_QC": 0.0,
         "Npp": 0.0
     },
+    "MODIS/061/MCD12C1": {
+        "Majority_Land_Cover_Type_1": 0.0,
+        "Majority_Land_Cover_Type_1_Assessment": 0.0,
+        "Majority_Land_Cover_Type_1_Percent": 0.0,
+        "Majority_Land_Cover_Type_2": 0.0,
+        "Majority_Land_Cover_Type_2_Assessment": 0.0,
+        "Majority_Land_Cover_Type_2_Percent": 0.0,
+        "Majority_Land_Cover_Type_3": 0.0,
+        "Majority_Land_Cover_Type_3_Assessment": 0.0,
+        "Majority_Land_Cover_Type_3_Percent": 0.0
+    },
     "MODIS/061/MCD12Q1": {
         "LC_Prop1": 0.0,
         "LC_Prop1_Assessment": 0.0,

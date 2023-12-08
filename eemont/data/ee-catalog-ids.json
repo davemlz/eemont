@@ -1109,6 +1109,12 @@
         "sci:citation": "d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,\n& Van der Velde, M. (2021). From parcel to continental scale-A first\nEuropean crop type map based on Sentinel-1 and LUCAS Copernicus in-situ\nobservations. Remote sensing of environment, 266, 112708.\n",
         "sci:doi": "DOI not available"
     },
+    "JRC/GFC2020/V1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GFC2020_V1.json",
+        "sci:citation": "Bourgoin, Clement; Ameztoy, Iban; Verhegghen, Astrid; Carboni, Silvia;\nColditz, Rene R.; Achard, Frederic (2023): Global map of forest cover 2020 -\nversion 1. European Commission, Joint Research Centre (JRC) [Dataset] PID:\n[http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290](http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290).\n",
+        "sci:doi": "DOI not available"
+    },
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1.json",

@@ -11163,6 +11163,30 @@
     "USFS/GTAC/MTBS/annual_burn_severity_mosaics/v1": {
         "Severity": 0.0
     },
+    "USFS/GTAC/TreeMap/v2016": {
+        "ALSTK": 0.0,
+        "BALIVE": 0.0,
+        "CANOPYPCT": 0.0,
+        "CARBON_D": 0.0,
+        "CARBON_DWN": 0.0,
+        "CARBON_L": 0.0,
+        "DRYBIO_D": 0.0,
+        "DRYBIO_L": 0.0,
+        "FLDSZCD": 0.0,
+        "FLDTYPCD": 0.0,
+        "FORTYPCD": 0.0,
+        "GSSTK": 0.0,
+        "QMD_RMRS": 0.0,
+        "SDIPCT_RMRS": 0.0,
+        "STANDHT": 0.0,
+        "STDSZCD": 0.0,
+        "TPA_DEAD": 0.0,
+        "TPA_LIVE": 0.0,
+        "VOLBFNET_L": 0.0,
+        "VOLCFNET_D": 0.0,
+        "VOLCFNET_L": 0.0,
+        "Value": 0.0
+    },
     "USGS/3DEP/10m": {
         "elevation": 0.0
     },

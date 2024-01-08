@@ -6522,6 +6522,21 @@
         "sur_refl_b03": 0.0001,
         "sur_refl_b07": 0.0001
     },
+    "MODIS/061/MOD13C1": {
+        "DetailedQA": 1.0,
+        "EVI": 1.0,
+        "EVIStdDev": 1.0,
+        "NDVI": 1.0,
+        "NDVIStdDev": 1.0,
+        "Pixel_1km": 1.0,
+        "Pixel_30deg_1km": 1.0,
+        "SolarZenith": 1.0,
+        "SummaryQA": 1.0,
+        "sur_refl_b01": 1.0,
+        "sur_refl_b02": 1.0,
+        "sur_refl_b03": 1.0,
+        "sur_refl_b07": 1.0
+    },
     "MODIS/061/MOD13Q1": {
         "DayOfYear": 1.0,
         "DetailedQA": 1.0,
@@ -6830,6 +6845,21 @@
         "sur_refl_b02": 0.0001,
         "sur_refl_b03": 0.0001,
         "sur_refl_b07": 0.0001
+    },
+    "MODIS/061/MYD13C1": {
+        "DetailedQA": 1.0,
+        "EVI": 1.0,
+        "EVIStdDev": 1.0,
+        "NDVI": 1.0,
+        "NDVIStdDev": 1.0,
+        "Pixel_1km": 1.0,
+        "Pixel_30deg_1km": 1.0,
+        "SolarZenith": 1.0,
+        "SummaryQA": 1.0,
+        "sur_refl_b01": 1.0,
+        "sur_refl_b02": 1.0,
+        "sur_refl_b03": 1.0,
+        "sur_refl_b07": 1.0
     },
     "MODIS/061/MYD13Q1": {
         "DayOfYear": 1.0,

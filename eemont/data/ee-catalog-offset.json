@@ -11092,6 +11092,9 @@
     "UMT/Climate/IrrMapper_RF/v1_1": {
         "classification": 0.0
     },
+    "UMT/Climate/IrrMapper_RF/v1_2": {
+        "classification": 0.0
+    },
     "UMT/NTSG/v2/LANDSAT/GPP": {
         "GPP": 0.0,
         "QC": 0.0
@@ -11456,6 +11459,12 @@
         "science_products_land_cover_change_first_disturbance_date": 0.0,
         "science_products_land_cover_change_index": 0.0,
         "science_products_land_cover_science_product": 0.0
+    },
+    "USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4": {
+        "NLCD_Percent_Tree_Canopy_Cover": 0.0,
+        "Science_Percent_Tree_Canopy_Cover": 0.0,
+        "Science_Percent_Tree_Canopy_Cover_Standard_Error": 0.0,
+        "data_mask": 0.0
     },
     "USGS/SRTMGL1_003": {
         "elevation": 0.0

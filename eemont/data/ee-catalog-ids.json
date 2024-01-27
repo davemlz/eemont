@@ -4667,6 +4667,12 @@
         "sci:citation": "Zhao, Xuepeng; and NOAA CDR Program (2017): NOAA Climate Data Record (CDR)\nof AVHRR Daily and Monthly Aerosol Optical Thickness (AOT) over Global\nOceans, Version 3.0. [indicate subset used]. NOAA National Centers for\nEnvironmental Information. [doi:10.7289/V5BZ642P](https://doi.org/10.7289/V5BZ642P)\n[date accessed].\n",
         "sci:doi": "10.7289/V5BZ642P"
     },
+    "NOAA/CDR/AVHRR/AOT/V4": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CDR_AVHRR_AOT_V4.json",
+        "sci:citation": "Zhao, Xuepeng; and NOAA CDR Program: NOAA Climate Data Record (CDR)\nof AVHRR Daily and Monthly Aerosol Optical Thickness (AOT) over Global\nOceans, Version 4.0. [indicate subset used]. NOAA National Centers for\nEnvironmental Information. [doi:10.25921/w3zj-4y48](https://doi.org/10.25921/w3zj-4y48)\n[date accessed].\n",
+        "sci:doi": "10.25921/w3zj-4y48"
+    },
     "NOAA/CDR/AVHRR/LAI_FAPAR/V4": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CDR_AVHRR_LAI_FAPAR_V4.json",

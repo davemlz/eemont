@@ -9630,6 +9630,9 @@
     "NOAA/CDR/AVHRR/AOT/V3": {
         "aot": 0.0
     },
+    "NOAA/CDR/AVHRR/AOT/V4": {
+        "aot": 0.0
+    },
     "NOAA/CDR/AVHRR/LAI_FAPAR/V4": {
         "FAPAR": 0.0,
         "LAI": 0.0,

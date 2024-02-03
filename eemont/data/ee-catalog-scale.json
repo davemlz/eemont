@@ -11304,6 +11304,15 @@
     "USGS/GMTED2010": {
         "be75": 1.0
     },
+    "USGS/GMTED2010_FULL": {
+        "be75": 1.0,
+        "dsc": 1.0,
+        "max": 1.0,
+        "mea": 1.0,
+        "med": 1.0,
+        "min": 1.0,
+        "std": 1.0
+    },
     "USGS/GTOPO30": {
         "elevation": 1.0
     },

@@ -5351,6 +5351,12 @@
         "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James\nVerdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,\nAndrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation\nwith stations-a new environmental record for monitoring extremes\".\nScientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)\n2015.\n",
         "sci:doi": "DOI not available"
     },
+    "UK/EA/ENGLAND_1M_TERRAIN/2022": {
+        "gee:type": "image",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/UK/UK_EA_ENGLAND_1M_TERRAIN_2022.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UMD/UMD_GLAD_PRIMARY_HUMID_TROPICAL_FORESTS_v1.json",

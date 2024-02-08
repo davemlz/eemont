@@ -10899,6 +10899,11 @@
     "UCSB-CHG/CHIRPS/PENTAD": {
         "precipitation": 0.0
     },
+    "UK/EA/ENGLAND_1M_TERRAIN/2022": {
+        "dsm_first": 0.0,
+        "dsm_last": 0.0,
+        "dtm": 0.0
+    },
     "UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1": {
         "Primary_HT_forests": 0.0
     },

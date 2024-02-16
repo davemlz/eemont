@@ -5003,6 +5003,12 @@
         "sci:citation": "Elvidge, C.D, Zhizhin, M., Ghosh T., Hsu FC, Taneja J. Annual time series of\nglobal VIIRS nighttime lights derived from monthly averages:2012 to 2019.\nRemote Sensing 2021, 13(5), p.922, doi:10.3390/rs13050922\n[doi:10.3390/rs13050922](https://doi.org/10.3390/rs13050922)\n",
         "sci:doi": "10.3390/rs13050922"
     },
+    "NOAA/VIIRS/DNB/ANNUAL_V22": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_VIIRS_DNB_ANNUAL_V22.json",
+        "sci:citation": "Elvidge, C.D, Zhizhin, M., Ghosh T., Hsu FC, Taneja J. Annual time series of\nglobal VIIRS nighttime lights derived from monthly averages:2012 to 2019.\nRemote Sensing 2021, 13(5), p.922, doi:10.3390/rs13050922\n[doi:10.3390/rs13050922](https://doi.org/10.3390/rs13050922)\n",
+        "sci:doi": "10.3390/rs13050922"
+    },
     "NOAA/VIIRS/DNB/MONTHLY_V1/VCMCFG": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_VIIRS_DNB_MONTHLY_V1_VCMCFG.json",

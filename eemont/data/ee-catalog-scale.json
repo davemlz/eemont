@@ -1384,6 +1384,9 @@
         "volumetric_soil_water_layer_3": 1.0,
         "volumetric_soil_water_layer_4": 1.0
     },
+    "EDF/MethaneSAT/MethaneAIR/methaneair-L4area-2021": {
+        "flux": 1.0
+    },
     "EO1/HYPERION": {
         "B008": 1.0,
         "B009": 1.0,
@@ -9412,6 +9415,26 @@
     "NASA/JPL/global_forest_canopy_height_2005": {
         "1": 1.0
     },
+    "NASA/LANCE/NOAA20_VIIRS/C2": {
+        "Bright_ti4": 1.0,
+        "Bright_ti5": 1.0,
+        "DayNight": 1.0,
+        "acq_epoch": 1.0,
+        "acq_time": 1.0,
+        "confidence": 1.0,
+        "frp": 1.0,
+        "line_number": 1.0
+    },
+    "NASA/LANCE/SNPP_VIIRS/C2": {
+        "Bright_ti4": 1.0,
+        "Bright_ti5": 1.0,
+        "DayNight": 1.0,
+        "acq_epoch": 1.0,
+        "acq_time": 1.0,
+        "confidence": 1.0,
+        "frp": 1.0,
+        "line_number": 1.0
+    },
     "NASA/MEASURES/GFCC/TC/v3": {
         "source_index": 1.0,
         "tree_canopy_cover": 1.0,
@@ -9526,6 +9549,24 @@
         "bgb_uncertainty": 1.0
     },
     "NASA/SMAP/SPL3SMP_E/005": {
+        "retrieval_qual_flag_am": 1.0,
+        "retrieval_qual_flag_pm": 1.0,
+        "soil_moisture_am": 1.0,
+        "soil_moisture_am_anomaly": 1.0,
+        "soil_moisture_pm": 1.0,
+        "soil_moisture_pm_anomaly": 1.0,
+        "tb_h_corrected_am": 1.0,
+        "tb_h_corrected_pm": 1.0,
+        "tb_qual_flag_h_am": 1.0,
+        "tb_qual_flag_h_pm": 1.0,
+        "tb_qual_flag_v_am": 1.0,
+        "tb_qual_flag_v_pm": 1.0,
+        "tb_v_corrected_am": 1.0,
+        "tb_v_corrected_pm": 1.0,
+        "vegetation_water_content_am": 1.0,
+        "vegetation_water_content_pm": 1.0
+    },
+    "NASA/SMAP/SPL3SMP_E/006": {
         "retrieval_qual_flag_am": 1.0,
         "retrieval_qual_flag_pm": 1.0,
         "soil_moisture_am": 1.0,

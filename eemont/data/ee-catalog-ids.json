@@ -4544,13 +4544,13 @@
     "NASA/LANCE/NOAA20_VIIRS/C2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_LANCE_NOAA20_VIIRS_C2.json",
-        "sci:citation": "NRT VIIRS 375 m Active Fire product VJ114IMGTDL_NRT distributed from NASA\nFIRMS. Available on-line https://earthdata.nasa.gov/firms.\n[doi:10.5067/FIRMS/VIIRS/VJ114IMGT_NRT.002](https://doi:10.5067/FIRMS/VIIRS/VJ114IMGT_NRT.002)\n",
+        "sci:citation": "NRT VIIRS 375 m Active Fire product VJ114IMGTDL_NRT distributed from NASA\nFIRMS. Available on-line https://earthdata.nasa.gov/firms.\n[doi:10.5067/FIRMS/VIIRS/VJ114IMGT_NRT.002](https://doi.org/10.5067/FIRMS/VIIRS/VJ114IMGT_NRT.002)\n",
         "sci:doi": "DOI not available"
     },
     "NASA/LANCE/SNPP_VIIRS/C2": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_LANCE_SNPP_VIIRS_C2.json",
-        "sci:citation": "NRT VIIRS 375 m Active Fire product VNP14IMGT distributed from NASA FIRMS.\nAvailable on-line https://earthdata.nasa.gov/firms.\n[doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002](https://doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002)\n",
+        "sci:citation": "NRT VIIRS 375 m Active Fire product VNP14IMGT distributed from NASA FIRMS.\nAvailable on-line https://earthdata.nasa.gov/firms.\n[doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002](https://doi.org/10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002)\n",
         "sci:doi": "DOI not available"
     },
     "NASA/MEASURES/GFCC/TC/v3": {

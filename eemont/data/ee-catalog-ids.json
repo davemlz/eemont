@@ -4604,8 +4604,8 @@
     "NASA/OCEANDATA/MODIS-Aqua/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_OCEANDATA_MODIS-Aqua_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Moderate-resolution Imaging Spectroradiometer\n(MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.\n",
-        "sci:doi": "10.5067/AQUA/MODIS/L3M/CHL/2018"
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Moderate-resolution Imaging Spectroradiometer\n(MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.\n\n*   DOI: 10.5067/AQUA/MODIS/L3M/CHL/2018 [unrecoverable]\n",
+        "sci:doi": "DOI not available"
     },
     "NASA/OCEANDATA/MODIS-Terra/L3SMI": {
         "gee:type": "image_collection",

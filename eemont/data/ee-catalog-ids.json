@@ -5609,6 +5609,12 @@
         "sci:citation": "USDA Forest Service. 2023. USFS Landscape Change Monitoring System\nv2022.8 (Conterminous United States and Southeastern Alaska).\nSalt Lake City, Utah.\n",
         "sci:doi": "DOI not available"
     },
+    "USFS/GTAC/LCMS/v2023-9": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/USFS/USFS_GTAC_LCMS_v2023-9.json",
+        "sci:citation": "USDA Forest Service. 2024. USFS Landscape Change Monitoring System\nv2023.9 (Conterminous United States and  Outer Conterminous United States).\nSalt Lake City, Utah.\n",
+        "sci:doi": "DOI not available"
+    },
     "USFS/GTAC/MTBS/annual_burn_severity_mosaics/v1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USFS/USFS_GTAC_MTBS_annual_burn_severity_mosaics_v1.json",

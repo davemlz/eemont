@@ -4511,6 +4511,18 @@
         "sci:citation": "D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF\nRELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed\n[YYYY-MM-DD] at [doi:10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).\n",
         "sci:doi": "DOI not available"
     },
+    "NASA/GRACE/MASS_GRIDS_V03/MASCON": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GRACE_MASS_GRIDS_V03_MASCON.json",
+        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF\nRELEASE 6.1. Ver. 3.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at\n[https://doi.org/10.5067/TEMSC-3MJ63](https://doi.org/10.5067/TEMSC-3MJ63).\n",
+        "sci:doi": "DOI not available"
+    },
+    "NASA/GRACE/MASS_GRIDS_V03/MASCON_CRI": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GRACE_MASS_GRIDS_V03_MASCON_CRI.json",
+        "sci:citation": "D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF\nRELEASE 6.1. Ver. 3.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at\n[https://doi.org/10.5067/TEMSC-3JC63](https://doi.org/10.5067/TEMSC-3JC63).\n",
+        "sci:doi": "DOI not available"
+    },
     "NASA/GRACE/MASS_GRIDS_V04/LAND": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GRACE_MASS_GRIDS_V04_LAND.json",

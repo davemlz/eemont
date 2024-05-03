@@ -7650,6 +7650,14 @@
         "lwe_thickness_gfz": 1.0,
         "lwe_thickness_jpl": 1.0
     },
+    "NASA/GRACE/MASS_GRIDS_V03/MASCON": {
+        "lwe_thickness": 1.0,
+        "uncertainty": 1.0
+    },
+    "NASA/GRACE/MASS_GRIDS_V03/MASCON_CRI": {
+        "lwe_thickness": 1.0,
+        "uncertainty": 1.0
+    },
     "NASA/GRACE/MASS_GRIDS_V04/LAND": {
         "lwe_thickness_csr": 1.0,
         "lwe_thickness_gfz": 1.0,

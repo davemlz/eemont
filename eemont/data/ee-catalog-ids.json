@@ -6047,6 +6047,12 @@
         "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)\n",
         "sci:doi": "DOI not available"
     },
+    "projects/forestdatapartnership/assets/community_palm/20240312": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/forestdatapartnership/projects_forestdatapartnership_assets_community_palm_20240312.json",
+        "sci:citation": "N. Clinton, et al. A community palm model. 2024. [publication pending]\n",
+        "sci:doi": "DOI not available"
+    },
     "projects/geoscience-aus-cat/assets/NIDEM": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_NIDEM.json",

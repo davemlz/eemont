@@ -6056,7 +6056,7 @@
     "projects/forestdatapartnership/assets/community_palm/20240312": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/forestdatapartnership/projects_forestdatapartnership_assets_community_palm_20240312.json",
-        "sci:citation": "N. Clinton, et al. A community palm model. 2024. [publication pending]\n",
+        "sci:citation": "N. Clinton, et al. A community palm model. 2024. [Online](https://goo.gle/a_community_palm_model)\n",
         "sci:doi": "DOI not available"
     },
     "projects/geoscience-aus-cat/assets/NIDEM": {

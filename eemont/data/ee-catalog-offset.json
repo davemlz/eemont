@@ -7733,6 +7733,11 @@
         "uncertainty_gfz": 0.0,
         "uncertainty_jpl": 0.0
     },
+    "NASA/GRACE/MASS_GRIDS_V04/OCEAN": {
+        "lwe_thickness_csr": 0.0,
+        "lwe_thickness_gfz": 0.0,
+        "lwe_thickness_jpl": 0.0
+    },
     "NASA/GSFC/MERRA/aer/2": {
         "BCANGSTR": 0.0,
         "BCCMASS": 0.0,

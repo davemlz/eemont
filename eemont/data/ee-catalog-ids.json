@@ -4487,6 +4487,12 @@
         "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V06,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/06\n",
         "sci:doi": "10.5067/GPM/IMERG/3B-MONTH/06"
     },
+    "NASA/GPM_L3/IMERG_MONTHLY_V07": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GPM_L3_IMERG_MONTHLY_V07.json",
+        "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V07,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/07\n",
+        "sci:doi": "10.5067/GPM/IMERG/3B-MONTH/07"
+    },
     "NASA/GPM_L3/IMERG_V06": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GPM_L3_IMERG_V06.json",

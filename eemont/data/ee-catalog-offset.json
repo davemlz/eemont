@@ -9183,6 +9183,13 @@
         "probabilityLiquidPrecipitation": 0.0,
         "randomError": 0.0
     },
+    "NASA/GPM_L3/IMERG_MONTHLY_V07": {
+        "gaugeRelativeWeighting": 0.0,
+        "precipitation": 0.0,
+        "precipitationQualityIndex": 0.0,
+        "probabilityLiquidPrecipitation": 0.0,
+        "randomError": 0.0
+    },
     "NASA/GPM_L3/IMERG_V06": {
         "HQobservationTime": 0.0,
         "HQprecipSource": 0.0,

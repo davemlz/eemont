@@ -4158,6 +4158,21 @@
     "LANDFIRE/Vegetation/EVT/v1_4_0": {
         "EVT": 0.0
     },
+    "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_BAI": {
+        "BAI": 0.0
+    },
+    "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_EVI": {
+        "EVI": 0.0
+    },
+    "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NBR": {
+        "NBRT": 0.0
+    },
+    "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NDVI": {
+        "NDVI": 0.0
+    },
+    "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NDWI": {
+        "NDWI": 0.0
+    },
     "LANDSAT/GLS1975": {
         "10": 0.0,
         "20": 0.0,

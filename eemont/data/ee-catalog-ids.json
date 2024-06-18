@@ -4739,6 +4739,12 @@
         "sci:citation": "**Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,\nQ. Liu, and M. Bechtold. 2022.**\nSMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil\nMoisture Analysis Update, Version 7. [Indicate subset used]. Boulder,\nColorado USA. NASA National Snow and Ice Data Center Distributed Active\nArchive Center.\n[doi:10.5067/LWJ6TF5SZRG3](https://doi.org/10.5067/LWJ6TF5SZRG3)\n\n**Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,\nQ. Liu, and M. Bechtold. 2022.**\nSMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil\nMoisture Analysis Update, Version 7. [Indicate subset used]. Boulder,\nColorado USA. NASA National Snow and Ice Data Center Distributed Active\nArchive Center.\n[doi:10.5067/EVKPQZ4AFC4D](https://doi.org/10.5067/EVKPQZ4AFC4D)\n\n**Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,\nQ. Liu, and M. Bechtold. 2022.**\nSMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil\nMoisture Analysis Update, Version 7. [Indicate subset used]. Boulder,\nColorado USA. NASA National Snow and Ice Data Center Distributed Active\nArchive Center.\n[doi:10.5067/EVKPQZ4AFC4D](https://doi.org/10.5067/EVKPQZ4AFC4D)\n",
         "sci:doi": "DOI not available"
     },
+    "NASA/VIIRS/002/VNP09GA": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP09GA.json",
+        "sci:citation": "Vermote, E., Franch, B., Claverie, M. (2023). VIIRS/NPP Surface Reflectance Daily L2G Global 1km and 500m SIN Grid V002 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center.\n",
+        "sci:doi": "10.5067/VIIRS/VNP09GA.002"
+    },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA_USDA/NASA_USDA_HSL_SMAP10KM_soil_moisture.json",

@@ -3011,6 +3011,12 @@
         "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date],\n[doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)\n",
         "sci:doi": "10.5067/GPM/IMERG/3B-HH-L/06"
     },
+    "NASA/GPM_L3/IMERG_V07": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GPM_L3_IMERG_V07.json",
+        "sci:citation": "Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),\nGPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,\nGreenbelt, MD, Goddard Earth Sciences Data and Information Services Center\n(GES DISC), Accessed: [Data Access Date],\n[doi:10.5067/GPM/IMERG/3B-HH/07](https://doi.org/10.5067/GPM/IMERG/3B-HH/07)\n",
+        "sci:doi": "10.5067/GPM/IMERG/3B-HH-L/07"
+    },
     "NASA/GRACE/MASS_GRIDS/LAND": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_GRACE_MASS_GRIDS_LAND.json",

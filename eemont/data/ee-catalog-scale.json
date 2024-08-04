@@ -7857,6 +7857,17 @@
         "probabilityLiquidPrecipitation": 1.0,
         "randomError": 1.0
     },
+    "NASA/GPM_L3/IMERG_V07": {
+        "IRinfluence": 1.0,
+        "IRprecipitation": 1.0,
+        "MWobservationTime": 1.0,
+        "MWprecipSource": 1.0,
+        "MWprecipitation": 1.0,
+        "precipitation": 1.0,
+        "precipitationUncal": 1.0,
+        "probabilityLiquidPrecipitation": 1.0,
+        "randomError": 1.0
+    },
     "NASA/GRACE/MASS_GRIDS/LAND": {
         "lwe_thickness_csr": 1.0,
         "lwe_thickness_gfz": 1.0,

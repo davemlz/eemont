@@ -3227,6 +3227,12 @@
         "sci:citation": "Vermote, E., Franch, B., Claverie, M. (2023). VIIRS/NPP Surface Reflectance Daily L2G Global 1km and 500m SIN Grid V002 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center.\n",
         "sci:doi": "10.5067/VIIRS/VNP09GA.002"
     },
+    "NASA/VIIRS/002/VNP09H1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP09H1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
+        "sci:doi": "10.5067/VIIRS/VNP09H1.002"
+    },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA_USDA/NASA_USDA_HSL_SMAP10KM_soil_moisture.json",

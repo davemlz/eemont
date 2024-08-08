@@ -9936,6 +9936,13 @@
         "obscov_500m": 0.0,
         "orbit_pnt": 0.0
     },
+    "NASA/VIIRS/002/VNP09H1": {
+        "SurfReflect_I1": 0.0,
+        "SurfReflect_I2": 0.0,
+        "SurfReflect_I3": 0.0,
+        "SurfReflect_QC_500m": 0.0,
+        "SurfReflect_State_500m": 0.0
+    },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "smp": 0.0,
         "ssm": 0.0,

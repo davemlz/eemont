@@ -3233,6 +3233,12 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
         "sci:doi": "10.5067/VIIRS/VNP09H1.002"
     },
+    "NASA/VIIRS/002/VNP15A2H": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP15A2H.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/VIIRS/VNP15A2H.002"
+    },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA_USDA/NASA_USDA_HSL_SMAP10KM_soil_moisture.json",

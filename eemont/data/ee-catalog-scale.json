@@ -9943,6 +9943,14 @@
         "SurfReflect_QC_500m": 1.0,
         "SurfReflect_State_500m": 1.0
     },
+    "NASA/VIIRS/002/VNP15A2H": {
+        "Fpar": 1.0,
+        "FparExtra_QC": 1.0,
+        "FparLai_QC": 1.0,
+        "FparStdDev": 1.0,
+        "Lai": 1.0,
+        "LaiStdDev": 1.0
+    },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "smp": 1.0,
         "ssm": 1.0,

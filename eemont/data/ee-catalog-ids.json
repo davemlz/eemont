@@ -3239,11 +3239,29 @@
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
         "sci:doi": "10.5067/VIIRS/VNP09H1.002"
     },
+    "NASA/VIIRS/002/VNP13A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP13A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/VIIRS/VNP13A1.002"
+    },
     "NASA/VIIRS/002/VNP15A2H": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP15A2H.json",
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/VIIRS/VNP15A2H.002"
+    },
+    "NASA/VIIRS/002/VNP21A1D": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP21A1D.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/VIIRS/VNP21A1D.002"
+    },
+    "NASA/VIIRS/002/VNP21A1N": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP21A1N.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/VIIRS/VNP21A1N.002"
     },
     "NASA_USDA/HSL/SMAP10KM_soil_moisture": {
         "gee:type": "image_collection",
@@ -4652,6 +4670,30 @@
     "projects/neon-prod-earthengine/assets/CHM/001": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_CHM_001.json",
+        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
+        "sci:doi": "DOI not available"
+    },
+    "projects/neon-prod-earthengine/assets/DEM/001": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_DEM_001.json",
+        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
+        "sci:doi": "DOI not available"
+    },
+    "projects/neon-prod-earthengine/assets/HSI_REFL/001": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_HSI_REFL_001.json",
+        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
+        "sci:doi": "DOI not available"
+    },
+    "projects/neon-prod-earthengine/assets/HSI_REFL/002": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_HSI_REFL_002.json",
+        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
+        "sci:doi": "DOI not available"
+    },
+    "projects/neon-prod-earthengine/assets/RGB/001": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_RGB_001.json",
         "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
         "sci:doi": "DOI not available"
     },

@@ -611,9 +611,21 @@
         "sci:citation": "Map data: Estonian Land Board",
         "sci:doi": "DOI not available"
     },
+    "Estonia/Maamet/orthos/mono_low_flying": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Estonia/Estonia_Maamet_orthos_mono_low_flying.json",
+        "sci:citation": "Map data: Estonian Land Board",
+        "sci:doi": "DOI not available"
+    },
     "Estonia/Maamet/orthos/rgb": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/Estonia/Estonia_Maamet_orthos_rgb.json",
+        "sci:citation": "Map data: Estonian Land Board",
+        "sci:doi": "DOI not available"
+    },
+    "Estonia/Maamet/orthos/rgb_low_flying": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/Estonia/Estonia_Maamet_orthos_rgb_low_flying.json",
         "sci:citation": "Map data: Estonian Land Board",
         "sci:doi": "DOI not available"
     },
@@ -3244,6 +3256,12 @@
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP13A1.json",
         "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
         "sci:doi": "10.5067/VIIRS/VNP13A1.002"
+    },
+    "NASA/VIIRS/002/VNP14A1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_VIIRS_002_VNP14A1.json",
+        "sci:citation": "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)\nfor information on citing LP DAAC datasets.\n",
+        "sci:doi": "10.5067/VIIRS/VNP14A1.002"
     },
     "NASA/VIIRS/002/VNP15A2H": {
         "gee:type": "image_collection",

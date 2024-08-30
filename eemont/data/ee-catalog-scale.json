@@ -1406,6 +1406,9 @@
         "volumetric_soil_water_layer_3": 1.0,
         "volumetric_soil_water_layer_4": 1.0
     },
+    "EDF/MethaneSAT/MethaneAIR/L4area": {
+        "flux": 1.0
+    },
     "EDF/MethaneSAT/MethaneAIR/methaneair-L4area-2021": {
         "flux": 1.0
     },

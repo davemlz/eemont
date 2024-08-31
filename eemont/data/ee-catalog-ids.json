@@ -557,6 +557,12 @@
         "sci:citation": "Mu&ntilde;oz Sabater, J., (2019): ERA5-Land monthly averaged data from 1981 to present. Copernicus\nClimate Change Service (C3S) Climate Data Store (CDS). (&lt;date of access&gt;),\n[doi:10.24381/cds.68d2bb30](https://doi.org/10.24381/cds.68d2bb30)\n",
         "sci:doi": "DOI not available"
     },
+    "EDF/MethaneSAT/MethaneAIR/L3concentration": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/EDF/EDF_MethaneSAT_MethaneAIR_L3concentration.json",
+        "sci:citation": "Chan Miller, C., Roche, S., Wilzewski, J. S., Liu, X., Chance, K., Souri,\nA. H., Conway, E., Luo, B., Samra, J., Hawthorne, J., Sun, K., Staebell, C.,\nChulakadabba, A., Sargent, M., Benmergui, J. S., Franklin, J. E., Daube, B.\nC., Li, Y., Laughner, J. L., Baier, B. C., Gautam, R., Omara, M., and Wofsy,\nS. C. 2023. Methane retrieval from MethaneAIR using the CO2 Proxy Approach:\nA demonstration for the upcoming MethaneSAT mission, EGUsphere [preprint].\n[doi:10.5194/egusphere-2023-19623](https://doi.org/10.5194/egusphere-2023-1962),\n",
+        "sci:doi": "DOI not available"
+    },
     "EDF/MethaneSAT/MethaneAIR/L4area": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/EDF/EDF_MethaneSAT_MethaneAIR_L4area.json",
@@ -2963,6 +2969,12 @@
         "sci:citation": "Green, R. (2022). EMIT L1B At-Sensor Calibrated Radiance and Geolocation\nData 60 m V001 dataset. NASA EOSDIS Land Processes Distributed Active\nArchive Center. Accessed 2024-05-20 from\n[https://doi.org/10.5067/EMIT/EMITL1BRAD.001](https://doi.org/10.5067/EMIT/EMITL1BRAD.001)\n",
         "sci:doi": "10.5067/EMIT/EMITL1BRAD.001"
     },
+    "NASA/EMIT/L2A/RFL": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_EMIT_L2A_RFL.json",
+        "sci:citation": "Green, R. (2022). EMIT L2A Estimated Surface Reflectance and Uncertainty and\nMasks 60 m V001 [Data set]. NASA EOSDIS Land Processes Distributed Active\nArchive Center. Accessed 2024-06-14 from\n[https://doi.org/10.5067/EMIT/EMITL2ARFL.001](https://doi.org/10.5067/EMIT/EMITL2ARFL.001)\n",
+        "sci:doi": "10.5067/EMIT/EMITL2ARFL.001"
+    },
     "NASA/EMIT/L2B/CH4ENH": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_EMIT_L2B_CH4ENH.json",
@@ -4712,7 +4724,7 @@
     "projects/neon-prod-earthengine/assets/CHM/001": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_CHM_001.json",
-        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing)",
+        "sci:citation": "See [NEON citation guidelines](https://www.neonscience.org/data-samples/guidelines-policies/citing).",
         "sci:doi": "DOI not available"
     },
     "projects/neon-prod-earthengine/assets/DEM/001": {

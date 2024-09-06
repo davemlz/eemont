@@ -12824,6 +12824,10 @@
     "WRI/GFW/FORMA/vegetation_tstats": {
         "tstat_r": 1.0
     },
+    "WRI/SBTN/naturalLands/v1": {
+        "classification": 1.0,
+        "natural": 1.0
+    },
     "WWF/HydroSHEDS/03CONDEM": {
         "b1": 1.0
     },

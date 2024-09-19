@@ -785,6 +785,12 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "GOOGLE/Research/open-buildings-temporal/v1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/GOOGLE/GOOGLE_Research_open-buildings-temporal_v1.json",
+        "sci:citation": "Wojciech Sirko, Emmanuel Asiedu Brempong, Juliana T. C. Marcos, Abigail\nAnnkah, Abel Korme, Mohammed Alewi Hassen, Krishna Sapkota, Tomer Shekel,\nAbdoulaye Diack, Sella Nevo, Jason Hickey, John Quinn. [High-Resolution \nBuilding and Road Detection from Sentinel-2](https://arxiv.org/abs/2310.11622), 2023.\n",
+        "sci:doi": "DOI not available"
+    },
     "GRIDMET/DROUGHT": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GRIDMET/GRIDMET_DROUGHT.json",

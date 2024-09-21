@@ -1796,6 +1796,11 @@
         "tEnd": 0.0,
         "tStart": 0.0
     },
+    "GOOGLE/Research/open-buildings-temporal/v1": {
+        "building_fractional_count": 0.0,
+        "building_height": 0.0,
+        "building_presence": 0.0
+    },
     "GRIDMET/DROUGHT": {
         "eddi14d": 0.0,
         "eddi180d": 0.0,

@@ -1181,6 +1181,12 @@
         "sci:citation": "Murray, N.J., Worthington, T.A., Bunting, P., Duce, S., Hagger, V.,\nLovelock, C.E., Lucas, R., Saunders, M.I., Sheaves, M., Spalding, M.,\nWaltham, N.J., Lyons, M.B., 2022. High-resolution mapping of losses and\ngains of Earth's tidal wetlands. *Science*.\n[doi:10.1126/science.abm9583](https://doi.org/10.1126/science.abm9583)\n",
         "sci:doi": "10.1126/science.abm9583"
     },
+    "JRC/CEMS_GLOFAS/FloodHazard/v1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_CEMS_GLOFAS_FloodHazard_v1.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "JRC/D5/EUCROPMAP/V1": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_D5_EUCROPMAP_V1.json",

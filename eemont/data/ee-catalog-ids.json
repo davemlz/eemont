@@ -1259,6 +1259,12 @@
         "sci:citation": "Schiavina, Marcello; Melchiorri, Michele; Pesaresi, Martino (2023): \nGHS-SMOD R2023A - GHS settlement layers, application of the Degree of\nUrbanisation methodology (stage I) to GHS-POP R2023A and GHS-BUILT-S R2023A,\nmultitemporal (1975-2030). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba](http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba)\n[doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)\n",
         "sci:doi": "10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA"
     },
+    "JRC/GHSL/P2023A/GHS_SMOD_V2-0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_SMOD_V2-0.json",
+        "sci:citation": "Schiavina, Marcello; Melchiorri, Michele; Pesaresi, Martino (2023): \nGHS-SMOD R2023A - GHS settlement layers, application of the Degree of\nUrbanisation methodology (stage I) to GHS-POP R2023A and GHS-BUILT-S R2023A,\nmultitemporal (1975-2030). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba](http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba)\n[doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)\n",
+        "sci:doi": "10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA"
+    },
     "JRC/GSW1_0/GlobalSurfaceWater": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GSW1_0_GlobalSurfaceWater.json",

@@ -1925,6 +1925,24 @@
         "sci:citation": "Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,\nG. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground\nBiomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.\n[doi:10.3334/ORNLDAAC/2056](https://doi.org/10.3334/ORNLDAAC/2056)\n",
         "sci:doi": "10.3334/ORNLDAAC/2056"
     },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/12KM": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GRIDDEDVEG_002_COUNTS_V1_12KM.json",
+        "sci:citation": "Burns, P., Hakkenberg, C.R. & Goetz, S.J. Multi-resolution gridded maps of\nvegetation structure from GEDI. Sci Data 11, 881 (2024).\n[doi:10.1038/s41597-024-03668-4](https://doi.org/10.1038/s41597-024-03668-4)\n",
+        "sci:doi": "DOI not available"
+    },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/1KM": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GRIDDEDVEG_002_COUNTS_V1_1KM.json",
+        "sci:citation": "Burns, P., Hakkenberg, C.R. & Goetz, S.J. Multi-resolution gridded maps of\nvegetation structure from GEDI. Sci Data 11, 881 (2024).\n[doi:10.1038/s41597-024-03668-4](https://doi.org/10.1038/s41597-024-03668-4)\n",
+        "sci:doi": "DOI not available"
+    },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/6KM": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GRIDDEDVEG_002_COUNTS_V1_6KM.json",
+        "sci:citation": "Burns, P., Hakkenberg, C.R. & Goetz, S.J. Multi-resolution gridded maps of\nvegetation structure from GEDI. Sci Data 11, 881 (2024).\n[doi:10.1038/s41597-024-03668-4](https://doi.org/10.1038/s41597-024-03668-4)\n",
+        "sci:doi": "DOI not available"
+    },
     "LARSE/GEDI/GRIDDEDVEG_002/V1/12KM": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/LARSE/LARSE_GEDI_GRIDDEDVEG_002_V1_12KM.json",

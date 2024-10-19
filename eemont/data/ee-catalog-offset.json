@@ -5327,6 +5327,24 @@
         "V1": 0.0,
         "V2": 0.0
     },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/12KM": {
+        "orbits_uniq": 0.0,
+        "shots_count": 0.0,
+        "shots_nni": 0.0,
+        "tracks_uniq": 0.0
+    },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/1KM": {
+        "orbits_uniq": 0.0,
+        "shots_count": 0.0,
+        "shots_nni": 0.0,
+        "tracks_uniq": 0.0
+    },
+    "LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/6KM": {
+        "orbits_uniq": 0.0,
+        "shots_count": 0.0,
+        "shots_nni": 0.0,
+        "tracks_uniq": 0.0
+    },
     "LARSE/GEDI/GRIDDEDVEG_002/V1/12KM": {
         "countf": 0.0,
         "iqr": 0.0,

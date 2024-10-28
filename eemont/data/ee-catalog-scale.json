@@ -4005,6 +4005,9 @@
     "JRC/GFC2020/V1": {
         "Map": 1.0
     },
+    "JRC/GFC2020_subtypes/V0": {
+        "GFT": 1.0
+    },
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "built": 1.0,
         "cnfd": 1.0,

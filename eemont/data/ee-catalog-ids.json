@@ -3305,6 +3305,12 @@
         "sci:citation": "Spawn, S.A., Sullivan, C.C., Lark, T.J. et al. Harmonized global maps of above and\nbelowground biomass carbon density in the year 2010. Sci Data 7, 112 (2020).\n[doi:10.1038/s41597-020-0444-4](https://doi.org/10.1038/s41597-020-0444-4)\n",
         "sci:doi": "10.3334/ORNLDAAC/1763"
     },
+    "NASA/ORNL/global_forest_classification_2020/V1": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_ORNL_global_forest_classification_2020_V1.json",
+        "sci:citation": "Hunka, N., L. Duncanson, J. Armston, R.O. Dubayah, S.P. Healey, M.\nSantoro, P. May, A. Araza, C. Bourgain, P.M. Montesano, C.S. Neigh, H.\nGrantham, V. Potapov, S. Turubanova, A. Tyukavina, J. Richter, N. Harris, M.\nUrbazaev, A. Pascual, D. Requena Suarez, M. Herold, B. Poulter, S.N. Wilson,\nG. Grassi, S. Federici, M.J. Sanz Sanchez, and J. Melo. 2024. Classification\nof Global Forests for IPCC Aboveground Biomass Tier 1 Estimates, 2020. ORNL\nDAAC, Oak Ridge, Tennessee, USA.\n[https://doi.org/10.3334/ORNLDAAC/2345](https://doi.org/10.3334/ORNLDAAC/2345)\n",
+        "sci:doi": "10.3334/ORNLDAAC/2345"
+    },
     "NASA/SMAP/SPL3SMP_E/005": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_SMAP_SPL3SMP_E_005.json",

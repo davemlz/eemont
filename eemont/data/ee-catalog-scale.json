@@ -10490,6 +10490,9 @@
         "bgb": 1.0,
         "bgb_uncertainty": 1.0
     },
+    "NASA/ORNL/global_forest_classification_2020/V1": {
+        "classification": 1.0
+    },
     "NASA/SMAP/SPL3SMP_E/005": {
         "retrieval_qual_flag_am": 1.0,
         "retrieval_qual_flag_pm": 1.0,

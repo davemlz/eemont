@@ -3515,6 +3515,18 @@
         "sci:citation": "Saha, S., et al. 2011, updated daily. NCEP Climate Forecast System\nVersion 2 (CFSv2) 6-hourly Products. Research Data Archive at the National\nCenter for Atmospheric Research, Computational and Information Systems\nLaboratory. [https://doi.org/10.5065/D61C1TXF](https://doi.org/10.5065/D61C1TXF).\nAccessed dd mmm yyyy.\n",
         "sci:doi": "10.5065/D61C1TXF"
     },
+    "NOAA/CPC/Precipitation": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CPC_Precipitation.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "NOAA/CPC/Temperature": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_CPC_Temperature.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "NOAA/DMSP-OLS/CALIBRATED_LIGHTS_V4": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NOAA/NOAA_DMSP-OLS_CALIBRATED_LIGHTS_V4.json",
@@ -4766,6 +4778,12 @@
     "projects/geoscience-aus-cat/assets/ga_ls8c_nbart_gm_cyear_3": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_ga_ls8c_nbart_gm_cyear_3.json",
+        "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
+        "sci:doi": "10.1109/TGRS.2017.2723896"
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls8cls9c_gm_cyear_3": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/geoscience-aus-cat/projects_geoscience-aus-cat_assets_ga_ls8cls9c_gm_cyear_3.json",
         "sci:citation": "Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.\n[doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).\nRoberts, D., Dunn, B., & Mueller, N. (2018). Open data cube products using high-dimensional statistics of time series. IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium, 8647-8650.\n[doi:10.1109/IGARSS.2018.8518312](https://doi.org/10.1109/IGARSS.2018.8518312).\n",
         "sci:doi": "10.1109/TGRS.2017.2723896"
     },

@@ -10972,6 +10972,16 @@
         "u-component_of_wind_height_above_ground": 1.0,
         "v-component_of_wind_height_above_ground": 1.0
     },
+    "NOAA/CPC/Precipitation": {
+        "num_gauges": 1.0,
+        "precipitation": 1.0
+    },
+    "NOAA/CPC/Temperature": {
+        "nmax": 1.0,
+        "nmin": 1.0,
+        "tmax": 1.0,
+        "tmin": 1.0
+    },
     "NOAA/DMSP-OLS/CALIBRATED_LIGHTS_V4": {
         "avg_vis": 1.0,
         "cf_cvg": 1.0
@@ -13059,6 +13069,18 @@
         "shortwave_infrared_1": 1.0,
         "shortwave_infrared_2": 1.0,
         "spectral_distance_median_absolute_deviation": 1.0
+    },
+    "projects/geoscience-aus-cat/assets/ga_ls8cls9c_gm_cyear_3": {
+        "bcdev": 1.0,
+        "count": 1.0,
+        "edev": 1.0,
+        "nbart_blue": 1.0,
+        "nbart_green": 1.0,
+        "nbart_nir": 1.0,
+        "nbart_red": 1.0,
+        "nbart_swir_1": 1.0,
+        "nbart_swir_2": 1.0,
+        "sdev": 1.0
     },
     "projects/geoscience-aus-cat/assets/ga_ls_landcover_class_cyear_2": {
         "baregrad_phy_cat_l4d": 1.0,

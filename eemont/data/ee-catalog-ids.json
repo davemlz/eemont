@@ -4121,6 +4121,12 @@
         "sci:citation": "Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James\nVerdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,\nAndrew Hoell & Joel Michaelsen. \"The climate hazards infrared precipitation\nwith stations-a new environmental record for monitoring extremes\".\nScientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)\n2015.\n",
         "sci:doi": "DOI not available"
     },
+    "UCSB-CHG/CHIRTS/DAILY": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/UCSB-CHG/UCSB-CHG_CHIRTS_DAILY.json",
+        "sci:citation": "Verdin, A., C. Funk, P. Peterson, M. Landsfeld, C. Tuholske, and Grace, K.,\n2020: Development and validation of the CHIRTS-daily quasi-global\nhigh-resolution daily temperature data set. Scientific Data, 7(1), 303.\n[doi: 10.1038/s41597-020-00643-7](https://doi.org/10.1038/s41597-020-00643-7)\n",
+        "sci:doi": "DOI not available"
+    },
     "UK/EA/ENGLAND_1M_TERRAIN/2022": {
         "gee:type": "image",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/UK/UK_EA_ENGLAND_1M_TERRAIN_2022.json",

@@ -1226,37 +1226,37 @@
     "JRC/GHSL/P2023A/GHS_BUILT_C": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_C.json",
-        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-C R2023A - GHS\nSettlement Characteristics, derived from Sentinel2 composite (2018) and\nother GHS R2023A data. European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30](http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30)\n[doi:10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30](https://doi.org/10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30"
     },
     "JRC/GHSL/P2023A/GHS_BUILT_H": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_H.json",
-        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-H R2023A - GHS\nbuilding height, derived from AW3D30, SRTM30, and Sentinel2 composite\n(2018). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe](http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe)\n[doi:10.2905/85005901-3A49-48DD-9D19-6261354F56FE](https://doi.org/10.2905/85005901-3A49-48DD-9D19-6261354F56FE)\n\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/85005901-3A49-48DD-9D19-6261354F56FE"
     },
     "JRC/GHSL/P2023A/GHS_BUILT_S": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_S.json",
-        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-S R2023A - GHS\nbuilt-up surface grid, derived from Sentinel2 composite and Landsat,\nmultitemporal (1975-2030). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea](http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea)\n[doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA"
     },
     "JRC/GHSL/P2023A/GHS_BUILT_S_10m": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_S_10m.json",
-        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-S R2023A - GHS\nbuilt-up surface grid, derived from Sentinel2 composite and Landsat,\nmultitemporal (1975-2030). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea](http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea)\n[doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA"
     },
     "JRC/GHSL/P2023A/GHS_BUILT_V": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_BUILT_V.json",
-        "sci:citation": "Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-V R2023A - GHS\nbuilt-up volume grids derived from joint assessment of Sentinel2, Landsat,\nand global DEM data, multitemporal (1975-2030). European Commission, Joint\nResearch Centre (JRC)\n[PID: http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283](http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283)\n[doi:10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283](https://doi.org/10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283"
     },
     "JRC/GHSL/P2023A/GHS_POP": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_POP.json",
-        "sci:citation": "Schiavina, Marcello; Freire, Sergio; Alessandra Carioli; MacManus, Kytt (2023):\nGHS-POP R2023A - GHS population grid multitemporal (1975-2030). European\nCommission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe](http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)\n[doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE"
     },
     "JRC/GHSL/P2023A/GHS_SMOD": {
@@ -1268,7 +1268,7 @@
     "JRC/GHSL/P2023A/GHS_SMOD_V2-0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GHSL_P2023A_GHS_SMOD_V2-0.json",
-        "sci:citation": "Schiavina, Marcello; Melchiorri, Michele; Pesaresi, Martino (2023): \nGHS-SMOD R2023A - GHS settlement layers, application of the Degree of\nUrbanisation methodology (stage I) to GHS-POP R2023A and GHS-BUILT-S R2023A,\nmultitemporal (1975-2030). European Commission, Joint Research Centre (JRC)\n[PID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba](http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba)\n[doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)\n",
+        "sci:citation": "Citation not available",
         "sci:doi": "10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA"
     },
     "JRC/GSW1_0/GlobalSurfaceWater": {

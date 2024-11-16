@@ -11994,6 +11994,14 @@
     "UCSB-CHG/CHIRPS/PENTAD": {
         "precipitation": 1.0
     },
+    "UCSB-CHG/CHIRTS/DAILY": {
+        "heat_index": 1.0,
+        "maximum_temperature": 1.0,
+        "minimum_temperature": 1.0,
+        "relative_humidity": 1.0,
+        "saturation_vapor_pressure": 1.0,
+        "vapor_pressure_deficit": 1.0
+    },
     "UK/EA/ENGLAND_1M_TERRAIN/2022": {
         "dsm_first": 1.0,
         "dsm_last": 1.0,

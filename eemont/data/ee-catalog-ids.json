@@ -4733,6 +4733,12 @@
         "sci:citation": "Chakraborty, T., & Lee, X. (2019). A simplified urban-extent algorithm\nto characterize surface urban heat islands on a global scale and examine\nvegetation control on their spatiotemporal variability. International\nJournal of Applied Earth Observation and Geoinformation, 74, 269-280.\n[doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)\n",
         "sci:doi": "DOI not available"
     },
+    "projects/forestdatapartnership/assets/cocoa/model_2024a": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/forestdatapartnership/projects_forestdatapartnership_assets_cocoa_model_2024a.json",
+        "sci:citation": "[Forest Data Partnership](https://github.com/google/forest-data-partnership/blob/main/models/cocoa/README.md)\n",
+        "sci:doi": "DOI not available"
+    },
     "projects/forestdatapartnership/assets/community_palm/20240312": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/forestdatapartnership/projects_forestdatapartnership_assets_community_palm_20240312.json",
@@ -4749,6 +4755,12 @@
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/forestdatapartnership/projects_forestdatapartnership_assets_rubber_model_2024a.json",
         "sci:citation": "[Forest Data Partnership](https://github.com/google/forest-data-partnership/blob/main/models/rubber/README.md)\n",
+        "sci:doi": "DOI not available"
+    },
+    "projects/gcp-public-data-weathernext/assets/59572747_4_0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/gcp-public-data-weathernext/projects_gcp-public-data-weathernext_assets_59572747_4_0.json",
+        "sci:citation": "Lam, R., Sanchez-Gonzalez, A., Willson, M., Wirnsberger, P., Fortunato, M., Pritzel, A., Ravuri, S., Ewalds, T., Alet, F., Eaton-Rosen, Z., Hu, W., Merose, A., Hoyer, S., Holland, G., Stott, J., Vinyals, O., Mohamed, S., & Battaglia, P. (2022). GraphCast: Learning skillful medium-range global weather forecasting\n",
         "sci:doi": "DOI not available"
     },
     "projects/geoscience-aus-cat/assets/NIDEM": {

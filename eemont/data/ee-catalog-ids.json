@@ -1199,6 +1199,12 @@
         "sci:citation": "Bourgoin, Clement; Ameztoy, Iban; Verhegghen, Astrid; Carboni, Silvia;\nColditz, Rene R.; Achard, Frederic (2023): Global map of forest cover 2020 -\nversion 1. European Commission, Joint Research Centre (JRC) [Dataset] PID:\n[http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290](http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290).\n",
         "sci:doi": "DOI not available"
     },
+    "JRC/GFC2020/V2": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GFC2020_V2.json",
+        "sci:citation": "Bourgoin, Clement; Verhegghen, Astrid; Degreve, Lucas; Ameztoy, Iban;\nCarboni, Silvia; Colditz, Rene; Achard, Frederic (2024): Global map of\nforest cover 2020 - version 2. European Commission, Joint Research\nCentre (JRC) [Dataset]\nPID: [http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26](http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26)\n",
+        "sci:doi": "DOI not available"
+    },
     "JRC/GFC2020_subtypes/V0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/JRC/JRC_GFC2020_subtypes_V0.json",

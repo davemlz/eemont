@@ -4772,7 +4772,7 @@
     "projects/gcp-public-data-weathernext/assets/59572747_4_0": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/gcp-public-data-weathernext/projects_gcp-public-data-weathernext_assets_59572747_4_0.json",
-        "sci:citation": "See \"Terms of Use\" for citation requirements.\n",
+        "sci:citation": "For Real-Time Experimental Data, please see the applicable Terms of Use\nfor citation requirements.\n\nIf you disclose findings arising from the Historical Data, you must cite\n\"\u00a9 2024 DeepMind Technologies Limited's machine learning models used to\ncreate the experimental data made available at\n[https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_59572747_4_0](https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_59572747_4_0)\nunder CC BY 4.0 licence terms. This data is intended for experimental\nmodelling only and is not intended, validated, or approved for real\nworld use.\"\n",
         "sci:doi": "DOI not available"
     },
     "projects/geoscience-aus-cat/assets/NIDEM": {

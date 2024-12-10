@@ -4817,6 +4817,24 @@
         "sci:citation": "Mueller, N., Lewis, A., Roberts, D., Ring, S., Melrose, R., Sixsmith, J., Lymburner, L., McIntyre, A., Tan, P., Curnow, S., & Ip, A. (2016). Water observations from space: Mapping surface water from 25 years of Landsat imagery across Australia. Remote Sensing of Environment, 174, 341-352\n[doi:10.1016/j.rse.2015.11.003](https://doi.org/10.1016/j.rse.2015.11.003)\n",
         "sci:doi": "10.1016/j.rse.2015.11.003"
     },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/cultiv-grassland_p": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/global-pasture-watch/projects_global-pasture-watch_assets_ggc-30m_v1_cultiv-grassland_p.json",
+        "sci:citation": "Parente, L., Sloat, L., Mesquita, V., et al. (2024) \nGlobal Pasture Watch - Annual grassland class and extent \nmaps at 30-m spatial resolution (2000\u20142022) (Version v1) \n[Data set]. Zenodo\n[doi:https://doi.org/10.5281/zenodo.13890401](https://doi.org/10.5281/zenodo.13890401)\n",
+        "sci:doi": "10.5281/zenodo.13890401"
+    },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/grassland_c": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/global-pasture-watch/projects_global-pasture-watch_assets_ggc-30m_v1_grassland_c.json",
+        "sci:citation": "Parente, L., Sloat, L., Mesquita, V., et al. (2024) \nGlobal Pasture Watch - Annual grassland class and extent \nmaps at 30-m spatial resolution (2000\u20142022) (Version v1) \n[Data set]. Zenodo\n[doi:https://doi.org/10.5281/zenodo.13890401](https://doi.org/10.5281/zenodo.13890401)\n",
+        "sci:doi": "10.5281/zenodo.13890401"
+    },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/nat-semi-grassland_p": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/global-pasture-watch/projects_global-pasture-watch_assets_ggc-30m_v1_nat-semi-grassland_p.json",
+        "sci:citation": "Parente, L., Sloat, L., Mesquita, V., et al. (2024) \nGlobal Pasture Watch - Annual grassland class and extent \nmaps at 30-m spatial resolution (2000\u20142022) (Version v1) \n[Data set]. Zenodo\n[doi:https://doi.org/10.5281/zenodo.13890401](https://doi.org/10.5281/zenodo.13890401)\n",
+        "sci:doi": "10.5281/zenodo.13890401"
+    },
     "projects/neon-prod-earthengine/assets/CHM/001": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/neon-prod-earthengine/projects_neon-prod-earthengine_assets_CHM_001.json",

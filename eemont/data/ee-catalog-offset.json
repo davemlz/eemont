@@ -13123,6 +13123,15 @@
         "count_wet": 0.0,
         "frequency": 0.0
     },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/cultiv-grassland_p": {
+        "probability": 0.0
+    },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/grassland_c": {
+        "dominant_class": 0.0
+    },
+    "projects/global-pasture-watch/assets/ggc-30m/v1/nat-semi-grassland_p": {
+        "probability": 0.0
+    },
     "projects/neon-prod-earthengine/assets/CHM/001": {
         "CHM": 0.0
     },

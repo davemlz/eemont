@@ -35,6 +35,18 @@
         "sci:citation": "Citation not available",
         "sci:doi": "DOI not available"
     },
+    "AHN/AHN3": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/AHN/AHN_AHN3.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
+    "AHN/AHN4": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/AHN/AHN_AHN4.json",
+        "sci:citation": "Citation not available",
+        "sci:doi": "DOI not available"
+    },
     "ASTER/AST_L1T_003": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ASTER/ASTER_AST_L1T_003.json",
@@ -3218,6 +3230,12 @@
     "NASA/HLS/HLSL30/v002": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_HLS_HLSL30_v002.json",
+        "sci:citation": "Masek, J., Ju, J., Roger, J., Skakun, S., Vermote, E., Claverie, M., Dungan,\nJ., Yin, Z., Freitag, B., Justice, C. (2021). HLS Operational Land Imager\nSurface Reflectance and TOA Brightness Daily Global 30m v2.0 [Data set].\nNASA EOSDIS Land Processes Distributed Active Archive Center.\nAccessed 2023-09-12 from https://doi.org/10.5067/HLS/HLSL30.002\n",
+        "sci:doi": "DOI not available"
+    },
+    "NASA/HLS/HLSS30/v002": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_HLS_HLSS30_v002.json",
         "sci:citation": "Masek, J., Ju, J., Roger, J., Skakun, S., Vermote, E., Claverie, M., Dungan,\nJ., Yin, Z., Freitag, B., Justice, C. (2021). HLS Operational Land Imager\nSurface Reflectance and TOA Brightness Daily Global 30m v2.0 [Data set].\nNASA EOSDIS Land Processes Distributed Active Archive Center.\nAccessed 2023-09-12 from https://doi.org/10.5067/HLS/HLSL30.002\n",
         "sci:doi": "DOI not available"
     },

@@ -4343,6 +4343,12 @@
         "sci:citation": "USDA National Agricultural Statistics Service Cropland Data Layer. {YEAR}.\nPublished crop-specific data layer [Online]. Available at\n[https://nassgeodata.gmu.edu/CropScape/](https://nassgeodata.gmu.edu/CropScape/)\n(accessed {DATE}; verified {DATE}). USDA-NASS, Washington, DC.\n",
         "sci:doi": "DOI not available"
     },
+    "USDA/WRC/v0": {
+        "gee:type": "image_collection",
+        "href": "https://storage.googleapis.com/earthengine-stac/catalog/USDA/USDA_WRC_v0.json",
+        "sci:citation": "Scott, Joe H.; Dillon, Gregory K.; Jaffe, Melissa R.; Vogler, Kevin C.;\nOlszewski, Julia H.; Callahan, Michael N.; Karau, Eva C.; Lazarz,\nMitchell T.; Short, Karen C.; Riley, Karin L.; Finney, Mark A.; Grenfell,\nIsaac C. 2024. Wildfire Risk to Communities: Spatial datasets of\nlandscape-wide wildfire risk components for the United States. 2nd Edition.\nFort Collins, CO: Forest Service Research Data Archive.\n[doi:10.2737/RDS-2020-0016-2](https://doi.org/10.2737/RDS-2020-0016-2)\n\n",
+        "sci:doi": "10.2737/RDS-2020-0016-2"
+    },
     "USFS/GTAC/LCMS/v2020-5": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/USFS/USFS_GTAC_LCMS_v2020-5.json",

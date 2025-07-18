@@ -4017,7 +4017,7 @@
         "Map": 0.0
     },
     "JRC/GFC2020_subtypes/V0": {
-        "GFT": 0.0
+        "Map": 0.0
     },
     "JRC/GHSL/P2016/BUILT_LDSMT_GLOBE_V1": {
         "built": 0.0,
@@ -4232,7 +4232,7 @@
         "EVI": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_32DAY_NBR": {
-        "NBRT": 0.0
+        "NBR": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_32DAY_NDVI": {
         "NDVI": 0.0
@@ -4247,7 +4247,7 @@
         "EVI": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NBR": {
-        "NBRT": 0.0
+        "NBR": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NDVI": {
         "NDVI": 0.0
@@ -4262,7 +4262,7 @@
         "EVI": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_ANNUAL_NBR": {
-        "NBRT": 0.0
+        "NBR": 0.0
     },
     "LANDSAT/COMPOSITES/C02/T1_L2_ANNUAL_NDVI": {
         "NDVI": 0.0
@@ -6602,21 +6602,21 @@
         "Npp_QC": 0.0
     },
     "MODIS/061/MOD21A1D": {
-        "Emis_29": 0.49,
-        "Emis_31": 0.49,
-        "Emis_32": 0.49,
+        "Emis_29": 0.0,
+        "Emis_31": 0.0,
+        "Emis_32": 0.0,
         "LST_1KM": 0.0,
         "QC": 0.0,
-        "View_Angle": -65,
+        "View_Angle": 0.0,
         "View_Time": 0.0
     },
     "MODIS/061/MOD21A1N": {
-        "Emis_29": 0.49,
-        "Emis_31": 0.49,
-        "Emis_32": 0.49,
+        "Emis_29": 0.0,
+        "Emis_31": 0.0,
+        "Emis_32": 0.0,
         "LST_1KM": 0.0,
         "QC": 0.0,
-        "View_Angle": -65,
+        "View_Angle": 0.0,
         "View_Time": 0.0
     },
     "MODIS/061/MOD21C1": {
@@ -6939,21 +6939,21 @@
         "Npp_QC": 0.0
     },
     "MODIS/061/MYD21A1D": {
-        "Emis_29": 0.49,
-        "Emis_31": 0.49,
-        "Emis_32": 0.49,
+        "Emis_29": 0.0,
+        "Emis_31": 0.0,
+        "Emis_32": 0.0,
         "LST_1KM": 0.0,
         "QC": 0.0,
-        "View_Angle": -65,
+        "View_Angle": 0.0,
         "View_Time": 0.0
     },
     "MODIS/061/MYD21A1N": {
-        "Emis_29": 0.49,
-        "Emis_31": 0.49,
-        "Emis_32": 0.49,
+        "Emis_29": 0.0,
+        "Emis_31": 0.0,
+        "Emis_32": 0.0,
         "LST_1KM": 0.0,
         "QC": 0.0,
-        "View_Angle": -65,
+        "View_Angle": 0.0,
         "View_Time": 0.0
     },
     "MODIS/061/MYD21C1": {
@@ -11024,15 +11024,28 @@
         "stable_lights": 0.0
     },
     "NOAA/GFS0P25": {
+        "dew_point_temperature_2m_above_ground": 0.0,
+        "downward_longwave_radiation_flux": 0.0,
         "downward_shortwave_radiation_flux": 0.0,
+        "gust": 0.0,
+        "haines_index": 0.0,
+        "maximum_temperature_2m_above_ground": 0.0,
+        "minimum_temperature_2m_above_ground": 0.0,
+        "planetary_boundary_layer_height": 0.0,
         "precipitable_water_entire_atmosphere": 0.0,
+        "precipitation_rate": 0.0,
         "relative_humidity_2m_above_ground": 0.0,
         "specific_humidity_2m_above_ground": 0.0,
         "temperature_2m_above_ground": 0.0,
         "total_cloud_cover_entire_atmosphere": 0.0,
         "total_precipitation_surface": 0.0,
         "u_component_of_wind_10m_above_ground": 0.0,
-        "v_component_of_wind_10m_above_ground": 0.0
+        "u_component_of_wind_planetary_boundary_layer": 0.0,
+        "upward_longwave_radiation_flux": 0.0,
+        "upward_shortwave_radiation_flux": 0.0,
+        "v_component_of_wind_10m_above_ground": 0.0,
+        "v_component_of_wind_planetary_boundary_layer": 0.0,
+        "ventilation_rate": 0.0
     },
     "NOAA/GOES/16/FDCC": {
         "Area": 4000,
@@ -12289,9 +12302,19 @@
         "cropland": 0.0,
         "cultivated": 0.0
     },
+    "USDA/WRC/v0": {
+        "BP": 0.0,
+        "CFL": 0.0,
+        "CRPS": 0.0,
+        "Exposure": 0.0,
+        "FLEP4": 0.0,
+        "FLEP8": 0.0,
+        "RPS": 0.0,
+        "WHP": 0.0
+    },
     "USFS/GTAC/LCMS/v2020-5": {
         "Change": 0.0,
-        "Change_Raw_Probability_Fast-Loss": 0.0,
+        "Change_Raw_Probability_Fast_Loss": 0.0,
         "Change_Raw_Probability_Gain": 0.0,
         "Change_Raw_Probability_Slow_Loss": 0.0,
         "Land_Cover": 0.0,
@@ -12319,9 +12342,9 @@
     },
     "USFS/GTAC/LCMS/v2020-6": {
         "Change": 0.0,
-        "Change_Raw_Probability_Fast-Loss": 0.0,
+        "Change_Raw_Probability_Fast_Loss": 0.0,
         "Change_Raw_Probability_Gain": 0.0,
-        "Change_Raw_Probability_Slow-Loss": 0.0,
+        "Change_Raw_Probability_Slow_Loss": 0.0,
         "Land_Cover": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix": 0.0,
@@ -12348,9 +12371,9 @@
     },
     "USFS/GTAC/LCMS/v2021-7": {
         "Change": 0.0,
-        "Change_Raw_Probability_Fast-Loss": 0.0,
+        "Change_Raw_Probability_Fast_Loss": 0.0,
         "Change_Raw_Probability_Gain": 0.0,
-        "Change_Raw_Probability_Slow-Loss": 0.0,
+        "Change_Raw_Probability_Slow_Loss": 0.0,
         "Land_Cover": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix": 0.0,
@@ -12377,9 +12400,9 @@
     },
     "USFS/GTAC/LCMS/v2022-8": {
         "Change": 0.0,
-        "Change_Raw_Probability_Fast-Loss": 0.0,
+        "Change_Raw_Probability_Fast_Loss": 0.0,
         "Change_Raw_Probability_Gain": 0.0,
-        "Change_Raw_Probability_Slow-Loss": 0.0,
+        "Change_Raw_Probability_Slow_Loss": 0.0,
         "Land_Cover": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix": 0.0,
@@ -12406,9 +12429,9 @@
     },
     "USFS/GTAC/LCMS/v2023-9": {
         "Change": 0.0,
-        "Change_Raw_Probability_Fast-Loss": 0.0,
+        "Change_Raw_Probability_Fast_Loss": 0.0,
         "Change_Raw_Probability_Gain": 0.0,
-        "Change_Raw_Probability_Slow-Loss": 0.0,
+        "Change_Raw_Probability_Slow_Loss": 0.0,
         "Land_Cover": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix": 0.0,
         "Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix": 0.0,
@@ -13256,6 +13279,9 @@
         "DTM": 0.0
     },
     "projects/neon-prod-earthengine/assets/HSI_REFL/001": {
+        "Acquisition_Date": 0.0,
+        "Aerosol_Optical_Depth": 0.0,
+        "Aspect": 0.0,
         "B001": 0.0,
         "B002": 0.0,
         "B003": 0.0,
@@ -13682,24 +13708,24 @@
         "B424": 0.0,
         "B425": 0.0,
         "B426": 0.0,
-        "B427": 0.0,
-        "B428": 0.0,
-        "B429": 0.0,
-        "B430": 0.0,
-        "B431": 0.0,
-        "B432": 0.0,
-        "B433": 0.0,
-        "B434": 0.0,
-        "B435": 0.0,
-        "B436": 0.0,
-        "B437": 0.0,
-        "B438": 0.0,
-        "B439": 0.0,
-        "B440": 0.0,
-        "B441": 0.0,
-        "B442": 0.0
+        "Cast_Shadow": 0.0,
+        "Dark_Dense_Vegetation_Classification": 0.0,
+        "Haze_Cloud_Water_Map": 0.0,
+        "Illumination_Factor": 0.0,
+        "Path_Length": 0.0,
+        "Sky_View_Factor": 0.0,
+        "Slope": 0.0,
+        "Smooth_Surface_Elevation": 0.0,
+        "Visibility_Index_Map": 0.0,
+        "Water_Vapor_Column": 0.0,
+        "Weather_Quality_Indicator": 0.0,
+        "to-sensor_Azimuth_Angle": 0.0,
+        "to-sensor_Zenith_Angle": 0.0
     },
     "projects/neon-prod-earthengine/assets/HSI_REFL/002": {
+        "Acquisition_Date": 0.0,
+        "Aerosol_Optical_Depth": 0.0,
+        "Aspect": 0.0,
         "B001": 0.0,
         "B002": 0.0,
         "B003": 0.0,
@@ -14126,22 +14152,19 @@
         "B424": 0.0,
         "B425": 0.0,
         "B426": 0.0,
-        "B427": 0.0,
-        "B428": 0.0,
-        "B429": 0.0,
-        "B430": 0.0,
-        "B431": 0.0,
-        "B432": 0.0,
-        "B433": 0.0,
-        "B434": 0.0,
-        "B435": 0.0,
-        "B436": 0.0,
-        "B437": 0.0,
-        "B438": 0.0,
-        "B439": 0.0,
-        "B440": 0.0,
-        "B441": 0.0,
-        "B442": 0.0
+        "Cast_Shadow": 0.0,
+        "Dark_Dense_Vegetation_Classification": 0.0,
+        "Haze_Cloud_Water_Map": 0.0,
+        "Illumination_Factor": 0.0,
+        "Path_Length": 0.0,
+        "Sky_View_Factor": 0.0,
+        "Slope": 0.0,
+        "Smooth_Surface_Elevation": 0.0,
+        "Visibility_Index_Map": 0.0,
+        "Water_Vapor_Column": 0.0,
+        "Weather_Quality_Indicator": 0.0,
+        "to-sensor_Azimuth_Angle": 0.0,
+        "to-sensor_Zenith_Angle": 0.0
     },
     "projects/neon-prod-earthengine/assets/RGB/001": {
         "B": 0.0,
@@ -14179,6 +14202,6 @@
         "b1": 0.0
     },
     "projects/sat-io/open-datasets/us-drought-monitor": {
-        "b1": 0.0
+        "DM": 0.0
     }
 }

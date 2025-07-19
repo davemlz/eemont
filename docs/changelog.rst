@@ -1,6 +1,16 @@
 Changelog
 ============
 
+v2025.7.0
+--------------
+
+Improvements
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Added :code:`epsilon`, :code:`lambdaN2`, :code:`lambdaS1`, and :code:`lambdaS2` arguments to :code:`spectralIndices`.
+- The Awesome Spectral Indices list was updated to v0.7.0.
+- The :code:`maskClouds()` extended method for ee.Image and ee.ImageCollection classes now supports :code:`CloudScore+`.
+
 v0.3.6
 --------------
 

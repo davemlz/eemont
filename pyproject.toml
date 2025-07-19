@@ -7,7 +7,7 @@ include = ["eemont*"]
 
 [project]
 name = "eemont"
-version = "0.3.6"
+version = "2025.7.0"
 authors = [
     {name = "David Montero Loaiza", email = "dml.mont@gmail.com"},
 ]

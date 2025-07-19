@@ -798,13 +798,17 @@ def spectralIndices(
     beta=0.05,
     k=0.0,
     fdelta=0.581,
+    epsilon=1.0,
     kernel="RBF",
     sigma="0.5 * (a + b)",
     p=2.0,
     c=1.0,
     lambdaN=858.5,
+    lambdaN2=864.7,
     lambdaR=645.0,
     lambdaG=555.0,
+    lambdaS1=1613.7,
+    lambdaS2=2202.4,
     online=False,
     drop=False,
 ):
@@ -861,6 +865,8 @@ def spectralIndices(
         Slope parameter by soil used for NIRvH2.
     fdelta : float, default = 0.581
         Adjustment factor used for SEVI.
+    epsilon : float, default = 1.0
+        Adjustment constant used for EBI.
     kernel : str, default = 'RBF'
         Kernel used for kernel indices.\n
         Available options:
@@ -878,10 +884,16 @@ def spectralIndices(
         than or equal to 0.
     lambdaN : float, default = 858.5
         NIR wavelength used for NIRvH2 and NDGI.
+    lambdaN2 : float, default = 864.7
+        NIR2 wavelength.
     lambdaR : float, default = 645.0
         Red wavelength used for NIRvH2 and NDGI.
     lambdaG : float, default = 555.0
         Green wavelength used for NDGI.
+    lambdaS1 : float, default = 1613.7
+        SWIR1 wavelength.
+    lambdaS2 : float, default = 2202.4
+        SWIR2 wavelength.
     online : boolean, default = False
         Whether to retrieve the most recent list of indices directly from the GitHub
         repository and not from the local copy.
@@ -945,13 +957,17 @@ def spectralIndices(
         beta,
         k,
         fdelta,
+        epsilon,
         kernel,
         sigma,
         p,
         c,
         lambdaN,
+        lambdaN2,
         lambdaR,
         lambdaG,
+        lambdaS1,
+        lambdaS2,
         online,
         drop,
     )
@@ -985,11 +1001,12 @@ def maskClouds(
         Method used to mask clouds.\n
         Available options:
             - 'cloud_prob' : Use cloud probability.
+            - 'cloud_score+' : Use cloud score+.
             - 'qa' : Use Quality Assessment band.
         This parameter is ignored for Landsat products.
     prob : numeric [0, 100], default = 60
-        Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter
-        is ignored for Landsat products.
+        Cloud probability threshold. Valid for method = 'cloud_prob' or 'cloud_score+'.
+        This parameter is ignored for Landsat products.
     maskCirrus : boolean, default = True
         Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is
         ignored for Landsat products.

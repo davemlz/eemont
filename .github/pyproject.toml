@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["eemont*"]
+
+[project]
+name = "eemont"
+version = "0.3.6"
+authors = [
+    {name = "David Montero Loaiza", email = "dml.mont@gmail.com"},
+]
+description = "A Python package that extends Google Earth Engine"
+readme = "README.md"
+
+requires-python = ">=3.8"
+
+classifiers=[
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+
+dependencies = [
+    "beautifulsoup4",
+    "ee_extra>=2025.7.1",
+    "numpy",
+    "pandas",
+    "python-box>=6.0.0",
+    "geopy",
+    "requests",
+]
+
+[project.urls]
+"Bug Tracker"= "https://github.com/davemlz/eemont/issues"
+Documentation =  "https://eemont.readthedocs.io/"
+"Source Code" = "https://github.com/davemlz/eemont"
+
+[tool.setuptools.package-data]
+"eemont.data" = ["*.json"]
+
+# Compatibility between black and isort
+[tool.isort]
+profile = "black"

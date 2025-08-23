@@ -536,7 +536,7 @@
     "ECMWF/ERA5/DAILY": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/ECMWF/ECMWF_ERA5_DAILY.json",
-        "sci:citation": "Copernicus Climate Change Service (C3S) (2017): ERA5: Fifth generation of ECMWF atmospheric reanalyses of the global climate.\nCopernicus Climate Change Service Climate Data Store (CDS), (date of access), [https://cds.climate.copernicus.eu/cdsapp#!/home](https://cds.climate.copernicus.eu/cdsapp#!/home)\n",
+        "sci:citation": "Copernicus Climate Change Service (C3S) (2017): ERA5: Fifth generation of ECMWF atmospheric reanalyses of the global climate.\nCopernicus Climate Change Service Climate Data Store (CDS), (date of access), [https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview)\n",
         "sci:doi": "DOI not available"
     },
     "ECMWF/ERA5/MONTHLY": {

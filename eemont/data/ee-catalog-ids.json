@@ -4100,7 +4100,7 @@
     "TOMS/MERGED": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/TOMS/TOMS_MERGED.json",
-        "sci:citation": "The data set source should be properly cited when the data are used.\nA formal reference of the form: \\\\<authors\\\\>, 2012, last updated 2013:\n\\\\<dataset name\\\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard Earth Sciences\nData and Information Services Center (GES DISC). Accessed\n\\\\<enter user data access date\\\\> at \\\\<DOI\\\\> is suggested following\nParsons et al. (2010),\n[doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001)\n",
+        "sci:citation": "The data set source should be properly cited when the data are used.\nA formal reference of the form: \\<authors\\>, 2012, last updated 2013:\n\\<dataset name\\>. NASA/GSFC, Greenbelt, MD, USA, NASA Goddard Earth Sciences\nData and Information Services Center (GES DISC). Accessed\n\\<enter user data access date\\> at \\<DOI\\> is suggested following\nParsons et al. (2010),\n[doi:10.1029/2010EO340001](https://doi.org/10.1029/2010EO340001)\n",
         "sci:doi": "DOI not available"
     },
     "TRMM/3B42": {
